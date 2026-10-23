@@ -10,59 +10,59 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-int GetWord0x0_0200fb8c(int*);
+extern "C" int func_0200fb8c(int*);
 extern "C" void func_ov005_02155424(void* self);
 extern "C" void func_ov005_02155544(void* self);
 extern "C" void func_ov005_021555c0(void* self);
 extern "C" void func_ov005_021571d0(void* self);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
 extern "C" void func_020dfec0(void* dest, void* allocator, void* fileData, unsigned int size);
-char* GetGlobalField0x1c020421a0();
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fog);
-int* GetData02105254_0203b628();
-void SetupBankModeAndTransfer_0203b678(int* obj, int a, int b);
-void TailForward0203b66c(char*);
-void ClearThreeRegions0203b634(char*);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" char* func_020421a0();
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fog);
+extern "C" int* func_0203b628();
+extern "C" void func_0203b678(int* obj, int a, int b);
+extern "C" void func_0203b66c(char*);
+extern "C" void func_0203b634(char*);
+extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(void* obj, int value);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
 struct AllocTarget0204b12c;
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
 struct Foo0204af38;
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 struct Container020e0310;
-const char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" const char* func_020e0434(Container020e0310*, int);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900*);
+extern "C" int func_02046900(ActiveEntry02046900*);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0204b174(void* obj, void* data, SafeAllocator* alloc, int field44);
 extern "C" void func_0204bc74(void* obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
 struct Obj0204b8d0;
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct Obj0204c7a8;
-void AllocateBuffer0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
+extern "C" void func_0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
 struct Elem_0205cf78;
 struct Struct_0205cf78;
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
+extern "C" void func_0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
-int FindMatchingRecords0204684c(Rec020467f0*, char const*, void**, int, int*, void**);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void Forward02047b30(void* a, int b, int c, int d);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" int func_0204684c(Rec020467f0*, char const*, void**, int, int*, void**);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_02047b30(void* a, int b, int c, int d);
 struct Obj021e1318;
-void ClearObj_021e1318(Obj021e1318*);
-void InitScriptAndRun_021e133c(void* a, void* b, int c, int d, int e, short f);
+extern "C" void func_ov023_021e1318(Obj021e1318*);
+extern "C" void func_ov023_021e133c(void* a, void* b, int c, int d, int e, short f);
 extern "C" void func_ov005_02154d18(void* obj, int a, int b);
 extern "C" void func_ov005_02154d34(void* obj, int a, int b);
 extern "C" void func_ov005_02154d50(void* obj, int a, int b);
 extern "C" void func_ov005_02154d7c(void* obj, int a, int b);
-char* GetField1c_021a193c(int*);
+extern "C" char* func_ov017_021a193c(int*);
 extern "C" void func_020dc7e8(int a, int b);
 extern "C" void func_ov023_021dc134(void* obj, int key, int flag);
 extern "C" void func_ov023_021dbfd0(void* obj, void* alloc);
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
     }
 
     GameState* gs = GameState::GetInstance();
-    int word = GetWord0x0_0200fb8c((int*)gs);
+    int word = func_0200fb8c((int*)gs);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (self->state == 0) {
@@ -192,7 +192,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         self->fileAlloc.Reset();
         func_020dfec0(self->container, &self->fileAlloc, data, size);
         self->alloc.Reset();
-        self->fe10 = *(int*)(GetGlobalField0x1c020421a0() + 0x28);
+        self->fe10 = *(int*)(func_020421a0() + 0x28);
 #else
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
@@ -200,37 +200,37 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         self->fileAlloc.Reset();
         func_020dfec0(self->container, &self->fileAlloc, data, size);
         BackgroundLoader::RemoveLockGlobal();
-        self->fe10 = *(int*)(GetGlobalField0x1c020421a0() + 0x5c);
+        self->fe10 = *(int*)(func_020421a0() + 0x5c);
 #endif
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
         SetFlags04((GameResources*)word, 0x800);
-        int* bank = GetData02105254_0203b628();
-        SetupBankModeAndTransfer_0203b678(bank, 0, 1);
-        TailForward0203b66c((char*)bank);
-        ClearThreeRegions0203b634((char*)bank);
+        int* bank = func_0203b628();
+        func_0203b678(bank, 0, 1);
+        func_0203b66c((char*)bank);
+        func_0203b634((char*)bank);
 
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&self->lists[0], 0);
+        func_0204b11c((unsigned char*)&self->lists[0], 0);
         self->lists[0].lo = 0;
         self->lists[0].hi = 1;
         func_0204b5b4(&self->lists[0], 3);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)&self->lists[0], 0, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)&self->lists[0], &self->alloc);
-        AllocateArray0204af38((Foo0204af38*)&self->lists[0], 6, &self->alloc);
+        func_0204b5e8((Obj0204b5e8*)&self->lists[0], 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)&self->lists[0], &self->alloc);
+        func_0204af38((Foo0204af38*)&self->lists[0], 6, &self->alloc);
 
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&self->lists[1], 0);
+        func_0204b11c((unsigned char*)&self->lists[1], 0);
         self->lists[1].lo = 0;
         self->lists[1].hi = 2;
         func_0204b5b4(&self->lists[1], 2);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)&self->lists[1], 0, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)&self->lists[1], &self->alloc);
-        AllocateArray0204af38((Foo0204af38*)&self->lists[1], 9, &self->alloc);
+        func_0204b5e8((Obj0204b5e8*)&self->lists[1], 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)&self->lists[1], &self->alloc);
+        func_0204af38((Foo0204af38*)&self->lists[1], 9, &self->alloc);
 
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&self->lists[2], 0);
+        func_0204b11c((unsigned char*)&self->lists[2], 0);
         self->lists[2].lo = 0;
         self->lists[2].hi = 3;
         func_0204b5b4(&self->lists[2], 0);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)&self->lists[2], 0, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)&self->lists[2], &self->alloc);
+        func_0204b5e8((Obj0204b5e8*)&self->lists[2], 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)&self->lists[2], &self->alloc);
 
         volatile unsigned short* bgcnt = (volatile unsigned short*)0x400000a;
         bgcnt[0] = (bgcnt[0] & 0x43) | 0x1d00;
@@ -239,19 +239,19 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 1, 2, 0xa, 6);
 
 #if defined(jpn)
-        self->handle = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e8), 0);
+        self->handle = loader->QueueLoadFile(func_020e0434((Container020e0310*)self->container, 0x3e8), 0);
 #else
-        const char* inner = GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e9);
-        const char* gp2 = GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e8);
+        const char* inner = func_020e0434((Container020e0310*)self->container, 0x3e9);
+        const char* gp2 = func_020e0434((Container020e0310*)self->container, 0x3e8);
         self->handle = loader->QueueLoadFileInGP2(gp2, inner, 0);
 #endif
         self->state++;
     } else if (self->state == 3) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file3, &len3);
-            int count = CountActiveEntries((ActiveEntry02046900*)file3);
+            int count = func_02046900((ActiveEntry02046900*)file3);
             for (int i = 0; i < count; i++) {
-                void* rec = FindRecordByIndex((Rec020467f0*)file3, i, &recData, &recSize);
+                void* rec = func_020467f0((Rec020467f0*)file3, i, &recData, &recSize);
                 if (rec != 0) {
                     if (i == 0) {
                         func_0204b174(&self->lists[2], rec, &self->alloc, recSize);
@@ -266,51 +266,51 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
             self->handle = -1;
 
             func_0204bc74(&self->lists[1], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[1], 0);
+            func_0204b0e8((List0204b0e8*)&self->lists[1], 0);
             func_0204bc74(&self->lists[2], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[2], 0);
-            DispatchEntry0204b8d0((Obj0204b8d0*)&self->lists[0], 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[0], 0);
-            DispatchEntry0204b8d0((Obj0204b8d0*)&self->lists[0], 1, 0, 0, 0, 0x14, 0x10, 2, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[0], 0);
+            func_0204b0e8((List0204b0e8*)&self->lists[2], 0);
+            func_0204b8d0((Obj0204b8d0*)&self->lists[0], 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+            func_0204b0e8((List0204b0e8*)&self->lists[0], 0);
+            func_0204b8d0((Obj0204b8d0*)&self->lists[0], 1, 0, 0, 0, 0x14, 0x10, 2, 0xffff);
+            func_0204b0e8((List0204b0e8*)&self->lists[0], 0);
 
             self->buffer = self->alloc.Allocate(0x2400);
             char* elem;
             for (int j = 0; j < 3; j++) {
                 elem = self->elems[j];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)elem, &self->alloc, (int)self->buffer, data_ov005_0215cd68[j]);
+                func_0204c7a8((Obj0204c7a8*)elem, &self->alloc, (int)self->buffer, data_ov005_0215cd68[j]);
                 *(List0215436c**)(elem + 4) = &self->lists[2];
             }
             self->linkList = &self->lists[2];
             self->linkFlag = 1;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->linkHead, (Elem_0205cf78*)self->elems, 3);
+            func_0205cf78((Struct_0205cf78*)self->linkHead, (Elem_0205cf78*)self->elems, 3);
 
-            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, REGION_LAYOUT(0x3e9, 0x3ea));
+            const char* name = func_020e0434((Container020e0310*)self->container, REGION_LAYOUT(0x3e9, 0x3ea));
             self->handle = loader->QueueLoadFile(name, 0);
             self->state++;
         }
     } else if (self->state == 4) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file4, &len4);
-            int count = CountActiveEntries((ActiveEntry02046900*)file4);
+            int count = func_02046900((ActiveEntry02046900*)file4);
 #if defined(jpn)
-            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, 0x7d0);
-            if (FindMatchingRecords0204684c((Rec020467f0*)file4, name, datas, count, sizes, 0) != 0) {
-                RestorePairTables0207df90((char*)self->pairTables);
+            const char* name = func_020e0434((Container020e0310*)self->container, 0x7d0);
+            if (func_0204684c((Rec020467f0*)file4, name, datas, count, sizes, 0) != 0) {
+                func_0207df90((char*)self->pairTables);
                 for (int i = 0; i < count; i++) {
-                    Forward02047b30(self->records + i * 0x88, (int)datas[i], sizes[i], (int)((char*)self + 0x14));
+                    func_02047b30(self->records + i * 0x88, (int)datas[i], sizes[i], (int)((char*)self + 0x14));
                 }
-                BackupPairTables0207dfac((char*)self->pairTables);
+                func_0207dfac((char*)self->pairTables);
             }
             loader->RemoveTask(self->handle);
             self->handle = -1;
             self->handle = loader->QueueLoadFile(data_ov005_0215e1ad, 0);
 #else
-            int mode = NormalizeField5_0200fb08((Struct0200fb08*)gs);
+            int mode = func_0200fb08((Struct0200fb08*)gs);
             int n = 0;
-            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, 0x7d0);
-            if (FindMatchingRecords0204684c((Rec020467f0*)file4, name, datas, count, sizes, 0) != 0) {
-                RestorePairTables0207df90((char*)self->pairTables);
+            const char* name = func_020e0434((Container020e0310*)self->container, 0x7d0);
+            if (func_0204684c((Rec020467f0*)file4, name, datas, count, sizes, 0) != 0) {
+                func_0207df90((char*)self->pairTables);
                 for (int i = 0; i < count; i++) {
                     if (i == 0x23) {
                         if (mode == 2 || mode == 3) {
@@ -325,10 +325,10 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
                             continue;
                         }
                     }
-                    Forward02047b30(self->records + n * 0x88, (int)datas[i], sizes[i], (int)((char*)self + 0x14));
+                    func_02047b30(self->records + n * 0x88, (int)datas[i], sizes[i], (int)((char*)self + 0x14));
                     n++;
                 }
-                BackupPairTables0207dfac((char*)self->pairTables);
+                func_0207dfac((char*)self->pairTables);
             }
             loader->RemoveTask(self->handle);
             self->handle = -1;
@@ -340,8 +340,8 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file5, &len5);
             self->scriptAlloc.Reset();
-            ClearObj_021e1318((Obj021e1318*)self->script);
-            InitScriptAndRun_021e133c(self->script, &self->scriptAlloc, (int)file5, len5, 0, 0);
+            func_ov023_021e1318((Obj021e1318*)self->script);
+            func_ov023_021e133c(self->script, &self->scriptAlloc, (int)file5, len5, 0, 0);
             loader->RemoveTask(self->handle);
             self->handle = -1;
             self->state++;
@@ -376,7 +376,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
 
         GameState::GetInstance();
         char* res = (char*)GetGameResources();
-        int v = *(int*)(GetField1c_021a193c((int*)(*(int*)(res + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
+        int v = *(int*)(func_ov017_021a193c((int*)(*(int*)(res + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
         func_020dc7e8(5, (signed char)v);
         self->effectAlloc.Reset();
         func_ov023_021dc134(self->effect, self->f2d90, 0);

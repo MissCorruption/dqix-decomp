@@ -4,8 +4,8 @@
 struct Struct_0205d81c;
 struct Elem_0205d81c;
 
-struct Elem_0205d81c* FindElementForFieldB0_0205d8c4(struct Struct_0205d81c* s);
-int IsField0x9cEqual3_0204c7cc(unsigned char* obj);
+extern "C" struct Elem_0205d81c* func_0205d8c4(struct Struct_0205d81c* s);
+extern "C" int func_0204c7cc(unsigned char* obj);
 
 struct Obj_0205dd08 {
     char pad0[0x98];
@@ -33,9 +33,9 @@ extern "C" ARM int func_0205dd08(struct Obj_0205dd08* obj) {
     if (obj->f9c == NULL) return 0;
     if (g_touchInput.pressed_ == 0) return 0;
 
-    e = (struct Rect_0205dd08*)FindElementForFieldB0_0205d8c4((struct Struct_0205d81c*)obj);
+    e = (struct Rect_0205dd08*)func_0205d8c4((struct Struct_0205d81c*)obj);
     if (e == NULL) return 0;
-    if (IsField0x9cEqual3_0204c7cc((unsigned char*)e) == 0) return 0;
+    if (func_0204c7cc((unsigned char*)e) == 0) return 0;
     if ((e->fc5 & 8) == 0) return 0;
 
     g_touchInput.GetTouchPoint(&touchY, &touchX);

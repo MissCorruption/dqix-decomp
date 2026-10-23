@@ -9,24 +9,24 @@ extern Script::OpcodeLookupEntry data_020ef388[];
 
 extern "C"
 {
-    extern "C" void* _Z25GetPtrField0x468_02011584Pv(GameState*);
-    void _ZN12ZoneFeatures13Opcode68Entry14Reset_0201ce10Ev(void*);
+    extern "C" void* func_02011584(GameState*);
+    void _ZN12ZoneFeatures13Opcode68Entry13func_0201ce10Ev(void*);
 
     Matrix4x3 _Z15RotationMatrixYi(fix32_t);
 
     fix32_t _Z22fix32ReduceAngle0To2Pii(fix32_t);
 
-    extern "C" unsigned short* _Z25FindElementByName0209998cP12List0209998cPKc(void*, const char*);
+    extern "C" unsigned short* func_0209998c(void*, const char*);
 
 }
 
-int WarpScript_Opcode_64_0201c79c(Script::Parameter* params, int numParams)
+extern "C" int func_0201c79c(Script::Parameter* params, int numParams)
 {
-    data_020fdc20.warp->AllocateOpcode64Entries_0201e25c(params[0].ToInt(), data_020fdc20.allocator);
+    data_020fdc20.warp->func_0201e25c(params[0].ToInt(), data_020fdc20.allocator);
     return 1;
 }
 
-int WarpScript_Opcode_65_0201c7c4(Script::Parameter* params, int numParams)
+extern "C" int func_0201c7c4(Script::Parameter* params, int numParams)
 {
     const char* string2;
     const char* string3;
@@ -65,17 +65,17 @@ int WarpScript_Opcode_65_0201c7c4(Script::Parameter* params, int numParams)
     else
         strcpy(entry.string_30, string3);
 
-    data_020fdc20.warp->CreateOpcode64Entry_0201e304(entry);
+    data_020fdc20.warp->func_0201e304(entry);
     return 1;
 }
 
-int WarpScript_Opcode_7d_0201c8a8(Script::Parameter* params, int numParams)
+extern "C" int func_0201c8a8(Script::Parameter* params, int numParams)
 {
-    data_020fdc20.warp->AllocateGrottoTileFeaturePlacementEntries_0201e288(params[0].ToInt(), data_020fdc20.allocator);
+    data_020fdc20.warp->func_0201e288(params[0].ToInt(), data_020fdc20.allocator);
     return 1;
 }
 
-int WarpScript_Opcode_7e_0201c8d0(Script::Parameter* params, int numParams)
+extern "C" int func_0201c8d0(Script::Parameter* params, int numParams)
 {
     TileFeaturePlacementData placement;
     placement.tileID = (params++)->ToInt();
@@ -84,23 +84,23 @@ int WarpScript_Opcode_7e_0201c8d0(Script::Parameter* params, int numParams)
     for (int i = 0; i < 9; i++)
         placement.directionBitmasks[i] = (params++)->ToInt();
 
-    data_020fdc20.warp->CreateGrottoTileFeaturePlacementEntry_0201e3c4(placement);
+    data_020fdc20.warp->func_0201e3c4(placement);
     return 1;
 }
 
-int WarpScript_Opcode_66_0201c944(Script::Parameter* params, int numParams)
+extern "C" int func_0201c944(Script::Parameter* params, int numParams)
 {
-    data_020fdc20.warp->AllocateOpcode66Entries_0201e480(params[0].ToInt(), data_020fdc20.allocator);
+    data_020fdc20.warp->func_0201e480(params[0].ToInt(), data_020fdc20.allocator);
     return 1;
 }
 
-int WarpScript_Opcode_68_0201cb38(Script::Parameter* params, int numParams)
+extern "C" int func_0201cb38(Script::Parameter* params, int numParams)
 {
-    data_020fdc20.warp->AllocateOpcode68Entries_0201e518(params[0].ToInt(), data_020fdc20.allocator);
+    data_020fdc20.warp->func_0201e518(params[0].ToInt(), data_020fdc20.allocator);
     return 1;
 }
 
-void ZoneFeatures::Opcode68Entry::Reset_0201ce10()
+void ZoneFeatures::Opcode68Entry::func_0201ce10()
 {
     unk_0 = 0;
     unk_1c = -1;
@@ -127,17 +127,17 @@ void ZoneFeatures::Opcode68Entry::Reset_0201ce10()
     unk_6c = -1;
 }
 
-int WarpScript_Opcode_6a_0201d01c(Script::Parameter* params, int numParams)
+extern "C" int func_0201d01c(Script::Parameter* params, int numParams)
 {
-    data_020fdc20.warp->AllocateOpcode6aEntries_0201e634(params[0].ToInt(), data_020fdc20.allocator);
+    data_020fdc20.warp->func_0201e634(params[0].ToInt(), data_020fdc20.allocator);
     return 1;
 }
 
-int WarpScript_Opcode_6b_0201d044(Script::Parameter* params, int numParams)
+extern "C" int func_0201d044(Script::Parameter* params, int numParams)
 {
     Script::Parameter* paramsStart = params;
     ZoneFeatures::Opcode6aEntry entry;
-    entry.Reset_0201d424();
+    entry.func_0201d424();
     int hash = (params++)->ToInt();
     entry.maybeType = hash;
     bool didSubtraction = false;
@@ -219,7 +219,7 @@ int WarpScript_Opcode_6b_0201d044(Script::Parameter* params, int numParams)
             vecC.z = 4096.0f * (params++)->ToFloat();
             Vector3fix vecD;
             params = params->ToVec3fix(&vecD);
-            entry.unk_2c.type4.vector_4.CopyFrom_0201d474(difference);
+            entry.unk_2c.type4.vector_4.func_0201d474(difference);
             entry.unk_2c.type4.distance_14 = distance;
             entry.unk_2c.type4.vector_18 = vecC;
             entry.unk_2c.type4.vector_24 = vecD;
@@ -244,11 +244,11 @@ int WarpScript_Opcode_6b_0201d044(Script::Parameter* params, int numParams)
 
     ZoneFeatures* instance = data_020fdc20.warp;
     entry.pNext = NULL;
-    instance->CreateOpcode6aEntry_0201e710(entry);
+    instance->func_0201e710(entry);
     return 1;
 }
 
-void ZoneFeatures::Opcode6aEntry::Reset_0201d424()
+void ZoneFeatures::Opcode6aEntry::func_0201d424()
 {
     VectorizedMemset(this, 0, sizeof(Opcode6aEntry));
     unk_0 = 0;
@@ -266,7 +266,7 @@ void ZoneFeatures::Opcode6aEntry::Reset_0201d424()
     pNext = NULL;
 }
 
-MaybeVector4fix &MaybeVector4fix::CopyFrom_0201d474(const MaybeVector4fix &other)
+MaybeVector4fix &MaybeVector4fix::func_0201d474(const MaybeVector4fix &other)
 {
     vec3 = other.vec3;
     fix32_t sourceW = other.w;
@@ -274,7 +274,7 @@ MaybeVector4fix &MaybeVector4fix::CopyFrom_0201d474(const MaybeVector4fix &other
     return *this;
 }
 
-int WarpScript_Opcode_6e_0201d494(Script::Parameter* params, int numParams)
+extern "C" int func_0201d494(Script::Parameter* params, int numParams)
 {
     Vector3fix tempVector;
     params = params->ToVec3fix(&tempVector);
@@ -286,7 +286,7 @@ int WarpScript_Opcode_6e_0201d494(Script::Parameter* params, int numParams)
     return 1;
 }
 
-int WarpScript_Opcode_70_0201d4ec(Script::Parameter* params, int numParams)
+extern "C" int func_0201d4ec(Script::Parameter* params, int numParams)
 {
     int red = (params++)->ToInt();
     int green = (params++)->ToInt();
@@ -295,10 +295,10 @@ int WarpScript_Opcode_70_0201d4ec(Script::Parameter* params, int numParams)
     return 1;
 }
 
-int WarpScript_Opcode_73_0201d530(Script::Parameter* params, int numParams)
+extern "C" int func_0201d530(Script::Parameter* params, int numParams)
 {
     ZoneFeatures::Opcode6aEntry entry;
-    entry.Reset_0201d424();
+    entry.func_0201d424();
     entry.maybeType = (params++)->ToInt();
     Vector3fix tempVector;
     params = params->ToVec3fix(&tempVector);
@@ -316,15 +316,15 @@ int WarpScript_Opcode_73_0201d530(Script::Parameter* params, int numParams)
     entry.unk_24 = zsqu;
     entry.unk_24 = xsqu + zsqu;
 
-    data_020fdc20.currentEntry = data_020fdc20.warp->CreateOpcode6aEntry_0201e710(entry);
+    data_020fdc20.currentEntry = data_020fdc20.warp->func_0201e710(entry);
     return 1;
 }
 
-int WarpScript_Opcode_74_0201d638(Script::Parameter* params, int numParams)
+extern "C" int func_0201d638(Script::Parameter* params, int numParams)
 {
     if (data_020fdc20.currentEntry == NULL)
         return 0;
-    void* worldData = _Z25GetPtrField0x468_02011584Pv(GameState::GetInstance());
+    void* worldData = func_02011584(GameState::GetInstance());
     switch (data_020fdc20.currentEntry->maybeType)
     {
     case 0:
@@ -368,7 +368,7 @@ int WarpScript_Opcode_74_0201d638(Script::Parameter* params, int numParams)
                 {
                     const char* zoneName = (params++)->ToString();
                     numArgsConsumed++;
-                    unsigned short* maybeZoneData = _Z25FindElementByName0209998cP12List0209998cPKc(worldData, zoneName);
+                    unsigned short* maybeZoneData = func_0209998c(worldData, zoneName);
 
                     if (maybeZoneData == NULL)
                         return 0;
@@ -444,7 +444,7 @@ int WarpScript_Opcode_74_0201d638(Script::Parameter* params, int numParams)
         }
         Vector3fix vecD;
         params = params->ToVec3fix(&vecD);
-        data_020fdc20.currentEntry->unk_2c.type4.vector_4.CopyFrom_0201d474(vector4);
+        data_020fdc20.currentEntry->unk_2c.type4.vector_4.func_0201d474(vector4);
         data_020fdc20.currentEntry->unk_2c.type4.distance_14 = distance;
         data_020fdc20.currentEntry->unk_2c.type4.vector_18 = vecC;
         data_020fdc20.currentEntry->unk_2c.type4.vector_24 = vecD;
@@ -470,7 +470,7 @@ int WarpScript_Opcode_74_0201d638(Script::Parameter* params, int numParams)
             if (params->type == 0)
             {
                 const char* zoneName = (params++)->ToString();
-                unsigned short* maybeZoneData = _Z25FindElementByName0209998cP12List0209998cPKc(worldData, zoneName);
+                unsigned short* maybeZoneData = func_0209998c(worldData, zoneName);
 
                 if (maybeZoneData == NULL)
                     return 0;
@@ -546,18 +546,18 @@ int WarpScript_Opcode_74_0201d638(Script::Parameter* params, int numParams)
     return 1;
 }
 
-int WarpScript_Opcode_7b_0201dfcc(Script::Parameter* params, int numParams)
+extern "C" int func_0201dfcc(Script::Parameter* params, int numParams)
 {
     int count = params[0].ToInt();
     ZoneFeatures::Opcode7bEntry* alloc =
         (ZoneFeatures::Opcode7bEntry*)data_020fdc20.allocator->Allocate(count * sizeof(ZoneFeatures::Opcode7bEntry));
     if (alloc == NULL)
         return 0;
-    data_020fdc20.warp->SetOpcode7bAllocation_0201e878(alloc, count);
+    data_020fdc20.warp->func_0201e878(alloc, count);
     return 1;
 }
 
-int WarpScript_Opcode_7c_0201e018(Script::Parameter* params, int numParams)
+extern "C" int func_0201e018(Script::Parameter* params, int numParams)
 {
     ZoneFeatures::Opcode7bEntry entry;
     params = params->ToVec3fix(&entry.vector_0.vec);
@@ -620,11 +620,11 @@ int WarpScript_Opcode_7c_0201e018(Script::Parameter* params, int numParams)
     entry.minZ = minZ;
     entry.maxX = maxX;
     entry.maxZ = maxZ;
-    data_020fdc20.warp->CreateOpcode7bEntry_0201e88c(entry);
+    data_020fdc20.warp->func_0201e88c(entry);
     return 1;
 }
 
-void ExecuteZoneWarpScript_0201e1d0(const void* data, unsigned int length, ZoneFeatures* warp, SafeAllocator* alloc)
+extern "C" void func_0201e1d0(const void* data, unsigned int length, ZoneFeatures* warp, SafeAllocator* alloc)
 {
     if (length == 0)
         return;
@@ -643,38 +643,38 @@ void ExecuteZoneWarpScript_0201e1d0(const void* data, unsigned int length, ZoneF
     data_020fdc20.currentEntry = NULL;
 }
 
-void ZoneFeatures::Reset_0201e248()
+void ZoneFeatures::func_0201e248()
 {
     VectorizedMemset(this, 0, sizeof(ZoneFeatures));
 }
 
-void ZoneFeatures::AllocateOpcode64Entries_0201e25c(int count, SafeAllocator *alloc)
+void ZoneFeatures::func_0201e25c(int count, SafeAllocator *alloc)
 {
     entries64_ = (Opcode64Entry*)alloc->Allocate(count * sizeof(Opcode64Entry));
     arraySize64_ = 0;
     arrayCapacity64_ = count;
 }
 
-void ZoneFeatures::AllocateGrottoTileFeaturePlacementEntries_0201e288(int count, SafeAllocator* alloc)
+void ZoneFeatures::func_0201e288(int count, SafeAllocator* alloc)
 {
     grottoTileFeatureEntries_ = (TileFeaturePlacementData*)alloc->Allocate(count * sizeof(TileFeaturePlacementData));
     grottoTileFeatureEntryCount_ = 0;
     grottoTileFeatureEntryCapacity_ = count;
 }
 
-void ZoneFeatures::LoadFromScript_0201e2b4(SafeAllocator* alloc, const void* script, unsigned int length)
+void ZoneFeatures::func_0201e2b4(SafeAllocator* alloc, const void* script, unsigned int length)
 {
-    ExecuteZoneWarpScript_0201e1d0(script, length, this, alloc);
+    func_0201e1d0(script, length, this, alloc);
 }
 
-ZoneFeatures::Opcode64Entry* ZoneFeatures::GetOpcode64Entry_0201e2d8(int index)
+ZoneFeatures::Opcode64Entry* ZoneFeatures::func_0201e2d8(int index)
 {
     if (index < 0 || arraySize64_ <= index)
         return NULL;
     return &entries64_[index];
 }
 
-void ZoneFeatures::CreateOpcode64Entry_0201e304(const Opcode64Entry& source)
+void ZoneFeatures::func_0201e304(const Opcode64Entry& source)
 {
     if (arraySize64_ >= arrayCapacity64_)
         return;
@@ -689,7 +689,7 @@ void ZoneFeatures::CreateOpcode64Entry_0201e304(const Opcode64Entry& source)
     arraySize64_++;
 }
 
-void ZoneFeatures::CreateGrottoTileFeaturePlacementEntry_0201e3c4(const TileFeaturePlacementData& source)
+void ZoneFeatures::func_0201e3c4(const TileFeaturePlacementData& source)
 {
     if (grottoTileFeatureEntryCount_ >= grottoTileFeatureEntryCapacity_)
         return;
@@ -702,14 +702,14 @@ void ZoneFeatures::CreateGrottoTileFeaturePlacementEntry_0201e3c4(const TileFeat
     grottoTileFeatureEntryCount_++;
 }
 
-void ZoneFeatures::AllocateOpcode66Entries_0201e480(int count, SafeAllocator *alloc)
+void ZoneFeatures::func_0201e480(int count, SafeAllocator *alloc)
 {
     entries66_ = (Opcode66Entry*)alloc->Allocate(count * sizeof(Opcode66Entry));
     arraySize66_ = 0;
     arrayCapacity66_ = count;
 }
 
-void ZoneFeatures::CreateOpcode66Entry_0201e4b0(const Opcode66Entry& source)
+void ZoneFeatures::func_0201e4b0(const Opcode66Entry& source)
 {
     if (arraySize66_ >= arrayCapacity66_)
         return;
@@ -722,14 +722,14 @@ void ZoneFeatures::CreateOpcode66Entry_0201e4b0(const Opcode66Entry& source)
     arraySize66_++;
 }
 
-void ZoneFeatures::AllocateOpcode68Entries_0201e518(int count, SafeAllocator* alloc)
+void ZoneFeatures::func_0201e518(int count, SafeAllocator* alloc)
 {
     entries68_ = (Opcode68Entry*)alloc->Allocate(count * sizeof(Opcode68Entry));
     arraySize68_ = 0;
     arrayCapacity68_ = count;
 }
 
-void ZoneFeatures::CreateOpcode68Entry_0201e574(const Opcode68Entry& source)
+void ZoneFeatures::func_0201e574(const Opcode68Entry& source)
 {
     if (arraySize68_ >= arrayCapacity68_)
         return;
@@ -749,21 +749,21 @@ void ZoneFeatures::CreateOpcode68Entry_0201e574(const Opcode68Entry& source)
     arraySize68_++;
 }
 
-void ZoneFeatures::AllocateOpcode6aEntries_0201e634(int count, SafeAllocator *alloc)
+void ZoneFeatures::func_0201e634(int count, SafeAllocator *alloc)
 {
     entries6a_ = (Opcode6aEntry*)alloc->Allocate(count * sizeof(Opcode6aEntry));
     arraySize6a_ = 0;
     arrayCapacity6a_ = count;
 }
 
-void ZoneFeatures::SetOpcode7bAllocation_0201e878(Opcode7bEntry* array, unsigned short capacity)
+void ZoneFeatures::func_0201e878(Opcode7bEntry* array, unsigned short capacity)
 {
     entries7b_ = array;
     arrayCapacity7b_ = capacity;
     arraySize7b_ = 0;
 }
 
-void ZoneFeatures::CreateOpcode7bEntry_0201e88c(const Opcode7bEntry& source)
+void ZoneFeatures::func_0201e88c(const Opcode7bEntry& source)
 {
     if (entries7b_ == NULL)
         return;

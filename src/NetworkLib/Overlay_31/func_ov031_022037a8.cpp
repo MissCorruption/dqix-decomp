@@ -18,8 +18,8 @@ struct TransferRuntime {
 };
 
 extern TransferRuntime data_ov031_0224c980;
-int Wrapper0220376c(int, int, int, int, int, int);
-void DispatchContext02200264();
+extern "C" int func_ov031_0220376c(int, int, int, int, int, int);
+extern "C" void func_ov031_02200264();
 
 // USA: func_ov031_022037a8
 extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* first, unsigned int firstLength, unsigned char* second, unsigned int secondLength, TransferChannel* channel) {
@@ -30,10 +30,10 @@ extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* first, unsigned i
     int lastProgress = GetCurrentTimestamp() >> 16;
     while (data_ov031_0224c980.isActive() != 0 && firstLength != 0 && channel->status == 4 && (int)(GetCurrentTimestamp() >> 16) - lastProgress < 159) {
         unsigned int initialOffset = channel->sentOffset;
-        Wrapper0220376c((int)first, firstLength, (int)second, secondLength, (int)channel, retry);
+        func_ov031_0220376c((int)first, firstLength, (int)second, secondLength, (int)channel, retry);
         int start = GetCurrentTimestamp() >> 16;
         while (1) {
-            DispatchContext02200264();
+            func_ov031_02200264();
             if (data_ov031_0224c980.isActive() == 0 || channel->status != 4 || channel->sentOffset == channel->acknowledgedOffset || (int)(GetCurrentTimestamp() >> 16) - start >= 15) break;
             if (retry != 0 && channel->available != 0) break;
         }
@@ -46,7 +46,7 @@ extern "C" ARM unsigned int func_ov031_022037a8(unsigned char* first, unsigned i
             if (retry == 0) {
                 int waitStart = GetCurrentTimestamp() >> 16;
                 while (data_ov031_0224c980.isActive() != 0 && (int)(GetCurrentTimestamp() >> 16) - waitStart < 15) {
-                    DispatchContext02200264();
+                    func_ov031_02200264();
                     if (channel->available != 0) break;
                 }
                 if (channel->available == 0) retry = 1;

@@ -4,7 +4,7 @@ extern "C" int func_ov031_022415a8(const char* s);
 extern "C" int func_ov031_0223ffb0(void* obj, const char* name, int len);
 extern "C" int func_ov031_0223fe20(void* dst, void* arg1, const char* name, int size);
 
-// USA: func_ov031_02240074  (semantic: RegisterNamedEntry_02240074)
+// USA: func_ov031_02240074
 extern "C" ARM int func_ov031_02240074(int* obj, void* arg1, const char* name) {
 	int result = 0;
 	if (*obj != 0) {

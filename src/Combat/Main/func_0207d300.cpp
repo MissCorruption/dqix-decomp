@@ -21,18 +21,18 @@ struct Element020de650 {
     unsigned int flag25 : 1;
 };
 
-extern struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-extern void* InitAllocatorAndLoadGp2File0207d6dc(SafeAllocator* self, int param1, int param2);
-extern void* GetPtrField0x2a04_02010828(GameState* battleStruct);
-extern GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gameState, int combatantId);
-extern int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
-extern unsigned char* GetFieldAt0x150_02053c6c(unsigned char* obj);
-extern int CountPositiveSlots02083960(struct Slots02083960* slots);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" void* func_0207d6dc(SafeAllocator* self, int param1, int param2);
+extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" GameObject* func_0200ff1c(GameState* gameState, int combatantId);
+extern "C" int func_02061bd8(struct Obj02061bd8* obj);
+extern "C" unsigned char* func_02053c6c(unsigned char* obj);
+extern "C" int func_02083960(struct Slots02083960* slots);
 extern "C" int func_0207ccf0(struct Obj0207d200* self, int key, int one, int id, int zero0, int zero1, int zero2);
 extern "C" int func_0207cf30(struct Obj0207d200* self, int key, int count, int zero);
 extern "C" void func_0207d134(struct Obj0207d200* self, int key, int count);
-extern int UpdateKeyValue0207d200(struct Obj0207d200* self, short key, int amount);
-extern void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" int func_0207d200(struct Obj0207d200* self, short key, int amount);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern AllocatorUnion data_02114e20;
 
 static inline int IsLow(struct Element020de650* e) {
@@ -43,18 +43,18 @@ static inline int IsLow(struct Element020de650* e) {
 extern "C" ARM int func_0207d300(struct Obj0207d200* self, short key, short count, int flag) {
     int initDone = 0;
     if (self->container == NULL) {
-        InitAllocatorAndLoadGp2File0207d6dc((SafeAllocator*)self, (int)&key, 1);
+        func_0207d6dc((SafeAllocator*)self, (int)&key, 1);
         initDone = 1;
     }
     int result = -1;
-    struct Element020de650* elem = FindElementByKey020dedd0(self->container, key);
+    struct Element020de650* elem = func_020dedd0(self->container, key);
     if (elem == NULL) {
         result = -2;
     } else if (IsLow(elem) != 0) {
         func_0207d134(self, key, count);
         result = 3;
     } else if (elem->type == 9) {
-        UpdateKeyValue0207d200(self, key, count);
+        func_0207d200(self, key, count);
         result = 5;
     } else if (elem->flag25) {
         if (func_0207cf30(self, key, count, 0) != 0) {
@@ -62,15 +62,15 @@ extern "C" ARM int func_0207d300(struct Obj0207d200* self, short key, short coun
         }
     } else {
         GameState* bs = GameState::GetInstance();
-        char* p = (char*)GetPtrField0x2a04_02010828(bs);
+        char* p = (char*)func_02010828(bs);
         unsigned char i;
         for (i = 0; i < *(unsigned char*)(p + 0xf7c); i++) {
             int id = *(signed char*)(p + i + 0xf78);
-            GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, id);
+            GameObject* c = func_0200ff1c(bs, id);
             if (c == NULL) {
                 continue;
             }
-            if (CheckField0x56bLowNibble((struct Obj02061bd8*)c) != 0) {
+            if (func_02061bd8((struct Obj02061bd8*)c) != 0) {
                 continue;
             }
             if (flag != 0) {
@@ -82,12 +82,12 @@ extern "C" ARM int func_0207d300(struct Obj0207d200* self, short key, short coun
                     continue;
                 }
             }
-            unsigned char* slots = GetFieldAt0x150_02053c6c((unsigned char*)c);
+            unsigned char* slots = func_02053c6c((unsigned char*)c);
             if (slots == NULL) {
                 continue;
             }
             while (count != 0) {
-                if (CountPositiveSlots02083960((struct Slots02083960*)slots) == 8) {
+                if (func_02083960((struct Slots02083960*)slots) == 8) {
                     break;
                 }
                 result = func_0207ccf0(self, key, 1, id, 0, 0, 0);
@@ -107,7 +107,7 @@ extern "C" ARM int func_0207d300(struct Obj0207d200* self, short key, short coun
         SafeAllocator* alloc = (SafeAllocator*)self;
         SignedAllocatorHeader* sig = alloc->GetSignedAllocator();
         alloc->Destroy();
-        TailForward02012da4(&data_02114e20, sig);
+        func_02012da4(&data_02114e20, sig);
         self->container = NULL;
     }
     return result;

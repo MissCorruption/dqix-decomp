@@ -18,9 +18,9 @@ struct Obj020968d0 {
     unsigned char startX, startY, endX, endY, flag;
 };
 struct Facing02096c38 { char pad_0[0xae]; short angle; };
-int CheckAndComputeDistance020968d0(Obj020968d0*, int*);
-void RenderFlaggedIndexedEntry(StructAt020473c8*, int);
-void RenderTransformedFlaggedIndexedEntry(StructAt020472e4*, int);
+extern "C" int func_020968d0(Obj020968d0*, int*);
+extern "C" void func_020473c8(StructAt020473c8*, int);
+extern "C" void func_020472e4(StructAt020472e4*, int);
 extern "C" void func_020c51a4(int);
 extern "C" void __clear(void*, int);
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, i
     end.x = lastX;
     end.y = lastY;
     int useFacing = 0;
-    if (!CheckAndComputeDistance020968d0(object, &distance)) {
+    if (!func_020968d0(object, &distance)) {
         if (!object->flag) return;
         distance = 0x8000;
         useFacing = 1;
@@ -85,7 +85,7 @@ extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, i
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = 0;
-    RenderFlaggedIndexedEntry(&object->entries[0].plain, 1);
+    func_020473c8(&object->entries[0].plain, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
     short angle = fix32ReduceAngle0To2Pi(-fix32_Atan2(direction.x, direction.y));
@@ -100,7 +100,7 @@ extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, i
     GXFIFO_MATRIX_SCALE = 0x800;
     GXFIFO_MATRIX_SCALE = scale;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    RenderTransformedFlaggedIndexedEntry(&object->entries[1].transformed, 1);
+    func_020472e4(&object->entries[1].transformed, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
@@ -112,14 +112,14 @@ extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, i
     GXFIFO_MATRIX_SCALE = 0xc00;
     GXFIFO_MATRIX_SCALE = -0xc00;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    RenderTransformedFlaggedIndexedEntry(&object->entries[2].transformed, 1);
+    func_020472e4(&object->entries[2].transformed, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = 0x2000;
-    RenderFlaggedIndexedEntry(&object->entries[3].plain, 1);
+    func_020473c8(&object->entries[3].plain, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
 }

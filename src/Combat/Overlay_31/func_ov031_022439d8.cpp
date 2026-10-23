@@ -24,9 +24,9 @@ struct Struct022439d8 {
 
 extern SafeAllocator data_ov031_02291e3c;
 extern "C" void func_ov023_021f5b9c(void* a, void* b, int c, void* d);
-void SetByteField0x253_020397c0(void* p);
-FlagWord020466f4* GetDataPtr02114e04_020d6c00(void);
-void ClearFlags020466f4(FlagWord020466f4* p, unsigned int flags);
+extern "C" void func_020397c0(void* p);
+extern "C" FlagWord020466f4* func_020d6c00(void);
+extern "C" void func_020466f4(FlagWord020466f4* p, unsigned int flags);
 
 // USA: func_ov031_022439d8
 extern "C" ARM int func_ov031_022439d8(Struct022439d8* ctx) {
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov031_022439d8(Struct022439d8* ctx) {
 	BackgroundLoader* loader = BackgroundLoader::GetInstance();
 	GameObject* obj = GameState::GetInstance()->GetUnknownGameObject();
 	if (obj != 0) {
-		SetByteField0x253_020397c0(obj);
+		func_020397c0(obj);
 	}
 #if defined(jpn)
 	*(int*)((char*)base + 0x41e4) = 0;
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov031_022439d8(Struct022439d8* ctx) {
 		}
 	}
 	if ((ctx->f374 & 0x20) == 0) {
-		ClearFlags020466f4(GetDataPtr02114e04_020d6c00(), 0x80);
+		func_020466f4(func_020d6c00(), 0x80);
 	}
 	ctx->f30 = 1;
 	return 2;

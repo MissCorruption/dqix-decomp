@@ -52,13 +52,13 @@ struct Self02198f84 {
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0205ec34(void);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
-void InitState6_021ab250(struct Struct021ab250* p);
-Pending02198f84* GetField0x3f8Address_0200fd0c(GameState* state);
-void SetIntField_021ab698_021ab698(char* p, int v);
+extern "C" void func_ov017_021ab250(struct Struct021ab250* p);
+extern "C" Pending02198f84* func_0200fd0c(GameState* state);
+extern "C" void func_ov017_021ab698(char* p, int v);
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 // USA: func_ov017_02198f84
 extern "C" ARM void func_ov017_02198f84(Self02198f84* self) {
@@ -74,14 +74,14 @@ extern "C" ARM void func_ov017_02198f84(Self02198f84* self) {
         q.field_0x28 = node->unk_20;
         q.field_0x1e = node->unk_2c.type2.unk_1;
         q.field_0x1c = node->unk_2c.type2.unk_0;
-        if (LookupAndForEachNode020649b0(r, 0x11, &q)) {
+        if (func_020649b0(r, 0x11, &q)) {
             func_0206f81c(&q);
         }
         if (!(node->unk_2c.type2.unk_2_high & 4)) {
             func_02018300(ctx, node, 1, 1, 1);
             if ((node->unk_2c.type2.unk_2_high & 8) && node->unk_2c.type2.maybeZone != 0) {
-                InitState6_021ab250(self->state6);
-                Pending02198f84* pending = GetField0x3f8Address_0200fd0c(GameState::GetInstance());
+                func_ov017_021ab250(self->state6);
+                Pending02198f84* pending = func_0200fd0c(GameState::GetInstance());
                 if (pending->pending != 0) {
                     node->unk_2c.type2.maybeZone = pending->id;
                     node->unk_2c.type2.vectors_c[0] = pending->pos;
@@ -92,8 +92,8 @@ extern "C" ARM void func_ov017_02198f84(Self02198f84* self) {
                     node->unk_2c.type2.vectors_c[3] = pending->vecC;
                     pending->pending = 0;
                 }
-                SetIntField_021ab698_021ab698((char*)self->state6, (int)node);
-                AppendNodeToTail(self->tailList, (struct TailNode020469b4*)self->state6);
+                func_ov017_021ab698((char*)self->state6, (int)node);
+                func_020469b4(self->tailList, (struct TailNode020469b4*)self->state6);
             } else if (!(node->unk_2c.type2.unk_2_high & 8)) {
                 clear = 1;
             }

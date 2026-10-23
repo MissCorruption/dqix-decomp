@@ -25,20 +25,20 @@ struct StatusFields {
 
 extern unsigned short data_ov024_021fea3c[4];
 extern "C" int func_ov000_0215e9fc(int, unsigned short*, int, int);
-int IsFlagBit8388608Set_021da998(FlagObj_021da998*);
-int IsFlagBit24Set_021dd260(FlagObj_021dd260*);
-int IsCombatantFlagMask512_021eda60(GameObject*);
-int IsCombatantFlagMask134217728_021edbc0(GameObject*);
-int IsCombatantFlagMask268435456_021edbd8(GameObject*);
-int IsCombatantFlagMask536870912_021edbf0(GameObject*);
-int IsFlagBit1048576Set_021edc20(S_flag100000*);
-int IsFlagBit22Set_021e47dc(FlagObj_021e47dc*);
-int IsFlagBit67108864Set_021edc08(S_flag4000000*);
-int IsFlagBit1073741824Set_021edc50(S_flag40000000*);
-int IsFlagBit2097152Set_021edc38(S_flag200000*);
-int IsFlagBit2147483648Set_021edc68(S_flag80000000*);
-int IsField0x18Flag0x80Set_02088660(Combatant_2088660*);
-int IsFlagBit8Set_021f273c(S_flag8b*);
+extern "C" int func_ov024_021da998(FlagObj_021da998*);
+extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
+extern "C" int func_ov024_021eda60(GameObject*);
+extern "C" int func_ov024_021edbc0(GameObject*);
+extern "C" int func_ov024_021edbd8(GameObject*);
+extern "C" int func_ov024_021edbf0(GameObject*);
+extern "C" int func_ov024_021edc20(S_flag100000*);
+extern "C" int func_ov024_021e47dc(FlagObj_021e47dc*);
+extern "C" int func_ov024_021edc08(S_flag4000000*);
+extern "C" int func_ov024_021edc50(S_flag40000000*);
+extern "C" int func_ov024_021edc38(S_flag200000*);
+extern "C" int func_ov024_021edc68(S_flag80000000*);
+extern "C" int func_02088660(Combatant_2088660*);
+extern "C" int func_ov024_021f273c(S_flag8b*);
 
 // USA: func_ov024_021f3e64
 extern "C" ARM int func_ov024_021f3e64(int* context, int unused, int unused2, int* outCount, short* outTargets) {
@@ -57,21 +57,21 @@ extern "C" ARM int func_ov024_021f3e64(int* context, int unused, int unused2, in
     for (int i = 0; i < count; ++i) {
         GameObject* target = GetCombatantByID(*context, (short)targets[i]);
         if (!target) continue;
-        if (IsFlagBit8388608Set_021da998((FlagObj_021da998*)target)
-            || IsFlagBit24Set_021dd260((FlagObj_021dd260*)target)
-            || IsCombatantFlagMask512_021eda60(target)
-            || IsCombatantFlagMask134217728_021edbc0(target)
-            || IsCombatantFlagMask268435456_021edbd8(target)
-            || IsCombatantFlagMask536870912_021edbf0(target)
-            || IsFlagBit1048576Set_021edc20((S_flag100000*)target)
-            || IsFlagBit22Set_021e47dc((FlagObj_021e47dc*)target)
-            || IsFlagBit67108864Set_021edc08((S_flag4000000*)target)
-            || IsFlagBit1073741824Set_021edc50((S_flag40000000*)target)
-            || IsFlagBit67108864Set_021edc08((S_flag4000000*)target)
-            || IsFlagBit2097152Set_021edc38((S_flag200000*)target)
-            || IsFlagBit2147483648Set_021edc68((S_flag80000000*)target)
-            || IsField0x18Flag0x80Set_02088660((Combatant_2088660*)target->currentStats_)
-            || IsFlagBit8Set_021f273c((S_flag8b*)target)
+        if (func_ov024_021da998((FlagObj_021da998*)target)
+            || func_ov024_021dd260((FlagObj_021dd260*)target)
+            || func_ov024_021eda60(target)
+            || func_ov024_021edbc0(target)
+            || func_ov024_021edbd8(target)
+            || func_ov024_021edbf0(target)
+            || func_ov024_021edc20((S_flag100000*)target)
+            || func_ov024_021e47dc((FlagObj_021e47dc*)target)
+            || func_ov024_021edc08((S_flag4000000*)target)
+            || func_ov024_021edc50((S_flag40000000*)target)
+            || func_ov024_021edc08((S_flag4000000*)target)
+            || func_ov024_021edc38((S_flag200000*)target)
+            || func_ov024_021edc68((S_flag80000000*)target)
+            || func_02088660((Combatant_2088660*)target->currentStats_)
+            || func_ov024_021f273c((S_flag8b*)target)
             || (((StatusFields*)target->currentStats_)->flags_ & 2)
             || (((StatusFields*)target->currentStats_)->flags_ & 4)
             || (((StatusFields*)target->currentStats_)->flags_ & 0x200)

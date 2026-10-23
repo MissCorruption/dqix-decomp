@@ -13,11 +13,11 @@ enum { PoolOffset = 0x2cc };
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 struct Fields020407b4;
-void SetFields0x44(struct Fields020407b4* obj, int a, int b, int c);
+extern "C" void func_020407b4(struct Fields020407b4* obj, int a, int b, int c);
 
 // USA: func_02046cc8
 extern "C" ARM int func_02046cc8(void* self) {
@@ -47,8 +47,8 @@ extern "C" ARM int func_02046cc8(void* self) {
     if (loader->GetTaskStatus(*(int*)((char*)self + 0xec)) != 0) {
         pool = (char*)base + PoolOffset;
         if (*(unsigned char*)((char*)self + 0x1d) != 0) {
-            CopyInternalFields0207df50((struct Foo0207df50*)(pool + 0xc40));
-            RestorePairTables0207df90(pool + 0xc40);
+            func_0207df50((struct Foo0207df50*)(pool + 0xc40));
+            func_0207df90(pool + 0xc40);
 
             loader->GetLoadedFileByID(*(int*)((char*)self + 0xec), &fileData, &fileSize);
             if (fileData != NULL && allocator->GetSignedAllocator() != NULL) {
@@ -61,10 +61,10 @@ extern "C" ARM int func_02046cc8(void* self) {
                 obj->LoadFromCHRArchive(&info);
                 void* mdl = *(void**)((char*)self + 0x44);
                 NSBXX_Model_SetPolygonID(*(void**)((char*)mdl + 0x54), 0x3d);
-                SetFields0x44((struct Fields020407b4*)obj, 0, -0xa000, 0x1000);
+                func_020407b4((struct Fields020407b4*)obj, 0, -0xa000, 0x1000);
                 obj->MaybeSetBCFGAnimation(0, 0);
             }
-            BackupPairTables0207dfac(pool + 0xc40);
+            func_0207dfac(pool + 0xc40);
         }
         loader->RemoveTask(*(int*)((char*)self + 0xec));
         *(int*)((char*)self + 0xec) = -1;

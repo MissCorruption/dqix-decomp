@@ -2,9 +2,9 @@
 
 struct Obj2081;
 struct Elem2081;
-extern struct Elem2081* FindElementByByte0xc4_02081da8(struct Obj2081*, int);
-extern int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
-extern void GetLookAndTurnOffsets020809c4(void*, int, int, short*, short*);
+extern "C" struct Elem2081* func_02081da8(struct Obj2081*, int);
+extern "C" int func_0204c7e0(unsigned char*);
+extern "C" void func_020809c4(void*, int, int, short*, short*);
 
 struct Container0205a3d0;
 struct Container0205a330;
@@ -17,9 +17,9 @@ struct Elem02186e2c {
     unsigned char flags15;
 };
 
-extern struct Elem02186e2c* FindEntryByHalfword0205a3d0(struct Container0205a3d0*, int);
-extern void SetEntryFlag2ByKey0205a370(struct Container0205a3d0*, int);
-extern void IterateEntries0205a330(struct Container0205a330*, int);
+extern "C" struct Elem02186e2c* func_0205a3d0(struct Container0205a3d0*, int);
+extern "C" void func_0205a370(struct Container0205a3d0*, int);
+extern "C" void func_0205a330(struct Container0205a330*, int);
 extern "C" void func_0205ae8c(void*);
 
 struct Obj02186e2c {
@@ -45,23 +45,23 @@ extern "C" ARM void func_ov014_02186e2c(struct Obj02186e2c* self) {
 
     if (self->field0xd0 == NULL) return;
     if (self->field0x170 < 0) return;
-    elem = FindElementByByte0xc4_02081da8((struct Obj2081*)self->field0xc0, self->field0x170);
+    elem = func_02081da8((struct Obj2081*)self->field0xc0, self->field0x170);
     if (elem == NULL) return;
-    if (CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)elem) == 0) return;
+    if (func_0204c7e0((unsigned char*)elem) == 0) return;
 
-    GetLookAndTurnOffsets020809c4(self->field0xc0, self->field0x170, *self->field0xd0, &outB, &outA);
+    func_020809c4(self->field0xc0, self->field0x170, *self->field0xd0, &outB, &outA);
     outB -= 0x10;
     outA -= 3;
 
-    SetEntryFlag2ByKey0205a370(self->field0xd8, 0);
-    e = FindEntryByHalfword0205a3d0(self->field0xd8, 0);
+    func_0205a370(self->field0xd8, 0);
+    e = func_0205a3d0(self->field0xd8, 0);
     if (e != NULL) {
         e->flags15 |= 8;
     }
-    IterateEntries0205a330((struct Container0205a330*)self->field0xd8, self->field0x164);
+    func_0205a330((struct Container0205a330*)self->field0xd8, self->field0x164);
     unk6val = outA;
     unk4val = outB;
-    e = FindEntryByHalfword0205a3d0(self->field0xd8, 0);
+    e = func_0205a3d0(self->field0xd8, 0);
     if (e != NULL) {
         e->unk4 = unk4val;
         e->unk6 = unk6val;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-// USA: func_ov031_022201d8  (semantic: ParsePacketHeaderAndVerifyChecksum_022201d8)
+// USA: func_ov031_022201d8
 extern "C" THUMB unsigned char* func_ov031_022201d8(unsigned char* p, unsigned int* typeOut, unsigned int* lenOut) {
     unsigned short type = *(unsigned short*)(p + 0);
     unsigned int sum = 0;

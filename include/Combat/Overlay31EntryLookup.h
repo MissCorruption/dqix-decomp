@@ -8,4 +8,4 @@ struct LookupNode_0220ee50 {
 };
 
 extern "C" LookupNode_0220ee50* func_ov031_0220ee50(int id);
-const void* GetOffset10FromResult_0220ec04(int index);
+extern "C" const void* func_ov031_0220ec04(int index);

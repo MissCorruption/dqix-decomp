@@ -2,14 +2,14 @@
 
 extern "C" double func_02008f3c(double x);
 
-static const double atanlo[] = {
+static const double data_020e6cc4[] = {
     2.26987774529616870924e-17,
     3.06161699786838301793e-17,
     1.39033110312309984516e-17,
     6.12323399573676603587e-17,
 };
 
-static const double atanhi[] = {
+static const double data_020e6ce4[] = {
     4.63647609000806093515e-01,
     7.85398163397448278999e-01,
     9.82793723247329054082e-01,
@@ -29,9 +29,9 @@ extern "C" ARM double func_02008848(double x) {
         if (ix > 0x7ff00000 || (ix == 0x7ff00000 && (((int*)&x)[0] != 0)))
             return x + x;
         if (hx > 0)
-            return atanhi[3] + atanlo[3];
+            return data_020e6ce4[3] + data_020e6cc4[3];
         else
-            return -atanhi[3] - atanlo[3];
+            return -data_020e6ce4[3] - data_020e6cc4[3];
     }
     if (ix < 0x3fdc0000) {
         if (ix < 0x3e200000) {
@@ -66,7 +66,7 @@ extern "C" ARM double func_02008848(double x) {
     if (id < 0)
         return x - x * (s1 + s2);
     else {
-        z = atanhi[id] - ((x * (s1 + s2) - atanlo[id]) - x);
+        z = data_020e6ce4[id] - ((x * (s1 + s2) - data_020e6cc4[id]) - x);
         return (hx < 0) ? -z : z;
     }
 }

@@ -3,7 +3,7 @@
 extern unsigned char* data_ov031_02290d20;
 extern "C" void func_ov027_021dcd20(void);
 
-// USA: func_ov031_0223a5bc  (semantic: AdvanceStateA90_0223a5bc)
+// USA: func_ov031_0223a5bc
 extern "C" ARM int func_ov031_0223a5bc(void) {
 	unsigned char v = data_ov031_02290d20[0xa90];
 	if (v == 1 || v == 0x14 || v == 0x17 || v == 0x1a || v == 0x1d) {

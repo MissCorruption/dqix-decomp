@@ -5,16 +5,16 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void*);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 
 extern "C" Vector3fix func_02034104(void* combatant);
 struct Obj02033834;
-void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
+extern "C" void func_02033834(struct Obj02033834* obj, int arg);
 struct Obj02033b68;
-void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
+extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" void func_ov017_021c927c(int a, int b, int c, Vector3fix v, int d, int e, int f);
 
@@ -38,7 +38,7 @@ extern "C" ARM int func_02077e80(FieldMonsterState* self) {
         delta.y = -delta.y;
         delta.z = -delta.z;
         angle = fix32_Atan2(delta.x, delta.z);
-        SetVecYByMode02033834((struct Obj02033834*)self, angle);
+        func_02033834((struct Obj02033834*)self, angle);
         delta.y = 0;
         Vector3fixMultiplyScalar(&delta, 0xa000, &delta);
         Vector3fix_Add(&self->actor.base.object.position_, &delta, &self->targetPosition);
@@ -46,7 +46,7 @@ extern "C" ARM int func_02077e80(FieldMonsterState* self) {
 
     self->actor.base.fieldB4 = 0x1c2;
     self->actor.base.fieldB2 = 0x1c2;
-    SetByteIfChanged02033b68((struct Obj02033b68*)self, 1);
+    func_02033b68((struct Obj02033b68*)self, 1);
 
     GameObject* protagonist = battleStruct->GetProtagonist();
     unsigned short a = protagonist->obj3D_.GetField06();
@@ -56,8 +56,8 @@ extern "C" ARM int func_02077e80(FieldMonsterState* self) {
     }
     self->rising = 0;
 
-    if (CheckField0NonZero_0202b7d8((int*)g)) {
-        if (GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g) == 0) {
+    if (func_0202b7d8((int*)g)) {
+        if (func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
             int cid = self->actor.base.object.GetField06();
             int f2val = self->actor.base.object.unknown_2_;
             Vector3fix* vp = &self->targetPosition;

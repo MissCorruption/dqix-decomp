@@ -106,9 +106,9 @@ extern "C" long long func_020c3260(int);
 extern "C" float func_0200c700(long long);
 extern "C" int func_020312bc(GeometryTriangle* triangles, int count, Vector3fix* start, Vector3fix* end, Vector3fix* point);
 extern "C" int func_020315b8(GeometryTriangle* triangles, int count, Vector3fix* originalPosition, fix32_t radius, Vector3fix* position, Vector3i* backupPosition);
-void CopyFourHalfwordsToField0x114_02033f6c(void* obj, FourHalfwords02033f7c* src);
-void SetFlag0x80AndCopyToField0x11c_02033fa8(void* obj, FourHalfwords02033f7c* src);
-void CopyBlocksSetFlag0x40(CopyDst02033edc* dst, CopySrc02033edc* src);
+extern "C" void func_02033f6c(void* obj, FourHalfwords02033f7c* src);
+extern "C" void func_02033fa8(void* obj, FourHalfwords02033f7c* src);
+extern "C" void func_02033edc(CopyDst02033edc* dst, CopySrc02033edc* src);
 
 // USA: func_ov017_02192b48
 extern "C" ARM int func_ov017_02192b48(TerrainGrid* grid, Probe02192b48* probe, int count, Actor02192b48* self, unsigned char applyMaterial, Vector3i* dest, Vector3i* pos, int* y, int* yLow, int enable, int* reset, unsigned char inCell, int index, int hidden) {
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov017_02192b48(TerrainGrid* grid, Probe02192b48* probe, 
                             if (node != NULL && (geometry = node->geometry) != NULL && (polygons = geometry->polygons) != NULL) {
                                 if (polygons->header->type == 3) {
                                     FourHalfwords02033f7c material = polygons->materials[grid->materialIndex[idx]];
-                                    CopyFourHalfwordsToField0x114_02033f6c(self, &material);
+                                    func_02033f6c(self, &material);
                                 }
                             }
                         }
@@ -242,7 +242,7 @@ extern "C" ARM int func_ov017_02192b48(TerrainGrid* grid, Probe02192b48* probe, 
             Vector3fix_Add(&samples[idx].vertices[1], &grid->position, &triangle.vertices[1]);
             Vector3fix_Add(&samples[idx].vertices[2], &grid->position, &triangle.vertices[2]);
             triangle.normal = samples[idx].normal;
-            CopyBlocksSetFlag0x40((CopyDst02033edc*)self, &triangle);
+            func_02033edc((CopyDst02033edc*)self, &triangle);
             if (applyMaterial && inCell) {
                 TerrainNode* node;
                 if (zone->useScenes == 0) {
@@ -255,7 +255,7 @@ extern "C" ARM int func_ov017_02192b48(TerrainGrid* grid, Probe02192b48* probe, 
                 if (node != NULL && (geometry = node->geometry) != NULL && (polygons = geometry->polygons) != NULL) {
                     if (polygons->header->type == 3) {
                         FourHalfwords02033f7c material = polygons->materials[grid->materialIndex[idx]];
-                        SetFlag0x80AndCopyToField0x11c_02033fa8(self, &material);
+                        func_02033fa8(self, &material);
                     }
                 }
             }

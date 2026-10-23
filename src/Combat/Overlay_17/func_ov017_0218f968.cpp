@@ -5,8 +5,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "NitroSDK/Cache.h"
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 
 extern AllocatorUnion data_02114e20;
 
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* ov, int idx, unsigned sho
                 unsigned int size = tex->block4NumEightBytes_ << 3;
                 unsigned int vramOffset = (offset & 0xffff) << 3;
                 unsigned short* src = (unsigned short*)((char*)tex + tex->block4Offset_);
-                buf = (unsigned short*)AllocateAligned4_02012d88(&data_02114e20, size);
+                buf = (unsigned short*)func_02012d88(&data_02114e20, size);
                 if (buf != NULL) {
                     for (unsigned int j = 0; j < size / 2; j++) {
                         unsigned short c = src[j];
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* ov, int idx, unsigned sho
                 offset = obj->obj3D_.GetTexturePaletteOffset() != 0 ? obj->obj3D_.GetTexturePaletteOffset() : offset;
                 unsigned int size = tex->block4NumEightBytes_ << 3;
                 unsigned int vramOffset = (offset & 0xffff) << 3;
-                buf = (unsigned short*)AllocateAligned4_02012d88(&data_02114e20, size);
+                buf = (unsigned short*)func_02012d88(&data_02114e20, size);
                 if (buf != NULL) {
                     for (unsigned int j = 0; j < size / 2; j++) {
                         buf[j] = color;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* ov, int idx, unsigned sho
                 unsigned int size = tex->block4NumEightBytes_ << 3;
                 offset = (offset & 0xffff) << 3;
                 src = (unsigned short*)((char*)tex + tex->block4Offset_);
-                buf = (unsigned short*)AllocateAligned4_02012d88(&data_02114e20, size);
+                buf = (unsigned short*)func_02012d88(&data_02114e20, size);
                 if (buf != NULL) {
                     float scaleR = addR / 31.0f;
                     float scaleG = addG / 31.0f;
@@ -112,6 +112,6 @@ extern "C" ARM void func_ov017_0218f968(unsigned char* ov, int idx, unsigned sho
     UnlockStagedTextureVRAMCopying();
 
     if (buf != NULL) {
-        TailForward02012da4(&data_02114e20, buf);
+        func_02012da4(&data_02114e20, buf);
     }
 }

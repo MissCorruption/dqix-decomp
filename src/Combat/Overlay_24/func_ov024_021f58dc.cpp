@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 struct Out0215fb54 { int keys[2]; };
-int FindRecordByKey0215fb54(int unused, int key, Out0215fb54* out);
-void* GetActiveCombatWork_ov000_02160130();
-extern "C" void* _Z26FindNodeByShortKey02162d88Pvs(void* obj, int key);
+extern "C" int func_ov000_0215fb54(int unused, int key, Out0215fb54* out);
+extern "C" void* func_ov000_02160130();
+extern "C" void* func_ov000_02162d88(void* obj, int key);
 
 struct Gate_021f58dc { char pad0; unsigned char flags : 4; unsigned char pad1 : 4; };
 struct Obj_021f58dc { int field0; };
@@ -23,15 +23,15 @@ extern "C" ARM int func_ov024_021f58dc(Obj_021f58dc* obj, int id, SkillRecord_02
     void* work;
     Gate_021f58dc* gate = (Gate_021f58dc*)((char*)obj->field0 + 0x81b0);
     if (!gate) return 0;
-    work = GetActiveCombatWork_ov000_02160130();
+    work = func_ov000_02160130();
     if (!work) return 0;
     if (skill->kind == 0xc) {
         Out0215fb54 keys;
         keys.keys[1] = data_ov024_021fea1c[30].keys[1];
         keys.keys[0] = data_ov024_021fea1c[30].keys[0];
-        int count = FindRecordByKey0215fb54(obj->field0, skill->id, &keys);
+        int count = func_ov000_0215fb54(obj->field0, skill->id, &keys);
         for (int i = 0; i < count; i++) {
-            if (!_Z26FindNodeByShortKey02162d88Pvs(work, keys.keys[i])) return 0;
+            if (!func_ov000_02162d88(work, keys.keys[i])) return 0;
         }
     }
     if (gate->flags >= 2) return 0;

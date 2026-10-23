@@ -2,10 +2,10 @@
 #include "Resource/GameResources.h"
 
 struct Entry0207d9bc { unsigned short id; unsigned short pad; unsigned int a; unsigned int b; };
-int CheckEntryBytes0207d978(struct Entry0207d9bc* arr, unsigned short key);
-struct Entry0207d9bc* FindEntryByHalfword(struct Entry0207d9bc* arr, unsigned short key);
+extern "C" int func_0207d978(struct Entry0207d9bc* arr, unsigned short key);
+extern "C" struct Entry0207d9bc* func_0207d9bc(struct Entry0207d9bc* arr, unsigned short key);
 extern "C" void* func_ov017_021b8478(void* obj);
-void* GetField6b0_021b8470(void* obj);
+extern "C" void* func_ov017_021b8470(void* obj);
 extern "C" void func_ov017_021b848c(unsigned char* obj, signed char* actionFlags, int idx, int val, unsigned short arg4, signed char arg5, int arg6, int arg7);
 
 struct Source021c60a4 {
@@ -29,14 +29,14 @@ enum { ActionContextOffset = 0x3718 };
 // USA: func_0207dcf0
 extern "C" ARM void func_0207dcf0(unsigned short id) {
     struct Entry0207d9bc* table = (struct Entry0207d9bc*)&data_02108ea8;
-    if (!CheckEntryBytes0207d978(table, id)) return;
+    if (!func_0207d978(table, id)) return;
 
-    struct Entry0207d9bc* entry = FindEntryByHalfword(table, id);
+    struct Entry0207d9bc* entry = func_0207d9bc(table, id);
     if (!entry) return;
 
     unsigned char* obj = *(unsigned char**)((char*)GetGameResources() + ActionContextOffset);
     void* actionArr = func_ov017_021b8478(obj);
-    GetField6b0_021b8470(obj);
+    func_ov017_021b8470(obj);
 
     if (((signed char*)entry)[8] != 0) {
         func_ov017_021b848c(

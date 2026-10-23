@@ -1,6 +1,6 @@
 #include "GameState/GameState.h"
 struct AngleTrig0202e9a4 { unsigned char pad0[0x58]; int angle; unsigned char pad5c[0x194]; int target; unsigned remaining; };
-void SetAngleAndTrigTable0202e9a4(AngleTrig0202e9a4*,int);
+extern "C" void func_0202e9a4(AngleTrig0202e9a4*,int);
 extern "C" {
 #if defined(jpn)
 extern unsigned data_02104040;
@@ -24,6 +24,6 @@ void func_0202f0e0(AngleTrig0202e9a4* self) {
   self->remaining-=elapsed;
   ++InterpolationCounter;
  }
- SetAngleAndTrigTable0202e9a4(self,result);
+ func_0202e9a4(self,result);
 }
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-char* FindUnescapedAngleBracket_020424ac(char*);
-int IsPrefixMatch020d857c(signed char*, signed char*);
-int StringLength_020d2ff0(const char*);
+extern "C" char* func_020424ac(char*);
+extern "C" int func_020d857c(signed char*, signed char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" int func_02005a94(const char*);
 struct Tag0206831c {
     signed char* name;
@@ -16,16 +16,16 @@ extern "C" ARM void func_0206831c(void* context, signed char* input, signed char
     while (1) {
         if (!*input) break;
         if (*input == '<') {
-            signed char* end = (signed char*)FindUnescapedAngleBracket_020424ac((char*)input);
+            signed char* end = (signed char*)func_020424ac((char*)input);
             if (end) {
                 int found = 0;
                 Tag0206831c* tag = data_020e7e5c;
                 signed char* name = input + 1;
                 while (tag->name) {
-                    if (IsPrefixMatch020d857c(name, tag->name)) {
+                    if (func_020d857c(name, tag->name)) {
                         if (tag->expand) {
                             int index = 0;
-                            int length = StringLength_020d2ff0((char*)tag->name);
+                            int length = func_020d2ff0((char*)tag->name);
                             signed char digit = name[length];
                             if (digit >= '1' && digit <= '9') index = func_02005a94((char*)name + length) - 1;
                             tag->expand(name, &output, context, index);

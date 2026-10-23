@@ -5,9 +5,9 @@
 struct Struct0200fb08;
 struct EntryList0204af14;
 
-unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
-void* GetEntryByIndexStride0x10(struct EntryList0204af14* list, unsigned int index);
-void CallFunc0204b620IfField0x14_0204b938(void* a, void* b, int x, int y, unsigned short id);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
+extern "C" void* func_0204af14(struct EntryList0204af14* list, unsigned int index);
+extern "C" void func_0204b938(void* a, void* b, int x, int y, unsigned short id);
 extern "C" void func_0205ac40(void* dst, void* src);
 
 // USA: func_ov000_0218124c
@@ -16,20 +16,20 @@ extern "C" int func_ov017_021bdbcc(void*);
 extern "C" ARM void func_ov000_0218124c(unsigned char* obj, int idx, void* target, int icon, short x, short y) {
     GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(idx);
     if (member != 0 && *(int*)((char*)member + 0x1b8) != 0) {
-        void* entry = GetEntryByIndexStride0x10((EntryList0204af14*)(obj + 0x8c4), 28);
-        CallFunc0204b620IfField0x14_0204b938(target, entry, x, y, (unsigned short)(idx + 2));
+        void* entry = func_0204af14((EntryList0204af14*)(obj + 0x8c4), 28);
+        func_0204b938(target, entry, x, y, (unsigned short)(idx + 2));
         return;
     }
     unsigned char entryIdx = icon + 15;
     if (func_ov017_021bdbcc(GetGameResources()) != 0) entryIdx = 15;
-    void* entry = GetEntryByIndexStride0x10((EntryList0204af14*)(obj + 0x8c4), entryIdx);
-    CallFunc0204b620IfField0x14_0204b938(target, entry, x, y, (unsigned short)(idx + 2));
+    void* entry = func_0204af14((EntryList0204af14*)(obj + 0x8c4), entryIdx);
+    func_0204b938(target, entry, x, y, (unsigned short)(idx + 2));
 }
 #else
 extern "C" ARM void func_ov000_0218124c(unsigned char* obj, int idx, void* target, int unused, short x, short y, short posX, short posY) {
     GameState* gs = GameState::GetInstance();
     unsigned int entryIdx = 5;
-    switch (NormalizeField5_0200fb08((struct Struct0200fb08*)gs)) {
+    switch (func_0200fb08((struct Struct0200fb08*)gs)) {
     case 2:
         entryIdx = 6;
         break;
@@ -43,8 +43,8 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* obj, int idx, void* targe
         entryIdx = 9;
         break;
     }
-    void* entry = GetEntryByIndexStride0x10((struct EntryList0204af14*)(obj + 0x8c4), entryIdx);
-    CallFunc0204b620IfField0x14_0204b938(target, entry, (short)(x + 2), (short)(y + 1), idx + 2);
+    void* entry = func_0204af14((struct EntryList0204af14*)(obj + 0x8c4), entryIdx);
+    func_0204b938(target, entry, (short)(x + 2), (short)(y + 1), idx + 2);
     GameObject* member = gs->GetPartyMemberByIndex(idx);
     if (member != 0 && *(int*)((char*)member + 0x1c4) == 0) {
         unsigned char* p = *(unsigned char**)(obj + 0x170) + (idx + 0x20) * 0x28;

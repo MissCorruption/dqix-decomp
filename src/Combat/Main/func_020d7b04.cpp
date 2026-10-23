@@ -5,9 +5,9 @@
 #include "Resource/GameResources.h"
 
 struct FontBankLoader;
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 struct ListHead02046b60;
-int ListContainsId(ListHead02046b60*, int);
+extern "C" int func_02046b60(ListHead02046b60*, int);
 extern "C" void func_ov016_0218b5c0(int, int);
 extern "C" void func_ov017_0218b5f8(int);
 extern "C" void func_02046380(void*);
@@ -16,8 +16,8 @@ extern "C" void func_0204500c(void*, void*, int);
 #else
 extern "C" void func_0204500c(void*, void*, int, int);
 #endif
-void InitFields02042b3c(void*);
-void ReinitController02043204(char*);
+extern "C" void func_02042b3c(void*);
+extern "C" void func_02043204(char*);
 extern char data_020f2348[];
 
 struct QueuedTextEntry {
@@ -68,13 +68,13 @@ struct MessageWindowState {
 extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
     char formattedText[0xc8];
     GameState* game = GameState::GetInstance();
-    FontBankLoader* fonts = GetGlobal02109400_02094a00();
-    MessageWindowState* window = static_cast<MessageWindowState*>(GetGlobalField0x1c020421a0());
-    if (queue->fontRequested && !AlwaysTrue02094b4c(fonts)) return;
+    FontBankLoader* fonts = func_02094a00();
+    MessageWindowState* window = static_cast<MessageWindowState*>(func_020421a0());
+    if (queue->fontRequested && !func_02094b4c(fonts)) return;
 
     void* requests = GetGameResources()->unknown_ptr_array_36fc[0];
-    if (ListContainsId((ListHead02046b60*)requests, 0x25)) return;
-    if (ListContainsId((ListHead02046b60*)requests, 0x26)) return;
+    if (func_02046b60((ListHead02046b60*)requests, 0x25)) return;
+    if (func_02046b60((ListHead02046b60*)requests, 0x26)) return;
 
     unsigned short elapsed = game->GetEffectiveDeltaTime();
     if (queue->remainingMilliseconds != 0) {
@@ -100,11 +100,11 @@ extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
         if (queue->entries[0].style != 0) {
             int canLoadFont = 1;
             if (queue->entries[0].waitForRequestC) {
-                canLoadFont = !ListContainsId((ListHead02046b60*)requests, 0xc);
+                canLoadFont = !func_02046b60((ListHead02046b60*)requests, 0xc);
             }
             if (canLoadFont) {
-                BlankFunction02094b3c(fonts, 10);
-                BlankFunction02094b30(fonts, 505, 0);
+                func_02094b3c(fonts, 10);
+                func_02094b30(fonts, 505, 0);
                 queue->entries[0].style = 0;
                 queue->fontRequested = 1;
                 return;
@@ -127,7 +127,7 @@ extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
                 func_0204500c(window, formattedText, 0, 0x100);
             }
 #endif
-            InitFields02042b3c(window);
+            func_02042b3c(window);
             window->active = 1;
             window->state = 1;
             queue->windowActive = 1;
@@ -143,7 +143,7 @@ extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
             queue->fontRequested = 0;
         }
         if (queue->windowActive) {
-            ReinitController02043204(static_cast<char*>(GetGlobalField0x1c020421a0()));
+            func_02043204(static_cast<char*>(func_020421a0()));
             queue->windowActive = 0;
         }
     }

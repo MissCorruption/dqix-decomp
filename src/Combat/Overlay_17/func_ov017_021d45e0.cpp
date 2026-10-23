@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Rec_021c90f8 { unsigned short a; short b; unsigned short c; unsigned short d; unsigned short e; unsigned char f; };
-void CopyRec_021c90f8(Rec_021c90f8* dst, Rec_021c90f8* src);
+extern "C" void func_ov017_021c90f8(Rec_021c90f8* dst, Rec_021c90f8* src);
 
 struct Entry_021d45e0 {
     unsigned char flags;
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov017_021d45e0(Entry_021d45e0* arr, Rec_021c90f8* rec) 
         }
     }
     if (found != NULL) {
-        CopyRec_021c90f8(&found->data, rec);
+        func_ov017_021c90f8(&found->data, rec);
         found->id = rec->a;
         found->flags |= 0x2;
         func_ov017_021d46a4(arr, found);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021d45e0(Entry_021d45e0* arr, Rec_021c90f8* rec) 
     if (freeSlot == NULL) {
         return;
     }
-    CopyRec_021c90f8(&freeSlot->data, rec);
+    func_ov017_021c90f8(&freeSlot->data, rec);
     freeSlot->id = rec->a;
     freeSlot->flags |= 0x2;
     func_ov017_021d46a4(arr, freeSlot);

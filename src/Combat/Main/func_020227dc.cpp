@@ -9,31 +9,31 @@
 
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" char* func_0203bd08(void);
-ARM void* GetData02105254_0203b628(void);
+extern "C" ARM void* func_0203b628(void);
 
 extern "C" void func_02021428(void* unused0, int amount);
-void InitSubScreenDisplay_020209d0(void* context);
-void TailForward0203b66c(char* obj);
-void InitSubObject0203bd78(char* obj);
-void InitBattleContext0203bd24(char* obj);
+extern "C" void func_020209d0(void* context);
+extern "C" void func_0203b66c(char* obj);
+extern "C" void func_0203bd78(char* obj);
+extern "C" void func_0203bd24(char* obj);
 
-int DispatchCharTransfer0203b784(int* arr1, int idx, int category, int addr, unsigned int len, unsigned int len2);
-void SetArraySlotFlag0203b718(void* objPtr, int mode, int idx, int fillByte);
+extern "C" int func_0203b784(int* arr1, int idx, int category, int addr, unsigned int len, unsigned int len2);
+extern "C" void func_0203b718(void* objPtr, int mode, int idx, int fillByte);
 extern "C" void func_0203ba74(void* obj);
 
-void Init0205a198(struct Struct0205a198* p);
-void InitStruct0205a444(char* obj);
+extern "C" void func_0205a198(struct Struct0205a198* p);
+extern "C" void func_0205a444(char* obj);
 
-void InitFourEntrySlots02020aa0(void* obj);
+extern "C" void func_02020aa0(void* obj);
 
 struct State0xbb1c;
-void ClearFields0x8_0203bb1c(struct State0xbb1c* obj);
+extern "C" void func_0203bb1c(struct State0xbb1c* obj);
 
 struct Obj0203bb3c;
-void SetupAndDispatchCharTransfer0203bb3c(struct Obj0203bb3c* obj, char* src, SafeAllocator* allocator, int category, unsigned short arg5);
+extern "C" void func_0203bb3c(struct Obj0203bb3c* obj, char* src, SafeAllocator* allocator, int category, unsigned short arg5);
 
 struct Bcb8Params;
-void ForwardParamsToB8bc_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
+extern "C" void func_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
 
 struct ResetStruct {
     int w0;
@@ -58,9 +58,9 @@ struct Struct02030774;
 
 extern "C" void func_0202445c(void* obj);
 extern "C" void func_ov017_02191234(void* obj);
-void DelayThenSyncBit0_020c9820(void);
+extern "C" void func_020c9820(void);
 extern "C" void func_0202343c(void* obj);
-void MarkActiveCombatantSlots02026b7c(unsigned char* obj);
+extern "C" void func_02026b7c(unsigned char* obj);
 extern "C" void func_02026bdc(void* obj, int flag);
 
 extern char data_020ef67c;
@@ -91,7 +91,7 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     unsigned short* p6 = func_02012fe4();
     char* axisObj = ((char*)GetGameResources());
     char* p8 = func_0203bd08();
-    void* dataPtr = GetData02105254_0203b628();
+    void* dataPtr = func_0203b628();
     int i;
     SafeAllocator* sb = (SafeAllocator*)(axisObj + 0x128);
 
@@ -115,24 +115,24 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     if (IsBrightnessWithinValidRange((GameResources*)axisObj, true) != 0) return;
 
     func_02020720(ctx);
-    InitSubScreenDisplay_020209d0(ctx);
-    TailForward0203b66c((char*)dataPtr);
+    func_020209d0(ctx);
+    func_0203b66c((char*)dataPtr);
     sb->Reset();
-    InitSubObject0203bd78(p8);
-    InitBattleContext0203bd24(p8);
+    func_0203bd78(p8);
+    func_0203bd24(p8);
 
     char buf[0x20];
     memset(buf, 0, 0x20);
-    DispatchCharTransfer0203b784((int*)dataPtr, 1, 1, (int)buf, 0x20, 1);
-    SetArraySlotFlag0203b718(dataPtr, 1, 0, 0);
-    SetArraySlotFlag0203b718(dataPtr, 1, 1, 0);
+    func_0203b784((int*)dataPtr, 1, 1, (int)buf, 0x20, 1);
+    func_0203b718(dataPtr, 1, 0, 0);
+    func_0203b718(dataPtr, 1, 1, 0);
     func_0203ba74(dataPtr);
 
     for (i = 0; i < 0x1c; i++) {
-        Init0205a198(&ctx->records[i]);
+        func_0205a198(&ctx->records[i]);
     }
 
-    InitStruct0205a444((char*)&ctx->entryList);
+    func_0205a444((char*)&ctx->entryList);
     ctx->entryList.active = 1;
     ctx->entryList.records = ctx->records;
     ctx->entryList.count = 0x1c;
@@ -143,7 +143,7 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     func_02020aec(ctx, &ctx->taska24, sb);
 #endif
 
-    InitFourEntrySlots02020aa0(ctx);
+    func_02020aa0(ctx);
     ctx->nameCount = 1;
     ctx->forwardingCount = 1;
 
@@ -152,10 +152,10 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     loader->GetLoadedFileByID(ctx->taska20, &fileData, &fileSize);
 
     ctx->names = (Entry02021578*)sb->Allocate(sizeof(Entry02021578));
-    ClearFields0x8_0203bb1c((struct State0xbb1c*)((char*)ctx->names + 8));
+    func_0203bb1c((struct State0xbb1c*)((char*)ctx->names + 8));
 
-    SetupAndDispatchCharTransfer0203bb3c((struct Obj0203bb3c*)((char*)ctx->names + 8), (char*)fileData, sb, 1, 0);
-    ForwardParamsToB8bc_0203bcb8((struct Bcb8Params*)((char*)ctx->names + 8), 0, 0);
+    func_0203bb3c((struct Obj0203bb3c*)((char*)ctx->names + 8), (char*)fileData, sb, 1, 0);
+    func_0203bcb8((struct Bcb8Params*)((char*)ctx->names + 8), 0, 0);
 
     BackgroundLoader::GetInstance()->RemoveTask(ctx->taska20);
     ctx->taska20 = -1;
@@ -187,8 +187,8 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     ctx->field9c8 = 0;
     ctx->field9c3 = 0;
     ctx->loadStage = ctx->loadStage + 1;
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     func_0202343c(ctx);
-    MarkActiveCombatantSlots02026b7c((unsigned char*)ctx);
+    func_02026b7c((unsigned char*)ctx);
     func_02026bdc(ctx, 0);
 }

@@ -18,13 +18,13 @@ struct Variant02030b0c {
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206dfe8(void* p, int a, int b);
 
-void ClearRegions0206e080(char* obj, int slot);
-void ClearIndexedEntryFields0206e0d0(char* obj, int slot);
+extern "C" void func_0206e080(char* obj, int slot);
+extern "C" void func_0206e0d0(char* obj, int slot);
 extern "C" void func_0206df6c(void* obj, unsigned char* arr, int idx, int flag);
 
-void SetField5cb0AndRecordByte0_02010774(char* obj, int v);
-void SetField5cb4AndRecordByte1_020107a8(char* obj, int v);
-void SetSlotByte020107dc(char* base, int val);
+extern "C" void func_02010774(char* obj, int v);
+extern "C" void func_020107a8(char* obj, int v);
+extern "C" void func_020107dc(char* base, int val);
 
 struct MsgQueueState02108d70 {
     unsigned char forceFlag;
@@ -65,13 +65,13 @@ extern "C" ARM int func_020716a4(struct Variant02030b0c* args, int count) {
     }
 
     bs = GameState::GetInstance();
-    SetField5cb0AndRecordByte0_02010774((char*)bs, a);
-    SetField5cb4AndRecordByte1_020107a8((char*)bs, b);
-    SetSlotByte020107dc((char*)bs, c);
+    func_02010774((char*)bs, a);
+    func_020107a8((char*)bs, b);
+    func_020107dc((char*)bs, c);
 
     entry = func_0205ec34();
-    ClearRegions0206e080((char*)entry, *(unsigned char*)((char*)entry + 0x332));
-    ClearIndexedEntryFields0206e0d0((char*)entry, *(unsigned char*)((char*)entry + 0x332));
+    func_0206e080((char*)entry, *(unsigned char*)((char*)entry + 0x332));
+    func_0206e0d0((char*)entry, *(unsigned char*)((char*)entry + 0x332));
     func_0206dfe8(entry, 0, 0x200);
     func_0206dfe8(entry, 0x38e, 0x3e8);
 

@@ -8,7 +8,7 @@ enum { kRegionalFieldOffset = 0x3718 };
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 
 struct SlotBits_021ca6dc {
     unsigned short field0 : 2;
@@ -32,7 +32,7 @@ struct SlotObj_021ca6dc {
 };
 
 struct Obj02088818;
-void SetStateAndByte0x6a(struct Obj02088818* obj, unsigned short mode);
+extern "C" void func_02088818(struct Obj02088818* obj, unsigned short mode);
 
 struct EventSrc_021ca6dc {
     char pad0[4];
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021ca6dc(void* unused0, struct EventSrc_021ca6dc*
     if (!p1c) {
         return;
     }
-    int val = GetField0x3acValue_020100a8(battleStruct);
+    int val = func_020100a8(battleStruct);
     if (*(signed char*)((char*)p1c + 0x2a) == val) {
         return;
     }
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021ca6dc(void* unused0, struct EventSrc_021ca6dc*
     unsigned char f6 = src->bits8.field6;
     slot->bits.field6 = f6;
     unsigned char f9 = src->bits8.field9;
-    SetStateAndByte0x6a((struct Obj02088818*)slot, f9);
+    func_02088818((struct Obj02088818*)slot, f9);
     unsigned char f12 = src->bits8.field12;
     slot->bits.field12 = f12;
     slot->field0x24 = src->field0xa;

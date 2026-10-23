@@ -4,9 +4,9 @@ extern "C" void func_ov004_02153978(void* self, short* a, short* b, short* c);
 extern "C" void func_ov023_021f645c(void* a, int b, unsigned short c, int d);
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
-void ClearElements_021e1518(void* obj);
-void BuildLinkedList_021e1564(void* a, int b, int c, int d);
-void BuildChain_021e15b4(void* a, int b, int c, int d);
+extern "C" void func_ov023_021e1518(void* obj);
+extern "C" void func_ov023_021e1564(void* a, int b, int c, int d);
+extern "C" void func_ov023_021e15b4(void* a, int b, int c, int d);
 
 struct BattleState_0215482c {
     unsigned char pad[0x7c];
@@ -67,11 +67,11 @@ extern "C" ARM int func_ov004_0215482c(void* self) {
 
         void* result = node->MethodEc();
         if (result) {
-            ClearElements_021e1518(result);
+            func_ov023_021e1518(result);
             if (flag) {
-                BuildLinkedList_021e1564(result, d1, d2, d3);
+                func_ov023_021e1564(result, d1, d2, d3);
             } else {
-                BuildChain_021e15b4(result, d1, d2, d3);
+                func_ov023_021e15b4(result, d1, d2, d3);
             }
         }
     }

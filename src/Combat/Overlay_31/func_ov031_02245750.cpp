@@ -22,7 +22,7 @@ struct Obj02245750 {
 	unsigned char field0xc[8];
 };
 
-// USA: func_ov031_02245750  (semantic: CheckTagAndRegisterSlot_02245750)
+// USA: func_ov031_02245750
 extern "C" ARM int func_ov031_02245750(void* unused, Obj02245750* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x928};

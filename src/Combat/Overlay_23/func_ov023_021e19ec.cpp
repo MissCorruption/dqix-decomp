@@ -18,7 +18,7 @@ struct List_021e19ec {
     short count;
 };
 
-// USA: func_ov023_021e19ec  (semantic: FindBestEntry_021e19ec)
+// USA: func_ov023_021e19ec
 extern "C" ARM struct Struct_021e12cc* func_ov023_021e19ec(struct List_021e19ec* list, int filterMode, int arg2, int arg3, int requireBit1) {
     unsigned short bestVal = 0xffff;
     int ok;

@@ -4,11 +4,11 @@
 extern "C" void *func_0202ae18(void);
 extern "C" void func_ov002_02153e90(void *entry);
 extern "C" int func_ov002_02154a6c(void *self, int idA, int idB);
-int HasPositiveField256Short178_02154b94(void *self, int id);
-GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *gameState, int combatantId);
+extern "C" int func_ov002_02154b94(void *self, int id);
+extern "C" GameObject *func_0200ff1c(GameState *gameState, int combatantId);
 extern "C" short func_02084a64(void *a, int b);
 extern "C" void func_02083e28(void *a, int arg2);
-int CheckField0NonZero_0202b7d8(int *p);
+extern "C" int func_0202b7d8(int *p);
 extern "C" void func_ov017_021cf078(int id, unsigned char b, int c);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 
@@ -56,17 +56,17 @@ extern "C" ARM int func_ov002_021546c8(void *self, struct Req021546c8 *req, void
             e->kind = 1;
             continue;
         }
-        if (HasPositiveField256Short178_02154b94(self, id)) {
+        if (func_ov002_02154b94(self, id)) {
             e->kind = 2;
             continue;
         }
-        GameObject *m = GetCombatantWithFlag0x100_0200ff1c(gs, id);
+        GameObject *m = func_0200ff1c(gs, id);
         if (m == NULL) continue;
         e->val = func_02084a64(*(void **) ((char *) m + regionalOffset0), req->s0);
         if (e->val <= 0) continue;
         e->kind = 3;
         func_02083e28(*(void **) ((char *) m + regionalOffset0), 0);
-        if (CheckField0NonZero_0202b7d8((int *) w)) {
+        if (func_0202b7d8((int *) w)) {
             func_ov017_021cf078(id, *(int *) (*(char **) ((char *) m + regionalOffset0) + regionalOffset1) & 0xff, 1);
             func_ov017_021c9e00(id, 0, 0, 1);
         }

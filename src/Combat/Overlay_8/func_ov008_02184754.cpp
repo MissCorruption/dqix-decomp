@@ -91,8 +91,8 @@ extern StateFunction data_020e6d5c;
 struct Obj021870e4;
 struct TaskState0209ff6c;
 
-void ClearFlagIfDone_021870e4_021870e4(Obj021870e4* obj, unsigned int ticks);
-void PollOv017Task0209ff6c(TaskState0209ff6c* titles);
+extern "C" void func_ov008_021870e4(Obj021870e4* obj, unsigned int ticks);
+extern "C" void func_0209ff6c(TaskState0209ff6c* titles);
 
 extern "C" {
 void func_ov008_02188ef0(BattleRecords* self);
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov008_02184754(BattleRecords* self)
     func_0205d0e0(&self->window_, ticks);
     func_ov008_02186e4c(self, ticks);
     self->model_.AdvanceEffects();
-    ClearFlagIfDone_021870e4_021870e4((Obj021870e4*)self, ticks);
+    func_ov008_021870e4((Obj021870e4*)self, ticks);
     func_ov008_0218747c(self, 0);
     func_ov008_0218747c(self, 1);
     StateTable table = data_ov008_0218b340;
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov008_02184754(BattleRecords* self)
         return 0;
     (self->*table.states[self->state_])(ticks);
     if (self->titles_ != NULL)
-        PollOv017Task0209ff6c((TaskState0209ff6c*)self->titles_);
+        func_0209ff6c((TaskState0209ff6c*)self->titles_);
     if (self->guide_ != NULL)
         func_ov023_021eb43c(self->guide_);
     if (self->state_ == 14)

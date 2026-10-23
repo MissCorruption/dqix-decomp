@@ -42,23 +42,23 @@ extern ControlHandler data_020f079c[2];
 #else
 extern ControlHandler data_020f08b8[2];
 #endif
-void SetupAndDispatch0205c904(unsigned char*, int);
-int CheckGlobalObjState2AndInit0205cde8(unsigned char*);
-void InitGlobalObjAndSelfPointer0205cd94(unsigned char*);
-int GetFieldIfFlag4_020100f8(char*);
-int GetWord0x0_0200fb8c(int*);
-int GetIntAt0x23c(IntField0x23c_020a27c4*);
-int IsFieldNotPositive_021a4e70(unsigned char*);
-int GetScaledSumIfActive0205cecc(void*);
-int CallFunc0205c570AtField0x1c_0205cb64(void*);
+extern "C" void func_0205c904(unsigned char*, int);
+extern "C" int func_0205cde8(unsigned char*);
+extern "C" void func_0205cd94(unsigned char*);
+extern "C" int func_020100f8(char*);
+extern "C" int func_0200fb8c(int*);
+extern "C" int func_020a27c4(IntField0x23c_020a27c4*);
+extern "C" int func_ov017_021a4e70(unsigned char*);
+extern "C" int func_0205cecc(void*);
+extern "C" int func_0205cb64(void*);
 
 // USA: func_020676e0
 extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
     if (state->state != 6) return;
     if (!state->enabled) return;
-    SetupAndDispatch0205c904(state->controls, elapsed);
-    if (!CheckGlobalObjState2AndInit0205cde8(state->controls)) {
-        InitGlobalObjAndSelfPointer0205cd94(state->controls);
+    func_0205c904(state->controls, elapsed);
+    if (!func_0205cde8(state->controls)) {
+        func_0205cd94(state->controls);
         return;
     }
     int enabled = 1;
@@ -68,11 +68,11 @@ extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
     unsigned char* resource;
     int mode = state->mode;
     game = GameState::GetInstance();
-    IntField0x23c_020a27c4* field = (IntField0x23c_020a27c4*)GetFieldIfFlag4_020100f8((char*)game);
-    resource = (unsigned char*)GetWord0x0_0200fb8c((int*)game);
+    IntField0x23c_020a27c4* field = (IntField0x23c_020a27c4*)func_020100f8((char*)game);
+    resource = (unsigned char*)func_0200fb8c((int*)game);
     if (mode != 1 && state->alternateInput) {
         if (field) {
-            if ((field->flags & 2) || !GetIntAt0x23c(field))
+            if ((field->flags & 2) || !func_020a27c4(field))
                 pressed |= g_keyManager.TestKeysPressed(0x200);
         } else {
             pressed |= g_keyManager.TestKeysPressed(0x200);
@@ -80,7 +80,7 @@ extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
     }
     int specialMode = 0;
     if (((GameModeView*)game)->mode == 2) specialMode = 1;
-    if (!specialMode && resource && !IsFieldNotPositive_021a4e70(resource)) {
+    if (!specialMode && resource && !func_ov017_021a4e70(resource)) {
         pressed = 0;
         cancelled = 0;
         enabled = 0;
@@ -91,8 +91,8 @@ extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
         enabled = 0;
     }
     int value = -1;
-    if (enabled) value = GetScaledSumIfActive0205cecc(state->controls);
-    if (pressed) value = CallFunc0205c570AtField0x1c_0205cb64(state->controls);
+    if (enabled) value = func_0205cecc(state->controls);
+    if (pressed) value = func_0205cb64(state->controls);
     else if (cancelled) value = -2;
     state->value = value;
     (state->*data_020f08b8[mode])(value);

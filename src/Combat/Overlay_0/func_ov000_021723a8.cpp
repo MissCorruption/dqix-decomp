@@ -15,16 +15,16 @@ struct State0xc0cc { char pad[0x18]; };
 enum { regionalEntrySize = 0x448, regionalStates1b84 = 9 };
 #endif
 
-void ZeroInit020de848(void* obj);
-void ResetList0204af64(struct List0204af64* obj);
-void InitStruct0205cfd4(struct InitTarget0205cfd4* obj);
-void Init0205bef8(struct Struct_0205bef8* obj);
+extern "C" void func_020de848(void* obj);
+extern "C" void func_0204af64(struct List0204af64* obj);
+extern "C" void func_0205cfd4(struct InitTarget0205cfd4* obj);
+extern "C" void func_0205bef8(struct Struct_0205bef8* obj);
 extern "C" void func_0204c684(void* obj);
-void InitObj02092aa4(Obj02092aa4* obj, int mode);
-void InitStruct0205a444(char* obj);
+extern "C" void func_02092aa4(Obj02092aa4* obj, int mode);
+extern "C" void func_0205a444(char* obj);
 extern "C" void* func_0202ae18(GameState* gs);
-int GetField0x3acValue_020100a8(GameState* gs);
-void InitFields0x0_0203c0cc(struct State0xc0cc* obj);
+extern "C" int func_020100a8(GameState* gs);
+extern "C" void func_0203c0cc(struct State0xc0cc* obj);
 
 struct Battle021723a8;
 extern "C" void func_ov000_0217228c(struct Battle021723a8* obj);
@@ -151,8 +151,8 @@ extern "C" ARM void func_ov000_021723a8(struct Battle021723a8* self, int arg) {
     self->alloc1ac8.ResetAllocatorPointer();
     self->alloc1adc.ResetAllocatorPointer();
     self->alloc1af8.ResetAllocatorPointer();
-    ZeroInit020de848(self->listD0);
-    ZeroInit020de848(self->listE8);
+    func_020de848(self->listD0);
+    func_020de848(self->listE8);
     data_ov000_02184288.battle = self;
     self->f68 = 0;
     self->f178 = 0;
@@ -176,17 +176,17 @@ extern "C" ARM void func_ov000_021723a8(struct Battle021723a8* self, int arg) {
             v1;
         }
     }
-    ResetList0204af64(&self->lists[0]);
-    ResetList0204af64(&self->lists[1]);
-    ResetList0204af64(&self->lists[2]);
-    InitStruct0205cfd4(&self->obj188);
-    Init0205bef8(&self->obj244);
+    func_0204af64(&self->lists[0]);
+    func_0204af64(&self->lists[1]);
+    func_0204af64(&self->lists[2]);
+    func_0205cfd4(&self->obj188);
+    func_0205bef8(&self->obj244);
     for (int i = 0; i < 7; i++) {
         func_0204c684(self->slots284[i]);
     }
     self->f1af0 = arg;
-    InitObj02092aa4(&self->obj7c, 0);
-    InitStruct0205a444(self->obj11c);
+    func_02092aa4(&self->obj7c, 0);
+    func_0205a444(self->obj11c);
     self->f170 = 0;
     self->f174 = 0;
     self->f910 = 0;
@@ -220,24 +220,24 @@ extern "C" ARM void func_ov000_021723a8(struct Battle021723a8* self, int arg) {
     self->f1d7a = 0;
     GameState* gs = GameState::GetInstance();
     func_0202ae18(gs);
-    int id = GetField0x3acValue_020100a8(gs);
+    int id = func_020100a8(gs);
     if (id < 0) {
         id = 0;
     }
     self->f17c = id;
     func_ov000_0217228c(self);
-    InitFields0x0_0203c0cc(&self->state1b54);
-    InitFields0x0_0203c0cc(&self->state1b6c);
+    func_0203c0cc(&self->state1b54);
+    func_0203c0cc(&self->state1b6c);
     for (int i = 0; i < regionalStates1b84; i++) {
-        InitFields0x0_0203c0cc(&self->states1b84[i]);
+        func_0203c0cc(&self->states1b84[i]);
     }
 #if !defined(jpn)
     for (int i = 0; i < 3; i++) {
-        InitFields0x0_0203c0cc(&self->states1b0c[i]);
+        func_0203c0cc(&self->states1b0c[i]);
     }
 #endif
     for (int i = 0; i < 8; i++) {
-        InitFields0x0_0203c0cc(&self->states1c5c[i]);
+        func_0203c0cc(&self->states1c5c[i]);
     }
     struct Entry021723a8* e;
     for (int i = 0; i < 4; i++) {
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov000_021723a8(struct Battle021723a8* self, int arg) {
         e->f0 = self->listD0;
     }
     func_ov000_0217feb0(self, 0, -1);
-    func_ov000_0217feb0(self, 1, GetField0x3acValue_020100a8(gs));
+    func_ov000_0217feb0(self, 1, func_020100a8(gs));
     func_ov000_02174b14(self);
     self->f1d7c = 0;
     self->f1d78 = 0;

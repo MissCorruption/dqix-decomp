@@ -105,17 +105,17 @@ struct State02180ca8  {
 };
 extern "C" int func_ov000_0217fe30(State02180ca8*);
 extern "C" void func_0205ac40(void*, void*);
-int HasAnyFlags_021719f8_021719f8(int*);
-int GetHPCategory02174e34(int, int);
-Struct0203c1c8* GetSlotSubField0x68_ov000_02174e1c(void*, int);
+extern "C" int func_ov000_021719f8(int*);
+extern "C" int func_ov000_02174e34(int, int);
+extern "C" Struct0203c1c8* func_ov000_02174e1c(void*, int);
 extern "C" int func_ov000_02171ffc(Action02180ca8*);
 #if defined(jpn)
-void AdjustAndDispatchEntry0203c1c8(Struct0203c1c8*, int);
+extern "C" void func_0203c1c8(Struct0203c1c8*, int);
 #else
-void AdjustAndDispatchEntry0203c1c8(Struct0203c1c8*);
+extern "C" void func_0203c1c8(Struct0203c1c8*);
 #endif
-void* GetEntryByIndexStride0x10(EntryList0204af14*, unsigned int);
-void CallFunc0204b620IfField0x14_0204b878(Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
+extern "C" void* func_0204af14(EntryList0204af14*, unsigned int);
+extern "C" void func_0204b878(Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern const int data_ov000_02183674[11];
 static inline int ValidSlot(int slot)  { return slot >= 0 && slot <= 3; }
 // USA: func_ov000_02180ca8
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
     int actorId = action->actorId;
     tileX = x >> 3;
     tileY = y >> 3;
-    GameObject* actor = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), actorId);
+    GameObject* actor = func_0200ff1c(GameState::GetInstance(), actorId);
     if (func_ov000_0217fe30(self) && actor && action->amount && ((Actor02180ca8*)actor)->stats->special)  {
         DisplayEntry02180ca8* display = &self->displayEntries[30];
         display->x = 0;
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             display->active = 1;
             func_0205ac40(self->display, display);
         }
-        if (action->state == 6 || action->amount == 0 || HasAnyFlags_021719f8_021719f8(action->flags) || action->state == 2 || action->animation != 5)  {
+        if (action->state == 6 || action->amount == 0 || func_ov000_021719f8(action->flags) || action->state == 2 || action->animation != 5)  {
             return;
         }
         int slot;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
         category = 3;
         if (action->commands[action->commandIndex] != 0x66)  {
             category = 0;
-            int value = GetHPCategory02174e34((int)self, slot);
+            int value = func_ov000_02174e34((int)self, slot);
             if (value != -1)  {
                 category = value;
             }
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             entry = &self->entries[displayIndex];
         }
         if (ValidSlot(slot))  {
-            entry = GetSlotSubField0x68_ov000_02174e1c(self, slot);
+            entry = func_ov000_02174e1c(self, slot);
         }
         switch (func_ov000_02171ffc(action))  {
             case 3:
@@ -250,15 +250,15 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             entry->x = positionX;
             entry->y = ys[i];
 #if defined(jpn)
-            AdjustAndDispatchEntry0203c1c8(entry, 0xa);
+            func_0203c1c8(entry, 0xa);
 #else
-            AdjustAndDispatchEntry0203c1c8(entry);
+            func_0203c1c8(entry);
 #endif
             entry->active = 1;
         }
         entry->category = 0;
-        void* selectedEntry = GetEntryByIndexStride0x10((EntryList0204af14*)self->entryList, 3);
-        CallFunc0204b620IfField0x14_0204b878(list, (int)selectedEntry, 0, 0,
+        void* selectedEntry = func_0204af14((EntryList0204af14*)self->entryList, 3);
+        func_0204b878(list, (int)selectedEntry, 0, 0,
 #if defined(jpn)
             tileX + 16,
 #else
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
     }
     else  {
         Struct0203c1c8* entry = &self->actionEntry;
-        if (HasAnyFlags_021719f8_021719f8(action->flags) || action->busy)  {
+        if (func_ov000_021719f8(action->flags) || action->busy)  {
             return;
         }
         if (self->selected == 0 && self->mode == 2)  {
@@ -302,9 +302,9 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             entry->x = xPointer[i];
             entry->y = yPointer[i];
 #if defined(jpn)
-            AdjustAndDispatchEntry0203c1c8(entry, 0xa);
+            func_0203c1c8(entry, 0xa);
 #else
-            AdjustAndDispatchEntry0203c1c8(entry);
+            func_0203c1c8(entry);
 #endif
             entry->category = categoryPointer[i];
             entry->active = 1;

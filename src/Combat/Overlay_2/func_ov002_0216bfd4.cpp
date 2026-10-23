@@ -9,21 +9,21 @@
 struct Entry_0205d6a0;
 struct Outer020e28dc;
 struct Obj020e25e8;
-char *GetGlobalField0x1c020421a0();
-void ReinitController02043204(char *p);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0 *e, int a);
-void ResetSelectionState020e25e8(struct Obj020e25e8 *o);
-int GetInnerFlagBit0020e28dc(struct Outer020e28dc *o);
+extern "C" char *func_020421a0();
+extern "C" void func_02043204(char *p);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0 *e, int a);
+extern "C" void func_020e25e8(struct Obj020e25e8 *o);
+extern "C" int func_020e28dc(struct Outer020e28dc *o);
 extern "C" void func_ov002_0215b9a4(char *self, unsigned char key, int flag);
 
 // USA: func_ov002_0216bfd4
 extern "C" ARM void func_ov002_0216bfd4(char *base, unsigned char mode) {
-    char *g = GetGlobalField0x1c020421a0();
+    char *g = func_020421a0();
     if (*(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) != 0) {
         *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
         *(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
         func_ov002_0215b9a4(base, *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)), 1);
-        ResetEntryList0205d6a0((struct Entry_0205d6a0 *) (base + RG(0x2c8 + 0xc00, 0xe20)), 0);
+        func_0205d6a0((struct Entry_0205d6a0 *) (base + RG(0x2c8 + 0xc00, 0xe20)), 0);
     }
     *(unsigned char *) (base + 0x1000 + RG(0xc79, 0xb3d)) = mode;
     *(unsigned char *) (base + 0x1000 + RG(0xc30, 0xaf8)) = 1;
@@ -95,15 +95,15 @@ extern "C" ARM void func_ov002_0216bfd4(char *base, unsigned char mode) {
             break;
     }
     if (reset && *(void **) (base + 4) != NULL &&
-        GetInnerFlagBit0020e28dc(*(struct Outer020e28dc **) (base + 4)))
+        func_020e28dc(*(struct Outer020e28dc **) (base + 4)))
     {
-        ResetSelectionState020e25e8(*(struct Obj020e25e8 **) (base + 4));
+        func_020e25e8(*(struct Obj020e25e8 **) (base + 4));
     }
     if (reinit) {
         if (!next) {
-            ReinitController02043204(g);
+            func_02043204(g);
         } else if (force) {
-            ReinitController02043204(g);
+            func_02043204(g);
         }
         *(int *) (base + 0x1000 + RG(0xbbc, 0xa84))           = RG(9, 10);
         *(unsigned char *) (base + 0x1000 + RG(0xc30, 0xaf8)) = 0;

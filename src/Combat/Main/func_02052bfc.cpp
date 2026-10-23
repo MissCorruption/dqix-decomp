@@ -47,16 +47,16 @@ struct Obj02052bfc {
     Sub150_02052bfc* field150;
 };
 
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
-void* GetPtrField0x2a04_02010828(GameState*);
+extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
+extern "C" void* func_02010828(GameState*);
 extern "C" void* func_02012fe4(void);
 extern "C" long long _ll_udiv(long long a, long long b);
-int IsField0Null_02046b08(void** obj);
-int IsEntryEligibleAndFlagged(Struct0201bc94* obj);
-int CallFunc020e0434With02153694_020e51cc(int value);
-void* GetGlobalResetObj020d7a50(void);
+extern "C" int func_02046b08(void** obj);
+extern "C" int func_0201bc94(Struct0201bc94* obj);
+extern "C" int func_020e51cc(int value);
+extern "C" void* func_020d7a50(void);
 extern "C" void func_ov017_02191aac(char* obj, int mode, int idx, unsigned char mask);
-void EnqueueEventTag17_021ce014(int a, unsigned short b, unsigned short c, unsigned short d);
+extern "C" void func_ov017_021ce014(int a, unsigned short b, unsigned short c, unsigned short d);
 
 // USA: func_02052bfc
 extern "C" ARM void func_02052bfc(struct Obj02052bfc* obj) {
@@ -65,18 +65,18 @@ extern "C" ARM void func_02052bfc(struct Obj02052bfc* obj) {
     GameState* gs = GameState::GetInstance();
     GameResources* ov = GetGameResources();
     void* list = *(void**)((char*)ov + 0x3000 + kResourceWord);
-    ArrayContainsByteStruct* arr = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(gs);
+    ArrayContainsByteStruct* arr = (ArrayContainsByteStruct*)func_02010828(gs);
     Struct0201bc94* entry = (Struct0201bc94*)func_02012fe4();
     unsigned char idx = obj->field4 & 0xff;
 
-    if (!ArrayContainsByte_02086ef0(arr, idx)) return;
+    if (!func_02086ef0(arr, idx)) return;
     if (obj->field150->field56c == 0) return;
 
     uint64_t diff = GetCurrentTimestamp() - obj->field150->stamp;
     long long elapsed = _ll_udiv(diff << 6, 0x1ff6210);
 
-    if (!IsField0Null_02046b08((void**)list)) return;
-    if (elapsed < 0x12c && IsEntryEligibleAndFlagged(entry)) return;
+    if (!func_02046b08((void**)list)) return;
+    if (elapsed < 0x12c && func_0201bc94(entry)) return;
 
     char buf[0x80];
     obj->field150->field56c = 0;
@@ -85,22 +85,22 @@ extern "C" ARM void func_02052bfc(struct Obj02052bfc* obj) {
             #if defined(jpn)
             strcpy(buf, (char*)data_020f0420[1]);
 #else
-            strcpy(buf, (char*)CallFunc020e0434With02153694_020e51cc(0x33));
+            strcpy(buf, (char*)func_020e51cc(0x33));
 #endif
         }
         else {
             #if defined(jpn)
             strcpy(buf, (char*)data_020f0420[5]);
 #else
-            strcpy(buf, (char*)CallFunc020e0434With02153694_020e51cc(0x32));
+            strcpy(buf, (char*)func_020e51cc(0x32));
 #endif
         }
         #if defined(jpn)
-        func_020d7e10(GetGlobalResetObj020d7a50(), buf, 0, 0, 1);
+        func_020d7e10(func_020d7a50(), buf, 0, 0, 1);
 #else
-        func_020d7e10(GetGlobalResetObj020d7a50(), buf, 0, 0, 1, 1);
+        func_020d7e10(func_020d7a50(), buf, 0, 0, 1, 1);
 #endif
     }
     func_ov017_02191aac((char*)ov, 0, idx, 2);
-    EnqueueEventTag17_021ce014(0, 1, 0, idx);
+    func_ov017_021ce014(0, 1, 0, idx);
 }

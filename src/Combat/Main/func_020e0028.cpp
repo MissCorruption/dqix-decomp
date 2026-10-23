@@ -18,9 +18,9 @@ struct TextTable020e0028 {
 
 typedef int (*KeyFunc020e0310)(struct Element020e0310*);
 
-struct Element020e0310* BinarySearch020e0310(struct Container020e0310* c, int key, KeyFunc020e0310 fn);
-short GetShortAt0x0020dfbd4(short* obj);
-char* AllocateStringCopy020da150(SafeAllocator* allocator, const char* src);
+extern "C" struct Element020e0310* func_020e0310(struct Container020e0310* c, int key, KeyFunc020e0310 fn);
+extern "C" short func_020dfbd4(short* obj);
+extern "C" char* func_020da150(SafeAllocator* allocator, const char* src);
 extern "C" int func_020e0280(struct TextTable020e0028* self, void* src, unsigned char* outFlag, void* callback);
 extern "C" char* func_020dfbfc(struct TextTable020e0028* c, char* idx, int dflt);
 
@@ -54,7 +54,7 @@ extern "C" ARM int func_020e0028(struct TextTable020e0028* self, SafeAllocator* 
     id = ids;
     num = count;
     for (i = 0; i < num; i++, id++) {
-        if (BinarySearch020e0310((struct Container020e0310*)&src, *id, (KeyFunc020e0310)GetShortAt0x0020dfbd4) != NULL) n++;
+        if (func_020e0310((struct Container020e0310*)&src, *id, (KeyFunc020e0310)func_020dfbd4) != NULL) n++;
     }
 
     self->base = (struct Element020e0310*)allocator->Allocate(n * sizeof(struct Element020e0310));
@@ -63,11 +63,11 @@ extern "C" ARM int func_020e0028(struct TextTable020e0028* self, SafeAllocator* 
         id = ids;
         out = self->base;
         for (i = 0; i < num; i++, id++) {
-            struct Element020e0310* elem = BinarySearch020e0310((struct Container020e0310*)&src, *id, (KeyFunc020e0310)GetShortAt0x0020dfbd4);
+            struct Element020e0310* elem = func_020e0310((struct Container020e0310*)&src, *id, (KeyFunc020e0310)func_020dfbd4);
             if (elem != NULL) {
                 char* str = func_020dfbfc(&src, elem->str, 0);
                 out->key = elem->key;
-                out->str = AllocateStringCopy020da150(allocator, str);
+                out->str = func_020da150(allocator, str);
                 out++;
             }
         }

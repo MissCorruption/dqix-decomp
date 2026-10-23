@@ -18,31 +18,31 @@ extern const char data_ov010_02184a95[];
 extern const char data_ov010_02184aa6[];
 
 struct Struct021842d8;
-void ResetStateAndCleanup021842d8(struct Struct021842d8* obj);
+extern "C" void func_ov010_021842d8(struct Struct021842d8* obj);
 
 struct Obj020397cc;
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 
 struct List020727d8 {
     void* entries;
     short capacity;
     short count;
 };
-void ResetListHeader020727d8(struct List020727d8* list);
+extern "C" void func_020727d8(struct List020727d8* list);
 extern "C" void func_020728ac(void* list, void* alloc, void* buffer, int length, int a4, int a5, int a6);
 
 struct TableA68;
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
 
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void SetForwardAndStore0205ebc0(void* obj, int a, int b);
-void DispatchIfField0xc4NonNeg_0205ebfc(void* obj, int a, int b);
-void ForwardField0xc0_0205ebec(void* obj);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205ebc0(void* obj, int a, int b);
+extern "C" void func_0205ebfc(void* obj, int a, int b);
+extern "C" void func_0205ebec(void* obj);
 
 struct ColorHolder0204bd7c;
-unsigned short ConvertColorToDecimalOffset30000(struct ColorHolder0204bd7c* obj);
+extern "C" unsigned short func_0204bd7c(struct ColorHolder0204bd7c* obj);
 
 struct SearchEntry {
     unsigned short key;
@@ -53,37 +53,37 @@ struct SearchEntry {
     unsigned char padf;
 };
 struct SearchTable;
-struct SearchEntry* FindEntryByHalfwordKey_02099950(struct SearchTable* table, int key);
+extern "C" struct SearchEntry* func_02099950(struct SearchTable* table, int key);
 
-void* GetPtrField0x114_02033fa0(void* obj);
-void* GetPtrField0x468_02011584(void* obj);
-int GetField0x3acValue_020100a8(GameState* b);
-void* GetField0x74deForValidIndex_020120a0(char* base, unsigned int index);
-unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
+extern "C" void* func_02033fa0(void* obj);
+extern "C" void* func_02011584(void* obj);
+extern "C" int func_020100a8(GameState* b);
+extern "C" void* func_020120a0(char* base, unsigned int index);
+extern "C" unsigned char func_020100b0(GameState* battleStruct);
 
 struct Flags020340b4;
-void SetFlag0x80At0xc2(struct Flags020340b4* p);
+extern "C" void func_020340b4(struct Flags020340b4* p);
 
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
 extern "C" void func_02046380(void* global);
 extern "C" int func_020457e0(void* global);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 
 struct NodeList02057de0;
 extern "C" void* func_02057924(void);
-int CreateAndRegisterNode02057de0(struct NodeList02057de0* list, int a1, SafeAllocator* alloc, int a2, int a3);
-int FindNodeAndProcess02057fb4(void* list, int id, void* params);
+extern "C" int func_02057de0(struct NodeList02057de0* list, int a1, SafeAllocator* alloc, int a2, int a3);
+extern "C" int func_02057fb4(void* list, int id, void* params);
 
 struct Vector3i;
 
-void* SearchBothTables02079e2c(char* p, int key);
+extern "C" void* func_02079e2c(char* p, int key);
 
 struct Obj02048350;
-int ConsumeCounter02048350(struct Obj02048350* obj, int amount);
+extern "C" int func_02048350(struct Obj02048350* obj, int amount);
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
@@ -111,7 +111,7 @@ struct Actor02184354 {
     unsigned char pad0[0xc];
     unsigned char combatantId;
 };
-MessageSystem* GetGlobalField0x1c020421a0(void);
+extern "C" MessageSystem* func_020421a0(void);
 
 struct TableEntry02184354 {
     unsigned char pad0[8];
@@ -159,7 +159,7 @@ struct Ctx02184354 {
 // USA: func_ov010_02184354
 extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    MessageSystem* presenter = GetGlobalField0x1c020421a0();
+    MessageSystem* presenter = func_020421a0();
     GameState* bs = GameState::GetInstance();
     GameObject* caster;
     struct MoveRecord02184354* move;
@@ -169,7 +169,7 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     struct Actor02184354* actorInfo = *(Actor02184354**)((char*)GetGameResources() + 0x3ba8);
 #endif
     caster = bs->GetPartyMemberByIndex(actorInfo->combatantId);
-    GameObject* active = bs->GetPartyMemberByIndex(GetField0x397cValue_020100b0(bs));
+    GameObject* active = bs->GetPartyMemberByIndex(func_020100b0(bs));
     void* scene = func_0202ae18();
     void* ov17 = GetGameResources();
     move = (struct MoveRecord02184354*)func_02012fe4();
@@ -178,16 +178,16 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
 #endif
 
     if (caster == NULL || active == NULL) {
-        ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+        func_ov010_021842d8((struct Struct021842d8*)obj);
         return 1;
     }
 
     unsigned char state = obj->state;
     if (state == 0) {
-        CancelPendingAction020397cc((struct Obj020397cc*)active, 1);
-        void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0x7800);
+        func_020397cc((struct Obj020397cc*)active, 1);
+        void* buffer = func_02012d88(&data_02114e20, 0x7800);
         if (buffer == NULL) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
         obj->alloc.CreateTypeA(buffer, 0x7800);
@@ -200,35 +200,35 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     } else if (state == 1) {
         if (loader->GetTaskStatus(obj->taskId) == 0) return 0;
         if (loader->GetDetailedTaskStatus(obj->taskId) != 2) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
         void* filePtr;
         unsigned int fileLen;
         loader->GetLoadedFileByID(obj->taskId, &filePtr, &fileLen);
-        ResetListHeader020727d8(&obj->list);
+        func_020727d8(&obj->list);
         func_020728ac(&obj->list, &obj->alloc, filePtr, fileLen, 0, 0, 0);
         loader->RemoveTask(obj->taskId);
 
-        unsigned short* slot = (unsigned short*)GetField0x74deForValidIndex_020120a0((char*)bs, GetField0x3acValue_020100a8(bs));
+        unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
         if (slot == NULL) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
         struct MoveInfo02184354* info = move->info;
         if (info == NULL) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
 
         unsigned char visible = 1;
         obj->visible = visible;
         if (info->category == 0) {
-            void* colour = GetPtrField0x114_02033fa0(caster);
+            void* colour = func_02033fa0(caster);
             if (colour != NULL) {
-                struct SearchTable* table = (struct SearchTable*)GetPtrField0x468_02011584(bs);
-                struct SearchEntry* entry = FindEntryByHalfwordKey_02099950(table,
-                    ConvertColorToDecimalOffset30000((struct ColorHolder0204bd7c*)colour));
+                struct SearchTable* table = (struct SearchTable*)func_02011584(bs);
+                struct SearchEntry* entry = func_02099950(table,
+                    func_0204bd7c((struct ColorHolder0204bd7c*)colour));
                 if (entry != NULL) {
                     if (entry->kind != 0) obj->visible = 0;
                 }
@@ -251,17 +251,17 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         } else {
             key = 0;
             obj->state = 4;
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, key);
+            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, key);
         }
 
-        void* entry = FindEntryByKey_02072a68((struct TableA68*)&obj->list, (short)key);
+        void* entry = func_02072a68((struct TableA68*)&obj->list, (short)key);
 #if defined(jpn)
         sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
         func_0204500c(presenter, message, 0);
         presenter->active = 1;
 #else
         struct Vec3i02184354 casterObj;
-        InitObjFromCombatantId020e4bf4(&casterObj, actorInfo->combatantId);
+        func_020e4bf4(&casterObj, actorInfo->combatantId);
         func_02046380(presenter);
         *(void**)presenter = &casterObj;
         func_0204500c(presenter, (const char*)entry, 0, 0xe3);
@@ -274,25 +274,25 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         if (presenter->active != 0) return 0;
 #endif
         if (func_020457e0(presenter) == 0) {
-            void* entry = FindEntryByKey_02072a68((struct TableA68*)&obj->list, 0);
+            void* entry = func_02072a68((struct TableA68*)&obj->list, 0);
 #if defined(jpn)
             sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
             func_0204500c(presenter, message, 0);
             presenter->active = 1;
 #else
             struct Vec3i02184354 casterObj;
-            InitObjFromCombatantId020e4bf4(&casterObj, actorInfo->combatantId);
+            func_020e4bf4(&casterObj, actorInfo->combatantId);
             func_02046380(presenter);
             *(void**)presenter = &casterObj;
             func_0204500c(presenter, (const char*)entry, 0, 0xe3);
             presenter->active = 1;
 #endif
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, 0);
-            unsigned short* slot = (unsigned short*)GetField0x74deForValidIndex_020120a0((char*)bs, GetField0x3acValue_020100a8(bs));
+            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, 0);
+            unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
             if (slot != NULL) *slot = 0;
             obj->state = 4;
         } else {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
     } else if (state == 4) {
@@ -302,15 +302,15 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     } else if (state == 5) {
         if (loader->GetTaskStatus(obj->taskId) == 0) return 0;
         if (loader->GetDetailedTaskStatus(obj->taskId) != 2) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
             return 1;
         }
         if (obj->waitFrames < 0xf) {
             obj->waitFrames = obj->waitFrames + 1;
             return 0;
         }
-        SetForwardAndStore0205ebc0(&data_02108760, 0x74, 0x74);
-        DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 0, 0);
+        func_0205ebc0(&data_02108760, 0x74, 0x74);
+        func_0205ebfc(&data_02108760, 0, 0);
 
         void* filePtr;
         unsigned int fileLen;
@@ -322,12 +322,12 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         char* stage = (char*)ov17 + 0x2cc;
 #endif
         struct Vec3i02184354 pos = *(struct Vec3i02184354*)((char*)caster + 0x44);
-        CopyInternalFields0207df50((struct Foo0207df50*)(stage + 0xc40));
-        RestorePairTables0207df90(stage + 0xc40);
+        func_0207df50((struct Foo0207df50*)(stage + 0xc40));
+        func_0207df90(stage + 0xc40);
         void* nodes = func_02057924();
-        CreateAndRegisterNode02057de0((struct NodeList02057de0*)nodes, 0x11, &obj->alloc,
+        func_02057de0((struct NodeList02057de0*)nodes, 0x11, &obj->alloc,
                                       (int)filePtr, (int)fileLen);
-        BackupPairTables0207dfac(stage + 0xc40);
+        func_0207dfac(stage + 0xc40);
 
         struct Vec3i02184354 scale;
         scale.x = 0x10a;
@@ -366,7 +366,7 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
 
         *(Vector3i*)&params.f2c = *(Vector3i const*)&pos.x;
         *(Vector3i*)&params.f44 = *(Vector3i const*)&scale.x;
-        obj->nodeId = FindNodeAndProcess02057fb4(nodes, 0x11, &params);
+        obj->nodeId = func_02057fb4(nodes, 0x11, &params);
 
         struct Vec3s02184354 anchor;
         anchor.x = (short)(pos.x >> 4);
@@ -374,7 +374,7 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         anchor.z = (short)(pos.z >> 4);
 
         if (func_0202c508(scene) != 0) {
-            unsigned short* slot = (unsigned short*)GetField0x74deForValidIndex_020120a0((char*)bs, GetField0x3acValue_020100a8(bs));
+            unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
             if (slot != NULL) {
                 slot[0] = move->id;
                 slot[1] = anchor.x;
@@ -384,15 +384,15 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         }
 
         struct TableEntry02184354* row =
-            (struct TableEntry02184354*)SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), 0xd2);
+            (struct TableEntry02184354*)func_02079e2c((char*)func_020797dc(), 0xd2);
         if (row != NULL) {
-            ConsumeCounter02048350((struct Obj02048350*)caster, row->amount);
+            func_02048350((struct Obj02048350*)caster, row->amount);
         }
         GameObject* target = bs->GetUnknownGameObject();
         if (target != NULL) {
-            SetFlag0x80At0xc2((struct Flags020340b4*)target);
+            func_020340b4((struct Flags020340b4*)target);
         }
-        func_ov017_021d360c(0, GetField0x3acValue_020100a8(bs), move->id, anchor);
+        func_ov017_021d360c(0, func_020100a8(bs), move->id, anchor);
         obj->state = 3;
     } else if (state == 3) {
         GameState* now = GameState::GetInstance();
@@ -413,8 +413,8 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
 #endif
         }
         if (finished != 0) {
-            ResetStateAndCleanup021842d8((struct Struct021842d8*)obj);
-            ForwardField0xc0_0205ebec(&data_02108760);
+            func_ov010_021842d8((struct Struct021842d8*)obj);
+            func_0205ebec(&data_02108760);
             return 1;
         }
     }

@@ -25,10 +25,10 @@ enum { kRegionValue198_1A4 = 0x198 };
 
 
 struct Struct0205a198;
-void Init0205a198(struct Struct0205a198* p);
+extern "C" void func_0205a198(struct Struct0205a198* p);
 
 struct ClearTarget0205a234;
-void ClearField0And40205a234(struct ClearTarget0205a234* target);
+extern "C" void func_0205a234(struct ClearTarget0205a234* target);
 
 // USA: func_ov003_021726f8
 extern "C" ARM void func_ov003_021726f8(char* obj, SafeAllocator* allocator) {
@@ -41,10 +41,10 @@ extern "C" ARM void func_ov003_021726f8(char* obj, SafeAllocator* allocator) {
     *(void**)(obj + kRegionValue12C_138) = (*(SafeAllocator**)(obj + kRegionValue1C0_1CC))->Allocate(8);
 
     for (i = 0; i < kRegionValueD_C; i++) {
-        Init0205a198((struct Struct0205a198*)(*(char**)(obj + kRegionValue128_134) + i * 0x28));
+        func_0205a198((struct Struct0205a198*)(*(char**)(obj + kRegionValue128_134) + i * 0x28));
     }
 
-    ClearField0And40205a234((struct ClearTarget0205a234*)*(void**)(obj + kRegionValue12C_138));
+    func_0205a234((struct ClearTarget0205a234*)*(void**)(obj + kRegionValue12C_138));
 
     void* p1 = (*(SafeAllocator**)(obj + kRegionValue1C0_1CC))->Allocate(0x1000);
     ((SafeAllocator*)(obj + kRegionValue1AC_1B8))->CreateTypeA(p1, 0x1000);

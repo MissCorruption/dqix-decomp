@@ -10,7 +10,7 @@ struct GlobalStruct0224e5c4_022133f8 {
 
 extern GlobalStruct0224e5c4_022133f8 data_ov031_0224e5c4;
 
-// USA: func_ov031_022133f8  (semantic: GetHandlerFieldByFlag_022133f8)
+// USA: func_ov031_022133f8
 extern "C" ARM void* func_ov031_022133f8(unsigned int flags) {
 	if (flags & 1) return data_ov031_0224e5c4.fieldc;
 	if (flags & 2) return data_ov031_0224e5c4.field0;

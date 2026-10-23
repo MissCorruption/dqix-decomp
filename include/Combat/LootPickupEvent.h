@@ -20,6 +20,6 @@ struct Obj021ae800 {
     SafeAllocator allocator;
 };
 
-void ResetHeaderAndAllocator_021ae800(Obj021ae800* event);
+extern "C" void func_ov017_021ae800(Obj021ae800* event);
 
 typedef char Obj021ae800SizeCheck[sizeof(Obj021ae800) == 0x40 ? 1 : -1];

@@ -23,9 +23,9 @@ enum { kRegionValue4A8_2D0 = 0x4a8 };
 enum { kRegionValue468_290 = 0x468 };
 #endif
 
-void* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int bits);
-void ApplyElementEffect02161438(void* obj);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* word, unsigned int bits);
+extern "C" void func_ov003_02161438(void* obj);
 
 struct View02160cf8 {
 	void* field0;
@@ -51,7 +51,7 @@ struct Self02160cf8 {
 // USA: func_ov003_02160cf8
 extern "C" ARM int func_ov003_02160cf8(struct Self02160cf8* self) {
 	GameResources* res = GetGameResources();
-	void* dataPtr = GetDataPtr02114e04_020d6c00();
+	void* dataPtr = func_020d6c00();
 	int result = 0;
 
 	if (self->state == 0) {
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov003_02160cf8(struct Self02160cf8* self) {
 		self->state++;
 	} else if (self->state == 1) {
 		if (IsSubBrightnessTransitionActive(res) == 0) {
-			OrBitsIntoField0_020466e4((unsigned int*)dataPtr, 1);
+			func_020466e4((unsigned int*)dataPtr, 1);
 			self->alloc23c.Reset();
 			func_ov003_021672e4(self->view, 0, -1);
 			self->view->field0 = self->field398;
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov003_02160cf8(struct Self02160cf8* self) {
 		}
 	} else if (self->state == 2) {
 		if (func_ov003_0216759c(self->view) != 0) {
-			ApplyElementEffect02161438(self);
+			func_ov003_02161438(self);
 			self->state++;
 		}
 	} else if (self->state == 3) {

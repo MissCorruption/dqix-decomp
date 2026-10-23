@@ -9,7 +9,7 @@ struct RingQueue0223bfa0 {
     unsigned char tail;
 };
 
-// USA: func_ov031_0223bfa0  (semantic: PopRingQueue_0223bfa0)
+// USA: func_ov031_0223bfa0
 extern "C" ARM int func_ov031_0223bfa0(struct RingQueue0223bfa0* q) {
     int value = 0;
     unsigned int irq = DisableSpecificInterrupts(1);

@@ -50,8 +50,8 @@ struct Obj021737e4 {
 };
 
 extern "C" void func_020a620c(void* obj);
-int CountActiveEntries(ActiveEntry02046900* pac);
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
 extern "C" void func_0204c684(void* canvas);
 extern "C" void* func_02012fe4(void);
 extern "C" void __clear(void*, unsigned int);
@@ -85,9 +85,9 @@ extern "C" ARM void func_ov003_021737e4(Obj021737e4* self) {
         void* records[3];
         int sizes[3];
         loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         for (int i = 0; i < count; i++) {
-            records[i] = FindRecordByIndex((Rec020467f0*)file, i, &name, &sizes[i]);
+            records[i] = func_020467f0((Rec020467f0*)file, i, &name, &sizes[i]);
         }
         void* tiles = self->twoLines_ ? records[1] : records[0];
         Canvas021737e4 canvas;
@@ -197,11 +197,11 @@ struct Obj021737e4 {
 };
 
 extern "C" void func_020a620c(void* obj);
-int CountActiveEntries(ActiveEntry02046900* pac);
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
 extern "C" void func_0204c684(void* canvas);
 extern "C" void* func_02012fe4(void);
-char* FindEntryByKey_02072a68(TableA68* table, int key);
+extern "C" char* func_02072a68(TableA68* table, int key);
 extern "C" void func_ov003_02172618(void* canvas, int y, char** labels);
 
 extern char data_ov003_02180a76[];
@@ -224,9 +224,9 @@ extern "C" ARM void func_ov003_021737e4(Obj021737e4* self) {
         void* records[3];
         int sizes[3];
         loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         for (int i = 0; i < count; i++) {
-            records[i] = FindRecordByIndex((Rec020467f0*)file, i, &name, &sizes[i]);
+            records[i] = func_020467f0((Rec020467f0*)file, i, &name, &sizes[i]);
         }
         void* tiles = self->twoLines_ ? records[1] : records[0];
         Canvas021737e4 canvas;
@@ -242,10 +242,10 @@ extern "C" ARM void func_ov003_021737e4(Obj021737e4* self) {
             labels[1] = self->label_;
             int y = 4;
             if (self->labelKind_ == 1) {
-                labels[0] = FindEntryByKey_02072a68(&self->text_, 0xc8);
+                labels[0] = func_02072a68(&self->text_, 0xc8);
                 y = 0xf;
             } else if (self->labelKind_ == 2) {
-                labels[0] = FindEntryByKey_02072a68(&self->text_, 0xc9);
+                labels[0] = func_02072a68(&self->text_, 0xc9);
                 y = 0xf;
             }
             func_ov003_02172618(&canvas, y, labels);

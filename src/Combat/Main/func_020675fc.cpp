@@ -29,28 +29,28 @@ struct Owner020675fc {
     unsigned char padding_0x195d[kEnabledGap];
     unsigned char enabled;
 };
-EntryList_203dce4* GetGlobalPtr021075f4_0203cf4c();
-Entry_203dce4* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
-void* GetField0x3b0Value_020100bc(GameState*);
-void SelectVec3FromSources020406f8(Vec3_020406f8*, Node020406f8*);
-int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-void RenderFlaggedIndexedEntry(StructAt020473c8*, int);
+extern "C" EntryList_203dce4* func_0203cf4c();
+extern "C" Entry_203dce4* func_0203dce4(EntryList_203dce4*, int);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void func_020406f8(Vec3_020406f8*, Node020406f8*);
+extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" void func_020473c8(StructAt020473c8*, int);
 extern unsigned char data_020e7e08[];
 
 // USA: func_020675fc
 extern "C" ARM void func_020675fc(Owner020675fc* owner) {
     if (!owner->active) return;
-    Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4(GetGlobalPtr021075f4_0203cf4c(), owner->entryId);
+    Entry_203dce4* entry = func_0203dce4(func_0203cf4c(), owner->entryId);
     if (entry && owner->enabled) {
         GameResources* resources = GetGameResources();
-        void* view = GetField0x3b0Value_020100bc(GameState::GetInstance());
+        void* view = func_020100bc(GameState::GetInstance());
         int x;
         int y;
         Vec3copy0202ec84 copied;
         VectorBuffer020675fc vector;
-        SelectVec3FromSources020406f8(&vector.selected, (Node020406f8*)entry);
+        func_020406f8(&vector.selected, (Node020406f8*)entry);
         copied = vector.copied;
-        ComputeTwoFromVec3_0202ec84(view, &copied, &x, &y);
+        func_0202ec84(view, &copied, &x, &y);
         x -= 12;
         y -= 62;
         int scaledX = x << 12;
@@ -59,6 +59,6 @@ extern "C" ARM void func_020675fc(Owner020675fc* owner) {
         output->words1c[0] = scaledX;
         output->words1c[1] = scaledY;
         output->words1c[2] = 0;
-        RenderFlaggedIndexedEntry((StructAt020473c8*)output, 1);
+        func_020473c8((StructAt020473c8*)output, 1);
     }
 }

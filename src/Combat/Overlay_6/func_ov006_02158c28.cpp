@@ -1,0 +1,29 @@
+#if defined(jpn)
+#define R(j,u) (j)
+#define func_ov006_0215f3d8 func_ov006_021607f8
+#else
+#define R(j,u) (u)
+#endif
+#include <globaldefs.h>
+#include "Input/Input.h"
+
+struct StructC28 {
+    char pad0[R(0x3c, 0x44)];
+    short* field44;
+    char pad48[0x38f - R(0x40, 0x48)];
+    unsigned char field38f;
+    unsigned char field390;
+};
+
+// USA: func_ov006_02158c28
+extern "C" ARM void func_ov006_02158c28(struct StructC28* obj) {
+    if (!g_keyManager.TestKeysPressed(0x800)) {
+        return;
+    }
+    if (obj->field44 != 0) {
+        *obj->field44 = -1;
+    }
+    obj->field44 = 0;
+    obj->field38f = 0xc;
+    obj->field390 = 0;
+}

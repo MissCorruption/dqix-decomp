@@ -152,26 +152,26 @@ struct EquipmentMenu {
 extern "C" void __clear(void* buffer, unsigned long size);
 extern "C" void func_02074af4(void* state);
 extern "C" char* func_02012fe4();
-short GetFieldAt0x7e_0201e830(S_e830* p);
-void ResetStruct020dfc40(Struct020dfc40* texts);
-void ClearFields_021e20c0(void* layout);
-void ResetList0204af64(List0204af64* bg);
-void InitStruct0205cfd4(InitTarget0205cfd4* window);
+extern "C" short func_0201e830(S_e830* p);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
+extern "C" void func_ov023_021e20c0(void* layout);
+extern "C" void func_0204af64(List0204af64* bg);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
 extern "C" void func_0204c684(void* canvas);
 extern "C" void func_ov023_021dc134(void* window, int a, int b);
-void ClearObj_021e1318(Obj021e1318* list);
+extern "C" void func_ov023_021e1318(Obj021e1318* list);
 extern "C" void func_ov023_021dad78(void* table);
 extern "C" void func_ov005_021536e0(void* frame);
-void* GetPtrField0x2a04_02010828(GameState* gameState);
-unsigned char GetTableByte0215a948(void* unused, int index);
-unsigned char GetTableByte0215a918(void* unused, int index);
-short GetShortFromArray0xc10_0207c620(unsigned char* p, unsigned int list);
-void Init0205bef8(Struct_0205bef8* cursor);
-MemberScreen* GetField1c_021a193c(int* p);
-int CountPositiveEntries0207c638(void* p, unsigned int list);
-short GetHalfwordEntryFromField150(Field150Holder02052df8* member, int part);
+extern "C" void* func_02010828(GameState* gameState);
+extern "C" unsigned char func_ov005_0215a948(void* unused, int index);
+extern "C" unsigned char func_ov005_0215a918(void* unused, int index);
+extern "C" short func_0207c620(unsigned char* p, unsigned int list);
+extern "C" void func_0205bef8(Struct_0205bef8* cursor);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" int func_0207c638(void* p, unsigned int list);
+extern "C" short func_02052df8(Field150Holder02052df8* member, int part);
 extern "C" int func_0207c7a0(void* p, int item, int a);
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char* p, unsigned int list);
+extern "C" short* func_0207c5f8(unsigned char* p, unsigned int list);
 
 // USA: func_ov005_02153ba4
 extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
     self->unk_e7d = 0;
     func_02074af4(self->screenState_);
     self->layers_ = (REG_DISPCNT & 0x1f00) >> 8;
-    self->unk_3dc2 = GetFieldAt0x7e_0201e830((S_e830*)(func_02012fe4() + REGION(0x8c,0x6c)));
+    self->unk_3dc2 = func_0201e830((S_e830*)(func_02012fe4() + REGION(0x8c,0x6c)));
     self->allocator_.ResetAllocatorPointer();
     self->modelAllocator_.ResetAllocatorPointer();
     for (int i = 0; i < 8; i++)
@@ -194,20 +194,20 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
     self->modelTableAllocator_.ResetAllocatorPointer();
     self->unk_280.ResetAllocatorPointer();
     self->items_ = NULL;
-    ResetStruct020dfc40((Struct020dfc40*)self->texts_);
+    func_020dfc40((Struct020dfc40*)self->texts_);
     self->text_ = NULL;
-    ClearFields_021e20c0(self->layout_);
+    func_ov023_021e20c0(self->layout_);
     self->unk_e64 = NULL;
     self->unk_e68 = 0;
-    ResetList0204af64((List0204af64*)self->backgrounds_[0]);
-    ResetList0204af64((List0204af64*)self->backgrounds_[1]);
-    ResetList0204af64((List0204af64*)self->backgrounds_[2]);
-    InitStruct0205cfd4((InitTarget0205cfd4*)self->window_);
+    func_0204af64((List0204af64*)self->backgrounds_[0]);
+    func_0204af64((List0204af64*)self->backgrounds_[1]);
+    func_0204af64((List0204af64*)self->backgrounds_[2]);
+    func_0205cfd4((InitTarget0205cfd4*)self->window_);
     for (int i = 0; i < 3; i++)
         func_0204c684(self->canvases_[i]);
     self->pixels_ = NULL;
     func_ov023_021dc134(self->infoWindow_, -1, 0);
-    ClearObj_021e1318((Obj021e1318*)self->sortList_);
+    func_ov023_021e1318((Obj021e1318*)self->sortList_);
     func_ov023_021dad78(self->modelTable_);
     func_ov005_021536e0(self->frame_);
     for (int i = 0; i < 36; i++)
@@ -235,9 +235,9 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
         self->slots_[i].loadedItem_ = -1;
     }
     GameState* gameState = GameState::GetInstance();
-    char* party = (char*)GetPtrField0x2a04_02010828(gameState);
+    char* party = (char*)func_02010828(gameState);
     for (int i = 0; i < 8; i++)
-        self->itemCounts_[i] = GetShortFromArray0xc10_0207c620((unsigned char*)(party + 0x1d4), GetTableByte0215a948(self, i));
+        self->itemCounts_[i] = func_0207c620((unsigned char*)(party + 0x1d4), func_ov005_0215a948(self, i));
     self->unk_3da8 = 0;
     self->equippedStep_ = 0;
     self->pageStep_ = 0;
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
     self->task_ = 0;
     memset(&self->flags_, 0, sizeof(self->flags_));
     self->unk_3dc0 = -1;
-    Init0205bef8((Struct_0205bef8*)self->cursor_);
+    func_0205bef8((Struct_0205bef8*)self->cursor_);
     self->cursor_[0x3d] = 0;
     self->unk_3dd0 = 0;
     self->unk_3dd1 = 0;
@@ -289,20 +289,20 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
     self->blinkTimer_ = 30;
     self->blinkTimer2_ = 30;
     self->fadeStep_ = 0;
-    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int* members = screen->members_;
     int memberCount = screen->memberCount_;
     for (int kind = 0; kind < 8; kind++) {
-        unsigned char list = GetTableByte0215a948(self, kind);
-        int part = GetTableByte0215a918(self, kind);
-        int count = CountPositiveEntries0207c638(party + 0x1d4, list);
+        unsigned char list = func_ov005_0215a948(self, kind);
+        int part = func_ov005_0215a918(self, kind);
+        int count = func_0207c638(party + 0x1d4, list);
         short equipped[4];
         __clear(equipped, sizeof(equipped));
         for (int i = 0; i < memberCount; i++) {
-            void* member = GetCombatantWithFlag0x100_0200ff1c(gameState, members[i]);
+            void* member = func_0200ff1c(gameState, members[i]);
             if (member == NULL)
                 continue;
-            equipped[i] = GetHalfwordEntryFromField150((Field150Holder02052df8*)member, part);
+            equipped[i] = func_02052df8((Field150Holder02052df8*)member, part);
             if (equipped[i] <= 0)
                 continue;
             int j;
@@ -315,8 +315,8 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
             self->pageCounts_[kind] = (count - 1) / 16 + 1;
         else
             self->pageCounts_[kind] = 1;
-        short* items = GetPointerFromArray0xbd0_0207c5f8((unsigned char*)(party + 0x1d4), list);
-        short itemCount = GetShortFromArray0xc10_0207c620((unsigned char*)(party + 0x1d4), list);
+        short* items = func_0207c5f8((unsigned char*)(party + 0x1d4), list);
+        short itemCount = func_0207c620((unsigned char*)(party + 0x1d4), list);
         int last = 0;
         for (int i = 0; i < itemCount; i++) {
             if (items[i] > 0 && last < i)

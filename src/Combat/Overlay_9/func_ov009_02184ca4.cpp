@@ -3,19 +3,19 @@
 #include "Resource/CharacterCreationUI.h"
 
 struct Obj0205d2bc;
-void InitEntries0205d2bc(Obj0205d2bc*);
+extern "C" void func_0205d2bc(Obj0205d2bc*);
 extern "C" void func_0204b088(CreationTileMap*, void*);
 #if defined(jpn)
 extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
-void RefreshFieldIfFlag4000_021d9d34(char*);
-void BuildFieldTag_021d9e60(char*);
+extern "C" void func_ov023_021d9d34(char*);
+extern "C" void func_ov023_021d9e60(char*);
 extern "C" void func_ov023_021da1dc(unsigned char*);
 #else
 extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
-void RefreshFieldIfFlag4000_021d9d34(char*);
-void BuildFieldTag_021d9e60(char*);
+extern "C" void func_ov023_021d9d34(char*);
+extern "C" void func_ov023_021d9e60(char*);
 extern "C" void func_ov023_021da1dc(unsigned char*);
 #endif
 
@@ -31,8 +31,8 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* storage) {
         return;
     if (editor->flags & 0x80)
         return;
-    InitEntries0205d2bc((Obj0205d2bc*)&editor->windows[0]);
-    InitEntries0205d2bc((Obj0205d2bc*)&editor->windows[1]);
+    func_0205d2bc((Obj0205d2bc*)&editor->windows[0]);
+    func_0205d2bc((Obj0205d2bc*)&editor->windows[1]);
     if (editor->flags & 0x1000) {
         func_0204b088(&editor->tileMaps[0], 0);
         editor->flags &= ~0x1000;
@@ -50,13 +50,13 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* storage) {
     }
 #if defined(jpn)
     func_ov023_021d9a6c((char*)storage);
-    RefreshFieldIfFlag4000_021d9d34((char*)storage);
-    BuildFieldTag_021d9e60((char*)storage);
+    func_ov023_021d9d34((char*)storage);
+    func_ov023_021d9e60((char*)storage);
     func_ov023_021da1dc(storage);
 #else
     func_ov023_021d9a6c((char*)storage);
-    RefreshFieldIfFlag4000_021d9d34((char*)storage);
-    BuildFieldTag_021d9e60((char*)storage);
+    func_ov023_021d9d34((char*)storage);
+    func_ov023_021d9e60((char*)storage);
     func_ov023_021da1dc(storage);
 #endif
 }

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void SetFieldCAndA_022134cc(int v);
+extern "C" void func_ov031_022134cc(int v);
 extern "C" int func_ov031_0220cf6c(void);
 
 // USA: func_ov031_0221508c
@@ -17,9 +17,9 @@ extern "C" ARM int func_ov031_0221508c(char* obj, int state) {
 	if (state == 6) {
 		if (count == i) {
 			if (i == 0) {
-				SetFieldCAndA_022134cc(5);
+				func_ov031_022134cc(5);
 			} else {
-				SetFieldCAndA_022134cc(6);
+				func_ov031_022134cc(6);
 			}
 			return 0x11;
 		}

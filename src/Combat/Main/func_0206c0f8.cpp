@@ -63,14 +63,14 @@ extern "C" ARM int func_0206c0f8(void* param0, int param1) {
     v5 = ((Script::Parameter*)((struct Variant02030b0c*)((char*)param0 + 0x28)))->ToInt();
 
     if (v4 != data_02108cec.halfc) {
-        UnlinkNodeByByteId0206dd68(data_02108cec.field10, v5);
+        func_0206dd68(data_02108cec.field10, v5);
         return 1;
     }
 
     rec = (struct Rec0206bf2c*)((SafeAllocator*)data_02108cec.field14)->Allocate(0x78);
     if (rec == 0) return 0;
 
-    ClearWorkRecord0206bf2c(rec);
+    func_0206bf2c(rec);
 
     rec->field4 = v0;
     rec->field5 = v1;
@@ -80,7 +80,7 @@ extern "C" ARM int func_0206c0f8(void* param0, int param1) {
     rec->field0 = v5;
 
     if (param1 < 7) {
-        UnlinkNodeByByteId0206dd68(data_02108cec.field10, v5);
+        func_0206dd68(data_02108cec.field10, v5);
         return 1;
     }
 

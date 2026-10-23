@@ -1,0 +1,8 @@
+#include <globaldefs.h>
+#include "NitroSDK/Matrix.h"
+
+// USA: func_02033e18
+extern "C" ARM void func_02033e18(void* obj, int* src, short val) {
+    *(short*)((char*)obj + 0xc6) = val;
+    *(Vector3i*)((char*)obj + 0xc8) = *(Vector3i*)src;
+}

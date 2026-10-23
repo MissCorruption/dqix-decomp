@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-int TrimTrailingZeroShorts_0220bb24(unsigned short*, int);
+extern "C" int func_ov031_0220bb24(unsigned short*, int);
 extern "C" void func_ov031_0220bf5c(unsigned short*, unsigned short*, int);
 extern "C" void func_ov031_0220c0dc(unsigned short*, unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern "C" void func_ov031_0220be38(unsigned short*, unsigned short*, unsigned short*, int);
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov031_0220c2bc(unsigned short* result, unsigned short* 
     unsigned short* scratch = temporary + length;
     VectorizedMemset(result + 1, 0, (length - 1) * 2);
     result[0] = 1;
-    int bit = (length - TrimTrailingZeroShorts_0220bb24(exponent, length)) * 16;
+    int bit = (length - func_ov031_0220bb24(exponent, length)) * 16;
     if ((unsigned int)bit < (unsigned int)(length << 4)) { do {
         if ((exponent + (length - (bit >> 4)))[-1] & (0x8000u >> (bit & 15))) {
             VectorizedInvertedMemcpy(base, result, length * 2);

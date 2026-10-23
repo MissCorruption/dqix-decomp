@@ -9,16 +9,16 @@ struct Element020de650;
 struct Obj02061bd8;
 struct Obj0207d200;
 
-extern struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-extern void* InitAllocatorAndLoadGp2File0207d6dc(SafeAllocator* self, int param1, int param2);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gs, int flags);
-int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char* combatant);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" void* func_0207d6dc(SafeAllocator* self, int param1, int param2);
+extern "C" GameObject* func_0200ff1c(GameState* gs, int flags);
+extern "C" int func_02061bd8(struct Obj02061bd8* obj);
+extern "C" unsigned char* func_02053c6c(unsigned char* combatant);
 extern "C" int func_0207cf30(void* self, short key, int amount, unsigned char flag);
 extern "C" void func_0207cc18(void* self, struct Element020de650* elem);
 extern "C" int func_0207d134(void* self, short key, int amount);
-int UpdateKeyValue0207d200(struct Obj0207d200* self, short key, int amount);
-extern void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" int func_0207d200(struct Obj0207d200* self, short key, int amount);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern AllocatorUnion data_02114e20;
 
 struct Obj0207ccf0 {
@@ -45,16 +45,16 @@ static inline int IsType0207ccf0(unsigned int type) { return type <= 7; }
 extern "C" ARM int func_0207ccf0(struct Obj0207ccf0* self, short key, int amount, int flags, unsigned char a, unsigned char b, unsigned char c) {
     int fresh = 0;
     if (self->container == NULL) {
-        InitAllocatorAndLoadGp2File0207d6dc((SafeAllocator*)self, (int)&key, 1);
+        func_0207d6dc((SafeAllocator*)self, (int)&key, 1);
         fresh = 1;
     }
     int ret = -1;
-    struct Entry0207ccf0* elem = (struct Entry0207ccf0*)FindElementByKey020dedd0(self->container, key);
+    struct Entry0207ccf0* elem = (struct Entry0207ccf0*)func_020dedd0(self->container, key);
     if (elem != NULL) {
-        struct Combatant0207ccf0* combatant = (struct Combatant0207ccf0*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), flags);
+        struct Combatant0207ccf0* combatant = (struct Combatant0207ccf0*)func_0200ff1c(GameState::GetInstance(), flags);
         if (combatant == NULL) return -1;
-        if (CheckField0x56bLowNibble((struct Obj02061bd8*)combatant)) return -1;
-        short* slots = (short*)(GetFieldAt0x150_02053c6c((unsigned char*)combatant) + 0x454);
+        if (func_02061bd8((struct Obj02061bd8*)combatant)) return -1;
+        short* slots = (short*)(func_02053c6c((unsigned char*)combatant) + 0x454);
         int count = 0;
         if (a && c && elem->flag25) {
             if (func_0207cf30(self, key, amount, b)) {
@@ -79,7 +79,7 @@ extern "C" ARM int func_0207ccf0(struct Obj0207ccf0* self, short key, int amount
             if (IsType0207ccf0(elem->type)) {
                 if (func_0207d134(self, key, (signed char)delta)) ret = 1;
             } else if (elem->type == 9) {
-                if (UpdateKeyValue0207d200((struct Obj0207d200*)self, key, (signed char)delta)) ret = 1;
+                if (func_0207d200((struct Obj0207d200*)self, key, (signed char)delta)) ret = 1;
             } else {
                 if (func_0207cf30(self, key, delta, b)) ret = 1;
             }
@@ -91,7 +91,7 @@ extern "C" ARM int func_0207ccf0(struct Obj0207ccf0* self, short key, int amount
         SafeAllocator* alloc = (SafeAllocator*)self;
         SignedAllocatorHeader* sig = alloc->GetSignedAllocator();
         alloc->Destroy();
-        TailForward02012da4(&data_02114e20, sig);
+        func_02012da4(&data_02114e20, sig);
         self->container = NULL;
     }
     return ret;

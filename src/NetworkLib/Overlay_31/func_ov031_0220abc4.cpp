@@ -4,7 +4,7 @@ struct Md5Ctx_0220abc4 {
 	unsigned int state[4];
 };
 
-ARM void CopyForward_0220abac(void* dst, const void* src, unsigned int length);
+extern "C" ARM void func_ov031_0220abac(void* dst, const void* src, unsigned int length);
 
 extern unsigned char data_ov031_02249764[];
 extern unsigned int data_ov031_022497e4[];
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov031_0220abc4(Md5Ctx_0220abc4* ctx, const void* block)
 	int n;
 	int i;
 
-	CopyForward_0220abac(x, block, 0x40);
+	func_ov031_0220abac(x, block, 0x40);
 	n = 0;
 
 	i = 0;

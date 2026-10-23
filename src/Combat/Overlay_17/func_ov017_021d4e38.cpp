@@ -41,18 +41,18 @@ struct B021d4bc8;
 struct Ctx021d4af8;
 struct Arg021d4af8;
 
-extern void EnqueuePairEntry_021d4a38(S1_021d4a38* obj, Pair021d4a64 v);
-extern void CopyPair_021d4a64(Pair021d4a64* dst, Pair021d4a64* src);
-extern void SetEntryAndAdvance0_021d4a78(S1_021d4a78* obj, int v);
-extern void SetEntryAndAdvance2_021d4a98(S1_021d4a98* obj, int v);
-extern void SetEntryAndAdvance3_021d4ab8(S1_021d4ab8* obj, int v);
-extern int PopStackEntry_021d4b9c(Obj021d4b9c* obj);
-extern void DispatchIndexedCallback_021d4bc8(A021d4bc8* a, B021d4bc8* b, int c);
+extern "C" void func_ov017_021d4a38(S1_021d4a38* obj, Pair021d4a64 v);
+extern "C" void func_ov017_021d4a64(Pair021d4a64* dst, Pair021d4a64* src);
+extern "C" void func_ov017_021d4a78(S1_021d4a78* obj, int v);
+extern "C" void func_ov017_021d4a98(S1_021d4a98* obj, int v);
+extern "C" void func_ov017_021d4ab8(S1_021d4ab8* obj, int v);
+extern "C" int func_ov017_021d4b9c(Obj021d4b9c* obj);
+extern "C" void func_ov017_021d4bc8(A021d4bc8* a, B021d4bc8* b, int c);
 extern "C" int func_ov017_021d4af8(Ctx021d4af8* self, Arg021d4af8* arg, int retAddr);
 
-extern "C" int _Z18OrNonZero_021d49ac9S021d49ac(Pair021d4a64 v);
-extern "C" int _Z23CallHelperIfF0_021d498014Struct021d4980(Pair021d4a64 v, void* typeInfo);
-extern "C" void _Z28SetEntryAndAdvance1_021d4ad8P11S1_021d4ad8i(Interp021d4e38* self, float v);
+extern "C" int func_ov017_021d49ac(Pair021d4a64 v);
+extern "C" int func_ov017_021d4980(Pair021d4a64 v, void* typeInfo);
+extern "C" void func_ov017_021d4ad8(Interp021d4e38* self, float v);
 
 extern "C" void func_0200159c(int code) __attribute__((noreturn));
 extern "C" void func_02001878(void* text);
@@ -61,13 +61,13 @@ extern "C" double func_02009424(double v);
 extern "C" double func_02008dcc(double v);
 extern int data_020eec2c;
 
-#define IsTruthy _Z18OrNonZero_021d49ac9S021d49ac
-#define Resolve _Z23CallHelperIfF0_021d498014Struct021d4980
-#define PushFloat _Z28SetEntryAndAdvance1_021d4ad8P11S1_021d4ad8i
-#define PushInt(s, v) SetEntryAndAdvance0_021d4a78((S1_021d4a78*)(s), (v))
-#define PushCode(s, v) SetEntryAndAdvance2_021d4a98((S1_021d4a98*)(s), (v))
-#define PushRef(s, v) SetEntryAndAdvance3_021d4ab8((S1_021d4ab8*)(s), (v))
-#define Push(s, v) EnqueuePairEntry_021d4a38((S1_021d4a38*)(s), (v))
+#define IsTruthy func_ov017_021d49ac
+#define Resolve func_ov017_021d4980
+#define PushFloat func_ov017_021d4ad8
+#define PushInt(s, v) func_ov017_021d4a78((S1_021d4a78*)(s), (v))
+#define PushCode(s, v) func_ov017_021d4a98((S1_021d4a98*)(s), (v))
+#define PushRef(s, v) func_ov017_021d4ab8((S1_021d4ab8*)(s), (v))
+#define Push(s, v) func_ov017_021d4a38((S1_021d4a38*)(s), (v))
 
 #define SlotPtr(base, idx) (((Pair021d4a64*)(base)) + (idx))
 #define Slot(base, idx) (*SlotPtr((base), (idx)))
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov017_021d4e38(Interp021d4e38* self, Instr021d4e38* sta
 
 		case 5:
 			stmp = Pop(self);
-			CopyPair_021d4a64((Pair021d4a64*)Pop(self).i, &stmp);
+			func_ov017_021d4a64((Pair021d4a64*)Pop(self).i, &stmp);
 			Push(self, stmp);
 			break;
 
@@ -416,7 +416,7 @@ extern "C" ARM void func_ov017_021d4e38(Interp021d4e38* self, Instr021d4e38* sta
 		case 21:
 			self->stack -= self->pc->arg;
 			if (self->suspended == 0) {
-				DispatchIndexedCallback_021d4bc8((A021d4bc8*)self, (B021d4bc8*)self->stack,
+				func_ov017_021d4bc8((A021d4bc8*)self, (B021d4bc8*)self->stack,
 				                                self->pc->arg);
 			}
 			break;
@@ -436,7 +436,7 @@ extern "C" ARM void func_ov017_021d4e38(Interp021d4e38* self, Instr021d4e38* sta
 			stmp = Pop(self);
 			if (self->callTop != self->callBase) {
 				self->stack = (Pair021d4a64*)self->frame;
-				self->pc = (Instr021d4e38*)PopStackEntry_021d4b9c((Obj021d4b9c*)self);
+				self->pc = (Instr021d4e38*)func_ov017_021d4b9c((Obj021d4b9c*)self);
 			} else {
 				self->result = stmp.i;
 				Push(self, stmp);

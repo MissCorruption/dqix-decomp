@@ -23,7 +23,7 @@ extern "C" char* func_ov031_02218e2c(void*, const char*);
 extern "C" void func_ov031_0221a218(void);
 extern "C" int func_02005a94(const char*);
 extern "C" int func_020059cc(const char*, char**, int);
-int FindAndTerminate_02218e84(void*, int, char*, int);
+extern "C" int func_ov031_02218e84(void*, int, char*, int);
 extern "C" int func_ov031_02218ed8(void*, void*, char*, int);
 
 // USA: func_ov031_0221712c
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov031_0221712c() {
         data_ov031_0224e5e8.object->state = code + 23000;
         return 18;
     }
-    if (FindAndTerminate_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c08,
+    if (func_ov031_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c08,
                                   data_ov031_0224e5e8.object->code, 4) <= 0) {
         data_ov031_0224e5e8.object->state = 0x4e85;
         return 14;
@@ -60,13 +60,13 @@ extern "C" ARM int func_ov031_0221712c() {
     data_ov031_0224e5e8.object->field_0x117f[0] = 0;
     data_ov031_0224e5e8.object->field_0x1010[0] = 0;
     data_ov031_0224e5e8.object->field_0x1188[0] = 0;
-    FindAndTerminate_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c14,
+    func_ov031_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c14,
                               data_ov031_0224e5e8.object->field_0x1052, 0x12d);
-    FindAndTerminate_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c1c,
+    func_ov031_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c1c,
                               data_ov031_0224e5e8.object->field_0x101f, 0x33);
-    FindAndTerminate_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c24,
+    func_ov031_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c24,
                               data_ov031_0224e5e8.object->field_0x117f, 9);
-    FindAndTerminate_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c30,
+    func_ov031_02218e84(data_ov031_0224e5e8.object->field_0x1314, (int)data_ov031_02249c30,
                               data_ov031_0224e5e8.object->field_0x1010, 0xf);
     func_ov031_02218ed8(data_ov031_0224e5e8.object->field_0x1314, data_ov031_02249c3c,
                         data_ov031_0224e5e8.object->field_0x1188, 0x41);

@@ -30,28 +30,28 @@ struct Battle {
 };
 
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
-void* GetWorkArrayEntry0215e9d8(void* work);
-void InitStruct02160030(void* obj);
-ActionEntry* GetNodeAtIndex02160094(List02160094* list, int index);
-void* GetNodeAtIndex021600f8(List021600f8* list, int index);
-int IsFlag10088Set_02010088(S_10088* obj);
-int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject* combatant);
+extern "C" void* func_ov000_0215e9d8(void* work);
+extern "C" void func_ov000_02160030(void* obj);
+extern "C" ActionEntry* func_ov000_02160094(List02160094* list, int index);
+extern "C" void* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" int func_02010088(S_10088* obj);
+extern "C" int func_ov000_02153c0c(GameObject* combatant);
 
 // USA: func_ov000_0215b198
 extern "C" ARM void func_ov000_0215b198(Battle* battle) {
     int i;
     for (i = battle->actionsDone; i < battle->actionCount; i++) {
-        void* work = GetWorkArrayEntry0215e9d8(battle);
+        void* work = func_ov000_0215e9d8(battle);
         if (work == 0) {
             return;
         }
-        InitStruct02160030(work);
+        func_ov000_02160030(work);
         List02160094* action = &battle->actions[i];
-        ActionEntry* entry = GetNodeAtIndex02160094(action, 0);
+        ActionEntry* entry = func_ov000_02160094(action, 0);
         if (entry == 0) {
             continue;
         }
-        if (GetNodeAtIndex021600f8((List021600f8*)action, 0) == 0) {
+        if (func_ov000_021600f8((List021600f8*)action, 0) == 0) {
             continue;
         }
         int id = entry->combatantId;
@@ -61,10 +61,10 @@ extern "C" ARM void func_ov000_0215b198(Battle* battle) {
             continue;
         }
         action->flags |= 4;
-        if (IsFlag10088Set_02010088((S_10088*)c)) {
+        if (func_02010088((S_10088*)c)) {
             continue;
         }
-        if (IsFlag0x18Bit0x2000Set_ov000_02153c0c(c)) {
+        if (func_ov000_02153c0c(c)) {
             continue;
         }
         memcpy(work, action, sizeof(List02160094));

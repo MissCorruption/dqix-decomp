@@ -18,26 +18,26 @@ extern "C" int func_020420e8(const char* text, int large);
 extern "C" char* func_0205ec34();
 extern "C" void func_02046380(MessageSystem* messages);
 
-MessageSystem* GetGlobalField0x1c020421a0();
-void AppendXYTag_02041a90(char* text, int x, int y);
-void AppendYTag_02041a5c(char* text, int y);
-void AppendString02042058(char* text, const char* append);
-void AppendFormatted0204201c(char* text, int append, int);
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-int GetFieldPercentOver307_020a0870(BattleRecordSnapshot* records);
-int GetFieldPercentOver944_020a08d8(BattleRecordSnapshot* records);
-int GetFieldPercentOver232_020a08a4(BattleRecordSnapshot* records);
-int GetFieldPercentOver448_020a090c(BattleRecordSnapshot* records);
-void StoreInArray0x8b0_020465c0(StoreStruct* messages, int index, int value);
+extern "C" MessageSystem* func_020421a0();
+extern "C" void func_02041a90(char* text, int x, int y);
+extern "C" void func_02041a5c(char* text, int y);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" void func_0204201c(char* text, int append, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" int func_020a0870(BattleRecordSnapshot* records);
+extern "C" int func_020a08d8(BattleRecordSnapshot* records);
+extern "C" int func_020a08a4(BattleRecordSnapshot* records);
+extern "C" int func_020a090c(BattleRecordSnapshot* records);
+extern "C" void func_020465c0(StoreStruct* messages, int index, int value);
 
 #if defined(jpn)
 extern char data_ov008_0218c0d5[];
 extern "C" int func_020e2168(char*, const char*, int, int, bool);
 extern "C" void func_02041f50(char*, char*);
-int StringLength_020d2ff0(const char*);
-void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
-void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
+extern "C" int func_020d2ff0(const char*);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 #endif
 extern char data_ov008_0218b465[];
 extern char data_ov008_0218b47c[];
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov008_02188408(BattleRecords* self, char* text, int kin
 {
     if (text == NULL)
         return;
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
+    MessageSystem* messages = func_020421a0();
     if (records != NULL)
     {
         Hero* hero = (Hero*)GameState::GetInstance()->GetProtagonist();
@@ -123,12 +123,12 @@ extern "C" ARM void func_ov008_02188408(BattleRecords* self, char* text, int kin
         char plainName[0x80];
         __clear(plainName, sizeof(plainName));
         func_02041f50(name, plainName);
-        int length = StringLength_020d2ff0(plainName);
+        int length = func_020d2ff0(plainName);
         int x = (0x80 - (length / 2) * 12) / 2;
         int y = 6;
-        if (length != StringLength_020d2ff0(name)) y = 8;
-        AppendXYTag_02041a90(text, x, y);
-        AppendString02042058(text, name);
+        if (length != func_020d2ff0(name)) y = 8;
+        func_02041a90(text, x, y);
+        func_02042058(text, name);
 #else
         char* name = self->text_ + 0x8e0;
         BackgroundLoader::AddLockGlobal();
@@ -146,22 +146,22 @@ extern "C" ARM void func_ov008_02188408(BattleRecords* self, char* text, int kin
         int x = (0xa0 - func_020420e8(name, 1)) / 2;
         if (x < 0)
             x = 0;
-        AppendXYTag_02041a90(text, x, 6);
+        func_02041a90(text, x, 6);
         if (name != NULL)
-            AppendString02042058(text, name);
+            func_02042058(text, name);
 #endif
         return;
     }
     int count = 3;
     char* store = func_0205ec34();
-    if (TestBitInByteArray_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
+    if (func_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
         count = 4;
     if (kind == 0)
     {
         for (int i = 0; i < count; i++)
         {
-            AppendXYTag_02041a90(text, 4, i * 15 + 4);
-            AppendString02042058(text, GetFieldByKey020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
+            func_02041a90(text, 4, i * 15 + 4);
+            func_02042058(text, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
         }
     }
     else if (kind == 1)
@@ -181,15 +181,15 @@ extern "C" ARM void func_ov008_02188408(BattleRecords* self, char* text, int kin
         else
         {
             BattleRecordSnapshot playRecords;
-            LoadBattleBlock020ac4c0(&playRecords);
+            func_020ac4c0(&playRecords);
             int max1 = playRecords.unknown14_0;
             int max2 = playRecords.unknown14_18;
             int max3 = playRecords.unknown14_9;
             int max4 = playRecords.unknown10_23;
-            count1 = GetFieldPercentOver307_020a0870(&playRecords);
-            count2 = GetFieldPercentOver944_020a08d8(&playRecords);
-            count3 = GetFieldPercentOver232_020a08a4(&playRecords);
-            count4 = GetFieldPercentOver448_020a090c(&playRecords);
+            count1 = func_020a0870(&playRecords);
+            count2 = func_020a08d8(&playRecords);
+            count3 = func_020a08a4(&playRecords);
+            count4 = func_020a090c(&playRecords);
             if (count1 == 0 && max1 > 0)
                 count1 = 1;
             if (count2 == 0 && max2 > 0)
@@ -200,33 +200,33 @@ extern "C" ARM void func_ov008_02188408(BattleRecords* self, char* text, int kin
                 count4 = 1;
         }
         func_02046380(messages);
-        StoreInArray0x8b0_020465c0((StoreStruct*)messages, 0, count1);
+        func_020465c0((StoreStruct*)messages, 0, count1);
 #if defined(jpn)
-        SetByteInRange_020465f0((unsigned char*)messages, 0, 3);
-        SetByteAtIndex_020465d8((unsigned char*)messages, 0, 1);
+        func_020465f0((unsigned char*)messages, 0, 3);
+        func_020465d8((unsigned char*)messages, 0, 1);
 #endif
-        StoreInArray0x8b0_020465c0((StoreStruct*)messages, 1, count2);
+        func_020465c0((StoreStruct*)messages, 1, count2);
 #if defined(jpn)
-        SetByteInRange_020465f0((unsigned char*)messages, 1, 3);
-        SetByteAtIndex_020465d8((unsigned char*)messages, 1, 1);
+        func_020465f0((unsigned char*)messages, 1, 3);
+        func_020465d8((unsigned char*)messages, 1, 1);
 #endif
-        StoreInArray0x8b0_020465c0((StoreStruct*)messages, 2, count3);
+        func_020465c0((StoreStruct*)messages, 2, count3);
 #if defined(jpn)
-        SetByteInRange_020465f0((unsigned char*)messages, 2, 3);
-        SetByteAtIndex_020465d8((unsigned char*)messages, 2, 1);
+        func_020465f0((unsigned char*)messages, 2, 3);
+        func_020465d8((unsigned char*)messages, 2, 1);
 #endif
-        StoreInArray0x8b0_020465c0((StoreStruct*)messages, 3, count4);
+        func_020465c0((StoreStruct*)messages, 3, count4);
 #if defined(jpn)
-        SetByteInRange_020465f0((unsigned char*)messages, 3, 3);
-        SetByteAtIndex_020465d8((unsigned char*)messages, 3, 1);
+        func_020465f0((unsigned char*)messages, 3, 3);
+        func_020465d8((unsigned char*)messages, 3, 1);
 #endif
         for (int i = 0; i < count; i++)
         {
 #if defined(jpn)
-            AppendString02042058(text, GetFieldByKey020e0434((Container020e0310*)&self->texts_, (short)(i + 0x8c)));
+            func_02042058(text, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x8c)));
 #else
-            AppendYTag_02041a5c(text, i * 15 + 4);
-            AppendFormatted0204201c(text, (int)GetFieldByKey020e0434((Container020e0310*)&self->texts_, (short)(i + 0x8c)), 0x18);
+            func_02041a5c(text, i * 15 + 4);
+            func_0204201c(text, (int)func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x8c)), 0x18);
 #endif
         }
     }

@@ -19,4 +19,4 @@ struct ResourceInsertionNode {
     unsigned char unknown22;
 };
 
-void SetNodeFieldsAndInsert_021a120c(GameResources* resources, int mode, int selection);
+extern "C" void func_ov017_021a120c(GameResources* resources, int mode, int selection);

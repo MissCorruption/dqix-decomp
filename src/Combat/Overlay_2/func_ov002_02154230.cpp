@@ -4,10 +4,10 @@
 #include "Resource/GameResources.h"
 
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct *arr, int value);
-int CheckField0NonZero_0202b7d8(int *p);
-int HasPositiveField256Short178_02154b94(void *self, int id);
-int HasPositiveField304Short4_02154a34(void *self, int id);
+extern "C" int func_02086ef0(ArrayContainsByteStruct *arr, int value);
+extern "C" int func_0202b7d8(int *p);
+extern "C" int func_ov002_02154b94(void *self, int id);
+extern "C" int func_ov002_02154a34(void *self, int id);
 extern "C" int *func_0202ae18(void);
 extern "C" void func_ov002_02153e90(char *entry);
 extern "C" int func_ov002_02154a6c(char *self, int id, int arg);
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov002_02154230(char *base, struct Act02154230 *act, int 
     if (target == 0) return 0;
     GameState *gs                  = GameState::GetInstance();
     GameResources *res             = GetGameResources();
-    ArrayContainsByteStruct *party = (ArrayContainsByteStruct *) GetPtrField0x2a04_02010828(gs);
+    ArrayContainsByteStruct *party = (ArrayContainsByteStruct *) func_02010828(gs);
     int *ctx                       = func_0202ae18();
     struct Rec02154230 *recs       = (struct Rec02154230 *) ((char *) act + 8);
     unsigned char any              = 0;
@@ -48,19 +48,19 @@ extern "C" ARM int func_ov002_02154230(char *base, struct Act02154230 *act, int 
     for (int i = 0; i < act->count; i++) {
         struct Rec02154230 *rec = &recs[i];
         int id                  = act->ids[i];
-        if (!ArrayContainsByte_02086ef0(party, id)) rec->flag = 1;
+        if (!func_02086ef0(party, id)) rec->flag = 1;
         if (!func_ov002_02154a6c(base, id, act->arg)) {
             rec->state = 1;
             continue;
         }
-        if (HasPositiveField256Short178_02154b94(base, id)) {
+        if (func_ov002_02154b94(base, id)) {
             rec->state = 2;
             continue;
         }
-        if (HasPositiveField304Short4_02154a34(base, id)) continue;
+        if (func_ov002_02154a34(base, id)) continue;
         int amount       = 0;
         unsigned char ok = 0;
-        GameObject *m    = GetCombatantWithFlag0x100_0200ff1c(gs, id);
+        GameObject *m    = func_0200ff1c(gs, id);
         if (m == NULL) continue;
         if (act->kind == 0x27) {
             ok     = 1;
@@ -87,10 +87,10 @@ extern "C" ARM int func_ov002_02154230(char *base, struct Act02154230 *act, int 
         } else {
             func_02048150(m, amount, 1);
         }
-        if (CheckField0NonZero_0202b7d8(ctx) && ArrayContainsByte_02086ef0(party, id)) {
+        if (func_0202b7d8(ctx) && func_02086ef0(party, id)) {
             func_ov017_021c9e00(id, 1, 0, 1);
         }
-        if (ArrayContainsByte_02086ef0(party, id)) {
+        if (func_02086ef0(party, id)) {
             func_ov017_02191108(res, 1, 1, 1, 1);
         }
         any = 1;

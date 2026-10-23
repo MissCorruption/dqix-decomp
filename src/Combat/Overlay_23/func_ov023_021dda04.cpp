@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int GetWord0x0_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* obj);
 extern "C" void func_ov023_021dc520(void* obj);
 extern "C" void func_ov023_021dd404(void* obj);
-int DispatchByMode77c_021ddbb8(void* obj, int a, int b);
+extern "C" int func_ov023_021ddbb8(void* obj, int a, int b);
 struct Obj021ddbf8;
-int Check_021ddbf8(struct Obj021ddbf8* arg);
+extern "C" int func_ov023_021ddbf8(struct Obj021ddbf8* arg);
 extern "C" void func_ov023_021dc354(void* obj);
-void SetCombatModeFromCase020dc2d0(int mode);
+extern "C" void func_020dc2d0(int mode);
 
 struct Obj021dda04 {
 #if defined(jpn)
@@ -23,9 +23,9 @@ struct Obj021dda04 {
     signed char field77b;
 };
 
-// USA: func_ov023_021dda04  (semantic: AdvanceCombatStageState_021dda04)
+// USA: func_ov023_021dda04
 extern "C" ARM void func_ov023_021dda04(struct Obj021dda04* obj) {
-    GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    func_0200fb8c((int*)GameState::GetInstance());
 
     if (obj->field777 == 0) {
         func_ov023_021dc520(obj);
@@ -34,14 +34,14 @@ extern "C" ARM void func_ov023_021dda04(struct Obj021dda04* obj) {
             obj->field776 = 3;
             return;
         }
-        DispatchByMode77c_021ddbb8(obj, ~0xf, 8);
+        func_ov023_021ddbb8(obj, ~0xf, 8);
         obj->field777 = obj->field777 + 1;
     }
 
     if (obj->field777 == 1) {
         func_ov023_021dc520(obj);
         func_ov023_021dd404(obj);
-        if (Check_021ddbf8((struct Obj021ddbf8*)obj) == 0) {
+        if (func_ov023_021ddbf8((struct Obj021ddbf8*)obj) == 0) {
             obj->field777 = obj->field777 + 1;
         }
     }
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov023_021dda04(struct Obj021dda04* obj) {
         return;
     }
     if (obj->field77b != 1) {
-        SetCombatModeFromCase020dc2d0(0);
+        func_020dc2d0(0);
     }
     obj->field776 = 3;
 }

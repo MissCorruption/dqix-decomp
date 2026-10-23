@@ -17,22 +17,22 @@ enum {
 #include "GameState/GameState.h"
 
 struct Obj2081;
-void ClearElementFlag0x20_02080c20(struct Obj2081 *obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void *obj, int id, int value);
-void ClearSublistEntriesFlag1_02080bac(void *obj, int id);
+extern "C" void func_02080c20(struct Obj2081 *obj, int key);
+extern "C" void func_02080c68(void *obj, int id, int value);
+extern "C" void func_02080bac(void *obj, int id);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(struct Container02080f8c *obj, int id, int value);
-void Forward0207f7acObjPlus4Size0x40_020805f4(void *obj, int value);
-void SetEntryHalfword0xe_0208103c(void *obj, int id, int value);
+extern "C" void func_02080f8c(struct Container02080f8c *obj, int id, int value);
+extern "C" void func_020805f4(void *obj, int value);
+extern "C" void func_0208103c(void *obj, int id, int value);
 struct Container02080cc0;
-void SetEntryHighNibble0x13(struct Container02080cc0 *obj, int id, int value);
-int SetEntryFlagById02080b2c(void *obj, int id);
+extern "C" void func_02080cc0(struct Container02080cc0 *obj, int id, int value);
+extern "C" int func_02080b2c(void *obj, int id);
 struct Field150Holder02052df8;
-int GetHalfwordEntryFromField150(Field150Holder02052df8 *obj, int index);
+extern "C" int func_02052df8(Field150Holder02052df8 *obj, int index);
 struct Container02080fa8;
-void SetEntryFirstField02080fa8(struct Container02080fa8 *obj, int id, int value);
+extern "C" void func_02080fa8(struct Container02080fa8 *obj, int id, int value);
 struct Container02080fc4;
-void SetEntryFirstField02080fc4(struct Container02080fc4 *obj, int id, int value);
+extern "C" void func_02080fc4(struct Container02080fc4 *obj, int id, int value);
 extern "C" int func_020dd4c4(int id, void *node);
 extern "C" int func_ov003_021753a0(void *obj, int id, void *a, void *b);
 extern "C" void func_020813ec(void *obj, int key);
@@ -68,7 +68,7 @@ struct Menu02177550 {
 // USA: func_ov003_02177550
 extern "C" ARM void func_ov003_02177550(Menu02177550 *self) {
     GameState *battle     = GameState::GetInstance();
-    GameObject *combatant = GetCombatantWithFlag0x100_0200ff1c(battle, self->combatantId);
+    GameObject *combatant = func_0200ff1c(battle, self->combatantId);
     if (combatant == NULL) {
         return;
     }
@@ -79,29 +79,29 @@ extern "C" ARM void func_ov003_02177550(Menu02177550 *self) {
         return;
     }
 
-    ClearElementFlag0x20_02080c20(elemObj, 0xf);
-    SetEntryLowNibbleAndElement02080c68(elemObj, 0xf, 0);
-    ClearSublistEntriesFlag1_02080bac(elemObj, 0xf);
-    SetEntryFirstField02080f8c((struct Container02080f8c *) elemObj, 0x70, node->value);
+    func_02080c20(elemObj, 0xf);
+    func_02080c68(elemObj, 0xf, 0);
+    func_02080bac(elemObj, 0xf);
+    func_02080f8c((struct Container02080f8c *) elemObj, 0x70, node->value);
 #if !defined(jpn)
-    Forward0207f7acObjPlus4Size0x40_020805f4(elemObj, 0x70);
+    func_020805f4(elemObj, 0x70);
 #endif
     int ready         = func_020dd4c4(self->combatantId, node);
     unsigned int tier = node->tier;
     if (tier != 0) {
-        SetEntryHalfword0xe_0208103c(elemObj, 0x71, (short) (tier + 0x2f));
+        func_0208103c(elemObj, 0x71, (short) (tier + 0x2f));
     }
 
     if (ready != 0) {
-        SetEntryHalfword0xe_0208103c(elemObj, 0x75, 0xb);
-        SetEntryHighNibble0x13((struct Container02080cc0 *) elemObj, 0x75, 3);
-        SetEntryFlagById02080b2c(elemObj, 0x72);
-        SetEntryFlagById02080b2c(elemObj, 0x73);
-        SetEntryFlagById02080b2c(elemObj, 0x74);
-        SetEntryFlagById02080b2c(elemObj, 0x159);
-        SetEntryFlagById02080b2c(elemObj, 0x15a);
+        func_0208103c(elemObj, 0x75, 0xb);
+        func_02080cc0((struct Container02080cc0 *) elemObj, 0x75, 3);
+        func_02080b2c(elemObj, 0x72);
+        func_02080b2c(elemObj, 0x73);
+        func_02080b2c(elemObj, 0x74);
+        func_02080b2c(elemObj, 0x159);
+        func_02080b2c(elemObj, 0x15a);
     } else {
-        SetEntryHighNibble0x13((struct Container02080cc0 *) elemObj, 0x75, 0xf);
+        func_02080cc0((struct Container02080cc0 *) elemObj, 0x75, 0xf);
 #if defined(jpn)
         int index = data_ov003_0217e3ac[node->kind];
 #else
@@ -110,45 +110,45 @@ extern "C" ARM void func_ov003_02177550(Menu02177550 *self) {
         if (index < 0) {
             return;
         }
-        int have = GetHalfwordEntryFromField150((Field150Holder02052df8 *) combatant, index);
+        int have = func_02052df8((Field150Holder02052df8 *) combatant, index);
         if (have == node->count) {
-            SetEntryHalfword0xe_0208103c(elemObj, 0x75, 0x22);
-            SetEntryFlagById02080b2c(elemObj, 0x72);
-            SetEntryFlagById02080b2c(elemObj, 0x73);
-            SetEntryFlagById02080b2c(elemObj, 0x74);
-            SetEntryFlagById02080b2c(elemObj, 0x159);
-            SetEntryFlagById02080b2c(elemObj, 0x15a);
+            func_0208103c(elemObj, 0x75, 0x22);
+            func_02080b2c(elemObj, 0x72);
+            func_02080b2c(elemObj, 0x73);
+            func_02080b2c(elemObj, 0x74);
+            func_02080b2c(elemObj, 0x159);
+            func_02080b2c(elemObj, 0x15a);
         } else {
-            SetEntryFlagById02080b2c(elemObj, 0x75);
+            func_02080b2c(elemObj, 0x75);
             unsigned short cur;
             unsigned short max;
             if (func_ov003_021753a0(self, self->combatantId, &cur, &max) != 0) {
-                SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, 0x72, cur);
+                func_02080fa8((struct Container02080fa8 *) elemObj, 0x72, cur);
                 int nibble = 0xf;
                 if (cur > max) {
                     nibble = 9;
                 } else if (cur < max) {
                     nibble = 5;
                 }
-                SetEntryHighNibble0x13((struct Container02080cc0 *) elemObj, 0x73, nibble);
-                SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, 0x73, max);
-                SetEntryFlagById02080b2c(elemObj, 0x159);
-                SetEntryFlagById02080b2c(elemObj, 0x15a);
+                func_02080cc0((struct Container02080cc0 *) elemObj, 0x73, nibble);
+                func_02080fa8((struct Container02080fa8 *) elemObj, 0x73, max);
+                func_02080b2c(elemObj, 0x159);
+                func_02080b2c(elemObj, 0x15a);
             } else {
                 float fcur;
                 float fmax;
                 func_ov003_021753a0(self, self->combatantId, &fcur, &fmax);
-                SetEntryFirstField02080fc4((struct Container02080fc4 *) elemObj, 0x159, *(int *) &fcur);
+                func_02080fc4((struct Container02080fc4 *) elemObj, 0x159, *(int *) &fcur);
                 int nibble = 0xf;
                 if (fcur > fmax) {
                     nibble = 3;
                 } else if (fcur < fmax) {
                     nibble = 5;
                 }
-                SetEntryHighNibble0x13((struct Container02080cc0 *) elemObj, 0x15a, nibble);
-                SetEntryFirstField02080fc4((struct Container02080fc4 *) elemObj, 0x15a, *(int *) &fmax);
-                SetEntryFlagById02080b2c(elemObj, 0x72);
-                SetEntryFlagById02080b2c(elemObj, 0x73);
+                func_02080cc0((struct Container02080cc0 *) elemObj, 0x15a, nibble);
+                func_02080fc4((struct Container02080fc4 *) elemObj, 0x15a, *(int *) &fmax);
+                func_02080b2c(elemObj, 0x72);
+                func_02080b2c(elemObj, 0x73);
             }
         }
     }

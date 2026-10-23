@@ -3,37 +3,37 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-unsigned int GetSharedWordDa0_020c8534(int i);
-unsigned int GetSharedWordDc4_020c8520(int i);
-unsigned int GetConst25980_0218fc78(void);
-unsigned int GetConst9600_0218fc84(void);
-void SetData_0218fc8c(void*, unsigned int);
-void SetupHandle_0218fcac(void*, int);
+extern "C" unsigned int func_020c8534(int i);
+extern "C" unsigned int func_020c8520(int i);
+extern "C" unsigned int func_ov016_0218fc78(void);
+extern "C" unsigned int func_ov016_0218fc84(void);
+extern "C" void func_ov016_0218fc8c(void*, unsigned int);
+extern "C" void func_ov016_0218fcac(void*, int);
 struct NitroVM;
 void NitroVM_Initialize(NitroVM*);
 int NitroVM_PrepareReadFileByPath(NitroVM*, char const*);
 void NitroVM_FinishRead(NitroVM*);
 extern "C" void* func_ov016_0218e558(void* vm, int n);
-unsigned int CallIfNonNull_0218e690(void* p);
-unsigned int CallIfNonNull_0218e6a8(void* p);
-unsigned int CallIfNonNull_0218e678(void* p);
+extern "C" unsigned int func_ov016_0218e690(void* p);
+extern "C" unsigned int func_ov016_0218e6a8(void* p);
+extern "C" unsigned int func_ov016_0218e678(void* p);
 extern "C" void* func_ov016_0218e660(void* p);
 extern "C" unsigned int func_ov016_0218e750(void* p);
-int CallIfNonNullBool_0218e6c0(void* p);
-void CallIfNonNullBool_0218e6e4(void* p);
-void CallIfNonNullBool_0218e72c(void* p);
-void ClearAndReset_0218e640(void* p);
-int CheckStateEqualsOne_0218e768(void* p, void* buf);
+extern "C" int func_ov016_0218e6c0(void* p);
+extern "C" void func_ov016_0218e6e4(void* p);
+extern "C" void func_ov016_0218e72c(void* p);
+extern "C" void func_ov016_0218e640(void* p);
+extern "C" int func_ov016_0218e768(void* p, void* buf);
 extern "C" void func_ov016_0218bce8(void* p, unsigned int n);
 extern "C" void func_ov016_0218bec4(void* p, int n);
 extern "C" void func_020d1f0c(int a, int b, int c, int d);
-void EnqueueEvent0x1B_020d1fd0(int a, int b);
+extern "C" void func_020d1fd0(int a, int b);
 extern "C" void func_020d24c4(int a);
 extern "C" void func_020c9778(int a, int b);
 extern "C" void func_020bbd9c(void);
 extern "C" int func_020ce89c(int a, int b, int c);
-unsigned short XorMaskKeyInput_0218ca70(void);
-int SetData020f2284_020c7dcc(void);
+extern "C" unsigned short func_ov016_0218ca70(void);
+extern "C" int func_020c7dcc(void);
 extern "C" void* memset(void* p, int c, unsigned int n);
 void CleanDataCache(void);
 void CleanCacheRange(const void* p, unsigned int n);
@@ -43,15 +43,15 @@ unsigned long long GetCurrentTimestamp(void);
 struct ProcessorContext;
 void SetInterval(Alarm*, unsigned long long, unsigned long long, void (*)(ProcessorContext**), ProcessorContext**);
 void CancelAlarm(Alarm*);
-void SetKeyAndApplyRecord0203ad14(void*, int, void*, int);
+extern "C" void func_0203ad14(void*, int, void*, int);
 struct Obj0203aba8;
-void TryDispatchOrFallback0203aba8(Obj0203aba8*, void*, void*);
-void UpdateScaleOrApplyRecord0203ae4c(void* a, int b, void* c);
-void ScaleAndNotify0203ad88(void* a, void* b, int c);
-void SetContextAndDispatch0203ac10(void* a, void* b, int c);
+extern "C" void func_0203aba8(Obj0203aba8*, void*, void*);
+extern "C" void func_0203ae4c(void* a, int b, void* c);
+extern "C" void func_0203ad88(void* a, void* b, int c);
+extern "C" void func_0203ac10(void* a, void* b, int c);
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
-void SetFlagAndMaybeIncrement_0218c024(void);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" void func_ov016_0218c024(void);
 
 struct Info_0218c04c {
 	char pad0[0x10];
@@ -112,18 +112,18 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 	state = 0;
 	prevKeys = 0;
 	quit = false;
-	base3 = GetSharedWordDa0_020c8534(3);
-	sz3 = GetSharedWordDc4_020c8520(3) - base3;
-	if (sz3 >= GetConst25980_0218fc78()) {
-		sz3 = GetConst25980_0218fc78();
+	base3 = func_020c8534(3);
+	sz3 = func_020c8520(3) - base3;
+	if (sz3 >= func_ov016_0218fc78()) {
+		sz3 = func_ov016_0218fc78();
 	}
-	base4 = GetSharedWordDa0_020c8534(4);
-	sz4 = GetSharedWordDc4_020c8520(4) - base4;
-	if (sz4 >= GetConst9600_0218fc84()) {
-		sz4 = GetConst9600_0218fc84();
+	base4 = func_020c8534(4);
+	sz4 = func_020c8520(4) - base4;
+	if (sz4 >= func_ov016_0218fc84()) {
+		sz4 = func_ov016_0218fc84();
 	}
-	SetData_0218fc8c((void*)GetSharedWordDa0_020c8534(3), sz3);
-	SetupHandle_0218fcac((void*)GetSharedWordDa0_020c8534(4), sz4);
+	func_ov016_0218fc8c((void*)func_020c8534(3), sz3);
+	func_ov016_0218fcac((void*)func_020c8534(4), sz4);
 	NitroVM_Initialize((NitroVM*)vm);
 
 	if (NitroVM_PrepareReadFileByPath((NitroVM*)vm, path)) {
@@ -132,10 +132,10 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 		unsigned int frame = 0;
 
 		cnt = 0;
-		limitCnt = CallIfNonNull_0218e690(node);
-		unit = CallIfNonNull_0218e6a8(node);
+		limitCnt = func_ov016_0218e690(node);
+		unit = func_ov016_0218e6a8(node);
 		q = (int)(((unsigned long long)(unsigned int)func_ov016_0218e660(node) << 24) /
-			((unsigned long long)unit * CallIfNonNull_0218e678(node)));
+			((unsigned long long)unit * func_ov016_0218e678(node)));
 		data_ov016_0219d0c0.frames = (q + 1) * 7;
 		data_ov016_0219d0c0.bufL = (short*)((SafeAllocator*)data_ov016_0219d0c0.alloc)->Allocate(data_ov016_0219d0c0.frames * unit * 2);
 		data_ov016_0219d0c0.bufR = (short*)((SafeAllocator*)data_ov016_0219d0c0.alloc)->Allocate(data_ov016_0219d0c0.frames * unit * 2);
@@ -154,23 +154,23 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 		ZeroInitializeAlarm((Alarm*)&data_ov016_0219d118);
 		{
 			unsigned long long now = GetCurrentTimestamp();
-			unsigned long long per = (0xf4240ULL << 24) / CallIfNonNull_0218e678(node);
+			unsigned long long per = (0xf4240ULL << 24) / func_ov016_0218e678(node);
 			unsigned long long iv = ((per * 0x82ea) >> 6) / 1000;
-			SetInterval((Alarm*)&data_ov016_0219d118, now + 5, (unsigned int)iv, (void (*)(ProcessorContext**))SetFlagAndMaybeIncrement_0218c024, (ProcessorContext**)0);
+			SetInterval((Alarm*)&data_ov016_0219d118, now + 5, (unsigned int)iv, (void (*)(ProcessorContext**))func_ov016_0218c024, (ProcessorContext**)0);
 		}
 		data_ov016_0219d0c0.startTime = (GetCurrentTimestamp() << 6) / 0x82ea;
-		scale = (float)CallIfNonNull_0218e678(node) / 16777216.0f;
+		scale = (float)func_ov016_0218e678(node) / 16777216.0f;
 		lastFrame = 0;
 
-		while (CallIfNonNullBool_0218e6c0(node)) {
+		while (func_ov016_0218e6c0(node)) {
 			if (data_ov016_0219d0c0.started == 0) {
 				Info_0218c04c* p = data_ov016_0219d0c0.info;
 				unsigned long long t = (GetCurrentTimestamp() << 6) / 0x82ea;
 				if (data_ov016_0219d0c0.startTime + p->delay <= t) {
 					if (p->isSet != 0) {
-						SetKeyAndApplyRecord0203ad14(&data_02109bf4, p->id, 0, 0);
+						func_0203ad14(&data_02109bf4, p->id, 0, 0);
 					} else {
-						TryDispatchOrFallback0203aba8((Obj0203aba8*)&data_02109bf4, (void*)p->id, &data_ov016_0219d0cc);
+						func_0203aba8((Obj0203aba8*)&data_02109bf4, (void*)p->id, &data_ov016_0219d0cc);
 					}
 					func_020bbd9c();
 					data_ov016_0219d0c0.started = 1;
@@ -180,20 +180,20 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 			if ((*(unsigned short*)0x27fffa8 & 0x8000) >> 15) {
 				data_ov016_0219d0c0.busy = 1;
 				if (data_ov016_0219d0c0.info->isSet != 0) {
-					UpdateScaleOrApplyRecord0203ae4c(&data_02109bf4, 1, 0);
+					func_0203ae4c(&data_02109bf4, 1, 0);
 					func_020ce89c(0xc, 0, 0);
 					*(unsigned int*)(&data_02109bf4 + 0xa8) =
 						(unsigned int)(1000.0f * ((float)(frame - lastFrame) / scale));
-					UpdateScaleOrApplyRecord0203ae4c(&data_02109bf4, 0, 0);
+					func_0203ae4c(&data_02109bf4, 0, 0);
 				} else {
 					func_020ce89c(0xc, 0, 0);
 				}
 				data_ov016_0219d0c0.busy = 0;
 			}
-			CallIfNonNullBool_0218e6e4(node);
+			func_ov016_0218e6e4(node);
 			frame++;
 
-			if ((SetData020f2284_020c7dcc() & 0x40000000) || (SetData020f2284_020c7dcc() & 0x80000000)) {
+			if ((func_020c7dcc() & 0x40000000) || (func_020c7dcc() & 0x80000000)) {
 				if (func_ov016_0218e660(node) != 0) {
 					unsigned long long total = func_ov016_0218e750(node);
 					int j = 0;
@@ -203,8 +203,8 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 						if (state != 0) {
 							long long used; do { used = data_ov016_0219d0c0.written - data_ov016_0219d0c0.read; } while (data_ov016_0219d0c0.frames - used == 0);
 						}
-						CheckStateEqualsOne_0218e768(node, data_ov016_0219d0c0.bufL + pos);
-						CheckStateEqualsOne_0218e768(node, data_ov016_0219d0c0.bufR + data_ov016_0219d0c0.pos);
+						func_ov016_0218e768(node, data_ov016_0219d0c0.bufL + pos);
+						func_ov016_0218e768(node, data_ov016_0219d0c0.bufR + data_ov016_0219d0c0.pos);
 						CleanCacheRange(data_ov016_0219d0c0.bufL + data_ov016_0219d0c0.pos, bytes);
 						CleanCacheRange(data_ov016_0219d0c0.bufR + data_ov016_0219d0c0.pos, bytes);
 						pos = data_ov016_0219d0c0.pos + unit;
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 				int diff = (int)(data_ov016_0219d0c0.written - data_ov016_0219d0c0.read);
 				if (data_ov016_0219d0c0.busy != 0 ||
 					(diff <= (q + 1) * 3 && paused == 0 && func_ov016_0218e660(node) != 0)) {
-					CallIfNonNullBool_0218e72c(node);
+					func_ov016_0218e72c(node);
 					paused = 1;
 				} else {
 					func_ov016_0218bec4(node, arg1);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 			}
 
 			{
-				unsigned short keys = XorMaskKeyInput_0218ca70();
+				unsigned short keys = func_ov016_0218ca70();
 				if (data_ov016_0219d0c0.mute == 0) {
 					keys &= ~0xa;
 				}
@@ -247,13 +247,13 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 					} else if (keys & 8) {
 						if (state == 1) {
 							func_020d1f0c(3, 0, 1, 0);
-							EnqueueEvent0x1B_020d1fd0(3, 0);
+							func_020d1fd0(3, 0);
 							func_020d24c4(1);
 						}
-						while (XorMaskKeyInput_0218ca70() != 0) {
+						while (func_ov016_0218ca70() != 0) {
 							func_020c9778(0, 1);
 						}
-						while ((XorMaskKeyInput_0218ca70() & 8) == 0) {
+						while ((func_ov016_0218ca70() & 8) == 0) {
 							func_020c9778(0, 1);
 						}
 						if (state == 1) {
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 				g_touchInput.RefreshState();
 				g_touchInput.GetTouchPoint(&sx, &sy);
 				touched = (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ? 1 : 0;
-				switch (NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance())) {
+				switch (func_0200fb08((Struct0200fb08*)GameState::GetInstance())) {
 				case 1:
 					lo0 = 0x4c; hi0 = 0xbd; lo1 = 0x67; hi1 = 0x98;
 					break;
@@ -326,23 +326,23 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 		}
 		while (data_ov016_0219d0c0.ready == 0) {
 		}
-		if ((SetData020f2284_020c7dcc() & 0x40000000) || (SetData020f2284_020c7dcc() & 0x80000000)) {
+		if ((func_020c7dcc() & 0x40000000) || (func_020c7dcc() & 0x80000000)) {
 			if (state == 1) {
 				func_020d1f0c(3, 0, 1, 0);
-				EnqueueEvent0x1B_020d1fd0(3, 0);
+				func_020d1fd0(3, 0);
 				func_020d24c4(1);
 			}
 		}
 		CancelAlarm((Alarm*)&data_ov016_0219d118);
 		((SafeAllocator*)data_ov016_0219d0c0.alloc)->Free(data_ov016_0219d0c0.bufL);
 		((SafeAllocator*)data_ov016_0219d0c0.alloc)->Free(data_ov016_0219d0c0.bufR);
-		ClearAndReset_0218e640(node);
+		func_ov016_0218e640(node);
 		NitroVM_FinishRead((NitroVM*)vm);
 		if (data_ov016_0219d0c0.info->id > -1) {
 			if (data_ov016_0219d0c0.info->isSet != 0) {
-				ScaleAndNotify0203ad88(&data_02109bf4, 0, 0);
+				func_0203ad88(&data_02109bf4, 0, 0);
 			} else {
-				SetContextAndDispatch0203ac10(&data_02109bf4, &data_ov016_0219d0cc, 0);
+				func_0203ac10(&data_02109bf4, &data_ov016_0219d0cc, 0);
 			}
 			func_020bbd9c();
 		}

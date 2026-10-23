@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-void ResetIfNonNeg_021db2e4(volatile int* p);
+extern "C" void func_ov023_021db2e4(volatile int* p);
 extern "C" unsigned int GetSubBG0ScreenBase(void);
 extern "C" unsigned int GetMainBG2ScreenBase(void);
 
@@ -19,7 +19,7 @@ struct SubStruct700_021dcba4 {
     signed char f7c;
 };
 
-// USA: func_ov023_021dcba4  (semantic: ApplyShortAndMaybeClearBg_021dcba4)
+// USA: func_ov023_021dcba4
 extern "C" ARM void func_ov023_021dcba4(void* obj, short arg1) {
 #if defined(jpn)
  enum {regionalOffset0=0x6b0, regionalOffset1=0x6b4, regionalOffset2=0x6d0, regionalOffset3=0x6ec, regionalOffset4=0x6ee, regionalOffset5=0x6f0, regionalOffset6=0x6f2, regionalOffset7=0x6f8, regionalOffset8=0x600};
@@ -35,9 +35,9 @@ extern "C" ARM void func_ov023_021dcba4(void* obj, short arg1) {
         return;
     }
 
-    ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset0));
+    func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset0));
     for (int i = 0; i < 7; i++) {
-        ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset1 + i * 4));
+        func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset1 + i * 4));
     }
 
     *(short*)((char*)obj + regionalOffset3) = arg1;

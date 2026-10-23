@@ -9,15 +9,15 @@ struct Elem_0205d81c {
     short fbc;
     short fbe;
 };
-Elem_0205d81c* FindElementForFieldB0_0205d8c4(Struct_0205d81c*);
-int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
+extern "C" Elem_0205d81c* func_0205d8c4(Struct_0205d81c*);
+extern "C" int func_0204c7e0(unsigned char*);
 
 struct Container0205a3d0;
-void SetEntryFlag2ByKey0205a370(Container0205a3d0*, int);
-unsigned char* FindEntryByHalfword0205a3d0(Container0205a3d0*, int);
+extern "C" void func_0205a370(Container0205a3d0*, int);
+extern "C" unsigned char* func_0205a3d0(Container0205a3d0*, int);
 
 struct Container0205a330;
-void IterateEntries0205a330(Container0205a330*, int);
+extern "C" void func_0205a330(Container0205a330*, int);
 
 extern "C" void func_0205ae8c(void*);
 
@@ -44,9 +44,9 @@ extern "C" ARM void func_ov013_02186cac(void* obj) {
     if (*(void**)(o + 0x18) == 0) return;
     if (!(o[regionalFlags] & 1)) return;
 
-    elem = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)(o + regionalElem));
+    elem = func_0205d8c4((Struct_0205d81c*)(o + regionalElem));
     if (elem == 0) return;
-    if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)elem)) return;
+    if (!func_0204c7e0((unsigned char*)elem)) return;
 
     x = elem->fac * 8;
     y = elem->fae * 8;
@@ -65,13 +65,13 @@ extern "C" ARM void func_ov013_02186cac(void* obj) {
     container = (Container0205a3d0*)list->container;
     if (container == 0) return;
 
-    SetEntryFlag2ByKey0205a370(container, *(unsigned short*)(o + 0x1c));
-    entry = FindEntryByHalfword0205a3d0(container, *(unsigned short*)(o + 0x1c));
+    func_0205a370(container, *(unsigned short*)(o + 0x1c));
+    entry = func_0205a3d0(container, *(unsigned short*)(o + 0x1c));
     if (entry != 0) entry[0x15] |= 8;
 
-    IterateEntries0205a330((Container0205a330*)container, *(int*)(o + 0x14));
+    func_0205a330((Container0205a330*)container, *(int*)(o + 0x14));
 
-    entry = FindEntryByHalfword0205a3d0(container, *(unsigned short*)(o + 0x1c));
+    entry = func_0205a3d0(container, *(unsigned short*)(o + 0x1c));
     if (entry != 0) {
         *(short*)(entry + 4) = x;
         *(short*)(entry + 6) = y;

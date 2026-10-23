@@ -131,23 +131,23 @@ struct Ctx0209a8b4 { void* field0; };
 struct Holder0209ab20;
 struct StreamHeader;
 
-void ResetStructFields_02089db4(ResetFieldsStruct* s);
-void ForwardResetStructFields02089ddc(ResetFieldsStruct* s);
-void SetupHeaderAndRunBufferedScript02089de8(void* param0, void* param1, const char* param2);
-RecruitTemplate02086f24* FindEntryBySignedId02089fb0(EntryArray02089fb0* arr, int id);
+extern "C" void func_02089db4(ResetFieldsStruct* s);
+extern "C" void func_02089ddc(ResetFieldsStruct* s);
+extern "C" void func_02089de8(void* param0, void* param1, const char* param2);
+extern "C" RecruitTemplate02086f24* func_02089fb0(EntryArray02089fb0* arr, int id);
 extern "C" void func_02086404(CombatSelection* selection);
 extern "C" void __clear(void* dst, unsigned int size);
 extern "C" int func_020426bc(const void* a, void* b, int flag);
 extern "C" void func_02082828(CharacterRecord02086f24* record);
 extern "C" void func_02082d6c(CharacterRecord02086f24* dst, CombatSelection* src);
-void LoadAndApplyResourceEntry02082fc4(void* a, void* b);
-void ZeroInitReturn020de824(void* p);
-void ZeroInit020de848(void* p);
-int InitAndDispatch020def44(int a0, int a1, int a2, short a3);
+extern "C" void func_02082fc4(void* a, void* b);
+extern "C" void func_020de824(void* p);
+extern "C" void func_020de848(void* p);
+extern "C" int func_020def44(int a0, int a1, int a2, short a3);
 extern "C" void func_02083e28(void* a, int arg2);
-void ClearField00209a804(int* p);
-void SetupAndRunBufferedScript0209a8b4(Ctx0209a8b4* ctx, SafeAllocator* alloc, StreamHeader* data, int length);
-int CollectPairsBelowThreshold0209ab20(Holder0209ab20* h, int slot, int threshold, unsigned char* out);
+extern "C" void func_0209a804(int* p);
+extern "C" void func_0209a8b4(Ctx0209a8b4* ctx, SafeAllocator* alloc, StreamHeader* data, int length);
+extern "C" int func_0209ab20(Holder0209ab20* h, int slot, int threshold, unsigned char* out);
 extern "C" int func_02086778(Party02086f24* party, CombatSelection* sel, unsigned char c, unsigned char d);
 
 extern const char* data_020f2a38;
@@ -207,9 +207,9 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
     scriptAlloc.ResetAllocatorPointer();
     scriptAlloc.CreateTypeA(heap->Allocate(HEAP_SIZE_02086f24), HEAP_SIZE_02086f24);
     scriptAlloc.Reset();
-    ResetStructFields_02089db4(&templates);
-    SetupHeaderAndRunBufferedScript02089de8(&templates, &scriptAlloc, NULL);
-    RecruitTemplate02086f24* t = FindEntryBySignedId02089fb0((EntryArray02089fb0*)&templates, (short)(id + 7));
+    func_02089db4(&templates);
+    func_02089de8(&templates, &scriptAlloc, NULL);
+    RecruitTemplate02086f24* t = func_02089fb0((EntryArray02089fb0*)&templates, (short)(id + 7));
     func_02086404(&sel);
     int vocation = 0;
     int ok;
@@ -237,11 +237,11 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
         look->width = FX_F32_TO_FX16(t->width);
         func_02082828(&record);
         func_02082d6c(&record, &sel);
-        LoadAndApplyResourceEntry02082fc4(&record, &entry);
+        func_02082fc4(&record, &entry);
         BackgroundLoader::AddLockGlobal();
         itemSize = 0;
-        ZeroInitReturn020de824(&items);
-        ZeroInit020de848(&items);
+        func_020de824(&items);
+        func_020de848(&items);
 #if defined(jpn)
         func_020e0968(data_020f2a38, &itemSize);
 #else
@@ -250,9 +250,9 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
         for (int k = 0; k < 10; k++) {
             short equip = GetEquip02086f24(t, k);
 #if defined(jpn)
-            InitAndDispatch020def44((int)&record.equipment[data_020e8a94[k]], (int)data_0211e33c, itemSize, equip);
+            func_020def44((int)&record.equipment[data_020e8a94[k]], (int)data_0211e33c, itemSize, equip);
 #else
-            InitAndDispatch020def44((int)&record.equipment[data_020e8a94[k]], (int)itemData, itemSize, equip);
+            func_020def44((int)&record.equipment[data_020e8a94[k]], (int)itemData, itemSize, equip);
 #endif
         }
         BackgroundLoader::RemoveLockGlobal();
@@ -277,14 +277,14 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
     } else {
         ok = 0;
     }
-    ForwardResetStructFields02089ddc(&templates);
+    func_02089ddc(&templates);
     scriptAlloc.Reset();
     if (ok) {
         void* data = LoadFileIntoMemory(data_020f102e, data_0211e33c, &size);
         if (data != NULL) {
-            ClearField00209a804((int*)&ctx);
-            SetupAndRunBufferedScript0209a8b4(&ctx, &scriptAlloc, (StreamHeader*)data, size);
-            int count = CollectPairsBelowThreshold0209ab20((Holder0209ab20*)&ctx, vocation, sel.levels[vocation], skills);
+            func_0209a804((int*)&ctx);
+            func_0209a8b4(&ctx, &scriptAlloc, (StreamHeader*)data, size);
+            int count = func_0209ab20((Holder0209ab20*)&ctx, vocation, sel.levels[vocation], skills);
             unsigned char* p = skills;
             for (int i = 0; i < count; i++) {
                 int skill = *p;

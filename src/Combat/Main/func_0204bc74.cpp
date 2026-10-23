@@ -5,7 +5,7 @@ struct TileMap0204bc74 {
     unsigned short (*rows)[32];
 };
 
-// USA: func_0204bc74  (semantic: FillTileMapRegion0204bc74)
+// USA: func_0204bc74
 extern "C" ARM void func_0204bc74(struct TileMap0204bc74 *obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette) {
     unsigned short (*rows)[32] = obj->rows;
     if (rows == 0) {

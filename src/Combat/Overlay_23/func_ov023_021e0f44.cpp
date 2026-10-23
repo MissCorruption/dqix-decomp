@@ -69,15 +69,15 @@ extern "C" Statics_021e0f44 data_ov023_021ff9e0;
 extern "C" const short data_ov023_021fd5a8[2] __attribute__((aligned(4)));
 
 extern "C" void func_0204c684(Canvas_021e0f44* canvas);
-int InitBufferFromDataField4_021ddc34(void* canvas, short x, short y, short width, short height);
+extern "C" int func_ov023_021ddc34(void* canvas, short x, short y, short width, short height);
 extern "C" void __clear(void* buffer, unsigned long size);
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
 extern "C" LayoutElement_021e0f44* func_ov023_021db4e4(Layout_021e0f44* layout, int id);
-void SetEntryFields_021e23d0(void* layout, int id, int text, unsigned char color, unsigned char shadow);
-void CopyTextAndUppercaseIfFlagged0206819c(const char* input, char* output, int flag);
-void UpdateEntryAndReset_021db45c(void* layout, struct StructAcAe021db45c* canvas, int id, short* x, short* y);
+extern "C" void func_ov023_021e23d0(void* layout, int id, int text, unsigned char color, unsigned char shadow);
+extern "C" void func_0206819c(const char* input, char* output, int flag);
+extern "C" void func_ov023_021db45c(void* layout, struct StructAcAe021db45c* canvas, int id, short* x, short* y);
 extern "C" void func_ov023_021e257c(Layout_021e0f44* layout);
-void CreateAndSetFields8A_021db544(void* layout, void* id, int x, int y);
+extern "C" void func_ov023_021db544(void* layout, void* id, int x, int y);
 extern "C" unsigned int func_ov023_021ddc98(Canvas_021e0f44* canvas, unsigned int offset, unsigned short palette, int bg1);
 
 #define SHOW_ELEMENT(layout, id)                                         \
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov023_021e0f44(ItemInfoWindow_021e0f44* self)
 {
     Canvas_021e0f44 canvas;
     func_0204c684(&canvas);
-    if (!InitBufferFromDataField4_021ddc34(&canvas, 0, 0, 0x1c, 3))
+    if (!func_ov023_021ddc34(&canvas, 0, 0, 0x1c, 3))
         return;
     if (!(self->flags_ & 0x400))
     {
@@ -109,27 +109,27 @@ extern "C" ARM void func_ov023_021e0f44(ItemInfoWindow_021e0f44* self)
         char names[2][0x80] = {0};
 #endif
 
-        const char* found = GetFieldByKey020e0434(data_ov023_021ff9e0.sTexts, 0x1f);
-        const char* none = GetFieldByKey020e0434(data_ov023_021ff9e0.sTexts, 0x1e);
+        const char* found = func_020e0434(data_ov023_021ff9e0.sTexts, 0x1f);
+        const char* none = func_020e0434(data_ov023_021ff9e0.sTexts, 0x1e);
         SHOW_ELEMENT(&self->layout_, 0xe);
         SHOW_ELEMENT(&self->layout_, 0xd);
-        SetEntryFields_021e23d0(&self->layout_, 0xb, (int)found, 10, 15);
-        SetEntryFields_021e23d0(&self->layout_, 0xc, (int)found, 10, 15);
-        SetEntryFields_021e23d0(&self->layout_, 0xd, (int)none, 10, 15);
+        func_ov023_021e23d0(&self->layout_, 0xb, (int)found, 10, 15);
+        func_ov023_021e23d0(&self->layout_, 0xc, (int)found, 10, 15);
+        func_ov023_021e23d0(&self->layout_, 0xd, (int)none, 10, 15);
         int i = 0;
         short count = data_ov023_021ff9e0.sWindow->numMonsters_;
         for (; i < count; i++)
         {
             if (i >= 2)
                 break;
-            const char* name = GetFieldByKey020e0434(data_ov023_021ff9e0.sMonsterNames, data_ov023_021ff9e0.sWindow->monsters_[i]);
+            const char* name = func_020e0434(data_ov023_021ff9e0.sMonsterNames, data_ov023_021ff9e0.sWindow->monsters_[i]);
             if (name != NULL)
             {
 #if defined(jpn)
-                SetEntryFields_021e23d0(&self->layout_, data_ov023_021fd5a8[i], (int)name, 10, 15);
+                func_ov023_021e23d0(&self->layout_, data_ov023_021fd5a8[i], (int)name, 10, 15);
 #else
-                CopyTextAndUppercaseIfFlagged0206819c(name, names[i], 0);
-                SetEntryFields_021e23d0(&self->layout_, data_ov023_021fd5a8[i], (int)names[i], 10, 15);
+                func_0206819c(name, names[i], 0);
+                func_ov023_021e23d0(&self->layout_, data_ov023_021fd5a8[i], (int)names[i], 10, 15);
 #endif
 
             }
@@ -138,14 +138,14 @@ extern "C" ARM void func_ov023_021e0f44(ItemInfoWindow_021e0f44* self)
             HIDE_ELEMENT(&self->layout_, 0xd);
         short y;
         short x;
-        UpdateEntryAndReset_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0xe, &x, &y);
+        func_ov023_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0xe, &x, &y);
         if (data_ov023_021ff9e0.sBuffer != NULL)
         {
             self->layout_.canvas_ = &canvas;
             self->layout_.unk_12 = 1;
             func_ov023_021e257c(&self->layout_);
         }
-        CreateAndSetFields8A_021db544(&self->layout_, (void*)0xe, x, y);
+        func_ov023_021db544(&self->layout_, (void*)0xe, x, y);
         HIDE_ELEMENT(&self->layout_, 0xe);
     }
     self->vramOffset_ += func_ov023_021ddc98(&canvas, self->vramOffset_, data_ov023_021ff9e0.sPalette, 0);

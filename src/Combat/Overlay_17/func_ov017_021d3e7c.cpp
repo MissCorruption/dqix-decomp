@@ -1,0 +1,20 @@
+#include <globaldefs.h>
+
+#if defined(jpn)
+enum { kFinalizeBaseOffset = 0x1860 };
+#else
+enum { kFinalizeBaseOffset = 0x1840 };
+#endif
+
+extern "C" int func_0202c540(void* p);
+extern "C" void* func_02012fe4(void);
+extern "C" void func_ov017_021a01bc(unsigned char* self);
+
+// USA: func_ov017_021d3e7c
+extern "C" ARM void func_ov017_021d3e7c(void* a, unsigned char* b, int c, unsigned char* d, void* e) {
+	if (func_0202c540(e) == 0) return;
+	int p = (int)func_02012fe4();
+	unsigned char* base = (unsigned char*)(p + kFinalizeBaseOffset);
+	*(int*)(base + 0xb3c) = b[4];
+	func_ov017_021a01bc(d);
+}

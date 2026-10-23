@@ -2,7 +2,7 @@
 
 struct HandleFieldC_02097240;
 
-short GetHandleFieldC(struct HandleFieldC_02097240* obj);
+extern "C" short func_02097240(struct HandleFieldC_02097240* obj);
 
 struct Node_02097430 { char pad[0x20]; };
 
@@ -23,7 +23,7 @@ extern "C" ARM struct Node_02097430* func_02097430(struct Container_02097430* c,
     int hi;
     int lo;
     struct Node_02097430* base;
-    if (c->base == NULL || (int)GetHandleFieldC == 0) {
+    if (c->base == NULL || (int)func_02097240 == 0) {
         res = NULL;
         goto out;
     }
@@ -38,7 +38,7 @@ extern "C" ARM struct Node_02097430* func_02097430(struct Container_02097430* c,
     while (lo <= hi) {
         mid = lo + ((hi - lo + 1) >> 1);
         res = base + mid;
-        r = GetHandleFieldC((struct HandleFieldC_02097240*)res);
+        r = func_02097240((struct HandleFieldC_02097240*)res);
         if (r == key) goto out;
         if (r > key) hi = mid - 1;
         else lo = mid + 1;

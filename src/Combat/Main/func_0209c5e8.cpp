@@ -22,24 +22,24 @@ struct Actor0209c5e8 {
 struct Actor0209c678;
 struct Obj0203aba8;
 
-int IsBattleActiveAndCombatantsBit0Set_0209c140();
-void DispatchContextByState0209c678(struct Actor0209c678* actor, int arg);
-void SetContextAndDispatch0203ac10(void* obj, void* a, int b);
-int TryDispatchOrFallback0203aba8(struct Obj0203aba8* obj, void* key, void* target);
+extern "C" int func_0209c140();
+extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
+extern "C" void func_0203ac10(void* obj, void* a, int b);
+extern "C" int func_0203aba8(struct Obj0203aba8* obj, void* key, void* target);
 
 // USA: func_0209c5e8
 extern "C" ARM void func_0209c5e8(struct Actor0209c5e8* actor) {
     if (actor->field_c8.bit2) return;
-    if (IsBattleActiveAndCombatantsBit0Set_0209c140() != 0) {
-        DispatchContextByState0209c678((struct Actor0209c678*)actor, 0);
+    if (func_0209c140() != 0) {
+        func_0209c678((struct Actor0209c678*)actor, 0);
         return;
     }
     if (actor->state == 1) {
-        SetContextAndDispatch0203ac10(actor, &actor->fieldBC, 0);
-        TryDispatchOrFallback0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_b8, &actor->fieldBC);
+        func_0203ac10(actor, &actor->fieldBC, 0);
+        func_0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_b8, &actor->fieldBC);
         return;
     }
     if (actor->state != 2) return;
-    SetContextAndDispatch0203ac10(actor, &actor->fieldC0, 0);
-    TryDispatchOrFallback0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_ba, &actor->fieldC0);
+    func_0203ac10(actor, &actor->fieldC0, 0);
+    func_0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_ba, &actor->fieldC0);
 }

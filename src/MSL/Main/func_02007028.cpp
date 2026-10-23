@@ -17,7 +17,7 @@ static const double pio2_2t = 2.02226624879595063154e-21;
 static const double pio2_3 = 2.02226624871116645580e-21;
 static const double pio2_3t = 8.47842766036889956997e-32;
 
-// USA: func_02007028  (semantic: __ieee754_rem_pio2)
+// USA: func_02007028
 extern "C" ARM int func_02007028(double x, double* y) {
     double z, w, t, r, fn;
     double tx[3];

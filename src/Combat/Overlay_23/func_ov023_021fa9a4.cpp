@@ -15,7 +15,7 @@ struct Obj021fa9a4 {
     int state;
 };
 
-// USA: func_ov023_021fa9a4  (semantic: DispatchOrReturnField1c_021fa9a4)
+// USA: func_ov023_021fa9a4
 extern "C" ARM int func_ov023_021fa9a4(struct Obj021fa9a4* obj, void* ctx) {
     void* node = func_ov011_021849c8(ctx);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();

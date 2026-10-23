@@ -88,44 +88,44 @@ extern Arr16 data_ov025_021ef040;
 extern Arr16 data_ov025_021ef060;
 extern Arr16 data_ov025_021ef020;
 
-int Check021ed2f4(void* obj);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" int func_ov025_021ed2f4(void* obj);
+extern "C" void* func_020421a0(void);
 extern "C" void func_02046380(void* obj);
 extern "C" ARM void* __clear(void* dst, int count);
 extern "C" void func_ov025_021ed1f0(void* self);
-Node02160094* GetNodeAtIndex02160094(List02160094* list, int index);
-Node021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
-void ShiftArrayDown_021ed2a0(char* self);
-void* FindNodeAtDepth0215fff4(void* obj, int limit, int idx);
+extern "C" Node02160094* func_ov000_02160094(List02160094* list, int index);
+extern "C" Node021600f8* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" void func_ov025_021ed2a0(char* self);
+extern "C" void* func_ov000_0215fff4(void* obj, int limit, int idx);
 extern "C" short func_ov000_0215ffa0(void* obj);
-void* GetField6b0_021b8470(void* obj);
-int CheckAnyBitOrFlag_02159f7c(void* obj, Bits64_02159f7c* bits);
+extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" int func_ov000_02159f7c(void* obj, Bits64_02159f7c* bits);
 extern "C" int func_ov000_0215fd90(void* obj, int flag);
-void StoreInArray0x8b0_020465c0(StoreStruct* base, int index, int value);
-void InitObjFromCombatantId020e4bf4(void* obj, int id);
+extern "C" void func_020465c0(StoreStruct* base, int index, int value);
+extern "C" void func_020e4bf4(void* obj, int id);
 class GameObject;
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* gs, int id);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gs, int id);
+extern "C" GameObject* func_0200fea4(GameState* gs, int id);
+extern "C" GameObject* func_0200ff1c(GameState* gs, int id);
 extern "C" void func_020e4ce8(void* dst, void* src, int flag);
-void CopyStringToField0x3ac_02046504(char* g, char* s);
-void SetByte0x1880_020464dc(void*, signed char);
-void CopyStringToField042c_0204653c(void* g, char* s);
-extern "C" int _Z22CheckKeyMatch_0215fb9cis(int obj, unsigned short id);
-void BuildName020488ec(char* s);
-void CopyStringToField046c_02046558(void* g, char* s);
-Row02079e2c* SearchBothTables02079e2c(char* table, int key);
-void InitObjFromPackedFields020e4e38(void* obj, Src020e4e38* src);
-void CopyStringToField0x3ec_02046520(char* g, char* s);
-void* GetActiveCombatWork_ov000_02160130(void);
-char* GetOffsetPtr02160f08(void* w);
-void* FindEntryById_021dafd0(char* obj, int id);
-Sub18* GetActiveSub_02054000(Outer_02054000* o);
-void Clear12Bytes020e46c4(void* p);
-void DispatchIfCountPositive020dcf7c(int count, void* buf);
-unsigned char CopyOutRegion0x571d_020114ec(char*, void*);
+extern "C" void func_02046504(char* g, char* s);
+extern "C" void func_020464dc(void*, signed char);
+extern "C" void func_0204653c(void* g, char* s);
+extern "C" int func_ov000_0215fb9c(int obj, unsigned short id);
+extern "C" void func_020488ec(char* s);
+extern "C" void func_02046558(void* g, char* s);
+extern "C" Row02079e2c* func_02079e2c(char* table, int key);
+extern "C" void func_020e4e38(void* obj, Src020e4e38* src);
+extern "C" void func_02046520(char* g, char* s);
+extern "C" void* func_ov000_02160130(void);
+extern "C" char* func_ov000_02160f08(void* w);
+extern "C" void* func_ov025_021dafd0(char* obj, int id);
+extern "C" Sub18* func_02054000(Outer_02054000* o);
+extern "C" void func_020e46c4(void* p);
+extern "C" void func_020dcf7c(int count, void* buf);
+extern "C" unsigned char func_020114ec(char*, void*);
 extern "C" void* func_ov017_021b8478(void* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-char* GetFieldByKeyFromWork0x88_ov000_0216fcfc(void* work, int key);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" char* func_ov000_0216fcfc(void* work, int key);
 extern "C" unsigned int strlen(const char* s);
 extern "C" int sprintf(char* buf, const char* fmt, ...);
 #if !defined(jpn)
@@ -134,13 +134,13 @@ extern "C" void func_0204500c(void* g, char* s, int a, int b);
 extern "C" void func_02042b98(void* self, int a, int b, int c, int d);
 
 #if defined(jpn)
-void CopyStringToIndexedField0x2ec_020464e8(char*, char*);
+extern "C" void func_020464e8(char*, char*);
 extern "C" void func_02047410(void*, int);
 extern "C" int func_ov025_021ed5a4(int, char*);
-void* GetBoundedField156_02171674(void*, int);
-void* GetBoundedField420_0217199c(void*, int);
+extern "C" void* func_ov000_02171674(void*, int);
+extern "C" void* func_ov000_0217199c(void*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 extern "C" void func_020474a8(void*, int, char*, char*);
 extern "C" void func_0204500c(void*, char*, int);
 extern "C" void func_02043270(void*, int, int, int, int);
@@ -150,10 +150,10 @@ extern char data_ov025_021efbfc[];
 #endif
 
 #if defined(jpn)
-#define COPY_FIELD CopyStringToField0x3ec_02046520
+#define COPY_FIELD func_02046520
 #define STATE_OFFSET 0x870
 #else
-#define COPY_FIELD CopyStringToField042c_0204653c
+#define COPY_FIELD func_0204653c
 #define STATE_OFFSET 0x9a0
 #endif
 
@@ -163,10 +163,10 @@ static inline int IsValidIdU(unsigned short x) { return x >= 0 && x <= 3; }
 
 // USA: func_ov025_021ed634
 extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
-    if (Check021ed2f4(self) != 0) return;
+    if (func_ov025_021ed2f4(self) != 0) return;
     if (self->list == 0) return;
     GameState* gs = GameState::GetInstance();
-    char* g = (char*)GetGlobalField0x1c020421a0();
+    char* g = (char*)func_020421a0();
 #if defined(jpn)
 
 #else
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
 #endif
         func_ov025_021ed1f0(self);
         if (id <= 0) return;
-        Node02160094* node = GetNodeAtIndex02160094((List02160094*)self->list, 0);
+        Node02160094* node = func_ov000_02160094((List02160094*)self->list, 0);
         int cnt40 = 0;
         int fp = 0;
         int cnt3c = 0;
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
         int found8 = 0;
         int count30 = self->list->count;
         if (self->list->id == 0x61) {
-            Node021600f8* nd = GetNodeAtIndex021600f8(self->list, 0);
+            Node021600f8* nd = func_ov000_021600f8(self->list, 0);
             if (nd != 0) {
                 if (nd->bit0 == 0) found8 = 1;
             }
@@ -237,13 +237,13 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
             if (ptr != 0) fp = ptr->v;
         } else if (id == 0x172) {
             fp = self->fF0[0];
-            ShiftArrayDown_021ed2a0((char*)self);
+            func_ov025_021ed2a0((char*)self);
         } else if (self->list->id == 0x3a6) {
             for (int i = 0; i < self->list->count; i++) {
-                Node021600f8* nd = GetNodeAtIndex021600f8(self->list, i);
+                Node021600f8* nd = func_ov000_021600f8(self->list, i);
                 if (nd != 0 && nd->s0e == v20) {
                     for (int j = 0; j < nd->count; j++) {
-                        Val0c* n = (Val0c*)FindNodeAtDepth0215fff4(nd, j, 0);
+                        Val0c* n = (Val0c*)func_ov000_0215fff4(nd, j, 0);
                         if (n != 0 && n->v >= 0) {
                             fp = n->v;
                             cnt40++;
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
             arrA = data_ov025_021ef020;
             cnt[1] = 0;
             for (int i = 0; i < self->list->count; i++) {
-                Node021600f8* nd = GetNodeAtIndex021600f8(self->list, i);
+                Node021600f8* nd = func_ov000_021600f8(self->list, i);
                 if (nd == 0) continue;
                 who = func_ov000_0215ffa0(nd);
                 if (IsValidIdS(who) != 0) {
@@ -273,12 +273,12 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
                     if (flag != 0) continue;
                 }
                 for (int k = 0; k < nd->count; k++) {
-                    Val0c* n = (Val0c*)FindNodeAtDepth0215fff4(nd, k, 0);
+                    Val0c* n = (Val0c*)func_ov000_0215fff4(nd, k, 0);
                     if (n == 0) continue;
                     int v = n->v;
                     if (v >= 0) { if (v > 0) fp += v; }
                     else { sum38 -= v; cnt3c++; }
-                    void* obj = GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718);
+                    void* obj = func_ov017_021b8470(GetGameResources()->unknown_ptr_3718);
                     if (n->v > 0) {
                         int found = 0;
                         for (int m = 0; m < cnt[0]; m++) {
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
                         }
                         if (found == 0) { arrC.v[cnt[0]] = who; cnt[0]++; }
                     } else {
-                        if (CheckAnyBitOrFlag_02159f7c(obj, (Bits64_02159f7c*)n) != 0 || func_ov000_0215fd90(n, 4) != 0) {
+                        if (func_ov000_02159f7c(obj, (Bits64_02159f7c*)n) != 0 || func_ov000_0215fd90(n, 4) != 0) {
                             int found = 0;
                             for (int m = 0; m < sb; m++) {
                                 if (who == arrB.v[m]) { found = 1; break; }
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
             #if defined(jpn)
 func_02047410(g, displayValue);
 #else
-StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, displayValue);
+func_020465c0((StoreStruct*)g, 0, displayValue);
 #endif
         } else if (cnt[0] != 0) {
             int displayValue = fp / cnt[0];
@@ -321,13 +321,13 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, displayValue);
             #if defined(jpn)
 func_02047410(g, displayValue);
 #else
-StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, displayValue);
+func_020465c0((StoreStruct*)g, 0, displayValue);
 #endif
         } else {
             #if defined(jpn)
 func_02047410(g, fp);
 #else
-StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
+func_020465c0((StoreStruct*)g, 0, fp);
 #endif
         }
         if (type == 5) {
@@ -335,7 +335,7 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             if (v20 < 0) {
                 v20 = arrB.v[0];
                 if (v20 < 0) {
-                    Node021600f8* nd = GetNodeAtIndex021600f8(self->list, 0);
+                    Node021600f8* nd = func_ov000_021600f8(self->list, 0);
                     if (nd != 0) v20 = func_ov000_0215ffa0(nd);
                 }
             }
@@ -344,9 +344,9 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
 
 #else
             if (IsValidId(v20)) {
-                InitObjFromCombatantId020e4bf4(objA, v20);
+                func_020e4bf4(objA, v20);
             } else {
-                GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs, v20);
+                GameObject* c = func_0200fea4(gs, v20);
                 if (c != 0) {
                     func_020e4ce8(objA, c, 1);
                     ((Cur*)g)->f20 = (int)objA;
@@ -357,17 +357,17 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
 
 #endif
 #if defined(jpn)
-        CopyStringToIndexedField0x2ec_020464e8((char*)g, name);
+        func_020464e8((char*)g, name);
 #else
-        CopyStringToField0x3ac_02046504((char*)g, name);
+        func_02046504((char*)g, name);
 #endif
 #if defined(jpn)
         if (v40 < 0) {
             if (node != 0) v40 = node->s20;
         }
         if (v40 >= 0) {
-            if (func_ov025_021ed5a4(v40, nameB)) CopyStringToIndexedField0x2ec_020464e8((char*)g, nameB);
-            SetByte0x1880_020464dc(g, (signed char)v40);
+            if (func_ov025_021ed5a4(v40, nameB)) func_020464e8((char*)g, nameB);
+            func_020464dc(g, (signed char)v40);
         }
 
 #else
@@ -375,10 +375,10 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             if (node != 0) v40 = node->s20;
             int b = IsValidId(v40) ? 1 : 0;
             if (b != 0) {
-                InitObjFromCombatantId020e4bf4(objB, v40);
+                func_020e4bf4(objB, v40);
                 ((Cur*)g)->f0 = (int)objB;
             } else {
-                GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs, v40);
+                GameObject* c = func_0200fea4(gs, v40);
                 if (c != 0) {
                     func_020e4ce8(objB, c, 1);
                     ((Cur*)g)->f0 = (int)objB;
@@ -386,13 +386,13 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             }
         }
         if (v40 >= 0) {
-            SetByte0x1880_020464dc(g, (signed char)v40);
+            func_020464dc(g, (signed char)v40);
             int b = IsValidId(v40) ? 1 : 0;
             if (b != 0) {
-                InitObjFromCombatantId020e4bf4(objB, v40);
+                func_020e4bf4(objB, v40);
                 ((Cur*)g)->f0 = (int)objB;
             } else {
-                GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs, v40);
+                GameObject* c = func_0200fea4(gs, v40);
                 if (c != 0) {
                     func_020e4ce8(objB, c, 1);
                     ((Cur*)g)->f0 = (int)objB;
@@ -406,11 +406,11 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             if (t >= 0) v20 = t;
         }
         COPY_FIELD(g, name);
-        if (_Z22CheckKeyMatch_0215fb9cis((int)GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718), self->list->id) != 0) {
-            Comb* c = (Comb*)GetCombatantWithFlag0x400_0200fea4(gs, v20);
+        if (func_ov000_0215fb9c((int)func_ov017_021b8470(GetGameResources()->unknown_ptr_3718), self->list->id) != 0) {
+            Comb* c = (Comb*)func_0200fea4(gs, v20);
             if (c != 0) {
                 c->p138[0x25] = c->b18d;
-                BuildName020488ec((char*)c);
+                func_020488ec((char*)c);
                 COPY_FIELD(g, (char*)c + 0x14c);
             }
 #if defined(jpn)
@@ -421,14 +421,14 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
 #endif
         } else {
 #if defined(jpn)
-            if (func_ov025_021ed5a4(v20, nameA)) CopyStringToField0x3ec_02046520(g, nameA);
+            if (func_ov025_021ed5a4(v20, nameA)) func_02046520(g, nameA);
         }
 
 #else
             if (IsValidId(v20)) {
-                InitObjFromCombatantId020e4bf4(objA, v20);
+                func_020e4bf4(objA, v20);
             } else {
-                GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs, v20);
+                GameObject* c = func_0200fea4(gs, v20);
                 func_020e4ce8(objA, c, 1);
             }
             if (v40 == v20) ((Cur*)g)->f10 = (int)objB;
@@ -437,39 +437,39 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
 
 #endif
         if (id == 0xf2 || id == 0x207) {
-            Comb* c = (Comb*)GetCombatantWithFlag0x400_0200fea4(gs, v20);
+            Comb* c = (Comb*)func_0200fea4(gs, v20);
             if (c != 0 && c->p148 != 0) COPY_FIELD(g, c->p148 + 0x2c);
         }
 #if defined(jpn)
-        CopyStringToField042c_0204653c(g, name);
+        func_0204653c(g, name);
 #else
-        CopyStringToField046c_02046558(g, name);
+        func_02046558(g, name);
 #endif
-        ActionDataTables* data = GetData02108e10_020797dc();
+        ActionDataTables* data = func_020797dc();
         List021600f8* l = self->list;
         Row02079e2c* row;
         if (l->id == 0x1f8 || l->id == 0x3a9 || l->id == 0x3a7 || l->id == 0x3ac || l->id == 0x3ad || l->id == 0x392) {
-            row = SearchBothTables02079e2c((char*)data, l->s2);
+            row = func_02079e2c((char*)data, l->s2);
         } else {
-            row = SearchBothTables02079e2c((char*)data, (short)l->id);
+            row = func_02079e2c((char*)data, (short)l->id);
         }
         if (row != 0) {
 #if defined(jpn)
-            CopyStringToField042c_0204653c(g, *(char**)row);
+            func_0204653c(g, *(char**)row);
 #else
-            InitObjFromPackedFields020e4e38(objC, (Src020e4e38*)row);
+            func_020e4e38(objC, (Src020e4e38*)row);
             ((Cur*)g)->f8 = (int)objC;
             ((Cur*)g)->f18 = (int)objC;
 #endif
         }
 #if defined(jpn)
-        CopyStringToField0x3ac_02046504(g, name);
+        func_02046504(g, name);
 #else
-        CopyStringToField0x3ec_02046520(g, name);
+        func_02046520(g, name);
 #endif
 #if defined(jpn)
         if (node != 0) {
-            char* w = GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
+            char* w = func_ov000_02160f08(func_ov000_02160130());
             int index = node->s20;
             char* entry;
             if (IsValidId(index)) {
@@ -483,38 +483,38 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             entry = 0;
 found_entry:
             if (entry != 0) {
-                void* a = GetBoundedField156_02171674(entry, *(signed char*)(entry + 0x20));
-                void* b = GetBoundedField420_0217199c(entry, *(short*)(entry + 0x1e));
+                void* a = func_ov000_02171674(entry, *(signed char*)(entry + 0x20));
+                void* b = func_ov000_0217199c(entry, *(short*)(entry + 0x1e));
                 if (*(signed char*)self->pad16c != 0) {
-                    CopyStringToField0x3ac_02046504(g, self->pad16c);
+                    func_02046504(g, self->pad16c);
                     if (*(short*)((char*)self->list + 4) != 0)
-                        SetIndexedName02046574((Obj02046574*)g, 0, self->pad16c);
-                } else if (a != 0) CopyStringToField0x3ac_02046504(g, *(char**)a);
-                else if (b != 0) CopyStringToField0x3ac_02046504(g, *(char**)b);
+                        func_02046574((Obj02046574*)g, 0, self->pad16c);
+                } else if (a != 0) func_02046504(g, *(char**)a);
+                else if (b != 0) func_02046504(g, *(char**)b);
             }
         }
 
 #else
         if (node != 0) {
-            char* w = GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
-            Entry2c* e = (Entry2c*)FindEntryById_021dafd0(w, node->s20);
+            char* w = func_ov000_02160f08(func_ov000_02160130());
+            Entry2c* e = (Entry2c*)func_ov025_021dafd0(w, node->s20);
             if (IsValidIdU(node->s20)) {
                 int cnt = e->v;
                 if (self->s1ac != 0) cnt = (short)self->s1ac;
                 if (id == 0x257 || id == 0xc) {
-                    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, node->s20);
+                    GameObject* c = func_0200ff1c(gs, node->s20);
                     if (c != 0) {
-                        Sub18* s = GetActiveSub_02054000((Outer_02054000*)c);
+                        Sub18* s = func_02054000((Outer_02054000*)c);
                         if (s != 0) cnt = s->v;
                     }
                 }
                 if (cnt > 0) {
-                    Clear12Bytes020e46c4(&objD);
+                    func_020e46c4(&objD);
                     __clear(bufE, 0x80);
                     __clear(bufF, 0x80);
                     objD.a = bufE;
                     objD.b = bufF;
-                    DispatchIfCountPositive020dcf7c(cnt, &objD);
+                    func_020dcf7c(cnt, &objD);
                     ((Cur*)g)->f18 = (int)&objD;
                 }
             }
@@ -526,7 +526,7 @@ found_entry:
             || (row != 0 && row->kind == 1 && id == 0x1b && sb >= 2)) {
             strcpy(plural, nameA);
             strcat(plural, data_ov025_021efbfc);
-            CopyStringToField0x3ec_02046520(g, plural);
+            func_02046520(g, plural);
         }
 
 #else
@@ -537,14 +537,14 @@ found_entry:
             || (row != 0 && row->kind == 1 && id == 0x26d && sb >= count30)) {
             *(g + 0x1000 + 0x9d7) = 1;
         }
-        int n5 = CopyOutRegion0x571d_020114ec((char*)gs, out);
+        int n5 = func_020114ec((char*)gs, out);
         unsigned char positiveFlaggedEntries = 0;
         unsigned char flaggedEntries = 0;
         unsigned char* tb = (unsigned char*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
-        char* ew = GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
+        char* ew = func_ov000_02160f08(func_ov000_02160130());
         for (int q = 0; q < n5; q++) {
-            Entry021dafd0* e = (Entry021dafd0*)FindEntryById_021dafd0(ew, (unsigned char)out[q]);
-            if (e != 0 && TestBitAt0x34_020a35e0(tb, out[q]) != 0) {
+            Entry021dafd0* e = (Entry021dafd0*)func_ov025_021dafd0(ew, (unsigned char)out[q]);
+            if (e != 0 && func_020a35e0(tb, out[q]) != 0) {
                 ++flaggedEntries;
                 if (e->v > 0) ++positiveFlaggedEntries;
             }
@@ -553,7 +553,7 @@ found_entry:
         ((MessageEntryCounts*)g)->positiveFlaggedEntries = positiveFlaggedEntries;
 
 #endif
-        char* fmt = GetFieldByKeyFromWork0x88_ov000_0216fcfc(self->f168, (short)id);
+        char* fmt = func_ov000_0216fcfc(self->f168, (short)id);
         if (fmt == 0) return;
         if (strlen(fmt) == 0) return;
 #if defined(jpn)
@@ -562,14 +562,14 @@ found_entry:
         if (id == 0x205 || id == 0x1be || id == 0x1bf || id == 0x224 || id == 0x1c0 || id == 0x225 || id == 0x263
             || (unsigned int)(id - 0x266) <= 3) {
             __clear(buf, 0x100);
-            void* obj = GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718);
+            void* obj = func_ov017_021b8470(GetGameResources()->unknown_ptr_3718);
             if (id == 0x205) {
                 sprintf(buf, fmt, (double)node->f18);
             } else if (obj != 0) {
                 sprintf(buf, fmt, (double)*(float*)((char*)obj + 0x8e3c));
             }
             if (id == 0x1bf || id == 0x224 || id == 0x1c0 || id == 0x225 || (unsigned int)(id - 0x264) <= 7) {
-                Comb* c = (Comb*)GetCombatantWithFlag0x400_0200fea4(gs, self->list->s6);
+                Comb* c = (Comb*)func_0200fea4(gs, self->list->s6);
                 if (c != 0 && c->p148 != 0) COPY_FIELD(g, c->p148 + 0x2c);
             }
 #if defined(jpn)

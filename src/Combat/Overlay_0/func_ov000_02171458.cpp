@@ -9,16 +9,16 @@
 extern "C" void* func_02012fe4(void);
 
 struct Container020e0310;
-char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" char* func_020e0434(struct Container020e0310* c, int key);
 
 struct Obj0203c108 {
     char pad[0x14];
     short idx;
 };
-void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* fmt);
+extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
 
-int IsFlag0x18Bit0x200Set_ov000_02153a8c(GameObject* obj);
-int AdjustValueByFieldFlag_020dd290(void* obj, unsigned int value);
+extern "C" int func_ov000_02153a8c(GameObject* obj);
+extern "C" int func_020dd290(void* obj, unsigned int value);
 
 struct Entry02171458 {
     int name;
@@ -34,7 +34,7 @@ extern "C" void* __clear(void* dst, int count);
 #if !defined(jpn)
 extern "C" void func_020e4864(int a, char* b, int c, int d, int e, int f);
 #endif
-void CopyTextAndUppercaseIfFlagged0206819c(const char* src, char* dst, int flag);
+extern "C" void func_0206819c(const char* src, char* dst, int flag);
 
 struct MenuState02171458 {
     char pad0[6];
@@ -69,19 +69,19 @@ extern "C" ARM void func_ov000_02171458(struct Menu02171458* menu) {
         state->depth++;
         state->results[menu->state.depth] = 0xe;
         state->field15 = 0;
-        SwapGlobalEntry0203c108(&menu->label, GetFieldByKey020e0434(menu->container, 5));
+        func_0203c108(&menu->label, func_020e0434(menu->container, 5));
         return;
     }
-    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), menu->combatantId);
+    GameObject* c = func_0200ff1c(GameState::GetInstance(), menu->combatantId);
     int value = menu->entries[cursor]->value;
-    if (c != NULL && IsFlag0x18Bit0x200Set_ov000_02153a8c(c)) {
+    if (c != NULL && func_ov000_02153a8c(c)) {
         value = 0;
     } else if (menu->entries[cursor]->id == 0x28) {
         value = 0x14;
     } else if (menu->entries[cursor]->value >= 0xff) {
         value = 1;
     } else {
-        value = AdjustValueByFieldFlag_020dd290(c, value);
+        value = func_020dd290(c, value);
     }
     if (menu->state.limit < value) {
         state->depth++;
@@ -96,14 +96,14 @@ extern "C" ARM void func_ov000_02171458(struct Menu02171458* menu) {
         return;
     }
 #if defined(jpn)
-    SwapGlobalEntry0203c108(&menu->label, (char*)entry->name);
+    func_0203c108(&menu->label, (char*)entry->name);
 #else
     char buf1[0x80];
     __clear(buf1, 0x80);
     char buf2[0x80];
     __clear(buf2, 0x80);
     func_020e4864(entry->name, buf1, 1, 0, 0, 0);
-    CopyTextAndUppercaseIfFlagged0206819c(buf1, buf2, 0);
-    SwapGlobalEntry0203c108(&menu->label, buf2);
+    func_0206819c(buf1, buf2, 0);
+    func_0203c108(&menu->label, buf2);
 #endif
 }

@@ -3,10 +3,10 @@ struct Detail { unsigned short first,current,maxFirst,maxCurrent; char p[0x41];u
 struct Extra { char p[0x10];unsigned int a:19,enabled:1,b:12; };
 struct GameObject { char p[0x138];Detail* detail;char q[0xc];Extra* extra; unsigned int Current()const{return detail->current;} unsigned int Maximum()const{return detail->maxCurrent;} };
 class GameState {public:static GameState* GetInstance();GameObject* GetCombatantByIndex(int);};
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*,int);GameObject* GetCombatantWithFlag0x400_0200fea4(GameState*,int);
+extern "C" GameObject* func_0200ff1c(GameState*,int);extern "C" GameObject* func_0200fea4(GameState*,int);
 struct Actor02085c80 {char p[0x29c];unsigned int a:4,mode:5,b:23;char q[0xc];short enabled;};
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char*);
-float AccumulateSlotBits20To29AsTenths_02084fc8(char*);int AccumulateSlotBits02085c80(Actor02085c80*);
+extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" float func_02084fc8(char*);extern "C" int func_02085c80(Actor02085c80*);
 struct Random;int NextRandomMax(Random*,int);float NextRandomFloatBetween(Random*,float,float);
 #define IsParty(n) ((n)>=0&&(n)<=3?1:0)
 // USA: func_ov000_021573a8
@@ -17,14 +17,14 @@ extern "C" ARM int func_ov000_021573a8(Random* self,int id,int other,int amount)
  if(!target)return 0;
  float result;
  if(IsParty(id)) {
-  GameObject* unit=GetCombatantWithFlag0x100_0200ff1c(gs,id);if(!unit)return 0;
-  Actor02085c80* actor=(Actor02085c80*)GetFieldAt0x150_02053c6c((unsigned char*)unit);if(!actor)return 0;
+  GameObject* unit=func_0200ff1c(gs,id);if(!unit)return 0;
+  Actor02085c80* actor=(Actor02085c80*)func_02053c6c((unsigned char*)unit);if(!actor)return 0;
   if(actor->enabled<=0)return 0;if(actor->mode!=3)return 0;
   {unsigned int maximum=unit->Maximum();unsigned int current=unit->Current();if(current>=maximum)return 0;}
   float chance=(float)(int)target->detail->chance;if(chance<=0)return 0;
   chance/=100.0f;
-  float bonus=AccumulateSlotBits20To29AsTenths_02084fc8((char*)actor);
-  float bits=(float)AccumulateSlotBits02085c80(actor);
+  float bonus=func_02084fc8((char*)actor);
+  float bits=(float)func_02085c80(actor);
   float scale=(bonus+bits)/100.0f;
   float bound=(float)amount*scale;
   int random=NextRandomMax(self,2);
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov000_021573a8(Random* self,int id,int other,int amount)
   if(bonus+bits<result)result=bonus+bits;
   unsigned int current=target->detail->current;if((float)current<result)result=(float)current;
  }else {
-  GameObject* unit=GetCombatantWithFlag0x400_0200fea4(GameState::GetInstance(),id);if(!unit)return 0;
+  GameObject* unit=func_0200fea4(GameState::GetInstance(),id);if(!unit)return 0;
   if(!unit->extra)return 0;if(!unit->extra->enabled)return 0;
   if(unit->detail->current<0xff&&unit->detail->current>=unit->detail->maxCurrent)return 0;
   int random=NextRandomMax(self,2);

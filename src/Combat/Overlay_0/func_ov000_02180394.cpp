@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void InitArrEntriesAndClearFlag4_0217f480(char* self);
+extern "C" void func_ov000_0217f480(char* self);
 
 struct Combatant02180394 {
     char pad0[0x4c];
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov000_02180394(struct Battle02180394* battle) {
         int id = c->combatantId;
         if (id >= 0 && id <= 3) valid = 1;
         if (valid && c->active) {
-            InitArrEntriesAndClearFlag4_0217f480((char*)c);
+            func_ov000_0217f480((char*)c);
         }
     }
 }

@@ -21,7 +21,7 @@ extern "C" void func_ov023_021f745c(void* buf, void* obj, int msgId, int p3, int
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern char data_ov004_02170708;
 extern char data_ov004_02170720;
@@ -60,6 +60,6 @@ extern "C" ARM int func_ov004_0216dfd8(void* obj) {
     func_ov023_021f745c(block, obj, 0x67, 3, 0, fmt, 0, 3, 2);
 #endif
 
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(obj), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(obj), (struct ListNode_021f67ac*)block);
     return 0;
 }

@@ -31,19 +31,19 @@ struct ResourceArena021a28a8 {
     char pairTables[0x20];
 };
 
-void ClearSlotsAndProcess_021a27e8(void*);
-ResourceEntry021a28a8* FindEntryByCurrentId02027cb0();
-int GetCount0209c0ec(char*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-int GetCheckedHalfword_0209c0a8(void*, int);
-ResourceInfo021a28a8* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
-void* FindNodeBySignedId_0206ef18(void*, int);
+extern "C" void func_ov017_021a27e8(void*);
+extern "C" ResourceEntry021a28a8* func_02027cb0();
+extern "C" int func_0209c0ec(char*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" int func_0209c0a8(void*, int);
+extern "C" ResourceInfo021a28a8* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" void* func_0206ef18(void*, int);
 bool FindFilesInNarcBySubstring(const void*, const char*, const void**, unsigned int*, unsigned int);
 void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator&, const void*, unsigned int&);
-void InsertShortIntoTable021098f4_0209953c(unsigned short);
-void ResetFieldAc_02072ac4(void*);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_0209953c(unsigned short);
+extern "C" void func_02072ac4(void*);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_ov017_021a2b1c(void*);
 extern char data_ov017_021d7668[];
 extern char data_0211e33c[] __attribute__((aligned(4)));
@@ -56,12 +56,12 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
     GameState* state = GameState::GetInstance();
     SafeAllocator* allocator = &arena->allocator;
     char* tables = arena->pairTables;
-    ClearSlotsAndProcess_021a27e8(arena);
-    ResourceEntry021a28a8* area = FindEntryByCurrentId02027cb0();
+    func_ov017_021a27e8(arena);
+    ResourceEntry021a28a8* area = func_02027cb0();
     if (!area) return;
-    ResourceObject021a28a8* objects = (ResourceObject021a28a8*)allocator->Allocate(GetCount0209c0ec(area->ids) * 0xb0);
+    ResourceObject021a28a8* objects = (ResourceObject021a28a8*)allocator->Allocate(func_0209c0ec(area->ids) * 0xb0);
     if (!objects) return;
-    RestorePairTables0207df90(tables);
+    func_0207df90(tables);
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     GPCReadPair archive;
@@ -72,10 +72,10 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&archive.pGPCFile, archive.machine, data_ov017_021d7668, data_0211e33c, headerLength, 0x30000, false, 0)) {
         unsigned int start = headerLength;
         unsigned int available = 0x30000 - start;
-        for (int i = 0; i < GetCount0209c0ec(area->ids); ++i) {
-            int id = GetCheckedHalfword_0209c0a8(area->ids, i);
-            ResourceInfo021a28a8* info = SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)area->monsters, (short)id);
-            void* node = FindNodeBySignedId_0206ef18(area->nodes, (short)id);
+        for (int i = 0; i < func_0209c0ec(area->ids); ++i) {
+            int id = func_0209c0a8(area->ids, i);
+            ResourceInfo021a28a8* info = func_0206f4f0((BinarySearchByComparatorStruct*)area->monsters, (short)id);
+            void* node = func_0206ef18(area->nodes, (short)id);
             if (info && node) {
                 char filename[16];
                 sprintf(filename, data_ov017_021d7680, info->filename);
@@ -87,9 +87,9 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
                         unsigned int length;
                         void* decompressed = DecompressLZ77FileIntoAllocatedSpace(*allocator, file, length);
                         if (!decompressed) {
-                            InsertShortIntoTable021098f4_0209953c(3);
+                            func_0209953c(3);
                         } else {
-                            ResetFieldAc_02072ac4(&objects[i]);
+                            func_02072ac4(&objects[i]);
                             objects[i].object.unknown_2_ = id;
                             ObjectArchiveLoadInfo load;
                             load.fileData = decompressed;
@@ -101,8 +101,8 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
                             load.packageID = 0;
                             load.allocator = allocator;
                             if (objects[i].object.LoadFromCCHROrCMOTArchive(&load, 0)) {
-                                RegisterCombatantSlot_0200fd38(state, i + 7, (GameObject*)&objects[i]);
-                            } else InsertShortIntoTable021098f4_0209953c(3);
+                                func_0200fd38(state, i + 7, (GameObject*)&objects[i]);
+                            } else func_0209953c(3);
                         }
                     }
                 }
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
         archive.Reset();
     }
     BackgroundLoader::RemoveLockGlobal();
-    BackupPairTables0207dfac(tables);
+    func_0207dfac(tables);
     func_ov017_021a2b1c(arena);
     archive.Reset();
     ZeroDestroyGPCPointer(&archive.pGPCFile);

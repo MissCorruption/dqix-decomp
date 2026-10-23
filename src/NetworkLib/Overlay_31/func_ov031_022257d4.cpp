@@ -4,7 +4,7 @@ extern "C" void func_ov031_0223e2c0(int idx, void* obj);
 extern "C" void func_ov031_0223ba20(int a);
 
 struct Obj0223c534;
-void ProcessField28AndDispatch670_0223c534(Obj0223c534* obj);
+extern "C" void func_ov031_0223c534(Obj0223c534* obj);
 
 struct FlagObj0223da58;
 extern "C" int func_ov031_0223da58(FlagObj0223da58* obj);
@@ -24,7 +24,7 @@ namespace DuplicatePool {
 	extern "C" Tables022257d4* data_ov031_02250bfc;
 }
 
-// USA: func_ov031_022257d4  (semantic: DispatchAllEntriesAndFree_022257d4)
+// USA: func_ov031_022257d4
 extern "C" ARM void func_ov031_022257d4(void* obj) {
 	int i;
 	int j;
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov031_022257d4(void* obj) {
 
 	for (i = 0; i < 3; i++) {
 		for (j = 0; j < 4; j++) {
-			ProcessField28AndDispatch670_0223c534(data_ov031_02250bfc->grid[i][j]);
+			func_ov031_0223c534(data_ov031_02250bfc->grid[i][j]);
 			if (i == 0) {
 				func_ov031_0223ba20(data_ov031_02250bfc->handlesB[j]);
 			}

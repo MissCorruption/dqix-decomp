@@ -28,13 +28,13 @@ extern Dimension0223c560 data_ov031_022493b2[];
 extern Dimension0223c560 data_ov031_022493b0[];
 extern const unsigned short data_ov031_022493ac[];
 extern "C" int func_ov031_0223cf4c(unsigned int, int);
-void InitFieldsWithData_020b1e94(Fields020b1d48*, int, int, int, int);
+extern "C" void func_020b1e94(Fields020b1d48*, int, int, int, int);
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* GetMainBG0ScreenBase();
 extern "C" void func_020b1f48(void*, int, int, int, int, int, int, int);
-extern "C" void CallVTableField14_0223ca40(Fields020b1d48*, int);
+extern "C" void func_ov031_0223ca40(Fields020b1d48*, int);
 extern "C" void func_ov031_0223c6d8();
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 #define REG_SUB_BG0CNT (*(volatile unsigned short*)0x04001008)
 #define REG_MAIN_BG0CNT (*(volatile unsigned short*)0x04000008)
 
@@ -51,7 +51,7 @@ extern "C" ARM Fields020b1d48* func_ov031_0223c560(int screen, int layer) {
         REG_MAIN_BG0CNT &= ~0x40;
         REG_MAIN_BG0CNT = (REG_MAIN_BG0CNT & 0x43) | 0xc00;
     }
-    InitFieldsWithData_020b1e94(background, background->buffer, width, height, 4);
+    func_020b1e94(background, background->buffer, width, height, 4);
     void* layerData = &data_ov031_02290d38->layers[layer];
     background->self = background;
     background->layer = layerData;
@@ -60,7 +60,7 @@ extern "C" ARM Fields020b1d48* func_ov031_0223c560(int screen, int layer) {
     void* screenBase = screen == 1 ? GetSubBG0ScreenBase() : GetMainBG0ScreenBase();
     int tile = data_ov031_022493ac[screen];
     func_020b1f48(screenBase, width, height, 0, 0, 0x20, tile, 0xf);
-    CallVTableField14_0223ca40(background, 0);
-    background->request = CallWithZeroExtra_0223e218((void*)1, (void*)func_ov031_0223c6d8, &data_ov031_02290d38->requestArgs[screen], 0xc8);
+    func_ov031_0223ca40(background, 0);
+    background->request = func_ov031_0223e218((void*)1, (void*)func_ov031_0223c6d8, &data_ov031_02290d38->requestArgs[screen], 0xc8);
     return background;
 }

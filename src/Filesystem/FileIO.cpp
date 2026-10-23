@@ -21,13 +21,13 @@
 
 extern "C"
 {
-    bool _Z17TestFlags02046708P16FlagWord02046708j(void*, unsigned int);
-    void* _Z27GetDataPtr02114e04_020d6c00v();
+    bool func_02046708(void*, unsigned int);
+    void* func_020d6c00();
 
-    int _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState*);
+    int func_0200fb08(GameState*);
 
-    char* _Z22FindSubstring_020d2f88PcS_(char* searchString, const char* targetString);
-    int _Z21StringLength_020d2ff0PKc(const char* str);
+    char* func_020d2f88(char* searchString, const char* targetString);
+    int func_020d2ff0(const char* str);
 
     void LZ77UnCompReadNormalWrite8bit(const void* src, void* dst);
 }
@@ -55,7 +55,7 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
     GameState* gameState = GameState::GetInstance();
 
     char replacedPath[128] = { 0 };
-    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(gameState);
+    int language = func_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;
@@ -95,7 +95,7 @@ void* LoadFileIntoNewAllocation(const char* path, SafeAllocator& alloc, unsigned
 
     char replacedPath[128] = { 0 };
 
-    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(gameState);
+    int language = func_0200fb08(gameState);
     StringReplaceLanguageTag(path, replacedPath, language);
 #elif defined(jpn)
     const char* replacedPath = path;

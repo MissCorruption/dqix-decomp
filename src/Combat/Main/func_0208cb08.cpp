@@ -50,22 +50,22 @@ struct Object_0208cb08 {
     unsigned char padding_0xd7[3];
     unsigned short flags;
 };
-int GetWord0x0_0200fb8c(int*);
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-void BackupSubBgControlRegisters(SubBgControlBackup02074b64*);
-void OrGlobalFlag0x40_020dc2bc();
+extern "C" int func_0200fb8c(int*);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" void func_02074b64(SubBgControlBackup02074b64*);
+extern "C" void func_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
-void SetSubBg0Control0208c9cc(int, int, int, int, int);
-int CountActiveEntries(ActiveEntry02046900*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
-void WrapAddByteField0x22_0205aed0(void*, char*, unsigned int, int);
+extern "C" void func_0204b11c(unsigned char*, int);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0208c9cc(int, int, int, int, int);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
+extern "C" void func_0205aed0(void*, char*, unsigned int, int);
 extern "C" void func_0204b5b4(void*, int);
 extern "C" int func_0205a528(void*, void*, int, int);
 extern "C" void func_020dfec0(void*, SafeAllocator*, void*, unsigned int);
@@ -80,13 +80,13 @@ extern char data_020f129e[], data_020f12b2[];
 extern "C" ARM void func_0208cb08(Object_0208cb08* object) {
     if (object->target < 0) return;
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
     if (object->state == 0) {
         SetFlags00(resources, 0x6000);
-        OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 1);
-        FontBankLoader* global = GetGlobal02109400_02094a00();
+        func_020466e4(func_020d6c00(), 1);
+        FontBankLoader* global = func_02094a00();
         int notification = 0x67;
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) != 0x2d) {
+        if (func_02046b24((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) != 0x2d) {
             if (object->target < 0) notification = 0x32;
             else {
                 int level = object->target / 20;
@@ -94,27 +94,27 @@ extern "C" ARM void func_0208cb08(Object_0208cb08* object) {
                 notification = level + 0x32;
             }
         }
-        BlankFunction02094b30(global, notification, 0);
+        func_02094b30(global, notification, 0);
         ++object->state;
     } else if (object->state == 1) {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00())) ++object->state;
+        if (func_02094b4c(func_02094a00())) ++object->state;
     } else if (object->state == 2) {
-        BackupSubBgControlRegisters(&object->backup);
-        OrGlobalFlag0x40_020dc2bc();
+        func_02074b64(&object->backup);
+        func_020dc2bc();
         if (!(object->flags & 0x10)) SetSubBrightness(resources, -16, 8);
         ++object->state;
     } else if (object->state == 3) {
         if (IsSubBrightnessTransitionActive(resources)) return;
         Arena_0208cb08* arena = object->arena;
         arena->inputAllocator.Reset();
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&object->input, 0);
+        func_0204b11c((unsigned char*)&object->input, 0);
         object->input.flags = (object->input.flags & ~0xf) | 1;
         object->input.flags &= ~0xf0;
         func_0204b5b4(&object->input, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)&object->input, &arena->inputAllocator);
-        AllocateArray0204af38((Foo0204af38*)&object->input, 1, &arena->inputAllocator);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)&object->input, 0, 0);
-        SetSubBg0Control0208c9cc(0, 0, 15, 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)&object->input, &arena->inputAllocator);
+        func_0204af38((Foo0204af38*)&object->input, 1, &arena->inputAllocator);
+        func_0204b5e8((Obj0204b5e8*)&object->input, 0, 0);
+        func_0208c9cc(0, 0, 15, 0, 0);
         object->pending = 1;
         object->source = object->filename;
         object->format = 3;
@@ -132,14 +132,14 @@ extern "C" ARM void func_0208cb08(Object_0208cb08* object) {
         void* file;
         unsigned int length;
         loader->GetLoadedFileByID(object->taskId, &file, &length);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         int index = 0;
         int size;
         for (; index < count; ++index) {
-            void* data = FindRecordByIndex((Rec020467f0*)file, index, &record, &size);
+            void* data = func_020467f0((Rec020467f0*)file, index, &record, &size);
             func_0205a528(object->resource, data, size, (int)&arena->resourceAllocator);
         }
-        WrapAddByteField0x22_0205aed0(object->resource, object->filename, 3, 0x40);
+        func_0205aed0(object->resource, object->filename, 3, 0x40);
         loader->RemoveTask(object->taskId);
         object->taskId = -1;
         ++object->state;
@@ -173,7 +173,7 @@ extern "C" ARM void func_0208cb08(Object_0208cb08* object) {
             REG_SUB_BG_0208cb08.backgrounds[2] = (REG_SUB_BG_0208cb08.backgrounds[2] & ~3) | 3;
             REG_SUB_BG_0208cb08.backgrounds[3] = (REG_SUB_BG_0208cb08.backgrounds[3] & ~3) | 1;
             REG_SUB_BG_0208cb08.display = (REG_SUB_BG_0208cb08.display & ~0x1f00) | 0x1900;
-            if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) == 0x2d) {
+            if (func_02046b24((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) == 0x2d) {
                 if (!IsSubBrightnessTransitionActive(resources)) SetSubBrightness(resources, 0, 25);
             } else if (!(object->flags & 0x10)) SetSubBrightness(resources, 0, 8);
             ++object->state;

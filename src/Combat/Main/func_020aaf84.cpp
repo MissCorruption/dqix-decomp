@@ -100,18 +100,18 @@ extern "C" void func_020a9b2c(void*);
 extern "C" void func_020a9c14(void*);
 extern "C" void func_020a9e30(void*);
 extern "C" Zone3D* func_02012fe4();
-int VerifyBuffer020a94f8(Buf020a94f8*, int);
-void* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-void SetFlag0x5cccBit0_02011544(StateBits5ccc_11544*);
-Globals020aaf84* GetGlobal02109418_02094d6c();
-void* GetSlotEntry020108d8(char*, int);
-void LoadBattleRegion0x5cdc_020a9af8(unsigned char*);
-void CopyBlobIntoBattleStruct020a9ba4(void*);
-void CopyBlobIntoBattleStruct020a9d78(void*);
-void* GetPtrField0x2a04_02010828(GameState*);
-void ClearRegion020865ec(char*);
+extern "C" int func_020a94f8(Buf020a94f8*, int);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void func_02011544(StateBits5ccc_11544*);
+extern "C" Globals020aaf84* func_02094d6c();
+extern "C" void* func_020108d8(char*, int);
+extern "C" void func_020a9af8(unsigned char*);
+extern "C" void func_020a9ba4(void*);
+extern "C" void func_020a9d78(void*);
+extern "C" void* func_02010828(GameState*);
+extern "C" void func_020865ec(char*);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 
 // USA: func_020aaf84
@@ -149,7 +149,7 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
     saveState = (SaveStateJ020aaf84*)state;
     saveState->error = 0;
     valid = 1;
-    if (!VerifyBuffer020a94f8(&header, alternate != 0)) valid = 0;
+    if (!func_020a94f8(&header, alternate != 0)) valid = 0;
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     if (alternate) id = 0x8084;
@@ -167,32 +167,32 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
         return valid;
     }
     if (!valid) {
-        SetFlag0x5cccBit0_02011544((StateBits5ccc_11544*)state);
+        func_02011544((StateBits5ccc_11544*)state);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
     context = func_0205ec34();
-    globals = GetGlobal02109418_02094d6c();
-    func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0));
+    globals = func_02094d6c();
+    func_020a95a4(body->actorData, func_020108d8((char*)state, 0));
     func_020a9a50(body->context, context, 0);
     memcpy(globals, body->globalData, 0xa0);
-    memcpy(GetGlobal02109418_02094d6c()->extra, body->globalExtra, 0x330);
-    LoadBattleRegion0x5cdc_020a9af8(body->region);
+    memcpy(func_02094d6c()->extra, body->globalExtra, 0x330);
+    func_020a9af8(body->region);
     memcpy(saveState->state75f0, body->state75f0, 0x4d0);
     memcpy(saveState->state7ac0, body->state7ac0, 0x3b4);
     memcpy(saveState->state7504, body->state7504, 0xec);
     func_020a9b2c(body->load3ec4);
-    CopyBlobIntoBattleStruct020a9ba4(body->battle5a04);
+    func_020a9ba4(body->battle5a04);
     func_020a9c14(body->battle5e08);
     memcpy(((SaveStateJ020aaf84*)GameState::GetInstance())->state569c, body->state569c, 0x7c);
     if (alternate) {
-        CopyBlobIntoBattleStruct020a9d78(body->extra695c);
+        func_020a9d78(body->extra695c);
         func_020a9e30(&body->entries);
     } else {
         entries = &body->entries;
-        battle = (BattleEntries020aaf84*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+        battle = (BattleEntries020aaf84*)func_02010828(GameState::GetInstance());
         for (i = 0; i < 3; i++) {
-            ClearRegion020865ec((char*)&battle->entries[i]);
+            func_020865ec((char*)&battle->entries[i]);
         }
         if (entries->valid && entries->count) {
             for (j = 0; j < entries->count; j++) {
@@ -233,11 +233,11 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
     saveState = (SaveState020aaf84*)state;
     saveState->error = 0;
     valid = 1;
-    if (!VerifyBuffer020a94f8(&header, alternate != 0)) valid = 0;
+    if (!func_020a94f8(&header, alternate != 0)) valid = 0;
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    flags = (unsigned int*)GetDataPtr02114e04_020d6c00();
-    OrBitsIntoField0_020466e4(flags, 0x2000000);
+    flags = (unsigned int*)func_020d6c00();
+    func_020466e4(flags, 0x2000000);
     if (alternate) id = 0x8084;
     else id = 0x84;
     body = &((SaveScratch020aaf84*)data_0211e33c)->body;
@@ -249,39 +249,39 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
         }
     }
     if (quiet) {
-        ClearFlags020466f4((FlagWord020466f4*)flags, 0x2000000);
+        func_020466f4((FlagWord020466f4*)flags, 0x2000000);
         BackgroundLoader::RemoveLockGlobal();
         return valid;
     }
     if (!valid) {
-        SetFlag0x5cccBit0_02011544((StateBits5ccc_11544*)state);
-        ClearFlags020466f4((FlagWord020466f4*)flags, 0x2000000);
+        func_02011544((StateBits5ccc_11544*)state);
+        func_020466f4((FlagWord020466f4*)flags, 0x2000000);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
     context = func_0205ec34();
-    globals = GetGlobal02109418_02094d6c();
+    globals = func_02094d6c();
     status = 0;
-    func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0), &status);
+    func_020a95a4(body->actorData, func_020108d8((char*)state, 0), &status);
     func_020a9a50(body->context, context, 0);
     memcpy(globals, body->globalData, 0xa0);
-    memcpy(GetGlobal02109418_02094d6c()->extra, body->globalExtra, 0x330);
-    LoadBattleRegion0x5cdc_020a9af8(body->region);
+    memcpy(func_02094d6c()->extra, body->globalExtra, 0x330);
+    func_020a9af8(body->region);
     memcpy(saveState->state75f0, body->state75f0, 0x4d0);
     memcpy(saveState->state7ac0, body->state7ac0, 0x3b4);
     memcpy(saveState->state7504, body->state7504, 0xec);
     func_020a9b2c(body->load3ec4);
-    CopyBlobIntoBattleStruct020a9ba4(body->battle5a04);
+    func_020a9ba4(body->battle5a04);
     func_020a9c14(body->battle5e08);
     memcpy(((SaveState020aaf84*)GameState::GetInstance())->state569c, body->state569c, 0x7c);
     if (alternate) {
-        CopyBlobIntoBattleStruct020a9d78(body->extra695c);
+        func_020a9d78(body->extra695c);
         func_020a9e30(&body->entries);
     } else if (status) {
         entries = &body->entries;
-        battle = (BattleEntries020aaf84*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+        battle = (BattleEntries020aaf84*)func_02010828(GameState::GetInstance());
         for (i = 0; i < 3; i++) {
-            ClearRegion020865ec((char*)&battle->entries[i]);
+            func_020865ec((char*)&battle->entries[i]);
         }
         if (entries->valid && entries->count) {
             for (j = 0; j < entries->count; j++) {
@@ -298,7 +298,7 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
     lighting->SetZone(func_02012fe4());
     lighting->RecomputeAdvancedLighting();
     func_0206df6c(context, context->bits, 3, 0);
-    ClearFlags020466f4((FlagWord020466f4*)flags, 0x2000000);
+    func_020466f4((FlagWord020466f4*)flags, 0x2000000);
     BackgroundLoader::RemoveLockGlobal();
     return 1;
 }

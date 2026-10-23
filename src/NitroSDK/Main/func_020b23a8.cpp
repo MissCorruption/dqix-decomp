@@ -5,7 +5,7 @@ typedef signed char s8;
 
 struct ParamA020b1d70;
 struct Obj020b1d70;
-extern int ApplyRangeDeltaCallback020b1d70(struct ParamA020b1d70* paramA, struct Obj020b1d70** paramB, int accA, int accB, int paramE, unsigned short paramF);
+extern "C" int func_020b1d70(struct ParamA020b1d70* paramA, struct Obj020b1d70** paramB, int accA, int accB, int paramE, unsigned short paramF);
 
 typedef u16 (*NNSiG2dSplitCharCallback)(const void** ppChar);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_020b23a8(const NNSG2dTextCanvas* pTxn, int x, int y, in
         }
 
         {
-            int w = ApplyRangeDeltaCallback020b1d70(pTxn->pCanvas, (struct Obj020b1d70**)pFont, x, y, cl, c) + charSpace;
+            int w = func_020b1d70(pTxn->pCanvas, (struct Obj020b1d70**)pFont, x, y, cl, c) + charSpace;
             x += w * dir.x;
             y += w * dir.y;
         }

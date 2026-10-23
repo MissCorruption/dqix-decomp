@@ -22,7 +22,7 @@ struct StreamContext_02205b48 {
 extern "C" void* func_ov031_02205c50(struct StreamContext_02205b48* ctx, int* available,
 	unsigned short* tag, unsigned short* count, unsigned int* value);
 
-// USA: func_ov031_02205b48  (semantic: ReadStreamBytes_02205b48)
+// USA: func_ov031_02205b48
 extern "C" ARM int func_ov031_02205b48(struct StreamContext_02205b48* ctx, void* dst,
 	int length, unsigned short* outCount, unsigned int* outValue) {
 	unsigned short tag;

@@ -1,0 +1,21 @@
+#include <globaldefs.h>
+
+#if defined(jpn)
+enum { ACTIVE_OBJECT_FIELD = 0x4c0 };
+#else
+enum { ACTIVE_OBJECT_FIELD = 0x6d0 };
+#endif
+
+extern "C" int func_02020084(unsigned char* base, int bit);
+
+struct FlagPair_0218b628 { int a; int b; };
+extern FlagPair_0218b628 data_ov017_021d82e0;
+
+// USA: func_ov017_0218b628
+extern "C" ARM int func_ov017_0218b628(signed char bit) {
+    int b = data_ov017_021d82e0.b;
+    if (b == 0) return 0;
+    int val = *(int*)((char*)b + 0x3000 + ACTIVE_OBJECT_FIELD);
+    if (val == 0) return 0;
+    return func_02020084((unsigned char*)val, bit);
+}

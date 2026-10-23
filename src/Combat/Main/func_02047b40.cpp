@@ -8,15 +8,15 @@ extern "C" void func_02047f70(void* obj, void* buf, unsigned int size, SafeAlloc
 struct Obj02047ed4;
 struct Struct020478bc;
 
-void DuplicateBufferIfFlagged02047ed4(struct Obj02047ed4* obj, int* outSize, void* buf, unsigned int size, SafeAllocator* alloc);
-void RecomputeField0x7c(struct Struct020478bc* o, int newIndex);
+extern "C" void func_02047ed4(struct Obj02047ed4* obj, int* outSize, void* buf, unsigned int size, SafeAllocator* alloc);
+extern "C" void func_020478bc(struct Struct020478bc* o, int newIndex);
 
 struct Array02048090 {
     int count;
     void* buffer;
 };
 
-void AllocateArray02048090(struct Array02048090* obj, int count, SafeAllocator* alloc);
+extern "C" void func_02048090(struct Array02048090* obj, int count, SafeAllocator* alloc);
 
 struct PackedTexture {
     int size;
@@ -116,10 +116,10 @@ extern "C" ARM void func_02047b40(struct Obj02047b40* obj, unsigned char* src, S
             if (obj->mode == 3) {
                 shift = 1;
                 size = h * w;
-                DuplicateBufferIfFlagged02047ed4((Obj02047ed4*)obj, &tex->size, data, size >> 1, alloc);
+                func_02047ed4((Obj02047ed4*)obj, &tex->size, data, size >> 1, alloc);
             } else {
                 size = h * w;
-                DuplicateBufferIfFlagged02047ed4((Obj02047ed4*)obj, &tex->size, data, size, alloc);
+                func_02047ed4((Obj02047ed4*)obj, &tex->size, data, size, alloc);
             }
             data += size >> shift;
             tex->info = (ft->hlog << 4) | ft->wlog;
@@ -140,7 +140,7 @@ extern "C" ARM void func_02047b40(struct Obj02047b40* obj, unsigned char* src, S
     data += 0x1e;
     memcpy(&obj->frames, data, 4);
     data += 4;
-    AllocateArray02048090(&obj->frames, obj->frames.count, alloc);
+    func_02048090(&obj->frames, obj->frames.count, alloc);
     if (obj->frames.count > 0) {
         for (n = 0; n < obj->frames.count; n++) {
             memcpy((char*)obj->frames.buffer + n * 0x1e, data, 0x1e);
@@ -173,11 +173,11 @@ extern "C" ARM void func_02047b40(struct Obj02047b40* obj, unsigned char* src, S
     obj->flag1 = 1;
     if (obj->sets != 0) {
         if (obj->sets->count == 0 && obj->frames.count == 1) {
-            RecomputeField0x7c((Struct020478bc*)obj, 0);
+            func_020478bc((Struct020478bc*)obj, 0);
         } else {
-            RecomputeField0x7c((Struct020478bc*)obj, 1);
+            func_020478bc((Struct020478bc*)obj, 1);
         }
     } else {
-        RecomputeField0x7c((Struct020478bc*)obj, 0);
+        func_020478bc((Struct020478bc*)obj, 0);
     }
 }

@@ -2,21 +2,21 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-void NotifyLocalizedResourceLoad020dcfc8(int id, char* buf);
-int GetGlobalField0x1c020421a0();
+extern "C" void func_020dcfc8(int id, char* buf);
+extern "C" int func_020421a0();
 extern "C" void func_02046608(int a, int b, void* fmt, void* dst, int p4, int p5, int p6);
 struct Struct_0205d81c;
 struct Elem_0205d81c;
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
 struct StructA0205d5d0;
 #if defined(jpn)
 extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
-#define APPLY_TEXT(s,k,t) TryApplyElemFields0205d5d0(s,k,(int)t,1)
+#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1)
 #define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0)
 enum { textOffset=0x28, textSize=0x800, cursorOffset=0x1fa7, width=12, height=7, xOffset=0x16, lineHeight=8 };
 #else
 extern "C" void func_0205d304(void* s, void* buf, int a, int b, int c, int d, int e, int f);
-#define APPLY_TEXT(s,k,t) TryApplyElemFields0205d5d0(s,k,(int)t,1,0)
+#define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1,0)
 #define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0,0)
 enum { textOffset=0x5c, textSize=0x960, cursorOffset=0x1d6f, width=16, height=8, xOffset=0x10, lineHeight=5 };
 #endif
@@ -34,11 +34,11 @@ extern "C" ARM void func_ov000_021781f8(char* obj, struct InStruct_021781f8* in)
 #if !defined(jpn)
     char text[0x800];
 #endif
-    char* buf = *(char**)(GetGlobalField0x1c020421a0() + textOffset);
+    char* buf = *(char**)(func_020421a0() + textOffset);
     memset(buf, 0, textSize);
-    NotifyLocalizedResourceLoad020dcfc8(*(short*)(obj + 0x26 + *(signed char*)(obj + cursorOffset) * 2), buf);
+    func_020dcfc8(*(short*)(obj + 0x26 + *(signed char*)(obj + cursorOffset) * 2), buf);
 #if !defined(jpn)
-    func_02046608(GetGlobalField0x1c020421a0(), 0xa, buf, text, 0x72, 0, 0);
+    func_02046608(func_020421a0(), 0xa, buf, text, 0x72, 0, 0);
 #endif
     s = obj + 0x188;
 #if defined(jpn)
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov000_021781f8(char* obj, struct InStruct_021781f8* in)
 #else
     msg = text;
 #endif
-    if (FindElementByC40205d81c((struct Struct_0205d81c*)s, 0x21)) {
+    if (func_0205d81c((struct Struct_0205d81c*)s, 0x21)) {
         APPLY_TEXT((struct StructA0205d5d0*)s, 0x21, msg);
         return;
     }

@@ -2,7 +2,7 @@
 #include <NitroSDK/Memory.h>
 
 struct ParamA020b1d70;
-ARM int FindFirstZeroByte_0223dd34(unsigned char* s, int len);
+extern "C" ARM int func_ov031_0223dd34(unsigned char* s, int len);
 extern "C" void func_ov031_0223c8d4(ParamA020b1d70* a, int b, int c, int d, int e, unsigned short* counts, int idx);
 
 struct Layer2_0222ff34 { unsigned char pad[0x14]; ParamA020b1d70* field14; };
@@ -13,7 +13,7 @@ extern Ctx0222ff34 data_ov031_02290ca0;
 extern "C" ARM void func_ov031_0222ff34(unsigned char* str, int idx) {
 	unsigned short buf[0x11];
 	VectorizedMemset(buf, 0, sizeof(buf));
-	int len = FindFirstZeroByte_0223dd34(str, 0x20);
+	int len = func_ov031_0223dd34(str, 0x20);
 	int n = len <= 0x10 ? len : 0x10;
 	int i = 0;
 	if (n > 0) {

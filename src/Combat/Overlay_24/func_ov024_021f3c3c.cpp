@@ -3,9 +3,9 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Obj_021f3c3c { int field0; };
 struct Buf8_021f3c3c { short v[8]; };
@@ -15,7 +15,7 @@ static inline unsigned short GetMaxMP_021f3c3c(GameObject* c) { return c->curren
 
 // USA: func_ov024_021f3c3c
 extern "C" ARM int func_ov024_021f3c3c(struct Obj_021f3c3c* obj, int id, int unused, int* outCount, short* outArr) {
-	GameObject* self = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, id);
+	GameObject* self = func_ov000_021536f8(obj->field0, id);
 	if (!self) return 0;
 	if (self->currentStats_->primaryStats.currMP == 0) return 0;
 	struct Buf8_021f3c3c buf = data_ov024_021feeac;
@@ -31,6 +31,6 @@ extern "C" ARM int func_ov024_021f3c3c(struct Obj_021f3c3c* obj, int id, int unu
 		outArr[(*outCount)++] = buf.v[i];
 	}
 	if (*outCount <= 0) return 0;
-	PickRandomTableEntryResetCounter_021ed890((struct Random**)obj, outCount, outArr);
+	func_ov024_021ed890((struct Random**)obj, outCount, outArr);
 	return 1;
 }

@@ -7,12 +7,12 @@
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
-struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
+extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int key, int value);
-void InitBattleTag0215ee04(char *base);
+extern "C" void func_0205deb4(struct Struct_0205d81c *s, int key, int value);
+extern "C" void func_ov002_0215ee04(char *base);
 
 extern "C" void func_ov002_0215ef60(void *base);
 extern "C" void func_ov002_02157030(void *base, int type, short *a, short *b, short *c, short *d);
@@ -46,16 +46,16 @@ extern "C" ARM void func_ov002_0215eadc(char *base, int refresh) {
     int many = 0;
     if (l->count > 1) many = 1;
     if (refresh == 0) {
-        InitBattleTag0215ee04(base);
+        func_ov002_0215ee04(base);
         func_ov002_0215ef60(base);
     }
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + RG(0xec8, 0xe20)), 0, 2);
+    func_0205de24((struct Struct0205de24 *) (base + RG(0xec8, 0xe20)), 0, 2);
     short s16 = 0, s14 = 0, s12 = 1, s10 = 1;
     func_ov002_02157030(base, RG(0x10, 0x11), &s16, &s14, &s12, &s10);
     s16    = s16 + s12;
     int id = ((struct FieldOv0215eadc *) (base + 0x1000))->field & 0xff;
     if (refresh != 0) id = RG(0x11, 0x12);
-    if (FindElementByC40205d81c((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), id) == 0) {
+    if (func_0205d81c((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), id) == 0) {
         func_ov002_0215be00(base, id, s16, s14);
         memset(((struct BufOv0215eadc *) (base + 0x1000))->buf, 0, RG(0x960, 0x800));
         func_ov002_0215ec4c(base, ((struct BufOv0215eadc *) (base + 0x1000))->buf, 0);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov002_0215eadc(char *base, int refresh) {
 #endif
     }
     if (refresh == 0) {
-        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), RG(0x12, 0x13), 0);
-        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), RG(0x13, 0x14), 0);
+        func_0205deb4((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), RG(0x12, 0x13), 0);
+        func_0205deb4((struct Struct_0205d81c *) (base + RG(0xec8, 0xe20)), RG(0x13, 0x14), 0);
     }
 }

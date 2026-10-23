@@ -5,7 +5,7 @@ extern "C" int func_0202c508(void* state);
 extern "C" void func_ov017_021d0490(int a);
 extern "C" void func_ov017_021c3e18(int a);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 extern "C" void func_ov017_021bd2f0(void* table, void* localBuf);
 
 struct ArgB021d069c {
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021d069c(int a0, struct ArgB021d069c* a1, int unu
     if (a0 != 0) {
         return;
     }
-    if (GetSearchStructCurrentArrEntry(a4) != a1->fieldA) {
+    if (func_0202c1a4(a4) != a1->fieldA) {
         return;
     }
 

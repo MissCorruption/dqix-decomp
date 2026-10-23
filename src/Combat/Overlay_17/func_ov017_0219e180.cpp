@@ -7,25 +7,25 @@ struct Entry_02028bd0 {
     unsigned short field2 : 2;
     unsigned short : 14;
 };
-struct Entry_02028bd0* GetEntryTableBase_02027ca4(void);
-struct Entry_02028bd0* FindInlineEntryById(struct Entry_02028bd0* base, int key);
+extern "C" struct Entry_02028bd0* func_02027ca4(void);
+extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
 extern "C" void* func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
-GameObject* FindCombatantByField2_021a2738(void* unused, int value);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+extern "C" GameObject* func_ov017_021a2738(void* unused, int value);
 
 // USA: func_ov017_0219e180
 extern "C" ARM void func_ov017_0219e180(void* param, int id) {
     GameState* bs = GameState::GetInstance();
-    struct Entry_02028bd0* table = GetEntryTableBase_02027ca4();
+    struct Entry_02028bd0* table = func_02027ca4();
     void* search = func_0202ae18();
-    if (CheckField0NonZero_0202b7d8((int*)search) != 0) {
-        if (GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)search) != 0) {
+    if (func_0202b7d8((int*)search) != 0) {
+        if (func_0202c1a4((struct SearchStruct0202c1a4*)search) != 0) {
             return;
         }
     }
-    struct Entry_02028bd0* entry = FindInlineEntryById(table, id);
+    struct Entry_02028bd0* entry = func_02028bd0(table, id);
     if (entry == NULL) {
         return;
     }
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov017_0219e180(void* param, int id) {
         if (monster == NULL) {
             continue;
         }
-        GameObject* found = FindCombatantByField2_021a2738(param, monster->obj3D_.unknown_2_);
+        GameObject* found = func_ov017_021a2738(param, monster->obj3D_.unknown_2_);
         if (found == NULL) {
             continue;
         }

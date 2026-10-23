@@ -48,18 +48,18 @@ struct Active02154974 {
 };
 
 extern "C" {
-struct Global02154974* _Z29GetGlobalPtr021075f4_0203cf4cv(void);
-void _Z27ClearCombatantSlot_0200fd48P9GameStatei(GameState* gs, int id);
-struct Emitter02154974* _Z29FindEntryPointerByKey0203df78Pvi(void* list, int key);
-int* _Z33GetEntryUnlessFlag0x8000_0203dce4P17EntryList_203dce4i(void* list, int id);
-int _Z28FindEntryIndexByName02040404P17Container02040404PKc(void* container, const char* name);
-void _Z30ReleaseOrDecrementSlot0204039cP17Container0204039ci(void* container, int index);
-void _Z13Reset02040504Pi(int* entry);
-void _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(void* list, int index, int arg);
-void _Z20CallByIndex_0215acd4i(int index);
+struct Global02154974* func_0203cf4c(void);
+void func_0200fd48(GameState* gs, int id);
+struct Emitter02154974* func_0203df78(void* list, int key);
+int* func_0203dce4(void* list, int id);
+int func_02040404(void* container, const char* name);
+void func_0204039c(void* container, int index);
+void func_02040504(int* entry);
+void func_0203dd10(void* list, int index, int arg);
+void func_ov001_0215acd4(int index);
 }
 
-void* EmptyStub0203d004(void* list);
+extern "C" void* func_0203d004(void* list);
 
 #if defined(jpn)
 #define data_ov001_02164bd1 data_ov001_02166171
@@ -69,7 +69,7 @@ extern char data_ov001_02164bd1[];
 // USA: func_ov001_02154974
 extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
     GameState* gs = GameState::GetInstance();
-    struct Global02154974* global = _Z29GetGlobalPtr021075f4_0203cf4cv();
+    struct Global02154974* global = func_0203cf4c();
     GameResources* base = GetGameResources();
     struct Other02154974* other;
     struct Node02154974* node;
@@ -102,15 +102,15 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
     for (node = self->nodes; node != 0; node = node->next) {
         switch (node->kind) {
         case 5: {
-            struct Emitter02154974* em = _Z29FindEntryPointerByKey0203df78Pvi(global, node->key);
+            struct Emitter02154974* em = func_0203df78(global, node->key);
             if (em != 0) {
                 em->flags &= ~0x10000;
             }
             break;
         }
         case 4: {
-            _Z27ClearCombatantSlot_0200fd48P9GameStatei(gs, node->slot);
-            struct Emitter02154974* em = _Z29FindEntryPointerByKey0203df78Pvi(global, node->key);
+            func_0200fd48(gs, node->slot);
+            struct Emitter02154974* em = func_0203df78(global, node->key);
             if (em != 0 && em->object != 0) {
                 ((struct Active02154974*)em->object)->active = 0;
                 em->flags &= ~0x10000;
@@ -122,17 +122,17 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         case 7:
         case 8:
             if (gs->GetGameObjectByIndex(node->slot) != 0) {
-                _Z27ClearCombatantSlot_0200fd48P9GameStatei(gs, node->slot);
+                func_0200fd48(gs, node->slot);
             }
             break;
         case 3: {
-            int* entry = _Z33GetEntryUnlessFlag0x8000_0203dce4P17EntryList_203dce4i(global, node->slot);
+            int* entry = func_0203dce4(global, node->slot);
             if (entry != 0) {
-                void* container = EmptyStub0203d004(global);
-                _Z30ReleaseOrDecrementSlot0204039cP17Container0204039ci(
-                    container, _Z28FindEntryIndexByName02040404P17Container02040404PKc(container, node->name));
-                _Z13Reset02040504Pi(entry);
-                _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(global, node->slot, i);
+                void* container = func_0203d004(global);
+                func_0204039c(
+                    container, func_02040404(container, node->name));
+                func_02040504(entry);
+                func_0203dd10(global, node->slot, i);
             }
             break;
         }
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         case 10:
             break;
         }
-        _Z20CallByIndex_0215acd4i(node->index);
+        func_ov001_0215acd4(node->index);
     }
 
     if (self->mode == 0) {
@@ -167,6 +167,6 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         ClearFlags04(base, 0x400);
     }
     if (self->mode & 0x20) {
-        _Z29GetGlobalPtr021075f4_0203cf4cv()->flags &= ~2;
+        func_0203cf4c()->flags &= ~2;
     }
 }

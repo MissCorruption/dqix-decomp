@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int* GetWord0x0_0200fb8c(int*);
+extern "C" int* func_0200fb8c(int*);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-int IsAnimationActive0209ca2c(void* obj);
+extern "C" int func_0209ca2c(void* obj);
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
 
 struct ShortField0xb8_0209cae8;
-short GetShortAt0xb8(struct ShortField0xb8_0209cae8* obj);
+extern "C" short func_0209cae8(struct ShortField0xb8_0209cae8* obj);
 
 struct Actor0209c678;
-void DispatchContextByState0209c678(struct Actor0209c678* actor, int arg);
+extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
 
 extern int data_02109bf4;
 
@@ -30,14 +30,14 @@ struct Obj021868a8 {
 
 // USA: func_ov008_021868a8
 extern "C" ARM void func_ov008_021868a8(struct Obj021868a8* obj) {
-    int* word = GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    int* word = func_0200fb8c((int*)GameState::GetInstance());
     unsigned char flag = obj->b11;
     if (flag == 0) {
         if (obj->b24 == 0) {
             SetBrightness((GameResources*)word, -16, 15);
             if (obj->b13 == 0) {
-                if (GetShortAt0xb8((struct ShortField0xb8_0209cae8*)&data_02109bf4) != 0x29) {
-                    DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 15);
+                if (func_0209cae8((struct ShortField0xb8_0209cae8*)&data_02109bf4) != 0x29) {
+                    func_0209c678((struct Actor0209c678*)&data_02109bf4, 15);
                 }
             }
         } else {
@@ -48,8 +48,8 @@ extern "C" ARM void func_ov008_021868a8(struct Obj021868a8* obj) {
     }
     if (flag != 1) return;
     if (IsBrightnessTransitionActive((GameResources*)word) != 0) return;
-    if (IsAnimationActive0209ca2c(&data_02109bf4) != 0) return;
-    ResetEntryList0205d6a0((Entry_0205d6a0*)((char*)obj + 0x130), 1);
+    if (func_0209ca2c(&data_02109bf4) != 0) return;
+    func_0205d6a0((Entry_0205d6a0*)((char*)obj + 0x130), 1);
     obj->b10 = 0xe;
     obj->b11 = 0;
 }

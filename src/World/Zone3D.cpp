@@ -15,26 +15,26 @@
 
 extern "C"
 {
-    void* _Z25GetPtrField0x468_02011584Pv(GameState*);
+    void* func_02011584(GameState*);
 
-    void* _Z24GetFieldAt0x150_02053c6cPh(void*);
+    void* func_02053c6c(void*);
     void _Z25RunBufferedStream0205e104iiP12StreamHeaderi(const char*, SafeAllocator*, const void*, unsigned int);
 
-    void* _Z26CopyInternalFields0207df50P11Foo0207df50(void*);
-    void _Z25RestorePairTables0207df90Pc(void*);
-    void _Z24BackupPairTables0207dfacPc(void*);
+    void* func_0207df50(void*);
+    void func_0207df90(void*);
+    void func_0207dfac(void*);
 
-    void* _Z24GetData02108f0c_0208a9b4v();
-    void _Z23ClearThreeWords02094d00P29ClearThreeWords02094d00Struct(void*);
-    Zone3D_StructPtr_8* _Z31FindEntryByHalfwordKey_02099950P11SearchTablei(void*, unsigned short id);
+    void* func_0208a9b4();
+    void func_02094d00(void*);
+    Zone3D_StructPtr_8* func_02099950(void*, unsigned short id);
 
     void func_020c9be0();
-    void _Z16ZeroInit020de848Pv(void*);
+    void func_020de848(void*);
 
-    void _Z22ResetBigStruct02013750Pvi(Zone3D*, bool);
+    void func_02013750(Zone3D*, bool);
 
-    bool _Z17IsInRange0201b5b0i(int id);
-    bool _Z22IsValueInRange0201b5d8i(int id);
+    bool func_0201b5b0(int id);
+    bool func_0201b5d8(int id);
 
 }
 
@@ -72,20 +72,20 @@ extern char data_020ef20b[];
 extern char data_020ef222[];
 extern char data_020ef22c[];
 
-void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
+void Zone3D::SwitchZone(unsigned short newID, int)
 {
     GameState* gameState = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
-    void* uVar3 = _Z25GetPtrField0x468_02011584Pv(gameState);
+    void* uVar3 = func_02011584(gameState);
     (void)GetGameResources();
     GameObject* iVar4 = gameState->GetUnknownGameObject();
 
     pAllocator_68_ = pAllocator_4c_;
     pAllocator_68_->Reset();
 
-    _Z26CopyInternalFields0207df50P11Foo0207df50(unknown_ptr_50_);
-    _Z22ResetBigStruct02013750Pvi(this, true);
+    func_0207df50(unknown_ptr_50_);
+    func_02013750(this, true);
 
     previousZoneID_ = currentZoneID_;
     currentZoneID_ = newID;
@@ -113,7 +113,7 @@ void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
     unknown_834_ = 0;
     unknown_2820_ = 0;
 
-    substruct_6c_.Reset_0201e248();
+    substruct_6c_.func_0201e248();
 
     substruct_c_.buffer1[0] = 0;
     substruct_c_.buffer2[0] = 0;
@@ -127,32 +127,32 @@ void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
 
     atmosphericEffects_.Reset();
     lighting_.Reset();
-    _Z16ZeroInit020de848Pv(&unknown_struct_2754_[0]);
+    func_020de848(&unknown_struct_2754_[0]);
 
-    pUnknownStruct_8_ = _Z31FindEntryByHalfwordKey_02099950P11SearchTablei(uVar3, newID);
+    pUnknownStruct_8_ = func_02099950(uVar3, newID);
     unknown_4_ = pUnknownStruct_8_->unknown_2_;
     if (pUnknownStruct_8_->unknown_c_low_ == 0)
     {
         GameObject* iVar5 = gameState->GetProtagonist();
         if (iVar5 != NULL)
         {
-            void* iVar6 = _Z24GetFieldAt0x150_02053c6cPh(iVar5);
+            void* iVar6 = func_02053c6c(iVar5);
             if (iVar6 != NULL)
                 *(unsigned short*)((int)iVar6 + 0x566) = pUnknownStruct_8_->unknown_0_;
         }
     }
 
-    *(bool*)((int)_Z24GetData02108f0c_0208a9b4v() + 0x9c) = pUnknownStruct_8_->unknown_c_high_ != 0;
-    _Z23ClearThreeWords02094d00P29ClearThreeWords02094d00Struct(&unknown_struct_2724_[0]);
+    *(bool*)((int)func_0208a9b4() + 0x9c) = pUnknownStruct_8_->unknown_c_high_ != 0;
+    func_02094d00(&unknown_struct_2724_[0]);
 
     grottoTileMapData_420_ = NULL;
 
-    if (_Z17IsInRange0201b5b0i(previousZoneID_))
+    if (func_0201b5b0(previousZoneID_))
     {
         grotto_.floorMap_.Clear();
     }
 
-    if (_Z17IsInRange0201b5b0i(newID))
+    if (func_0201b5b0(newID))
     {
         isInMainGrottoFloor_23b8_ = true;
         currentGrottoFloor_23ba_ = newID % 20;
@@ -163,7 +163,7 @@ void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
         grottoTileMapData_420_ = (GrottoTileMapRecord*)pAllocator_68_->Allocate(sizeof(GrottoTileMapRecord) * 256);
         for (int i = 0; i < 256; i++)
         {
-            Reset02013490(&grottoTileMapData_420_[i]);
+            func_02013490(&grottoTileMapData_420_[i]);
         }
         grotto_.ClearGenerator(false);
         grotto_.AllocateGenerator(pAllocator_68_, false);

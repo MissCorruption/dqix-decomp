@@ -21,19 +21,19 @@ enum { kRegionValue1016_F92 = 0x1016 };
 #endif
 
 struct Obj2081;
-void ClearElementFlag0x20_02080c20(struct Obj2081* obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void* obj, int id, int value);
-void SetSublistEntriesFlag1_02080b54(void* obj, int id);
-void SetSublistEntriesFlag2_02080608(void* obj, int id);
-void SetOrClearEntryFlag0x102081130(void* obj, int id, int flag);
+extern "C" void func_02080c20(struct Obj2081* obj, int key);
+extern "C" void func_02080c68(void* obj, int id, int value);
+extern "C" void func_02080b54(void* obj, int id);
+extern "C" void func_02080608(void* obj, int id);
+extern "C" void func_02081130(void* obj, int id, int flag);
 
 struct Container020dedd0;
 struct Element020de650;
-struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-unsigned int ComputeRatio_02175898(char* obj, void* s);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" unsigned int func_ov003_02175898(char* obj, void* s);
 
-void SetSublistEntryField28_0208077c(void* obj, int id, short value);
-int SetEntryFlagById02080b40(void* obj, int id);
+extern "C" void func_0208077c(void* obj, int id, short value);
+extern "C" int func_02080b40(void* obj, int id);
 
 struct Arg1_0217818c;
 #if !defined(jpn)
@@ -41,15 +41,15 @@ extern "C" void func_ov003_0217818c(char* self, struct Arg1_0217818c* arg1, int 
 #endif
 
 #if !defined(jpn)
-void Forward0207f7acObjPlus4Size0x40_020805f4(void* obj, int value);
+extern "C" void func_020805f4(void* obj, int value);
 #endif
 
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(struct Container02080f8c* obj, int id, int value);
+extern "C" void func_02080f8c(struct Container02080f8c* obj, int id, int value);
 struct Container02080fa8;
-void SetEntryFirstField02080fa8(struct Container02080fa8* obj, int id, int value);
+extern "C" void func_02080fa8(struct Container02080fa8* obj, int id, int value);
 
-void ClearSublistEntryFlag2_020806c4(void* obj, int id);
+extern "C" void func_020806c4(void* obj, int id);
 extern "C" int func_020813ec(void* obj, int id);
 
 // USA: func_ov003_021767ec
@@ -59,13 +59,13 @@ extern "C" ARM int func_ov003_021767ec(char* self) {
     short id1 = 13;
     short id2 = 19;
 
-    ClearElementFlag0x20_02080c20(o, 3);
-    SetEntryLowNibbleAndElement02080c68(o, 3, 0);
-    SetSublistEntriesFlag1_02080b54(o, 3);
-    SetSublistEntriesFlag2_02080608(o, 3);
+    func_02080c20(o, 3);
+    func_02080c68(o, 3, 0);
+    func_02080b54(o, 3);
+    func_02080608(o, 3);
 
     unsigned short flags1046 = *(unsigned short*)(self + kRegionValue1046_FC2);
-    SetOrClearEntryFlag0x102081130(o, 3, (flags1046 & 0x400) != 0);
+    func_02081130(o, 3, (flags1046 & 0x400) != 0);
 
     short mult = *(short*)(self + kRegionValue1014_F90);
     unsigned char bound;
@@ -78,24 +78,24 @@ extern "C" ARM int func_ov003_021767ec(char* self) {
         unsigned char limit = *(unsigned char*)(self + kRegionValue835_7B1);
         if (idx < limit) {
             short key = *(short*)(self + kRegionValue848_7C4 + idx * 2);
-            struct Element020de650* elem = FindElementByKey020dedd0((struct Container020dedd0*)(self + kRegionValue874_7F0), key);
+            struct Element020de650* elem = func_020dedd0((struct Container020dedd0*)(self + kRegionValue874_7F0), key);
             if (elem != NULL) {
                 local1 = *(unsigned int*)((char*)elem + 4);
-                local2 = ComputeRatio_02175898(self, elem);
-                SetSublistEntryField28_0208077c(o, id0, kRegionValueD_C);
-                SetEntryFlagById02080b40(o, id0);
-                SetEntryFlagById02080b40(o, id1);
-                SetEntryFlagById02080b40(o, id2);
+                local2 = func_ov003_02175898(self, elem);
+                func_0208077c(o, id0, kRegionValueD_C);
+                func_02080b40(o, id0);
+                func_02080b40(o, id1);
+                func_02080b40(o, id2);
 #if !defined(jpn)
                 func_ov003_0217818c(self, (struct Arg1_0217818c*)elem, id1, id2);
 #endif
             }
 #if !defined(jpn)
-            Forward0207f7acObjPlus4Size0x40_020805f4(o, id0);
+            func_020805f4(o, id0);
 #endif
-            SetEntryFirstField02080f8c((struct Container02080f8c*)o, id0, local1);
-            SetEntryFirstField02080fa8((struct Container02080fa8*)o, id1, local2);
-            ClearSublistEntryFlag2_020806c4(o, id0);
+            func_02080f8c((struct Container02080f8c*)o, id0, local1);
+            func_02080fa8((struct Container02080fa8*)o, id1, local2);
+            func_020806c4(o, id0);
         }
         id0 = id0 + 1;
         id1 = id1 + 1;
@@ -103,10 +103,10 @@ extern "C" ARM int func_ov003_021767ec(char* self) {
         idx = idx + 1;
     }
 
-    SetEntryFlagById02080b40(o, 0x19);
-    SetEntryFlagById02080b40(o, 0x1a);
-    SetEntryFlagById02080b40(o, 0x1b);
-    SetEntryFirstField02080fa8((struct Container02080fa8*)o, 0x19, *(short*)(self + kRegionValue1014_F90) + 1);
-    SetEntryFirstField02080fa8((struct Container02080fa8*)o, 0x1a, *(short*)(self + kRegionValue1016_F92));
+    func_02080b40(o, 0x19);
+    func_02080b40(o, 0x1a);
+    func_02080b40(o, 0x1b);
+    func_02080fa8((struct Container02080fa8*)o, 0x19, *(short*)(self + kRegionValue1014_F90) + 1);
+    func_02080fa8((struct Container02080fa8*)o, 0x1a, *(short*)(self + kRegionValue1016_F92));
     return func_020813ec(o, 3);
 }

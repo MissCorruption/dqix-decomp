@@ -43,7 +43,7 @@ struct BackupGlobal020d03fc {
 extern BackupGlobal020d03fc data_021118e0;
 #define BACKUP_MIDDLEWARE ((const void*)0x02000bc4)
 extern "C" void func_02000b9c(const void*);
-int GetBattleSysInnerField1c_020d06e8();
+extern "C" int func_020d06e8();
 extern "C" int func_020d0fc4(BackupManager020d03fc*, int, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 
@@ -72,7 +72,7 @@ extern "C" ARM void func_020d03fc(BackupManager020d03fc* manager) {
     unsigned int size = sizeof(manager->cache);
     func_02000b9c(BACKUP_MIDDLEWARE);
     if (requestType == 11) {
-        size = GetBattleSysInnerField1c_020d06e8();
+        size = func_020d06e8();
     } else if (requestType == 15) {
         size = data_021118e0.command->eraseUnitSize;
     }

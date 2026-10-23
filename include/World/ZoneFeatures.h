@@ -25,7 +25,7 @@ struct MaybeVector4fix
     // if we make it implicit, it gets placed too early in the TU
     // defining as operator= works but causes trouble on other compilers
     // when put in a union
-    MaybeVector4fix& CopyFrom_0201d474(const MaybeVector4fix& other);
+    MaybeVector4fix& func_0201d474(const MaybeVector4fix& other);
 };
 
 class ZoneFeatures
@@ -61,7 +61,7 @@ public:
         int unk_64[2];
         int unk_6c;
 
-        void Reset_0201ce10();
+        void func_0201ce10();
     };
 
     // Used by opcodes 6a, 6b, 73, 74
@@ -173,7 +173,7 @@ public:
         } unk_2c;
         Opcode6aEntry* pNext;
 
-        void Reset_0201d424();
+        void func_0201d424();
     };
 
     struct Opcode7bEntry
@@ -220,32 +220,32 @@ public:
     unsigned short arrayCapacity7b_;
     Opcode7bEntry* entries7b_;
 
-    void Reset_0201e248();
+    void func_0201e248();
 
-    void AllocateOpcode64Entries_0201e25c(int count, SafeAllocator* alloc);
-    void AllocateGrottoTileFeaturePlacementEntries_0201e288(int count, SafeAllocator* alloc);
+    void func_0201e25c(int count, SafeAllocator* alloc);
+    void func_0201e288(int count, SafeAllocator* alloc);
 
-    void LoadFromScript_0201e2b4(SafeAllocator* alloc, const void* script, unsigned int length);
-    Opcode64Entry* GetOpcode64Entry_0201e2d8(int index);
+    void func_0201e2b4(SafeAllocator* alloc, const void* script, unsigned int length);
+    Opcode64Entry* func_0201e2d8(int index);
 
-    void CreateOpcode64Entry_0201e304(const Opcode64Entry& data);
-    void CreateGrottoTileFeaturePlacementEntry_0201e3c4(const TileFeaturePlacementData& data);
+    void func_0201e304(const Opcode64Entry& data);
+    void func_0201e3c4(const TileFeaturePlacementData& data);
 
-    void AllocateOpcode66Entries_0201e480(int count, SafeAllocator* alloc);
-    void CreateOpcode66Entry_0201e4b0(const Opcode66Entry& data);
+    void func_0201e480(int count, SafeAllocator* alloc);
+    void func_0201e4b0(const Opcode66Entry& data);
 
-    void AllocateOpcode68Entries_0201e518(int count, SafeAllocator* alloc);
-    void CreateOpcode68Entry_0201e574(const Opcode68Entry& data);
+    void func_0201e518(int count, SafeAllocator* alloc);
+    void func_0201e574(const Opcode68Entry& data);
 
-    void AllocateOpcode6aEntries_0201e634(int count, SafeAllocator* alloc);
-    Opcode6aEntry* CreateOpcode6aEntry_0201e710(const Opcode6aEntry& data);
+    void func_0201e634(int count, SafeAllocator* alloc);
+    Opcode6aEntry* func_0201e710(const Opcode6aEntry& data);
     // not real, just here for testing purposes
-    Opcode6aEntry* CreateOpcode6aEntry_0201e710(const Opcode6aEntry& data, int fakeArg);
+    Opcode6aEntry* func_0201e710(const Opcode6aEntry& data, int fakeArg);
 
-    void SetOpcode7bAllocation_0201e878(Opcode7bEntry* array, unsigned short capacity);
-    void CreateOpcode7bEntry_0201e88c(const Opcode7bEntry& data);
+    void func_0201e878(Opcode7bEntry* array, unsigned short capacity);
+    void func_0201e88c(const Opcode7bEntry& data);
 };
 
-ZoneFeatures::Opcode6aEntry* FindNodeKind9ById_0201e6d4(ZoneFeatures* features, int id);
-ZoneFeatures::Opcode6aEntry* GetElementStride0x74_0201e664(ZoneFeatures* features, int index);
-void* GetElementStride0x70_0201e548(ZoneFeatures* features, int index);
+extern "C" ZoneFeatures::Opcode6aEntry* func_0201e6d4(ZoneFeatures* features, int id);
+extern "C" ZoneFeatures::Opcode6aEntry* func_0201e664(ZoneFeatures* features, int index);
+extern "C" void* func_0201e548(ZoneFeatures* features, int index);

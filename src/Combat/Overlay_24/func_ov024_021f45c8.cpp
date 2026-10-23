@@ -3,10 +3,10 @@
 
 struct Out0215fb54 { int ids[2]; };
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
-void* GetActiveCombatWork_ov000_02160130(void);
-int FindRecordByKey0215fb54(int unused, int key, struct Out0215fb54* out);
-extern "C" void* _Z26FindNodeByShortKey02162d88Pvs(void* obj, int key);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
+extern "C" void* func_ov000_02160130(void);
+extern "C" int func_ov000_0215fb54(int unused, int key, struct Out0215fb54* out);
+extern "C" void* func_ov000_02162d88(void* obj, int key);
 
 struct Group_021f45c8 {
 	unsigned char pad0;
@@ -39,9 +39,9 @@ extern "C" ARM int func_ov024_021f45c8(struct Obj_021f45c8* obj, int id, struct 
 	void* work;
 	int count;
 	int i;
-	c = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, id);
+	c = func_ov000_021536f8(obj->field0, id);
 	if (!c) return 0;
-	work = GetActiveCombatWork_ov000_02160130();
+	work = func_ov000_02160130();
 	if (!work) return 0;
 	struct Group_021f45c8* groups = (struct Group_021f45c8*)((char*)obj->field0 + 0x81b0);
 	if (!groups) return 0;
@@ -49,9 +49,9 @@ extern "C" ARM int func_ov024_021f45c8(struct Obj_021f45c8* obj, int id, struct 
 		struct Out0215fb54 rec;
 		rec.ids[1] = data_ov024_021fea1c[63].ids[1];
 		rec.ids[0] = data_ov024_021fea1c[63].ids[0];
-		count = FindRecordByKey0215fb54(obj->field0, action->key, &rec);
+		count = func_ov000_0215fb54(obj->field0, action->key, &rec);
 		for (i = 0; i < count; i++) {
-			if (!_Z26FindNodeByShortKey02162d88Pvs(work, rec.ids[i])) return 0;
+			if (!func_ov000_02162d88(work, rec.ids[i])) return 0;
 			if (((struct Header_021f45c8*)groups)->groupCount >= 3) {
 				int found = 0;
 				int j;

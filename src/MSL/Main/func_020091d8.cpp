@@ -8,7 +8,7 @@ static const double twom54 = 5.55111512312578270212e-17;
 static const double big = 1.0e+300;
 static const double tiny = 1.0e-300;
 
-// USA: func_020091d8  (semantic: ldexp)
+// USA: func_020091d8
 extern "C" ARM double func_020091d8(double x, int n) {
     int k, hx, lx;
     if (!(func_0200aa74(x) > 2) || x == 0.0) {

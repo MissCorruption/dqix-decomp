@@ -9,12 +9,12 @@ struct ListNode;
 struct Node020130e0;
 struct Table_1f1b0;
 
-void Init02013018(InitTarget02013018 *self);
-void AppendToNodeList_020130b0(ListNode *parent, ListNode *child);
-void AppendNodeToList020130e0(Node020130e0 *list, Node020130e0 *node);
-int FindRecordIndexByHalfwordKey_0201f1b0(Table_1f1b0 *table, int key);
-void InitWithUnitScaleVec0201310c(void *node);
-int IsField600B4Zero_021b8b54(void *object);
+extern "C" void func_02013018(InitTarget02013018 *self);
+extern "C" void func_020130b0(ListNode *parent, ListNode *child);
+extern "C" void func_020130e0(Node020130e0 *list, Node020130e0 *node);
+extern "C" int func_0201f1b0(Table_1f1b0 *table, int key);
+extern "C" void func_0201310c(void *node);
+extern "C" int func_ov017_021b8b54(void *object);
 
 struct ZoneResourceTreeRecord {
     short key;

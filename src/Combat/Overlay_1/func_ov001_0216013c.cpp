@@ -4,9 +4,9 @@
 extern "C" int func_ov017_021d60f4(int id);
 
 struct Struct_203cec4;
-void SetOrClearFlag0x8_0203cec4(struct Struct_203cec4* obj, int enable);
+extern "C" void func_0203cec4(struct Struct_203cec4* obj, int enable);
 struct Struct_0203fc5c;
-int SetField40IfPositive(struct Struct_0203fc5c* obj, float value);
+extern "C" int func_0203fc5c(struct Struct_0203fc5c* obj, float value);
 
 struct Row02165880 {
     int type;
@@ -25,7 +25,7 @@ struct EntryWithField14 {
     void* field14;
 };
 
-// USA: func_ov001_0216013c  (semantic: UpdateEntryFlagsByType_0216013c)
+// USA: func_ov001_0216013c
 extern "C" ARM int func_ov001_0216013c(int id) {
     id = func_ov017_021d60f4(id);
     int type = data_ov001_02165880.rows[id].type;
@@ -39,10 +39,10 @@ extern "C" ARM int func_ov001_0216013c(int id) {
             return 0;
         }
         if (((struct EntryWithField14*)obj)->field14 != 0) {
-            SetOrClearFlag0x8_0203cec4((struct Struct_203cec4*)((struct EntryWithField14*)obj)->field14, 0);
+            func_0203cec4((struct Struct_203cec4*)((struct EntryWithField14*)obj)->field14, 0);
         }
         if (((struct EntryWithField14*)obj)->field14 != 0) {
-            SetField40IfPositive((struct Struct_0203fc5c*)((struct EntryWithField14*)obj)->field14, 1.0f);
+            func_0203fc5c((struct Struct_0203fc5c*)((struct EntryWithField14*)obj)->field14, 1.0f);
         }
     } else if (type == 1 || type == 0 || (unsigned int)(type - 4) <= 1) {
         void* obj2 = 0;

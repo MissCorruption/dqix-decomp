@@ -27,11 +27,11 @@ struct Battle021c3e18 {
 
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-unsigned char GetField0x397cValue_020100b0(GameState* gs);
-void SetVec3_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
+extern "C" unsigned char func_020100b0(GameState* gs);
+extern "C" void func_ov017_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
 extern "C" void* func_ov017_021b8468(void* obj);
-void* GetSlot021677d8(void* work, int idx);
-void EnqueueEventTag35_021d2ad0(short, int, int, int, unsigned char);
+extern "C" void* func_ov000_021677d8(void* work, int idx);
+extern "C" void func_ov017_021d2ad0(short, int, int, int, unsigned char);
 extern "C" int func_0202c508(void* p);
 
 // USA: func_ov017_021c3e18
@@ -39,10 +39,10 @@ extern "C" ARM void func_ov017_021c3e18(unsigned char arg) {
     unsigned short* mapId = func_02012fe4();
     GameState* gs = GameState::GetInstance();
     GameResources* res = GetGameResources();
-    Party021c3e18* party = (Party021c3e18*)GetPtrField0x2a04_02010828(gs);
+    Party021c3e18* party = (Party021c3e18*)func_02010828(gs);
     Battle021c3e18* battle = (Battle021c3e18*)res->unknown_ptr_3718;
     void* search = func_0202ae18();
-    unsigned char self = GetField0x397cValue_020100b0(gs);
+    unsigned char self = func_020100b0(gs);
     for (int i = 0; i < party->memberCount; i++) {
         unsigned char id = party->memberIds[i];
         if (id == self) {
@@ -54,18 +54,18 @@ extern "C" ARM void func_ov017_021c3e18(unsigned char arg) {
         }
         Vector3i pos = member->obj3D_.position_;
         if (*mapId == 10000) {
-            SetVec3_021c3f68((Vec3_021c3f68*)&pos, 0xff000, 0, 0xff000);
+            func_ov017_021c3f68((Vec3_021c3f68*)&pos, 0xff000, 0, 0xff000);
         }
         if (battle->active != 0) {
             void* work = func_ov017_021b8468(battle);
             if (work != NULL) {
-                pos = *(Vector3i*)GetSlot021677d8(work, id);
+                pos = *(Vector3i*)func_ov000_021677d8(work, id);
             }
         }
-        EnqueueEventTag35_021d2ad0(member->obj3D_.unknown_4_, pos.x, pos.y, pos.z, arg);
+        func_ov017_021d2ad0(member->obj3D_.unknown_4_, pos.x, pos.y, pos.z, arg);
     }
     if (func_0202c508(search)) {
         Vector3i pos = *(Vector3i*)((char*)gs + RegionOffset7f60);
-        EnqueueEventTag35_021d2ad0(0xce, pos.x, pos.y, pos.z, arg);
+        func_ov017_021d2ad0(0xce, pos.x, pos.y, pos.z, arg);
     }
 }

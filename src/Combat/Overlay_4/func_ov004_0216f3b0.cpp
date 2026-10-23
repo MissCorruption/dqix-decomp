@@ -7,9 +7,9 @@ extern "C" void func_ov011_021848a0(void* obj, int val);
 extern "C" void* func_ov017_021b1d44(void* p, int a, int b);
 extern "C" void func_ov017_021b1e24(void* a, void* b);
 struct Obj24_021b2060;
-unsigned char GetSubByteField439_021b2060(Obj24_021b2060* obj);
+extern "C" unsigned char func_ov017_021b2060(Obj24_021b2060* obj);
 struct Obj24_021b204c;
-unsigned char GetSubByteField438_021b204c(Obj24_021b204c* obj);
+extern "C" unsigned char func_ov017_021b204c(Obj24_021b204c* obj);
 extern "C" void* func_ov011_021849c8(void* obj);
 extern "C" void* func_ov023_021f6880(void* obj, int id);
 
@@ -43,8 +43,8 @@ extern "C" ARM int func_ov004_0216f3b0(void* a) {
 
     if (flag == 1) {
         func_ov017_021b1e24(five, list);
-        if (GetSubByteField439_021b2060((Obj24_021b2060*)five)) {
-            if (GetSubByteField438_021b204c((Obj24_021b204c*)five)) {
+        if (func_ov017_021b2060((Obj24_021b2060*)five)) {
+            if (func_ov017_021b204c((Obj24_021b204c*)five)) {
 #if defined(jpn)
                 if (*(int*)((char*)actorRaw + 0x4000 + 0x1e4) == 0) {
 #else
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov004_0216f3b0(void* a) {
                     return 0;
                 }
             }
-            if (!GetSubByteField438_021b204c((Obj24_021b204c*)five)) {
+            if (!func_ov017_021b204c((Obj24_021b204c*)five)) {
                 func_ov011_021848a0(a, 0xc9);
                 data_ov004_02171048.ptr[0x2e]++;
 

@@ -12,10 +12,10 @@ struct Node020406f8;
 struct Obj02040adc;
 struct StateWithFourPtrs02040910;
 
-void SelectVec3FromSources020406f8(struct Vec3_020406f8* dst, struct Node020406f8* n);
-int GetField2eOrDefault02040adc(struct Obj02040adc* obj);
-int ProcessPendingSubStates(struct StateWithFourPtrs02040910* obj, int arg1);
-void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
+extern "C" void func_020406f8(struct Vec3_020406f8* dst, struct Node020406f8* n);
+extern "C" int func_02040adc(struct Obj02040adc* obj);
+extern "C" int func_02040910(struct StateWithFourPtrs02040910* obj, int arg1);
+extern "C" void func_0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 struct Ctx02012fe4 {
 #if defined(jpn)
@@ -45,7 +45,7 @@ struct Roster0203de84 {
 // USA: func_0203de84
 extern "C" ARM void func_0203de84(void* self) {
     struct Roster0203de84* roster = (struct Roster0203de84*)self;
-    void* v = GetField0x3b0Value_020100bc(GameState::GetInstance());
+    void* v = func_020100bc(GameState::GetInstance());
     GetGameResources();
     struct Ctx02012fe4* ctx = (struct Ctx02012fe4*)func_02012fe4();
     unsigned short a = ctx->f38;
@@ -57,14 +57,14 @@ extern "C" ARM void func_0203de84(void* self) {
         unsigned int fl = roster->nodes[i]->flags;
         if (fl & 0x8000) continue;
         if (roster->f98 != NULL && !(fl & 0x10000)) continue;
-        if (!ProcessPendingSubStates((struct StateWithFourPtrs02040910*)roster->nodes[i], (int)v))
+        if (!func_02040910((struct StateWithFourPtrs02040910*)roster->nodes[i], (int)v))
             continue;
         if (fl & 0x20) continue;
         if (fl & 0x40) continue;
         Object3D* e = roster->nodes[i]->f18;
         if (e != NULL && e->GetFlag(0x10) != 0) continue;
-        SelectVec3FromSources020406f8(&vec, (struct Node020406f8*)roster->nodes[i]);
-        SyncBattleState0208f87c(&vec, a, 0x1000, b,
-            GetField2eOrDefault02040adc((struct Obj02040adc*)roster->nodes[i]));
+        func_020406f8(&vec, (struct Node020406f8*)roster->nodes[i]);
+        func_0208f87c(&vec, a, 0x1000, b,
+            func_02040adc((struct Obj02040adc*)roster->nodes[i]));
     }
 }

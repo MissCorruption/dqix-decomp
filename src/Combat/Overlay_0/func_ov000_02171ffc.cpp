@@ -12,8 +12,8 @@
 #include "GameState/GameState.h"
 
 struct Outer_02054000;
-void* GetActiveSub_02054000(struct Outer_02054000* p);
-int TestBitInArray0x8ec_02083b00(unsigned char* obj, int index);
+extern "C" void* func_02054000(struct Outer_02054000* p);
+extern "C" int func_02083b00(unsigned char* obj, int index);
 
 struct CombatantFlags02f4 {
     unsigned int bit0 : 1;
@@ -67,7 +67,7 @@ extern "C" struct ActionInfo* func_ov000_02170cf8(struct Combatant* obj, int id)
 
 // USA: func_ov000_02171ffc
 extern "C" ARM int func_ov000_02171ffc(struct Combatant* obj) {
-    struct CombatantObject* combatant = (struct CombatantObject*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), obj->combatantId);
+    struct CombatantObject* combatant = (struct CombatantObject*)func_0200ff1c(GameState::GetInstance(), obj->combatantId);
     if (combatant == 0) {
         return 2;
     }
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov000_02171ffc(struct Combatant* obj) {
     }
     if (actionId == 1) {
         if (combatant != 0) {
-            struct ActiveSub* sub = (struct ActiveSub*)GetActiveSub_02054000((struct Outer_02054000*)combatant);
+            struct ActiveSub* sub = (struct ActiveSub*)func_02054000((struct Outer_02054000*)combatant);
             if (sub != 0 && sub->count > 0) {
                 struct CombatantFlags02f4* flags = &combatant->data->flags;
                 if (flags->bit1) {
@@ -109,10 +109,10 @@ extern "C" ARM int func_ov000_02171ffc(struct Combatant* obj) {
     }
     if (result == 6 && combatant != 0) {
 #if defined(jpn)
-        result = TestBitInArray0x8ec_02083b00((unsigned char*)combatant->data, 0xe6) ? 3 : 2;
+        result = func_02083b00((unsigned char*)combatant->data, 0xe6) ? 3 : 2;
 #else
         result = 2;
-        if (TestBitInArray0x8ec_02083b00((unsigned char*)combatant->data, 0xe6)) {
+        if (func_02083b00((unsigned char*)combatant->data, 0xe6)) {
             result = 3;
         }
 #endif

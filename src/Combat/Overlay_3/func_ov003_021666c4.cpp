@@ -35,22 +35,22 @@ struct CombatMenu021666c4 {
     u8 selection;
 };
 
-void SetSublistEntriesFlag1_02080b54(void*, int);
+extern "C" void func_02080b54(void*, int);
 extern "C" void func_0202ae18();
-void SetEntryHighNibble0x13(Container02080cc0*, int, int);
-void SetEntryFlagById02080b40(void*, int);
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
-void SetEntryFirstField02080fa8(Container02080fa8*, int, int);
-int GetFieldByKey020e0434(Container020e0310*, int);
-void SetEntryNibbleByShortId(StatusOwner02081198*, int, int);
-void SetEntryFlag0x2ByShortId(StatusOwner02081164*, int, int);
+extern "C" void func_02080cc0(Container02080cc0*, int, int);
+extern "C" void func_02080b40(void*, int);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
+extern "C" void func_02080fa8(Container02080fa8*, int, int);
+extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" void func_02081198(StatusOwner02081198*, int, int);
+extern "C" void func_02081164(StatusOwner02081164*, int, int);
 extern "C" void func_020813ec(void*, int);
 extern "C" void func_ov003_02160794(CombatMenu021666c4*);
 
 // USA: func_ov003_021666c4
 extern "C" ARM void func_ov003_021666c4(CombatMenu021666c4* self) {
     Container02080cc0* menu = self->menu;
-    SetSublistEntriesFlag1_02080b54(menu, 16);
+    func_02080b54(menu, 16);
     int id = 69;
     func_0202ae18();
     self->selection = id;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_021666c4(CombatMenu021666c4* self) {
     for (; index < end; id = (s16)(id + 1), index++) {
         int color = 15;
         if (id == menu->selected) color = 10;
-        SetEntryHighNibble0x13(menu, id, color);
+        func_02080cc0(menu, id, color);
         CombatMenuEntry021666c4* entry = &self->entries[index];
         if (entry->active && index < self->entry_count) {
             char* text;
@@ -68,31 +68,31 @@ extern "C" ARM void func_ov003_021666c4(CombatMenu021666c4* self) {
                 text = entry->text;
                 count = 4 - entry->count;
             } else {
-                if (id == menu->selected) SetEntryHighNibble0x13(menu, id, 8);
-                else SetEntryHighNibble0x13(menu, id, 4);
+                if (id == menu->selected) func_02080cc0(menu, id, 8);
+                else func_02080cc0(menu, id, 4);
                 text = entry->text;
                 count = 0;
             }
             for (int row = 1; row < 3; row = (s16)(row + 1)) {
                 int row_id = id + row * 4;
-                SetEntryHighNibble0x13(menu, (s16)row_id, color);
-                SetEntryFlagById02080b40(menu, (s16)(unsigned int)row_id);
+                func_02080cc0(menu, (s16)row_id, color);
+                func_02080b40(menu, (s16)(unsigned int)row_id);
             }
-            SetEntryFirstField02080f8c((Container02080f8c*)menu, id, (int)text);
-            SetEntryFirstField02080fa8((Container02080fa8*)menu, (s16)(id + 4), count);
+            func_02080f8c((Container02080f8c*)menu, id, (int)text);
+            func_02080fa8((Container02080fa8*)menu, (s16)(id + 4), count);
         } else {
-            int text = GetFieldByKey020e0434(&self->messages, 30000);
-            SetEntryFirstField02080f8c((Container02080f8c*)menu, (s16)id, text);
+            int text = func_020e0434(&self->messages, 30000);
+            func_02080f8c((Container02080f8c*)menu, (s16)id, text);
         }
-        SetEntryFlagById02080b40(menu, id);
+        func_02080b40(menu, id);
     }
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 201, self->page + 1);
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 202, 2);
-    SetEntryFlagById02080b40(menu, 200);
-    SetEntryFlagById02080b40(menu, 201);
-    SetEntryFlagById02080b40(menu, 202);
-    SetEntryNibbleByShortId((StatusOwner02081198*)menu, 16, 1);
-    SetEntryFlag0x2ByShortId((StatusOwner02081164*)menu, 16, 1);
+    func_02080fa8((Container02080fa8*)menu, 201, self->page + 1);
+    func_02080fa8((Container02080fa8*)menu, 202, 2);
+    func_02080b40(menu, 200);
+    func_02080b40(menu, 201);
+    func_02080b40(menu, 202);
+    func_02081198((StatusOwner02081198*)menu, 16, 1);
+    func_02081164((StatusOwner02081164*)menu, 16, 1);
     func_020813ec(menu, 16);
     self->flags |= 0xd00000;
     func_ov003_02160794(self);

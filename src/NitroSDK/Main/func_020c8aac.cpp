@@ -2,7 +2,7 @@
 
 // USA: func_020c8aac  (semantic: NitroSDK OSi_ExceptionHandler)
 extern int data_02111588[3];
-void CallFunc020c8b44Then020c8bd4_020c8b30(void* p);
+extern "C" void func_020c8b30(void* p);
 
 extern "C" ARM asm void func_020c8aac(void) {
     ldr r12, =data_02111588
@@ -26,12 +26,12 @@ bxne2:
     and r1, r1, #0x1f
     teq r1, #0x17
     bne @1
-    bl CallFunc020c8b44Then020c8bd4_020c8b30
+    bl func_020c8b30
     b usr_return
 @1:
     teq r1, #0x1b
     bne usr_return
-    bl CallFunc020c8b44Then020c8bd4_020c8b30
+    bl func_020c8b30
 usr_return:
     ldr r12, =data_02111588
     ldr r12, [r12, #0]

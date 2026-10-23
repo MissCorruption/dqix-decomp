@@ -25,30 +25,30 @@ extern MapDisplayPointers data_ov004_02171010;
 extern char data_ov004_0217055c[];
 extern char data_ov004_02170572[];
 #if defined(jpn)
-#define InitBufferAndCopyByte_0216342c func_ov004_02163a20
+#define func_ov004_0216342c func_ov004_02163a20
 extern "C" {
 void func_ov004_02163a20(void*);
 }
 #endif
 extern "C" MapAllocatorNode* func_ov011_021845f8(void*, int);
 extern "C" int func_020a3844(SafeAllocator*);
-void InitBufferAndCopyByte_0216342c(void*);
-bool CopyOutBattleRegion0x64f4_020ac760(void*);
+extern "C" void func_ov004_0216342c(void*);
+extern "C" bool func_020ac760(void*);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_ov004_02163530(void*);
 extern "C" void func_ov004_02163c40(void*);
-bool FindTreasureMapIndexAndDivide_021635d0(int*, int*);
-void Zero4Bytes_020e526c(void*);
+extern "C" bool func_ov004_021635d0(int*, int*);
+extern "C" void func_020e526c(void*);
 extern "C" void func_020e5604(void*, SafeAllocator*, void*, unsigned int);
 extern "C" MapZone* func_02012fe4();
-void SetByteFieldAt0x765_02026420(unsigned char*, unsigned char);
-void SetFieldAt0x76c_020263dc(unsigned char*, void*);
-void Notify02022d78WithCode2_020dc3b8();
+extern "C" void func_02026420(unsigned char*, unsigned char);
+extern "C" void func_020263dc(unsigned char*, void*);
+extern "C" void func_020dc3b8();
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_ov004_021636b0(void*, const char*);
-char* GetGlobalField0x1c020421a0();
-void ReinitController02043204(char*);
-void SetFieldsAt0x4And0x8_020e2d24(int*, int, int);
+extern "C" char* func_020421a0();
+extern "C" void func_02043204(char*);
+extern "C" void func_020e2d24(int*, int, int);
 
 // JPN: 0x02163efc; USA/EUR: 0x02163944.
 extern "C" ARM int func_ov004_02163944(void* obj) {
@@ -59,14 +59,14 @@ extern "C" ARM int func_ov004_02163944(void* obj) {
     func_020a3844(allocator);
     data_ov004_02171010.buffer = (MapDisplayBuffer*)allocator->Allocate(sizeof(MapDisplayBuffer));
     if (!data_ov004_02171010.buffer) return 0;
-    InitBufferAndCopyByte_0216342c(data_ov004_02171010.buffer);
+    func_ov004_0216342c(data_ov004_02171010.buffer);
     data_ov004_02171010.buffer->busy = 1;
 #if !defined(jpn)
     data_ov004_02171010.scratch = func_ov011_021845f8(obj, 4)->allocator.Allocate(0x333);
     memset(data_ov004_02171010.scratch, 0, 0x333);
 #endif
     SavedMapList saved;
-    if (CopyOutBattleRegion0x64f4_020ac760(&saved)) {
+    if (func_020ac760(&saved)) {
         data_ov004_02171010.buffer->count = saved.count;
         for (int i = 0; i < 99; i++) VectorizedInvertedMemcpy(&saved.maps[i], &data_ov004_02171010.buffer->maps[i], 0x1c);
     }
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov004_02163944(void* obj) {
     func_ov004_02163c40(obj);
     int page = 0;
     int selection = 0;
-    if (!FindTreasureMapIndexAndDivide_021635d0(&page, &selection)) { page = 0; selection = 0; }
+    if (!func_ov004_021635d0(&page, &selection)) { page = 0; selection = 0; }
     for (int i = 0; i < 8; i++) {
         ExportDetailedTreasureMapData(&data_ov004_02171010.buffer->maps[i + page * 8], &data_ov004_02171010.buffer->details[i], true, 0);
     }
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov004_02163944(void* obj) {
     MapAllocatorNode* fileHeap = func_ov011_021845f8(obj, 3);
     if (!fileHeap) return 0;
     data_ov004_02171010.file = fileHeap->allocator.Allocate(12);
-    Zero4Bytes_020e526c(data_ov004_02171010.file);
+    func_020e526c(data_ov004_02171010.file);
     BackgroundLoader::AddLockGlobal();
     unsigned int length = 0;
     void* file = ExtractFileFromGP2(data_ov004_0217055c, data_ov004_02170572, &length);
@@ -93,17 +93,17 @@ extern "C" ARM int func_ov004_02163944(void* obj) {
     ResourcePanel* panel = (ResourcePanel*)GetGameResources()->unknown_ptr_36d0;
     data_ov004_02171010.buffer->state = panel->state;
     strcpy(data_ov004_02171010.buffer->name, zone->name);
-    SetByteFieldAt0x765_02026420((unsigned char*)panel, 1);
-    SetFieldAt0x76c_020263dc((unsigned char*)panel, allocator);
-    Notify02022d78WithCode2_020dc3b8();
+    func_02026420((unsigned char*)panel, 1);
+    func_020263dc((unsigned char*)panel, allocator);
+    func_020dc3b8();
     GameResources* resources = GetGameResources();
     if (IsBrightnessWithinValidRange((GameResources*)resources, true)) SetSubBrightness(resources, -16, 0);
     func_ov004_021636b0(obj, data_ov004_02171010.buffer->details[selection].mapImageName_);
-    MapController* controller = (MapController*)GetGlobalField0x1c020421a0();
-    ReinitController02043204((char*)controller);
+    MapController* controller = (MapController*)func_020421a0();
+    func_02043204((char*)controller);
     controller->active = 1;
-    SetFieldsAt0x4And0x8_020e2d24(controller->first, 9, 1);
-    SetFieldsAt0x4And0x8_020e2d24(controller->second, 25, 1);
+    func_020e2d24(controller->first, 9, 1);
+    func_020e2d24(controller->second, 25, 1);
     data_ov004_02171010.buffer->busy = 0;
     return 0;
 }

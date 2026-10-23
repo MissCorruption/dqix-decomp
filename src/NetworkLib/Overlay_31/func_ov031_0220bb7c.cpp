@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-extern int TrimTrailingZeroShorts_0220bb24(unsigned short* arr, int len);
+extern "C" int func_ov031_0220bb24(unsigned short* arr, int len);
 
-// USA: func_ov031_0220bb7c  (semantic: AddShortArrays_0220bb7c)
+// USA: func_ov031_0220bb7c
 extern "C" ARM void func_ov031_0220bb7c(unsigned short* dst, unsigned short* a, unsigned short* b, int len) {
-    int lenA = TrimTrailingZeroShorts_0220bb24(a, len);
-    int lenB = TrimTrailingZeroShorts_0220bb24(b, len);
+    int lenA = func_ov031_0220bb24(a, len);
+    int lenB = func_ov031_0220bb24(b, len);
     int n = lenA;
     if (n < lenB)
         n = lenB;

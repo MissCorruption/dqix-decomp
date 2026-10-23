@@ -6,13 +6,13 @@ struct OperationState0221f11c {
     int state;
 };
 extern OperationState0221f11c data_ov031_0224f620;
-int DispatchOnZeroPair_0220cdd4(int, int, int);
+extern "C" int func_ov031_0220cdd4(int, int, int);
 
 // USA: func_ov031_0221f11c
 extern "C" THUMB int func_ov031_0221f11c() {
     int irqState = DisableIRQInterrupts();
     if (data_ov031_0224f620.state == 5) {
-        if (DispatchOnZeroPair_0220cdd4(0, 0, 0) == 3) {
+        if (func_ov031_0220cdd4(0, 0, 0) == 3) {
             data_ov031_0224f620.state = 4;
             SetIRQInterruptState(irqState);
             return 1;

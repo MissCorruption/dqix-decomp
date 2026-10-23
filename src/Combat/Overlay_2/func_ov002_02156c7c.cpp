@@ -12,14 +12,14 @@ struct Pair0209a338;
 struct Ctx0209a470;
 struct Ctx0209a8b4;
 struct StreamHeader;
-void ZeroInit020de848(void *p);
-void ClearField00209a804(int *p);
-void ClearFirstTwoWords0209a338(struct Pair0209a338 *p);
-void SetupAndRunBufferedScript0209a470(struct Ctx0209a470 *ctx,
+extern "C" void func_020de848(void *p);
+extern "C" void func_0209a804(int *p);
+extern "C" void func_0209a338(struct Pair0209a338 *p);
+extern "C" void func_0209a470(struct Ctx0209a470 *ctx,
                                                                                                     SafeAllocator *alloc,
                                                                                                     struct StreamHeader *hdr,
                                                                                                     int len);
-void SetupAndRunBufferedScript0209a8b4(struct Ctx0209a8b4 *ctx,
+extern "C" void func_0209a8b4(struct Ctx0209a8b4 *ctx,
                                                                                                     SafeAllocator *alloc,
                                                                                                     struct StreamHeader *hdr,
                                                                                                     int len);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_02156c7c(char *base) {
     if (loader->GetTaskStatus(*(int *) (base + 0x1000 + RG(0xba4, 0xa6c)))) {
         loader->GetLoadedFileByID(*h, &file0, &len0);
         ((SafeAllocator *) (base + RG(0, 0x374) + RG(0x810, 0x400)))->Reset();
-        ZeroInit020de848(base + RG(0x3ec, 0) + RG(0x400, 0x750));
+        func_020de848(base + RG(0x3ec, 0) + RG(0x400, 0x750));
         func_020dea64(base + RG(0x3ec, 0) + RG(0x400, 0x750), base + RG(0, 0x374) + RG(0x810, 0x400), file0, len0, data_ov002_0216c96e, 2);
         loader->RemoveTask(*h);
         *h = -1;
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov002_02156c7c(char *base) {
     h = (int *) (base + RG(0x3a8, 0xa70) + RG(0x1800, 0x1000));
     if (loader->GetTaskStatus(*(int *) (base + 0x1000 + RG(0xba8, 0xa70)))) {
         loader->GetLoadedFileByID(*h, &file1, &len1);
-        ClearField00209a804((int *) (base + RG(0x44, 0x27c) + RG(0x2400, 0x2000)));
+        func_0209a804((int *) (base + RG(0x44, 0x27c) + RG(0x2400, 0x2000)));
         if (file1 != NULL && len1 != 0) {
-            SetupAndRunBufferedScript0209a8b4(
+            func_0209a8b4(
                 (struct Ctx0209a8b4 *) (base + RG(0x44, 0x27c) + RG(0x2400, 0x2000)), (SafeAllocator *) (base + RG(0x8c, 0x7f0) + RG(0x800, 0)),
                 (struct StreamHeader *) file1, len1);
         }
@@ -74,9 +74,9 @@ extern "C" ARM void func_ov002_02156c7c(char *base) {
 #endif
             loader->GetLoadedFileByID(*h, &file2, &len2);
             ((SafeAllocator *) (base + RG(0, 0x3b4) + RG(0x850, 0x400)))->Reset();
-            ClearFirstTwoWords0209a338((struct Pair0209a338 *) (base + RG(0x3c, 0x274) + RG(0x2400, 0x2000)));
+            func_0209a338((struct Pair0209a338 *) (base + RG(0x3c, 0x274) + RG(0x2400, 0x2000)));
             if (file2 != NULL && len2 != 0) {
-                SetupAndRunBufferedScript0209a470(
+                func_0209a470(
                     (struct Ctx0209a470 *) (base + RG(0x3c, 0x274) + RG(0x2400, 0x2000)), (SafeAllocator *) (base + RG(0, 0x3b4) + RG(0x850, 0x400)),
                     (struct StreamHeader *) file2, len2);
             }

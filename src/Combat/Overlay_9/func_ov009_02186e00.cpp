@@ -14,7 +14,7 @@ extern "C" int func_ov009_02185c58(void*);
 extern "C" int func_ov009_02188ee8(CharacterCreationUI*);
 extern "C" void func_ov009_0218ad0c(void*);
 extern "C" void func_ov009_021867bc(unsigned char*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern char data_ov009_0218bc59[];
 extern const char data_020ef078[];
 extern Obj0205eaa0 data_02108760;
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreationUI* self)
         }
     } else if (self->step == 2) {
         if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
             self->flags = (self->flags & ~0x400000) | 0x2000;
             self->step = 1;
         } else if (g_keyManager.TestKeysPressed(2)) {
@@ -141,20 +141,20 @@ struct Struct_0205ba68;
 struct Node0205bacc;
 
 extern "C" void func_ov003_0215f41c(Keyboard* keyboard, const char* text);
-CharacterInfo* FindEntryByKey0204254c(int character, int mode);
+extern "C" CharacterInfo* func_0204254c(int character, int mode);
 extern "C" int func_ov003_0215f000(Keyboard* keyboard, int ticks);
 extern "C" int func_ov009_02188ee8(void* self);
 extern "C" void func_ov009_02189a4c(void* self);
-void SetStatValue021855dc(unsigned char* self, int state);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
-void BuildFieldTag_021d9e60(char* self);
+extern "C" void func_ov009_021855dc(unsigned char* self, int state);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
+extern "C" void func_ov023_021d9e60(char* self);
 extern "C" KeyboardKey* func_ov003_0215f4a4(Keyboard* keyboard, int a);
-void ResetEntrySkill0218a8b8(void* self);
-void Init0205bef8(Struct_0205bef8* cursor);
-void SetupPointerTable0205ba68(Struct_0205ba68* cursor, int columns, int rows, int a);
-void SetField0AndPropagate0205bacc(Node0205bacc* cursor, int count);
+extern "C" void func_ov009_0218a8b8(void* self);
+extern "C" void func_0205bef8(Struct_0205bef8* cursor);
+extern "C" void func_0205ba68(Struct_0205ba68* cursor, int columns, int rows, int a);
+extern "C" void func_0205bacc(Node0205bacc* cursor, int count);
 extern "C" void func_0205bb04(WindowCursor* cursor, int a);
-void StoreResultIfNonZero_0215f4e4(Keyboard* keyboard, int id);
+extern "C" void func_ov003_0215f4e4(Keyboard* keyboard, int id);
 extern "C" void func_ov003_0215ec68(int size, short* width, short* height);
 
 extern char data_ov009_0218ad26[];
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         if (self->savedKey_ != NULL)
             self->keyboard_->key_ = self->savedKey_;
         self->savedKey_ = NULL;
-        CharacterInfo* info = FindEntryByKey0204254c((int)data_ov009_0218ad2a, 0);
+        CharacterInfo* info = func_0204254c((int)data_ov009_0218ad2a, 0);
         if (info != NULL)
             self->keyboard_->unk_c = info->unk_4 * 8 + 7;
         self->step_++;
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         }
         else if (result == -3)
         {
-            SetStatValue021855dc((unsigned char*)self, 7);
+            func_ov009_021855dc((unsigned char*)self, 7);
             return;
         }
         else if (result >= 101 && result <= 108)
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
             result -= 100;
             if (result <= self->lastStates_[self->sex_] && result != self->state_)
             {
-                SetStatValue021855dc((unsigned char*)self, (unsigned char)result);
+                func_ov009_021855dc((unsigned char*)self, (unsigned char)result);
                 return;
             }
         }
@@ -252,13 +252,13 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         switch (self->keyboardResult_)
         {
         case 1:
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
             break;
         case 9:
             if (!g_keyManager.TestKeysPressed(1) && g_touchInput.pressed_ == 0)
-                SetStatValue021855dc((unsigned char*)self, 7);
+                func_ov009_021855dc((unsigned char*)self, 7);
             else
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             self->flags_ |= 0x8100;
             break;
         case 2:
@@ -269,13 +269,13 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         case 8:
         case 11:
             if (!g_keyManager.TestKeysPressed(2))
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             self->flags_ |= 0x8100;
             break;
         case 3:
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             self->flags_ |= 0x8100;
-            BuildFieldTag_021d9e60((char*)self);
+            func_ov023_021d9e60((char*)self);
             if (g_keyManager.TestKeysPressed(1))
             {
                 KeyboardKey* key = func_ov003_0215f4a4(self->keyboard_, 6);
@@ -285,20 +285,20 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
             break;
         case 10:
             if (*self->names_[self->sex_] == 0)
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             if (checked == 0)
             {
                 checked = 1;
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 func_ov009_02189a4c(self);
             }
             break;
         case 13:
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             break;
         case 12:
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetEntrySkill0218a8b8(self);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_ov009_0218a8b8(self);
             self->flags_ |= 0x8100;
             return;
         default:
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
             {
                 if (self->keyboard_->key_ != NULL)
                 {
-                    ResetEntrySkill0218a8b8(self);
+                    func_ov009_0218a8b8(self);
                     self->flags_ |= 0x8100;
                     return;
                 }
@@ -322,9 +322,9 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         if (self->keyboardResult_ != 0 && self->keyboardResult_ != 8)
         {
             WindowCursor* cursor = &self->cursor_;
-            Init0205bef8((Struct_0205bef8*)cursor);
-            SetupPointerTable0205ba68((Struct_0205ba68*)cursor, 11, 6, 1);
-            SetField0AndPropagate0205bacc((Node0205bacc*)cursor, 0x42);
+            func_0205bef8((Struct_0205bef8*)cursor);
+            func_0205ba68((Struct_0205ba68*)cursor, 11, 6, 1);
+            func_0205bacc((Node0205bacc*)cursor, 0x42);
             cursor->unk_4 = 1;
             func_0205bb04(cursor, 0);
         }
@@ -339,22 +339,22 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
         if (self->flags_ & 0x800)
         {
             WindowCursor* cursor = &self->cursor_;
-            Init0205bef8((Struct_0205bef8*)cursor);
-            SetupPointerTable0205ba68((Struct_0205ba68*)cursor, 11, 6, 1);
-            SetField0AndPropagate0205bacc((Node0205bacc*)cursor, 0x42);
+            func_0205bef8((Struct_0205bef8*)cursor);
+            func_0205ba68((Struct_0205ba68*)cursor, 11, 6, 1);
+            func_0205bacc((Node0205bacc*)cursor, 0x42);
             cursor->unk_4 = 1;
             func_0205bb04(cursor, 0);
-            StoreResultIfNonZero_0215f4e4(self->keyboard_, 6);
+            func_ov003_0215f4e4(self->keyboard_, 6);
             self->flags_ |= 0x1000000;
             sprintf(self->member_->name_, data_020ef078, self->names_[self->sex_]);
-            SetStatValue021855dc((unsigned char*)self, 9);
+            func_ov009_021855dc((unsigned char*)self, 9);
         }
     }
     else if (self->step_ == 3)
     {
         if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0)
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             self->flags_ = (self->flags_ & ~0x1400000) | 0x2000;
             self->step_ = 2;
         }

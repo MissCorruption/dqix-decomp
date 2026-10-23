@@ -15,9 +15,9 @@ struct RenderFlags02016874 {
 extern RenderFlags02016874 data_020ef0dc;
 extern "C" void func_0201730c(CombatEntryList*);
 extern "C" void func_02017540(Zone3D*);
-int IsInRange0201b5b0(int);
-void ClearGlobalFlagBits02016d8c(void*);
-void PushMatrixAndRender02016db4(void*, void*);
+extern "C" int func_0201b5b0(int);
+extern "C" void func_02016d8c(void*);
+extern "C" void func_02016db4(void*, void*);
 extern "C" void func_020ca528(const void*, void*);
 
 // USA: func_02016874
@@ -27,9 +27,9 @@ extern "C" ARM void func_02016874(Zone3D* self) {
     func_02017540(self);
     self->unk_276c[0xb0] = 0;
     data_020ef0dc.normalPending = 1;
-    if (IsInRange0201b5b0(self->currentZoneID_)) {
+    if (func_0201b5b0(self->currentZoneID_)) {
         if (((unsigned char*)self->unk_23bc)[0] == 0) return;
-        ProcessNode0201aedc(self);
+        func_0201aedc(self);
         int environment;
         int minX;
         int z;
@@ -78,12 +78,12 @@ extern "C" ARM void func_02016874(Zone3D* self) {
                 RenderConfig::SubmitToFifo();
                 model->Draw(true);
                 if (environment == 4) {
-                    model = GetNodeAtDepth020196fc(self, 11)->elements->resource->model;
+                    model = func_020196fc(self, 11)->elements->resource->model;
                     NSBXXInternalModel* internal = model->rawInternalModel_;
                     if (model != 0 && internal != 0) {
                         Matrix3x3 identity;
                         Mat3x3_WriteIdentity(&identity);
-                        ClearGlobalFlagBits02016d8c(&identity);
+                        func_02016d8c(&identity);
                         RenderConfig::SubmitToFifo();
                         model->Draw(true);
                     }
@@ -91,7 +91,7 @@ extern "C" ARM void func_02016874(Zone3D* self) {
             }
         }
         if (environment != 5) return;
-        Model3D* model = GetNodeAtDepth020196fc(self, 12)->elements->resource->model;
+        Model3D* model = func_020196fc(self, 12)->elements->resource->model;
         LightingManager* manager = LightingManager::GetInstance();
         manager->ApplyAmbientColorToModel(model->rawInternalModel_);
         if (playerZ < 4) {
@@ -147,7 +147,7 @@ extern "C" ARM void func_02016874(Zone3D* self) {
         self->unk_830[1] = time;
         BmdjScriptNode* node = self->firstBMDJStruct_41c_;
         while (node != 0) {
-            PushMatrixAndRender02016db4(self, node);
+            func_02016db4(self, node);
             node = node->next;
         }
         self->unk_830[3] = 0;

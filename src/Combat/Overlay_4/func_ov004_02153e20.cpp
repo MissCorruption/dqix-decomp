@@ -72,11 +72,11 @@ extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" void* func_ov023_021f6880(void* list, int id);
 extern "C" int func_ov023_021f6f10(void* obj);
 extern "C" unsigned char* func_0205ec34(void);
-extern "C" int _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(struct Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_ov023_021f9b30(struct Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
 extern "C" void func_ov023_021f9d14(void* grid, void* ctx);
 extern "C" void func_ov023_021f809c(void* obj, void* ctx);
-int CheckType16ThenTestBit_02153d8c(void* ctx);
+extern "C" int func_ov004_02153d8c(void* ctx);
 
 // USA: func_ov004_02153e20
 extern "C" ARM int func_ov004_02153e20(void* ctx) {
@@ -111,15 +111,15 @@ extern "C" ARM int func_ov004_02153e20(void* ctx) {
             slot->value = 0;
             slot->flags &= ~8;
             if (!node) {
-                _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((Grid021f9b30*)board, 0, (unsigned short)(j >> 1), (unsigned short)(j & 1));
+                func_ov023_021f9b30((Grid021f9b30*)board, 0, (unsigned short)(j >> 1), (unsigned short)(j & 1));
                 slot->flags |= 8;
             } else {
-                _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((Grid021f9b30*)board, (unsigned short)id, (unsigned short)(j >> 1), (unsigned short)(j & 1));
+                func_ov023_021f9b30((Grid021f9b30*)board, (unsigned short)id, (unsigned short)(j >> 1), (unsigned short)(j & 1));
                 Entry02153e20* entry = node->entry;
                 if (entry) {
                     int bits = (unsigned short)((entry->flags << 9) >> 21);
                     if (bits > 0) {
-                        if (TestBitInByteArray_0206dfb0((int)flags, flags + 0x8c, bits + 0x76 + 0xc00)) {
+                        if (func_0206dfb0((int)flags, flags + 0x8c, bits + 0x76 + 0xc00)) {
                             slot->value = entry->value;
                         }
                     }
@@ -136,6 +136,6 @@ extern "C" ARM int func_ov004_02153e20(void* ctx) {
     cursor->x = x;
     cursor->y = y;
     func_ov023_021f809c(cursor, ctx);
-    CheckType16ThenTestBit_02153d8c(ctx);
+    func_ov004_02153d8c(ctx);
     return 0;
 }

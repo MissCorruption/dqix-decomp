@@ -2,19 +2,19 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-int CheckFlag0x14Bit0Clear_0208869c(unsigned char* obj);
+extern "C" int func_0208869c(unsigned char* obj);
 struct StateWrapObj020886dc;
 struct StateWrapObj02088724;
 struct StateWrapObj0208876c;
 struct StateWrapObj020887b4;
-void SetCombatantState1(struct StateWrapObj020886dc* obj);
-void SetCombatantState2(struct StateWrapObj02088724* obj);
-void SetCombatantState3(struct StateWrapObj0208876c* obj);
-void SetCombatantState4(struct StateWrapObj020887b4* obj);
-void SetFlag0x80AndState5_020887fc(unsigned char* obj);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" void func_020886dc(struct StateWrapObj020886dc* obj);
+extern "C" void func_02088724(struct StateWrapObj02088724* obj);
+extern "C" void func_0208876c(struct StateWrapObj0208876c* obj);
+extern "C" void func_020887b4(struct StateWrapObj020887b4* obj);
+extern "C" void func_020887fc(unsigned char* obj);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct PackedPair_021dff3c {
@@ -40,34 +40,34 @@ extern "C" ARM void* func_ov024_021dff3c(struct Obj_021dff3c* obj, int unused, i
     if (!c) return 0;
     unsigned short sel;
     if (range->state > 0) {
-        if (CheckFlag0x14Bit0Clear_0208869c((unsigned char*)c->currentStats_) && flagArg != 0) {
-            sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+        if (func_0208869c((unsigned char*)c->currentStats_) && flagArg != 0) {
+            sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
             switch (range->state) {
                 case 1:
-                    SetCombatantState1((struct StateWrapObj020886dc*)c->currentStats_);
+                    func_020886dc((struct StateWrapObj020886dc*)c->currentStats_);
                     break;
                 case 2:
-                    SetCombatantState2((struct StateWrapObj02088724*)c->currentStats_);
+                    func_02088724((struct StateWrapObj02088724*)c->currentStats_);
                     break;
                 case 3:
-                    SetCombatantState3((struct StateWrapObj0208876c*)c->currentStats_);
+                    func_0208876c((struct StateWrapObj0208876c*)c->currentStats_);
                     break;
                 case 4:
-                    SetCombatantState4((struct StateWrapObj020887b4*)c->currentStats_);
+                    func_020887b4((struct StateWrapObj020887b4*)c->currentStats_);
                     break;
                 case 5:
-                    SetFlag0x80AndState5_020887fc((unsigned char*)c->currentStats_);
+                    func_020887fc((unsigned char*)c->currentStats_);
                     break;
             }
         } else {
-            sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+            sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
         }
     } else {
-        sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+        sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
     }
     void* entry = func_ov000_0215e958(obj->field0x10);
     if (!entry) return 0;
-    AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+    func_ov000_0215a88c(obj->field0x10, entry, sel);
     struct Flag_021dff3c* fl = (struct Flag_021dff3c*)((char*)obj->field0xc + 0x1c);
     func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
     return entry;

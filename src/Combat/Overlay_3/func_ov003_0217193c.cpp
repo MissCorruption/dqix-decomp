@@ -16,9 +16,9 @@ struct ElementArray0202bad4;
 extern "C" void* func_0202ae18(void);
 extern "C" void func_0202b0f4(void* ptr);
 extern "C" int func_ov003_02171d78(void* list, unsigned char* key);
-int GetField0xc_0202bae4(void* obj);
-struct Element0202bad4* GetElementAt0x10Stride0xc0(struct ElementArray0202bad4* base, int index);
-int StartBattleTransition0202b840(int* state, int id);
+extern "C" int func_0202bae4(void* obj);
+extern "C" struct Element0202bad4* func_0202bad4(struct ElementArray0202bad4* base, int index);
+extern "C" int func_0202b840(int* state, int id);
 
 struct Name0217193c { unsigned char data[0x14]; };
 struct Key0217193c { unsigned char data[6]; };
@@ -80,16 +80,16 @@ extern "C" ARM void func_ov003_0217193c(struct Obj0217193c* obj) {
 
     if (dt < obj->timer && obj->attempts > 0) {
         obj->timer -= dt;
-        count = GetField0xc_0202bae4(search);
+        count = func_0202bae4(search);
         if (count == 0) return;
         found = 0;
         for (i = 0; i < count; i++) {
-            entry = (Entry0217193c*)GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)search, i);
+            entry = (Entry0217193c*)func_0202bad4((struct ElementArray0202bad4*)search, i);
             if (func_ov003_02171d78(obj, entry->key.data) == 0 && entry->flags.available) {
 #if !defined(jpn)
                 if (found > 0 && obj->flags.team != entry->flags.team) break;
 #endif
-                StartBattleTransition0202b840((int*)search, i);
+                func_0202b840((int*)search, i);
                 obj->selected = 0;
 #if !defined(jpn)
                 obj->name = entry->name;

@@ -25,7 +25,7 @@ struct State02049c88 {
     char unknown6d[3];
 };
 struct Object02049c88 { GameObject base; State02049c88* state; };
-void ClearStructFields02049550(StructFields02049550*);
+extern "C" void func_02049550(StructFields02049550*);
 
 // USA: func_02049c88
 extern "C" ARM void func_02049c88(Object02049c88* object, State02049c88* state) {
@@ -52,7 +52,7 @@ extern "C" ARM void func_02049c88(Object02049c88* object, State02049c88* state) 
     object->state->indexes[2] = 0xff;
     object->state->indexes[3] = 0xff;
     object->state->byte56 = 1;
-    ClearStructFields02049550(&object->state->fields);
+    func_02049550(&object->state->fields);
     object->state->alpha.Reset();
     memset(object->state->bytes58, 0, 6);
     object->state->field68 = 0;

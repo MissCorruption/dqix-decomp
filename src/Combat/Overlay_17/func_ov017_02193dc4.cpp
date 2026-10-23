@@ -75,8 +75,8 @@ extern "C" long long func_020c3260(int);
 extern "C" float func_0200c700(long long);
 extern "C" int func_020312bc(GeometryTriangle* triangles, int count, Vector3fix* start, Vector3fix* end, Vector3fix* point);
 extern "C" int func_02017d90(Zone02193dc4* zone, int index, TerrainGrid02193dc4* grid, Probe02193dc4 probe, Actor02193dc4* self);
-void ClearFlags0x40And0x80At0xe0(struct ByteFlags02033f2c* p);
-void CopyFourHalfwordsToField0x114_02033f6c(void* obj, FourHalfwords02033f7c* src);
+extern "C" void func_02033f2c(struct ByteFlags02033f2c* p);
+extern "C" void func_02033f6c(void* obj, FourHalfwords02033f7c* src);
 
 // USA: func_ov017_02193dc4
 extern "C" ARM int func_ov017_02193dc4(Actor02193dc4* self) {
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov017_02193dc4(Actor02193dc4* self) {
     probe.bottom.x -= self->GetRadius() / 2;
     probe.bottom.y -= 0x28000;
     probe.bottom.z -= self->GetRadius() / 2;
-    ClearFlags0x40And0x80At0xe0((ByteFlags02033f2c*)self);
+    func_02033f2c((ByteFlags02033f2c*)self);
     for (i = 0; i < zone->terrainCount; i++) {
         int count = func_02017d90(zone, i, &grid, probe, self);
         if (count > 0) {
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov017_02193dc4(Actor02193dc4* self) {
                 if (node != NULL && (geometry = node->geometry) != NULL && (polygons = geometry->polygons) != NULL) {
                     if (polygons->header->type == 3) {
                         FourHalfwords02033f7c material = polygons->materials[grid.materialIndex[idx]];
-                        CopyFourHalfwordsToField0x114_02033f6c(self, &material);
+                        func_02033f6c(self, &material);
                     }
                 }
             }

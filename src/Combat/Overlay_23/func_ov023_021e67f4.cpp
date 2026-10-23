@@ -21,11 +21,11 @@ struct Struct_0205d81c;
 struct Container0205a3d0;
 struct Container0205a330;
 
-Canvas_021e67f4* FindElementForFieldB0_0205d8c4(struct Struct_0205d81c* s);
-int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char* obj);
-void SetEntryFlag2ByKey0205a370(struct Container0205a3d0* c, int key);
-Animation_021e67f4* FindEntryByHalfword0205a3d0(struct Container0205a3d0* c, int key);
-void IterateEntries0205a330(struct Container0205a330* c, int arg);
+extern "C" Canvas_021e67f4* func_0205d8c4(struct Struct_0205d81c* s);
+extern "C" int func_0204c7e0(unsigned char* obj);
+extern "C" void func_0205a370(struct Container0205a3d0* c, int key);
+extern "C" Animation_021e67f4* func_0205a3d0(struct Container0205a3d0* c, int key);
+extern "C" void func_0205a330(struct Container0205a330* c, int arg);
 extern "C" void func_0205ae8c(void* obj);
 
 #if defined(jpn)
@@ -58,21 +58,21 @@ extern "C" ARM void func_ov023_021e67f4(ProfileEditor_021e67f4* self)
 {
     if (self->unk_13a0 == 0)
         return;
-    Canvas_021e67f4* canvas = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)self->window_);
+    Canvas_021e67f4* canvas = func_0205d8c4((Struct_0205d81c*)self->window_);
     if (canvas == NULL)
         return;
-    if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)canvas))
+    if (!func_0204c7e0((unsigned char*)canvas))
         return;
     short x = canvas->x_ * 8;
     short y = canvas->y_ * 8;
     x += canvas->unk_bc;
     y += canvas->unk_be;
-    SetEntryFlag2ByKey0205a370((Container0205a3d0*)self->unk_1360, 0);
-    Animation_021e67f4* animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->unk_1360, 0);
+    func_0205a370((Container0205a3d0*)self->unk_1360, 0);
+    Animation_021e67f4* animation = func_0205a3d0((Container0205a3d0*)self->unk_1360, 0);
     if (animation != NULL)
         animation->flags_ |= 8;
-    IterateEntries0205a330((Container0205a330*)self->unk_1360, self->unk_13a4);
-    animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->unk_1360, 0);
+    func_0205a330((Container0205a330*)self->unk_1360, self->unk_13a4);
+    animation = func_0205a3d0((Container0205a3d0*)self->unk_1360, 0);
     if (animation != NULL)
     {
         animation->x_ = x - 8;

@@ -38,20 +38,20 @@ extern "C" void func_02046608(int a, int b, char* text, char* slot, int c, int d
 extern "C" void* __clear(void* destination, int count);
 
 extern "C" unsigned int func_ov023_021f6f10(void* self);
-int GetShort28_021f9bb0(struct Obj021f9bb0* obj);
-void CopyStringOrDefault02026428(void* dst, const char* src);
-void SetEventStringAndAccumulateLength02026470(void* dst, int value);
-void SetString020264e4(char* dst, char* src);
-void SetString02026528(char* dst, char* src);
-void SetField766AndNotify0202656c(struct Obj0202656c* obj, int value);
-int GetGlobalField0x1c020421a0(void);
-void SetIndexedRecord020265a8(char* dst, int index, const char* name, int rate);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-void CopyTextAndUppercaseIfFlagged0206819c(const char* source, char* destination, int tableIndex);
-void* CallFunc020e52a0_020e5294(void* obj, int index);
-void SetBoolFlag020263c8(unsigned char* obj, int value);
-void SetByteFieldAt0x764_02026418(unsigned char* buf, unsigned char val);
-void RestartTaskWithDebugLog020dc3d4(void);
+extern "C" int func_ov023_021f9bb0(struct Obj021f9bb0* obj);
+extern "C" void func_02026428(void* dst, const char* src);
+extern "C" void func_02026470(void* dst, int value);
+extern "C" void func_020264e4(char* dst, char* src);
+extern "C" void func_02026528(char* dst, char* src);
+extern "C" void func_0202656c(struct Obj0202656c* obj, int value);
+extern "C" int func_020421a0(void);
+extern "C" void func_020265a8(char* dst, int index, const char* name, int rate);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" void func_0206819c(const char* source, char* destination, int tableIndex);
+extern "C" void* func_020e5294(void* obj, int index);
+extern "C" void func_020263c8(unsigned char* obj, int value);
+extern "C" void func_02026418(unsigned char* buf, unsigned char val);
+extern "C" void func_020dc3d4(void);
 
 #if defined(jpn)
 extern "C" int func_ov004_0216ff54(unsigned short id, char* text);
@@ -76,45 +76,45 @@ extern "C" ARM void func_ov004_021636b0(void* a0, const char* a1) {
     GameResources* res = GetGameResources();
     buf = (unsigned char*)res->unknown_ptr_36d0;
     strcpy(zone + 0x26, a1);
-    RestartTaskWithDebugLog020dc3d4();
-    SetByteFieldAt0x764_02026418(buf, 1);
+    func_020dc3d4();
+    func_02026418(buf, 1);
     *(int*)(buf + 0x14) = 1;
 
     void* obj = func_ov023_021f6880(func_ov011_021849c8(a0), 0xa);
     if (obj == NULL) return;
     if (func_ov023_021f6f10(obj) != 7) return;
 
-    int idx = GetShort28_021f9bb0((struct Obj021f9bb0*)obj);
+    int idx = func_ov023_021f9bb0((struct Obj021f9bb0*)obj);
 #if !defined(jpn)
     det = &data_ov004_02171010.base->details[idx];
 #endif
 
 #if defined(jpn)
     if (data_ov004_02171010.base->details[idx].mapType_ == 1) {
-        CopyStringOrDefault02026428(buf, data_ov004_02171010.base->GetRegularMap(idx)->nameNoLevel_);
-        SetEventStringAndAccumulateLength02026470(buf, data_ov004_02171010.base->details[idx].regular_.level_);
+        func_02026428(buf, data_ov004_02171010.base->GetRegularMap(idx)->nameNoLevel_);
+        func_02026470(buf, data_ov004_02171010.base->details[idx].regular_.level_);
     } else if (data_ov004_02171010.base->details[idx].mapType_ == 2) {
-        CopyStringOrDefault02026428(buf, data_ov004_02171010.base->GetLegacyMap(idx)->mapNameNoLevel_);
-        SetEventStringAndAccumulateLength02026470(buf, data_ov004_02171010.base->details[idx].legacy_.level_);
+        func_02026428(buf, data_ov004_02171010.base->GetLegacyMap(idx)->mapNameNoLevel_);
+        func_02026470(buf, data_ov004_02171010.base->details[idx].legacy_.level_);
     }
-    SetString020264e4((char*)buf, data_ov004_02171010.base->details[idx].discoveredBy_);
-    SetString02026528((char*)buf, data_ov004_02171010.base->details[idx].clearedBy_);
+    func_020264e4((char*)buf, data_ov004_02171010.base->details[idx].discoveredBy_);
+    func_02026528((char*)buf, data_ov004_02171010.base->details[idx].clearedBy_);
     if (data_ov004_02171010.base->details[idx].mapType_ == 2) {
-        SetField766AndNotify0202656c((struct Obj0202656c*)buf, data_ov004_02171010.base->details[idx].legacy_.minTurns_);
+        func_0202656c((struct Obj0202656c*)buf, data_ov004_02171010.base->details[idx].legacy_.minTurns_);
     }
 
 #else
     if (det->mapType_ == 1) {
-        CopyStringOrDefault02026428(buf, det->regular_.nameNoLevel_);
-        SetEventStringAndAccumulateLength02026470(buf, det->regular_.level_);
+        func_02026428(buf, det->regular_.nameNoLevel_);
+        func_02026470(buf, det->regular_.level_);
     } else if (det->mapType_ == 2) {
-        CopyStringOrDefault02026428(buf, det->legacy_.mapNameNoLevel_);
-        SetEventStringAndAccumulateLength02026470(buf, det->legacy_.level_);
+        func_02026428(buf, det->legacy_.mapNameNoLevel_);
+        func_02026470(buf, det->legacy_.level_);
     }
-    SetString020264e4((char*)buf, det->discoveredBy_);
-    SetString02026528((char*)buf, det->clearedBy_);
+    func_020264e4((char*)buf, det->discoveredBy_);
+    func_02026528((char*)buf, det->clearedBy_);
     if (det->mapType_ == 2) {
-        SetField766AndNotify0202656c((struct Obj0202656c*)buf, det->legacy_.minTurns_);
+        func_0202656c((struct Obj0202656c*)buf, det->legacy_.minTurns_);
     }
 
 #endif
@@ -128,17 +128,17 @@ extern "C" ARM void func_ov004_021636b0(void* a0, const char* a1) {
     for (int i = 0; i < 3; i++) {
         __clear(bufA, sizeof(bufA));
         if (data_ov004_02171010.base->details[idx].discoveredTreasures_[i] == 0) {
-            SetIndexedRecord020265a8((char*)buf, (unsigned char)i, NULL, data_ov004_02171010.base->details[idx].treasureDropRates_[i]);
+            func_020265a8((char*)buf, (unsigned char)i, NULL, data_ov004_02171010.base->details[idx].treasureDropRates_[i]);
             continue;
         }
         if (!func_ov004_0216ff54(data_ov004_02171010.base->details[idx].treasureItemIDs_[i], bufA)) {
-            const char* name = (const char*)FindEntryByKey_02072a68(table, (short)data_ov004_02171010.base->details[idx].treasureItemIDs_[i]);
+            const char* name = (const char*)func_02072a68(table, (short)data_ov004_02171010.base->details[idx].treasureItemIDs_[i]);
             if (name != NULL) {
                 func_02041f50(name, bufA);
             }
         }
         unsigned char rate = data_ov004_02171010.base->details[idx].treasureDropRates_[i];
-        SetIndexedRecord020265a8((char*)buf, (unsigned char)i, bufA, rate);
+        func_020265a8((char*)buf, (unsigned char)i, bufA, rate);
     }
 #else
     memset(data_ov004_02171010.slotBuffer, 0, 0x333);
@@ -146,9 +146,9 @@ extern "C" ARM void func_ov004_021636b0(void* a0, const char* a1) {
     for (int i = 0; i < 3; i++) {
         __clear(bufB, 0x80);
         __clear(bufA, 0x80);
-        int tableRoot = GetGlobalField0x1c020421a0();
+        int tableRoot = func_020421a0();
         if (det->discoveredTreasures_[i] == 0) {
-            SetIndexedRecord020265a8((char*)buf, (unsigned char)i, NULL, det->treasureDropRates_[i]);
+            func_020265a8((char*)buf, (unsigned char)i, NULL, det->treasureDropRates_[i]);
             continue;
         }
 
@@ -160,16 +160,16 @@ extern "C" ARM void func_ov004_021636b0(void* a0, const char* a1) {
             if (obj2 == NULL) return;
             if (func_ov023_021f6f10(obj2) != 4) return;
             struct TableA68* table = func_ov023_021fa598(obj2);
-            CopyTextAndUppercaseIfFlagged0206819c((const char*)FindEntryByKey_02072a68(table, (short)key), bufA, 0);
+            func_0206819c((const char*)func_02072a68(table, (short)key), bufA, 0);
             func_02046608(tableRoot, 0, bufA, slot, 0x60, 0, 0);
         } else {
-            char** entry = (char**)CallFunc020e52a0_020e5294(data_ov004_02171010.callTarget, (short)det->treasureItemIDs_[i]);
-            CopyTextAndUppercaseIfFlagged0206819c(*entry, bufA, 0);
+            char** entry = (char**)func_020e5294(data_ov004_02171010.callTarget, (short)det->treasureItemIDs_[i]);
+            func_0206819c(*entry, bufA, 0);
             func_02046608(tableRoot, 0, bufA, slot, 0x60, 0, 0);
         }
-        SetIndexedRecord020265a8((char*)buf, (unsigned char)i, slot, det->treasureDropRates_[i]);
+        func_020265a8((char*)buf, (unsigned char)i, slot, det->treasureDropRates_[i]);
     }
 
 #endif
-    SetBoolFlag020263c8(buf, 1);
+    func_020263c8(buf, 1);
 }

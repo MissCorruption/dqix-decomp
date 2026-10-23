@@ -31,6 +31,6 @@ struct Manager0207f7f0 {
 };
 
 extern "C" void func_0207f84c(Manager0207f7f0*);
-void InitNodeChain0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
+extern "C" void func_0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
 
-void FlushNotifyEntries_0207f8bc(Manager0207f7f0*);
+extern "C" void func_0207f8bc(Manager0207f7f0*);

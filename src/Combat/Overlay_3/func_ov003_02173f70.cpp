@@ -3,8 +3,8 @@
 #if defined(jpn)
 #define data_ov003_02180cc8 data_ov003_0217ef40
 #endif
-void InitEntryManager020e2490(EntryManager020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
-void Init0205a198(Struct0205a198*);
+extern "C" void func_020e2490(EntryManager020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
+extern "C" void func_0205a198(Struct0205a198*);
 extern unsigned int data_ov003_02180cc8[2];
 
 #if defined(jpn)
@@ -22,10 +22,10 @@ extern "C" ARM void func_ov003_02173f70(BattleHeapOwner* self, SafeAllocator* al
         self->allocatedList = static_cast<ClearTarget0205a234*>(allocator->Allocate(8));
         self->manager = static_cast<EntryManager020e2490*>(allocator->Allocate(0x24));
 #if defined(jpn)
-        InitEntryManager020e2490(self->manager, 0, 1, self->allocatedList, allocator, 3, 0x40);
+        func_020e2490(self->manager, 0, 1, self->allocatedList, allocator, 3, 0x40);
         static unsigned int sizes[6] = {0, 0x1800, 0x1e00, 0x400, 0x9800, 0x6000};
 #else
-        InitEntryManager020e2490(self->manager, 0, 1, self->allocatedList, allocator, 4, 0x40);
+        func_020e2490(self->manager, 0, 1, self->allocatedList, allocator, 4, 0x40);
         static unsigned int sizes[6] = {0, 0x2800, 0x1e00, 0x400, 0x9800, 0x6000};
 #endif
         if (!(data_ov003_02180cc8[1] & 1)) {
@@ -47,10 +47,10 @@ extern "C" ARM void func_ov003_02173f70(BattleHeapOwner* self, SafeAllocator* al
         Manager0207f7f0* menu = self->menu;
         menu->lists = self->entries;
         menu->mode = 2;
-        InitNodeChain0207f7f0(self->menu, self->nodes, 8);
+        func_0207f7f0(self->menu, self->nodes, 8);
         self->menu->active = 2;
         for (unsigned char i = 0; i < 0x21; ++i)
-            Init0205a198(&self->allocatedRecords[i]);
+            func_0205a198(&self->allocatedRecords[i]);
         self->active = 0;
         self->records = self->allocatedRecords;
         self->count = 0x21;

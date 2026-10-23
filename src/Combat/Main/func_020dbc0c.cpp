@@ -1,0 +1,17 @@
+#include <globaldefs.h>
+#include "Resource/ResourceMutex.h"
+
+struct FlagWord02046708;
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" void* func_020d6c00(void);
+
+extern "C" void func_020dbae0(void* obj);
+
+// USA: func_020dbc0c
+extern "C" ARM void func_020dbc0c(void* obj) {
+    bool old = SetResourceMutexOperational(false);
+    if (!func_02046708((struct FlagWord02046708*)func_020d6c00(), 0x100)) {
+        func_020dbae0(obj);
+    }
+    SetResourceMutexOperational(old);
+}

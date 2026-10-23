@@ -31,31 +31,31 @@ extern "C" int func_ov003_02169674(void* self, int x, int y, void* rects);
 extern "C" void func_0205bb04(void* obj, int v);
 extern "C" int func_0205bf58(void* obj, int v);
 
-void SetChannelAFlag0205cef8(void* chan);
-void SetChannelBFlag0205cf04(void* chan);
-void Init0205bbcc(Struct_0205bbcc* obj);
-void SetupPointerTable0205ba68(Struct_0205ba68* obj, int a, int b, int c);
-void SetField0AndPropagate0205bacc(Node0205bacc* obj, int v);
-void SetIndexIfValid0205bcdc(Struct_0205bcdc* obj, int v);
-void SetFields0205bd58(Struct_0205bd58* obj, int a, int b, int c, int d, int e);
-void ClearFields_0216a85c(S0216a85c* obj);
-unsigned char* FindElementForFieldB0_0205d8c4(Struct_0205d81c* chan);
-void GetFourSubstructPointers_0204f138(unsigned char* elem, unsigned char** a, unsigned char** b, unsigned char** c,
+extern "C" void func_0205cef8(void* chan);
+extern "C" void func_0205cf04(void* chan);
+extern "C" void func_0205bbcc(Struct_0205bbcc* obj);
+extern "C" void func_0205ba68(Struct_0205ba68* obj, int a, int b, int c);
+extern "C" void func_0205bacc(Node0205bacc* obj, int v);
+extern "C" void func_0205bcdc(Struct_0205bcdc* obj, int v);
+extern "C" void func_0205bd58(Struct_0205bd58* obj, int a, int b, int c, int d, int e);
+extern "C" void func_ov003_0216a85c(S0216a85c* obj);
+extern "C" unsigned char* func_0205d8c4(Struct_0205d81c* chan);
+extern "C" void func_0204f138(unsigned char* elem, unsigned char** a, unsigned char** b, unsigned char** c,
                               unsigned char** d);
-void SetFieldAt0x30_0205bc24(void* obj, int v);
-int UpdateActiveState0205bc2c(Struct_0205bc2c*, int);
-int GetScaledSumIfActive0205bd04(Struct_0205bd04* obj);
-int GetField0_0205bafc(void* obj);
-void ClearFlagFields_02169658(void* self);
-void ClearBytes0x4cTo0x4e(Struct_0205bc10* obj);
-int GetActiveScaledSum0205d794(Struct_0205c570* chan);
-void UpdateEntryAndField4ea_021694b8(void* self, int v);
-void ResetState0205bf3c(Struct_0205bf3c* obj);
-int ComputeScaledSum0205bb84(Struct_0205bb84* obj);
-int NormalizeField5_0200fb08(Struct0200fb08* gs);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
-void ClearChannelAFlag0205cf10(void* chan);
-void ClearFlagByte0205cf1c(Struct0205cf1c* chan);
+extern "C" void func_0205bc24(void* obj, int v);
+extern "C" int func_0205bc2c(Struct_0205bc2c*, int);
+extern "C" int func_0205bd04(Struct_0205bd04* obj);
+extern "C" int func_0205bafc(void* obj);
+extern "C" void func_ov003_02169658(void* self);
+extern "C" void func_0205bc10(Struct_0205bc10* obj);
+extern "C" int func_0205d794(Struct_0205c570* chan);
+extern "C" void func_ov003_021694b8(void* self, int v);
+extern "C" void func_0205bf3c(Struct_0205bf3c* obj);
+extern "C" int func_0205bb84(Struct_0205bb84* obj);
+extern "C" int func_0200fb08(Struct0200fb08* gs);
+extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205cf10(void* chan);
+extern "C" void func_0205cf1c(Struct0205cf1c* chan);
 
 extern unsigned char data_ov003_0217f544[];
 extern unsigned char data_ov003_0217f545[];
@@ -136,14 +136,14 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
 
     if (self->state == 0) {
         func_ov003_02169594(self);
-        SetChannelAFlag0205cef8(self->chan);
-        SetChannelBFlag0205cf04(self->chan);
+        func_0205cef8(self->chan);
+        func_0205cf04(self->chan);
         func_ov003_021696f4(self, self->cursor);
-        Init0205bbcc((Struct_0205bbcc*)self->node);
-        SetupPointerTable0205ba68((Struct_0205ba68*)self->node, 1, 2, 0);
+        func_0205bbcc((Struct_0205bbcc*)self->node);
+        func_0205ba68((Struct_0205ba68*)self->node, 1, 2, 0);
         self->w540 = 1;
-        SetField0AndPropagate0205bacc((Node0205bacc*)self->node, 2);
-        SetIndexIfValid0205bcdc((Struct_0205bcdc*)self->node, 0);
+        func_0205bacc((Node0205bacc*)self->node, 2);
+        func_0205bcdc((Struct_0205bcdc*)self->node, 0);
         self->h58c[0] = 0;
         self->h58c[1] = 0;
         self->h58c[2] = 0;
@@ -152,22 +152,22 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
         self->h58c[5] = kCellWidth;
         self->h58c[6] = 0x10;
         self->h58c[7] = 0x10;
-        SetFields0205bd58((Struct_0205bd58*)self->node, 2, (int)&self->h58c[0], (int)&self->h58c[2],
+        func_0205bd58((Struct_0205bd58*)self->node, 2, (int)&self->h58c[0], (int)&self->h58c[2],
                           (int)&self->h58c[4], (int)&self->h58c[6]);
-        ClearFields_0216a85c((S0216a85c*)&self->rectA);
+        func_ov003_0216a85c((S0216a85c*)&self->rectA);
         self->rectA.count = 2;
         self->rectA.xMinArr = &self->h58c[kRectXIndex];
         self->rectA.yMinArr = &self->h58c[2];
         self->rectA.xWidthArr = &self->h58c[4];
         self->rectA.yWidthArr = &self->h58c[6];
-        ClearFields_0216a85c((S0216a85c*)&self->rectB);
-        unsigned char* elem = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)self->chan);
+        func_ov003_0216a85c((S0216a85c*)&self->rectB);
+        unsigned char* elem = func_0205d8c4((Struct_0205d81c*)self->chan);
         short ex = ElemX(elem);
         short ey = ElemY(elem);
         self->rectB.originX = ex << 3;
         self->rectB.originY = ey << 3;
         self->rectB.count = 4;
-        GetFourSubstructPointers_0204f138(elem, (unsigned char**)&self->rectB.xMinArr, (unsigned char**)&self->rectB.yMinArr,
+        func_0204f138(elem, (unsigned char**)&self->rectB.xMinArr, (unsigned char**)&self->rectB.yMinArr,
                                  (unsigned char**)&self->rectB.xWidthArr, (unsigned char**)&self->rectB.yWidthArr);
         self->state++;
     } else if (self->state == 1) {
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
         if (g_touchInput.pressed_ != 0 || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
             g_touchInput.released_ != 0) {
             g_touchInput.GetTouchPoint(&ax, &ay);
-            int r8 = (FindElementForFieldB0_0205d8c4((Struct_0205d81c*)self->chan)[0xc5] & 2) != 0;
+            int r8 = (func_0205d8c4((Struct_0205d81c*)self->chan)[0xc5] & 2) != 0;
             unsigned char r7 = 0;
             if (g_touchInput.pressed_ != 0) {
                 short bx = GetBX(self);
@@ -201,15 +201,15 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 self->h576 = y;
                 self->rectA.originX = x;
                 self->rectA.originY = y;
-                SetFieldAt0x30_0205bc24(self->node, func_ov003_02169674(self, ax, ay, &self->rectA));
+                func_0205bc24(self->node, func_ov003_02169674(self, ax, ay, &self->rectA));
                 if (func_ov003_02169674(self, ax, ay, &self->rectA) >= 0) {
                     r7 = 1;
-                    if (UpdateActiveState0205bc2c((Struct_0205bc2c*)self->node, sb) != 0) {
+                    if (func_0205bc2c((Struct_0205bc2c*)self->node, sb) != 0) {
                         self->b59d = r7;
                         self->code = 2;
                         self->b59e = 0x14;
-                        int dir = GetScaledSumIfActive0205bd04((Struct_0205bd04*)self->node);
-                        int n = (signed char)GetField0_0205bafc(self->list);
+                        int dir = func_0205bd04((Struct_0205bd04*)self->node);
+                        int n = (signed char)func_0205bafc(self->list);
                         if (dir == 0) {
                             cells[cur]++;
                             signed char cv = cells[cur];
@@ -242,7 +242,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                             } else {
                                 self->b59e = 10;
                                 cells[cur] += self->step;
-                                signed char n = GetField0_0205bafc(self->list);
+                                signed char n = func_0205bafc(self->list);
                                 if (cells[cur] > n - 1) {
                                     cells[cur] = n - 1;
                                 }
@@ -258,18 +258,18 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                             } else {
                                 self->code = 3;
                             }
-                            ClearFlagFields_02169658(self);
-                            ClearBytes0x4cTo0x4e((Struct_0205bc10*)self->node);
+                            func_ov003_02169658(self);
+                            func_0205bc10((Struct_0205bc10*)self->node);
                         }
                     }
                 }
             }
             if (r7 == 0) {
-                int before = GetActiveScaledSum0205d794((Struct_0205c570*)self->chan);
+                int before = func_0205d794((Struct_0205c570*)self->chan);
                 self->b179 = 0;
-                UpdateEntryAndField4ea_021694b8(self, sb);
+                func_ov003_021694b8(self, sb);
                 self->b179 = 1;
-                int after = GetActiveScaledSum0205d794((Struct_0205c570*)self->chan);
+                int after = func_0205d794((Struct_0205c570*)self->chan);
                 if (before != after) {
                     func_ov003_021696f4(self, after);
                 }
@@ -284,20 +284,20 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 g_keyManager.TestKeysReleased(0x40) || g_keyManager.TestKeysHeld(0x80) ||
                 g_keyManager.TestKeysPressed(0x80) ||
                 g_keyManager.TestKeysReleased(0x80)) {
-                ResetState0205bf3c((Struct_0205bf3c*)((char*)self + kResetOffset));
+                func_0205bf3c((Struct_0205bf3c*)((char*)self + kResetOffset));
                 int old = cells[cur];
-                int n = GetField0_0205bafc(self->list);
+                int n = func_0205bafc(self->list);
                 func_0205bb04(self->list, n - 1 - cells[cur]);
                 if (func_0205bf58(self->list, sb) != 0) {
-                    cells[cur] = n - 1 - ComputeScaledSum0205bb84((Struct_0205bb84*)self->list);
+                    cells[cur] = n - 1 - func_0205bb84((Struct_0205bb84*)self->list);
                     if (old != cells[cur]) {
                         self->code = 1;
                     }
                 }
             } else {
-                int before = GetActiveScaledSum0205d794((Struct_0205c570*)self->chan);
-                UpdateEntryAndField4ea_021694b8(self, sb);
-                int after = GetActiveScaledSum0205d794((Struct_0205c570*)self->chan);
+                int before = func_0205d794((Struct_0205c570*)self->chan);
+                func_ov003_021694b8(self, sb);
+                int after = func_0205d794((Struct_0205c570*)self->chan);
                 if (before != after) {
                     func_ov003_021696f4(self, after);
                 }
@@ -315,7 +315,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
             }
         }
 
-        self->cursor = GetActiveScaledSum0205d794((Struct_0205c570*)self->chan);
+        self->cursor = func_0205d794((Struct_0205c570*)self->chan);
         unsigned int total = 0;
         unsigned int mul = 1000;
         for (int i = 3; i >= 0; i--) {
@@ -339,7 +339,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 short loy = 0xc8;
                 short hiy = 0xec;
 #else
-                int key = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+                int key = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
                 short lox = 0x8f;
                 short hix = 0xba;
                 short loy = 0xc5;
@@ -358,7 +358,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                     hit1 = 1;
                 } else if (px >= loy && px < hiy) {
                     hit2 = 1;
-                    DispatchWithShortB4_0205eaa0(&data_02108760, hit2, 0);
+                    func_0205eaa0(&data_02108760, hit2, 0);
                 }
             }
         }
@@ -370,20 +370,20 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
             hit2 = 1;
         }
         if (hit1 != 0) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
             unsigned int m = 1000;
             for (int i = 3; i >= 0; i--) {
                 self->w5a0 += m * self->cells[i];
                 m *= 10;
             }
-            ClearChannelAFlag0205cf10(self->chan);
-            ClearFlagByte0205cf1c((Struct0205cf1c*)self->chan);
+            func_0205cf10(self->chan);
+            func_0205cf1c((Struct0205cf1c*)self->chan);
             self->state = 0;
             return self->w5a0 == 0 ? -2 : 0;
         }
         if (hit2 != 0) {
-            ClearChannelAFlag0205cf10(self->chan);
-            ClearFlagByte0205cf1c((Struct0205cf1c*)self->chan);
+            func_0205cf10(self->chan);
+            func_0205cf1c((Struct0205cf1c*)self->chan);
             self->state = 0;
             return -2;
         }

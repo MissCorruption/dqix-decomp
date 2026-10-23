@@ -46,18 +46,18 @@ struct BattleWork {
     unsigned char turnFlag;
 };
 
-char GetField0x3acValue_020100a8(GameState* gs);
-void* GetData02108ea8_0207d78c();
-int MatchesActiveIndex020a36a8(Combatant020A36A8* c);
-unsigned char AssignEntrySlot0207db58(Entry0207d9bc* arr, unsigned short key, char val);
-void Foo0216377c(Struct0216377c* obj, unsigned char val);
-void EnqueueEventTag130_021cc050(unsigned short tag);
+extern "C" char func_020100a8(GameState* gs);
+extern "C" void* func_0207d78c();
+extern "C" int func_020a36a8(Combatant020A36A8* c);
+extern "C" unsigned char func_0207db58(Entry0207d9bc* arr, unsigned short key, char val);
+extern "C" void func_ov000_0216377c(Struct0216377c* obj, unsigned char val);
+extern "C" void func_ov017_021cc050(unsigned short tag);
 
 extern "C" {
-int _Z22TestBitAt0x34_020a35e0Phh(PartyState* party, unsigned char bit);
-void _Z23ClearBitAt0x34_020a367cPhi(PartyState* party, unsigned char bit);
-void _Z22ProcessEntries0207da94P13Entry0207da94i(void* entries, unsigned char member);
-void _Z23ClearByteAtPtr_02191b40v(GameResources* res, int member);
+int func_020a35e0(PartyState* party, unsigned char bit);
+void func_020a367c(PartyState* party, unsigned char bit);
+void func_0207da94(void* entries, unsigned char member);
+void func_ov017_02191b40(GameResources* res, int member);
 int* func_0202ae18();
 int func_0202c508(int*);
 void func_ov000_02174a50(Container_021dae60*, int);
@@ -72,31 +72,31 @@ extern "C" ARM void func_ov026_021dbd1c(BattleWork* self, int member, int notify
     PartyState* party = self->party;
     Container_021dae60* list = &self->list;
     BattleState* battle = self->battle;
-    void* entries = GetData02108ea8_0207d78c();
+    void* entries = func_0207d78c();
     int* link = func_0202ae18();
     GameResources* res = GetGameResources();
     int wasMember = 0;
 
-    if (_Z22TestBitAt0x34_020a35e0Phh(party, member)) {
+    if (func_020a35e0(party, member)) {
         wasMember = 1;
         self->turnFlag = 1;
     }
     func_ov000_02174a50(list, member);
-    _Z23ClearBitAt0x34_020a367cPhi(party, member);
-    _Z22ProcessEntries0207da94P13Entry0207da94i(entries, member);
-    _Z23ClearByteAtPtr_02191b40v(res, member);
+    func_020a367c(party, member);
+    func_0207da94(entries, member);
+    func_ov017_02191b40(res, member);
 
     if (member == party->myIndex) {
         if (func_0202c508(link)) {
-            Foo0216377c((Struct0216377c*)self, AssignEntrySlot0207db58((Entry0207d9bc*)entries, party->netId, GetField0x3acValue_020100a8(gs)));
+            func_ov000_0216377c((Struct0216377c*)self, func_0207db58((Entry0207d9bc*)entries, party->netId, func_020100a8(gs)));
         } else {
             func_ov017_021c9b90(party->netId, member);
         }
     }
     func_ov000_0215fb04(battle, member);
 
-    if (notify && self->state != 0x11 && wasMember && MatchesActiveIndex020a36a8((Combatant020A36A8*)party)) {
+    if (notify && self->state != 0x11 && wasMember && func_020a36a8((Combatant020A36A8*)party)) {
         func_ov026_021dbf04(self);
-        EnqueueEventTag130_021cc050(party->netId);
+        func_ov017_021cc050(party->netId);
     }
 }

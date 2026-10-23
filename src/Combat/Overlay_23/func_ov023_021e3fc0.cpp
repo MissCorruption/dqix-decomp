@@ -92,25 +92,25 @@ struct StatusPanel {
     char* conditionNames[2];
 };
 struct Struct0200fb08;
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 extern "C" void func_02045f3c(void*, void*, int, int, int, int, int, int, int, int);
 #if defined(jpn)
 extern "C" void func_02046c78(void*, void*, int, int, int, int, int, int);
 #endif
 extern "C" int func_020420e8(const char*, int);
 extern "C" void func_0205ac40(void*, void*);
-unsigned char GetByteViaFieldIndirectOffset_021e4250_021e4250(char*);
-char* CallFunc020e0434With02153694_020e51cc(int);
-unsigned char NormalizeField5_0200fb08(Struct0200fb08*);
+extern "C" unsigned char func_ov023_021e4250(char*);
+extern "C" char* func_020e51cc(int);
+extern "C" unsigned char func_0200fb08(Struct0200fb08*);
 extern "C" void func_ov005_02155258(void*, int, int, int, int);
 
 // USA: func_ov023_021e3fc0
 extern "C" ARM void func_ov023_021e3fc0(StatusPanel* panel) {
     int textColor;
     GameState* game = GameState::GetInstance();
-    void* renderer = GetGlobalField0x1c020421a0();
+    void* renderer = func_020421a0();
     int drawValue = 0x7fff;
-    StatusCombatant* combatant = (StatusCombatant*)GetCombatantWithFlag0x100_0200ff1c(game, panel->selected);
+    StatusCombatant* combatant = (StatusCombatant*)func_0200ff1c(game, panel->selected);
     if (combatant->GetHP() <= 0) drawValue = 0x1f;
     REG_MATRIX_PUSH = 0;
     REG_POLYGON_ATTR = 1;
@@ -120,16 +120,16 @@ extern "C" ARM void func_ov023_021e3fc0(StatusPanel* panel) {
 #if defined(jpn)
     func_02046c78(renderer, &panel->names[panel->selected], panel->positions[panel->selected], 0xa3, drawValue, 10, 0, 0);
     short x = 0x2f;
-    if (GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant)) x += 7;
+    if (func_ov023_021e4250((char*)combatant)) x += 7;
     if (combatant->GetHP() <= 0) x = 0x14;
     x = ((0x3b - x) >> 1) + 0x40;
     func_02046c78(renderer, &panel->conditions[panel->selected], x, 0xa3, drawValue, 10, 0, 0);
     if (combatant->GetHP() > 0) {
         x += 0x14;
-        if (GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant)) {
+        if (func_ov023_021e4250((char*)combatant)) {
             unsigned short valueColor = 0xf0a;
             short y = 0xa4;
-            if (GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant) >= 10) {
+            if (func_ov023_021e4250((char*)combatant) >= 10) {
                 y--;
                 valueColor = 0x31f;
             }
@@ -159,15 +159,15 @@ extern "C" ARM void func_ov023_021e3fc0(StatusPanel* panel) {
         sprites->marker.depth = 0x70;
         sprites->marker.mode = 2;
         func_0205ac40(panel->renderer, &sprites->marker);
-        if (GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant)) {
+        if (func_ov023_021e4250((char*)combatant)) {
             unsigned short valueColor = 0xf0a;
-            if (GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant) >= 10)
+            if (func_ov023_021e4250((char*)combatant) >= 10)
                 valueColor = 0x31f;
             func_02045f3c(renderer, &panel->values[panel->selected], 0x50, 0xa1, valueColor, 10, 0, 0, 0, 0x11);
         }
         func_02045f3c(renderer, panel->label, 0x5c, 0xa1, drawValue, 10, 0, 0, 0, 0x11);
-        short x = func_020420e8(CallFunc020e0434With02153694_020e51cc(0x3f3), 0) + 0x5e;
-        if (NormalizeField5_0200fb08((Struct0200fb08*)game) == 1) x += 2;
+        short x = func_020420e8(func_020e51cc(0x3f3), 0) + 0x5e;
+        if (func_0200fb08((Struct0200fb08*)game) == 1) x += 2;
         StatusCharacter* character = combatant->GetCharacter();
         textColor = drawValue;
         drawValue = character->values[character->index];

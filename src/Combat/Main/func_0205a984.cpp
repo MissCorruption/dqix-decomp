@@ -43,8 +43,8 @@ struct AnimScript0205a984 {
     TrackBank0205a984* bank;
 };
 
-int GetAnimBankBlockAlias020aff00(void*, void**);
-AnimSequence0205a984* GetEntry16IfInRange_020b005c(Table02b005c*, unsigned int);
+extern "C" int func_020aff00(void*, void**);
+extern "C" AnimSequence0205a984* func_020b005c(Table02b005c*, unsigned int);
 
 // USA: func_0205a984
 extern "C" ARM int func_0205a984(AnimScript0205a984* self, void* data, unsigned int length, SafeAllocator* allocator) {
@@ -52,7 +52,7 @@ extern "C" ARM int func_0205a984(AnimScript0205a984* self, void* data, unsigned 
     Table02b005c* header;
     if (!buffer) buffer = 0;
     else if (!length) buffer = 0;
-    else if (!GetAnimBankBlockAlias020aff00(buffer, (void**)&header)) buffer = 0;
+    else if (!func_020aff00(buffer, (void**)&header)) buffer = 0;
     if (!buffer) return 1;
     Track0205a984* track;
     AnimSequence0205a984* sequence;
@@ -66,7 +66,7 @@ extern "C" ARM int func_0205a984(AnimScript0205a984* self, void* data, unsigned 
         bank->tracks = tracks;
         bank->count = count;
         for (i = 0; i < count; ++i) {
-            sequence = GetEntry16IfInRange_020b005c(header, i);
+            sequence = func_020b005c(header, i);
             if (sequence) {
                 track = &tracks[i];
                 track->playMode = 0;

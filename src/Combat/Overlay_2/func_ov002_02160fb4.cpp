@@ -18,8 +18,8 @@ struct Elem_0205d81c {
     short fac;
     short fae;
 };
-struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
-void ApplyElemFields0205d904(unsigned char *obj);
+extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
+extern "C" void func_0205d904(unsigned char *obj);
 
 struct BufOv02160fb4 {
 #if defined(jpn)
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov002_02160fb4(char *base) {
 
     func_0205d304(base + 0xe20, ((struct BufOv02160fb4 *) (base + 0x1000))->buf, 0, 1, 0, 1, 0);
 
-    struct Elem_0205d81c *elem = FindElementByC40205d81c(
+    struct Elem_0205d81c *elem = func_0205d81c(
         (struct Struct_0205d81c *) (base + 0xe20), ((struct FieldOv02160fb4 *) (base + 0x1000))->field & 0xff);
     if (elem == NULL) return;
 
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_02160fb4(char *base) {
     s14 = 0xf - s10;
     SetPos02160fb4(elem, s16, s14);
     SetSize02160fb4(elem, s12, s10);
-    ApplyElemFields0205d904((unsigned char *) (base + 0xe20));
+    func_0205d904((unsigned char *) (base + 0xe20));
 }
 #else
 extern "C" ARM void func_ov002_02160fb4(char *base) {
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_02160fb4(char *base) {
 
     func_0205d304(base + 0xec8, ((struct BufOv02160fb4 *) (base + 0x1000))->buf, 0, 1, 0, 1, 0, 0);
 
-    struct Elem_0205d81c *elem = FindElementByC40205d81c(
+    struct Elem_0205d81c *elem = func_0205d81c(
         (struct Struct_0205d81c *) (base + 0xec8), ((struct FieldOv02160fb4 *) (base + 0x1000))->field & 0xff);
     if (elem == NULL) return;
 
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov002_02160fb4(char *base) {
     s14 = 0xf - s10;
     SetPos02160fb4(elem, s16, s14);
     SetSize02160fb4(elem, s12, s10);
-    ApplyElemFields0205d904((unsigned char *) (base + 0xec8));
+    func_0205d904((unsigned char *) (base + 0xec8));
 }
 #endif

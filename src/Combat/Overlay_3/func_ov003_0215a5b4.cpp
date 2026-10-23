@@ -42,35 +42,35 @@ struct BattleMenu0215a5b4 {
 struct Container020e0310;
 struct Struct_0205d81c;
 
-struct MessageWork0215a5b4* GetGlobalField0x1c020421a0();
-void SetElementFieldC2_0205deb4(struct Struct_0205d81c* s, int key, int value);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendString02042058(char* dst, const char* src);
+extern "C" struct MessageWork0215a5b4* func_020421a0();
+extern "C" void func_0205deb4(struct Struct_0205d81c* s, int key, int value);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
 extern "C" void __clear(void* buf, int n);
-unsigned char CopyOutRegion0x571d_020114ec(char* obj, void* dst);
+extern "C" unsigned char func_020114ec(char* obj, void* dst);
 extern "C" void func_ov003_021592d8(struct BattleMenu0215a5b4* self, struct Combatant0215a5b4* combatant, char* out);
 extern "C" void func_ov003_02159250(struct BattleMenu0215a5b4* self, char* text);
 extern "C" void func_ov003_0215c01c(struct BattleMenu0215a5b4* self, int mode, int flag);
 
 // USA: func_ov003_0215a5b4
 extern "C" ARM void func_ov003_0215a5b4(struct BattleMenu0215a5b4* self) {
-    struct MessageWork0215a5b4* work = GetGlobalField0x1c020421a0();
+    struct MessageWork0215a5b4* work = func_020421a0();
     unsigned char step = self->step;
     if (step == 0) {
         GameState* game = GameState::GetInstance();
-        SetElementFieldC2_0205deb4((struct Struct_0205d81c*)self->menu, 0, 1);
-        SetElementFieldC2_0205deb4((struct Struct_0205d81c*)self->menu, 1, 1);
-        SetElementFieldC2_0205deb4((struct Struct_0205d81c*)self->menu, 2, 1);
+        func_0205deb4((struct Struct_0205d81c*)self->menu, 0, 1);
+        func_0205deb4((struct Struct_0205d81c*)self->menu, 1, 1);
+        func_0205deb4((struct Struct_0205d81c*)self->menu, 2, 1);
         memset(self->text, 0, kRegion960);
-        AppendString02042058(self->text,
-                             (const char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages, 0x3fc));
+        func_02042058(self->text,
+                             (const char*)func_020e0434((struct Container020e0310*)self->messages, 0x3fc));
         unsigned char ids[4];
         char* line = self->text + kRegion860;
         __clear(ids, sizeof(ids));
-        int count = CopyOutRegion0x571d_020114ec((char*)game, ids);
+        int count = func_020114ec((char*)game, ids);
         for (int i = 0; i < count; i++) {
             struct Combatant0215a5b4* combatant =
-                (struct Combatant0215a5b4*)GetCombatantWithFlag0x100_0200ff1c(game, ids[i]);
+                (struct Combatant0215a5b4*)func_0200ff1c(game, ids[i]);
             if (combatant == NULL) {
                 continue;
             }
@@ -85,10 +85,10 @@ extern "C" ARM void func_ov003_0215a5b4(struct BattleMenu0215a5b4* self) {
             }
             memset(line, 0, 0x80);
             func_ov003_021592d8(self, combatant, line);
-            AppendString02042058(self->text, line);
+            func_02042058(self->text, line);
         }
-        AppendString02042058(self->text,
-                             (const char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages, 0x42e));
+        func_02042058(self->text,
+                             (const char*)func_020e0434((struct Container020e0310*)self->messages, 0x42e));
         func_ov003_02159250(self, self->text);
         self->step++;
     }

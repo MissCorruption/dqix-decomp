@@ -6,7 +6,7 @@ extern float data_ov001_02164ba0[4];
 extern float data_ov001_0216580c[7];
 
 struct Obj021d49d0;
-Obj021d49d0* SetupObj_021d49d0(Obj021d49d0* obj);
+extern "C" Obj021d49d0* func_ov017_021d49d0(Obj021d49d0* obj);
 extern Obj021d49d0 data_ov001_02165828;
 
 // USA: func_ov001_02164a58
@@ -23,5 +23,5 @@ extern "C" __declspec(initcode) ARM void __sinit_ov001_02164a58(void) {
     data_ov001_0216580c[3] = t5;
     float t6 = t5 + b8;
     data_ov001_0216580c[2] = t6;
-    SetupObj_021d49d0(&data_ov001_02165828);
+    func_ov017_021d49d0(&data_ov001_02165828);
 }

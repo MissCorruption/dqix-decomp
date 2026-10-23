@@ -5,7 +5,7 @@
 struct Obj021f9bb0;
 struct Info02011930;
 
-int GetWord0x0_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* obj);
 struct GameResources;
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" void* func_ov011_021849c8(void* obj);
@@ -16,12 +16,12 @@ extern "C" void func_ov004_02165a1c(void* obj);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_0202c540(void* p);
-unsigned char GetAndConsumeNameEntries02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
-int GetScaledStat_021634dc_021634dc(void* a);
-unsigned char CopyToRegion0x6482IfDst_020119f8(char* obj, void* dst);
-unsigned int GetShort28_021f9bb0(struct Obj021f9bb0* obj);
-unsigned int GetFieldShort36_021f9ba0(void* obj);
-int IsGlobalU16InRange_020117f0(GameState* state);
+extern "C" unsigned char func_02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
+extern "C" int func_ov004_021634dc(void* a);
+extern "C" unsigned char func_020119f8(char* obj, void* dst);
+extern "C" unsigned int func_ov023_021f9bb0(struct Obj021f9bb0* obj);
+extern "C" unsigned int func_ov023_021f9ba0(void* obj);
+extern "C" int func_020117f0(GameState* state);
 
 extern char* data_ov004_02171010;
 
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov004_02165630(void* a) {
     if (!node || func_ov023_021f6f10(node) != 7) return 0;
 
     GameState* state = GameState::GetInstance();
-    if (IsBrightnessTransitionActive((GameResources*)((int*)GetWord0x0_0200fb8c((int*)state))) != 0) {
+    if (IsBrightnessTransitionActive((GameResources*)((int*)func_0200fb8c((int*)state))) != 0) {
         node->active = 0;
         return 0;
     }
@@ -56,15 +56,15 @@ extern "C" ARM int func_ov004_02165630(void* a) {
     if (!node2) return 0;
     if (func_ov023_021f6f10(node2) != 7) return 0;
 
-    if (GetAndConsumeNameEntries02011930(state, NULL, NULL, NULL) != 0) {
-        int idx = GetScaledStat_021634dc_021634dc(a);
+    if (func_02011930(state, NULL, NULL, NULL) != 0) {
+        int idx = func_ov004_021634dc(a);
         if (((TreasureMapMetadata*)(data_ov004_02171010 + idx * 0x1c))->GetInitialByteUnknownBit()) {
             node->active = 0;
             return 0;
         }
         func_ov011_021848a0(a, 0x68);
-    } else if (CopyToRegion0x6482IfDst_020119f8((char*)state, NULL) != 0) {
-        unsigned int k = GetShort28_021f9bb0((struct Obj021f9bb0*)node2);
+    } else if (func_020119f8((char*)state, NULL) != 0) {
+        unsigned int k = func_ov023_021f9bb0((struct Obj021f9bb0*)node2);
         if (*(unsigned char*)(data_ov004_02171010 + k * recordStride + 0xad4) != 3) {
             node->active = 0;
         } else {
@@ -75,12 +75,12 @@ extern "C" ARM int func_ov004_02165630(void* a) {
         func_02012fe4();
         if (func_0202c540(search)) {
             func_ov011_021848a0(a, 0x6e);
-        } else if (IsGlobalU16InRange_020117f0(state)) {
+        } else if (func_020117f0(state)) {
             func_ov011_021848a0(a, 0x76);
         } else {
             short x = node2->x;
-            unsigned int col = GetShort28_021f9bb0((struct Obj021f9bb0*)node2);
-            unsigned short idx = x * GetFieldShort36_021f9ba0(node2) + col;
+            unsigned int col = func_ov023_021f9bb0((struct Obj021f9bb0*)node2);
+            unsigned short idx = x * func_ov023_021f9ba0(node2) + col;
             if (((TreasureMapMetadata*)(data_ov004_02171010 + idx * 0x1c))->GetInitialByteUnknownBit()) {
                 func_ov011_021848a0(a, 0x74);
             } else {

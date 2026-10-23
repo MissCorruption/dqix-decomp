@@ -4,18 +4,18 @@
 #include "GameState/GameState.h"
 
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
 
-void InitBoxLayout_021d921c(void* obj, int unused, int w, int h);
+extern "C" void func_ov023_021d921c(void* obj, int unused, int w, int h);
 
 extern "C" void func_ov023_021d94e4(void* obj, void* buf, unsigned char step);
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
 
 struct StructA0205d5d0;
-// USA: func_ov023_021d90d0  (semantic: AdvanceBoxLayoutState_021d90d0)
+// USA: func_ov023_021d90d0
 extern "C" ARM int func_ov023_021d90d0(char* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x800};
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov023_021d90d0(char* obj) {
     unsigned char step = *(unsigned char*)(obj + 0x11c);
 
     if (step == 0) {
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)(obj + 0x20), 1);
+        func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x20), 1);
         int next = *(unsigned char*)(obj + 0x11c) + 1;
         *(unsigned char*)(obj + 0x11c) = (unsigned char)next;
         return next;
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov023_021d90d0(char* obj) {
         *(unsigned char*)(obj + 0x11d) = 5;
         memset(*(void**)(obj + 0x4), 0, regionalOffset0);
         func_ov023_021d94e4(obj, *(void**)(obj + 4), *(unsigned char*)(obj + 0x118));
-        InitBoxLayout_021d921c(obj, *(int*)(obj + 4), 0x1a, 0x14);
+        func_ov023_021d921c(obj, *(int*)(obj + 4), 0x1a, 0x14);
         int next = *(unsigned char*)(obj + 0x11c) + 1;
         *(unsigned char*)(obj + 0x11c) = (unsigned char)next;
         return next;
@@ -57,13 +57,13 @@ extern "C" ARM int func_ov023_021d90d0(char* obj) {
     func_ov023_021d94e4(obj, *(void**)(obj + 4), *(unsigned char*)(obj + 0x118));
 
 #if defined(jpn)
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1);
+    func_0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1);
 
 #else
-    unsigned char* elem = (unsigned char*)FindElementByC40205d81c((struct Struct_0205d81c*)(obj + 0x20), 0);
+    unsigned char* elem = (unsigned char*)func_0205d81c((struct Struct_0205d81c*)(obj + 0x20), 0);
     if (elem != NULL) {
         elem[0xd8] |= 4;
-        TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1, 0);
+        func_0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1, 0);
         elem[0xd8] &= ~4;
     }
 

@@ -19,14 +19,14 @@
 
 extern "C"
 {
-    void _Z22PushInputLogA_020a1df8i(unsigned int);
-    void _Z28PopStack0AndTrigger_020a1e54i(unsigned int);
+    void func_020a1df8(unsigned int);
+    void func_020a1e54(unsigned int);
 
     void func_020426bc(void*, char* buffer, int);
 
-    const char* _Z37CallFunc020e0434With02153694_020e51cci(int);
+    const char* func_020e51cc(int);
 
-    int _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState*);
+    int func_0200fb08(GameState*);
 }
 
 #define BINARY_READ_AND_ADVANCE(buffer, offset, dst, len) \
@@ -191,7 +191,7 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
     seed_ = newseed;
     srand(seed_);
     quality_ = newquality;
-    _Z22PushInputLogA_020a1df8i(4);
+    func_020a1df8(4);
 
     GenerateUnknownData();
     GenerateEnviron();
@@ -215,7 +215,7 @@ void DetailedTreasureMapData::RegularMapData::Populate(unsigned short newseed, u
     GenerateNameBuffers();
     GeneratePopupName();
 
-    _Z28PopStack0AndTrigger_020a1e54i(1);
+    func_020a1e54(1);
 }
 
 unsigned short DetailedTreasureMapData::LegacyBossMapData::MaybeGetCurrentAlternateID() const
@@ -390,7 +390,7 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 #if defined(usa)
     sprintf(mapNameNoLevel_v2_, data_020f1ac0, mapNameNoLevel_);
     strcpy(seeminglyEmptyBuffer_, data_020f1ac3);
-    sprintf(mapLevelString_, data_020f1ac4, _Z37CallFunc020e0434With02153694_020e51cci(1011), level_);
+    sprintf(mapLevelString_, data_020f1ac4, func_020e51cc(1011), level_);
     sprintf(topScreenName_, data_020f1ac9, mapNameNoLevel_, mapLevelString_);
     sprintf(popupName_, data_020f1ac9, bossName_, mapLevelString_);
 #elif defined(jpn)
@@ -412,7 +412,7 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 void DetailedTreasureMapData::LegacyBossMapData::WriteMapLevelString()
 {
 #if defined(usa)
-    const char* lvlPrefix = _Z37CallFunc020e0434With02153694_020e51cci(1011);
+    const char* lvlPrefix = func_020e51cc(1011);
     sprintf(mapLevelString_, data_020f1ac4, lvlPrefix, level_);
 #elif defined(jpn)
     sprintf(mapLevelString_, data_020f1c27, level_);
@@ -808,7 +808,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
     int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
 
     unsigned char partOrder[3];
-    switch (_Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState::GetInstance()))
+    switch (func_0200fb08(GameState::GetInstance()))
     {
     case 1:
     case 3:
@@ -885,7 +885,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
         }
     }
 
-    sprintf(levelString_, data_020f1ad0, _Z37CallFunc020e0434With02153694_020e51cci(1011), level_);
+    sprintf(levelString_, data_020f1ad0, func_020e51cc(1011), level_);
     sprintf(topScreenName_, data_020f1ad5, nameNoLevel_, levelString_);
 }
 
@@ -914,7 +914,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
     int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
 
     unsigned char partOrder[3];
-    switch (_Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState::GetInstance()))
+    switch (func_0200fb08(GameState::GetInstance()))
     {
     case 1:
     case 3:
@@ -991,7 +991,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
         }
     }
 
-    sprintf(tempBuffer, data_020f1adb, _Z37CallFunc020e0434With02153694_020e51cci(1011), level_);
+    sprintf(tempBuffer, data_020f1adb, func_020e51cc(1011), level_);
     strcat(popupName_, tempBuffer);
 }
 

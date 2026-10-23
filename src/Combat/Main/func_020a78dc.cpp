@@ -47,18 +47,18 @@ struct Actor020a78dc {
 struct AngleTable { int v[8]; };
 
 extern "C" char* func_02012fe4();
-struct Field4328* GetField4328_0218d268(void*);
-int IsField0Null_02046b08(void** p);
-void SetByte0xbeShiftPrev(struct Bytes02033b88*, int);
-void SetByteIfChanged02033b68(struct Obj02033b68*, int);
-void SetByteSavingPrevious(struct Foo02033b58*, unsigned char);
-int GetField0x70_0202e7f0(void*);
+extern "C" struct Field4328* func_ov017_0218d268(void*);
+extern "C" int func_02046b08(void** p);
+extern "C" void func_02033b88(struct Bytes02033b88*, int);
+extern "C" void func_02033b68(struct Obj02033b68*, int);
+extern "C" void func_02033b58(struct Foo02033b58*, unsigned char);
+extern "C" int func_0202e7f0(void*);
 int fix32ReduceAngle0To2Pi(int);
-struct Box0201e8fc* FindBoxContainingPoint0201e8fc(struct Container0201e8fc*, struct Vec3*);
+extern "C" struct Box0201e8fc* func_0201e8fc(struct Container0201e8fc*, struct Vec3*);
 int fix32SignedAngleDistance(int, int);
 int fix32abs(int);
-void SetVecYByMode02033834(struct Obj02033834*, int);
-short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
+extern "C" void func_02033834(struct Obj02033834*, int);
+extern "C" short func_020968c4(struct ShortField0x22e_020968c4*);
 
 #if defined(jpn)
 #define data_020e90a8 data_020e91b4
@@ -73,7 +73,7 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
     struct Field4328* f;
     void** list;
 
-    camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
+    camera = func_020100bc(GameState::GetInstance());
     ov = (char*)GetGameResources();
 #if defined(jpn)
     enum { regionalOffset0 = 0x34ec, regionalOffset1 = 0x8c };
@@ -82,7 +82,7 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
 #endif
     list = *(void***)(ov + regionalOffset0);
     world = func_02012fe4();
-    f = GetField4328_0218d268(ov);
+    f = func_ov017_0218d268(ov);
     struct AngleTable table = data_020e90a8;
 
     self->mode = 0;
@@ -133,7 +133,7 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
         }
     }
 
-    if (self->f154 == 0 || IsField0Null_02046b08(list) == 0) {
+    if (self->f154 == 0 || func_02046b08(list) == 0) {
         self->mode = 0;
     }
 
@@ -142,22 +142,22 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
             self->dir -= 8;
         }
         if (self->fbe != 0) {
-            SetByte0xbeShiftPrev((struct Bytes02033b88*)self, 0);
+            func_02033b88((struct Bytes02033b88*)self, 0);
         }
         self->lockedDir = -1;
     } else if (self->mode == 1) {
         if (self->fc0 == 0 || self->fc0 == 0xa) {
-            SetByteIfChanged02033b68((struct Obj02033b68*)self, 1);
+            func_02033b68((struct Obj02033b68*)self, 1);
         } else {
-            SetByteSavingPrevious((struct Foo02033b58*)self, 1);
+            func_02033b58((struct Foo02033b58*)self, 1);
         }
         int base = table.v[self->dir - 8];
-        int angle = fix32ReduceAngle0To2Pi(base + GetField0x70_0202e7f0(camera));
+        int angle = fix32ReduceAngle0To2Pi(base + func_0202e7f0(camera));
         if (self->lockedDir == self->dir) {
             angle = self->lockedAngle;
         } else {
             struct Vec3 pos = self->pos;
-            struct Box0201e8fc* box = FindBoxContainingPoint0201e8fc((struct Container0201e8fc*)(world + regionalOffset1), &pos);
+            struct Box0201e8fc* box = func_0201e8fc((struct Container0201e8fc*)(world + regionalOffset1), &pos);
             if (box) {
                 if (fix32abs(fix32SignedAngleDistance(angle, box->angle)) < 0xc91) {
                     self->lockedDir = self->dir;
@@ -174,16 +174,16 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
                 self->lockedDir = -1;
             }
         }
-        SetVecYByMode02033834((struct Obj02033834*)self, angle);
+        func_02033834((struct Obj02033834*)self, angle);
     } else if (self->mode == 2) {
         if (self->fc0 == 0) {
-            SetByteIfChanged02033b68((struct Obj02033b68*)self, 1);
+            func_02033b68((struct Obj02033b68*)self, 1);
         } else {
-            SetByteSavingPrevious((struct Foo02033b58*)self, 1);
+            func_02033b58((struct Foo02033b58*)self, 1);
         }
-        struct Field4328* g = GetField4328_0218d268(ov);
+        struct Field4328* g = func_ov017_0218d268(ov);
         if (g->active != 0) {
-            SetVecYByMode02033834((struct Obj02033834*)self, GetShortAt0x22e((struct ShortField0x22e_020968c4*)g));
+            func_02033834((struct Obj02033834*)self, func_020968c4((struct ShortField0x22e_020968c4*)g));
         }
         self->lockedDir = -1;
     }

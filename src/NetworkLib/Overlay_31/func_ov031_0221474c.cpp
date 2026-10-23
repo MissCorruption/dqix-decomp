@@ -25,7 +25,7 @@ struct GroupList_0221474c {
     unsigned char filter : 4;
 };
 
-// USA: func_ov031_0221474c  (semantic: CollectSlotItemGroups_0221474c)
+// USA: func_ov031_0221474c
 extern "C" ARM int func_ov031_0221474c(GroupList_0221474c* list) {
     int i;
     unsigned char count = 0;

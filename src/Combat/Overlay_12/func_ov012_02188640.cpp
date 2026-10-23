@@ -26,19 +26,19 @@ struct Obj0205eaa0;
 struct Obj021e6e20;
 struct Struct0205de24;
 struct Struct_0205c570;
-void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
+extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
 extern "C" void func_ov023_021e6e60(void*);
-void SetupBattleTag0218a574(char*);
-int GetActiveScaledSum0205d794(Struct_0205c570*);
+extern "C" void func_ov012_0218a574(char*);
+extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
 extern "C" int func_ov023_021e7148(void*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" void func_0202ae18();
-int GetField5cb0Value_0201079c(char*);
-const char* FindEntryByKey_02072a68(TableA68*, int);
+extern "C" int func_0201079c(char*);
+extern "C" const char* func_02072a68(TableA68*, int);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20*);
+extern "C" int func_ov023_021e6e20(Obj021e6e20*);
 extern "C" char data_02108760[];
 
 static inline ProfileAccolade* GetProfileAccolade(GameState* state) {
@@ -56,18 +56,18 @@ extern "C" ARM void func_ov012_02188640(char* editor) {
         else
             index = 0;
         *(unsigned int*)(editor + 0x1444) = index;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)(editor + 0x90), 0, 3);
+        func_0205de24((Struct0205de24*)(editor + 0x90), 0, 3);
         func_ov023_021e6e60(editor);
-        SetupBattleTag0218a574(editor);
+        func_ov012_0218a574(editor);
         ++*(unsigned char*)(editor + 0x1340);
         return;
     } else if (*(unsigned char*)(editor + 0x1340) == 1) {
         *(unsigned char*)(editor + 0x1368) = 1;
-        *(int*)(editor + 0x1444) = GetActiveScaledSum0205d794((Struct_0205c570*)(editor + 0x90));
+        *(int*)(editor + 0x1444) = func_0205d794((Struct_0205c570*)(editor + 0x90));
         if (func_ov023_021e6448(editor))
-            *(int*)(editor + 0x1444) = GetActiveScaledSum0205d794((Struct_0205c570*)(editor + 0x90));
+            *(int*)(editor + 0x1444) = func_0205d794((Struct_0205c570*)(editor + 0x90));
         if (func_ov023_021e7148(editor)) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             ProfileAccolade* profile = GetProfileAccolade(GameState::GetInstance());
             GameState* state = GameState::GetInstance();
             func_0202ae18();
@@ -76,13 +76,13 @@ extern "C" ARM void func_ov012_02188640(char* editor) {
                 int vocation = *(int*)(character + 0x8b8);
                 profile->vocationAccolade = 1;
                 profile->accolade = vocation + 700;
-                if (GetField5cb0Value_0201079c((char*)state) == 1)
+                if (func_0201079c((char*)state) == 1)
                     profile->accolade = 713;
             } else {
                 profile->accolade = *(int*)(editor + 0x1444) + 799;
                 profile->vocationAccolade = 0;
             }
-            const char* name = FindEntryByKey_02072a68((TableA68*)(editor + 0x1314), (short)(profile->accolade + 20000));
+            const char* name = func_02072a68((TableA68*)(editor + 0x1314), (short)(profile->accolade + 20000));
             memset(editor + 0x1458, 0, 0x40);
             memcpy(editor + 0x1458, name, strlen(name));
             profile->accoladeChosen = 1;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov012_02188640(char* editor) {
             func_ov012_02189be8(editor, 0);
             return;
         }
-        if (TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)editor))
+        if (func_ov023_021e6e20((Obj021e6e20*)editor))
             func_ov012_02189be8(editor, 1);
         return;
     }
@@ -165,19 +165,19 @@ struct Obj021e6e20;
 struct Struct0205de24;
 struct Struct_0205c570;
 
-void FindAndLinkMatchingEntry0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
+extern "C" void func_0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
 extern "C" void func_ov023_021e6e60(ProfileEditor02188640* self);
-void SetupBattleTag0218a574(char* self);
-int GetActiveScaledSum0205d794(Struct_0205c570* window);
+extern "C" void func_ov012_0218a574(char* self);
+extern "C" int func_0205d794(Struct_0205c570* window);
 extern "C" int func_ov023_021e6448(ProfileEditor02188640* self);
 extern "C" int func_ov023_021e6de4(ProfileEditor02188640* self);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
 extern "C" void func_0202ae18();
-int GetField5cb0Value_0201079c(char* gameState);
-const char* FindEntryByKey_02072a68(TableA68* table, int key);
+extern "C" int func_0201079c(char* gameState);
+extern "C" const char* func_02072a68(TableA68* table, int key);
 extern "C" void func_ov012_0218adac(ProfileEditor02188640* self, int animate, int design, int keepPage);
 extern "C" void func_ov012_0218930c(ProfileEditor02188640* self, int cancel);
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20* self);
+extern "C" int func_ov023_021e6e20(Obj021e6e20* self);
 
 extern "C" char data_02108760[];
 
@@ -211,21 +211,21 @@ extern "C" ARM void func_ov012_02188640(ProfileEditor02188640* self)
         index = 0;
     found:
         self->selections_[5] = index;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->window_, 0, 3);
+        func_0205de24((Struct0205de24*)self->window_, 0, 3);
         func_ov023_021e6e60(self);
-        SetupBattleTag0218a574((char*)self);
+        func_ov012_0218a574((char*)self);
         self->step_++;
         return;
     }
     else if (self->step_ == 1)
     {
         self->unk_13a0 = 1;
-        self->selections_[5] = GetActiveScaledSum0205d794((Struct_0205c570*)self->window_);
+        self->selections_[5] = func_0205d794((Struct_0205c570*)self->window_);
         if (func_ov023_021e6448(self))
-            self->selections_[5] = GetActiveScaledSum0205d794((Struct_0205c570*)self->window_);
+            self->selections_[5] = func_0205d794((Struct_0205c570*)self->window_);
         if (func_ov023_021e6de4(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             Profile02188640* profile = GetProfile02188640(GameState::GetInstance());
             GameState* gameState = GameState::GetInstance();
             func_0202ae18();
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov012_02188640(ProfileEditor02188640* self)
                 int vocation = data->vocation_;
                 profile->vocationAccolade_ = 1;
                 profile->accolade_ = accolade + vocation - 0x4e20;
-                if (GetField5cb0Value_0201079c((char*)gameState) == 1)
+                if (func_0201079c((char*)gameState) == 1)
                     profile->accolade_ = accolade + 13 - 0x4e20;
             }
             else
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov012_02188640(ProfileEditor02188640* self)
                 profile->accolade_ = accolade + self->selections_[5] - 0x4e21;
                 profile->vocationAccolade_ = 0;
             }
-            const char* text = FindEntryByKey_02072a68((TableA68*)self->strings_, (short)(profile->accolade_ + 20000));
+            const char* text = func_02072a68((TableA68*)self->strings_, (short)(profile->accolade_ + 20000));
             memset(self->accoladeText_, 0, sizeof(self->accoladeText_));
             memcpy(self->accoladeText_, text, strlen(text));
             profile->accoladeChosen_ = 1;
@@ -258,7 +258,7 @@ extern "C" ARM void func_ov012_02188640(ProfileEditor02188640* self)
             func_ov012_0218930c(self, 0);
             return;
         }
-        if (TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)self))
+        if (func_ov023_021e6e20((Obj021e6e20*)self))
             func_ov012_0218930c(self, 1);
         return;
     }

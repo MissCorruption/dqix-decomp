@@ -10,17 +10,17 @@ enum { Field2a8 = 0x224, Field14c = 0x138, Field29c = 0x218, Fieldeac = 0xe28, F
 enum { Field2a8 = 0x2a8, Field14c = 0x14c, Field29c = 0x29c, Fieldeac = 0xeac, Field5724 = 0x5724 };
 #endif
 
-void* GetSlotPtr02160f20(void* obj);
-void* SearchBothTables02079e2c(char* p, int key);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" void* func_02079e2c(char* p, int key);
 extern "C" void func_ov025_021e88d8(void* obj);
-void SetTwoFields_021e8a40(char* obj, int a, int b);
-void SetField_021e8a4c(char* obj, int v);
+extern "C" void func_ov025_021e8a40(char* obj, int a, int b);
+extern "C" void func_ov025_021e8a4c(char* obj, int v);
 extern "C" void func_ov025_021e8d20(void* obj, int v);
 extern "C" void func_ov025_021db8d8(void* obj);
 extern "C" void* func_ov000_02169a58(char* node, int value);
 
 struct StreamHeader;
-ARM void RunOverlayScript0216d1c4(int arg0, struct StreamHeader* buffer, int length, int* out);
+extern "C" ARM void func_ov000_0216d1c4(int arg0, struct StreamHeader* buffer, int length, int* out);
 
 extern int data_ov025_021ef404;
 extern char data_ov025_021ef454[];
@@ -37,7 +37,7 @@ struct SearchEntry_021dc694 {
 // USA: func_ov025_021dc694
 extern "C" ARM void func_ov025_021dc694(void* arg) {
     char* obj = (char*)arg;
-    void* slot = GetSlotPtr02160f20(obj);
+    void* slot = func_ov000_02160f20(obj);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (loader->GetTaskStatus(data_ov025_021ef404) == 0) {
@@ -48,8 +48,8 @@ extern "C" ARM void func_ov025_021dc694(void* arg) {
     unsigned int fileLen = 0;
     loader->GetLoadedFileByID(data_ov025_021ef404, &filePtr, &fileLen);
 
-    ActionDataTables* table = GetData02108e10_020797dc();
-    struct SearchEntry_021dc694* entry = (struct SearchEntry_021dc694*)SearchBothTables02079e2c((char*)table, *(short*)slot);
+    ActionDataTables* table = func_020797dc();
+    struct SearchEntry_021dc694* entry = (struct SearchEntry_021dc694*)func_02079e2c((char*)table, *(short*)slot);
 
     if (filePtr != 0 && fileLen != 0 && entry != 0) {
         char pathBuf[0x50];
@@ -59,11 +59,11 @@ extern "C" ARM void func_ov025_021dc694(void* arg) {
         unsigned int narcLen = 0;
         if (GetFileInNarc(filePtr, pathBuf, &narcPtr, &narcLen, 0)) {
             int scriptOut = 0;
-            RunOverlayScript0216d1c4((int)(obj + 0x30), (struct StreamHeader*)narcPtr, narcLen, &scriptOut);
+            func_ov000_0216d1c4((int)(obj + 0x30), (struct StreamHeader*)narcPtr, narcLen, &scriptOut);
             if (scriptOut != 0) {
                 func_ov025_021e88d8(obj + Field2a8);
-                SetTwoFields_021e8a40(obj + Field2a8, (int)(obj + 0x30), (int)(obj + Field14c));
-                SetField_021e8a4c(obj + Field2a8, *(int*)(obj + Field29c));
+                func_ov025_021e8a40(obj + Field2a8, (int)(obj + 0x30), (int)(obj + Field14c));
+                func_ov025_021e8a4c(obj + Field2a8, *(int*)(obj + Field29c));
                 func_ov025_021e8d20(obj + Field2a8, scriptOut);
                 func_ov025_021db8d8(obj);
             }
@@ -81,8 +81,8 @@ extern "C" ARM void func_ov025_021dc694(void* arg) {
         int result2 = (int)func_ov000_02169a58(node, val);
         if (result2 != 0) {
             func_ov025_021e88d8(obj + Field2a8);
-            SetTwoFields_021e8a40(obj + Field2a8, (int)(obj + 0x30), (int)(obj + Field14c));
-            SetField_021e8a4c(obj + Field2a8, *(int*)(obj + Field29c));
+            func_ov025_021e8a40(obj + Field2a8, (int)(obj + 0x30), (int)(obj + Field14c));
+            func_ov025_021e8a4c(obj + Field2a8, *(int*)(obj + Field29c));
             func_ov025_021e8d20(obj + Field2a8, result2);
             func_ov025_021db8d8(obj);
         } else {

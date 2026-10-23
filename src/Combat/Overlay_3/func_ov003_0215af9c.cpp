@@ -23,22 +23,22 @@ struct BattleGlobals {
     int messageActive;
 };
 
-BattleGlobals* GetGlobalField0x1c020421a0(void);
+extern "C" BattleGlobals* func_020421a0(void);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-int GetField0x397cValue_020100b0(GameState*);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
+extern "C" int func_020100b0(GameState*);
+extern "C" GameObject* func_0200ff1c(GameState*, int);
 extern "C" void func_02046380(BattleGlobals*);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 struct Container020e0310;
-void* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" void* func_020e0434(Container020e0310*, int);
 extern "C" void func_ov003_02159250(BattleMessageScene*, void*);
 
 // USA: func_ov003_0215af9c
 extern "C" ARM void func_ov003_0215af9c(BattleMessageScene* self) {
     GameResources* res = GetGameResources();
-    BattleGlobals* g = GetGlobalField0x1c020421a0();
+    BattleGlobals* g = func_020421a0();
     unsigned char step = self->step;
 
     if (step == 0) {
@@ -57,12 +57,12 @@ extern "C" ARM void func_ov003_0215af9c(BattleMessageScene* self) {
 
         if (self->actorSlot == 1) {
             GameState* gs = GameState::GetInstance();
-            GameObject* obj = GetCombatantWithFlag0x100_0200ff1c(gs, GetField0x397cValue_020100b0(gs));
+            GameObject* obj = func_0200ff1c(gs, func_020100b0(gs));
             func_02046380(g);
-            SetIndexedName02046574((Obj02046574*)g, 0, (char*)obj->baseStats_);
+            func_02046574((Obj02046574*)g, 0, (char*)obj->baseStats_);
         }
         g->messageActive = 1;
-        func_ov003_02159250(self, GetFieldByKey020e0434((Container020e0310*)self->messages, (short)(self->actorSlot + 0x438)));
+        func_ov003_02159250(self, func_020e0434((Container020e0310*)self->messages, (short)(self->actorSlot + 0x438)));
         self->step++;
     }
 

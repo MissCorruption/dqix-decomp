@@ -24,10 +24,10 @@ struct PMStatics
 extern PMStatics data_021117ec;
 
 extern "C" void func_020c976c(unsigned long cycles);
-void DelayThenSyncBit0_020c9820();
-unsigned long IssueRequestAndPumpHandler020ce614(int status);
-unsigned long RemapRequestTypeAndRunHandler_020ce5b0(int led, void (*callback)(), int* arg);
-unsigned long InvokeReg0x10IfPowcntBit0Set_020ce7e0(int value);
+extern "C" void func_020c9820();
+extern "C" unsigned long func_020ce614(int status);
+extern "C" unsigned long func_020ce5b0(int led, void (*callback)(), int* arg);
+extern "C" unsigned long func_020ce7e0(int value);
 
 // USA: func_020ceba8
 extern "C" ARM int func_020ceba8(int sw, int led, int skip, int isSync)
@@ -41,34 +41,34 @@ extern "C" ARM int func_020ceba8(int sw, int led, int skip, int isSync)
         {
             if (isSync)
             {
-                if (IssueRequestAndPumpHandler020ce614(led) != PM_SUCCESS)
+                if (func_020ce614(led) != PM_SUCCESS)
                     do
                         func_020c976c(RETRY_WAIT_CYCLES);
-                    while (IssueRequestAndPumpHandler020ce614(led) != PM_SUCCESS);
+                    while (func_020ce614(led) != PM_SUCCESS);
             }
             else
             {
-                if (RemapRequestTypeAndRunHandler_020ce5b0(led, NULL, NULL) != PM_SUCCESS)
+                if (func_020ce5b0(led, NULL, NULL) != PM_SUCCESS)
                     do
                         func_020c976c(RETRY_WAIT_CYCLES);
-                    while (RemapRequestTypeAndRunHandler_020ce5b0(led, NULL, NULL) != PM_SUCCESS);
+                    while (func_020ce5b0(led, NULL, NULL) != PM_SUCCESS);
             }
         }
         POWCNT |= 1;
-        if (InvokeReg0x10IfPowcntBit0Set_020ce7e0(data_021117ec.command16Value) != PM_SUCCESS)
+        if (func_020ce7e0(data_021117ec.command16Value) != PM_SUCCESS)
             do
                 func_020c976c(RETRY_WAIT_CYCLES);
-            while (InvokeReg0x10IfPowcntBit0Set_020ce7e0(data_021117ec.command16Value) != PM_SUCCESS);
+            while (func_020ce7e0(data_021117ec.command16Value) != PM_SUCCESS);
         break;
     case PM_LCD_POWER_OFF:
-        if (InvokeReg0x10IfPowcntBit0Set_020ce7e0(0) != PM_SUCCESS)
+        if (func_020ce7e0(0) != PM_SUCCESS)
             do
                 func_020c976c(RETRY_WAIT_CYCLES);
-            while (InvokeReg0x10IfPowcntBit0Set_020ce7e0(0) != PM_SUCCESS);
+            while (func_020ce7e0(0) != PM_SUCCESS);
         if (VBLANK_COUNT - data_021117ec.initCount <= LCD_INIT_WAIT_FRAMES)
         {
-            DelayThenSyncBit0_020c9820();
-            DelayThenSyncBit0_020c9820();
+            func_020c9820();
+            func_020c9820();
         }
         POWCNT &= ~1;
         data_021117ec.lcdCount = VBLANK_COUNT;
@@ -76,17 +76,17 @@ extern "C" ARM int func_020ceba8(int sw, int led, int skip, int isSync)
         {
             if (isSync)
             {
-                if (IssueRequestAndPumpHandler020ce614(led) != PM_SUCCESS)
+                if (func_020ce614(led) != PM_SUCCESS)
                     do
                         func_020c976c(RETRY_WAIT_CYCLES);
-                    while (IssueRequestAndPumpHandler020ce614(led) != PM_SUCCESS);
+                    while (func_020ce614(led) != PM_SUCCESS);
             }
             else
             {
-                if (RemapRequestTypeAndRunHandler_020ce5b0(led, NULL, NULL) != PM_SUCCESS)
+                if (func_020ce5b0(led, NULL, NULL) != PM_SUCCESS)
                     do
                         func_020c976c(RETRY_WAIT_CYCLES);
-                    while (RemapRequestTypeAndRunHandler_020ce5b0(led, NULL, NULL) != PM_SUCCESS);
+                    while (func_020ce5b0(led, NULL, NULL) != PM_SUCCESS);
             }
         }
         break;

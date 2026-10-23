@@ -8,7 +8,7 @@ struct Variant02030b0c {
 
 struct List02071cc8;
 struct Elem02071cc8;
-void AppendElementCapped02071cc8(struct List02071cc8*, struct Elem02071cc8*);
+extern "C" void func_02071cc8(struct List02071cc8*, struct Elem02071cc8*);
 
 struct FieldC02071b38 {
     unsigned int lo10 : 10;
@@ -116,6 +116,6 @@ extern "C" ARM int func_02071874(struct Variant02030b0c* cur) {
     entry.f18 = (short)((Script::Parameter*)(cur++))->ToInt();
     entry.f1a = (short)((Script::Parameter*)(cur++))->ToInt();
 
-    AppendElementCapped02071cc8(data_02108d98.fieldC, (struct Elem02071cc8*)&entry);
+    func_02071cc8(data_02108d98.fieldC, (struct Elem02071cc8*)&entry);
     return 1;
 }

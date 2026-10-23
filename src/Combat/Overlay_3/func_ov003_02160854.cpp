@@ -31,11 +31,11 @@ struct Ctx02160854 {
     short group_;
 };
 
-int GetWord0x0_0200fb8c(int* obj);
-int IsFieldNotPositive_021a4e70(unsigned char* base);
-int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
-int GetField0x15UnlessInactive_020e2918(signed char* obj);
-int RunAndCheckFlagBit02080dd4(void* obj, int p1, int p2, int p3, unsigned char* outFlag, unsigned char extra);
+extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_ov017_021a4e70(unsigned char* base);
+extern "C" int func_020e28dc(Outer020e28dc* o);
+extern "C" int func_020e2918(signed char* obj);
+extern "C" int func_02080dd4(void* obj, int p1, int p2, int p3, unsigned char* outFlag, unsigned char extra);
 
 extern "C" {
 extern short data_ov003_0217f484[];
@@ -48,15 +48,15 @@ void func_ov003_02160794(void* self);
 // USA: func_ov003_02160854
 extern "C" ARM unsigned char func_ov003_02160854(Ctx02160854* self) {
     unsigned char confirmed = 0;
-    unsigned char* battleWord = (unsigned char*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    unsigned char* battleWord = (unsigned char*)func_0200fb8c((int*)GameState::GetInstance());
     if (g_keyManager.TestKeysPressed(0x401)) {
-        if (IsFieldNotPositive_021a4e70(battleWord)) {
+        if (func_ov017_021a4e70(battleWord)) {
             confirmed = 1;
         }
     }
 
-    if (GetInnerFlagBit0020e28dc(self->choice_)) {
-        int choice = GetField0x15UnlessInactive_020e2918((signed char*)self->choice_);
+    if (func_020e28dc(self->choice_)) {
+        int choice = func_020e2918((signed char*)self->choice_);
         if (choice >= 0) {
             confirmed = 1;
             *self->cursor_ = choice + 0x2c;
@@ -66,7 +66,7 @@ extern "C" ARM unsigned char func_ov003_02160854(Ctx02160854* self) {
         int y;
         Menu02160854* menu = self->menu_;
         g_touchInput.GetTouchPoint(&x, &y);
-        int item = RunAndCheckFlagBit02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 0);
+        int item = func_02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 0);
         if (item < 0)
             return 0;
 

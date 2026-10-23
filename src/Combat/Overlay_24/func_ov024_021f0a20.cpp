@@ -7,8 +7,8 @@
 extern "C" int func_ov000_0215e9fc(int battle, short* table, int count, int flag);
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
 struct RngHolder_021ed9dc;
-int CanTargetCombatant_021ed9dc(struct RngHolder_021ed9dc* holder, int id);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed9dc(struct RngHolder_021ed9dc* holder, int id);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Obj_021f0a20 { int battle; };
 struct Buf8_021f0a20 { short v[8]; };
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov024_021f0a20(struct Obj_021f0a20* obj, int unused1, in
 	if (count <= 0) return 0;
 
 	for (int i = 0; i < count; i++) {
-		if (CanTargetCombatant_021ed9dc((struct RngHolder_021ed9dc*)obj, buf.v[i])) {
+		if (func_ov024_021ed9dc((struct RngHolder_021ed9dc*)obj, buf.v[i])) {
 			found = 1;
 			break;
 		}
@@ -44,6 +44,6 @@ extern "C" ARM int func_ov024_021f0a20(struct Obj_021f0a20* obj, int unused1, in
 	}
 
 	if (*outCount <= 0) return 0;
-	PickRandomTableEntryResetCounter_021ed890((struct Random**)obj, outCount, outArray);
+	func_ov024_021ed890((struct Random**)obj, outCount, outArray);
 	return 1;
 }

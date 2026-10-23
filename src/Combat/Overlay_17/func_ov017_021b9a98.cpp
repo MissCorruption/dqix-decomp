@@ -6,13 +6,13 @@
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 extern "C" void func_0202c288(void* obj);
 extern "C" void* func_0205ec34(void);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
 struct Obj_021b994c;
-void ResetFieldsToDefault_021b994c(struct Obj_021b994c* obj);
+extern "C" void func_ov017_021b994c(struct Obj_021b994c* obj);
 
 struct SearchStruct0202c1a4 {
     char pad[0x100d];
@@ -35,7 +35,7 @@ struct LocalBuf021b9a98 { char pad[0x34]; };
 // USA: func_ov017_021b9a98
 extern "C" ARM void func_ov017_021b9a98(Obj_021b994c* obj, int unused1, unsigned char matchType, unsigned char unused2, unsigned short flag) {
     SearchStruct0202c1a4* search = (SearchStruct0202c1a4*)func_0202ae18();
-    signed char arrEntry = GetSearchStructCurrentArrEntry(search);
+    signed char arrEntry = func_0202c1a4(search);
     if (matchType != arrEntry && matchType != 4) return;
 
     if (obj->field130 == 0) return;
@@ -52,10 +52,10 @@ extern "C" ARM void func_ov017_021b9a98(Obj_021b994c* obj, int unused1, unsigned
             *(short*)((char*)obj + 0x134) = (short)obj->field12c;
             void* list = func_0205ec34();
             LocalBuf021b9a98 c;
-            if (LookupAndForEachNode020649b0(list, 0x1a, &c)) {
+            if (func_020649b0(list, 0x1a, &c)) {
                 func_0206f81c(&c);
             }
-            ResetFieldsToDefault_021b994c(obj);
+            func_ov017_021b994c(obj);
             obj->field136 = 1;
         } else {
             int cnt2 = obj->field132 + 1;
@@ -66,10 +66,10 @@ extern "C" ARM void func_ov017_021b9a98(Obj_021b994c* obj, int unused1, unsigned
             *(short*)((char*)obj + 0x134) = (short)obj->field12c;
             void* list2 = func_0205ec34();
             LocalBuf021b9a98 c2;
-            if (LookupAndForEachNode020649b0(list2, 0x1a, &c2)) {
+            if (func_020649b0(list2, 0x1a, &c2)) {
                 func_0206f81c(&c2);
             }
-            ResetFieldsToDefault_021b994c(obj);
+            func_ov017_021b994c(obj);
             obj->field136 = 1;
         }
     }

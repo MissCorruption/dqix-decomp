@@ -25,14 +25,14 @@ extern State0202cb50 data_021015a0 __attribute__((aligned(4)));
 extern int data_021023c0;
 extern int data_020ef7a8;
 extern int data_02102be0;
-void SetField0x48UnlessState9Or10_0202c848(int);
+extern "C" void func_0202c848(int);
 
 // USA: func_0202cb50
 extern "C" ARM void func_0202cb50(Event0202cb50* event)
 {
     int result = event->result;
     if (result) {
-        SetField0x48UnlessState9Or10_0202c848(result);
+        func_0202c848(result);
         data_021015a0.state = 9;
     } else {
         switch (event->type) {
@@ -40,10 +40,10 @@ extern "C" ARM void func_0202cb50(Event0202cb50* event)
             if (data_021015a0.mode == 2) {
                 if (data_021015a0.state == 4) {
                     data_021015a0.state = 6;
-                    int ok = InvokeWithFullMaskType2_020d68b4(&data_021023c0, 13);
+                    int ok = func_020d68b4(&data_021023c0, 13);
                     if (!ok) ok = 1;
                     else {
-                        SetField0x48UnlessState9Or10_0202c848(ok);
+                        func_0202c848(ok);
                         ok = 0;
                     }
                     if (!ok) data_021015a0.state = 9;
@@ -55,7 +55,7 @@ extern "C" ARM void func_0202cb50(Event0202cb50* event)
                 int mask = 15;
                 int status = func_020d5d34(&data_02102be0, 13, mask, 0x74, data_020ef7a8);
                 if (status) {
-                    SetField0x48UnlessState9Or10_0202c848(status);
+                    func_0202c848(status);
                     data_021015a0.state = 9;
                 } else {
                     data_021015a0.state = 5;

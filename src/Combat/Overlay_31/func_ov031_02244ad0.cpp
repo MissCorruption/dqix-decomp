@@ -47,22 +47,22 @@ extern Bytes6_02244ad0 data_ov031_02245fb0;
 extern SettingsBlock02244ad0 data_ov031_02291ea8;
 extern const Bytes6_02244ad0 data_ov031_0224957c;
 extern int data_ov031_0224e1c8;
-int GetField260_0220d540();
-void SetFields_02245858(int, unsigned char);
-void SetField12_0224586c(int);
+extern "C" int func_ov031_0220d540();
+extern "C" void func_ov031_02245858(int, unsigned char);
+extern "C" void func_ov031_0224586c(int);
 extern "C" void func_ov031_0224587c(SettingsBlock02244ad0*);
 unsigned long long GetCurrentTimestamp();
-int CompareBytes6_0220f368(unsigned char*, unsigned char*);
+extern "C" int func_ov031_0220f368(unsigned char*, unsigned char*);
 extern "C" void func_ov031_0220eb88(int);
-unsigned int GetField16_0224598c();
+extern "C" unsigned int func_ov031_0224598c();
 extern "C" void func_ov031_02245938();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void func_ov031_0220764c(InitConfig02244ad0*);
 extern "C" void func_ov031_022077c0();
-int GetSwapped_02207500();
-void SetField34AndClear35_37_02245528(Struct_02245528*, int);
-void* AllocFromAllocator1e3c_02243450(int, unsigned int);
-void FreeFromAllocator1e3c_02243484(int, void*);
+extern "C" int func_ov031_02207500();
+extern "C" void func_ov031_02245528(Struct_02245528*, int);
+extern "C" void* func_ov031_02243450(int, unsigned int);
+extern "C" void func_ov031_02243484(int, void*);
 
 // USA: func_ov031_02244ad0
 extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
@@ -71,28 +71,28 @@ extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
     SettingsView02244ad0* settings = (SettingsView02244ad0*)game;
     switch (self->state) {
     case 0:
-        switch (GetField260_0220d540()) {
+        switch (func_ov031_0220d540()) {
         case 0:
             if (!initialized) {
                 int capacity = 22;
                 if (settings->network.customCapacity) capacity = settings->network.capacity;
-                SetFields_02245858((int)data_ov031_02291e3c.Allocate(capacity * 208 + 0x230c), capacity);
+                func_ov031_02245858((int)data_ov031_02291e3c.Allocate(capacity * 208 + 0x230c), capacity);
                 SettingsBlock02244ad0 initial = data_ov031_022495d4;
                 memcpy(&data_ov031_02291ea8, &initial, sizeof(initial));
-                SetField12_0224586c(1);
+                func_ov031_0224586c(1);
                 func_ov031_0224587c(&data_ov031_02291ea8);
                 if (settings->network.customTimeout)
                     self->deadline = GetCurrentTimestamp() + ((33514000ULL * (unsigned int)settings->network.timeout) >> 6);
                 else self->deadline = GetCurrentTimestamp() + 2618281ULL;
                 Bytes6_02244ad0 broadcast = data_ov031_0224957c;
-                CompareBytes6_0220f368(data_ov031_02245fb0.value, broadcast.value);
+                func_ov031_0220f368(data_ov031_02245fb0.value, broadcast.value);
                 self->startTime = GetCurrentTimestamp();
                 initialized = 1;
             }
             break;
         case 6:
             func_ov031_0220eb88(1);
-            if (GetField16_0224598c() <= 1) {
+            if (func_ov031_0224598c() <= 1) {
                 func_ov031_0220eb88(0);
                 return;
             }
@@ -111,8 +111,8 @@ extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
     case 3:
         VectorizedMemset(&self->config, 0, sizeof(self->config));
         self->config.enabled = 1;
-        self->config.allocate = AllocFromAllocator1e3c_02243450;
-        self->config.release = FreeFromAllocator1e3c_02243484;
+        self->config.allocate = func_ov031_02243450;
+        self->config.release = func_ov031_02243484;
         data_ov031_0224e1c8 = 0;
         func_ov031_0220764c(&self->config);
         if (settings->network.customTimeout)
@@ -129,9 +129,9 @@ extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
             return;
         }
 checkProgress:
-        if (GetSwapped_02207500()) {
+        if (func_ov031_02207500()) {
             GetCurrentTimestamp();
-            SetField34AndClear35_37_02245528(self, 6);
+            func_ov031_02245528(self, 6);
         }
         return;
     case 5:
@@ -139,8 +139,8 @@ checkProgress:
         self->state = 6;
         return;
     case 6:
-        if (!GetField260_0220d540()) {
-            SetField34AndClear35_37_02245528(self, 0);
+        if (!func_ov031_0220d540()) {
+            func_ov031_02245528(self, 0);
             self->complete = 1;
         }
         return;

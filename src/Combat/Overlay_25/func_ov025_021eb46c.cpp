@@ -49,14 +49,14 @@ struct Ctx021eb46c {
     LogNode021eb46c* logHead;
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetSlotPtr02160f20(void* obj);
-void FormatEffectStats02072c9c(int id, char* out);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" void func_02072c9c(int id, char* out);
 struct List02160094;
-BattleNode021eb46c* GetNodeAtIndex02160094(List02160094*, int);
+extern "C" BattleNode021eb46c* func_ov000_02160094(List02160094*, int);
 struct Node021e8bac;
 struct Obj021e8bac;
-void PushLogNode021e8bac(Obj021e8bac*, Node021e8bac*);
+extern "C" void func_ov025_021e8bac(Obj021e8bac*, Node021e8bac*);
 
 extern char data_ov025_021ef8fc[];
 extern char data_ov025_021ef916[];
@@ -77,11 +77,11 @@ extern "C" ARM int func_ov025_021eb46c(Ctx021eb46c* ctx) {
         SafeAllocator* alloc = ctx->allocators[ctx->allocatorIndex];
 
         if (ctx->state == 0) {
-            Slot021eb46c* slot = (Slot021eb46c*)GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
+            Slot021eb46c* slot = (Slot021eb46c*)func_ov000_02160f20(func_ov000_02160130());
             ctx->taskID = -1;
-            if (slot->kind == 1 && GetNodeAtIndex02160094((List02160094*)slot, 0) != NULL) {
-                int id = GetNodeAtIndex02160094((List02160094*)slot, 0)->combatantId;
-                Combatant021eb46c* c = (Combatant021eb46c*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), id);
+            if (slot->kind == 1 && func_ov000_02160094((List02160094*)slot, 0) != NULL) {
+                int id = func_ov000_02160094((List02160094*)slot, 0)->combatantId;
+                Combatant021eb46c* c = (Combatant021eb46c*)func_0200ff1c(GameState::GetInstance(), id);
                 bool isParty;
                 if (id >= 0 && id <= 3) {
                     isParty = true;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov025_021eb46c(Ctx021eb46c* ctx) {
                         sprintf(path, data_ov025_021ef8fc);
                         ctx->taskID = loader->QueueLoadFile(path, alloc);
                     } else {
-                        FormatEffectStats02072c9c(id, stats);
+                        func_02072c9c(id, stats);
                         sprintf(path, data_ov025_021ef916, stats);
                         ctx->taskID = loader->QueueLoadFileInGP2(data_ov025_021ef91f, path, alloc);
                     }
@@ -108,10 +108,10 @@ extern "C" ARM int func_ov025_021eb46c(Ctx021eb46c* ctx) {
         } else if (loader->GetTaskStatus(ctx->taskID) != 0) {
             loader->GetLoadedFileByID(ctx->taskID, &fileData, &fileLength);
             if (fileData != NULL) {
-                void* slot = GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
-                if (GetNodeAtIndex02160094((List02160094*)slot, 0) != NULL) {
-                    loadedId = GetNodeAtIndex02160094((List02160094*)slot, 0)->combatantId;
-                    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), loadedId);
+                void* slot = func_ov000_02160f20(func_ov000_02160130());
+                if (func_ov000_02160094((List02160094*)slot, 0) != NULL) {
+                    loadedId = func_ov000_02160094((List02160094*)slot, 0)->combatantId;
+                    GameObject* c = func_0200ff1c(GameState::GetInstance(), loadedId);
                     if (c != NULL) {
                         LogNode021eb46c* node = (LogNode021eb46c*)alloc->Allocate(sizeof(LogNode021eb46c));
                         if (node != NULL) {
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov025_021eb46c(Ctx021eb46c* ctx) {
                             node->type = 0;
                             node->combatantId = loadedId;
                             node->packageID = info.packageID;
-                            PushLogNode021e8bac((Obj021e8bac*)ctx, (Node021e8bac*)node);
+                            func_ov025_021e8bac((Obj021e8bac*)ctx, (Node021e8bac*)node);
                         }
                     }
                 }

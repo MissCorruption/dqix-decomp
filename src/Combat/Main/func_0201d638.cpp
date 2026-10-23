@@ -25,10 +25,10 @@ struct Bits2e { unsigned short low4 : 4; unsigned short high12 : 12; };
 #define BITS2E (*(struct Bits2e*)(REC + 0x2e))
 
 // USA: func_0201d638
-ARM int WarpScript_Opcode_74_0201d638(Script::Parameter* src, int count) {
+extern "C" ARM int func_0201d638(Script::Parameter* src, int count) {
     if (data_020fdc20.lastEntry == 0) return 0;
 
-    void* nameList = GetPtrField0x468_02011584((void*)GameState::GetInstance());
+    void* nameList = func_02011584((void*)GameState::GetInstance());
 
     switch (W(4)) {
     case 0:
@@ -75,7 +75,7 @@ ARM int WarpScript_Opcode_74_0201d638(Script::Parameter* src, int count) {
                 const char* name = src->ToString();
                 src += 1;
                 rem += 1;
-                struct Elem0209998c* e = FindElementByName0209998c((struct List0209998c*)nameList, name);
+                struct Elem0209998c* e = func_0209998c((struct List0209998c*)nameList, name);
                 if (e == 0) return 0;
                 H(0x30) = e->f0;
             } else {
@@ -158,7 +158,7 @@ ARM int WarpScript_Opcode_74_0201d638(Script::Parameter* src, int count) {
         int vecD[3];
         p = src->ToVec3fix((Vector3i*)vecD);
 
-        ((MaybeVector4fix*)(REC + 0x30))->CopyFrom_0201d474(diffAndDot);
+        ((MaybeVector4fix*)(REC + 0x30))->func_0201d474(diffAndDot);
         W(0x40) = len;
         *(Vector3i*)((int*)(REC + 0x44)) = *(Vector3i const*)vecC;
         *(Vector3i*)((int*)(REC + 0x50)) = *(Vector3i const*)vecD;
@@ -189,7 +189,7 @@ ARM int WarpScript_Opcode_74_0201d638(Script::Parameter* src, int count) {
             Script::Parameter* vp = src + 4;
             src += 5;
             const char* name = vp->ToString();
-            struct Elem0209998c* e = FindElementByName0209998c((struct List0209998c*)nameList, name);
+            struct Elem0209998c* e = func_0209998c((struct List0209998c*)nameList, name);
             if (e == 0) return 0;
             H(0x32) = e->f0;
         } else {

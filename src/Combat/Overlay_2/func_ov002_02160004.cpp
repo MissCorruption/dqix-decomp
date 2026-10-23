@@ -2,8 +2,8 @@
 
 struct Container020e0310;
 
-int GetFieldByKey020e0434(struct Container020e0310 *c, int key);
-int AppendString02042058(char *dst, const char *src);
+extern "C" int func_020e0434(struct Container020e0310 *c, int key);
+extern "C" int func_02042058(char *dst, const char *src);
 
 struct S {
     char pad[0x6c];
@@ -31,6 +31,6 @@ extern "C" ARM void func_ov002_02160004(char *p, char *dst) {
         return;
     }
 
-    int name = GetFieldByKey020e0434((struct Container020e0310 *) (p + RG(0x20, 8)), (short) (id + 0xfbe));
-    AppendString02042058(dst, (const char *) name);
+    int name = func_020e0434((struct Container020e0310 *) (p + RG(0x20, 8)), (short) (id + 0xfbe));
+    func_02042058(dst, (const char *) name);
 }

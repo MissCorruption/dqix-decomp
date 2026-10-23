@@ -11,11 +11,11 @@
 struct Container02057a6c;
 
 extern "C" void __clear(void* ptr, int size);
-void CopyVec3sAndDispatch_02196048(int*, int*, int*);
+extern "C" void func_ov017_02196048(int*, int*, int*);
 extern "C" Container02057a6c* func_02057924(void);
 extern "C" int func_020ca4b4(const void* src, void* dst, int size);
-void UpdateEntriesWhereFlag2Set02057a6c(Container02057a6c* c);
-void ForwardObjAndField0_021a3af0(int obj);
+extern "C" void func_02057a6c(Container02057a6c* c);
+extern "C" void func_ov017_021a3af0(int obj);
 
 extern const Vector3fix data_ov017_021d6420;
 extern const Vector3fix data_ov017_021d642c;
@@ -48,21 +48,21 @@ extern "C" ARM void func_ov017_02195ecc(Battle02195ecc* self, unsigned int mode)
     Mat4x4_WriteProjectionUnknown(0xe000, -0x22000, -0x20000, 0x20000, 0x1000, 0x190000, 0x1000,
                                   &data_0210a010.projectionMatrix);
     data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
-    CopyVec3sAndDispatch_02196048((int*)&eye, (int*)&up, (int*)&target);
+    func_ov017_02196048((int*)&eye, (int*)&up, (int*)&target);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
 
     if (mode & 1) {
         Container02057a6c* entries = func_02057924();
         if (TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
-            UpdateEntriesWhereFlag2Set02057a6c(entries);
+            func_02057a6c(entries);
         }
     }
     if (mode & 2) {
-        ForwardObjAndField0_021a3af0(self->nodeList);
+        func_ov017_021a3af0(self->nodeList);
     }
 
-    CopyVec3sAndDispatch_02196048((int*)&savedEye, (int*)&savedUp, (int*)&savedTarget);
+    func_ov017_02196048((int*)&savedEye, (int*)&savedUp, (int*)&savedTarget);
     func_020ca4b4(&savedProjection, &data_0210a010.projectionMatrix, sizeof(Matrix4x4));
     data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_4) | (1 << RENDER_CONFIG_FLAG_6));
     RenderConfig::SubmitToFifo();

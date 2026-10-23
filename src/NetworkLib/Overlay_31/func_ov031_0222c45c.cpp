@@ -2,7 +2,7 @@
 #include <NitroSDK/Memory.h>
 
 struct ParamA020b1d70;
-ARM int FindFirstZeroByte_0223dd34(unsigned char* s, int len);
+extern "C" ARM int func_ov031_0223dd34(unsigned char* s, int len);
 extern "C" void func_ov031_0223c8d4(ParamA020b1d70* a, int b, int c, int d, int e, unsigned short* counts, int idx);
 
 struct Entry0222c45c {
@@ -27,7 +27,7 @@ extern Context0222c45c data_ov031_02290c8c;
 // USA: func_ov031_0222c45c
 extern "C" ARM void func_ov031_0222c45c(int idx, int row) {
     unsigned short buf[0x11];
-    int len = FindFirstZeroByte_0223dd34(data_ov031_02290c8c.manager->entries[idx].name, 0x20);
+    int len = func_ov031_0223dd34(data_ov031_02290c8c.manager->entries[idx].name, 0x20);
     int y = row * 0x1c;
     if (idx >= data_ov031_02290c8c.manager->count) return;
     if (len <= 0x10) y += 6;

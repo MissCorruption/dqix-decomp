@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/MessageGlyphSlot.h"
 
-void WriteReg04000488020419f4(int s, int t);
+extern "C" void func_020419f4(int s, int t);
 
 #if defined(jpn)
 #define data_021077fc data_0210773c
@@ -73,13 +73,13 @@ extern "C" ARM void func_020417b0(MessageGlyphSlot* glyph, int color, GlyphClip0
         height = (16.0f - skip) / 16.0f;
     }
     int texT = skip << 12;
-    WriteReg04000488020419f4(0, texT);
+    func_020419f4(0, texT);
     Vertex(0, (int)(4096.0f * height), 0);
-    WriteReg04000488020419f4(0x10000, texT);
+    func_020419f4(0x10000, texT);
     Vertex(0x1000, (int)(4096.0f * height), 0);
-    WriteReg04000488020419f4(0x10000, 0x10000);
+    func_020419f4(0x10000, 0x10000);
     Vertex(0x1000, 0, 0);
-    WriteReg04000488020419f4(0, 0x10000);
+    func_020419f4(0, 0x10000);
     Vertex(0, 0, 0);
 
     *(volatile unsigned int*)0x04000504 = 0;

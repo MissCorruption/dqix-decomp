@@ -19,17 +19,17 @@ extern State_0222d720* data_ov031_02290c98;
 extern unsigned char data_ov031_0224ba7c[];
 
 extern "C" void* func_ov031_0223cf4c(unsigned int len, int align);
-void GetFields181c_02227520(int*, int*);
+extern "C" void func_ov031_02227520(int*, int*);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 extern "C" void func_ov031_0222d894(void);
 extern "C" void func_ov031_02223998(int);
 extern "C" void func_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
-int CallTailCallThenBdb0_0223be44(int, int);
+extern "C" int func_ov031_0223be44(int, int);
 extern "C" void func_ov031_0222e048(void);
 extern "C" void func_ov031_0222df84(void);
-void SetField_022274c0_022274c0(int);
+extern "C" void func_ov031_022274c0(int);
 extern "C" void func_ov031_0222d950(void);
 
 // USA: func_ov031_0222d720
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov031_0222d720(void) {
     data_ov031_02290c98 = (State_0222d720*)func_ov031_0223cf4c(0x18, 4);
 
     int mode;
-    GetFields181c_02227520(&mode, 0);
+    func_ov031_02227520(&mode, 0);
     table.funcs[mode](data_ov031_02290c98->digits);
 
     State_0222d720* state = data_ov031_02290c98;
@@ -59,9 +59,9 @@ extern "C" ARM void func_ov031_0222d720(void) {
     func_ov031_0222336c(sounds[mode], -1, 0);
     func_ov031_02223518(2);
     data_ov031_02290c98->field0 = func_ov031_0223c560(0, 0);
-    data_ov031_02290c98->oam = (OamAttr_0222d720*)CallTailCallThenBdb0_0223be44(0, 0x3f);
+    data_ov031_02290c98->oam = (OamAttr_0222d720*)func_ov031_0223be44(0, 0x3f);
     data_ov031_02290c98->oam->priority = 3;
     func_ov031_0222e048();
     func_ov031_0222df84();
-    SetField_022274c0_022274c0((int)func_ov031_0222d950);
+    func_ov031_022274c0((int)func_ov031_0222d950);
 }

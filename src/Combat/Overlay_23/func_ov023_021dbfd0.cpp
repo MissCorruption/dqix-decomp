@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct InitStruct02075cdcStruct;
-void InitStruct02075cdc(struct InitStruct02075cdcStruct* s);
+extern "C" void func_02075cdc(struct InitStruct02075cdcStruct* s);
 
 struct Obj021dbfd0 {
     SafeAllocator allocator0;                  // 0x00
@@ -24,7 +24,7 @@ struct Struct02075cdcFields_021dbfd0 {
     unsigned char f5e;
 };
 
-// USA: func_ov023_021dbfd0  (semantic: InitSubAllocatorsAndBuffers_021dbfd0)
+// USA: func_ov023_021dbfd0
 extern "C" ARM void func_ov023_021dbfd0(Obj021dbfd0* obj, SafeAllocator* alloc) {
 #if defined(jpn)
  enum {regionalOffset0=0x6f8};
@@ -44,8 +44,8 @@ extern "C" ARM void func_ov023_021dbfd0(Obj021dbfd0* obj, SafeAllocator* alloc) 
     obj->pAlloc2 = (SafeAllocator*)alloc->Allocate(0x14);
     obj->pAlloc2->CreateTypeA(alloc->Allocate(0x180), 0x180);
 
-    InitStruct02075cdc(obj->ptrC4);
-    InitStruct02075cdc(obj->ptrC8);
+    func_02075cdc(obj->ptrC4);
+    func_02075cdc(obj->ptrC8);
 
     ((Struct02075cdcFields_021dbfd0*)obj->ptrC4)->f5e = *(signed char*)((char*)obj + regionalOffset0);
     ((Struct02075cdcFields_021dbfd0*)obj->ptrC4)->f3c = 0;

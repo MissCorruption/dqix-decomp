@@ -18,20 +18,20 @@ struct Obj02033b68 {
 };
 
 extern "C" void func_02057924(void);
-void ApplyStateTableValue02033dd4(unsigned char* obj);
-void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
+extern "C" void func_02033dd4(unsigned char* obj);
+extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
 
 // USA: func_02033ce8
 extern "C" ARM void func_02033ce8(struct Obj02033b68* p) {
     int b;
     func_02057924();
-    ApplyStateTableValue02033dd4((unsigned char*)p);
+    func_02033dd4((unsigned char*)p);
 
     if (p->fbe == 3 || p->fbe == 4) {
         if (p->fc0 == 7 || p->fc0 == 8) {
             if (p->fc0 != 7) return;
             if (p->fc1h == 0) return;
-            SetByteIfChanged02033b68(p, 0);
+            func_02033b68(p, 0);
         }
         return;
     }

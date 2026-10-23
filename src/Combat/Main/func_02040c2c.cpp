@@ -53,14 +53,14 @@ struct Obj0203c818;
 extern "C" void func_0203c818(Obj0203c818*, void*, int, int);
 extern "C" void func_02040f48(struct Obj02040c2c* self, void* vec);
 extern "C" int rand(void);
-int GetField0x78_0202e800(void* p);
-void* GetPtrField0x58_0202ed6c(void* p);
+extern "C" int func_0202e800(void* p);
+extern "C" void* func_0202ed6c(void* p);
 
-int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** head);
-void DispatchNearestActiveNode0204117c(struct Obj0204117c* obj, struct Vec3s32_020c3030* refPoint);
-void AdvanceAndAccumulate02041298(struct Obj02041298* obj, int value);
-void SelectVec3FromSources020406f8(struct Vec3_020406f8* out, struct Node020406f8* node);
-void FillVec3Default020407c4(struct Vec3_020407c4* out, struct Self020407c4* self);
+extern "C" int func_02046b24(struct HeadNode02046b24** head);
+extern "C" void func_0204117c(struct Obj0204117c* obj, struct Vec3s32_020c3030* refPoint);
+extern "C" void func_02041298(struct Obj02041298* obj, int value);
+extern "C" void func_020406f8(struct Vec3_020406f8* out, struct Node020406f8* node);
+extern "C" void func_020407c4(struct Vec3_020407c4* out, struct Self020407c4* self);
 
 // USA: func_02040c2c
 extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int elapsedTicks, int movementTicks) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
         if (lm != 0) {
             self->spriteMotion->diffuseColor = lm->spriteDiffuseColor_;
         }
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
+        if (func_02046b24((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(self->flags & 1) && !(self->flags & 0x20000)) {
                 if (self->settings != 0 && self->settings->mode != 0) {
                     SpriteMotion02040c2c* a = self->spriteMotion;
@@ -89,7 +89,7 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
                             break;
                         case 9:
                         case 10:
-                            DispatchNearestActiveNode0204117c((struct Obj0204117c*)self, (struct Vec3s32_020c3030*)&motionPosition);
+                            func_0204117c((struct Obj0204117c*)self, (struct Vec3s32_020c3030*)&motionPosition);
                             break;
                         }
                         if (self->flags & 8) {
@@ -102,13 +102,13 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
             }
         }
     } else if (self->modelMotion != 0) {
-        AdvanceAndAccumulate02041298((struct Obj02041298*)self->modelMotion, elapsedTicks);
+        func_02041298((struct Obj02041298*)self->modelMotion, elapsedTicks);
         if (self->modelMotion->object.pModel_ != 0 && self->modelMotion->object.pModel_->rawInternalModel_ != 0) {
             if (LightingManager::GetInstance() != 0) {
                 self->modelMotion->object.SetDiffuseColor(LightingManager::GetInstance()->modelDiffuseColor_);
             }
         }
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
+        if (func_02046b24((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(self->flags & 1) && !(self->flags & 0x20000)) {
                 if (self->settings != 0 && self->settings->mode != 0) {
                     ModelEffect02040c2c* b = self->modelMotion;
@@ -121,7 +121,7 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
                                 break;
                             case 9:
                             case 10:
-                                DispatchNearestActiveNode0204117c((struct Obj0204117c*)self, (struct Vec3s32_020c3030*)&b->object.position_);
+                                func_0204117c((struct Obj0204117c*)self, (struct Vec3s32_020c3030*)&b->object.position_);
                                 break;
                             }
                             if (self->flags & 8) {
@@ -137,15 +137,15 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
     }
 
     if (self->attachment != 0) {
-        SelectVec3FromSources020406f8(&sourcePosition, (struct Node020406f8*)self);
+        func_020406f8(&sourcePosition, (struct Node020406f8*)self);
         attachmentPosition = sourcePosition;
-        FillVec3Default020407c4(&attachmentRotation, (struct Self020407c4*)self);
+        func_020407c4(&attachmentRotation, (struct Self020407c4*)self);
         struct Vector3i* pB = (struct Vector3i*)&attachmentRotation;
         attachmentPosition.v[1] += 0x1000;
         if (self->spriteMotion != 0) {
-            unsigned char* camera = (unsigned char*)GetField0x3b0Value_020100bc(GameState::GetInstance());
-            GetPtrField0x58_0202ed6c(camera);
-            float fx = (float)GetField0x78_0202e800(camera);
+            unsigned char* camera = (unsigned char*)func_020100bc(GameState::GetInstance());
+            func_0202ed6c(camera);
+            float fx = (float)func_0202e800(camera);
             fx *= 3.0f;
             int divisor = (int)fx;
             Vector3fix_Subtract(reinterpret_cast<Vector3i*>(camera + 0x10), reinterpret_cast<Vector3i*>(&attachmentPosition), &cameraOffset);

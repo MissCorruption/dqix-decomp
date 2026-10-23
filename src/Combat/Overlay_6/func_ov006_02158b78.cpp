@@ -20,9 +20,9 @@ struct Unknown_02075cdc {
 
 struct AlchemyPot;
 
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-int IsPointInsideElement02080d54(Obj2081*, int, int, int);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" int func_020e2984(struct Outer020e28dc* window);
+extern "C" int func_02080d54(Obj2081*, int, int, int);
 
 struct AlchemyMenu {
 #if !defined(jpn)
@@ -125,9 +125,9 @@ extern "C" ARM unsigned char func_ov006_02158b78(AlchemyMenu* self)
     unsigned char cancelled = 0;
     if (g_keyManager.TestKeysPressed(2))
         cancelled = 1;
-    if (self->choice_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
+    if (self->choice_ != 0 && func_020e28dc((Outer020e28dc*)self->choice_))
     {
-        if (IsFlag0x2Active020e2984((struct Outer020e28dc*)self->choice_))
+        if (func_020e2984((struct Outer020e28dc*)self->choice_))
             cancelled = 1;
     }
     else if (g_touchInput.pressed_)
@@ -135,7 +135,7 @@ extern "C" ARM unsigned char func_ov006_02158b78(AlchemyMenu* self)
         int x;
         int y;
         g_touchInput.GetTouchPoint(&x, &y);
-        if (!IsPointInsideElement02080d54((Obj2081*)self->menu_, self->group_, (short)x, (short)y))
+        if (!func_02080d54((Obj2081*)self->menu_, self->group_, (short)x, (short)y))
             cancelled = 1;
     }
     return cancelled;

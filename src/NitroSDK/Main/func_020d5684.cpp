@@ -77,18 +77,18 @@ struct WMStartMPReq
 extern "C" void func_020ca3ec(unsigned long value, void* dst, unsigned long size);
 extern "C" void func_020ca408(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d424c(int paramNum, ...);
-WMArm9Buf* GetBattleContext_020d41d8();
-int GetAlignedFieldSize020d4900();
-int GetAlignedField0x3cSize020d4894();
-void SetBattleContextArrayEntry_020d404c(int id, int callback);
-int CommitBattleContextBuffer020d4168(void* data, unsigned int length);
+extern "C" WMArm9Buf* func_020d41d8();
+extern "C" int func_020d4900();
+extern "C" int func_020d4894();
+extern "C" void func_020d404c(int id, int callback);
+extern "C" int func_020d4168(void* data, unsigned int length);
 
 // USA: func_020d5684
 extern "C" ARM int func_020d5684(WMCallbackFunc callback, unsigned short* recvBuf, unsigned short recvBufSize,
                                  unsigned short* sendBuf, unsigned short sendBufSize, const WMMPTmpParam* tmpParam)
 {
     int result;
-    WMArm9Buf* const p = GetBattleContext_020d41d8();
+    WMArm9Buf* const p = func_020d41d8();
     WMStatus* const status = p->status;
     result = func_020d424c(2, 7, 8);
     if (result != 0)
@@ -107,12 +107,12 @@ extern "C" ARM int func_020d5684(WMCallbackFunc callback, unsigned short* recvBu
     InvalidateDataCacheRange(&status->mp_ignoreSizePrecheckMode, 2);
     if (status->mp_ignoreSizePrecheckMode == false)
     {
-        if (recvBufSize < GetAlignedFieldSize020d4900())
+        if (recvBufSize < func_020d4900())
             return 6;
-        if (sendBufSize < GetAlignedField0x3cSize020d4894())
+        if (sendBufSize < func_020d4894())
             return 6;
     }
-    SetBattleContextArrayEntry_020d404c(0xe, (int)callback);
+    func_020d404c(0xe, (int)callback);
     {
         WMStartMPReq req;
         func_020ca3ec(0, &req, sizeof(WMStartMPReq));
@@ -123,7 +123,7 @@ extern "C" ARM int func_020d5684(WMCallbackFunc callback, unsigned short* recvBu
         req.sendBufSize = sendBufSize;
         func_020ca3ec(0, &req.param, sizeof(WMMPParam));
         func_020ca408(tmpParam, &req.tmpParam, sizeof(WMMPTmpParam));
-        result = CommitBattleContextBuffer020d4168(&req, sizeof(WMStartMPReq));
+        result = func_020d4168(&req, sizeof(WMStartMPReq));
     }
     if (result != 0)
         return result;

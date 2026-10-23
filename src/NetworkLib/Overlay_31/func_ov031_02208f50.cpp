@@ -88,12 +88,12 @@ struct CPSSslConnection {
     long inbuf_len;
     long inbuf_pnt;
 };
-void InitSha1State_0220b8a0(unsigned int*);
+extern "C" void func_ov031_0220b8a0(unsigned int*);
 extern "C" void func_ov031_0220b8f4(void*, const void*, unsigned int);
-void FinalizeSha1Digest_0220b9ac(void*, void*);
-void InitMd5Ctx_0220afe0(void*);
+extern "C" void func_ov031_0220b9ac(void*, void*);
+extern "C" void func_ov031_0220afe0(void*);
 extern "C" void func_ov031_0220b028(void*, const void*, unsigned int);
-void FinalizeMd5_0220b0e0(void*, void*);
+extern "C" void func_ov031_0220b0e0(void*, void*);
 extern "C" void func_ov031_0220ba44(void*, const void*, int);
 
 // USA: func_ov031_02208f50
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov031_02208f50(CPSSslConnection* context) {
         offset = 0;
         do {
             CPSSha1Ctx* sha1 = &context->sha1_hash_tmp;
-            InitSha1State_0220b8a0((unsigned int*)sha1->state);
+            func_ov031_0220b8a0((unsigned int*)sha1->state);
             letter = round + 'A';
             j = 0;
             repeats = round + 1;
@@ -135,12 +135,12 @@ extern "C" ARM void func_ov031_02208f50(CPSSslConnection* context) {
             func_ov031_0220b8f4(sha1, context->master_secret, 48);
             func_ov031_0220b8f4(sha1, context->server_random, 32);
             func_ov031_0220b8f4(sha1, context->client_random, 32);
-            FinalizeSha1Digest_0220b9ac(sha1, digest);
+            func_ov031_0220b9ac(sha1, digest);
             CPSMd5Ctx* md5 = &context->md5_hash_tmp;
-            InitMd5Ctx_0220afe0(md5);
+            func_ov031_0220afe0(md5);
             func_ov031_0220b028(md5, context->master_secret, 48);
             func_ov031_0220b028(md5, digest, 20);
-            FinalizeMd5_0220b0e0(md5, context->common1.key_block + offset);
+            func_ov031_0220b0e0(md5, context->common1.key_block + offset);
             offset += 16;
             round++;
         } while (offset < total);

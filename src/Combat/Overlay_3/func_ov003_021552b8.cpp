@@ -57,26 +57,26 @@ struct StrObj021552b8 {
     char data[0xc];
 };
 
-MsgGlobals021552b8 *GetGlobalField0x1c020421a0();
+extern "C" MsgGlobals021552b8 *func_020421a0();
 extern "C" void func_02046380(MsgGlobals021552b8 *);
-int GetArrayEntryByIndex_02156034(void *);
-void * GetFieldByKey020e0434(Container020e0310*, int);
-void InitObjFromCombatantId020e4bf4(void *, int);
+extern "C" int func_ov003_02156034(void *);
+extern "C" void * func_020e0434(Container020e0310*, int);
+extern "C" void func_020e4bf4(void *, int);
 extern "C" void func_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #if defined(jpn)
 extern "C" void func_0204500c(MsgGlobals021552b8*, void*, int);
 #endif
 #if !defined(jpn)
 extern "C" void func_0204500c(MsgGlobals021552b8 *, void *, int, int);
 #endif
-int IsFieldEq3At_021538e0(void *);
-void ReinitController02043204(char *);
+extern "C" int func_ov003_021538e0(void *);
+extern "C" void func_02043204(char *);
 extern "C" void func_02043124(MsgGlobals021552b8 *);
 
 // USA: func_ov003_021552b8
 extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
-    MsgGlobals021552b8 *g = GetGlobalField0x1c020421a0();
+    MsgGlobals021552b8 *g = func_020421a0();
     if (self->step == 0) {
 #if !defined(jpn)
         int id = self->curId;
@@ -109,22 +109,22 @@ extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
             vocation = party->data->vocation;
             name = party->name;
         }
-        SetIndexedName02046574((Obj02046574*)g, 0, (char*)name);
-        short key = GetArrayEntryByIndex_02156034(self) + 0x23;
-        SetIndexedName02046574((Obj02046574*)g, 1, (char*)(GetFieldByKey020e0434((Container020e0310*)self->messages, key)));
-        SetIndexedName02046574((Obj02046574*)g, 2, (char*)(GetFieldByKey020e0434((Container020e0310*)self->messages, (short)(vocation + 0x23))));
-        SetIndexedName02046574((Obj02046574*)g, 3, (char*)(GetFieldByKey020e0434((Container020e0310*)self->messages, (short)(vocation + 0x34))));
-        func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->messages, self->curId), 0);
+        func_02046574((Obj02046574*)g, 0, (char*)name);
+        short key = func_ov003_02156034(self) + 0x23;
+        func_02046574((Obj02046574*)g, 1, (char*)(func_020e0434((Container020e0310*)self->messages, key)));
+        func_02046574((Obj02046574*)g, 2, (char*)(func_020e0434((Container020e0310*)self->messages, (short)(vocation + 0x23))));
+        func_02046574((Obj02046574*)g, 3, (char*)(func_020e0434((Container020e0310*)self->messages, (short)(vocation + 0x34))));
+        func_0204500c(g, func_020e0434((Container020e0310*)self->messages, self->curId), 0);
 #else
         int vocation            = 0;
         if (party) {
             vocation = party->data->vocation;
         }
-        short key = GetArrayEntryByIndex_02156034(self) + 0x23;
-        void *a   = GetFieldByKey020e0434((Container020e0310*)self->messages, key);
-        void *b   = GetFieldByKey020e0434((Container020e0310*)self->messages, (short) (vocation + 0x23));
+        short key = func_ov003_02156034(self) + 0x23;
+        void *a   = func_020e0434((Container020e0310*)self->messages, key);
+        void *b   = func_020e0434((Container020e0310*)self->messages, (short) (vocation + 0x23));
         StrObj021552b8 unit;
-        InitObjFromCombatantId020e4bf4(&unit, self->slot);
+        func_020e4bf4(&unit, self->slot);
         g->subject  = &unit;
         g->subject2 = &unit;
         StrObj021552b8 obj;
@@ -134,10 +134,10 @@ extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
         }
         func_020e4b34(&obj, pick, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         g->extra = &obj;
-        SetIndexedName02046574((Obj02046574*)g, 1, (char*)a);
-        SetIndexedName02046574((Obj02046574*)g, 2, (char*)b);
-        SetIndexedName02046574((Obj02046574*)g, 3, (char*)(GetFieldByKey020e0434((Container020e0310*)self->messages, (short) (vocation + 0x34))));
-        func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->messages, id), 0, 0xe3);
+        func_02046574((Obj02046574*)g, 1, (char*)a);
+        func_02046574((Obj02046574*)g, 2, (char*)b);
+        func_02046574((Obj02046574*)g, 3, (char*)(func_020e0434((Container020e0310*)self->messages, (short) (vocation + 0x34))));
+        func_0204500c(g, func_020e0434((Container020e0310*)self->messages, id), 0, 0xe3);
 #endif
         g->active  = 1;
         g->active2 = 1;
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
             self->nextId = -1;
             self->mode   = 7;
             self->step   = 0;
-            if (IsFieldEq3At_021538e0(self->ptr4) == 0) {
+            if (func_ov003_021538e0(self->ptr4) == 0) {
                 self->mode = 5;
                 self->sub  = 0;
             }
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
             self->curId  = self->nextId;
             self->nextId = -1;
             if (self->curId < 0 && (self->flags & 2)) {
-                ReinitController02043204((char *) g);
+                func_02043204((char *) g);
                 func_02043124(g);
                 self->flags &= ~2;
             }

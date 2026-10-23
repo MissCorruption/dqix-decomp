@@ -7,14 +7,14 @@
 extern "C" void* func_ov031_0223cf4c(unsigned int id, unsigned int size);
 
 struct ArrBasePair022276b4;
-int LookupArrayPlusBase_022276b4(ArrBasePair022276b4* p, unsigned int idx);
+extern "C" int func_ov031_022276b4(ArrBasePair022276b4* p, unsigned int idx);
 extern "C" int func_ov031_022275a0(void);
 
 struct InitParams_0223a4cc;
 extern "C" void func_ov031_0223a4cc(void* obj, InitParams_0223a4cc* p);
 extern "C" int func_ov031_0223a718(void);
 extern "C" void func_020c9be0(void);
-void* CallWithZeroExtra_0223e218(void* a, void* b, void* c, int d);
+extern "C" void* func_ov031_0223e218(void* a, void* b, void* c, int d);
 
 extern void* data_ov031_02290c44;
 extern ArrBasePair022276b4* data_ov031_02290c4c;
@@ -24,7 +24,7 @@ extern InitParamsRaw022276f8 data_ov031_0224b66c;
 
 extern "C" void func_ov031_02227898(void);
 
-// USA: func_ov031_022276f8  (semantic: AllocInitAndDispatchBattleState_022276f8)
+// USA: func_ov031_022276f8
 extern "C" ARM void func_ov031_022276f8(int arg0) {
 	void* ptr = func_ov031_0223cf4c(0x1e2a4, 0x20);
 	data_ov031_02290c44 = ptr;
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov031_022276f8(int arg0) {
 	*(unsigned char*)((char*)data_ov031_02290c44 + 0x1e000 + 0x2a1) = 0;
 
 	InitParamsRaw022276f8 buf = data_ov031_0224b66c;
-	buf.words[1] = LookupArrayPlusBase_022276b4(data_ov031_02290c4c, 0);
-	buf.words[2] = LookupArrayPlusBase_022276b4(data_ov031_02290c4c, 1);
+	buf.words[1] = func_ov031_022276b4(data_ov031_02290c4c, 0);
+	buf.words[2] = func_ov031_022276b4(data_ov031_02290c4c, 1);
 	*(unsigned char*)&buf.words[6] = (unsigned char)func_ov031_022275a0();
 
 	func_ov031_0223a4cc(data_ov031_02290c44, (InitParams_0223a4cc*)&buf);
@@ -43,6 +43,6 @@ extern "C" ARM void func_ov031_022276f8(int arg0) {
 		func_020c9be0();
 	}
 
-	void* result = CallWithZeroExtra_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
+	void* result = func_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
 	*(void**)((char*)data_ov031_02290c44 + 0x1e000 + 0x29c) = result;
 }

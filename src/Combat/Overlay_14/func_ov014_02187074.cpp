@@ -86,10 +86,10 @@ struct MonsterListScreen {
 struct Obj2081;
 struct Obj0205eaa0;
 
-Canvas* FindElementByByte0xc4_02081da8(Obj2081*, int);
-bool CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void ClearSublistEntriesFlag4_020804fc(void*, int);
+extern "C" Canvas* func_02081da8(Obj2081*, int);
+extern "C" bool func_0204c7e0(unsigned char*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_020804fc(void*, int);
 
 extern "C" {
 MonsterListEntry* func_ov014_021873a0(MonsterListScreen* self);
@@ -110,8 +110,8 @@ inline short TilesToPixels(short tiles)
 extern "C" ARM bool func_ov014_02187074(MonsterListScreen* self)
 {
     bool toggle = false;
-    Canvas* canvas = FindElementByByte0xc4_02081da8((Obj2081*)self->menu_, 4);
-    if (canvas != NULL && CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)canvas))
+    Canvas* canvas = func_02081da8((Obj2081*)self->menu_, 4);
+    if (canvas != NULL && func_0204c7e0((unsigned char*)canvas))
     {
         short y = canvas->y_;
         short height = canvas->height_;
@@ -150,8 +150,8 @@ extern "C" ARM bool func_ov014_02187074(MonsterListScreen* self)
         short count = 0;
         self->entries_ = func_020974b0(&self->list_, self->family_, -1, (self->listFlags_ & 8) != 0, 0x10, &count);
         func_ov014_02187228(self, entry);
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-        ClearSublistEntriesFlag4_020804fc(self->menu_, 5);
+        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+        func_020804fc(self->menu_, 5);
         func_ov014_0218854c(self);
         func_ov014_021885bc(self);
     }

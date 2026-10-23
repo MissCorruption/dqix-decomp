@@ -12,9 +12,9 @@ extern "C" void func_0204500c(void*, int, int);
 #else
 extern "C" void func_0204500c(void*, int, int, int);
 #endif
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 struct Table_02153884;
-void* FindTableEntry_02153884(struct Table_02153884* t, int key);
+extern "C" void* func_ov001_02153884(struct Table_02153884* t, int key);
 
 extern Table_02153884 data_ov001_021658d8;
 
@@ -23,12 +23,12 @@ struct Self0215e2a4 { int type; };
 
 // USA: func_ov001_0215e2a4
 extern "C" ARM int func_ov001_0215e2a4(Self0215e2a4* self, int mode) {
-    char* g = (char*)GetGlobalField0x1c020421a0();
+    char* g = (char*)func_020421a0();
     int type = self->type;
     switch (type) {
     case 0: {
         int idx = func_ov017_021d60f4(self);
-        Entry0215e2a4* entry = (Entry0215e2a4*)FindTableEntry_02153884(&data_ov001_021658d8, idx);
+        Entry0215e2a4* entry = (Entry0215e2a4*)func_ov001_02153884(&data_ov001_021658d8, idx);
         if (entry == NULL) return 0;
         *(int*)(g + 0x1000 + regionField) = -1;
         int flag = 1;

@@ -1,0 +1,14 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+#include "Util/Random.h"
+
+// USA: func_ov024_021d931c
+extern "C" ARM int func_ov024_021d931c(struct Random** rngPtr, int id, int a2, int a3, int a4, int val) {
+    GameState* bs = GameState::GetInstance();
+    GameObject* c = bs->GetCombatantByIndex(id);
+    if (!c) return val;
+    unsigned short maxHp = c->currentStats_->primaryStats.maxHP;
+    struct Random* rng = *rngPtr;
+    float f = NextRandomFloatBetween(rng, 0.2f, 0.3f);
+    return (int)((float)maxHp * f);
+}

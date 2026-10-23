@@ -13,16 +13,16 @@ struct Elem0216fc58 {
     short baseY;
 };
 
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
-void SetChannelAFlag0205cef8(void* obj);
+extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+extern "C" void func_0205cef8(void* obj);
 extern "C" void* __clear(void* dst, int count);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
 extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int flag);
 #if defined(jpn)
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
-int AppendString02042058(char* dst, const char* src);
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
 extern char data_ov003_0217ea90[];
 extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
@@ -30,12 +30,12 @@ extern char data_ov003_0217ea6f[];
 #else
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
 #endif
-void SetupPointerTable0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
-void SetField0AndPropagate0205bacc(struct Node0205bacc* s, int val);
-struct Elem0216fc58* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-void GetFourShortsAtIndex(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
-void* CreateAndSetFields46_021e2ca8(void* a, void* b, int c, int d);
-void* CreateAndSetFields8A_021e2cc8(void* a, void* b, int c, int d);
+extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
+extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
+extern "C" struct Elem0216fc58* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" void func_0204c610(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
+extern "C" void* func_ov023_021e2ca8(void* a, void* b, int c, int d);
+extern "C" void* func_ov023_021e2cc8(void* a, void* b, int c, int d);
 
 #if defined(jpn)
 // USA: func_ov003_0216fc58
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
     if (window == 0) {
         return;
     }
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)window, 0, 1);
+    func_0205de24((struct Struct0205de24*)window, 0, 1);
 
     (*(char**)(self + 0x3c))[0xb1] = 0;
 
@@ -66,34 +66,34 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
 
     (*(char**)(self + 0x3c))[0xb5] = 1;
 
-    SetChannelAFlag0205cef8(*(char**)(self + 0x3c));
+    func_0205cef8(*(char**)(self + 0x3c));
 
     char buf[0x200];
     char line[0x80];
     __clear(buf, 0x200);
     __clear(line, 0x80);
-    AppendFrameTag02041c08(buf, tag, 8, 5, 5, 5);
+    func_02041c08(buf, tag, 8, 5, 5, 5);
 
     if (flag) {
-        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 6));
+        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 6));
     } else {
-        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 5));
+        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 5));
     }
-    AppendString02042058(buf, line);
-    sprintf(line, data_ov003_0217eaac, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 7));
-    AppendString02042058(buf, line);
+    func_02042058(buf, line);
+    sprintf(line, data_ov003_0217eaac, func_020e0434((struct Container020e0310*)(self + 0xdc), 7));
+    func_02042058(buf, line);
     sprintf(line, data_ov003_0217eabf, data_ov003_0217ea6f);
-    AppendString02042058(buf, line);
+    func_02042058(buf, line);
 
     func_0205d304(*(char**)(self + 0x3c), buf, 0, 0, 0, 1, 0);
 
     window = *(char**)(self + 0x3c);
     *(int*)(window + 0x8) = 1;
     *(int*)(window + 0x58) = 1;
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)(window + 0x4), 1, 3, 0);
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)(window + 0x54), 1, 3, 0);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)(window + 0x4), 3);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)(window + 0x54), 3);
+    func_0205ba68((struct Struct_0205ba68*)(window + 0x4), 1, 3, 0);
+    func_0205ba68((struct Struct_0205ba68*)(window + 0x54), 1, 3, 0);
+    func_0205bacc((struct Node0205bacc*)(window + 0x4), 3);
+    func_0205bacc((struct Node0205bacc*)(window + 0x54), 3);
 }
 #else
 // USA: func_ov003_0216fc58
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
     if (window == 0) {
         return;
     }
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)window, 0, 1);
+    func_0205de24((struct Struct0205de24*)window, 0, 1);
 
     (*(char**)(self + 0x3c))[0xb1] = 0;
 
@@ -124,11 +124,11 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
 
     (*(char**)(self + 0x3c))[0xb5] = 1;
 
-    SetChannelAFlag0205cef8(*(char**)(self + 0x3c));
+    func_0205cef8(*(char**)(self + 0x3c));
 
     char buf[0x200];
     __clear(buf, 0x200);
-    AppendFrameTag02041c08(buf, tag, 8, 5, 5, 5);
+    func_02041c08(buf, tag, 8, 5, 5, 5);
 
     short w = func_ov003_0216df38(buf, (struct Container020e0310*)(self + 0xdc), flag);
 
@@ -145,12 +145,12 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
     window = *(char**)(self + 0x3c);
     *(int*)(window + 0x8) = 1;
     *(int*)(window + 0x58) = 1;
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)(window + 0x4), 1, 3, 0);
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)(window + 0x54), 1, 3, 0);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)(window + 0x4), 3);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)(window + 0x54), 3);
+    func_0205ba68((struct Struct_0205ba68*)(window + 0x4), 1, 3, 0);
+    func_0205ba68((struct Struct_0205ba68*)(window + 0x54), 1, 3, 0);
+    func_0205bacc((struct Node0205bacc*)(window + 0x4), 3);
+    func_0205bacc((struct Node0205bacc*)(window + 0x54), 3);
 
-    struct Elem0216fc58* elem = FindElementByC40205d81c(*(struct Struct_0205d81c**)(self + 0x3c), 0);
+    struct Elem0216fc58* elem = func_0205d81c(*(struct Struct_0205d81c**)(self + 0x3c), 0);
     if (elem == 0) {
         return;
     }
@@ -160,9 +160,9 @@ extern "C" ARM void func_ov003_0216fc58(char* self, int flag, int tag) {
     short id = 0x16;
     for (int i = 0; i < 3; i++, id++) {
         short x0, y0, x1, y1;
-        GetFourShortsAtIndex((struct ShortArrays0204c610*)elem, (short)i, &x0, &y0, &x1, &y1);
-        CreateAndSetFields46_021e2ca8(*(void**)(self + 0xd4), (void*)id, (short)(x0 + baseX), (short)(y0 + baseY));
-        CreateAndSetFields8A_021e2cc8(*(void**)(self + 0xd4), (void*)id, x1, y1);
+        func_0204c610((struct ShortArrays0204c610*)elem, (short)i, &x0, &y0, &x1, &y1);
+        func_ov023_021e2ca8(*(void**)(self + 0xd4), (void*)id, (short)(x0 + baseX), (short)(y0 + baseY));
+        func_ov023_021e2cc8(*(void**)(self + 0xd4), (void*)id, x1, y1);
     }
 }
 #endif

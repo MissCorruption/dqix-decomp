@@ -9,6 +9,6 @@ struct ActionState0201fbe0 {
     unsigned char pad[0xe];
 };
 
-void ClearActionState(ActionState0201fbe0 *state, int force);
+extern "C" void func_0201fbe0(ActionState0201fbe0 *state, int force);
 
 extern ActionState0201fbe0 data_020fdc60[4];

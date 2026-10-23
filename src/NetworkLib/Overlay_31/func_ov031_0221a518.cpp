@@ -37,9 +37,9 @@ extern "C" void func_ov031_022183b4(void*);
 extern "C" int func_ov031_02218604(void*, const char*, const void*, int);
 extern "C" int func_ov031_02217d1c(void*);
 extern "C" void func_ov031_02217db4(void*, int);
-int BuildAndApplyBuffer_022175dc(void*);
+extern "C" int func_ov031_022175dc(void*);
 bool IsContextInactive(ProcessorContext*);
-void SetGlobal0224e5a4IfNotNine_ov031_02211b08(int, int);
+extern "C" void func_ov031_02211b08(int, int);
 
 // USA: func_ov031_0221a518
 extern "C" ARM int func_ov031_0221a518(const void* value, void* work) {
@@ -57,30 +57,30 @@ extern "C" ARM int func_ov031_0221a518(const void* value, void* work) {
     else options.differentName = 0;
     options.timeout = 20000;
     if (func_ov031_02217c00(runtime->service, &options)) {
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -24100);
+        func_ov031_02211b08(9, -24100);
         return 0;
     }
     unsigned char buffer[0x94];
-    if (!BuildAndApplyBuffer_022175dc(buffer) || !func_ov031_022178b4(data_ov031_0224e69c->service, buffer, 0)) {
+    if (!func_ov031_022175dc(buffer) || !func_ov031_022178b4(data_ov031_0224e69c->service, buffer, 0)) {
         func_ov031_022183b4(data_ov031_0224e69c->service);
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -24100);
+        func_ov031_02211b08(9, -24100);
         return 0;
     }
     if (func_ov031_02218604(data_ov031_0224e69c->service, data_ov031_0224a284, data_ov031_0224a28c, 6) ||
         func_ov031_02218604(data_ov031_0224e69c->service, data_ov031_0224a294, value, 4)) {
         func_ov031_022183b4(data_ov031_0224e69c->service);
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -24100);
+        func_ov031_02211b08(9, -24100);
         return 0;
     }
     if (func_ov031_02217d1c(data_ov031_0224e69c->service)) {
         func_ov031_022183b4(data_ov031_0224e69c->service);
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -24100);
+        func_ov031_02211b08(9, -24100);
         return 0;
     }
     int priority = GetContextPriority(data_02111304.activeContext);
     func_ov031_02217db4(data_ov031_0224e69c->service, priority - 1);
     if (data_ov031_0224e69c->context.uniqueID) return 1;
     func_ov031_022183b4(data_ov031_0224e69c->service);
-    SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -24100);
+    func_ov031_02211b08(9, -24100);
     return 0;
 }

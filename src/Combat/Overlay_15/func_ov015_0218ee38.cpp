@@ -3,7 +3,7 @@
 #include "Combat/DistanceSort.h"
 
 struct Obj020577cc;
-ARM void SumNestedHalfwordPairs020577cc(struct Obj020577cc* obj, unsigned short* out1, unsigned short* out2);
+extern "C" ARM void func_020577cc(struct Obj020577cc* obj, unsigned short* out1, unsigned short* out2);
 extern "C" void _ZN8Object3D4DrawEb(void* p);
 
 // USA: func_ov015_0218ee38
@@ -11,7 +11,7 @@ extern "C" ARM void func_ov015_0218ee38(void* obj) {
     *(unsigned short*)((char*)obj + 0x34) = *(unsigned short*)((char*)obj + 0x36) = 0;
     if (*(int*)((char*)*(void**)((char*)obj + 0x28) + 0xc) != 0) {
         *(volatile unsigned int*)0x04000444 = 0;
-        ForwardField4To0205765c_0205578c((int*)*(void**)((char*)obj + 0x28));
+        func_0205578c((int*)*(void**)((char*)obj + 0x28));
         *(volatile unsigned int*)0x04000448 = 1;
         void* inner = *(void**)((char*)*(void**)((char*)obj + 0x28) + 4);
         if (inner == 0) {
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov015_0218ee38(void* obj) {
             *(unsigned short*)((char*)obj + 0x36) = 0;
             return;
         }
-        SumNestedHalfwordPairs020577cc((struct Obj020577cc*)inner, (unsigned short*)((char*)obj + 0x34), (unsigned short*)((char*)obj + 0x36));
+        func_020577cc((struct Obj020577cc*)inner, (unsigned short*)((char*)obj + 0x34), (unsigned short*)((char*)obj + 0x36));
         return;
     }
     *(volatile unsigned int*)0x04000444 = 0;

@@ -4,23 +4,23 @@
 #include "Resource/Brightness.h"
 
 struct GameResources;
-int GetGlobalField0x1c020421a0(void);
-void* GetDataPtr02114e04_020d6c00(void);
+extern "C" int func_020421a0(void);
+extern "C" void* func_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
 struct Obj020397cc;
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
 extern "C" void func_ov017_021afb8c(char* self, char* name);
 extern "C" void* __clear(void* dst, int count);
 extern "C" void func_02042764(char* name, void* buf, int flag);
 extern "C" void func_ov017_0218b5c0(int set, int bit);
-void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
-void ClearFlag658_0219aa5c(unsigned char* obj);
-int GetField4328_0218d268(void* obj);
+extern "C" void func_020daf9c(int a, int b, int c, int d);
+extern "C" void func_ov017_0219aa5c(unsigned char* obj);
+extern "C" int func_ov017_0218d268(void* obj);
 struct ThreeByteStruct;
-void ClearThreeBytes_020966cc(struct ThreeByteStruct* s);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020966cc(struct ThreeByteStruct* s);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
 
-// USA: func_ov017_021afcec  (semantic: InitCombatEntryAndDispatch_021afcec)
+// USA: func_ov017_021afcec
 extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x214};
@@ -29,8 +29,8 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
 #endif
     GameState* bs = GameState::GetInstance();
     GameResources* ov = GetGameResources();
-    unsigned char* g = (unsigned char*)GetGlobalField0x1c020421a0();
-    unsigned int* dataPtr = (unsigned int*)GetDataPtr02114e04_020d6c00();
+    unsigned char* g = (unsigned char*)func_020421a0();
+    unsigned int* dataPtr = (unsigned int*)func_020d6c00();
 
     if (obj[9] == 2) {
         func_ov017_021b6c78();
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
     if (obj[regionalOffset0] != 0) {
         GameObject* c = bs->GetUnknownGameObject();
         if (c != NULL) {
-            CancelPendingAction020397cc((struct Obj020397cc*)c, 0);
+            func_020397cc((struct Obj020397cc*)c, 0);
         }
     }
     if (obj[9] != 2) {
@@ -57,15 +57,15 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
     }
     SetFlags04(ov, 0x40);
     func_ov017_0218b5c0(0, -1);
-    DispatchWithGlobalContext020daf9c(1, 1, 0, 1);
+    func_020daf9c(1, 1, 0, 1);
 #if defined(jpn)
     g[0x17ff] |= 4;
 #else
     g[0x1000 + 0x9d0] = 1;
 #endif
 
-    ClearFlag658_0219aa5c((unsigned char*)ov);
-    ClearThreeBytes_020966cc((struct ThreeByteStruct*)GetField4328_0218d268(ov));
-    OrBitsIntoField0_020466e4(dataPtr, 0x40000);
+    func_ov017_0219aa5c((unsigned char*)ov);
+    func_020966cc((struct ThreeByteStruct*)func_ov017_0218d268(ov));
+    func_020466e4(dataPtr, 0x40000);
     return 1;
 }

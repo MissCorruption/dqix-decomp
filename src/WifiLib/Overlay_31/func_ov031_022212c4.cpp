@@ -10,7 +10,7 @@ extern "C" const unsigned int data_ov031_022460e8[10];
     (((unsigned int)(p)[0] << 24) ^ ((unsigned int)(p)[1] << 16) ^ \
      ((unsigned int)(p)[2] << 8) ^ ((unsigned int)(p)[3]))
 
-// USA: func_ov031_022212c4  (semantic: rijndaelKeySetupEnc)
+// USA: func_ov031_022212c4
 extern "C" THUMB int func_ov031_022212c4(unsigned int *rk, const unsigned char *cipherKey,
                                           int keyBits) {
     int i = 0;

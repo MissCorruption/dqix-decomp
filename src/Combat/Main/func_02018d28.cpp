@@ -18,12 +18,12 @@ extern char data_020ef242[];
 extern char data_020ef251[];
 extern char data_020ef260[];
 
-void BackupPairTableToBuffer_020bb700(int*);
-void RestorePairTableFromBuffer_020bb740(int*);
+extern "C" void func_020bb700(int*);
+extern "C" void func_020bb740(int*);
 extern "C" void __clear(void* buf, int len);
 extern "C" void* _ZN7Model3DC1Ev(void*);
 extern "C" void* _ZN7Model3DD1Ev(void*);
-void NotifyActiveSlots02018f30(unsigned char*);
+extern "C" void func_02018f30(unsigned char*);
 
 // USA: func_02018d28
 extern "C" ARM void func_02018d28(Zone3D* self, SafeAllocator* alloc, void* archive, unsigned int archiveLength) {
@@ -40,7 +40,7 @@ extern "C" ARM void func_02018d28(Zone3D* self, SafeAllocator* alloc, void* arch
     int* dst2;
     Model3D** p2;
 
-    BackupPairTableToBuffer_020bb700(backup);
+    func_020bb700(backup);
     _ZN7Model3DC1Ev(&localB);
     localB.Clear();
     sprintf(path, data_020ef22c, data_020ef233);
@@ -69,7 +69,7 @@ extern "C" ARM void func_02018d28(Zone3D* self, SafeAllocator* alloc, void* arch
     }
 
     alloc->Reset();
-    RestorePairTableFromBuffer_020bb740(backup);
+    func_020bb740(backup);
     sprintf(path, data_020ef22c, data_020ef251);
     if ((data = LoadFileIntoNewAllocation(path, *alloc, &size)) != 0) {
         self->models_498_[0].SetAndProcessRawFile(data, size, Model3D::TextureStagingMode_Normal);
@@ -93,7 +93,7 @@ extern "C" ARM void func_02018d28(Zone3D* self, SafeAllocator* alloc, void* arch
         dst2++;
     }
 
-    NotifyActiveSlots02018f30((unsigned char*)self);
+    func_02018f30((unsigned char*)self);
     _ZN7Model3DD1Ev(&localA);
     _ZN7Model3DD1Ev(&localB);
 }

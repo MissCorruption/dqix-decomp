@@ -60,16 +60,16 @@ extern struct Obj0205eaa0 data_02108760;
 extern const char* data_020f2a34;
 extern const char* data_020f2a2c;
 
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
-struct TableEntry0217f8c0* FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
-int CheckFlagsOrField_0217c5f4_0217c5f4(void*);
-void SetElementStateIfLess0217a9d0(int, int, int, Struct_0205d81c*);
-void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
-int HasAnyFlags_021719f8_021719f8(int*);
-int GetNthSetBit0218158c(void* menu, int index);
-void ZeroInit020de848(void* obj);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
+extern "C" struct TableEntry0217f8c0* func_ov000_0217f8c0(Struct0217f8c0*);
+extern "C" int func_ov000_0217c5f4(void*);
+extern "C" void func_ov000_0217a9d0(int, int, int, Struct_0205d81c*);
+extern "C" void func_0205def8(Struct_0205def8*, int, int);
+extern "C" int func_ov000_021719f8(int*);
+extern "C" int func_ov000_0218158c(void* menu, int index);
+extern "C" void func_020de848(void* obj);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
 extern "C" int func_020de9a4(void* list, void* alloc, void* data, unsigned int size, void* entries, unsigned short count);
 extern "C" int func_0207c984(void* party, int id, int bits, void* a, void* b);
@@ -83,7 +83,7 @@ extern "C" void func_ov000_0217c638(MenuState* menu, int arg1, int arg2);
 extern "C" ARM void func_ov000_0217d87c(MenuState* menu, int arg1, int arg2) {
     menu->flags |= 0x100;
     signed char prev = menu->activeSum;
-    int sum = GetActiveScaledSum0205d794((Struct_0205c570*)menu->elements);
+    int sum = func_0205d794((Struct_0205c570*)menu->elements);
     menu->activeSum = sum;
     int id = menu->members[menu->selection];
     if (prev != sum) {
@@ -92,20 +92,20 @@ extern "C" ARM void func_ov000_0217d87c(MenuState* menu, int arg1, int arg2) {
     if (func_ov000_0217c594(menu, 5) != 0) {
         menu->field956 = 0;
         GameState* gs = GameState::GetInstance();
-        unsigned char* party = (unsigned char*)GetPtrField0x2a04_02010828(gs);
-        int bits = GetNthSetBit0218158c(menu, menu->activeSum);
+        unsigned char* party = (unsigned char*)func_02010828(gs);
+        int bits = func_ov000_0218158c(menu, menu->activeSum);
         if (func_0207c984(party + 0x1d4, id, bits & 0xff, menu->field26, &menu->field66) != 0) {
             return;
         }
         menu->mode = 6;
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
         BackgroundLoader::AddLockGlobal();
 #if defined(jpn)
         ((SafeAllocator*)((char*)menu + 0x1bf8))->Reset();
 #else
         ((SafeAllocator*)((char*)menu + 0x1af8))->Reset();
 #endif
-        ZeroInit020de848((char*)menu + 0x100);
+        func_020de848((char*)menu + 0x100);
         unsigned int size;
 #if defined(jpn)
         void* data = func_020e08f0(0, &size);
@@ -123,27 +123,27 @@ extern "C" ARM void func_ov000_0217d87c(MenuState* menu, int arg1, int arg2) {
         menu->field1d6f = 0;
         menu->depth = menu->depth + 1;
         menu->modeStack[menu->depth] = 7;
-        func_ov000_02176634(menu, FindMatchingTableEntry0217f8c0((Struct0217f8c0*)menu), 7, arg1, arg2);
-        SetElementStateIfLess0217a9d0(7, menu->field66, 4, (Struct_0205d81c*)menu->elements);
-    } else if (CheckFlagsOrField_0217c5f4_0217c5f4(menu) != 0) {
+        func_ov000_02176634(menu, func_ov000_0217f8c0((Struct0217f8c0*)menu), 7, arg1, arg2);
+        func_ov000_0217a9d0(7, menu->field66, 4, (Struct_0205d81c*)menu->elements);
+    } else if (func_ov000_0217c5f4(menu) != 0) {
         menu->field956 = 0;
         ElemNode* node = func_ov000_02161318(menu, id);
         if (node == NULL) {
             return;
         }
-        if (HasAnyFlags_021719f8_021719f8((int*)node) != 0) {
+        if (func_ov000_021719f8((int*)node) != 0) {
             node->marks[node->markIndex] = 100;
             node->flags &= ~4;
         }
         GameState* gs = GameState::GetInstance();
-        unsigned char count = ((unsigned char*)GetPtrField0x2a04_02010828(gs))[0xf7c];
+        unsigned char count = ((unsigned char*)func_02010828(gs))[0xf7c];
         for (unsigned char i = 0; i < count; i++) {
             int memberId = menu->members[i];
             ElemNode* other = func_ov000_02161318(menu, memberId);
             if (other == NULL) {
                 continue;
             }
-            if (HasAnyFlags_021719f8_021719f8((int*)other) != 0) {
+            if (func_ov000_021719f8((int*)other) != 0) {
                 continue;
             }
             if (other->field87 != 0) {
@@ -152,12 +152,12 @@ extern "C" ARM void func_ov000_0217d87c(MenuState* menu, int arg1, int arg2) {
             }
         }
         func_ov000_02175258(menu);
-        ResetEntryList0205d6a0((Entry_0205d6a0*)menu->elements, 0);
+        func_0205d6a0((Entry_0205d6a0*)menu->elements, 0);
         menu->modeStack[menu->depth] = 0;
         menu->depth = menu->depth - 1;
         func_ov000_0217c638(menu, arg1, arg2);
-        SetElementFlag0x20ByKey0205def8((Struct_0205def8*)menu->elements, 1, 1);
-        SetElementFlag0x20ByKey0205def8((Struct_0205def8*)menu->elements, 1, 2);
-        SetElementFlag0x20ByKey0205def8((Struct_0205def8*)menu->elements, 1, 5);
+        func_0205def8((Struct_0205def8*)menu->elements, 1, 1);
+        func_0205def8((Struct_0205def8*)menu->elements, 1, 2);
+        func_0205def8((Struct_0205def8*)menu->elements, 1, 5);
     }
 }

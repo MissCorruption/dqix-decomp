@@ -5,11 +5,11 @@ extern "C" void func_ov023_021e6194(void* p);
 struct Words021e60c4 { unsigned int v[3]; };
 extern "C" void func_ov023_021e613c(Words021e60c4* dst, char* src);
 int fix32ReduceAngle0To2Pi(int angle);
-void InitWordsQuad_021e60e0(void* obj, unsigned int val);
-void SetFourWordBlocks_021e6088(void* obj, Words021e60c4* src);
+extern "C" void func_ov023_021e60e0(void* obj, unsigned int val);
+extern "C" void func_ov023_021e6088(void* obj, Words021e60c4* src);
 extern "C" int func_ov023_021e29d0(char* obj);
 
-// USA: func_ov023_021e463c  (semantic: UpdateOrientationOrCombatFlags_021e463c)
+// USA: func_ov023_021e463c
 extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
 #if defined(jpn)
  enum {regionalOffset0=0x124, regionalOffset1=0x56c};
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
             }
         }
         int normalized = fix32ReduceAngle0To2Pi(pos);
-        InitWordsQuad_021e60e0(*(void**)(obj + regionalOffset0), normalized);
+        func_ov023_021e60e0(*(void**)(obj + regionalOffset0), normalized);
         int diff = fix32ReduceAngle0To2Pi(0x1eb - pos);
         int absDiff = diff < 0 ? -diff : diff;
         if (absDiff < 0x28) {
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
         }
         if (within) {
             int n2 = fix32ReduceAngle0To2Pi(0x1eb);
-            InitWordsQuad_021e60e0(*(void**)(obj + regionalOffset0), n2);
+            func_ov023_021e60e0(*(void**)(obj + regionalOffset0), n2);
             *(unsigned short*)(obj + regionalOffset1) &= ~2;
         }
     } else if (flags & 1) {
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
                 s18.v[1] -= (int)((float)count * 0.08f * 4096.0f);
             }
             s18.v[1] = fix32ReduceAngle0To2Pi(s18.v[1]);
-            SetFourWordBlocks_021e6088(*(void**)(obj + regionalOffset0), &s18);
+            func_ov023_021e6088(*(void**)(obj + regionalOffset0), &s18);
         }
         if (flag5) {
             *(unsigned short*)(obj + regionalOffset1) |= 0x100;

@@ -1,0 +1,31 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+#include "Resource/Brightness.h"
+
+extern "C" unsigned char func_02039d7c(char* obj);
+
+// USA: func_0208ae00
+extern "C" ARM int func_0208ae00(char* obj, int combatantId) {
+    unsigned int* v5 = ((unsigned int*)GetGameResources());
+    GameState* battle = GameState::GetInstance();
+    GameObject* c1 = func_0200ff1c(battle, combatantId);
+    GameObject* c2 = func_0200ff1c(battle, combatantId);
+    if (c1 == NULL || (**(int**)((char*)c1 + 0x130) & 1)) {
+        return 0;
+    }
+    int* p2 = *(int**)((char*)c2 + 0x130);
+    if (!(*p2 & 2)) {
+        return 0;
+    }
+    if (TestFlags04((GameResources*)v5, 0x10) != 0) {
+        return 0;
+    }
+    if (*(int*)(obj + 0x1c) != 0) {
+        return 0;
+    }
+    GameObject* c3 = battle->GetUnknownGameObject();
+    if (*(short*)((char*)c3 + 0xb2) == 0) {
+        return 0;
+    }
+    return func_02039d7c((char*)c3) == 0 ? 1 : 0;
+}

@@ -4,9 +4,9 @@ struct Struct_0205bef8;
 struct Struct_0205ba68;
 struct Node0205bacc;
 
-void Init0205bef8(Struct_0205bef8* cursor);
-void SetupPointerTable0205ba68(Struct_0205ba68* s, int a, int b, int mode);
-void SetField0AndPropagate0205bacc(Node0205bacc* s, int val);
+extern "C" void func_0205bef8(Struct_0205bef8* cursor);
+extern "C" void func_0205ba68(Struct_0205ba68* s, int a, int b, int mode);
+extern "C" void func_0205bacc(Node0205bacc* s, int val);
 extern "C" void func_0205bb04(void* cursor, int index);
 
 struct Cursor02186964 {
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov008_02186964(Menu02186964* self) {
             }
         }
     }
-    Init0205bef8((Struct_0205bef8*)&self->cursor);
-    SetupPointerTable0205ba68((Struct_0205ba68*)&self->cursor, columns, count, 0);
-    SetField0AndPropagate0205bacc((Node0205bacc*)&self->cursor, visible);
+    func_0205bef8((Struct_0205bef8*)&self->cursor);
+    func_0205ba68((Struct_0205ba68*)&self->cursor, columns, count, 0);
+    func_0205bacc((Node0205bacc*)&self->cursor, visible);
     self->cursor.field4 = columns;
     func_0205bb04(&self->cursor, index);
 }

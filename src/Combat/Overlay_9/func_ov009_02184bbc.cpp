@@ -14,9 +14,9 @@ struct Cont0205d1e0;
 struct Cont0205d228;
 struct Cont0205d274;
 
-void ClearBuffers0204b010OverList0x98(Cont0205d1e0*);
-void CallFunc0204c8f0OverList0x9c(Cont0205d228*);
-void CallFunc0204b04cOverList0x98(Cont0205d274*);
+extern "C" void func_0205d1e0(Cont0205d1e0*);
+extern "C" void func_0205d228(Cont0205d228*);
+extern "C" void func_0205d274(Cont0205d274*);
 
 #if defined(jpn)
 extern "C" void func_ov023_021da274(CharacterCreationUI* obj);
@@ -59,12 +59,12 @@ extern "C" ARM void func_ov009_02184bbc(void* objRaw) {
 #endif
 
     if (*(signed char*)(obj + R(0xc1c, 0xc58)) != 0xa) {
-        ClearBuffers0204b010OverList0x98((Cont0205d1e0*)(obj + R(0x1bc, 0x1f8)));
-        CallFunc0204c8f0OverList0x9c((Cont0205d228*)(obj + R(0x1bc, 0x1f8)));
-        CallFunc0204b04cOverList0x98((Cont0205d274*)(obj + R(0x1bc, 0x1f8)));
+        func_0205d1e0((Cont0205d1e0*)(obj + R(0x1bc, 0x1f8)));
+        func_0205d228((Cont0205d228*)(obj + R(0x1bc, 0x1f8)));
+        func_0205d274((Cont0205d274*)(obj + R(0x1bc, 0x1f8)));
     }
 
-    ClearBuffers0204b010OverList0x98((Cont0205d1e0*)(obj + R(0x278, 0x2b4)));
-    CallFunc0204c8f0OverList0x9c((Cont0205d228*)(obj + R(0x278, 0x2b4)));
-    CallFunc0204b04cOverList0x98((Cont0205d274*)(obj + R(0x278, 0x2b4)));
+    func_0205d1e0((Cont0205d1e0*)(obj + R(0x278, 0x2b4)));
+    func_0205d228((Cont0205d228*)(obj + R(0x278, 0x2b4)));
+    func_0205d274((Cont0205d274*)(obj + R(0x278, 0x2b4)));
 }

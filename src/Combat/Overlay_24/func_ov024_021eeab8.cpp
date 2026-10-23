@@ -4,14 +4,14 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char* obj);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
+extern "C" int func_020882f8(unsigned char* obj);
 
 struct Obj_021eeab8 { int field0; };
 struct Buf8_021eeab8 { short v[8]; };
 extern struct Buf8_021eeab8 data_ov024_021feecc;
 
-// USA: func_ov024_021eeab8  (semantic: FilterActiveOrFallbackToAll_021eeab8)
+// USA: func_ov024_021eeab8
 extern "C" ARM int func_ov024_021eeab8(struct Obj_021eeab8* obj, int unused1, int unused2, int* outCount, short* outArray) {
     struct Buf8_021eeab8 buf = data_ov024_021feecc;
 
@@ -22,8 +22,8 @@ extern "C" ARM int func_ov024_021eeab8(struct Obj_021eeab8* obj, int unused1, in
     for (int i = 0; i < count; i++) {
         GameObject* c = GetCombatantByID(obj->field0, buf.v[i]);
         if (!c) continue;
-        if (IsCombatantFlagMask512_021eda60(c)) continue;
-        if (!CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)c->currentStats_)) continue;
+        if (func_ov024_021eda60(c)) continue;
+        if (!func_020882f8((unsigned char*)c->currentStats_)) continue;
         int idx = *outCount;
         *outCount = idx + 1;
         outArray[idx] = buf.v[i];

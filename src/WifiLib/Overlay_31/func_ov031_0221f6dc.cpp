@@ -30,7 +30,7 @@ extern unsigned char data_ov031_0224fb28[6];
 extern unsigned char data_ov031_02245fb0[8];
 extern unsigned char data_ov031_0224fb60[32];
 extern unsigned char data_ov031_02245fb8[32];
-int DispatchOnZeroPair_0220cdd4(int, int, int);
+extern "C" int func_ov031_0220cdd4(int, int, int);
 extern "C" int func_ov031_0221f630();
 
 // USA: func_ov031_0221f6dc
@@ -61,7 +61,7 @@ extern "C" THUMB int func_ov031_0221f6dc(unsigned char* address, unsigned char* 
         data_ov031_0224f670.payload = data_ov031_02245fb8;
     }
     if (data_ov031_0224f670.stage == APC_STATE_IDLE) {
-        if (DispatchOnZeroPair_0220cdd4(
+        if (func_ov031_0220cdd4(
                 (int)data_ov031_0224fb28, (int)data_ov031_0224f670.payload,
                 data_ov031_0224f670.options) == 3) {
             data_ov031_0224f670.stage = APC_STATE_TO_SEARCH;

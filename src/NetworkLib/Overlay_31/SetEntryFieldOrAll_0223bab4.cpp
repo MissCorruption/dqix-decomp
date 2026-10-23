@@ -11,7 +11,7 @@ struct Table0223bab4 {
     unsigned char count;
 };
 
-// USA: func_ov031_0223bab4  (semantic: SetEntryFieldOrAll_0223bab4)
+// USA: func_ov031_0223bab4
 extern "C" ARM void func_ov031_0223bab4(void* obj, int idx, int value, int flag) {
     Table0223bab4* table = (Table0223bab4*)obj;
     Entry0223bab4* arr = table->entries;

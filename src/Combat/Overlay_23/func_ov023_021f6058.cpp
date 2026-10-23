@@ -3,9 +3,9 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-unsigned long long ComputeModHash_021f6324(int count, unsigned char* ptr);
+extern "C" unsigned long long func_ov023_021f6324(int count, unsigned char* ptr);
 extern "C" void func_ov031_022118a8(void* ctx, unsigned char* key, int keylen);
-extern "C" void Rc4Crypt_02211938(unsigned char* ctx, const unsigned char* in, int len, unsigned char* out);
+extern "C" void func_ov031_02211938(unsigned char* ctx, const unsigned char* in, int len, unsigned char* out);
 extern unsigned char data_ov023_021fe3c8[];
 
 struct ResetStruct;
@@ -31,14 +31,14 @@ extern "C" ARM int func_ov023_021f6058(unsigned char* buf, int len, unsigned cha
  enum {regionalOffset0=0x5e6c, regionalOffset1=0x6380};
 #endif
     char local[0x430];
-    if (ComputeModHash_021f6324(len, buf) != 0) {
+    if (func_ov023_021f6324(len, buf) != 0) {
         return 0;
     }
     char ctx[0x104];
     char* key = (char*)data_ov023_021fe3c8;
     int keylen = strlen(key);
     func_ov031_022118a8(ctx, (unsigned char*)key, keylen);
-    Rc4Crypt_02211938((unsigned char*)ctx, buf, len - 4, out);
+    func_ov031_02211938((unsigned char*)ctx, buf, len - 4, out);
     char* bs = (char*)GameState::GetInstance();
     Downloaded_021f6058* d = (Downloaded_021f6058*)(bs + regionalOffset0);
     buf = (unsigned char*)bs + regionalOffset1;

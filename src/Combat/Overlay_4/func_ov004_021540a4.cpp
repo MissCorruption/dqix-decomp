@@ -7,11 +7,11 @@ extern "C" void* func_ov023_021f6880(void*, int);
 #if defined(jpn)
 extern "C" int func_ov023_021f6f10(void* self);
 #else
-int ScaleStatsIfType12_021f6f10(void* self);
+extern "C" int func_ov024_021f6f10(void* self);
 #endif
 extern "C" int func_ov023_021e1de8(void* obj, int value, int id, int idx);
 extern "C" void func_ov023_021f65d4(void* obj, int id, int mask);
-void ClearNodeMaskById_021f6600(void* obj, int id, int mask);
+extern "C" void func_ov023_021f6600(void* obj, int id, int mask);
 
 class VObj021540a4 {
 public:
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov004_021540a4(void* a) {
 #if defined(jpn)
     if (func_ov023_021f6f10(n) != 0x12) return 0;
 #else
-    if (ScaleStatsIfType12_021f6f10(n) != 0x12) return 0;
+    if (func_ov024_021f6f10(n) != 0x12) return 0;
 #endif
 
     void* result = ((VObj021540a4*)n)->Methodec();
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov004_021540a4(void* a) {
 
     if (ret == 0) {
         func_ov023_021f65d4(a, 0xa, 8);
-        ClearNodeMaskById_021f6600(a, 3, 4);
+        func_ov023_021f6600(a, 3, 4);
         for (unsigned short id = 0x1a, i = 0; i < 0x10; id++, i++) {
             void* b2 = func_ov011_021849c8(a);
             void* node = func_ov023_021f6880(b2, id);
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov004_021540a4(void* a) {
         void* node2 = func_ov023_021f6880(b3, 0x3a);
         if (node2) *((unsigned char*)node2 + 0xc) &= ~8;
     } else {
-        ClearNodeMaskById_021f6600(a, 0xa, 8);
+        func_ov023_021f6600(a, 0xa, 8);
         func_ov023_021f65d4(a, 0x3a, 8);
     }
 
@@ -75,7 +75,7 @@ extern "C" ARM int func_ov004_021540a4(void* a) {
 #if defined(jpn)
     if (func_ov023_021f6f10(n2) != 7) return 0;
 #else
-    if (ScaleStatsIfType12_021f6f10(n2) != 7) return 0;
+    if (func_ov024_021f6f10(n2) != 7) return 0;
 #endif
     *(short*)((char*)n2 + 0x5c) = 0;
     *(short*)((char*)n2 + 0x5e) = r4val;

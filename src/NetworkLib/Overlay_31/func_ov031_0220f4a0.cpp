@@ -1,0 +1,9 @@
+#include <globaldefs.h>
+#include "NitroSDK/ProcessorContext.h"
+
+extern void* data_ov031_0224e580;
+
+// USA: func_ov031_0220f4a0
+extern "C" ARM void func_ov031_0220f4a0(void) {
+	MarkContextReadyAndSwitch((ProcessorContext*)((char*)data_ov031_0224e580 + 0x34));
+}

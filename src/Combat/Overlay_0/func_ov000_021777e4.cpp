@@ -46,24 +46,24 @@ struct Menu_021777e4 {
     unsigned char choices[8];
 };
 
-int IsField0x118Equal2_ov000_0217542c(void* obj);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-MemberInfo_021777e4* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" int func_ov000_0217542c(void* obj);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" MemberInfo_021777e4* func_02053c6c(unsigned char* obj);
 extern "C" void __clear(void* dst, int size);
 extern "C" int func_ov000_02170c7c(MenuEntry_021777e4* entry);
-int FormatCombatLogSuffix02041dd0(char* dst, int value);
+extern "C" int func_02041dd0(char* dst, int value);
 #if defined(jpn)
 extern "C" void func_0203bdf4(char* slot, char* out);
-#define _Z25InvokeGlobalEntry0203c248Pci func_0203bdf4
+#define func_0203c248 func_0203bdf4
 #else
-extern "C" void _Z25InvokeGlobalEntry0203c248Pci(char* slot, char* out);
+extern "C" void func_0203c248(char* slot, char* out);
 #endif
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
-int AppendXTag_02041a28(char* dst, int x);
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendString02042058(char* dst, const char* src);
-const char* CallFunc020e0434With02153694_020e51cc(int key);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02041a28(char* dst, int x);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" const char* func_020e51cc(int key);
 #if defined(jpn)
 extern char data_ov000_02185160[];
 #endif
@@ -96,12 +96,12 @@ extern "C" ARM void func_ov000_021777e4(Menu_021777e4* menu, char* dst) {
     cursor = menu->cursor;
     n = 0;
 
-    if (IsField0x118Equal2_ov000_0217542c(menu)) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    if (func_ov000_0217542c(menu)) {
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
 
-    party = (PartyInfo_021777e4*)GetPtrField0x2a04_02010828(gs);
+    party = (PartyInfo_021777e4*)func_02010828(gs);
     for (i = 0; i < party->memberCount; i++) {
         entry = &menu->entries[menu->order[i]];
         member = entry->memberIndex;
@@ -110,24 +110,24 @@ extern "C" ARM void func_ov000_021777e4(Menu_021777e4* menu, char* dst) {
 
         obj = gs->GetPartyMemberByIndex(member);
         if (obj == NULL) return;
-        info = GetFieldAt0x150_02053c6c((unsigned char*)obj);
+        info = func_02053c6c((unsigned char*)obj);
         __clear(name, sizeof(name));
         vocation = info->vocation;
 
-        FormatCombatLogSuffix02041dd0(dst, func_ov000_02170c7c(entry));
-        _Z25InvokeGlobalEntry0203c248Pci(entry->nameSlot, name);
-        AppendNameTag_02041b70(dst, n, name);
-        AppendXTag_02041a28(dst, 0x4e);
-        FormatCombatLogSuffix02041dd0(dst, 0);
-        AppendString02042058(dst, GetFieldByKey020e0434((struct Container020e0310*)menu->strings, (short)(vocation + 0x753e)));
-        AppendString02042058(dst, GetFieldByKey020e0434((struct Container020e0310*)menu->strings, 0));
+        func_02041dd0(dst, func_ov000_02170c7c(entry));
+        func_0203c248(entry->nameSlot, name);
+        func_02041b70(dst, n, name);
+        func_02041a28(dst, 0x4e);
+        func_02041dd0(dst, 0);
+        func_02042058(dst, func_020e0434((struct Container020e0310*)menu->strings, (short)(vocation + 0x753e)));
+        func_02042058(dst, func_020e0434((struct Container020e0310*)menu->strings, 0));
         menu->choices[n] = member;
         n++;
     }
     menu->choices[n] = 4;
 #if defined(jpn)
-    AppendNameTag_02041b70(dst, n, data_ov000_02185160);
+    func_02041b70(dst, n, data_ov000_02185160);
 #else
-    AppendNameTag_02041b70(dst, n, CallFunc020e0434With02153694_020e51cc(0x1a));
+    func_02041b70(dst, n, func_020e51cc(0x1a));
 #endif
 }

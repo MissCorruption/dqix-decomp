@@ -35,10 +35,10 @@ struct EquipmentMenu {
 extern int data_02108760;
 
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
-MemberScreen* GetField1c_021a193c(int* p);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
 extern "C" int func_0205bf58(void* cursor, int ticks);
-int ComputeScaledSum0205bb84(Struct_0205bb84* s);
+extern "C" int func_0205bb84(Struct_0205bb84* s);
 extern "C" void func_ov005_0215742c(EquipmentMenu* self);
 extern "C" void func_ov005_0215751c(EquipmentMenu* self);
 extern "C" void func_ov005_0215771c(EquipmentMenu* self);
@@ -47,9 +47,9 @@ extern "C" void func_ov005_0215771c(EquipmentMenu* self);
 extern "C" ARM void func_ov005_0215730c(EquipmentMenu* self) {
     if (g_keyManager.TestKeysPressed(2)) {
         func_ov005_0215792c(self, 1);
-        MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         screen->flags_ |= 0x800;
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1b, 0);
+        func_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1b, 0);
         return;
     }
     if (g_keyManager.TestKeysPressed(4)) {
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov005_0215730c(EquipmentMenu* self) {
     if (ticks == 0)
         ticks = 1;
     func_0205bf58(self->cursor_, ticks);
-    ComputeScaledSum0205bb84((Struct_0205bb84*)self->cursor_);
+    func_0205bb84((Struct_0205bb84*)self->cursor_);
     switch (self->state_) {
     case 2:
         func_ov005_0215742c(self);

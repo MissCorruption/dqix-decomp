@@ -10,8 +10,7 @@
 extern "C"
 {
 
-unsigned int _Z27GetField0x3acValue_020100a8P9GameState(GameState*);
-char* _Z34GetCombatantWithFlag0x100_0200ff1cP9GameStatei(GameState*, unsigned int);
+unsigned int func_020100a8(GameState*);
 
 void* func_02012fe4();
 }
@@ -21,7 +20,7 @@ void* func_02012fe4();
 unsigned short GenerateNewMapQuality()
 {
     GameState* gameState = GameState::GetInstance();
-    char* maybeMainCharDataPtr = _Z34GetCombatantWithFlag0x100_0200ff1cP9GameStatei(gameState, _Z27GetField0x3acValue_020100a8P9GameState(gameState));
+    char* maybeMainCharDataPtr = (char*)func_0200ff1c(gameState, func_020100a8(gameState));
     (void)func_02012fe4();
     GrottoStruct* grotto = gameState->GetGrottoStruct();
 

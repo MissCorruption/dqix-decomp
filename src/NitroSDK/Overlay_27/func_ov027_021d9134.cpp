@@ -66,7 +66,7 @@ extern unsigned int data_ov027_021dd920 __attribute__((aligned(32)));
 
 extern "C" RequestData021d9134* func_ov027_021dd6bc(void* src, BlockHeader021d9134* out, unsigned int id);
 extern "C" unsigned short func_ov027_021d9dd8(unsigned short cur, unsigned short arg);
-void SetEntryCallbackAndDispatch_021d8c20(int id, int event, int param);
+extern "C" void func_ov027_021d8c20(int id, int event, int param);
 
 // USA: func_ov027_021d9134
 extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
                                      sizeof(UserInfo021d9134));
 
             data_ov027_021e33ec->childUser[id - 1].playerNo = id;
-            SetEntryCallbackAndDispatch_021d8c20(id, 0xa, (int)&req_data.userinfo);
+            func_ov027_021d8c20(id, 0xa, (int)&req_data.userinfo);
         }
 
         if (state == 0xa) {
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
 
                 if (entry_num >= data_ov027_021e33ec->fileinfo[fileid].game_reg->maxPlayerNum) {
                     data_ov027_021e33ec->req2child[id - 1] = 0;
-                    SetEntryCallbackAndDispatch_021d8c20(id, 0xb, 0);
+                    func_ov027_021d8c20(id, 0xb, 0);
                     break;
                 }
             }
@@ -134,12 +134,12 @@ extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
                     data_ov027_021e33ec->fileinfo[fileid].gameinfo_changed_bmp |= 1 << id;
 
                     data_ov027_021e33ec->req2child[id - 1] = 0;
-                    SetEntryCallbackAndDispatch_021d8c20(id, 5, 0);
+                    func_ov027_021d8c20(id, 5, 0);
                 }
                 break;
             case 4:
                 data_ov027_021e33ec->req2child[id - 1] = 0;
-                SetEntryCallbackAndDispatch_021d8c20(id, 4, 0);
+                func_ov027_021d8c20(id, 4, 0);
                 break;
             }
         }
@@ -147,14 +147,14 @@ extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
     }
     case 8:
         if (state == 5) {
-            SetEntryCallbackAndDispatch_021d8c20(id, 0xe, 0);
+            func_ov027_021d8c20(id, 0xe, 0);
         } else if (state == 0xe) {
             if (data_ov027_021e33ec->req2child[id - 1] == 2) {
                 unsigned char fid = (unsigned char)data_ov027_021e33ec->fileid_of_child[id - 1];
                 data_ov027_021e33ec->fileinfo[fid].pollbmp |= (1 << id);
                 data_ov027_021e33ec->fileinfo[fid].currentb = 0;
                 data_ov027_021e33ec->req2child[id - 1] = 0;
-                SetEntryCallbackAndDispatch_021d8c20(id, 6, 0);
+                func_ov027_021d8c20(id, 6, 0);
             }
         }
         break;
@@ -181,11 +181,11 @@ extern "C" ARM void func_ov027_021d9134(void* obj, unsigned int id) {
 
             data_ov027_021e33ec->fileinfo[fileid].pollbmp &= ~(1 << id);
 
-            SetEntryCallbackAndDispatch_021d8c20(id, 7, 0);
+            func_ov027_021d8c20(id, 7, 0);
         } else if (state == 7) {
             if (data_ov027_021e33ec->req2child[id - 1] == 5) {
                 data_ov027_021e33ec->req2child[id - 1] = 0;
-                SetEntryCallbackAndDispatch_021d8c20(id, 8, 0);
+                func_ov027_021d8c20(id, 8, 0);
                 break;
             }
         }

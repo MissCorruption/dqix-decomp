@@ -126,23 +126,23 @@ extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int a, int b, int c, 
 extern "C" void func_ov008_0218b240(void* self);
 extern "C" void func_ov008_0218aa24(void* self);
 
-char* GetWord0x0_0200fb8c(int* gameState);
-int IsField0Null_02046b08(void** field);
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int* field, unsigned int bits);
-MessageSystem* GetGlobalField0x1c020421a0();
-PartyMemberData* GetFieldAt0x150_02053c6c(unsigned char* member);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* background, int);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
-void DispatchViaTable0204b5e8(Obj0204b5e8* background, int, int);
-void FlushAndDispatchList0204b0e8(List0204b0e8* background, void*);
-void AllocateBuffer0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
-void Init0205a198(Struct0205a198* sprite);
-void ClearField0And40205a234(ClearTarget0205a234* list);
-void InitStruct0205a444(char* renderer);
-int CountActiveEntries(ActiveEntry02046900* archive);
-void* FindRecordByIndex(Rec020467f0* archive, int index, void** name, int* size);
+extern "C" char* func_0200fb8c(int* gameState);
+extern "C" int func_02046b08(void** field);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
+extern "C" MessageSystem* func_020421a0();
+extern "C" PartyMemberData* func_02053c6c(unsigned char* member);
+extern "C" void func_0204b11c(unsigned char* background, int);
+extern "C" void func_0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
+extern "C" void func_0204b5e8(Obj0204b5e8* background, int, int);
+extern "C" void func_0204b0e8(List0204b0e8* background, void*);
+extern "C" void func_0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
+extern "C" void func_0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
+extern "C" void func_0205a198(Struct0205a198* sprite);
+extern "C" void func_0205a234(ClearTarget0205a234* list);
+extern "C" void func_0205a444(char* renderer);
+extern "C" int func_02046900(ActiveEntry02046900* archive);
+extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
 
 extern char data_ov008_0218b4c8[];
 extern char data_ov008_0218b4df[];
@@ -217,13 +217,13 @@ struct VisitorTalk
 extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
 {
     GameState* gameState = GameState::GetInstance();
-    char* resources = GetWord0x0_0200fb8c((int*)gameState);
+    char* resources = func_0200fb8c((int*)gameState);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GetGlobal02109400_02094a00();
+    func_02094a00();
     signed char step = self->step_;
     if (step == 0)
     {
-        if (!IsField0Null_02046b08(*(void***)(resources
+        if (!func_02046b08(*(void***)(resources
 #if defined(jpn)
             + 0x34f0)))
 #else
@@ -231,9 +231,9 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
 #endif
             return;
         SetFlags00(GetGameResources(), 0x10);
-        OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0xd);
+        func_020466e4(func_020d6c00(), 0xd);
         unsigned int female;
-        self->text_ = (char*)GetGlobalField0x1c020421a0()->unk_5c;
+        self->text_ = (char*)func_020421a0()->unk_5c;
         female = 0;
         GuestData* guest = self->guest_;
         if (guest == NULL)
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
                 func_ov008_0218b240(self);
                 return;
             }
-            PartyMemberData* data = GetFieldAt0x150_02053c6c((unsigned char*)member);
+            PartyMemberData* data = func_02053c6c((unsigned char*)member);
             if (data != NULL)
                 female = data->female_;
         }
@@ -304,12 +304,12 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             for (int i = 0; i < 2; i++)
             {
                 background = &self->backgrounds_[i];
-                SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+                func_0204b11c((unsigned char*)background, 0);
                 background->unk_1c_0_ = 0;
                 background->unk_1c_4_ = layers[i];
                 func_0204b5b4(background, priorities[i]);
-                AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocator_);
-                DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+                func_0204b12c((AllocTarget0204b12c*)background, &self->allocator_);
+                func_0204b5e8((Obj0204b5e8*)background, 0, 0);
             }
             REG_BG1CNT = (REG_BG1CNT & 0x43) | 0x1d00;
             REG_BG2CNT = (REG_BG2CNT & 0x43) | 0x1e00;
@@ -325,11 +325,11 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             void* archive;
             unsigned int archiveSize;
             loader->GetLoadedFileByID(self->backgroundTask_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             for (int i = 0; i < count; i++)
             {
                 unsigned int size;
-                void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, (int*)&size);
+                void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, (int*)&size);
                 if (file != NULL)
                     func_0204b174(&self->backgrounds_[1], file, &self->allocator_, size);
             }
@@ -340,22 +340,22 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             {
                 background = &self->backgrounds_[i];
                 func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-                FlushAndDispatchList0204b0e8((List0204b0e8*)background, 0);
+                func_0204b0e8((List0204b0e8*)background, 0);
             }
             self->pixels_ = self->allocator_.Allocate(0x800);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->canvas_, &self->allocator_, (int)self->pixels_, 0x100);
+            func_0204c7a8((Obj0204c7a8*)&self->canvas_, &self->allocator_, (int)self->pixels_, 0x100);
             self->canvas_.background_ = &self->backgrounds_[1];
             self->window_.background_ = &self->backgrounds_[0];
             self->window_.unk_b2 = 2;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)&self->window_, (Elem_0205cf78*)&self->canvas_, 1);
+            func_0205cf78((Struct_0205cf78*)&self->window_, (Elem_0205cf78*)&self->canvas_, 1);
             for (unsigned char i = 0; i < 8; i++)
             {
                 int offset = i * sizeof(Sprite);
-                Init0205a198((Struct0205a198*)((char*)self->sprites_ + offset));
+                func_0205a198((Struct0205a198*)((char*)self->sprites_ + offset));
                 ((Sprite*)((char*)self->sprites_ + offset))->unk_22 = i + 4;
             }
-            ClearField0And40205a234((ClearTarget0205a234*)self->animations_);
-            InitStruct0205a444((char*)self->renderer_);
+            func_0205a234((ClearTarget0205a234*)self->animations_);
+            func_0205a444((char*)self->renderer_);
             self->renderer_->unk_50 = 0;
             SpriteRenderer* renderer = self->renderer_;
             renderer->SetSprites(self->sprites_, 8);
@@ -371,12 +371,12 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             void* archive;
             unsigned int archiveSize;
             loader->GetLoadedFileByID(self->spriteTask_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             self->spriteAllocator_.Reset();
             for (int i = 0; i < count; i++)
             {
                 unsigned int size;
-                func_0205a528(self->renderer_, FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, (int*)&size), size, &self->spriteAllocator_);
+                func_0205a528(self->renderer_, func_020467f0((Rec020467f0*)archive, i, (void**)name, (int*)&size), size, &self->spriteAllocator_);
             }
             loader->RemoveTask(self->spriteTask_);
             self->spriteTask_ = -1;
@@ -385,13 +385,13 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             REG_BG2CNT = REG_BG2CNT & ~3;
             REG_BG3CNT = (REG_BG3CNT & ~3) | 3;
             REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | 0x1700;
-            BlankFunction02094b34(GetGlobal02109400_02094a00(), 0x6b, 0x206, 0, 0);
+            func_02094b34(func_02094a00(), 0x6b, 0x206, 0, 0);
             self->step_++;
         }
     }
     else if (step == 5)
     {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
+        if (func_02094b4c(func_02094a00()))
         {
             func_ov008_0218aa24(self);
 #if defined(jpn)

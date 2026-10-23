@@ -6,7 +6,7 @@ extern "C" void LoadToTextureImage(void* ptr, int a, int b);
 extern "C" void MemoryUnmapTextureImage(void);
 extern "C" int LoadToMainObjVRAM(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubObjVRAM(int, int, unsigned int);
-void SetIntArrayElement020b0334(int* arr, int index, int value);
+extern "C" void func_020b0334(int* arr, int index, int value);
 
 struct LocalRes020b0368 {
     unsigned short f0;
@@ -93,5 +93,5 @@ extern "C" ARM void func_020b0368(int local, int val44, int tier, void* objPtr) 
     out->f0x18 = 0;
     out->f0x1c = 1;
     out->f0x20 = res->f8;
-    SetIntArrayElement020b0334((int*)out, tier, val44);
+    func_020b0334((int*)out, tier, val44);
 }

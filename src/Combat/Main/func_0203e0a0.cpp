@@ -59,7 +59,7 @@ extern "C" ARM void func_0203e0a0(void *receiver, unsigned short id) {
             short value = 0;
             if (((unsigned char*)entry->child14) != NULL) {
                 position = *(Vector3i *) (((unsigned char*)entry->child14) + 4);
-                value    = (short) GetField0x60(((StructF0x60_0203cdd0*)entry->child14));
+                value    = (short) func_0203cdd0(((StructF0x60_0203cdd0*)entry->child14));
             } else if (((unsigned char*)entry->child18) != NULL) {
                 position = *(Vector3i *) (((unsigned char*)entry->child18) + 0x44);
                 value    = (short) *(int *) (((unsigned char*)entry->child18) + 0x54);
@@ -74,13 +74,13 @@ extern "C" ARM void func_0203e0a0(void *receiver, unsigned short id) {
             snapshot->y         = (short) (y >> 4);
             snapshot->z         = (short) (z >> 4);
             snapshot->value     = value;
-            unsigned short *key = (unsigned short *) GetField0x8_02040528(&entry->flags);
+            unsigned short *key = (unsigned short *) func_02040528(&entry->flags);
             if (key != NULL) {
                 snapshot->key = *key;
             }
             snapshot->disabled     = (entry->flags & 0x8000) != 0;
             snapshot->nodeCount    = 0;
-            SnapshotInfoView *info = (SnapshotInfoView *) GetField0xc02040538((S02040538 *) entry);
+            SnapshotInfoView *info = (SnapshotInfoView *) func_02040538((S02040538 *) entry);
             if (info != NULL) {
                 SnapshotNodeView *node = info->first;
                 while (node != NULL) {

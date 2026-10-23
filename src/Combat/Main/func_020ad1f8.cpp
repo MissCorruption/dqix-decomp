@@ -6,9 +6,9 @@
 extern "C" void func_0202ae18();
 extern "C" void func_0201bd04(void* obj, int a, int b);
 extern "C" void func_0201bd3c(void* obj, int a, int b);
-int GetField5cb0Value_0201079c(char* obj);
+extern "C" int func_0201079c(char* obj);
 struct Fields020407b4;
-void SetFields0x44(struct Fields020407b4* obj, int a, int b, int c);
+extern "C" void func_020407b4(struct Fields020407b4* obj, int a, int b, int c);
 
 struct Sub020ad1f8 {
 #if defined(jpn)
@@ -47,7 +47,7 @@ extern "C" ARM void func_020ad1f8(struct Obj020ad1f8* obj) {
         func_0201bd3c(obj, 6, 0);
         func_0201bd04(obj, 5, 0);
         if (pos.x < -0xc400 && pos.z < -0xf4cc) {
-            SetFields0x44((struct Fields020407b4*)unk, -0xc4cc, 0x42b8, -0xe385);
+            func_020407b4((struct Fields020407b4*)unk, -0xc4cc, 0x42b8, -0xe385);
         }
         return;
     } else if (obj->field0 == 0x10cd) {
@@ -61,11 +61,11 @@ extern "C" ARM void func_020ad1f8(struct Obj020ad1f8* obj) {
         func_0201bd3c(obj, 1, 0);
         func_0201bd04(obj, 0xa, 0);
         if (pos.x > -0xa66 && pos.x < 0x999 && pos.z > 0x2999) {
-            SetFields0x44((struct Fields020407b4*)unk, 0, -0x5ccc, 0x2000);
+            func_020407b4((struct Fields020407b4*)unk, 0, -0x5ccc, 0x2000);
         }
         return;
     } else if (obj->field0 == 0x1130) {
-        int v = GetField5cb0Value_0201079c((char*)battle);
+        int v = func_0201079c((char*)battle);
         if (obj->sub.state == 5 || v >= 0x13) {
             func_0201bd04(obj, 0x17, 0);
             func_0201bd04(obj, 1, 0);
@@ -76,7 +76,7 @@ extern "C" ARM void func_020ad1f8(struct Obj020ad1f8* obj) {
         func_0201bd3c(obj, 1, 0);
         func_0201bd04(obj, 0x19, 0);
         if (pos.x > -0x2800 && pos.x < -0x1333 && pos.z > 0x2800) {
-            SetFields0x44((struct Fields020407b4*)unk, -0x1e66, -0x5ccc, 0x1ccc);
+            func_020407b4((struct Fields020407b4*)unk, -0x1e66, -0x5ccc, 0x1ccc);
         }
     }
 }

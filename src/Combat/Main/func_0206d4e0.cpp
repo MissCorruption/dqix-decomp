@@ -16,9 +16,9 @@ struct Vector3i;
 struct GameState;
 
 extern "C" char* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-int TestBitWithBias0206eb98(unsigned char*, int);
-void UnlinkNodeByByteId0206dd68(void*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206eb98(unsigned char*, int);
+extern "C" void func_0206dd68(void*, int);
 
 struct Data02108cec {
     unsigned char pad0[0xa];
@@ -51,12 +51,12 @@ extern "C" ARM int func_0206d4e0(void* param0, int param1) {
         second = ((Script::Parameter*)next)->ToInt();
         int mode = packed >> 16;
         if (mode == 1) {
-            int hit = TestBitInByteArray_0206dfb0((int)ctx, (unsigned char*)(ctx + 0x8c), (unsigned short)packed);
+            int hit = func_0206dfb0((int)ctx, (unsigned char*)(ctx + 0x8c), (unsigned short)packed);
             if ((second != 0 && hit == 0) || (second == 0 && hit != 0)) {
                 return 1;
             }
         } else if (mode == 2) {
-            int hit = TestBitWithBias0206eb98((unsigned char*)ctx, (unsigned short)packed);
+            int hit = func_0206eb98((unsigned char*)ctx, (unsigned short)packed);
             if ((second != 0 && hit == 0) || (second == 0 && hit != 0)) {
                 return 1;
             }
@@ -80,7 +80,7 @@ extern "C" ARM int func_0206d4e0(void* param0, int param1) {
     int a = ((Script::Parameter*)((struct Variant02030b0c*)((char*)arg + 8)))->ToInt();
     int b = ((Script::Parameter*)((struct Variant02030b0c*)((char*)arg + 0x10)))->ToInt();
     if (a != data_02108cec.field0xc) {
-        UnlinkNodeByByteId0206dd68(data_02108cec.field0x10, b);
+        func_0206dd68(data_02108cec.field0x10, b);
         return 1;
     }
 
@@ -88,12 +88,12 @@ extern "C" ARM int func_0206d4e0(void* param0, int param1) {
     if (rec == 0) {
         return 0;
     }
-    ClearWorkRecord0206bf2c(rec);
+    func_0206bf2c(rec);
     rec->field2 = (unsigned short)a;
     int rem = param1 - half * 2 - even;
     rec->field0 = (unsigned char)b;
     if (rem < 4) {
-        UnlinkNodeByByteId0206dd68(data_02108cec.field0x10, rec->field0);
+        func_0206dd68(data_02108cec.field0x10, rec->field0);
         return 1;
     }
 

@@ -7,46 +7,46 @@
 struct OffsetTable02072e34 {
     int v[11];
 };
-void BuildOffsetTable02072e34(int n, struct OffsetTable02072e34* out);
+extern "C" void func_02072e34(int n, struct OffsetTable02072e34* out);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
-void ApplyCombatantEffectByIndex020730e0(int id, int index);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
+extern "C" void func_020730e0(int id, int index);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
-int GetField6b0_021b8470(void* obj);
+extern "C" int func_ov017_021b8470(void* obj);
 extern "C" unsigned char* func_ov017_021b8478(void* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
 
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 struct StreamHeader;
-void RunOverlayScript0216d1c4(int arg0, struct StreamHeader* buffer, int length, int* out);
+extern "C" void func_ov000_0216d1c4(int arg0, struct StreamHeader* buffer, int length, int* out);
 
 struct Obj02053cf8;
 extern "C" void func_02053cf8(struct Obj02053cf8* obj);
 struct Obj02053e10;
-void FillNameBytes02053e10(struct Obj02053e10* self);
+extern "C" void func_02053e10(struct Obj02053e10* self);
 extern "C" void func_ov017_021917f0(int id, int flag);
-void SetBit02026bc8(unsigned char* obj, int index);
+extern "C" void func_02026bc8(unsigned char* obj, int index);
 struct Bytes02033b88;
-int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
+extern "C" int func_02033b88(struct Bytes02033b88* p, int val);
 struct SearchStruct;
 extern "C" struct SearchStruct* func_0202ae18(void);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-int GetSignedByte0x2d0_020546a8(void* obj);
-int IsEntryFlagBit11Set_0202be08(struct SearchStruct* search, int id);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" int func_020546a8(void* obj);
+extern "C" int func_0202be08(struct SearchStruct* search, int id);
 struct Outer_02054000;
-void* GetActiveSub_02054000(struct Outer_02054000* p);
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-int TrySetFlags0x130_020483f0(unsigned char* obj, unsigned short flag);
+extern "C" void* func_02054000(struct Outer_02054000* p);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_020483f0(unsigned char* obj, unsigned short flag);
 extern "C" void func_02083e28(void* a, int arg2);
 void ApplyCombatantBuffs(int world, int id);
 extern "C" void func_ov017_021c6bc8(void);
 extern "C" void func_ov017_021cf078(int combatantId, int slot, int flag);
 struct StructDE234_020de234;
-unsigned short GetPreferredPackedField020de234(struct StructDE234_020de234* p, int preferMid);
+extern "C" unsigned short func_020de234(struct StructDE234_020de234* p, int preferMid);
 
 struct List021d6b34 {
     int v[8];
@@ -135,7 +135,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
     struct Member021b3e14* member = (struct Member021b3e14*)gs->GetPartyMemberByIndex(self->id);
     models = member->models154;
     struct OffsetTable02072e34 table;
-    BuildOffsetTable02072e34(self->id, &table);
+    func_02072e34(self->id, &table);
 
     done = 1;
     for (i = 0; i < 11; i++) {
@@ -162,10 +162,10 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
         loader->GetLoadedFileByID(self->tasks[i], &file, &size);
         SafeAllocator* alloc = &models->allocator_array_4[i];
         char* pairs = models->unknown_cc + i * 0x70;
-        CopyInternalFields0207df50((struct Foo0207df50*)pairs);
-        RestorePairTables0207df90(pairs);
+        func_0207df50((struct Foo0207df50*)pairs);
+        func_0207df90(pairs);
         obj->obj3D_.SetModelFromFile(alloc, file, size, (Model3D::TextureStagingMode)self->stagingMode);
-        BackupPairTables0207dfac(pairs);
+        func_0207dfac(pairs);
         model = obj->obj3D_.pModel_;
         if (i == 0) {
             model->CreateBoneMatrixAndMaterialArrays(alloc, 7);
@@ -180,7 +180,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
             obj->obj3D_.position_.z = 0;
         }
         if (i == 0 || i == 1 || i == 5 || i == 4 || i == 2 || i == 6 || i == 7) {
-            ApplyCombatantEffectByIndex020730e0(self->id, i);
+            func_020730e0(self->id, i);
         }
         loader->RemoveTask(self->tasks[i]);
         self->tasks[i] = -1;
@@ -203,10 +203,10 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
 
     int hasScript = 0;
     void* p3718 = res->unknown_ptr_3718;
-    world = GetField6b0_021b8470(p3718);
+    world = func_ov017_021b8470(p3718);
     unsigned char* bits = func_ov017_021b8478(p3718);
     if (((unsigned char*)p3718)[2] != 0 && bits != NULL) {
-        if (TestBitAt0x34_020a35e0(bits, self->id)) {
+        if (func_020a35e0(bits, self->id)) {
             hasScript = 1;
         }
     }
@@ -238,7 +238,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
         switch (slot) {
         case 11: {
             ObjectArchiveLoadInfo info;
-            ClearEightWords_0203dafc((struct Struct_203dafc*)&info);
+            func_0203dafc((struct Struct_203dafc*)&info);
             info.allocator = &models->allocator_52c;
             info.fileData = file;
             info.unk_8 = size;
@@ -247,7 +247,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
         }
         case 13: {
             ObjectArchiveLoadInfo info2;
-            ClearEightWords_0203dafc((struct Struct_203dafc*)&info2);
+            func_0203dafc((struct Struct_203dafc*)&info2);
             info2.allocator = &models->allocator_540;
             info2.fileData = file;
             info2.packageID = 1;
@@ -259,7 +259,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
                 unsigned int scriptSize;
                 if (FindFilesInNarcBySubstring(file, data_ov017_021d7add, &script, &scriptSize, 1)) {
                     int state;
-                    RunOverlayScript0216d1c4((int)&models->allocator_540, (struct StreamHeader*)script, scriptSize, &state);
+                    func_ov000_0216d1c4((int)&models->allocator_540, (struct StreamHeader*)script, scriptSize, &state);
                     SetScriptState(member, state);
                 }
             }
@@ -273,30 +273,30 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
     if (done) {
         GameResources* res2 = GetGameResources();
         func_02053cf8((struct Obj02053cf8*)member);
-        FillNameBytes02053e10((struct Obj02053e10*)member);
+        func_02053e10((struct Obj02053e10*)member);
         int f = 0;
         if (hasScript) {
             f = 1;
         }
         func_ov017_021917f0(self->id, f);
-        SetBit02026bc8((unsigned char*)res2->unknown_ptr_36d0, self->id);
+        func_02026bc8((unsigned char*)res2->unknown_ptr_36d0, self->id);
 
         GameObject* dst = gs->GetGameObjectByIndex(table.v[3]);
         GameObject* src = gs->GetGameObjectByIndex(table.v[4]);
         if (dst != NULL && src != NULL && dst->obj3D_.pModel_ != NULL && src->obj3D_.pModel_ != NULL) {
             dst->obj3D_.pModel_->ApplyTexturesFromModel(src->obj3D_.pModel_);
         }
-        SetByte0xbeShiftPrev((struct Bytes02033b88*)member, 0);
+        func_02033b88((struct Bytes02033b88*)member, 0);
         member->obj3D_.EnableFlag(4);
 
         if (world == 0) {
             struct SearchStruct* search = func_0202ae18();
             int v = member->obj3D_.unknown_4_;
-            GameObject* c = GetCombatantWithFlag0x1000_0200ff58(gs, v);
+            GameObject* c = func_0200ff58(gs, v);
             if (c != NULL) {
-                v = GetSignedByte0x2d0_020546a8(c);
+                v = func_020546a8(c);
             }
-            int set = IsEntryFlagBit11Set_0202be08(search, v);
+            int set = func_0202be08(search, v);
             if (*member->flags130 & 1) {
                 if (set == 0) {
                     member->flags18c |= 1;
@@ -308,18 +308,18 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
             body->obj3D_.MakeHidden();
             ((unsigned char*)member)[0xc2] |= 0x20;
             if (*(int*)((char*)member->currentStats138 + 0x14) & 1) {
-                SetByte0xbeShiftPrev((struct Bytes02033b88*)member, 4);
+                func_02033b88((struct Bytes02033b88*)member, 4);
             } else {
                 member->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7ae3, 0);
             }
             if (world != 0) {
-                struct Member021b3e14* c = (struct Member021b3e14*)GetCombatantWithFlag0x100_0200ff1c(gs, self->id);
+                struct Member021b3e14* c = (struct Member021b3e14*)func_0200ff1c(gs, self->id);
                 if (c != NULL) {
-                    struct Active02054000* act = (struct Active02054000*)GetActiveSub_02054000((struct Outer_02054000*)c);
+                    struct Active02054000* act = (struct Active02054000*)func_02054000((struct Outer_02054000*)c);
                     if (act != NULL && act->count > 0 && act->active) {
-                        int* f = (int*)GetFieldAt0x150_02053c6c((unsigned char*)c);
+                        int* f = (int*)func_02053c6c((unsigned char*)c);
                         if (f != NULL) {
-                            TrySetFlags0x130_020483f0((unsigned char*)c, 4);
+                            func_020483f0((unsigned char*)c, 4);
                             f[0xa8 / 4] |= 4;
                         }
                     }
@@ -387,7 +387,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
             struct Ext150* ext = member->ext150;
             struct StructDE234_020de234* packed = (struct StructDE234_020de234*)ext->sub274;
             if (packed != NULL) {
-                if (GetPreferredPackedField020de234(packed, ext->preferMid) / 100 == 5) {
+                if (func_020de234(packed, ext->preferMid) / 100 == 5) {
                     extra->obj3D_.MakeHidden();
                 }
             }

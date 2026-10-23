@@ -67,21 +67,21 @@ struct Menu02159274 {
 
 extern "C" char data_02108760[];
 
-int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
-void UpdateEntryStateAndPosition(Ctx020e263c* w, int value);
+extern "C" int func_020e28dc(Outer020e28dc* o);
+extern "C" void func_020e263c(Ctx020e263c* w, int value);
 extern "C" void func_ov005_021589f4(void* self);
 extern "C" void func_ov005_02159b74(void* self);
 extern "C" int func_ov005_02158b3c(void* object, void* buffer);
-int GetField0x15UnlessInactive_020e2918(signed char*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" int func_020e2918(signed char*);
+extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
 struct Obj020e25e8;
-void ResetSelectionState020e25e8(Obj020e25e8*);
-int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-void* FindElementByKey020dedd0(Container020dedd0* c, int key);
-int GetFlagFromField0x8Bits(Struct020dd768* s);
+extern "C" void func_020e25e8(Obj020e25e8*);
+extern "C" int func_020e2984(struct Outer020e28dc* window);
+extern "C" void* func_020dedd0(Container020dedd0* c, int key);
+extern "C" int func_020dd768(Struct020dd768* s);
 extern "C" void func_ov005_02157b74(void* self, int key, int keep);
 struct KeyedList0207c484;
-void DecrementKeyedStackAmount0207c484(KeyedList0207c484*, int, int, int);
+extern "C" void func_0207c484(KeyedList0207c484*, int, int, int);
 extern "C" void func_ov005_021555c0(void* self);
 
 // USA: func_ov005_02159274
@@ -90,8 +90,8 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
     if (sel == 0)
         sel = 1;
 
-    if (self->yesNo_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->yesNo_))
-        UpdateEntryStateAndPosition((Ctx020e263c*)self->yesNo_, sel);
+    if (self->yesNo_ != 0 && func_020e28dc((Outer020e28dc*)self->yesNo_))
+        func_020e263c((Ctx020e263c*)self->yesNo_, sel);
 
     if (self->step_ == 0) {
         self->message_ = 8;
@@ -101,22 +101,22 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
         return;
     }
     if (self->step_ == 1) {
-        sel = GetField0x15UnlessInactive_020e2918((signed char*)self->yesNo_);
+        sel = func_020e2918((signed char*)self->yesNo_);
         if (sel >= 0) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetSelectionState020e25e8((Obj020e25e8*)self->yesNo_);
-        } else if (IsFlag0x2Active020e2984((struct Outer020e28dc*)self->yesNo_)) {
-            ResetSelectionState020e25e8((Obj020e25e8*)self->yesNo_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_020e25e8((Obj020e25e8*)self->yesNo_);
+        } else if (func_020e2984((struct Outer020e28dc*)self->yesNo_)) {
+            func_020e25e8((Obj020e25e8*)self->yesNo_);
             sel = -2;
         }
         if (sel == 0) {
             void* item;
             int notfound;
             int flag;
-            item = FindElementByKey020dedd0(
+            item = func_020dedd0(
                 self->items_,
                 self->slots[self->selectedSlot].id);
-            flag = GetFlagFromField0x8Bits((Struct020dd768*)item);
+            flag = func_020dd768((Struct020dd768*)item);
             if (flag == 1) {
                 self->message_ = 0xa;
                 memset(self->text_, 0, kTextBytes);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                         self->message_ = 0xc;
                         memset(self->text_, 0, kTextBytes);
                         func_ov005_02158b3c(self, self->text_);
-                        TryApplyElemFields0205d5d0(
+                        func_0205d5d0(
                             (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0
@@ -139,10 +139,10 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                     func_ov005_02157b74(self, 0xffff, 1);
                 } else if (self->selectedSlot >= 8 &&
                        self->selectedSlot < 0x18) {
-                    char* list = (char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+                    char* list = (char*)func_02010828(GameState::GetInstance());
                     int amount = ((ItemBits02159274*)((char*)item + 8))->amount;
                     sel = *(short*)((char*)item + 0x18);
-                    DecrementKeyedStackAmount0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, amount);
+                    func_0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, amount);
                     notfound = 1;
                     func_ov005_021555c0(self);
                     for (int i = 8; i < 0x18; i++) {
@@ -156,7 +156,7 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                         self->f3daa_ = 0;
                     }
                 }
-                TryApplyElemFields0205d5d0(
+                func_0205d5d0(
                     (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                 self->message_ = 9;
                 memset(self->text_, 0, kTextBytes);
                 func_ov005_02158b3c(self, self->text_);
-                TryApplyElemFields0205d5d0(
+                func_0205d5d0(
                     (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                 self->message_ = 0xb;
                 memset(self->text_, 0, kTextBytes);
                 func_ov005_02158b3c(self, self->text_);
-                TryApplyElemFields0205d5d0(
+                func_0205d5d0(
                     (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0
@@ -202,12 +202,12 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
         return;
     }
     if (self->step_ == 3) {
-        sel = GetField0x15UnlessInactive_020e2918((signed char*)self->yesNo_);
+        sel = func_020e2918((signed char*)self->yesNo_);
         if (sel >= 0) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetSelectionState020e25e8((Obj020e25e8*)self->yesNo_);
-        } else if (IsFlag0x2Active020e2984((struct Outer020e28dc*)self->yesNo_)) {
-            ResetSelectionState020e25e8((Obj020e25e8*)self->yesNo_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_020e25e8((Obj020e25e8*)self->yesNo_);
+        } else if (func_020e2984((struct Outer020e28dc*)self->yesNo_)) {
+            func_020e25e8((Obj020e25e8*)self->yesNo_);
             sel = -2;
         }
         if (sel == 0) {
@@ -217,14 +217,14 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
             memset(self->text_, 0, kTextBytes);
             func_ov005_02158b3c(self, self->text_);
             if (self->selectedSlot >= 0 && self->selectedSlot < 8) {
-                item = FindElementByKey020dedd0(
+                item = func_020dedd0(
                     self->items_,
                     self->slots[self->selectedSlot].id);
                 if (((ItemBits02159274*)((char*)item + 8))->flag18) {
                     self->message_ = 0xc;
                     memset(self->text_, 0, kTextBytes);
                     func_ov005_02158b3c(self, self->text_);
-                    TryApplyElemFields0205d5d0(
+                    func_0205d5d0(
                         (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0
@@ -236,12 +236,12 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                 }
                 func_ov005_02157b74(self, 0xffff, 1);
             } else if (self->selectedSlot >= 8 && self->selectedSlot < 0x18) {
-                char* list = (char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
-                item = FindElementByKey020dedd0(
+                char* list = (char*)func_02010828(GameState::GetInstance());
+                item = func_020dedd0(
                     self->items_,
                     self->slots[self->selectedSlot].id);
                 sel = *(short*)((char*)item + 0x18);
-                DecrementKeyedStackAmount0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, ((ItemBits02159274*)((char*)item + 8))->amount);
+                func_0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, ((ItemBits02159274*)((char*)item + 8))->amount);
                 notfound = 1;
                 func_ov005_021555c0(self);
                 for (int i = 8; i < 0x18; i++) {
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
                     self->f3daa_ = 0;
                 }
             }
-            TryApplyElemFields0205d5d0(
+            func_0205d5d0(
                 (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
 #if !defined(jpn)
                             , 0

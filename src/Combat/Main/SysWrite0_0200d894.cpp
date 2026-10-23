@@ -13,7 +13,7 @@ struct MirroredPointStruct_020c129c {
 };
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
-// USA: func_020c129c  (semantic: InitMirroredPointStruct_020c129c)
+// USA: func_020c129c
 extern "C" THUMB void Mat3x3_WriteRotationZ(MirroredPointStruct_020c129c* out, int y, int x) {
     out->x0 = x;
     out->y0 = y;

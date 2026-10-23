@@ -38,12 +38,12 @@ extern "C" int func_ov031_022160b0(int);
 extern "C" int func_ov031_02216178(int);
 extern "C" int func_ov031_0221624c(char*);
 extern "C" int func_ov031_02216070(int);
-int IsPrintableRun10_02216710(unsigned char*);
-void SetTag2_02216744();
-void SetTag4_02216758();
-void SetTag7_0221676c();
-void SetTag9_02216780();
-void SetTag11_02216794();
+extern "C" int func_ov031_02216710(unsigned char*);
+extern "C" void func_ov031_02216744();
+extern "C" void func_ov031_02216758();
+extern "C" void func_ov031_0221676c();
+extern "C" void func_ov031_02216780();
+extern "C" void func_ov031_02216794();
 
 // USA: func_ov031_02216360
 extern "C" ARM int func_ov031_02216360() {
@@ -54,12 +54,12 @@ extern "C" ARM int func_ov031_02216360() {
     switch (data_ov031_0224e5dc.phase) {
     case 0:
         data_ov031_0224e5dc.phase = 1;
-        if (func_ov031_02215fd8(data_ov031_0224e5dc.driver, (int)SetTag2_02216744, 0, data_ov031_0224e5dc.scan->callbackArgument))
+        if (func_ov031_02215fd8(data_ov031_0224e5dc.driver, (int)func_ov031_02216744, 0, data_ov031_0224e5dc.scan->callbackArgument))
             data_ov031_0224e5dc.phase = 11;
         break;
     case 2:
         data_ov031_0224e5dc.phase = 3;
-        if (func_ov031_022160b0((int)SetTag4_02216758) == 0) {
+        if (func_ov031_022160b0((int)func_ov031_02216758) == 0) {
             if (data_ov031_0224e5dc.scan->started == 0) {
                 data_ov031_0224e5dc.scan->started = GetCurrentTimestamp();
             }
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov031_02216360() {
     }
     case 5:
         data_ov031_0224e5dc.phase = 6;
-        if (func_ov031_02216178((int)SetTag7_0221676c)) data_ov031_0224e5dc.phase = 10;
+        if (func_ov031_02216178((int)func_ov031_0221676c)) data_ov031_0224e5dc.phase = 10;
         break;
     case 7: {
         if (func_ov031_0221624c((char*)data_ov031_0224e5dc.scan->entries)) data_ov031_0224e5dc.phase = 10;
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov031_02216360() {
         data_ov031_0224e5dc.scan->selected = -1;
         strength = 0;
         do {
-            if (data_ov031_0224e5dc.scan->entries[index].valid && (data_ov031_0224e5dc.scan->entries[index].flags & 2) && data_ov031_0224e5dc.scan->entries[index].role <= 3 && IsPrintableRun10_02216710(data_ov031_0224e5dc.scan->entries[index].name)) {
+            if (data_ov031_0224e5dc.scan->entries[index].valid && (data_ov031_0224e5dc.scan->entries[index].flags & 2) && data_ov031_0224e5dc.scan->entries[index].role <= 3 && func_ov031_02216710(data_ov031_0224e5dc.scan->entries[index].name)) {
                 if (data_ov031_0224e5dc.scan->entries[index].strength >= strength) {
                     data_ov031_0224e5dc.scan->selected = index;
                     strength = data_ov031_0224e5dc.scan->entries[index].strength;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov031_02216360() {
             index++;
         } while (index < 16);
         data_ov031_0224e5dc.phase = 8;
-        if (func_ov031_02216070((int)SetTag9_02216780)) data_ov031_0224e5dc.phase = 11;
+        if (func_ov031_02216070((int)func_ov031_02216780)) data_ov031_0224e5dc.phase = 11;
         break;
     }
     case 9: {
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov031_02216360() {
     }
     case 10:
         data_ov031_0224e5dc.phase = 8;
-        if (func_ov031_02216070((int)SetTag11_02216794)) data_ov031_0224e5dc.phase = 11;
+        if (func_ov031_02216070((int)func_ov031_02216794)) data_ov031_0224e5dc.phase = 11;
         break;
     case 11: result = 3; break;
     }

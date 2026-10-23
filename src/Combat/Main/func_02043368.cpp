@@ -9,11 +9,11 @@ struct ClearTarget0205a234;
 struct ActiveEntry02046900;
 struct Rec020467f0;
 
-void InitStruct0205a444(char* p);
-void Init0205a198(struct Struct0205a198* p);
-void ClearField0And40205a234(struct ClearTarget0205a234* p);
-int CountActiveEntries(struct ActiveEntry02046900* entry);
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* outLength);
+extern "C" void func_0205a444(char* p);
+extern "C" void func_0205a198(struct Struct0205a198* p);
+extern "C" void func_0205a234(struct ClearTarget0205a234* p);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* outLength);
 extern "C" void func_0205a528(void* a, void* b, int c, void* d);
 
 extern char data_020f007f;
@@ -79,11 +79,11 @@ extern "C" ARM void func_02043368(struct LoadController* self) {
         self->clearTarget = (struct ClearTarget0205a234*)self->allocator->Allocate(8);
 
         if (self->table != 0 && self->tableEntries != 0 && self->clearTarget != 0) {
-            InitStruct0205a444((char*)self->table);
+            func_0205a444((char*)self->table);
             for (unsigned short i = 0; i < 6; i++) {
-                Init0205a198((struct Struct0205a198*)(self->tableEntries + i * 0x28));
+                func_0205a198((struct Struct0205a198*)(self->tableEntries + i * 0x28));
             }
-            ClearField0And40205a234(self->clearTarget);
+            func_0205a234(self->clearTarget);
             self->table->flag50 = 0;
             {
                 struct LoadTable* table = self->table;
@@ -98,9 +98,9 @@ extern "C" ARM void func_02043368(struct LoadController* self) {
             unsigned int foundLen;
             int recLen;
             loader->GetLoadedFileByID(self->taskId, &found, &foundLen);
-            int count = CountActiveEntries((struct ActiveEntry02046900*)found);
+            int count = func_02046900((struct ActiveEntry02046900*)found);
             for (int i = 0; i < count; i++) {
-                void* r = FindRecordByIndex((struct Rec020467f0*)found, i, &rec, &recLen);
+                void* r = func_020467f0((struct Rec020467f0*)found, i, &rec, &recLen);
                 func_0205a528(self->table, r, recLen, self->allocator);
             }
         }

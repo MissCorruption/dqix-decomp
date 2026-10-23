@@ -4,7 +4,7 @@
 #define func_02045f3c func_02046c78
 #endif
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 #if defined(jpn)
 extern "C" void func_02046c78(void*, void*, int, int, int, int, int, int);
 #define DRAW_DIGIT(ctx, rec, x, y, color) func_02046c78(ctx, rec, x, y, color, 8, 0, 0)
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov005_02155258(void* context, int value,
     short x, short y
 #endif
     , unsigned short color) {
-    int drawContext = GetGlobalField0x1c020421a0();
+    int drawContext = func_020421a0();
     volatile unsigned int* ports = (volatile unsigned int*)0x04000444;
     ports[0] = 0;
     ports[0x2f] = 1;

@@ -8,7 +8,7 @@ extern "C" void func_ov031_0223b710(int a);
 
 typedef void (*Callback_022234d8)(void*, int, int);
 
-// USA: func_ov031_022234d8  (semantic: CallbackAndForward_022234d8)
+// USA: func_ov031_022234d8
 extern "C" ARM void func_ov031_022234d8(int a0, Callback_022234d8 cb) {
     int v = func_ov031_02223478(a0);
     int size;

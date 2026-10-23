@@ -33,25 +33,25 @@ struct SteeringObject {
     char pad_19d[3];
     unsigned char direction;
 };
-void* GetField0x3b0Value_020100bc(GameState*);
+extern "C" void* func_020100bc(GameState*);
 extern "C" void func_02012fe4();
-void SetFields0x44(Fields020407b4*, int, int, int);
-void* GetField4328_0218d268(void*);
-int GetField0x70_0202e7f0(void*);
-int GetShortAt0x22e(ShortField0x22e_020968c4*);
+extern "C" void func_020407b4(Fields020407b4*, int, int, int);
+extern "C" void* func_ov017_0218d268(void*);
+extern "C" int func_0202e7f0(void*);
+extern "C" int func_020968c4(ShortField0x22e_020968c4*);
 int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
-int CheckAndComputeDistance020968d0(Obj020968d0*, int*);
-void SetVecYFromValue02033874(Obj02033874*, int);
+extern "C" int func_020968d0(Obj020968d0*, int*);
+extern "C" void func_02033874(Obj02033874*, int);
 extern const int data_020e9118[8];
 
 // USA: func_020adaac
 extern "C" ARM void func_020adaac(SteeringObject* self) {
-    void* camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
+    void* camera = func_020100bc(GameState::GetInstance());
     void* manager = GetGameResources();
     int targetHeading;
     func_02012fe4();
-    SetFields0x44((Fields020407b4*)self, self->position.x, 0xa000, self->position.z);
+    func_020407b4((Fields020407b4*)self, self->position.x, 0xa000, self->position.z);
     Vector3i first = self->vector164;
     first.y = 0xa000;
     self->vector164 = first;
@@ -90,12 +90,12 @@ extern "C" ARM void func_020adaac(SteeringObject* self) {
         return;
     }
     if (self->mode == 1 || self->mode == 2) {
-        Obj020968d0* target = (Obj020968d0*)GetField4328_0218d268(manager);
+        Obj020968d0* target = (Obj020968d0*)func_ov017_0218d268(manager);
         if (self->mode == 1) {
             int offset = data_020e9118[self->direction - 8];
-            targetHeading = offset + GetField0x70_0202e7f0(camera);
+            targetHeading = offset + func_0202e7f0(camera);
         } else if (target->active) {
-            targetHeading = GetShortAt0x22e((ShortField0x22e_020968c4*)target);
+            targetHeading = func_020968c4((ShortField0x22e_020968c4*)target);
         }
         int heading = self->heading;
         targetHeading = fix32ReduceAngle0To2Pi(targetHeading);
@@ -110,8 +110,8 @@ extern "C" ARM void func_020adaac(SteeringObject* self) {
             else heading -= turnSpeed;
         }
         heading = fix32ReduceAngle0To2Pi(heading);
-        if (CheckAndComputeDistance020968d0(target, 0) || !target->active)
-            SetVecYFromValue02033874((Obj02033874*)self, heading);
+        if (func_020968d0(target, 0) || !target->active)
+            func_02033874((Obj02033874*)self, heading);
     }
     self->speed1 = self->speed;
     self->speed2 = self->speed;

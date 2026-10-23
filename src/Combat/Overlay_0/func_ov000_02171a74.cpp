@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
 struct Container020e0310;
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void Clear12Bytes020e46c4(void* buf);
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_020e46c4(void* buf);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
+extern "C" void* func_020421a0(void);
 extern "C" void func_02046380(void* g);
 extern "C" void func_02046608(void* a, int b, int c, void* d, int e, int f, int g);
 
@@ -44,14 +44,14 @@ extern "C" ARM int func_ov000_02171a74(struct Obj02171a74* obj
         goto end;
     }
     {
-        int val = GetFieldByKey020e0434((struct Container020e0310*)obj->field4, key);
+        int val = func_020e0434((struct Container020e0310*)obj->field4, key);
         if (val == 0) {
             goto end;
         }
         char buf[0xc];
-        Clear12Bytes020e46c4(buf);
-        InitObjFromCombatantId020e4bf4(buf, obj->field4c);
-        void* g = GetGlobalField0x1c020421a0();
+        func_020e46c4(buf);
+        func_020e4bf4(buf, obj->field4c);
+        void* g = func_020421a0();
         func_02046380(g);
         *(void**)g = buf;
         func_02046608(g, 0xa, val, (void*)param, 0x100, 0, 0);

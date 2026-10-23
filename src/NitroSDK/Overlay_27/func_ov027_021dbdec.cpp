@@ -104,10 +104,10 @@ extern "C" void func_020c9be0(void);
 
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int chan, unsigned int src, unsigned int dst, unsigned int len);
-int IssueBattleCommandSlot29_020d6ad4(int a, int b, int c, int d, unsigned short e);
-int IssueBattleCommandSlot10(int a, BattleCtx020d5254* ctx);
-int IssueBattleCommandSlot2_020d503c(int a);
-int DispatchEvent1e03_020d57f4(int a, int b, int c, int d, unsigned short e, unsigned short f,
+extern "C" int func_020d6ad4(int a, int b, int c, int d, unsigned short e);
+extern "C" int func_020d5254(int a, BattleCtx020d5254* ctx);
+extern "C" int func_020d503c(int a);
+extern "C" int func_020d57f4(int a, int b, int c, int d, unsigned short e, unsigned short f,
                                unsigned short g, int h, int i, int j, int k);
 
 // USA: func_ov027_021dbdec
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
             obj->fn(0x100, msg);
         } else {
             obj->fn(0x15, msg);
-            func_ov027_021dd0cc(0x1d, IssueBattleCommandSlot29_020d6ad4((int)func_ov027_021dbdec,
+            func_ov027_021dd0cc(0x1d, func_020d6ad4((int)func_ov027_021dbdec,
                 data_ov027_021dd8ec.f6, data_ov027_021dd8ec.f2, data_ov027_021dd8ec.f0,
                 data_ov027_021dd8ec.f4));
         }
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
             data_ov027_021e33e0.pos.mac[5] = 0xff;
             obj->f5e4 = 1;
             obj->f5e8 = 1;
-            func_ov027_021dd0cc(0xa, IssueBattleCommandSlot10((int)func_ov027_021dbdec,
+            func_ov027_021dd0cc(0xa, func_020d5254((int)func_ov027_021dbdec,
                 (BattleCtx020d5254*)&data_ov027_021e3400));
         }
         return;
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
                 if (obj->f5e8 != 0 && func_ov027_021db3c0(&data_ov027_021e3400) == 0) {
                     func_ov027_021dcc8c();
                 }
-                func_ov027_021dd0cc(0xa, IssueBattleCommandSlot10((int)func_ov027_021dbdec,
+                func_ov027_021dd0cc(0xa, func_020d5254((int)func_ov027_021dbdec,
                     (BattleCtx020d5254*)&data_ov027_021e3400));
                 return;
             }
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
                 if (obj->f5e8 != 0 && func_ov027_021db3c0(&data_ov027_021e3400) == 0) {
                     func_ov027_021dcc8c();
                 }
-                func_ov027_021dd0cc(0xa, IssueBattleCommandSlot10((int)func_ov027_021dbdec,
+                func_ov027_021dd0cc(0xa, func_020d5254((int)func_ov027_021dbdec,
                     (BattleCtx020d5254*)&data_ov027_021e3400));
                 return;
 
@@ -257,7 +257,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
                 obj->fn(6, msg);
                 obj->f52a = 1;
                 if (func_020d4770(1, (int)func_ov027_021dbd7c, 0) != 0) return;
-                func_ov027_021dd0cc(0xe, DispatchEvent1e03_020d57f4((int)func_ov027_021dbdec,
+                func_ov027_021dd0cc(0xe, func_020d57f4((int)func_ov027_021dbdec,
                     obj->f504, obj->f51a, (int)obj->f40, obj->f518,
                     obj->f52c ? FALSE021dbdec : TRUE021dbdec, 0, 0, 0, 1, 1));
                 return;
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov027_021dbdec(void* arg) {
         } else {
             obj->f52a = 0;
             data_ov027_021e33e0.ptr->f528 = 0;
-            func_ov027_021dd0cc(2, IssueBattleCommandSlot2_020d503c((int)func_ov027_021dbdec));
+            func_ov027_021dd0cc(2, func_020d503c((int)func_ov027_021dbdec));
         }
         return;
 

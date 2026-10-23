@@ -4,17 +4,17 @@
 
 
 struct Struct0205a198;
-void Init0205a198(struct Struct0205a198* p);
+extern "C" void func_0205a198(struct Struct0205a198* p);
 
-void InitStruct0205a444(char* obj);
+extern "C" void func_0205a444(char* obj);
 
 struct List0202fec8;
 
 struct ActiveEntry02046900;
-int CountActiveEntries(struct ActiveEntry02046900* entry);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
 
 struct Rec020467f0;
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
 
 extern "C" void func_0205a528(void* a, void* ptr, int val, void* d);
 
@@ -23,10 +23,10 @@ extern "C" ARM void func_ov012_021862fc(char* self) {
     int listPtr = (int)BackgroundLoader::GetInstance();
 
     for (int i = 0; i < 3; i++) {
-        Init0205a198((struct Struct0205a198*)(*(char**)(self + 0x1000 + 0x36c) + i * 0x28));
+        func_0205a198((struct Struct0205a198*)(*(char**)(self + 0x1000 + 0x36c) + i * 0x28));
     }
 
-    InitStruct0205a444(*(char**)(self + 0x1000 + 0x368));
+    func_0205a444(*(char**)(self + 0x1000 + 0x368));
 
     *(unsigned char*)(*(char**)(self + 0x1000 + 0x368) + 0x50) = 1;
 
@@ -40,11 +40,11 @@ extern "C" ARM void func_ov012_021862fc(char* self) {
     int fieldOut;
     ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(*(int*)(self + 0x1000 + 0x394)), (void**)(&out1), (unsigned int*)(&out2));
 
-    int count = CountActiveEntries((struct ActiveEntry02046900*)out1);
+    int count = func_02046900((struct ActiveEntry02046900*)out1);
     ((SafeAllocator*)(self + 0x98))->Reset();
 
     for (int i = 0; i < count; i++) {
-        void* result = FindRecordByIndex((struct Rec020467f0*)out1, i, &recOut, &fieldOut);
+        void* result = func_020467f0((struct Rec020467f0*)out1, i, &recOut, &fieldOut);
         func_0205a528(*(char**)(self + 0x1000 + 0x368), result, fieldOut, self + 0x98);
     }
 

@@ -24,11 +24,11 @@ struct PartEntry {
 };
 
 extern "C" void __clear(void* buffer, unsigned long size);
-PartEntry* FindElementByKey020dedd0(Container020dedd0* items, int id);
-int GetPreferredPackedField020de234(StructDE234_020de234* item, int a);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void SetVec3At0x1c(Vec3Target0203a46c* model, int x, int y, int z);
-void RunTwoCallbacksAndReset02155d38(Obj02155d38* slot);
+extern "C" PartEntry* func_020dedd0(Container020dedd0* items, int id);
+extern "C" int func_020de234(StructDE234_020de234* item, int a);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_0203a46c(Vec3Target0203a46c* model, int x, int y, int z);
+extern "C" void func_ov005_02155d38(Obj02155d38* slot);
 
 struct EquipmentSlot {
     short item_;
@@ -80,18 +80,18 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
             memset(self->dragFile_, 0, 0x200);
             EquipmentSlot* slot = &self->slots_[self->dragged_];
             slot->offset_ = -1;
-            PartEntry* item = FindElementByKey020dedd0(self->items_, slot->item_);
+            PartEntry* item = func_020dedd0(self->items_, slot->item_);
             if (item != NULL) {
                 char path[0x80];
                 __clear(path, sizeof(path));
-                int number = GetPreferredPackedField020de234((StructDE234_020de234*)item, 0);
-                sprintf(path, GetFieldByKey020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
+                int number = func_020de234((StructDE234_020de234*)item, 0);
+                sprintf(path, func_020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
                 if (LoadFileIntoMemory(path, self->dragFile_, NULL))
                     slot->offset_ = 0;
                 int x;
                 int y;
                 func_ov005_021553b4(self, self->dragged_, &x, &y);
-                SetVec3At0x1c((Vec3Target0203a46c*)self->dragModel_, x << 12, y << 12, 0x2000);
+                func_0203a46c((Vec3Target0203a46c*)self->dragModel_, x << 12, y << 12, 0x2000);
                 self->dragStep_++;
                 self->loading_++;
             }
@@ -102,12 +102,12 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
             memset(self->itemFile_, 0, 0x200);
             EquipmentSlot* slot = &self->slots_[self->unk_3dac];
             slot->offset_ = -1;
-            PartEntry* item = FindElementByKey020dedd0(self->items_, slot->item_);
+            PartEntry* item = func_020dedd0(self->items_, slot->item_);
             if (item != NULL) {
                 char path[0x80];
                 __clear(path, sizeof(path));
-                int number = GetPreferredPackedField020de234((StructDE234_020de234*)item, 0);
-                sprintf(path, GetFieldByKey020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
+                int number = func_020de234((StructDE234_020de234*)item, 0);
+                sprintf(path, func_020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
                 if (LoadFileIntoMemory(path, self->itemFile_, NULL))
                     slot->offset_ = 0;
                 self->unk_3da8++;
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
     } else if (self->flags_ & 0x20) {
         if (self->equippedStep_ == 0) {
             for (int i = 0; i < 8; i++) {
-                RunTwoCallbacksAndReset02155d38((Obj02155d38*)&self->slots_[i]);
+                func_ov005_02155d38((Obj02155d38*)&self->slots_[i]);
                 self->slots_[i].offset_ = -1;
             }
             self->equippedStart_ = 0;
@@ -132,13 +132,13 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
             for (int i = self->equippedStart_; i < self->equippedEnd_; i++) {
                 EquipmentSlot* slot = &self->slots_[i];
                 slot->offset_ = -1;
-                PartEntry* item = FindElementByKey020dedd0(self->items_, slot->item_);
+                PartEntry* item = func_020dedd0(self->items_, slot->item_);
                 if (item != NULL) {
                     unsigned int size = 0;
                     char path[0x80];
                     __clear(path, sizeof(path));
-                    int number = GetPreferredPackedField020de234((StructDE234_020de234*)item, 0);
-                    sprintf(path, GetFieldByKey020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
+                    int number = func_020de234((StructDE234_020de234*)item, 0);
+                    sprintf(path, func_020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
                     if (LoadFileIntoMemory(path, self->equippedFiles_ + offset, &size)) {
                         slot->offset_ = offset;
                         size = (size + 3) & ~3;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
             for (int i = 8; i < 24; i++) {
                 EquipmentSlot* slot = &self->slots_[i];
                 if (slot->equipped_ == 0) {
-                    RunTwoCallbacksAndReset02155d38((Obj02155d38*)slot);
+                    func_ov005_02155d38((Obj02155d38*)slot);
                     slot->offset_ = -1;
                 }
             }
@@ -175,13 +175,13 @@ extern "C" ARM void func_ov005_021556e4(EquipmentMenu* self) {
                 slot->offset_ = -1;
                 if (slot->equipped_ != 0)
                     continue;
-                PartEntry* item = FindElementByKey020dedd0(self->items_, slot->item_);
+                PartEntry* item = func_020dedd0(self->items_, slot->item_);
                 if (item != NULL) {
                     unsigned int size = 0;
                     char path[0x80];
                     __clear(path, sizeof(path));
-                    int number = GetPreferredPackedField020de234((StructDE234_020de234*)item, 0);
-                    sprintf(path, GetFieldByKey020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
+                    int number = func_020de234((StructDE234_020de234*)item, 0);
+                    sprintf(path, func_020e0434((Container020e0310*)self->texts_, 0x7d1), (char)item->letter_, number);
                     if (LoadFileIntoMemory(path, self->pageFiles_ + offset, &size)) {
                         slot->offset_ = offset;
                         size = (size + 3) & ~3;

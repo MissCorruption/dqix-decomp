@@ -6,14 +6,14 @@ struct TaggedNumber02184c30 {
     union { int i; float f; } value;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
-ARM void* NoOp_021845f4(void);
+extern "C" ARM void* func_ov011_021845f4(void);
 extern "C" ARM void* func_ov011_021842c8(unsigned char* node, unsigned int id);
 extern "C" ARM void func_ov011_021842a0(void* obj);
 
 struct Chain02184354;
-int SetFieldOrChain_02184354(Chain02184354* obj, int val);
+extern "C" int func_ov011_02184354(Chain02184354* obj, int val);
 
 struct MenuHeap02184ed0 {
     int id;
@@ -28,10 +28,10 @@ extern "C" ARM int func_ov011_02184ed0(struct TaggedNumber02184c30* params, int 
     MenuHeap02184ed0* parent;
     void* buffer;
 
-    parentId = GetTaggedValueAsInt_02184c30(&params[0]);
-    id = GetTaggedValueAsInt_02184c30(&params[1]);
+    parentId = func_ov011_02184c30(&params[0]);
+    id = func_ov011_02184c30(&params[1]);
     func_ov017_021b2164();
-    heaps = (unsigned char*)NoOp_021845f4();
+    heaps = (unsigned char*)func_ov011_021845f4();
     parent = (MenuHeap02184ed0*)func_ov011_021842c8(heaps, parentId);
     if (parent == 0)
         return 0;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov011_02184ed0(struct TaggedNumber02184c30* params, int 
     func_ov011_021842a0(heap);
     heap->id = id;
     if (count >= 3)
-        parentId = GetTaggedValueAsInt_02184c30(&params[2]);
+        parentId = func_ov011_02184c30(&params[2]);
     else
         parentId = parent->allocator.GetMaxPossibleAllocation();
     if (parentId == 0)
@@ -56,6 +56,6 @@ extern "C" ARM int func_ov011_02184ed0(struct TaggedNumber02184c30* params, int 
         return 0;
 
     heap->allocator.CreateTypeB(buffer, parentId, 4);
-    SetFieldOrChain_02184354((Chain02184354*)parent, (int)heap);
+    func_ov011_02184354((Chain02184354*)parent, (int)heap);
     return 1;
 }

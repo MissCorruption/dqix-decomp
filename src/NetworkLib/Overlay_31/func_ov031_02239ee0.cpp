@@ -4,7 +4,7 @@ struct RngState02239ee0 { unsigned char pad[0x58]; int seed; };
 struct RngGlobal02239ee0 { unsigned char pad[4]; RngState02239ee0* inner; };
 extern RngGlobal02239ee0 data_ov031_02290d18;
 
-// USA: func_ov031_02239ee0  (semantic: PickWeightedBitIndex_02239ee0)
+// USA: func_ov031_02239ee0
 extern "C" ARM short func_ov031_02239ee0(unsigned short mask) {
 	short foundIdx = 0;
 	unsigned short count = 0;

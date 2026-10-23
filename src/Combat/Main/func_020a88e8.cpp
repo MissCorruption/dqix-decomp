@@ -11,15 +11,15 @@ struct Base02019508;
 struct Trigger020a88e8 { char pad[3]; unsigned char instant; };
 struct Manager020a88e8 { char pad[kManagerPrefix]; Trigger020a88e8* trigger; };
 extern "C" Base02019508* func_02012fe4();
-Entry02019508* FindEntryByKeys02019508(Base02019508*, int, int);
-void SetFlag0x80_020133b4(void*, int);
+extern "C" Entry02019508* func_02019508(Base02019508*, int, int);
+extern "C" void func_020133b4(void*, int);
 // USA: func_020a88e8
 extern "C" ARM void func_020a88e8(Obj020a88e8* self) {
     Base02019508* base = func_02012fe4();
-    Entry02019508* first = FindEntryByKeys02019508(base, self->key1, self->key2);
-    Entry02019508* second = FindEntryByKeys02019508(base, self->key3, self->key4);
+    Entry02019508* first = func_02019508(base, self->key1, self->key2);
+    Entry02019508* second = func_02019508(base, self->key3, self->key4);
     if (!first || !second) return;
-    SetFlag0x80_020133b4(first, 1);
+    func_020133b4(first, 1);
     Trigger020a88e8* trigger = ((Manager020a88e8*)GetGameResources())->trigger;
     if (self->increase) {
         unsigned char value = first->level;

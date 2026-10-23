@@ -40,8 +40,8 @@ extern AllocatorUnion data_02114e20;
 
 extern "C" int func_ov003_0215c924(void* p, int scale);
 extern "C" void func_ov003_0215c800(void* p);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void ResetGlobalsAndReinit_0216d818(char* obj);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_ov003_0216d818(char* obj);
 extern "C" void func_ov003_0216d84c(void* p);
 extern "C" int func_0205d0e0(void* p, unsigned int tick);
 
@@ -55,10 +55,10 @@ extern "C" ARM int func_ov003_0216af14(Scene_0216af14* scene) {
             void* p = scene->allocator.GetSignedAllocator();
             if (p != 0) {
                 scene->allocator.Destroy();
-                TailForward02012da4(&data_02114e20, p);
+                func_02012da4(&data_02114e20, p);
             }
         }
-        ResetGlobalsAndReinit_0216d818((char*)scene);
+        func_ov003_0216d818((char*)scene);
         return 0;
     }
     if (scene->field_0x13ea != 0) {

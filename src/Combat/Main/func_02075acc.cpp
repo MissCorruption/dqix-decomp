@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-void SelectBattleContextMode2_020d0040(int mode);
-int GetBattleSysInnerField4_020d06d4();
-void PrepareAndCommit020d0050(int value);
-void EmptyDestructor020758a4(void* obj);
+extern "C" void func_020d0040(int mode);
+extern "C" int func_020d06d4();
+extern "C" void func_020d0050(int value);
+extern "C" void func_020758a4(void* obj);
 int GetCardReadManagerSharedStatus();
-int ForwardWaitForField0x114Bit4ClearIsNull020d0834();
+extern "C" int func_020d0834();
 extern "C" void func_020d05ec(const void* src, int offset, unsigned int length, void (*proc)(void*), int a4, int a5, int a6, int a7, int a8);
 
 struct Flag02108dfc {
@@ -40,19 +40,19 @@ extern "C" ARM int func_02075acc(int offset, void* src, unsigned int length, int
 
     data_02108dfc.flag = 0;
     result = 1;
-    SelectBattleContextMode2_020d0040((int)data_02108dfc.value);
+    func_020d0040((int)data_02108dfc.value);
 
-    isOne = (GetBattleSysInnerField4_020d06d4() & 0xff) == 1;
+    isOne = (func_020d06d4() & 0xff) == 1;
     if (isOne) {
-        func_020d05ec(src, offset, length, EmptyDestructor020758a4, 0, 1, 8, 10, 2);
+        func_020d05ec(src, offset, length, func_020758a4, 0, 1, 8, 10, 2);
     } else {
-        isTwo = (GetBattleSysInnerField4_020d06d4() & 0xff) == 2;
+        isTwo = (func_020d06d4() & 0xff) == 2;
         if (isTwo) {
-            func_020d05ec(src, offset, length, EmptyDestructor020758a4, 0, 1, 7, 10, 2);
+            func_020d05ec(src, offset, length, func_020758a4, 0, 1, 7, 10, 2);
         } else {
-            isThree = (GetBattleSysInnerField4_020d06d4() & 0xff) == 3;
+            isThree = (func_020d06d4() & 0xff) == 3;
             if (isThree) {
-                func_020d05ec(src, offset, length, EmptyDestructor020758a4, 0, 1, 8, 10, 2);
+                func_020d05ec(src, offset, length, func_020758a4, 0, 1, 8, 10, 2);
             }
         }
     }
@@ -62,11 +62,11 @@ extern "C" ARM int func_02075acc(int offset, void* src, unsigned int length, int
             result = 0;
         }
     } else {
-        ForwardWaitForField0x114Bit4ClearIsNull020d0834();
+        func_020d0834();
         if (GetCardReadManagerSharedStatus() != 0) {
             result = 0;
         }
-        PrepareAndCommit020d0050((int)data_02108dfc.value);
+        func_020d0050((int)data_02108dfc.value);
         data_02108dfc.flag = 1;
     }
 

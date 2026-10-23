@@ -5,7 +5,7 @@ struct Vec3Fixed02030e2c { int x; int y; int z; };
 struct Struct_203cdd8 { char pad[0x64]; int value; };
 
 ARM void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
-void SetField0x64RoundedTo256_0203cdd8(struct Struct_203cdd8* obj, int value);
+extern "C" void func_0203cdd8(struct Struct_203cdd8* obj, int value);
 
 // USA: func_0203ce14
 extern "C" ARM void func_0203ce14(void* obj, Vector3i* target) {
@@ -26,5 +26,5 @@ extern "C" ARM void func_0203ce14(void* obj, Vector3i* target) {
     int scale = fix32_Divide(0x1000, dist);
     Vector3fixMultiplyScalar(&diff, scale, &diff);
     int angle = fix32_Atan2(diff.x, diff.z);
-    SetField0x64RoundedTo256_0203cdd8((struct Struct_203cdd8*)obj, angle);
+    func_0203cdd8((struct Struct_203cdd8*)obj, angle);
 }

@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-unsigned short GetFlagBitFromField150_0215eb20(void* obj, int bit);
+extern "C" unsigned short func_ov004_0215eb20(void* obj, int bit);
 
 extern int data_ov004_02170854[];
 extern unsigned char data_ov004_02170838[];
 extern unsigned char data_ov004_021707e8;
 #if defined(jpn)
 
-extern "C" GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
+extern "C" GameObject* func_0200ff1c(GameState*, int);
 #else
 #endif
 
 // USA: func_ov004_0215e9dc
 extern "C" ARM int func_ov004_0215e9dc(void* unused, void* combatantIdPtr, int counter, int dir) {
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), (int)combatantIdPtr);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), (int)combatantIdPtr);
     int idx = counter;
 
     if (data_ov004_02170854[idx] == 0) {
@@ -36,17 +36,17 @@ loop_body:
         idx = (unsigned char)(idx + 1);
         idx = (unsigned char)(idx % 0xd);
         if (*((unsigned char*)&data_ov004_021707e8 + 2) && idx == 0) idx = (unsigned char)(idx + 1);
-        if (!GetFlagBitFromField150_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_test;
+        if (!func_ov004_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_test;
         goto done;
     } else {
         idx = (unsigned char)(idx - 1);
         if ((unsigned)idx < 1) idx = 0xc;
         if (*((unsigned char*)&data_ov004_021707e8 + 2) && idx == 0) idx = 0xc;
-        if (!GetFlagBitFromField150_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_test;
+        if (!func_ov004_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_test;
         goto done;
     }
 loop_test:
-    if (!GetFlagBitFromField150_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_body;
+    if (!func_ov004_0215eb20(combatant, data_ov004_02170854[idx]) || !data_ov004_02170838[idx]) goto loop_body;
 done:
     return idx;
 }

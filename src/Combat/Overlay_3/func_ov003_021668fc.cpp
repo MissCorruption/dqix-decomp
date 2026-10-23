@@ -14,7 +14,7 @@ struct KeyedList0207c378;
 extern "C" int func_0207c378(struct KeyedList0207c378* obj, int value, int amount, int key);
 
 struct FindEntryContainer02086a04;
-int RemoveOrShiftMarkedEntry02086a04(struct FindEntryContainer02086a04* c, int id);
+extern "C" int func_02086a04(struct FindEntryContainer02086a04* c, int id);
 
 extern unsigned short data_ov003_0217f494[9];
 extern unsigned short data_ov003_0217f4a6[9];
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov003_021668fc(char* self) {
     if (*(short*)(self + kRegionValue480_2A8) < 0) return;
 
     GameState* bs = GameState::GetInstance();
-    void* p2a04 = GetPtrField0x2a04_02010828(bs);
+    void* p2a04 = func_02010828(bs);
     void* found = func_ov003_02160bf8(self, *(short*)(self + kRegionValue480_2A8));
     if (found == 0) return;
 
@@ -61,5 +61,5 @@ extern "C" ARM void func_ov003_021668fc(char* self) {
         idx = (unsigned char)(idx + 1);
     }
 
-    RemoveOrShiftMarkedEntry02086a04((struct FindEntryContainer02086a04*)p2a04, (signed char)*(short*)(self + kRegionValue480_2A8));
+    func_02086a04((struct FindEntryContainer02086a04*)p2a04, (signed char)*(short*)(self + kRegionValue480_2A8));
 }

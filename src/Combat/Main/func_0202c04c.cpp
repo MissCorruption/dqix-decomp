@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-int GetBattleSubField0xbcForState_020d4ac8(void);
+extern "C" int func_020d4ac8(void);
 
 struct TurnCounter_0202c04c {
     int seq;
@@ -49,7 +49,7 @@ extern "C" ARM void func_0202c04c(BattleTurn_0202c04c* turn) {
     GetTurnCounter().seq++;
     turn->flags.actor = (unsigned short)turn->actorId;
     TurnFlags_0202c04c* flags = &turn->flags;
-    turn->flags.state = (unsigned short)GetBattleSubField0xbcForState_020d4ac8();
+    turn->flags.state = (unsigned short)func_020d4ac8();
 
     int pending = turn->pendingActor;
     if (pending != -1) {

@@ -42,11 +42,11 @@ struct Combatant021e49a4 {
     unsigned char padding_138[0x18];
     CombatantData021e49a4* data;
 };
-CombatSlots02045cac* GetGlobalField0x1c020421a0();
-void InitCombatSlots02045cac(CombatSlots02045cac*);
-char* CallFunc020e0434With02153694_020e51cc(int);
-int GetFieldByKey020e0434(Container020e0310*, int);
-int GetByteViaFieldIndirectOffset_021e4250_021e4250(char*);
+extern "C" CombatSlots02045cac* func_020421a0();
+extern "C" void func_02045cac(CombatSlots02045cac*);
+extern "C" char* func_020e51cc(int);
+extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_ov023_021e4250(char*);
 extern const char data_ov023_021fdcd8[];
 extern "C" {
 void func_02045d14(CombatSlots02045cac*, const char*, unsigned short*, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov023_021e49a4(BattleSetup021e49a4* self) {
     unsigned short (*suffixes)[8];
     unsigned short (*labels)[10];
     unsigned short (*names)[16];
-    CombatSlots02045cac* messages = GetGlobalField0x1c020421a0();
+    CombatSlots02045cac* messages = func_020421a0();
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 16; j++) self->names[i][j] = 0xffff;
         for (int j = 0; j < 10; j++) self->labels[i][j] = 0xffff;
@@ -72,14 +72,14 @@ extern "C" ARM void func_ov023_021e49a4(BattleSetup021e49a4* self) {
         self->positions[i] = 0;
     }
     for (int i = 0; i < 8; i++) self->default_label[i] = 0xffff;
-    InitCombatSlots02045cac(messages);
+    func_02045cac(messages);
     texts = &self->battle->texts;
-    func_02045d14(messages, CallFunc020e0434With02153694_020e51cc(0x3f3), self->default_label, 0);
+    func_02045d14(messages, func_020e51cc(0x3f3), self->default_label, 0);
     for (int i = 0; i < 4; i++) {
         names = self->names;
         labels = self->labels;
         suffixes = self->suffixes;
-        Combatant021e49a4* combatant = (Combatant021e49a4*)GetCombatantWithFlag0x100_0200ff1c(game, i);
+        Combatant021e49a4* combatant = (Combatant021e49a4*)func_0200ff1c(game, i);
         if (combatant != 0) {
             char* name = combatant->name;
             func_02045d14(messages, name, names[i], 0);
@@ -89,13 +89,13 @@ extern "C" ARM void func_ov023_021e49a4(BattleSetup021e49a4* self) {
             if (ConditionValue021e49a4(combatant->condition) <= 0) {
                 func_02045d14(messages, self->buffers[combatant->data->selector], labels[i], 0);
             } else {
-                func_02045d14(messages, (const char*)GetFieldByKey020e0434(&texts->dictionary, label), labels[i], 0);
+                func_02045d14(messages, (const char*)func_020e0434(&texts->dictionary, label), labels[i], 0);
             }
-            unsigned char suffix = GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant);
+            unsigned char suffix = func_ov023_021e4250((char*)combatant);
             char buffer[16];
             __clear(buffer, 16);
             if (suffix != 0) {
-                sprintf(buffer, data_ov023_021fdcd8, GetByteViaFieldIndirectOffset_021e4250_021e4250((char*)combatant));
+                sprintf(buffer, data_ov023_021fdcd8, func_ov023_021e4250((char*)combatant));
             }
             func_02045d14(messages, buffer, suffixes[i], 0);
             func_020439b0(messages, 0);

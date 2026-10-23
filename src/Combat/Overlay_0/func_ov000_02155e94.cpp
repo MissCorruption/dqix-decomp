@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct S_10088;
-int IsFlag10088Set_02010088(struct S_10088* obj);
-int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject* combatant);
+extern "C" int func_02010088(struct S_10088* obj);
+extern "C" int func_ov000_02153c0c(GameObject* combatant);
 
 struct Cnt0x1b1_02155e94 { unsigned char counter : 4; unsigned char groupCount : 2; unsigned char unused : 2; };
 struct GroupCnt_02155e94 { unsigned char total : 4; unsigned char matched : 4; };
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov000_02155e94(unsigned char* obj) {
             short id = (short)(*(group + j + 2) + 0xc0);
             GameState* bs = GameState::GetInstance();
             GameObject* c = bs->GetCombatantByIndex(id);
-            if (c != NULL && !IsFlag10088Set_02010088((struct S_10088*)c) && !IsFlag0x18Bit0x2000Set_ov000_02153c0c(c)) {
+            if (c != NULL && !func_02010088((struct S_10088*)c) && !func_ov000_02153c0c(c)) {
                 GCNT(group)->matched++;
                 CNT1B1(obj)->counter++;
             }

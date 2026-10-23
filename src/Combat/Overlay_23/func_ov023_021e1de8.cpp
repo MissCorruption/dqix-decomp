@@ -24,7 +24,7 @@ struct List_021e1de8 {
     short count;
 };
 
-// USA: func_ov023_021e1de8  (semantic: CountEntries_021e1de8)
+// USA: func_ov023_021e1de8
 extern "C" ARM short func_ov023_021e1de8(struct List_021e1de8* list, int mode, int arg2, int arg3) {
     short count = list->count;
     short total = 0;

@@ -13,10 +13,10 @@ struct Struct0216fe48;
 
 extern int data_ov025_021ef990;
 
-void InitContainer_021ebab4(char* obj);
-void InitQueueStruct_021ed124(unsigned char* obj);
-void ResetStruct0216fe48(struct Struct0216fe48* obj);
-void Init021e8a20(struct Obj021e8a20* obj);
+extern "C" void func_ov025_021ebab4(char* obj);
+extern "C" void func_ov025_021ed124(unsigned char* obj);
+extern "C" void func_ov000_0216fe48(struct Struct0216fe48* obj);
+extern "C" void func_ov025_021e8a20(struct Obj021e8a20* obj);
 
 // USA: func_ov025_021e88d8
 extern "C" ARM void func_ov025_021e88d8(void* arg) {
@@ -44,11 +44,11 @@ extern "C" ARM void func_ov025_021e88d8(void* arg) {
     *(short*)(obj + 0x21c) = 1;
     *(short*)(obj + 0x21e) = 0;
     *(int*)(obj + 0x224) = 0;
-    InitContainer_021ebab4(obj + 0x22c);
+    func_ov025_021ebab4(obj + 0x22c);
 
-    InitQueueStruct_021ed124((unsigned char*)(obj + 0x5e8));
+    func_ov025_021ed124((unsigned char*)(obj + 0x5e8));
 
-    ResetStruct0216fe48((struct Struct0216fe48*)(obj + 0x798));
+    func_ov000_0216fe48((struct Struct0216fe48*)(obj + 0x798));
 
     obj[0x83c] = 0;
     obj[0x87c] = 0;
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov025_021e88d8(void* arg) {
 
     struct Obj021e8a20* p = (struct Obj021e8a20*)(obj + 0x594);
     for (unsigned char i = 0; i < 4; i++, p++) {
-        Init021e8a20(p);
+        func_ov025_021e8a20(p);
     }
 
     obj[0x5c5] = 0;

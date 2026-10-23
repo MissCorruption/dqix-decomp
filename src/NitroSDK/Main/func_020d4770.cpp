@@ -43,11 +43,11 @@ struct WMPortRecvCallback
     unsigned short maxRecvDataSize;
 };
 
-extern "C" void CopyFrom027ffcf4_020c99ac(void* mac);
-int GetBattleStateCode_020d41e8();
-WMArm9Buf* GetBattleContext_020d41d8();
-unsigned short GetBattleContextField0x14cLow16_020d46fc();
-unsigned short GetBattleContextField0x150_020d46cc();
+extern "C" void func_020c99ac(void* mac);
+extern "C" int func_020d41e8();
+extern "C" WMArm9Buf* func_020d41d8();
+extern "C" unsigned short func_020d46fc();
+extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d4770
 extern "C" ARM int func_020d4770(unsigned short port, WMCallbackFunc callback, void* arg)
@@ -68,24 +68,24 @@ extern "C" ARM int func_020d4770(unsigned short port, WMCallbackFunc callback, v
         cb.seqNo = 0xffff;
         cb.arg = arg;
         cb.aid = 0;
-        CopyFrom027ffcf4_020c99ac(cb.macAddress);
+        func_020c99ac(cb.macAddress);
     }
     lastState = DisableIRQInterrupts();
-    result = GetBattleStateCode_020d41e8();
+    result = func_020d41e8();
     if (result != 0)
     {
         SetIRQInterruptState(lastState);
         return result;
     }
     {
-        WMArm9Buf* const w9b = GetBattleContext_020d41d8();
+        WMArm9Buf* const w9b = func_020d41d8();
         w9b->portCallbackTable[port] = callback;
         w9b->portCallbackArgument[port] = arg;
     }
     if (callback != NULL)
     {
-        cb.connectedAidBitmap = GetBattleContextField0x14cLow16_020d46fc();
-        cb.myAid = GetBattleContextField0x150_020d46cc();
+        cb.connectedAidBitmap = func_020d46fc();
+        cb.myAid = func_020d46cc();
         callback(&cb);
     }
     SetIRQInterruptState(lastState);

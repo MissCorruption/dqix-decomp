@@ -14,9 +14,9 @@ struct IndexList_0202a9ac;
 struct IndexNode_0202a9ac { int kind; char padding4[0x34]; int busy; };
 extern "C" int func_0202a9f4(Callback_0202a91c*);
 extern "C" int func_0202aa94(Callback_0202a91c*);
-IndexNode_0202a9ac* GetNodeAtIndex(IndexList_0202a9ac*, int);
-void SetState0x6cAndInvoke(Callback_0202a91c*);
-void Deactivate0202a8cc(char*, int);
+extern "C" IndexNode_0202a9ac* func_0202a9ac(IndexList_0202a9ac*, int);
+extern "C" void func_0202a91c(Callback_0202a91c*);
+extern "C" void func_0202a8cc(char*, int);
 
 // USA: func_02029634
 extern "C" ARM void func_02029634(Callback_0202a91c* menu, int ticks) {
@@ -74,34 +74,34 @@ extern "C" ARM void func_02029634(Callback_0202a91c* menu, int ticks) {
             }
         }
     }
-    IndexNode_0202a9ac* node = GetNodeAtIndex(reinterpret_cast<IndexList_0202a9ac*>(menu), menu->selected);
+    IndexNode_0202a9ac* node = func_0202a9ac(reinterpret_cast<IndexList_0202a9ac*>(menu), menu->selected);
     if (menu->flags & 1) return;
     if (g_keyManager.TestKeysPressed(1)) {
         int disabled = menu->flags & 2;
         if (!disabled && !node) {
-            SetState0x6cAndInvoke(menu);
+            func_0202a91c(menu);
             menu->activated = 1;
             return;
         }
         if (!node) return;
         if (menu->selected < 0 || node->kind != 1) {
             if (disabled) return;
-            SetState0x6cAndInvoke(menu);
+            func_0202a91c(menu);
             menu->activated = 1;
             return;
         }
         if (node->kind != 1 || node->busy != 0) return;
-        Deactivate0202a8cc(reinterpret_cast<char*>(node), 1);
+        func_0202a8cc(reinterpret_cast<char*>(node), 1);
         menu->state = 4;
         return;
     }
     if (!(menu->flags & 4) && g_keyManager.TestKeysPressed(2)) {
         menu->activated = 0;
-        SetState0x6cAndInvoke(menu);
+        func_0202a91c(menu);
         return;
     }
     if (g_keyManager.TestKeysPressed(4)) {
         menu->activated = 0;
-        SetState0x6cAndInvoke(menu);
+        func_0202a91c(menu);
     }
 }

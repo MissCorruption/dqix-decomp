@@ -21,7 +21,7 @@ struct Obj021db110 {
     unsigned char active;
 };
 
-// USA: func_ov023_021db110  (semantic: UpdateSparkleParticles_021db110)
+// USA: func_ov023_021db110
 extern "C" ARM void func_ov023_021db110(struct Obj021db110* obj) {
     if (obj->active == 0) return;
 

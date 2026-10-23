@@ -24,8 +24,8 @@ struct StructA0205d5d0;
 #endif
 #if !defined(jpn)
 #endif
-void AppendEntryNames_0215e13c(char* base, char* dst, int flag);
-void SetupFieldAndFormat_0215de6c(char* base, void* buf);
+extern "C" void func_ov003_0215e13c(char* base, char* dst, int flag);
+extern "C" void func_ov003_0215de6c(char* base, void* buf);
 
 struct MenuCursor_0215db2c {
     char unk_0[0x30];
@@ -53,23 +53,23 @@ extern "C" ARM void func_ov003_0215db2c(char* self) {
         memset(*(void**)(self + kRegion7c), 0, kRegion960);
         unsigned char page = *(unsigned char*)(self + kRegion148);
         if (page == 1) {
-            AppendEntryNames_0215e13c(self, *(char**)(self + kRegion7c), flag);
+            func_ov003_0215e13c(self, *(char**)(self + kRegion7c), flag);
         }
         if (page != 0) {
 #if defined(jpn)
-            TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1);
+            func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1);
 #else
-            TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1, 0);
+            func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1, 0);
 #endif
         }
     }
     if (*(unsigned char*)(self + kRegion3bb) != 0) {
         memset(*(void**)(self + kRegion7c), 0, kRegion960);
-        SetupFieldAndFormat_0215de6c(self, *(void**)(self + kRegion7c));
+        func_ov003_0215de6c(self, *(void**)(self + kRegion7c));
 #if defined(jpn)
-        TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1);
+        func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1);
 #else
-        TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1, 0);
+        func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1, 0);
 #endif
         *(unsigned char*)(self + kRegion3bb) = 0;
     }

@@ -2,10 +2,10 @@
 #include "NitroSDK/Matrix.h"
 
 struct State0203f20c;
-void UpdateStride0x14Value(State0203f20c*);
+extern "C" void func_0203f20c(State0203f20c*);
 extern "C" void func_0203ca24(void* obj, void* p23c);
 struct MoverObj0203c960;
-void AdvanceOrSnapToTarget0203c960(MoverObj0203c960*);
+extern "C" void func_0203c960(MoverObj0203c960*);
 int fix32ReduceAngle0To2Pi(int angle);
 
 struct Obj0203c818 {
@@ -23,7 +23,7 @@ struct Obj0203c818 {
 
 // USA: func_0203c818
 extern "C" ARM void func_0203c818(Obj0203c818* obj, void* p23c, int a2, int a3) {
-    UpdateStride0x14Value((State0203f20c*)obj);
+    func_0203f20c((State0203f20c*)obj);
 
     if ((obj->f5c & 0x10) || (obj->f5c & 0x20)) {
         func_0203ca24(obj, p23c);
@@ -33,7 +33,7 @@ extern "C" ARM void func_0203c818(Obj0203c818* obj, void* p23c, int a2, int a3) 
         int diff;
 
         if (obj->f5c & 1) {
-            AdvanceOrSnapToTarget0203c960((MoverObj0203c960*)obj);
+            func_0203c960((MoverObj0203c960*)obj);
         }
 
         moved = 0;

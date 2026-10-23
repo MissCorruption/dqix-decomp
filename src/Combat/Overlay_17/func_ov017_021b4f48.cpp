@@ -12,10 +12,10 @@ enum { RegionOffset23ec = 0x23ec, RegionOffset60 = 0x60 };
 struct StreamHeader;
 
 extern "C" char* func_02012fe4(void);
-int GetField5cb0Value_0201079c(char* battleStruct);
-int GetField5cb4Value_020107d0(char* battleStruct);
-int IsInRange0201b5b0(int monsterId);
-void SetupAndRunBufferedScript0209bc98(
+extern "C" int func_0201079c(char* battleStruct);
+extern "C" int func_020107d0(char* battleStruct);
+extern "C" int func_0201b5b0(int monsterId);
+extern "C" void func_0209bc98(
     void* dest, struct StreamHeader* data, int size, int param,
     int monsterId, int field5cb0, int field5cb4);
 
@@ -49,14 +49,14 @@ extern "C" ARM void func_ov017_021b4f48(struct ScriptRequest_021b4f48* request) 
         loader->GetLoadedFileByID(request->taskId, &data, &size);
         if (data != 0) {
             int monsterId = request->source->monsterId;
-            int field5cb0 = GetField5cb0Value_0201079c((char*)battle);
-            int field5cb4 = GetField5cb4Value_020107d0((char*)battle);
-            if (IsInRange0201b5b0(monsterId)) {
+            int field5cb0 = func_0201079c((char*)battle);
+            int field5cb4 = func_020107d0((char*)battle);
+            if (func_0201b5b0(monsterId)) {
                 int rank = grotto->GetFloorMonsterRank(monsterId % 20);
                 int environ = grotto->GetActiveGrottoEnviron();
                 monsterId = rank + (environ * 100 + 0x9c40);
             }
-            SetupAndRunBufferedScript0209bc98(
+            func_0209bc98(
                 (char*)request->source + RegionOffset60, (struct StreamHeader*)data, size,
                 request->source->param, monsterId, field5cb0, field5cb4);
         }

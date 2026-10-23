@@ -100,13 +100,13 @@ struct ObjStruct_02187450;
 struct KeyStruct_02187450;
 struct SoundState02184f10;
 
-short FindMappedMemberId02080468(void* obj, int id);
-void ResetWithSub0208203c(Obj0208203c*);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
-int CheckFlagAndPointInElement_02186ff0(char*);
-MonsterRecord* GetArrayEntryByField1a_02187450(ObjStruct_02187450*, KeyStruct_02187450*);
-void UpdateSoundStateA_02184f10(SoundState02184f10*, int, int);
-void ProcessEntry02184e3c(unsigned char*);
+extern "C" short func_02080468(void* obj, int id);
+extern "C" void func_0208203c(Obj0208203c*);
+extern "C" void func_0207fdcc(Obj2081*, int);
+extern "C" int func_ov014_02186ff0(char*);
+extern "C" MonsterRecord* func_ov014_02187450(ObjStruct_02187450*, KeyStruct_02187450*);
+extern "C" void func_ov014_02184f10(SoundState02184f10*, int, int);
+extern "C" void func_ov014_02184e3c(unsigned char*);
 
 extern "C" {
 void func_ov014_02188330(MonsterListScreen* self);
@@ -124,12 +124,12 @@ void func_ov014_02184d08(MonsterListScreen* self);
 
 static inline MonsterRecord* GetRecord(MonsterListScreen* self, MonsterListEntry* entry)
 {
-    return GetArrayEntryByField1a_02187450((ObjStruct_02187450*)self, (KeyStruct_02187450*)entry);
+    return func_ov014_02187450((ObjStruct_02187450*)self, (KeyStruct_02187450*)entry);
 }
 
 static inline void SetMonster(MonsterListScreen* self, MonsterListEntry* entry, MonsterRecord* record)
 {
-    UpdateSoundStateA_02184f10((SoundState02184f10*)self, (int)entry, (int)record);
+    func_ov014_02184f10((SoundState02184f10*)self, (int)entry, (int)record);
 }
 
 // USA: func_ov014_02188010
@@ -144,9 +144,9 @@ extern "C" ARM void func_ov014_02188010(MonsterListScreen* self)
         func_ov014_021884cc(self);
         func_ov014_0218854c(self);
         self->group_ = 5;
-        self->monsterCursor_ = FindMappedMemberId02080468(self->menu_, self->group_);
+        self->monsterCursor_ = func_02080468(self->menu_, self->group_);
         func_ov014_021885bc(self);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = NULL;
         self->listStep_++;
         self->monster_ = NULL;
@@ -187,11 +187,11 @@ extern "C" ARM void func_ov014_02188010(MonsterListScreen* self)
                 SetMonster(self, entry, GetRecord(self, entry));
             }
             else
-                ProcessEntry02184e3c((unsigned char*)self);
+                func_ov014_02184e3c((unsigned char*)self);
         }
         else if (g_keyManager.TestKeysPressed(0x800))
             func_ov014_02184dcc(self);
-        else if (CheckFlagAndPointInElement_02186ff0((char*)self))
+        else if (func_ov014_02186ff0((char*)self))
         {
             self->flags_ &= ~4;
             if (self->family_ >= 0)
@@ -201,11 +201,11 @@ extern "C" ARM void func_ov014_02188010(MonsterListScreen* self)
             self->monster_ = NULL;
             self->prevMonster_ = NULL;
             self->listFlags_ |= 0x10;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->listStep_ = 0;
             self->cursor_ = NULL;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 4);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 3);
+            func_0207fdcc((Obj2081*)self->menu_, 4);
+            func_0207fdcc((Obj2081*)self->menu_, 3);
             func_ov014_02184d08(self);
         }
     }

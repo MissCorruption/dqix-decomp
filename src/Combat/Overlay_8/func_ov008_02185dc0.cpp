@@ -131,21 +131,21 @@ extern char data_ov008_0218b400[] __attribute__((aligned(4)));
 extern unsigned char data_0211e33c[];
 extern Obj0205eaa0 data_02108760;
 
-GameResources* GetWord0x0_0200fb8c(int* gameState);
-MessageSystem* GetGlobalField0x1c020421a0();
+extern "C" GameResources* func_0200fb8c(int* gameState);
+extern "C" MessageSystem* func_020421a0();
 void SetBrightness(GameResources* resources, int screen, int brightness);
 int IsBrightnessTransitionActive(GameResources* resources);
-void LoadBattleBlock020ac4c0(void* records);
-void AddClamped16BitHighAt0x20_020a05d8(S_a05d8* records, unsigned int value);
-void CopyInBattleField0x7540_020ac494(void* records);
+extern "C" void func_020ac4c0(void* records);
+extern "C" void func_020a05d8(S_a05d8* records, unsigned int value);
+extern "C" void func_020ac494(void* records);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
-void ResetListHeader020727d8(List020727d8* list);
-extern "C" void _Z26SubmitAndRunScript02072928PvP12StreamHeaderiiS_h(void* list, StreamHeader* file, int size, int id, void* output, int female);
-int GetField0x3acValue_020100a8(GameState* gameState);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void AppendString02042058(char* text, const char* append);
-int ComputeScaledSum0205bb84(Struct_0205bb84* cursor);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
+extern "C" void func_020727d8(List020727d8* list);
+extern "C" void func_02072928(void* list, StreamHeader* file, int size, int id, void* output, int female);
+extern "C" int func_020100a8(GameState* gameState);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" int func_0205bb84(Struct_0205bb84* cursor);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int value);
 
 extern "C" {
 void* ExtractFileFromGP2(char* path, char* inner, unsigned int* size);
@@ -156,15 +156,15 @@ int func_0202c540(void* value);
 }
 
 #if defined(jpn)
-extern "C" void _Z28SubmitScriptFromFile020727f8PvPKciS_h(void*, const char*, int, void*, int);
+extern "C" void func_020727f8(void*, const char*, int, void*, int);
 #endif
 
 // USA: func_ov008_02185dc0
 extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
 {
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = GetWord0x0_0200fb8c((int*)gameState);
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
+    GameResources* resources = func_0200fb8c((int*)gameState);
+    MessageSystem* messages = func_020421a0();
     if (messages->active != NULL)
         messages->b19ae = 0;
     signed char step = self->step_;
@@ -208,21 +208,21 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
                     if (REGION_FLAG(self, 1) && !REGION_FLAG(self, 0x8000))
                     {
                         PlayRecords records;
-                        LoadBattleBlock020ac4c0(&records);
-                        AddClamped16BitHighAt0x20_020a05d8((S_a05d8*)&records, 1);
-                        CopyInBattleField0x7540_020ac494(&records);
+                        func_020ac4c0(&records);
+                        func_020a05d8((S_a05d8*)&records, 1);
+                        func_020ac494(&records);
                     }
                     memset(self->text_, 0, REGION_LAYOUT(0x800, 0x960));
 #if defined(jpn)
                     char* path = self->text_;
                     char* comment = path + 0x80;
                     TextList list;
-                    ResetListHeader020727d8((List020727d8*)&list);
-                    _Z28SubmitScriptFromFile020727f8PvPKciS_h(&list, data_ov008_0218b400, self->comment_, path, 0);
-                    PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
-                    ResetListHeader020727d8((List020727d8*)&list);
+                    func_020727d8((List020727d8*)&list);
+                    func_020727f8(&list, data_ov008_0218b400, self->comment_, path, 0);
+                    PartyMember* member = (PartyMember*)func_0200ff1c(gameState, func_020100a8(gameState));
+                    func_020727d8((List020727d8*)&list);
                     int female = member->data_->female_;
-                    _Z28SubmitScriptFromFile020727f8PvPKciS_h(&list, path, self->title_, comment, female);
+                    func_020727f8(&list, path, self->title_, comment, female);
 #else
                     char* path = self->text_;
                     char* inner = path + 0x80;
@@ -233,22 +233,22 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
                     void* file = LoadFileIntoMemory(data_ov008_0218b400, data_0211e33c, &size);
                     if (file != NULL)
                     {
-                        ResetListHeader020727d8((List020727d8*)&list);
-                        _Z26SubmitAndRunScript02072928PvP12StreamHeaderiiS_h(&list, (StreamHeader*)file, size, self->comment_, path, 0);
-                        ResetListHeader020727d8((List020727d8*)&list);
-                        _Z26SubmitAndRunScript02072928PvP12StreamHeaderiiS_h(&list, (StreamHeader*)file, size, self->comment_, inner, 1);
+                        func_020727d8((List020727d8*)&list);
+                        func_02072928(&list, (StreamHeader*)file, size, self->comment_, path, 0);
+                        func_020727d8((List020727d8*)&list);
+                        func_02072928(&list, (StreamHeader*)file, size, self->comment_, inner, 1);
                     }
                     file = ExtractFileFromGP2(path, inner, &size);
                     if (file != NULL)
                     {
-                        PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
-                        ResetListHeader020727d8((List020727d8*)&list);
+                        PartyMember* member = (PartyMember*)func_0200ff1c(gameState, func_020100a8(gameState));
+                        func_020727d8((List020727d8*)&list);
                         int female = member->data_->female_;
-                        _Z26SubmitAndRunScript02072928PvP12StreamHeaderiiS_h(&list, (StreamHeader*)file, size, self->title_, comment, female);
+                        func_02072928(&list, (StreamHeader*)file, size, self->title_, comment, female);
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif
-                    AppendString02042058(comment, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 1000));
+                    func_02042058(comment, func_020e0434((Container020e0310*)&self->texts_, 1000));
 #if defined(jpn)
                     func_0204500c(messages, comment, 0);
 #else
@@ -275,9 +275,9 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
                 if (REGION_MESSAGE(self, shown))
                 {
 #if defined(jpn)
-                    func_0204500c(messages, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 10000), 0);
+                    func_0204500c(messages, func_020e0434((Container020e0310*)&self->texts_, 10000), 0);
 #else
-                    func_0204500c(messages, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 10000), 0, 0xe3);
+                    func_0204500c(messages, func_020e0434((Container020e0310*)&self->texts_, 10000), 0, 0xe3);
 #endif
                     messages->b19b2 = 1;
                     messages->b19c8 = 1;
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
     if (step == 3)
     {
         int result = func_ov008_02186a30(self, ticks);
-        int selected = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->cursor_);
+        int selected = func_0205bb84((Struct_0205bb84*)&self->cursor_);
 #if defined(jpn)
         int limit = 5;
         int first = self->top_;
@@ -320,7 +320,7 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
         {
             if (!func_0202c540(func_0202ae18()) || kind != 5)
             {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+                func_0205eaa0(&data_02108760, 1, 0);
                 self->state_ = kind + 5;
                 self->step_ = 0;
                 self->flags_ &= ~8;

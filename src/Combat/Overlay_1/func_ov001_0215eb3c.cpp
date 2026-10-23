@@ -9,8 +9,8 @@ enum { tableOffset = 0x2cc };
 #endif
 
 extern "C" int func_ov017_021d60f4(void*);
-int GetWord0x0_0200fb8c(int* obj);
-void BackupPairTables0207dfac(char* tables);
+extern "C" int func_0200fb8c(int* obj);
+extern "C" void func_0207dfac(char* tables);
 
 struct PairTables_0215eb3c {
     int a[10];
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* self, int mode) {
     if (bs == NULL) {
         return 0;
     }
-    base = GetWord0x0_0200fb8c((int*)bs);
+    base = func_0200fb8c((int*)bs);
     if (base == 0) {
         return 0;
     }
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov001_0215eb3c(void* self, int mode) {
     if (addr == 0) {
         return 0;
     }
-    BackupPairTables0207dfac((char*)addr);
+    func_0207dfac((char*)addr);
     if (mode >= 2 && func_ov017_021d60f4((char*)self + 0x8) != 0) {
         addr = base + tableOffset;
         tables = (PairTables_0215eb3c*)(addr + 0xbd0);

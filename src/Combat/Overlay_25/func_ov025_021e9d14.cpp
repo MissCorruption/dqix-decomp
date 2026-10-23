@@ -64,40 +64,40 @@ struct Entry021e9d14 {
     unsigned short value;
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetSlotPtr02160f20(void* work);
-int GetWord_021def24(void* work);
-void* GetOffsetPtr02160f08(void* work);
-void* GetNodeAtIndex0215feb4(char* base, int threshold, int slot);
-struct Entry021e9d14* FindEntryById_021dafd0(char* obj, int id);
-struct Obj0203a588* GetData02104b6c_02039e70(void);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f20(void* work);
+extern "C" int func_ov025_021def24(void* work);
+extern "C" void* func_ov000_02160f08(void* work);
+extern "C" void* func_ov000_0215feb4(char* base, int threshold, int slot);
+extern "C" struct Entry021e9d14* func_ov025_021dafd0(char* obj, int id);
+extern "C" struct Obj0203a588* func_02039e70(void);
 struct Vec3Int0203a48c;
-void QueuePopupEntry0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
+extern "C" void func_0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
 extern "C" void* func_02057924(void);
-void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void* list, int id, void* config);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void _Z24SetShortField0xE02176150P11Obj02176150s(struct Obj02176150* obj, unsigned short val);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" void func_02057fb4(void* list, int id, void* config);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_ov000_02176150(struct Obj02176150* obj, unsigned short val);
 
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov025_021e9d14
 extern "C" ARM void func_ov025_021e9d14(void) {
-    void* work = GetActiveCombatWork_ov000_02160130();
-    struct Slot021e9d14* slot = (struct Slot021e9d14*)GetSlotPtr02160f20(work);
-    if (GetWord_021def24(work) != 0) {
+    void* work = func_ov000_02160130();
+    struct Slot021e9d14* slot = (struct Slot021e9d14*)func_ov000_02160f20(work);
+    if (func_ov025_021def24(work) != 0) {
         return;
     }
     GameState* battle = GameState::GetInstance();
-    char* entries = (char*)GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
+    char* entries = (char*)func_ov000_02160f08(func_ov000_02160130());
     struct ActionNode021e9d14* node = slot->head;
-    if (GetNodeAtIndex0215feb4((char*)node, 0, 5) != NULL) {
+    if (func_ov000_0215feb4((char*)node, 0, 5) != NULL) {
         return;
     }
     for (; node != NULL; node = node->next) {
         int id = node->actorId;
         unsigned short value = node->value;
-        struct Entry021e9d14* entry = FindEntryById_021dafd0(entries, id);
+        struct Entry021e9d14* entry = func_ov025_021dafd0(entries, id);
         GameObject* actor = battle->GetCombatantByIndex(id);
         if (actor == NULL) {
             continue;
@@ -105,27 +105,27 @@ extern "C" ARM void func_ov025_021e9d14(void) {
         if (node->damage != NULL) {
             int amount = -node->damage->amount;
             if (amount > 0) {
-                struct Obj0203a48c* popups = (struct Obj0203a48c*)GetData02104b6c_02039e70();
+                struct Obj0203a48c* popups = (struct Obj0203a48c*)func_02039e70();
                 Vector3fix pos = actor->obj3D_.position_;
                 pos.y += actor->obj3D_.GetHeight();
-                QueuePopupEntry0203a48c(popups, amount, (Vec3Int0203a48c*)&pos, 3, 0, 0);
+                func_0203a48c(popups, amount, (Vec3Int0203a48c*)&pos, 3, 0, 0);
                 void* list = func_02057924();
                 struct InitStruct02078484Struct req;
-                InitStruct02078484(&req);
+                func_02078484(&req);
                 req.offset.y += actor->obj3D_.GetHeight() / 2;
                 req.objectId = id;
-                FindNodeAndProcess02057fb4(list, 0x10, &req);
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x65, 0);
+                func_02057fb4(list, 0x10, &req);
+                func_0205eaa0(&data_02108760, 0x65, 0);
             }
         }
         int isPartyMember = (id >= 0 && id <= 3) ? 1 : 0;
         if (!isPartyMember && node->damage != NULL) {
             value = node->targetValue;
-            entry = FindEntryById_021dafd0(entries, node->targetId);
+            entry = func_ov025_021dafd0(entries, node->targetId);
             actor = battle->GetCombatantByIndex(node->targetId);
         }
         if (entry != NULL && actor != NULL) {
-            _Z24SetShortField0xE02176150P11Obj02176150s((struct Obj02176150*)entry, value);
+            func_ov000_02176150((struct Obj02176150*)entry, value);
             entry->value = value;
             ((struct Combatant021e9d14*)actor)->gauge->value = value;
         }

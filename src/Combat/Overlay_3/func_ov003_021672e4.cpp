@@ -11,7 +11,7 @@ extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
 
 struct SubBgControlBackup02074b64;
-void BackupSubBgControlRegisters(struct SubBgControlBackup02074b64* obj);
+extern "C" void func_02074b64(struct SubBgControlBackup02074b64* obj);
 
 struct Obj021672e4 {
     int f0;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_021672e4(struct Obj021672e4* obj, int p1, int p2)
     obj->f18 = GetSubObjVRAMBanks();
     *((unsigned char*)obj + 0x2c) = 0;
     *((unsigned char*)obj + 0x2d) = 0;
-    BackupSubBgControlRegisters((struct SubBgControlBackup02074b64*)((char*)obj + 0x1c));
+    func_02074b64((struct SubBgControlBackup02074b64*)((char*)obj + 0x1c));
     obj->f60 = (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
     obj->f64 = -1;
     obj->f68 = obj->f6c = 0;

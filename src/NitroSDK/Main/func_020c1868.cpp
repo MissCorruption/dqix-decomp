@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020c1868  (semantic: MTX_Copy43To44_)
+// USA: func_020c1868
 //
 // PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/fx/fx_mtx43.c — MTX_Copy43To44_. NitroSDK
 // fixed-point 4x3-to-4x4 matrix widen (appends the constant homogeneous column), byte-identical asm.

@@ -32,8 +32,8 @@ extern "C" ARM int func_02017d90(Zone3D* self, int index, TerrainGrid* grid, Ter
             z = entry->position.z;
             angle = entry->angle;
         } else {
-            if (GetNodeAtDepth020196fc(self, 4))
-                node = GetNodeAtDepth020196fc(self, 4)->elements->linkedElement2c;
+            if (func_020196fc(self, 4))
+                node = func_020196fc(self, 4)->elements->linkedElement2c;
             else return 0;
             x = floor->upStairWorldX;
             z = floor->upStairWorldZ;
@@ -53,7 +53,7 @@ extern "C" ARM int func_02017d90(Zone3D* self, int index, TerrainGrid* grid, Ter
         Vector3i origin;
         Matrix3x3 rotation;
         local.upper = object->position_;
-        StoreThreeWordsAt0x0020130a8(&origin, x, 0, z);
+        func_020130a8(&origin, x, 0, z);
         Vector3fix_Subtract(&local.upper, &origin, &local.upper);
         int rotationAngle = -(angle - 25735);
         int cosine = (int)(4096.0f * (func_0200c700(func_020c32f8(rotationAngle)) / 4294967296.0f));

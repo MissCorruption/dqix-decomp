@@ -2,15 +2,15 @@
 #include "World/Object3D.h"
 
 struct Entry_02028bd0;
-struct Entry_02028bd0* GetEntryTableBase_02027ca4(void);
-struct Entry_02028bd0* FindInlineEntryById(struct Entry_02028bd0* base, int key);
+extern "C" struct Entry_02028bd0* func_02027ca4(void);
+extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
 
 struct U16Field0x6_020375f8;
 
 struct List_020283fc;
-int FindListIndexById(struct List_020283fc* list, int id);
+extern "C" int func_020283fc(struct List_020283fc* list, int id);
 
-int CheckAnySlotMatchesId02073d58(int a, void* b, int c);
+extern "C" int func_02073d58(int a, void* b, int c);
 
 struct Entry_0209bd94;
 struct EntryTable0209bd94;
@@ -23,7 +23,7 @@ struct MaskEntry02078e60 {
     unsigned int rsvd2 : 11;
     unsigned char pad8[0x20 - 8];
 };
-struct MaskEntry02078e60* FindEntryByHalfword0209bd94(struct EntryTable0209bd94* table, int key);
+extern "C" struct MaskEntry02078e60* func_0209bd94(struct EntryTable0209bd94* table, int key);
 
 struct Slot02078e60 {
     unsigned char id;
@@ -37,7 +37,7 @@ struct ListEntry_02028430 {
     unsigned char pad3[0xc - 3];
     struct Slot02078e60** items;
 };
-struct ListEntry_02028430* GetListEntryChecked(struct List_02028430* list, int index);
+extern "C" struct ListEntry_02028430* func_02028430(struct List_02028430* list, int index);
 
 struct Obj02078e60 {
     char pad0[2];
@@ -69,15 +69,15 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
     int idx;
 
     *out = 0;
-    table = GetEntryTableBase_02027ca4();
-    entry = FindInlineEntryById(table, ((Object3D*)((struct U16Field0x6_020375f8*)o))->GetField06());
+    table = func_02027ca4();
+    entry = func_02028bd0(table, ((Object3D*)((struct U16Field0x6_020375f8*)o))->GetField06());
     if (entry == NULL) {
         return 0;
     }
 #if defined(jpn)
-    le = GetListEntryChecked((struct List_02028430*)((char*)entry + 0x14), o->field0xb8);
+    le = func_02028430((struct List_02028430*)((char*)entry + 0x14), o->field0xb8);
 #else
-    le = GetListEntryChecked((struct List_02028430*)((char*)entry + 0x18), o->field0xb8);
+    le = func_02028430((struct List_02028430*)((char*)entry + 0x18), o->field0xb8);
 #endif
     if (le == NULL) {
         return 0;
@@ -86,7 +86,7 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
         return 0;
     }
     if ((o->field17d & 0x40) == 0) {
-        if (CheckAnySlotMatchesId02073d58(le->id, entry, o->f4) != 0) {
+        if (func_02073d58(le->id, entry, o->f4) != 0) {
             *out = 1;
             return le->id;
         }
@@ -95,9 +95,9 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
         return le->id;
     }
 #if defined(jpn)
-    found = FindEntryByHalfword0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x5c), o->field168);
+    found = func_0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x5c), o->field168);
 #else
-    found = FindEntryByHalfword0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x60), o->field168);
+    found = func_0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x60), o->field168);
 #endif
     n = 0;
     any = 0;
@@ -107,7 +107,7 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
             if ((item->flags & found->flags8) == 0 && item->flags != 0) {
                 continue;
             }
-            if (CheckAnySlotMatchesId02073d58(item->id, entry, -1) != 0) {
+            if (func_02073d58(item->id, entry, -1) != 0) {
                 any = 1;
             } else {
                 picks[n++] = le->items[j];
@@ -116,9 +116,9 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
     }
     if (any == 1 && n == 0) {
 #if defined(jpn)
-        idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x14), le->id);
+        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), le->id);
 #else
-        idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x18), le->id);
+        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), le->id);
 #endif
         if (idx != -1) {
             o->field0xb8 = idx;
@@ -131,9 +131,9 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
     }
     if (pick == 0) {
 #if defined(jpn)
-        idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x14), le->id);
+        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), le->id);
 #else
-        idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x18), le->id);
+        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), le->id);
 #endif
         if (idx != -1) {
             o->field0xb8 = idx;
@@ -141,9 +141,9 @@ extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
         return le->id;
     }
 #if defined(jpn)
-    idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x14), pick->id);
+    idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), pick->id);
 #else
-    idx = FindListIndexById((struct List_020283fc*)((char*)entry + 0x18), pick->id);
+    idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), pick->id);
 #endif
     if (idx != -1) {
         o->field0xb8 = idx;

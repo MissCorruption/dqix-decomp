@@ -1,0 +1,47 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+
+extern char data_020feffc[];
+
+extern "C" int func_0202d6a8(void);
+extern "C" int func_0202d0b4(void);
+void SleepCurrentContext(unsigned int);
+extern "C" int func_0202dc40(int mode, void* src);
+unsigned long long GetCurrentTimestamp(void);
+
+// USA: func_0202b840
+extern "C" ARM int func_0202b840(int* state, int id) {
+    int i;
+    GameState* battleStruct;
+
+    if (id < 0) {
+        return 1;
+    }
+
+    i = 0;
+    while (func_0202d6a8() == 2) {
+        func_0202d0b4();
+        i++;
+        if (i > 0x1388) {
+            return 0;
+        }
+        SleepCurrentContext(1);
+    }
+
+    i = 0;
+    while (func_0202d6a8() != 1) {
+        i++;
+        if (i > 0x1388) {
+            return 0;
+        }
+        SleepCurrentContext(1);
+    }
+
+    func_0202dc40(5, data_020feffc + id * 0xc0);
+    *state = 6;
+
+    battleStruct = GameState::GetInstance();
+    battleStruct->altTimestamp_ = GetCurrentTimestamp();
+
+    return 1;
+}

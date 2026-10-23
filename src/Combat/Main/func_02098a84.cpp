@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct ValueList02098e3c;
-extern int Field0x1b68ContainsValue(struct ValueList02098e3c* s, int val);
+extern "C" int func_02098e3c(struct ValueList02098e3c* s, int val);
 
 struct S02098834 {
     unsigned char pad0[0xc];
@@ -13,7 +13,7 @@ struct S02098834 {
     unsigned char pad1[0xe8 - 0x14];
 };
 
-extern struct S02098834* CopyStruct02098834(struct S02098834* dst, struct S02098834* src);
+extern "C" struct S02098834* func_02098834(struct S02098834* dst, struct S02098834* src);
 extern "C" void func_02098364(void* entry);
 
 struct ValueList02098e3c {
@@ -45,7 +45,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
         if (e->category == 9 || e->category == 10) {
             continue;
         }
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             allValid = 0;
         }
     }
@@ -59,7 +59,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             if (freeIdx < 6) {
                 return freeIdx;
             }
-            CopyStruct02098834(&arr[freeIdx], &arr[list->fallbackIndex]);
+            func_02098834(&arr[freeIdx], &arr[list->fallbackIndex]);
             func_02098364(&arr[list->fallbackIndex]);
             return list->fallbackIndex;
         }
@@ -70,7 +70,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             if (e->category == 9 || e->category == 10) {
                 continue;
             }
-            if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+            if (func_02098e3c(list, e->valueId) == 0) {
                 recycle = idx;
                 break;
             }
@@ -82,9 +82,9 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
         if (e->category == 9 || e->category == 10) {
             continue;
         }
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             last = idx;
-            CopyStruct02098834(&arr[recycle], e);
+            func_02098834(&arr[recycle], e);
             recycle = idx;
         }
     }
@@ -97,7 +97,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             continue;
         }
         e = &arr[recycle];
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             e->category = 2;
         }
     }
@@ -106,7 +106,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             continue;
         }
         e = &arr[recycle];
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             e->category = 3;
         }
     }
@@ -115,7 +115,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             continue;
         }
         e = &arr[recycle];
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             e->category = 4;
         }
     }
@@ -124,7 +124,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             continue;
         }
         e = &arr[recycle];
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             e->category = 5;
         }
     }
@@ -133,7 +133,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
             continue;
         }
         e = &arr[recycle];
-        if (Field0x1b68ContainsValue(list, e->valueId) == 0) {
+        if (func_02098e3c(list, e->valueId) == 0) {
             e->category = 6;
         }
     }
@@ -141,7 +141,7 @@ extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
     if (last < 6) {
         return last;
     }
-    CopyStruct02098834(resetSlot, &arr[list->fallbackIndex]);
+    func_02098834(resetSlot, &arr[list->fallbackIndex]);
     func_02098364(&arr[list->fallbackIndex]);
     return list->fallbackIndex;
 }

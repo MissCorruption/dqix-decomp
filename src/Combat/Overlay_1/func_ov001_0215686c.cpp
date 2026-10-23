@@ -53,10 +53,10 @@ struct ResPtr0215686c {
 
 extern "C" int func_020c39c8(volatile unsigned short* p);
 extern "C" void* func_0202ae18(void);
-void* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
-void OrGlobalFlag0x40_020dc2bc();
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020dc2bc();
+extern "C" void func_0204af64(struct List0204af64* obj);
 
 static inline unsigned int GetEntryMode(Obj0215686c* o) {
     return o->fa;
@@ -116,8 +116,8 @@ cont:
         }
     }
 
-    OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 1);
-    OrGlobalFlag0x40_020dc2bc();
+    func_020466e4((unsigned int*)func_020d6c00(), 1);
+    func_020dc2bc();
 
     volatile unsigned int* r32 = (volatile unsigned int*)0x4001000;
     volatile unsigned short* r16 = (volatile unsigned short*)0x4001000;
@@ -133,7 +133,7 @@ cont:
     r32[7] = 0;
     r16[0x28] = 0;
 
-    ResetList0204af64(&list);
+    func_0204af64(&list);
     list.b1c_lo = 3;
 
     unsigned char* p = ((struct ResPtr0215686c*)res)->p2c;

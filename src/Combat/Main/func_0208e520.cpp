@@ -31,7 +31,7 @@ struct Obj0208e4f8 {
     unsigned char fielda;
 };
 
-void ResetAllocatorAndClearState(struct Obj0208e4f8*);
+extern "C" void func_0208e4f8(struct Obj0208e4f8*);
 
 // USA: func_0208e520
 extern "C" ARM void func_0208e520(struct Obj0208e4f8* p, char* name) {
@@ -48,7 +48,7 @@ extern "C" ARM void func_0208e520(struct Obj0208e4f8* p, char* name) {
     len = 0;
     if (func_02001aec(name, data_020f12b8, 6) == 0 && func_02001aec(name, p->field0, 3) != 0 &&
         LoadFileIntoMemory(data_020f12bf, data_0211e33c, &len)) {
-        ResetAllocatorAndClearState(p);
+        func_0208e4f8(p);
         Script scriptC;
         scriptC.Initialize();
         scriptC.SetOpcodeLookup(data_020f1278);
@@ -77,7 +77,7 @@ extern "C" ARM void func_0208e520(struct Obj0208e4f8* p, char* name) {
             scriptB.Execute();
             p->fielda = 1;
         }
-        ResetAllocatorAndClearState(p);
+        func_0208e4f8(p);
         if (GetFileInNarc(data_0211e33c, path, &fileData, &fileLen, 0)) {
             Script scriptA;
             scriptA.Initialize();

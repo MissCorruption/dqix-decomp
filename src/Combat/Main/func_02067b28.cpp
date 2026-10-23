@@ -39,11 +39,11 @@ struct TextContext02067b28 {
     char pad_19c5[0x17];
     unsigned char table;
 };
-int IsHighByteFF02044494(void*, void*);
-int Dispatch02044420(void*, void*);
-Entry0204254c* FindEntryByKey0204254c(int, int);
-int FindEntryIndexByKey020424e4(int, int);
-int FindMatchingEntryIndex(Container02045c00*, int);
+extern "C" int func_02044494(void*, void*);
+extern "C" int func_02044420(void*, void*);
+extern "C" Entry0204254c* func_0204254c(int, int);
+extern "C" int func_020424e4(int, int);
+extern "C" int func_02045c00(Container02045c00*, int);
 extern "C" int func_020459b8(TextContext02067b28*, unsigned char, Entry0204254c*, unsigned char);
 extern "C" int func_02001aec(const void*, const void*, int);
 extern char data_020f08dc[3];
@@ -57,11 +57,11 @@ extern "C" ARM void func_02067b28(TextContext02067b28* state) {
         unsigned short* destination = state->output + state->outputCursor;
         unsigned short token;
         memcpy(&token, source, 2);
-        if (IsHighByteFF02044494(state, &token)) {
+        if (func_02044494(state, &token)) {
             *destination = token;
             state->inputCursor += 2;
             ++state->outputCursor;
-            int length = Dispatch02044420(state, &token);
+            int length = func_02044420(state, &token);
             memcpy(destination + 1, source + 2, length * 2);
             state->inputCursor += length * 2;
             state->outputCursor += length;
@@ -80,10 +80,10 @@ extern "C" ARM void func_02067b28(TextContext02067b28* state) {
                 state->wrapPending = 1;
             }
         }
-        Entry0204254c* entry = FindEntryByKey0204254c((int)source, state->table);
-        int tableIndex = FindEntryIndexByKey020424e4((int)source, state->table);
+        Entry0204254c* entry = func_0204254c((int)source, state->table);
+        int tableIndex = func_020424e4((int)source, state->table);
         if (entry && tableIndex >= 0) {
-            int index = FindMatchingEntryIndex((Container02045c00*)state, (int)entry);
+            int index = func_02045c00((Container02045c00*)state, (int)entry);
             state->inputCursor += entry->length;
             if (index < 0) {
                 unsigned short inserted = func_020459b8(state, (unsigned char)tableIndex, entry, state->table);

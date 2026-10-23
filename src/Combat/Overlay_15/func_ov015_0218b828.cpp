@@ -32,8 +32,8 @@ struct Struct0218b810
     int presetCount_;
 };
 
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void ZeroFourFields0218b810(Struct0218b810* s);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_ov015_0218b810(Struct0218b810* s);
 
 extern AllocatorUnion data_02114e20;
 
@@ -44,12 +44,12 @@ extern "C" ARM void func_ov015_0218b828(Struct0218b810* self)
     {
         if (self->entries_[i].name_ != NULL)
         {
-            TailForward02012da4(&data_02114e20, self->entries_[i].name_);
+            func_02012da4(&data_02114e20, self->entries_[i].name_);
             self->entries_[i].name_ = NULL;
         }
         if (self->entries_[i].file_ != NULL)
         {
-            TailForward02012da4(&data_02114e20, self->entries_[i].file_);
+            func_02012da4(&data_02114e20, self->entries_[i].file_);
             self->entries_[i].file_ = NULL;
         }
     }
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov015_0218b828(Struct0218b810* self)
     {
         if (self->presets_[i].name_ != NULL)
         {
-            TailForward02012da4(&data_02114e20, self->presets_[i].name_);
+            func_02012da4(&data_02114e20, self->presets_[i].name_);
             self->presets_[i].name_ = NULL;
         }
         ViewerPresetItem* item = self->presets_[i].items_;
@@ -66,22 +66,22 @@ extern "C" ARM void func_ov015_0218b828(Struct0218b810* self)
             ViewerPresetItem* next = item->next_;
             if (item->file_ != NULL)
             {
-                TailForward02012da4(&data_02114e20, item->file_);
+                func_02012da4(&data_02114e20, item->file_);
                 item->file_ = NULL;
             }
-            TailForward02012da4(&data_02114e20, item);
+            func_02012da4(&data_02114e20, item);
             item = next;
         }
     }
     if (self->entries_ != NULL)
     {
-        TailForward02012da4(&data_02114e20, self->entries_);
+        func_02012da4(&data_02114e20, self->entries_);
         self->entries_ = NULL;
     }
     if (self->presets_ != NULL)
     {
-        TailForward02012da4(&data_02114e20, self->presets_);
+        func_02012da4(&data_02114e20, self->presets_);
         self->presets_ = NULL;
     }
-    ZeroFourFields0218b810(self);
+    func_ov015_0218b810(self);
 }

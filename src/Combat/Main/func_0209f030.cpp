@@ -20,7 +20,7 @@ struct FilterOwner0209f030 {
     FilterEntryList0209f030 scratch;
 };
 
-// USA: func_0209f030  (semantic: FilterEntriesByKey0209f030)
+// USA: func_0209f030
 extern "C" ARM void func_0209f030(struct FilterOwner0209f030* owner, int refilter, int key, int keepAtOrAbove)
 {
     if (refilter == 0) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-void ZeroMemRegion_022415b4(void* dst, unsigned int size);
-void CopyMemory_022415c8(void* dst, const void* src, unsigned int size);
+extern "C" void func_ov031_022415b4(void* dst, unsigned int size);
+extern "C" void func_ov031_022415c8(void* dst, const void* src, unsigned int size);
 extern "C" int func_ov031_022415a8(const char* s);
 extern "C" int func_ov031_02241540(const char* a, const char* b, int n);
 extern "C" int func_ov031_02242c54(const char* text, int length);
@@ -72,13 +72,13 @@ extern "C" ARM HttpRequest* func_ov031_02240890(const char* url, int method, voi
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    ZeroMemRegion_022415b4(req, sizeof(HttpRequest));
+    func_ov031_022415b4(req, sizeof(HttpRequest));
     req->body = (HttpBody*)data_ov031_02290fc4(sizeof(HttpBody), 4);
     if (req->body == 0) {
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    ZeroMemRegion_022415b4(req->body, sizeof(HttpBody));
+    func_ov031_022415b4(req->body, sizeof(HttpBody));
     req->body->buf = buf;
     req->body->len = len;
 
@@ -134,7 +134,7 @@ extern "C" ARM HttpRequest* func_ov031_02240890(const char* url, int method, voi
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    CopyMemory_022415c8(req->url, url, prefix);
+    func_ov031_022415c8(req->url, url, prefix);
 
     for (i = 0, j = 0, state = 0, slash = 0; i < urlLen; i++) {
         if (state == 2) {
@@ -205,17 +205,17 @@ extern "C" ARM HttpRequest* func_ov031_02240890(const char* url, int method, voi
             data_ov031_02290fc0 = 1;
             goto fail;
         }
-        ZeroMemRegion_022415b4(req->sslInfo, sizeof(HttpSsl));
+        func_ov031_022415b4(req->sslInfo, sizeof(HttpSsl));
         req->sslInfo->host = (char*)data_ov031_02290fc4(hostLen + 1, 4);
         if (req->sslInfo->host == 0) {
             data_ov031_02290fc0 = 1;
             goto fail;
         }
-        CopyMemory_022415c8(req->sslInfo->host, req->url + prefix, hostLen);
+        func_ov031_022415c8(req->sslInfo->host, req->url + prefix, hostLen);
         req->sslInfo->host[hostLen] = 0;
     }
 
-    CopyMemory_022415c8(req->header, data_ov031_022494c0, sizeof(req->header));
+    func_ov031_022415c8(req->header, data_ov031_022494c0, sizeof(req->header));
     req->param = param;
     req->method = method;
     req->callback = callback;

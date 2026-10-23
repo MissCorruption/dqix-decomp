@@ -16,15 +16,15 @@ struct State0223ae1c {
 };
 extern struct State0223ae1c* data_ov031_02290d20;
 
-extern int GetField40_02239be8(void);
-extern unsigned short GetField144_0223b30c(void);
+extern "C" int func_ov031_02239be8(void);
+extern "C" unsigned short func_ov031_0223b30c(void);
 extern "C" int func_ov031_0223a0fc(int selection, int first, int second);
 extern "C" void func_ov031_0223b0c0(int a, int b, void* src);
 extern "C" void func_ov031_0223b228(void);
 
 // USA: func_ov031_0223ae1c
 extern "C" ARM void func_ov031_0223ae1c(void) {
-	switch (GetField40_02239be8()) {
+	switch (func_ov031_02239be8()) {
 	case 1:
 		func_ov031_0223a0fc(4, (unsigned short)(data_ov031_02290d20->field648 + 1), data_ov031_02290d20->field64a);
 		break;
@@ -40,22 +40,22 @@ extern "C" ARM void func_ov031_0223ae1c(void) {
 			data_ov031_02290d20->fieldA90 = 0x1b;
 			break;
 		}
-		if (GetField144_0223b30c() == 0x10 || GetField144_0223b30c() == 0x20) {
-			GetField144_0223b30c();
+		if (func_ov031_0223b30c() == 0x10 || func_ov031_0223b30c() == 0x20) {
+			func_ov031_0223b30c();
 			data_ov031_02290d20->fieldA90 = 0xa;
-		} else if (GetField144_0223b30c() == 0x40) {
+		} else if (func_ov031_0223b30c() == 0x40) {
 			data_ov031_02290d20->fieldA90 = 0xb;
-		} else if (GetField144_0223b30c() == 0xff) {
+		} else if (func_ov031_0223b30c() == 0xff) {
 			data_ov031_02290d20->fieldA90 = 0x1b;
-		} else if (GetField144_0223b30c() == 0x50) {
+		} else if (func_ov031_0223b30c() == 0x50) {
 			data_ov031_02290d20->fieldA90 = 0x15;
-		} else if (GetField144_0223b30c() == 0x60) {
+		} else if (func_ov031_0223b30c() == 0x60) {
 			data_ov031_02290d20->fieldA90 = 0x18;
-		} else if (GetField144_0223b30c() == 0x70) {
+		} else if (func_ov031_0223b30c() == 0x70) {
 			data_ov031_02290d20->fieldA90 = 0x1b;
-		} else if (GetField144_0223b30c() == 0) {
+		} else if (func_ov031_0223b30c() == 0) {
 			data_ov031_02290d20->fieldA90 = 8;
-		} else if (GetField144_0223b30c() == 0xbd) {
+		} else if (func_ov031_0223b30c() == 0xbd) {
 			data_ov031_02290d20->fieldA90 = 9;
 		} else {
 			data_ov031_02290d20->fieldA90 = 0x1f;

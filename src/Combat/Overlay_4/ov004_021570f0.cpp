@@ -24,7 +24,7 @@ unsigned char* data_ov004_021707e0;
 int data_ov004_021707e4;
 
 // USA: func_ov004_021570f0
-ARM signed char GetFlagByte_021570f0(int idx) {
+extern "C" ARM signed char func_ov004_021570f0(int idx) {
     if (idx < 0) return -1;
     char* ptr = ((char*)data_ov004_021707e0);
     short count = *(short*)(ptr + 0x3a);
@@ -33,19 +33,19 @@ ARM signed char GetFlagByte_021570f0(int idx) {
 }
 
 #if defined(jpn)
-#define _Z27ScaleStatsIfType12_021f6f10Pv func_ov023_021f6f10
+#define func_ov024_021f6f10 func_ov023_021f6f10
 #endif
 
 extern "C" void* func_ov004_02156e68(void*, int);
 #if defined(jpn)
-#define ScaleStatsIfType12_021f6f10 func_ov023_021f6f10
-extern "C" int ScaleStatsIfType12_021f6f10(void*);
+#define func_ov024_021f6f10 func_ov023_021f6f10
+extern "C" int func_ov024_021f6f10(void*);
 #else
-int ScaleStatsIfType12_021f6f10(void*);
+extern "C" int func_ov024_021f6f10(void*);
 #endif
 struct Obj021f6f08;
-unsigned int GetShort6_021f6f08(struct Obj021f6f08* obj);
-signed char GetFlagByte_021570f0(int idx);
+extern "C" unsigned int func_ov023_021f6f08(struct Obj021f6f08* obj);
+extern "C" signed char func_ov004_021570f0(int idx);
 
 // USA: func_ov004_02157128
 extern "C" ARM signed char func_ov004_02157128(void* obj) {
@@ -54,12 +54,12 @@ extern "C" ARM signed char func_ov004_02157128(void* obj) {
         return (signed char)(*(short*)(data_ov004_021707e0 + 0x3c));
     }
 
-    if (ScaleStatsIfType12_021f6f10(node) != 8) {
+    if (func_ov024_021f6f10(node) != 8) {
         return 0;
     }
 
     int idx = 0;
-    unsigned int v = GetShort6_021f6f08((struct Obj021f6f08*)node);
+    unsigned int v = func_ov023_021f6f08((struct Obj021f6f08*)node);
     switch (v) {
         case 0x322: idx = 0; break;
         case 0x323: idx = 1; break;
@@ -69,14 +69,14 @@ extern "C" ARM signed char func_ov004_02157128(void* obj) {
         case 0x327: return -1;
         default: break;
     }
-    return GetFlagByte_021570f0(idx);
+    return func_ov004_021570f0(idx);
 }
 
-#undef _Z27ScaleStatsIfType12_021f6f10Pv
-#undef ScaleStatsIfType12_021f6f10
+#undef func_ov024_021f6f10
+#undef func_ov024_021f6f10
 
 // USA: func_ov004_021571d8
-ARM int HasFlag101_021571d8(int a) {
+extern "C" ARM int func_ov004_021571d8(int a) {
     if (((int)func_ov004_02156e68((void*)a, 0x65)) != 0) {
         return 1;
     }
@@ -168,18 +168,18 @@ extern "C" ARM void func_ov004_021571f4(void* self, int total) {
 
 struct EntryA68 { short key; void* value; };
 struct TableA68 { struct EntryA68* entries; short count; };
-void* FindEntryByKey_02072a68(struct TableA68*, int);
-int DispatchAdjustmentIfType4_02157018(void*, int);
-int GetGlobalField0x1c020421a0(void);
+extern "C" void* func_02072a68(struct TableA68*, int);
+extern "C" int func_ov004_02157018(void*, int);
+extern "C" int func_020421a0(void);
 extern "C" void func_02046380(void* global);
 struct StoreStruct;
-void StoreInArray0x8b0_020465c0(struct StoreStruct* base, int index, int value);
+extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
 
-// USA: func_ov004_02157374  (semantic: StoreEntryNameForKey_02157374)
+// USA: func_ov004_02157374
 extern "C" ARM void func_ov004_02157374(void* obj, int key, int cat, char* dst, unsigned char flag5) {
     if (key <= 0) return;
 
-    struct TableA68* table = (struct TableA68*)DispatchAdjustmentIfType4_02157018(obj, 4);
+    struct TableA68* table = (struct TableA68*)func_ov004_02157018(obj, 4);
     int usedFallback = 0;
     const char* name;
 
@@ -194,26 +194,26 @@ extern "C" ARM void func_ov004_02157374(void* obj, int key, int cat, char* dst, 
         (key >= 0xcbec && key <= 0xcbf1) ||
         (key >= 0xcbf5 && key < 0xccb0) ||
         (key >= 0xcf08 && key < 0xd034)) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x64);
+        name = (const char*)func_02072a68(table, 0x64);
     } else if ((key == 0x4e85) || (key >= 0x59d8 && key < 0x5dc0)) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x65);
+        name = (const char*)func_02072a68(table, 0x65);
     } else if (key == 0x4e8c) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x66);
+        name = (const char*)func_02072a68(table, 0x66);
     } else if (key == 0x4e8e) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x67);
+        name = (const char*)func_02072a68(table, 0x67);
     } else if (key >= 0xc800 && key < 0xc864) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x68);
+        name = (const char*)func_02072a68(table, 0x68);
     } else if (key >= 0xc350 && key < 0xc3b4) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x69);
+        name = (const char*)func_02072a68(table, 0x69);
     } else if ((key >= 0xc738 && key <= 0xc79e) ||
                (key >= 0xc7a0 && key < 0xc800) ||
                (key >= 0xc864 && key < 0xc8c8)) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x6a);
+        name = (const char*)func_02072a68(table, 0x6a);
     } else if (key == 0xc79f) {
 #if defined(jpn)
-        name = (const char*)FindEntryByKey_02072a68(table, 0x6b);
+        name = (const char*)func_02072a68(table, 0x6b);
 #else
-        name = (const char*)FindEntryByKey_02072a68(table, 0x6a);
+        name = (const char*)func_02072a68(table, 0x6a);
 #endif
     } else if ((key >= 0xcb20 && key <= 0xcb23) ||
                (key >= 0xcb2a && key <= 0xcb2c) ||
@@ -227,20 +227,20 @@ extern "C" ARM void func_ov004_02157374(void* obj, int key, int cat, char* dst, 
                (key >= 0xcd1e && key <= 0xcd20) ||
                (key >= 0xcddc && key <= 0xcddf) ||
                (key >= 0xcde6 && key <= 0xcde8)) {
-        name = (const char*)FindEntryByKey_02072a68(table, 0x6c);
+        name = (const char*)func_02072a68(table, 0x6c);
     } else {
         usedFallback = 1;
 #if defined(jpn)
         if (cat == 1) {
-            name = (const char*)FindEntryByKey_02072a68(table, 0x6d);
+            name = (const char*)func_02072a68(table, 0x6d);
         }
 #endif
         if (cat == 2) {
-            name = (const char*)FindEntryByKey_02072a68(table, 0x70);
+            name = (const char*)func_02072a68(table, 0x70);
         } else if (key >= 0x7918 && key < 0x7d00) {
-            name = (const char*)FindEntryByKey_02072a68(table, 0x6f);
+            name = (const char*)func_02072a68(table, 0x6f);
         } else {
-            name = (const char*)FindEntryByKey_02072a68(table, 0x6e);
+            name = (const char*)func_02072a68(table, 0x6e);
         }
     }
 
@@ -249,22 +249,22 @@ extern "C" ARM void func_ov004_02157374(void* obj, int key, int cat, char* dst, 
     }
     if (name == 0) return;
 
-    void* g = (void*)GetGlobalField0x1c020421a0();
+    void* g = (void*)func_020421a0();
     func_02046380(g);
-    StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 0, key);
+    func_020465c0((struct StoreStruct*)g, 0, key);
     memcpy(dst, (void*)name, strlen(name));
 }
 
-int GetBattleSubField0xbcForState_020d4ac8(void);
-void ClearNodeMaskById_021f6600(void* obj, int id, int mask);
+extern "C" int func_020d4ac8(void);
+extern "C" void func_ov023_021f6600(void* obj, int id, int mask);
 extern "C" void func_ov023_021f65d4(void* obj, int id, int mask);
 
 // USA: func_ov004_0215781c
-ARM void ClearOrMaskNodesByState_0215781c(void* obj) {
-    int state = GetBattleSubField0xbcForState_020d4ac8();
+extern "C" ARM void func_ov004_0215781c(void* obj) {
+    int state = func_020d4ac8();
     for (int i = 0; i < 4; i++) {
         if (i == state) {
-            ClearNodeMaskById_021f6600(obj, i + 0x29, 8);
+            func_ov023_021f6600(obj, i + 0x29, 8);
         } else {
             func_ov023_021f65d4(obj, i + 0x29, 8);
         }
@@ -272,7 +272,7 @@ ARM void ClearOrMaskNodesByState_0215781c(void* obj) {
 }
 
 // USA: func_ov004_02157874
-ARM void MaskNodesForRange_02157874(void* obj) {
+extern "C" ARM void func_ov004_02157874(void* obj) {
     for (int i = 0; i < 4; i++) {
         func_ov023_021f65d4(obj, i + 0x29, 8);
     }
@@ -312,11 +312,11 @@ extern "C" ARM void func_ov004_021578a8(void* obj) {
 }
 
 struct KeyMap020a0b3c { short* keys; signed char* values; short count; };
-signed char LookupValueByKey020a0b3c(struct KeyMap020a0b3c* map, int key);
-int SumSlotsWithFlag0x1000x150_02086d20(unsigned char* p);
+extern "C" signed char func_020a0b3c(struct KeyMap020a0b3c* map, int key);
+extern "C" int func_02086d20(unsigned char* p);
 extern "C" int func_0207c7a0(void* p, int e, int c);
 
-// USA: func_ov004_0215799c  (semantic: ComputeRemainingSlots_0215799c)
+// USA: func_ov004_0215799c
 extern "C" ARM int func_ov004_0215799c(void* a, int e, unsigned int kind, int d) {
     int result = 0;
     unsigned int flag = (kind >= 8 && kind <= 9);
@@ -325,8 +325,8 @@ extern "C" ARM int func_ov004_0215799c(void* a, int e, unsigned int kind, int d)
         if (kind == 9) {
             ptr = (char*)a + 0x204 + 0xc00;
         }
-        signed char val1 = LookupValueByKey020a0b3c((struct KeyMap020a0b3c*)ptr, e);
-        int val2 = SumSlotsWithFlag0x1000x150_02086d20((unsigned char*)a);
+        signed char val1 = func_020a0b3c((struct KeyMap020a0b3c*)ptr, e);
+        int val2 = func_02086d20((unsigned char*)a);
         result = (d * 8 + 0x63) - (val1 + val2);
     } else {
         unsigned int flag2 = (kind <= 7);
@@ -393,38 +393,38 @@ extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void func_ov011_021848a0(void*, int);
 
-struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0*, int);
-void* ZeroInitReturn020de824(void*);
-void InitStruct0207cbe8(char*);
-void InitStruct0207cc0c(char*);
-void* GetPtrField0x2a04_02010828(struct GameState*);
-int GetHalfwordEntryFromField150(Field150Holder02052df8*, int);
-int DecrementKeyedStackAmount0207c484(struct KeyedList0207c484*, int, int, int);
-void TrySetFlags0x130_020483f0(unsigned char*, unsigned short);
-int CheckField0NonZero_0202b7d8(int*);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-void ClearIfMatchAndFinalize_021a3498(Ctx021a3498*);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0*, int);
+extern "C" void* func_020de824(void*);
+extern "C" void func_0207cbe8(char*);
+extern "C" void func_0207cc0c(char*);
+extern "C" void* func_02010828(struct GameState*);
+extern "C" int func_02052df8(Field150Holder02052df8*, int);
+extern "C" int func_0207c484(struct KeyedList0207c484*, int, int, int);
+extern "C" void func_020483f0(unsigned char*, unsigned short);
+extern "C" int func_0202b7d8(int*);
+extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" void func_ov017_021a3498(Ctx021a3498*);
 
 // USA: func_ov004_02157a28
 extern "C" ARM int func_ov004_02157a28(void* a, int flag) {
     short id = ((short)func_ov004_02157128(a));
     int* search = ((int*)func_0202ae18());
     GameState* gs = GameState::GetInstance();
-    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, id);
+    GameObject* c = func_0200ff1c(gs, id);
     if (!c) return 0;
     Container020dedd0* cont = (Container020dedd0*)((void*)func_ov004_02156fd4(a, 5));
     if (!cont) return 0;
-    Element_02157a28* elem = ((Element_02157a28*)FindElementByKey020dedd0(cont, ((BattleBlk_02157a28*)data_ov004_021707e0)->key));
+    Element_02157a28* elem = ((Element_02157a28*)func_020dedd0(cont, ((BattleBlk_02157a28*)data_ov004_021707e0)->key));
     if (!elem) return 0;
     int category = elem->bits.category;
     TextContext_02157a28 context;
     context.allocator.ResetAllocatorPointer();
-    ZeroInitReturn020de824(context.list);
-    InitStruct0207cbe8((char*)&context);
-    InitStruct0207cbe8((char*)&context);
+    func_020de824(context.list);
+    func_0207cbe8((char*)&context);
+    func_0207cbe8((char*)&context);
     context.containerData = cont;
     func_0207cc18(&context, elem);
-    InitStruct0207cc0c((char*)&context);
+    func_0207cc0c((char*)&context);
 
     int found = 0;
     int i;
@@ -439,18 +439,18 @@ extern "C" ARM int func_ov004_02157a28(void* a, int flag) {
     int slot = table.v[i];
     if (slot < 0) return 0;
 
-    char* bag = (char*)GetPtrField0x2a04_02010828(gs);
-    int equipped = GetHalfwordEntryFromField150((Field150Holder02052df8*)c, slot);
+    char* bag = (char*)func_02010828(gs);
+    int equipped = func_02052df8((Field150Holder02052df8*)c, slot);
     int same = ((BattleBlk_02157a28*)data_ov004_021707e0)->key == equipped;
     func_02052d7c((Obj02052d7c*)c, slot, ((BattleBlk_02157a28*)data_ov004_021707e0)->key);
     if (((BattleBlk_02157a28*)data_ov004_021707e0)->used == 0) {
         func_0207c378((KeyedList0207c378*)(bag + 0x1d4), ((BattleBlk_02157a28*)data_ov004_021707e0)->key, (signed char)(((BattleBlk_02157a28*)data_ov004_021707e0)->count - 1), category);
         ((BattleBlk_02157a28*)data_ov004_021707e0)->dirty = 0;
     } else {
-        DecrementKeyedStackAmount0207c484((KeyedList0207c484*)(bag + 0x1d4), ((BattleBlk_02157a28*)data_ov004_021707e0)->key, 1, category);
+        func_0207c484((KeyedList0207c484*)(bag + 0x1d4), ((BattleBlk_02157a28*)data_ov004_021707e0)->key, 1, category);
     }
     ((BattleBlk_02157a28*)data_ov004_021707e0)->used++;
-    if (((Element_02157a28*)FindElementByKey020dedd0(cont, equipped))) {
+    if (((Element_02157a28*)func_020dedd0(cont, equipped))) {
         func_0207c378((KeyedList0207c378*)(bag + 0x1d4), equipped, 1, category);
     }
     int upgrade = 0;
@@ -461,12 +461,12 @@ extern "C" ARM int func_ov004_02157a28(void* a, int flag) {
     }
     if (!same || flag) {
         int did = 0;
-        Element_02157a28* e2 = ((Element_02157a28*)FindElementByKey020dedd0(cont, ((BattleBlk_02157a28*)data_ov004_021707e0)->key));
+        Element_02157a28* e2 = ((Element_02157a28*)func_020dedd0(cont, ((BattleBlk_02157a28*)data_ov004_021707e0)->key));
         if (e2 && e2->bits.flag) {
-            TrySetFlags0x130_020483f0((unsigned char*)c, 4);
+            func_020483f0((unsigned char*)c, 4);
             did = 1;
         }
-        if (CheckField0NonZero_0202b7d8(search)) {
+        if (func_0202b7d8(search)) {
             func_ov017_021c3fb4(id, 1);
             func_ov017_021c4418(id, -1);
             if (did) func_ov017_021c9e00(id, 0, 0, 1);
@@ -476,11 +476,11 @@ extern "C" ARM int func_ov004_02157a28(void* a, int flag) {
         Ctx021a3498* ctxB = (Ctx021a3498*)res->unknown_ptr_array_36fc[2];
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
         func_ov017_0218f5a4(res, id, 1, 0, 0);
-        while (GetHeadNodeIdOrMinusOne(headA) == 0x13) {
+        while (func_02046b24(headA) == 0x13) {
             loader->RemoveAllLocks();
-            ClearIfMatchAndFinalize_021a3498((Ctx021a3498*)headA);
-            if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)ctxB) == 0x14) {
-                ClearIfMatchAndFinalize_021a3498(ctxB);
+            func_ov017_021a3498((Ctx021a3498*)headA);
+            if (func_02046b24((HeadNode02046b24**)ctxB) == 0x14) {
+                func_ov017_021a3498(ctxB);
             }
         }
         if (did) {
@@ -583,27 +583,27 @@ enum { areaOffset = 0x26c, optionsBase = 0x2380, optionsOffset = 0x4000, stateOf
 extern char data_02109bf4[];
 
 extern "C" void* func_ov011_021845f8(unsigned char*, unsigned int);
-void ClearStruct020a9ea4(struct Struct020a9ea4*);
+extern "C" void func_020a9ea4(struct Struct020a9ea4*);
 #if defined(jpn)
 struct Struct020dfc40;
-void ResetStruct020dfc40(struct Struct020dfc40*);
+extern "C" void func_020dfc40(struct Struct020dfc40*);
 #else
-void Zero4Bytes_020e526c(void*);
+extern "C" void func_020e526c(void*);
 #endif
-void Clear12Bytes020e46c4(void*);
+extern "C" void func_020e46c4(void*);
 extern "C" void* func_02012fe4(void);
-unsigned short GetFieldAt0x7e_0201e830(struct S_e830* p);
-void Set3DClearColor_020c5588(int, int, int, int, int);
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
-void SetDataPtr_021f5598(void*);
-void RegisterSlotA020cf0fc(int);
-void RegisterSlotB020cf1a8(int);
+extern "C" unsigned short func_0201e830(struct S_e830* p);
+extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_ov023_021f5598(void*);
+extern "C" void func_020cf0fc(int);
+extern "C" void func_020cf1a8(int);
 struct Obj020397cc;
-void CancelPendingAction020397cc(Obj020397cc*, int);
-unsigned char GetField0xcc0209ca98(char*);
-void* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-unsigned char CopyOutRegion0x5718_02011494(char*, void*);
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" unsigned char func_0209ca98(char*);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" unsigned char func_02011494(char*, void*);
 
 // USA: func_ov004_02157db8
 extern "C" ARM int func_ov004_02157db8(void* a) {
@@ -662,26 +662,26 @@ extern "C" ARM int func_ov004_02157db8(void* a) {
     blk->b70 = neg2;
     blk->word74 = neg2;
     blk->word78 = 0;
-    ClearStruct020a9ea4((struct Struct020a9ea4*)blk->pad84);
+    func_020a9ea4((struct Struct020a9ea4*)blk->pad84);
 #if defined(jpn)
-    ResetStruct020dfc40((struct Struct020dfc40*)blk->pad8c);
+    func_020dfc40((struct Struct020dfc40*)blk->pad8c);
     blk->word98 = 0;
     blk->b9c = 0;
     blk->b9d = 0;
 #else
-    Zero4Bytes_020e526c(blk->pad8c);
+    func_020e526c(blk->pad8c);
     blk->word98 = 0;
     blk->b9c = 0;
     blk->b9d = 0;
-    Clear12Bytes020e46c4(blk->padA0);
-    Clear12Bytes020e46c4(blk->padAC);
+    func_020e46c4(blk->padA0);
+    func_020e46c4(blk->padAC);
 #endif
 
     void* v = func_02012fe4();
     if (!v) return 0;
     void* p = (char*)v + stateOffset;
     if (!p) return 0;
-    ((Blk_02157db8*)data_ov004_021707e0)->half0c = GetFieldAt0x7e_0201e830((struct S_e830*)p);
+    ((Blk_02157db8*)data_ov004_021707e0)->half0c = func_0201e830((struct S_e830*)p);
 
     unsigned int* obj = (unsigned int*)GetGameResources();
     ((Blk_02157db8*)data_ov004_021707e0)->word00 = GetFlags00((GameResources*)obj);
@@ -691,17 +691,17 @@ extern "C" ARM int func_ov004_02157db8(void* a) {
     SetFlags04((GameResources*)obj, 0x8de);
 
     int pad0 = 0;
-    Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
-    SetFogState_020c54a4(0, 0, 0, 0);
+    func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+    func_020c54a4(0, 0, 0, 0);
 
     void* d = ((void*)func_ov004_02156fd4(a, 5));
     if (d != 0) {
-        SetDataPtr_021f5598(d);
+        func_ov023_021f5598(d);
     }
     int slotA[4];
     int slotB[3];
-    RegisterSlotA020cf0fc((int)slotA);
-    RegisterSlotB020cf1a8((int)slotB);
+    func_020cf0fc((int)slotA);
+    func_020cf1a8((int)slotB);
 
     ((Blk_02157db8*)data_ov004_021707e0)->cfg.lo12 = slotA[0] + 0x7d0;
     ((Blk_02157db8*)data_ov004_021707e0)->cfg.n4 = slotA[1];
@@ -709,11 +709,11 @@ extern "C" ARM int func_ov004_02157db8(void* a) {
     ((Blk_02157db8*)data_ov004_021707e0)->cfg.k5 = slotB[0];
     ((Blk_02157db8*)data_ov004_021707e0)->cfg.j6 = slotB[1];
 
-    CancelPendingAction020397cc((Obj020397cc*)bs->GetUnknownGameObject(), 1);
-    ((Blk_02157db8*)data_ov004_021707e0)->b2d = GetField0xcc0209ca98(data_02109bf4);
+    func_020397cc((Obj020397cc*)bs->GetUnknownGameObject(), 1);
+    ((Blk_02157db8*)data_ov004_021707e0)->b2d = func_0209ca98(data_02109bf4);
     unsigned int subword = *(unsigned int*)(sub4000 + 0x50);
     ((Blk_02157db8*)data_ov004_021707e0)->b2f = (subword & 1) ? 1 : 0;
-    OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
+    func_020466e4((unsigned int*)func_020d6c00(), 0xf);
 
     short* pp = (short*)(base5 + 4);
     for (int i = 0; i < 6; ) {
@@ -737,14 +737,14 @@ extern "C" ARM int func_ov004_02157db8(void* a) {
 #endif
 
     unsigned char ids[4];
-    unsigned char count = CopyOutRegion0x5718_02011494((char*)bs, ids);
+    unsigned char count = func_02011494((char*)bs, ids);
     for (int i = 0; i < count; i++) {
         ((Blk_02157db8*)data_ov004_021707e0)->arr32[i] = ids[i];
     }
     ((Blk_02157db8*)data_ov004_021707e0)->arr32[4] = count;
 
     for (int i = 0; i < ((Blk_02157db8*)data_ov004_021707e0)->arr32[4]; i++) {
-        void* combatant = (void*)GetCombatantWithFlag0x100_0200ff1c(bs, ((Blk_02157db8*)data_ov004_021707e0)->arr32[i]);
+        void* combatant = (void*)func_0200ff1c(bs, ((Blk_02157db8*)data_ov004_021707e0)->arr32[i]);
         if (combatant != 0) {
             struct Nib56b_02157db8* field150 = ((struct Combatant150_02157db8*)combatant)->f150;
             int flag;
@@ -775,20 +775,20 @@ enum { stateOffset_02158298 = 0x6c, battleOffset = 0x26c, pointerOffset = 0x3710
 #endif
 
 struct S_e828;
-void SetFieldAt0x7e_0201e828(S_e828*, unsigned short);
+extern "C" void func_0201e828(S_e828*, unsigned short);
 
-void SetByteField0x253_020397c0(void* obj);
+extern "C" void func_020397c0(void* obj);
 
-void* GetDataPtr02114e04_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 struct FlagWord020466f4;
-void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
 
 struct Masks021707d8_02158298 { unsigned int m0; unsigned int m4; unsigned int m8; unsigned short mc; };
 
 struct BitField5d00c_02158298 { char pad[0xc]; unsigned short lo13 : 13; unsigned short hi3 : 3; };
 struct Outer26c_02158298 { char pad[0x5d00]; struct BitField5d00c_02158298 area; };
 
-// USA: func_ov004_02158298  (semantic: SyncFlagWordsAndDispatch_02158298)
+// USA: func_ov004_02158298
 extern "C" ARM int func_ov004_02158298(void) {
     GameState* battle = GameState::GetInstance();
     unsigned int* word = (unsigned int*)((int)GetGameResources());
@@ -803,14 +803,14 @@ extern "C" ARM int func_ov004_02158298(void) {
     if (!p) return 0;
     p = (char*)p + stateOffset_02158298;
     if (!p) return 0;
-    SetFieldAt0x7e_0201e828((struct S_e828*)p, ((Masks021707d8_02158298*)data_ov004_021707e0)->mc);
+    func_0201e828((struct S_e828*)p, ((Masks021707d8_02158298*)data_ov004_021707e0)->mc);
 
-    SetByteField0x253_020397c0(battle->GetUnknownGameObject());
+    func_020397c0(battle->GetUnknownGameObject());
 
     struct Outer26c_02158298* outer = (struct Outer26c_02158298*)((char*)battle + battleOffset);
     outer->area.lo13 &= ~0x20;
 
-    ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xf);
+    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 0xf);
 
     unsigned char* p2 = *(unsigned char**)((char*)word + pointerOffset);
     if (p2[2] != 0) {
@@ -858,24 +858,24 @@ extern "C" unsigned int strlen(const char*);
 extern "C" void* memcpy(void*, const void*, unsigned int);
 extern "C" void* memset(void*, int, unsigned int);
 struct TableA68;
-void ClearOrMaskNodesByState_0215781c(void*);
+extern "C" void func_ov004_0215781c(void*);
 struct Obj24_021b1ffc;
-int GetSubWordField394_021b1ffc(Obj24_021b1ffc*);
+extern "C" int func_ov017_021b1ffc(Obj24_021b1ffc*);
 struct Obj24_021b2010;
-unsigned char GetSubByteField398_021b2010(struct Obj24_021b2010*);
-int GetFieldromField_021b1fd4_021b1fd4(void*);
+extern "C" unsigned char func_ov017_021b2010(struct Obj24_021b2010*);
+extern "C" int func_ov017_021b1fd4(void*);
 struct Obj24_021b2024;
-unsigned char GetSubByteField34_021b2024(struct Obj24_021b2024*);
+extern "C" unsigned char func_ov017_021b2024(struct Obj24_021b2024*);
 struct Obj24_021b2038;
-unsigned char GetSubByteField35_021b2038(struct Obj24_021b2038*);
-void MaskNodesForRange_02157874(void*);
+extern "C" unsigned char func_ov017_021b2038(struct Obj24_021b2038*);
+extern "C" void func_ov004_02157874(void*);
 struct Obj24_021b1fe8;
-unsigned char GetSubByteField44_021b1fe8(struct Obj24_021b1fe8*);
-void LoadBattleBlock020ac4c0(void*);
+extern "C" unsigned char func_ov017_021b1fe8(struct Obj24_021b1fe8*);
+extern "C" void func_020ac4c0(void*);
 struct S_a059c;
-void AddClamped16BitLowAt0x20_020a059c(S_a059c*, unsigned int);
-void CopyInBattleField0x7540_020ac494(void*);
-void SetXY1c0_02184be0(void*, int, int);
+extern "C" void func_020a059c(S_a059c*, unsigned int);
+extern "C" void func_020ac494(void*);
+extern "C" void func_ov011_02184be0(void*, int, int);
 
 // USA: func_ov004_021583a8
 extern "C" ARM int func_ov004_021583a8(void* self) {
@@ -894,13 +894,13 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
     void* sub;
     adj = *(int*)((char*)ctx + adjustOffset);
     sub = *(void**)((char*)ctx + taskOffset);
-    table = ((TableA68*)DispatchAdjustmentIfType4_02157018(self, 4));
-    o = (Obj5*)((void*)GetGlobalField0x1c020421a0());
+    table = ((TableA68*)func_ov004_02157018(self, 4));
+    o = (Obj5*)((void*)func_020421a0());
     int state = ((Inner021583a8*)data_ov004_021707e0)->f13;
     if (state == 2) {
-        ClearOrMaskNodesByState_0215781c(self);
-        count = GetSubWordField394_021b1ffc((Obj24_021b1ffc*)sub);
-        int kind = ((int)GetSubByteField398_021b2010((Obj24_021b2010*)sub));
+        func_ov004_0215781c(self);
+        count = func_ov017_021b1ffc((Obj24_021b1ffc*)sub);
+        int kind = ((int)func_ov017_021b2010((Obj24_021b2010*)sub));
         if (count > 0 && sShown4 == 0) {
             if (sShown3 == 0) {
                 buf = o->buf;
@@ -926,17 +926,17 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
             }
         }
         func_ov017_021b1e24(sub, adj);
-        int v = GetFieldromField_021b1fd4_021b1fd4(sub) >> 12;
+        int v = func_ov017_021b1fd4(sub) >> 12;
         if (sShown4 == 0) {
             func_ov004_021571f4(self, v);
         }
-        int k34 = ((int)GetSubByteField34_021b2024((Obj24_021b2024*)sub));
-        int k35 = ((int)GetSubByteField35_021b2038((Obj24_021b2038*)sub));
+        int k34 = ((int)func_ov017_021b2024((Obj24_021b2024*)sub));
+        int k35 = ((int)func_ov017_021b2038((Obj24_021b2038*)sub));
         if (sShown2 == 0 && k34 == 4 && k35 == 0) {
 #if defined(jpn)
-            func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x2e)), 0);
+            func_0204500c(o, ((char*)func_02072a68(table, 0x2e)), 0);
 #else
-            func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x2e)), 0, 0xe3);
+            func_0204500c(o, ((char*)func_02072a68(table, 0x2e)), 0, 0xe3);
 #endif
             o->f998 = 1;
             sShown2 = 1;
@@ -945,15 +945,15 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
             if ((k34 == 4 && k35 == 5) || (sShown4 != 0 && count > 0)) {
 #if defined(jpn)
                 if (sShown4 == 0) {
-                    func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x25)), 0);
+                    func_0204500c(o, ((char*)func_02072a68(table, 0x25)), 0);
                 } else {
-                    func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x33)), 0);
+                    func_0204500c(o, ((char*)func_02072a68(table, 0x33)), 0);
                 }
 #else
                 if (sShown4 == 0) {
-                    func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x25)), 0, 0xe3);
+                    func_0204500c(o, ((char*)func_02072a68(table, 0x25)), 0, 0xe3);
                 } else {
-                    func_0204500c(o, ((char*)FindEntryByKey_02072a68(table, 0x33)), 0, 0xe3);
+                    func_0204500c(o, ((char*)func_02072a68(table, 0x33)), 0, 0xe3);
                 }
 #endif
                 o->f998 = 1;
@@ -963,43 +963,43 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
         if (*(int*)((char*)ctx + busyOffset) == 0) {
             ((Inner021583a8*)data_ov004_021707e0)->f13++;
             game = GameState::GetInstance();
-            CancelPendingAction020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
+            func_020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
         }
     } else if (state == 3) {
         if (o->f9a0 != 3) {
             return 1;
         }
-        MaskNodesForRange_02157874(self);
+        func_ov004_02157874(self);
         char* buf = o->buf;
         memset(buf, 0, messageBufferSize);
         char* entry = 0;
-        int flags = ((int)GetSubByteField44_021b1fe8((Obj24_021b1fe8*)sub));
+        int flags = ((int)func_ov017_021b1fe8((Obj24_021b1fe8*)sub));
         if (flags & 1) {
             unsigned char tmp[0xb0];
-            LoadBattleBlock020ac4c0(tmp);
-            AddClamped16BitLowAt0x20_020a059c((S_a059c*)tmp, 1);
-            CopyInBattleField0x7540_020ac494(tmp);
-            char* e = ((char*)FindEntryByKey_02072a68(table, 0x26));
+            func_020ac4c0(tmp);
+            func_020a059c((S_a059c*)tmp, 1);
+            func_020ac494(tmp);
+            char* e = ((char*)func_02072a68(table, 0x26));
             memcpy(buf, e, strlen(e));
             ((Inner021583a8*)data_ov004_021707e0)->f14 = 1;
             func_ov011_021848a0(self, 0x3af);
         } else {
 #if defined(jpn)
             if (flags & 0x80) {
-                entry = ((char*)FindEntryByKey_02072a68(table, 0x35));
+                entry = ((char*)func_02072a68(table, 0x35));
             } else if (sShown2 == 0) {
-                entry = ((char*)FindEntryByKey_02072a68(table, 0x15));
+                entry = ((char*)func_02072a68(table, 0x15));
             } else {
-                entry = ((char*)FindEntryByKey_02072a68(table, 0x2f));
+                entry = ((char*)func_02072a68(table, 0x2f));
             }
             int len = strlen(entry);
             memcpy(buf, entry, len);
             buf += len;
 #else
             if (flags & 0x80) {
-                entry = ((char*)FindEntryByKey_02072a68(table, 0x35));
+                entry = ((char*)func_02072a68(table, 0x35));
             } else if (sShown2 != 0) {
-                entry = ((char*)FindEntryByKey_02072a68(table, 0x2f));
+                entry = ((char*)func_02072a68(table, 0x2f));
             }
             if (entry != 0) {
                 int len = strlen(entry);
@@ -1008,14 +1008,14 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
             }
 #endif
             if (sShown4 == 0) {
-                int w = GetSubWordField394_021b1ffc((Obj24_021b1ffc*)sub);
-                int b = ((int)GetSubByteField398_021b2010((Obj24_021b2010*)sub));
+                int w = func_ov017_021b1ffc((Obj24_021b1ffc*)sub);
+                int b = ((int)func_ov017_021b2010((Obj24_021b2010*)sub));
                 func_ov004_02157374(self, w, b, buf, (int)0);
                 buf += strlen(buf);
             }
-            char* e = ((char*)FindEntryByKey_02072a68(table, 0x27));
+            char* e = ((char*)func_02072a68(table, 0x27));
             memcpy(buf, e, strlen(e));
-            SetXY1c0_02184be0(self, 0x47, 0x46);
+            func_ov011_02184be0(self, 0x47, 0x46);
             ((Inner021583a8*)data_ov004_021707e0)->f14 = 0;
         }
 #if defined(jpn)
@@ -1046,15 +1046,15 @@ enum { listOffset = 0x6fc, stateOffset_0215883c = 0xb48, countOffset = 0x494 };
 
 extern "C" int func_ov017_021b1d44(unsigned char*, int, int);
 struct Obj24_021b2060;
-unsigned char GetSubByteField439_021b2060(Obj24_021b2060* obj);
+extern "C" unsigned char func_ov017_021b2060(Obj24_021b2060* obj);
 struct Obj24_021b204c;
-unsigned char GetSubByteField438_021b204c(Obj24_021b204c* obj);
+extern "C" unsigned char func_ov017_021b204c(Obj24_021b204c* obj);
 struct Actor0209c678;
-void DispatchContextByState0209c678(struct Actor0209c678* actor, int arg);
+extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
 struct Obj_02184548 { char pad[0xb4]; int fieldB4; };
-int GetFieldB4_02184548(struct Obj_02184548* obj);
+extern "C" int func_ov011_02184548(struct Obj_02184548* obj);
 struct Obj_02184540 { char pad[0xb0]; int fieldB0; };
-int GetFieldB0_02184540(struct Obj_02184540* obj);
+extern "C" int func_ov011_02184540(struct Obj_02184540* obj);
 
 // USA: func_ov004_0215883c
 extern "C" ARM int func_ov004_0215883c(void* a) {
@@ -1078,10 +1078,10 @@ extern "C" ARM int func_ov004_0215883c(void* a) {
         }
         int state = 0x12;
         data_ov004_021707e4 = state;
-        DispatchContextByState0209c678((Actor0209c678*)data_02109bf4, state);
+        func_0209c678((Actor0209c678*)data_02109bf4, state);
         *(void**)((char*)five + 8) = (char*)obj2 + 4;
-        int fieldB4 = GetFieldB4_02184548((struct Obj_02184548*)a);
-        int fieldB0 = GetFieldB0_02184540((struct Obj_02184540*)a);
+        int fieldB4 = func_ov011_02184548((struct Obj_02184548*)a);
+        int fieldB0 = func_ov011_02184540((struct Obj_02184540*)a);
         *(int*)((char*)five + 0x34) = fieldB0;
         *(int*)((char*)five + 0x38) = fieldB4;
         data_ov004_021707e0[0x13]++;
@@ -1094,14 +1094,14 @@ notZero:
         if (counter > 0) return 1;
 
         func_ov017_021b1e24(five, (int)list);
-        if (!GetSubByteField439_021b2060((Obj24_021b2060*)five)) goto retTrue;
-        if (GetSubByteField438_021b204c((Obj24_021b204c*)five)) {
+        if (!func_ov017_021b2060((Obj24_021b2060*)five)) goto retTrue;
+        if (func_ov017_021b204c((Obj24_021b204c*)five)) {
             if (*(int*)((char*)actorRaw + 0x4000 + countOffset) == 0) {
                 func_ov011_021848a0(a, 0x233d);
                 return 0;
             }
         }
-        if (GetSubByteField438_021b204c((Obj24_021b204c*)five)) goto retTrue;
+        if (func_ov017_021b204c((Obj24_021b204c*)five)) goto retTrue;
         data_ov004_021707e0[0x13]++;
         func_ov011_021848a0(a, 0x385);
         return 0;
@@ -1119,17 +1119,17 @@ struct PackedField017 {
 };
 
 extern "C" int func_ov017_021b213c(PackedField017 a, PackedField017 b);
-void ReinitController02043204(char* obj);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_ov023_021f65d4(void* obj, int a, int b);
 
 // USA: func_ov004_021589e8
-ARM int DispatchEventAndSetFlag_021589e8(void* obj) {
+extern "C" ARM int func_ov004_021589e8(void* obj) {
     char* battle = (char*)GameState::GetInstance() + R(0xc, 0x26c) + 0x5c00;
     PackedField017 a = *(PackedField017*)(battle + 0xf4);
     PackedField017 b = *(PackedField017*)(data_ov004_021707e0 + 0x18);
     if (func_ov017_021b213c(a, b) != 0) {
-        char* g = (char*)GetGlobalField0x1c020421a0();
-        ReinitController02043204(g);
+        char* g = (char*)func_020421a0();
+        func_02043204(g);
         func_ov011_021848a0(obj, 0x387);
     } else {
         func_ov011_021848a0(obj, 0x3a2);
@@ -1141,14 +1141,14 @@ ARM int DispatchEventAndSetFlag_021589e8(void* obj) {
 #if defined(jpn)
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #endif
 
 extern "C" void func_02046380(void* g);
 struct Element020de650;
-void* CallFunc020e52a0_020e5294(void*, int);
+extern "C" void* func_020e5294(void*, int);
 extern "C" int func_0202c540(void* p);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 
 struct DownloadedRecord02158a60 {
     unsigned char unknown00[0xf8];
@@ -1169,21 +1169,21 @@ struct GameStateDownloadView02158a60 {
     DownloadedRecord02158a60 downloaded;
 };
 
-// USA: func_ov004_02158a60  (semantic: SetupOrRejectAction_02158a60)
+// USA: func_ov004_02158a60
 extern "C" ARM int func_ov004_02158a60(void* obj) {
     DownloadedRecord02158a60* downloaded = &((GameStateDownloadView02158a60*)GameState::GetInstance())->downloaded;
     short a = downloaded->itemId;
     if (a > 0 || downloaded->unknownFA != 0) {
-        void* g = (void*)GetGlobalField0x1c020421a0();
+        void* g = (void*)func_020421a0();
         func_02046380(g);
         struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
-        struct Element020de650* elem = FindElementByKey020dedd0(node, downloaded->itemId);
+        struct Element020de650* elem = func_020dedd0(node, downloaded->itemId);
 #if defined(jpn)
         char name[80];
         func_020e207c((Container020e0310*)(((char*)data_ov004_021707e0) + 0x8c), name, *(short*)((char*)elem + 0x18));
-        SetIndexedName02046574((Obj02046574*)g, 1, name);
+        func_02046574((Obj02046574*)g, 1, name);
 #else
-        int val = ((int)CallFunc020e52a0_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)elem + 0x18)));
+        int val = ((int)func_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)elem + 0x18)));
         *(int*)((char*)g + 0x18) = val;
 #endif
         func_ov011_021848a0(obj, 0x3a3);
@@ -1195,7 +1195,7 @@ extern "C" ARM int func_ov004_02158a60(void* obj) {
         func_ov011_021848a0(obj, 0x3ae);
         return 0;
     }
-    if (CheckField0NonZero_0202b7d8((int*)s) != 0) {
+    if (func_0202b7d8((int*)s) != 0) {
         func_ov011_021848a0(obj, 0x24cd);
         return 0;
     }
@@ -1232,10 +1232,10 @@ public:
 };
 
 // USA: func_ov004_02158b78
-ARM int Dispatch02158b78(void* self) {
+extern "C" ARM int func_ov004_02158b78(void* self) {
     VObj02158b78* node = (VObj02158b78*)func_ov004_02156f38(self, 0xc9);
     if (node) {
-        struct Field2a04_02158b78* fld = (struct Field2a04_02158b78*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+        struct Field2a04_02158b78* fld = (struct Field2a04_02158b78*)func_02010828(GameState::GetInstance());
         node->MethodE0(fld->f0xf6c);
         void* x = func_ov004_02156f6c(self, 0x16);
         if (x) func_ov023_021f809c(x, self);
@@ -1243,28 +1243,28 @@ ARM int Dispatch02158b78(void* self) {
     return 0;
 }
 
-int DispatchNodeIfType7_02156e2c(void* a, int key);
-void* GetEntryFor_021570a4(void*, int);
+extern "C" int func_ov004_02156e2c(void* a, int key);
+extern "C" void* func_ov004_021570a4(void*, int);
 extern "C" void* func_ov004_02157054(void*, int);
 
 struct Obj021fbdf4;
-void SetFieldThenTailCallOffset20_021fbdf4(Obj021fbdf4*, int);
-void TailCallOffset20_021fbdcc(void*, int);
+extern "C" void func_ov023_021fbdf4(Obj021fbdf4*, int);
+extern "C" void func_ov023_021fbdcc(void*, int);
 struct Element020de650 { unsigned int v[8]; };
-void CallFunc021f6788ForIndexUnder3_021f6eb8(void* obj, int idx);
+extern "C" void func_ov023_021f6eb8(void* obj, int idx);
 extern "C" int func_ov004_0215d738(void*);
-void ClearNodeMaskById_021f6600(void*, int, int);
+extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" int func_ov004_0215cec4(void*);
 extern "C" int func_ov004_0215d384(void* a);
-void CopyToSlot_021f6e90(char* obj, int idx, const void* src);
+extern "C" void func_ov023_021f6e90(char* obj, int idx, const void* src);
 
 struct NibbleView_02158bd4 { char pad[8]; unsigned int nibble : 4; };
 
 // USA: func_ov004_02158bd4
 extern "C" ARM int func_ov004_02158bd4(void* obj) {
-    int slotType = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int slotType = func_ov004_02156e2c(obj, 0x5b);
     if (slotType < 0) return 0;
-    void* entry = GetEntryFor_021570a4(obj, (unsigned char)slotType);
+    void* entry = func_ov004_021570a4(obj, (unsigned char)slotType);
     if (!entry) return 0;
 
     void* node2 = func_ov004_02156f6c(obj, 0x15);
@@ -1279,23 +1279,23 @@ extern "C" ARM int func_ov004_02158bd4(void* obj) {
 #else
         if (data_ov004_021707e0[0x9c] == 0) {
 #endif
-            SetFieldThenTailCallOffset20_021fbdf4((Obj021fbdf4*)nodeX, -1);
+            func_ov023_021fbdf4((Obj021fbdf4*)nodeX, -1);
 #if defined(jpn)
             data_ov004_021707e0[0xa8] = 1;
 #else
             data_ov004_021707e0[0x9c] = 1;
 #endif
         }
-        TailCallOffset20_021fbdcc(nodeX, *(short*)((char*)entry + 0));
+        func_ov023_021fbdcc(nodeX, *(short*)((char*)entry + 0));
     }
 
     void* container = (void*)func_ov004_02156fd4(obj, 5);
     if (!container) return 0;
-    Element020de650* elem = FindElementByKey020dedd0((Container020dedd0*)container, *(short*)((char*)entry + 0));
+    Element020de650* elem = func_020dedd0((Container020dedd0*)container, *(short*)((char*)entry + 0));
     if (!elem) return 0;
 
     void* thing = func_ov011_021849c8(obj);
-    CallFunc021f6788ForIndexUnder3_021f6eb8(thing, 0);
+    func_ov023_021f6eb8(thing, 0);
 
     char buf[0x16];
     VectorizedMemset(buf, 0, 0x16);
@@ -1309,7 +1309,7 @@ extern "C" ARM int func_ov004_02158bd4(void* obj) {
             func_ov004_0215d738(obj);
             func_ov023_021f65d4(obj, 0x17, 8);
             func_ov023_021f65d4(obj, 0x1b, 8);
-            ClearNodeMaskById_021f6600(obj, 0x1c, 8);
+            func_ov023_021f6600(obj, 0x1c, 8);
             buf[0] = 3;
             *(short*)(buf + 2) = 0x15;
             *(short*)(buf + 4) = 0x1c;
@@ -1318,8 +1318,8 @@ extern "C" ARM int func_ov004_02158bd4(void* obj) {
         default:
             func_ov004_0215cec4(obj);
             func_ov004_0215d384(obj);
-            ClearNodeMaskById_021f6600(obj, 0x17, 8);
-            ClearNodeMaskById_021f6600(obj, 0x1b, 8);
+            func_ov023_021f6600(obj, 0x17, 8);
+            func_ov023_021f6600(obj, 0x1b, 8);
             func_ov023_021f65d4(obj, 0x1c, 8);
             buf[0] = 4;
             *(short*)(buf + 2) = 0x15;
@@ -1329,7 +1329,7 @@ extern "C" ARM int func_ov004_02158bd4(void* obj) {
             break;
     }
 
-    CopyToSlot_021f6e90((char*)thing, 0, buf);
+    func_ov023_021f6e90((char*)thing, 0, buf);
     return 0;
 }
 
@@ -1381,43 +1381,43 @@ struct Fields021849e0;
 #if defined(jpn)
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #else
-void* CallFunc020e52a0_020e5294(void*, int);
+extern "C" void* func_020e5294(void*, int);
 #endif
 
 extern "C" int func_ov004_0215799c(void*, int, unsigned int, int);
-void SetFieldConditional_021849e0(struct Fields021849e0* obj, unsigned short val);
+extern "C" void func_ov011_021849e0(struct Fields021849e0* obj, unsigned short val);
 extern "C" int func_ov004_0215d6f8(void*);
 extern "C" void* func_ov004_02156ed0(void*, int);
 extern "C" void* __clear(void*, int);
 
 // USA: func_ov004_02158dcc
 extern "C" ARM int func_ov004_02158dcc(void* obj) {
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) return 0;
-    Entry02158dcc* entry = ((Entry02158dcc*)GetEntryFor_021570a4(obj, (unsigned char)key));
+    Entry02158dcc* entry = ((Entry02158dcc*)func_ov004_021570a4(obj, (unsigned char)key));
     if (!entry) return 0;
-    Element02158dcc* elem = ((Element02158dcc*)FindElementByKey020dedd0(((struct Container020dedd0*)func_ov004_02156fd4(obj, 5)), entry->id));
+    Element02158dcc* elem = ((Element02158dcc*)func_020dedd0(((struct Container020dedd0*)func_ov004_02156fd4(obj, 5)), entry->id));
     if (!elem) return 0;
 #if defined(jpn)
     char name[80];
     func_020e207c((Container020e0310*)(((BattleMenuState02158dcc*)data_ov004_021707e0)->table), name, elem->nameId);
-    SetIndexedName02046574((Obj02046574*)((Message02158dcc*)GetGlobalField0x1c020421a0()), 1, name);
+    func_02046574((Obj02046574*)((Message02158dcc*)func_020421a0()), 1, name);
 #else
-    int name = ((int)CallFunc020e52a0_020e5294(((BattleMenuState02158dcc*)data_ov004_021707e0)->table, elem->nameId));
-    ((Message02158dcc*)GetGlobalField0x1c020421a0())->name = name;
+    int name = ((int)func_020e5294(((BattleMenuState02158dcc*)data_ov004_021707e0)->table, elem->nameId));
+    ((Message02158dcc*)func_020421a0())->name = name;
 #endif
     if (entry->count == 0) return 0;
 
-    Wallet02158dcc* wallet = (Wallet02158dcc*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    Wallet02158dcc* wallet = (Wallet02158dcc*)func_02010828(GameState::GetInstance());
     if (func_ov004_0215799c(wallet, entry->id, elem->kind, ((BattleMenuState02158dcc*)data_ov004_021707e0)->level) == 0) {
-        SetFieldConditional_021849e0((struct Fields021849e0*)obj, 0);
+        func_ov011_021849e0((struct Fields021849e0*)obj, 0);
         func_ov011_021848a0(obj, 0x236b);
         return 0;
     }
     if (wallet->gold < entry->cost) {
-        SetFieldConditional_021849e0((struct Fields021849e0*)obj, 0);
+        func_ov011_021849e0((struct Fields021849e0*)obj, 0);
         func_ov011_021848a0(obj, 0x2365);
         return 0;
     }
@@ -1428,7 +1428,7 @@ extern "C" ARM int func_ov004_02158dcc(void* obj) {
     ((BattleMenuState02158dcc*)data_ov004_021707e0)->field_0x12 = -1;
     ((BattleMenuState02158dcc*)data_ov004_021707e0)->field_0x47 = 0;
     if (entry->count == 1 || (entry->cost <= wallet->gold && wallet->gold < entry->cost * 2)) {
-        SetFieldConditional_021849e0((struct Fields021849e0*)obj, 0);
+        func_ov011_021849e0((struct Fields021849e0*)obj, 0);
         func_ov004_0215d6f8(obj);
     }
     func_ov023_021f65d4(obj, 0x35, 0x18);
@@ -1535,7 +1535,7 @@ extern const RoleTable02158fec data_ov004_0216fb28 __attribute__((aligned(4)));
 extern const Vector3i data_ov004_0216fb34;
 extern "C" void* func_ov004_02156f04(void*, int);
 extern "C" void func_ov023_021fb27c(void*, int);
-int SetCellIfInBounds_021f9b30(struct Grid021f9b30*, short, unsigned int, unsigned int);
+extern "C" int func_ov023_021f9b30(struct Grid021f9b30*, short, unsigned int, unsigned int);
 extern "C" int func_ov004_02158bd4(void*);
 
 // USA: func_ov004_02158fec
@@ -1554,14 +1554,14 @@ extern "C" ARM int func_ov004_02158fec(void* object) {
     if (!container) return 0;
     RoleTable02158fec roles = data_ov004_0216fb28;
     for (unsigned char i = 0; i < 6; i++) {
-        Entry02158fec* entry = ((Entry02158fec*)GetEntryFor_021570a4(object, i));
+        Entry02158fec* entry = ((Entry02158fec*)func_ov004_021570a4(object, i));
         if (entry) {
             int style = 15;
             if (entry->count == 0) style = 3;
             if (entry->id > 0) {
                 ItemNode02158fec* text = ((ItemNode02158fec*)func_ov004_02156f04(object, textId));
                 if (text) {
-                    Element020de650_02158fec* element = ((Element020de650_02158fec*)FindElementByKey020dedd0(container, entry->id));
+                    Element020de650_02158fec* element = ((Element020de650_02158fec*)func_020dedd0(container, entry->id));
                     if (element) {
                         text->value = element->value;
                         ItemNode02158fec* icon = ((ItemNode02158fec*)func_ov004_02156fa0(object, i + 0x14a));
@@ -1598,7 +1598,7 @@ extern "C" ARM int func_ov004_02158fec(void* object) {
                 if (amount) amount->flags |= 8;
                 ItemNode02158fec* cost = ((ItemNode02158fec*)func_ov004_02156f38(object, costId));
                 if (cost) cost->flags |= 8;
-                SetCellIfInBounds_021f9b30(grid, 0, i, 0);
+                func_ov023_021f9b30(grid, 0, i, 0);
                 ItemNode02158fec* icon = ((ItemNode02158fec*)func_ov004_02156fa0(object, i + 0x14a));
                 if (icon) icon->flags |= 8;
             }
@@ -1638,10 +1638,10 @@ public:
 };
 
 // USA: func_ov004_02159384
-ARM int NotifyCountedEvents_02159384(void* self) {
-	int b = DispatchNodeIfType7_02156e2c(self, 0x5b);
+extern "C" ARM int func_ov004_02159384(void* self) {
+	int b = func_ov004_02156e2c(self, 0x5b);
 	if (b < 0) return 0;
-	void* entry = GetEntryFor_021570a4(self, (unsigned char)b);
+	void* entry = func_ov004_021570a4(self, (unsigned char)b);
 	if (!entry) return 0;
 
 	VObj02159384* node1 = (VObj02159384*)func_ov004_02156f38(self, 0x25a);
@@ -1665,7 +1665,7 @@ ARM int NotifyCountedEvents_02159384(void* self) {
 }
 
 // USA: func_ov004_02159468
-ARM int ReturnZero_02159468(void) {
+extern "C" ARM int func_ov004_02159468(void) {
     return 0;
 }
 extern "C" int func_020dcc98(signed char);
@@ -1691,15 +1691,15 @@ public:
     void* field0x20;
 };
 
-// USA: func_ov004_02159470  (semantic: DispatchFlagsWithCombatant_02159470)
+// USA: func_ov004_02159470
 extern "C" ARM int func_ov004_02159470(void* self) {
     GameState* battle = GameState::GetInstance();
-    GetPtrField0x2a04_02010828(battle);
+    func_02010828(battle);
     char* ptr = ((char*)data_ov004_021707e0);
     unsigned char count = (unsigned char)(*(short*)(ptr + 0x3a));
     int key = 0x322;
     for (unsigned char i = 0; i < count; key++, i++) {
-        signed char idVal = GetFlagByte_021570f0(i);
+        signed char idVal = func_ov004_021570f0(i);
         GameObject* c = battle->GetPartyMemberByIndex(idVal);
         if (!c) continue;
         VObj02159470* node = (VObj02159470*)func_ov004_02156f04(self, key);
@@ -1750,11 +1750,11 @@ public:
     void* field0x20;
 };
 
-// USA: func_ov004_0215951c  (semantic: DispatchCombatantBufferEntries_0215951c)
+// USA: func_ov004_0215951c
 extern "C" ARM int func_ov004_0215951c(void* obj) {
     signed char flag = func_ov004_02157128(obj);
     GameState* battle = GameState::GetInstance();
-    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(battle, flag);
+    GameObject* c = func_0200ff1c(battle, flag);
     if (!c) return 0;
 
     unsigned char* fieldPtr = data_ov004_021707e0;
@@ -1808,7 +1808,7 @@ extern "C" ARM int func_ov004_0215951c(void* obj) {
 #if defined(jpn)
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #endif
 
 struct CombatantSelection {
@@ -1822,11 +1822,11 @@ struct Entry_021570a4 { short field0; unsigned int field4; };
 
 struct Element020de650_02159650 { int field0; char pad2[4]; int field8; char pad3[0xc]; short field18; };
 
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
 
-int CallFunc020e0434With02153694_020e51cc(int value);
+extern "C" int func_020e51cc(int value);
 extern "C" void func_020e4b34(void* obj, int stats1, int stats2, int a, int b, int c, int d, int e, int f, int g, int h, int i);
-int GetHalfwordEntryFromField150(struct Field150Holder02052df8* obj, int index);
+extern "C" int func_02052df8(struct Field150Holder02052df8* obj, int index);
 
 struct Table9x_02159650 { unsigned int v[9]; };
 extern struct Table9x_02159650 data_ov004_0216fbb0;
@@ -1834,9 +1834,9 @@ extern struct Table9x_02159650 data_ov004_0216fbb0;
 struct Ctx_02159650 { char pad[8]; unsigned int idx4 : 4; unsigned int rest : 28; };
 struct Field8Bits_02159650 { unsigned int low18 : 18; unsigned int bit18 : 1; unsigned int high13 : 13; };
 
-// USA: func_ov004_02159650  (semantic: PopulateCombatantContextFields_02159650)
+// USA: func_ov004_02159650
 extern "C" ARM int func_ov004_02159650(void* obj) {
-    int g = GetGlobalField0x1c020421a0();
+    int g = func_020421a0();
     func_02046380((void*)g);
 
     struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
@@ -1844,11 +1844,11 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
     struct Element020de650_02159650* elem = 0;
     struct Entry_021570a4* entry = 0;
 
-    int idx = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int idx = func_ov004_02156e2c(obj, 0x5b);
     if (idx >= 0) {
-        entry = (struct Entry_021570a4*)GetEntryFor_021570a4(obj, idx & 0xff);
+        entry = (struct Entry_021570a4*)func_ov004_021570a4(obj, idx & 0xff);
         if (entry != 0 && node != 0) {
-            elem = ((struct Element020de650_02159650*)FindElementByKey020dedd0(node, entry->field0));
+            elem = ((struct Element020de650_02159650*)func_020dedd0(node, entry->field0));
         }
     }
 
@@ -1857,14 +1857,14 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
 
     if (combatant != 0) {
 #if defined(jpn)
-        SetIndexedName02046574((Obj02046574*)g, 0, (char*)combatant->baseStats_);
+        func_02046574((Obj02046574*)g, 0, (char*)combatant->baseStats_);
 #else
-        InitObjFromCombatantId020e4bf4(data_ov004_021707e0 + 0xa0, combatantId);
+        func_020e4bf4(data_ov004_021707e0 + 0xa0, combatantId);
         *(void**)((char*)g + 0x10) = data_ov004_021707e0 + 0xa0;
 
         void* p150 = *(void**)((char*)combatant + 0x150);
         int statVal = (short)(*(int*)((char*)p150 + 0x950));
-        int fmt = CallFunc020e0434With02153694_020e51cc(statVal);
+        int fmt = func_020e51cc(statVal);
         func_020e4b34(data_ov004_021707e0 + 0xac, fmt, fmt, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         *(void**)((char*)g + 0x28) = data_ov004_021707e0 + 0xac;
 #endif
@@ -1874,9 +1874,9 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
 #if defined(jpn)
         char name[80];
         func_020e207c((Container020e0310*)(data_ov004_021707e0 + 0x8c), name, elem->field18);
-        SetIndexedName02046574((Obj02046574*)g, 1, name);
+        func_02046574((Obj02046574*)g, 1, name);
 #else
-        int val = ((int)CallFunc020e52a0_020e5294(data_ov004_021707e0 + 0x8c, elem->field18));
+        int val = ((int)func_020e5294(data_ov004_021707e0 + 0x8c, elem->field18));
         *(int*)((char*)g + 0x18) = val;
 #endif
     }
@@ -1887,14 +1887,14 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
         int inRange = nibble <= 7;
         if (inRange) {
             struct Table9x_02159650 table = data_ov004_0216fbb0;
-            int half = GetHalfwordEntryFromField150((struct Field150Holder02052df8*)combatant, table.v[nibble]);
+            int half = func_02052df8((struct Field150Holder02052df8*)combatant, table.v[nibble]);
             if (half > 0) {
-                struct Element020de650_02159650* elem2 = ((struct Element020de650_02159650*)FindElementByKey020dedd0(node, half));
+                struct Element020de650_02159650* elem2 = ((struct Element020de650_02159650*)func_020dedd0(node, half));
                 if (elem2 != 0 && ((struct Field8Bits_02159650*)&elem2->field8)->bit18 != 0) {
 #if defined(jpn)
-                    SetIndexedName02046574((Obj02046574*)g, 2, *(char**)((char*)elem2 + 4));
+                    func_02046574((Obj02046574*)g, 2, *(char**)((char*)elem2 + 4));
 #else
-                    int val2 = ((int)CallFunc020e52a0_020e5294(data_ov004_021707e0 + 0x8c, half));
+                    int val2 = ((int)func_020e5294(data_ov004_021707e0 + 0x8c, half));
                     *(int*)((char*)g + 0x18) = val2;
 #endif
                 }
@@ -1903,54 +1903,54 @@ extern "C" ARM int func_ov004_02159650(void* obj) {
     }
 
     if (entry != 0) {
-        StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 0, data_ov004_021707e0[0x11] * (entry->field4 >> 7));
+        func_020465c0((struct StoreStruct*)g, 0, data_ov004_021707e0[0x11] * (entry->field4 >> 7));
     }
 
-    StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 1, data_ov004_021707e0[0x11]);
+    func_020465c0((struct StoreStruct*)g, 1, data_ov004_021707e0[0x11]);
     return 0;
 }
-void CallVTableFnAt240_021f66bc(void* a, int key, void* arg3);
-int NotifyCountedEvents_02159384(void* self);
+extern "C" void func_ov023_021f66bc(void* a, int key, void* arg3);
+extern "C" int func_ov004_02159384(void* self);
 
 struct EntryStruct02159888 { short field0; short pad2; unsigned int field4 : 7; };
 struct Element020de650_02159888 { char pad[8]; unsigned int field8 : 4; };
 
-// USA: func_ov004_02159888  (semantic: TryConsumeEntryAndDispatch_02159888)
+// USA: func_ov004_02159888
 extern "C" ARM int func_ov004_02159888(void* obj) {
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) return 0;
 
-    EntryStruct02159888* entry = (EntryStruct02159888*)GetEntryFor_021570a4(obj, (unsigned char)key);
+    EntryStruct02159888* entry = (EntryStruct02159888*)func_ov004_021570a4(obj, (unsigned char)key);
     if (!entry) return 0;
 
     if (data_ov004_021707e0[0x11] >= entry->field4) return 0;
 
-    void* ptr2a04 = GetPtrField0x2a04_02010828(GameState::GetInstance());
+    void* ptr2a04 = func_02010828(GameState::GetInstance());
     unsigned int cap = *(unsigned int*)((char*)entry + 4) >> 7;
     if (*(unsigned int*)((char*)ptr2a04 + 0xf6c) < (data_ov004_021707e0[0x11] + 1) * cap) return 0;
 
     struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
     if (!node) return 0;
 
-    struct Element020de650_02159888* elem = ((struct Element020de650_02159888*)FindElementByKey020dedd0(node, *(short*)(data_ov004_021707e0 + 0xe)));
+    struct Element020de650_02159888* elem = ((struct Element020de650_02159888*)func_020dedd0(node, *(short*)(data_ov004_021707e0 + 0xe)));
     if (!elem) return 0;
 
     unsigned int r = ((unsigned int)func_ov004_0215799c(ptr2a04, entry->field0, (int)elem->field8, *(short*)(data_ov004_021707e0 + 0x3a)));
     if (data_ov004_021707e0[0x11] >= r) return 0;
 
     data_ov004_021707e0[0x11] = data_ov004_021707e0[0x11] + 1;
-    CallVTableFnAt240_021f66bc(obj, 0x25b, (void*)1);
-    NotifyCountedEvents_02159384(obj);
+    func_ov023_021f66bc(obj, 0x25b, (void*)1);
+    func_ov004_02159384(obj);
     return 0;
 }
 
-// USA: func_ov004_021599b4  (semantic: DecrementCounterAndNotify_021599b4)
+// USA: func_ov004_021599b4
 extern "C" ARM int func_ov004_021599b4(void* obj) {
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) {
         return 0;
     }
-    void* entry = GetEntryFor_021570a4(obj, (unsigned char)key);
+    void* entry = func_ov004_021570a4(obj, (unsigned char)key);
     if (!entry) {
         return 0;
     }
@@ -1960,8 +1960,8 @@ extern "C" ARM int func_ov004_021599b4(void* obj) {
         return 0;
     }
     p[0x11] = val - 1;
-    CallVTableFnAt240_021f66bc(obj, 0x25c, (void*)1);
-    NotifyCountedEvents_02159384(obj);
+    func_ov023_021f66bc(obj, 0x25c, (void*)1);
+    func_ov004_02159384(obj);
     return 0;
 }
 
@@ -1982,13 +1982,13 @@ extern "C" int func_ov004_02159bcc(void* obj);
 extern "C" ARM int func_ov004_02159a2c(void* obj) {
     int i;
     GameState::GetInstance();
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) return 0;
-    void* entry = GetEntryFor_021570a4(obj, key & 0xff);
+    void* entry = func_ov004_021570a4(obj, key & 0xff);
     if (!entry) return 0;
     struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
     if (!node) return 0;
-    struct Element020de650_02159a2c* elem = ((struct Element020de650_02159a2c*)FindElementByKey020dedd0(node, *(short*)entry));
+    struct Element020de650_02159a2c* elem = ((struct Element020de650_02159a2c*)func_020dedd0(node, *(short*)entry));
     if (!elem) return 0;
 
     int ok = elem->field8 <= 7;
@@ -2017,15 +2017,15 @@ extern "C" ARM int func_ov004_02159a2c(void* obj) {
 #undef data_ov004_0216fb50
 #undef func_ov004_02159bcc
 
-// USA: func_ov004_02159b74  (semantic: SetOv011FieldTo_02159b74)
+// USA: func_ov004_02159b74
 extern "C" ARM int func_ov004_02159b74(void* obj) {
     func_ov011_021848a0(obj, 0x2368);
     return 0;
 }
 
 // USA: func_ov004_02159b8c
-ARM int EnqueueEventFromFlagByte_02159b8c(void* obj) {
-    GetPtrField0x2a04_02010828(GameState::GetInstance());
+extern "C" ARM int func_ov004_02159b8c(void* obj) {
+    func_02010828(GameState::GetInstance());
     short v = *(short*)(((char*)data_ov004_021707e0) + 0x3a);
     int arg = 0x38d;
     arg += v & 0xff;
@@ -2044,20 +2044,20 @@ struct KeyedStackContext {
     void* field30;
     int field34;
 };
-void* ZeroInitReturn020de824(void* obj);
-void InitStruct0207cbe8(char* obj);
-void InitStruct0207cc0c(char* obj);
+extern "C" void* func_020de824(void* obj);
+extern "C" void func_0207cbe8(char* obj);
+extern "C" void func_0207cc0c(char* obj);
 extern "C" int func_0207d134(struct Obj0207d134*, short, int);
 
-// USA: func_ov004_02159bcc  (semantic: SetupCombatMessageAndDispatch_02159bcc)
+// USA: func_ov004_02159bcc
 extern "C" ARM int func_ov004_02159bcc(void* obj) {
 #if !defined(jpn)
     struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
     if (node == NULL) return 0;
-    struct Element020de650* elem = FindElementByKey020dedd0(node, *(short*)(((char*)data_ov004_021707e0) + 0xe));
+    struct Element020de650* elem = func_020dedd0(node, *(short*)(((char*)data_ov004_021707e0) + 0xe));
     if (elem == NULL) return 0;
-    int val = ((int)CallFunc020e52a0_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)elem + 0x18)));
-    *(int*)((char*)(int)GetGlobalField0x1c020421a0() + 0x18) = val;
+    int val = ((int)func_020e5294(((char*)data_ov004_021707e0) + 0x8c, *(short*)((char*)elem + 0x18)));
+    *(int*)((char*)(int)func_020421a0() + 0x18) = val;
     ((char*)data_ov004_021707e0)[0x12] = (char)0xff;
 #endif
     if (*(unsigned char*)(((char*)data_ov004_021707e0) + 0x47) == 0) {
@@ -2065,12 +2065,12 @@ extern "C" ARM int func_ov004_02159bcc(void* obj) {
         if (node2 != NULL) {
             KeyedStackContext context;
             context.allocator.ResetAllocatorPointer();
-            ZeroInitReturn020de824(context.state14);
-            InitStruct0207cbe8((char*)&context);
-            InitStruct0207cbe8((char*)&context);
+            func_020de824(context.state14);
+            func_0207cbe8((char*)&context);
+            func_0207cbe8((char*)&context);
             context.container = node2;
             func_0207d134((Obj0207d134*)(&context), *(short*)(((char*)data_ov004_021707e0) + 0xe), *(signed char*)(((char*)data_ov004_021707e0) + 0x11));
-            InitStruct0207cc0c((char*)&context);
+            func_0207cc0c((char*)&context);
         }
         func_ov011_021848a0(obj, 0x38c);
         ((char*)data_ov004_021707e0)[R(0xa9, 0x9d)] = 0;
@@ -2083,8 +2083,8 @@ extern "C" ARM int func_ov004_02159bcc(void* obj) {
 #undef func_ov004_02159bcc
 
 extern "C" void func_020dd7ac(void* buf);
-void Setup020ddaf4(int a, int b, int c, int d, int e, int f);
-void SetFieldThenTailCallOffset20_021fbdf4(struct Obj021fbdf4* obj, int v);
+extern "C" void func_020ddaf4(int a, int b, int c, int d, int e, int f);
+extern "C" void func_ov023_021fbdf4(struct Obj021fbdf4* obj, int v);
 
 typedef void (*FuncPtrE0_02159ce0)(void*, int);
 struct HandlerE0_02159ce0 { char pad[0xe0]; FuncPtrE0_02159ce0 func; };
@@ -2106,7 +2106,7 @@ extern "C" ARM int func_ov004_02159ce0(void* a) {
     if (!node) return 0;
 
     short key = *(short*)(data_ov004_021707e0 + 0xe);
-    Element020de650* elem = FindElementByKey020dedd0(node, key);
+    Element020de650* elem = func_020dedd0(node, key);
     if (!elem) return 0;
 
     MessageSlotTable_020dd7ac bufC;
@@ -2116,9 +2116,9 @@ extern "C" ARM int func_ov004_02159ce0(void* a) {
 
     unsigned short valA, valB;
     if (nibble == 0) {
-        Setup020ddaf4((int)&bufC, idxVal, (int)elem, 0, (int)&valA, (int)&valB);
+        func_020ddaf4((int)&bufC, idxVal, (int)elem, 0, (int)&valA, (int)&valB);
     } else {
-        Setup020ddaf4((int)&bufC, idxVal, (int)elem, typeCode, (int)&valA, (int)&valB);
+        func_020ddaf4((int)&bufC, idxVal, (int)elem, typeCode, (int)&valA, (int)&valB);
         typeCode = 3;
     }
 
@@ -2132,7 +2132,7 @@ extern "C" ARM int func_ov004_02159ce0(void* a) {
         func_ov023_021f65d4(a, 0x3eb, 8);
         func_ov023_021f65d4(a, 0x3ec, 8);
         func_ov023_021f65d4(a, 0x3ed, 8);
-        ClearNodeMaskById_021f6600(a, 0x3ee, 8);
+        func_ov023_021f6600(a, 0x3ee, 8);
     } else {
         NodeE0_02159ce0* h3eb = (NodeE0_02159ce0*)func_ov004_02156f38(a, 0x3eb);
         if (h3eb) h3eb->handler->func(h3eb, valA);
@@ -2154,9 +2154,9 @@ extern "C" ARM int func_ov004_02159ce0(void* a) {
             if (d3ed) d3ed->handler->func(d3ed, 0x9);
         }
 
-        ClearNodeMaskById_021f6600(a, 0x3eb, 8);
-        ClearNodeMaskById_021f6600(a, 0x3ec, 8);
-        ClearNodeMaskById_021f6600(a, 0x3ed, 8);
+        func_ov023_021f6600(a, 0x3eb, 8);
+        func_ov023_021f6600(a, 0x3ec, 8);
+        func_ov023_021f6600(a, 0x3ed, 8);
         func_ov023_021f65d4(a, 0x3ee, 8);
     }
 
@@ -2165,7 +2165,7 @@ extern "C" ARM int func_ov004_02159ce0(void* a) {
 
     void* n7 = func_ov004_02157054(a, 7);
     if (n7) {
-        SetFieldThenTailCallOffset20_021fbdf4((Obj021fbdf4*)n7, idxVal);
+        func_ov023_021fbdf4((Obj021fbdf4*)n7, idxVal);
 #if defined(jpn)
         data_ov004_021707e0[0xa8] = 0;
 #else
@@ -2180,7 +2180,7 @@ extern "C" int func_ov004_0215951c(void*);
 extern "C" int func_ov004_02159ce0(void*);
 
 // USA: func_ov004_02159fb0
-ARM int RunTwoSteps_02159fb0(int a) {
+extern "C" ARM int func_ov004_02159fb0(int a) {
     func_ov004_0215951c((void*)a);
     func_ov004_02159ce0((void*)a);
     return 0;
@@ -2207,7 +2207,7 @@ extern "C" int func_ov004_02159650(void*);
 struct Container020e0310;
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #endif
 
 extern "C" int func_ov004_02157a28(void*, int);
@@ -2219,11 +2219,11 @@ extern "C" ARM int func_ov004_02159fcc(void* obj) {
     int flag = func_ov004_02157128(obj);
     ((BattleActionState*)data_ov004_021707e0)->combatant = flag;
     func_0202ae18();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), flag);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), flag);
     if (!combatant) return 0;
     Container020dedd0* container = ((Container020dedd0*)func_ov004_02156fd4(obj, 5));
     if (!container) return 0;
-    ActionEntry* entry = ((ActionEntry*)FindElementByKey020dedd0(container, ((BattleActionState*)data_ov004_021707e0)->key));
+    ActionEntry* entry = ((ActionEntry*)func_020dedd0(container, ((BattleActionState*)data_ov004_021707e0)->key));
     if (!entry) return 0;
     unsigned int type = entry->type;
     if (func_020dd4c4(flag, (Entry020dd4c4*)entry)) {
@@ -2231,24 +2231,24 @@ extern "C" ARM int func_ov004_02159fcc(void* obj) {
         return 0;
     }
     ActionKeys keys = data_ov004_0216fbf8;
-    int key = GetHalfwordEntryFromField150((Field150Holder02052df8*)combatant, keys.keys[entry->type]);
+    int key = func_02052df8((Field150Holder02052df8*)combatant, keys.keys[entry->type]);
     if (key > 0) {
-        ActionEntry* selected = ((ActionEntry*)FindElementByKey020dedd0(container, key));
+        ActionEntry* selected = ((ActionEntry*)func_020dedd0(container, key));
         if (selected && selected->marked) {
             func_ov004_02159650(obj);
-            GlobalController* controller = ((GlobalController*)GetGlobalField0x1c020421a0());
+            GlobalController* controller = ((GlobalController*)func_020421a0());
 #if defined(jpn)
             char name[80];
             func_020e207c((Container020e0310*)((BattleActionState*)data_ov004_021707e0)->controller, name, selected->value);
-            SetIndexedName02046574((Obj02046574*)controller, 1, name);
+            func_02046574((Obj02046574*)controller, 1, name);
 #else
-            controller->selected = CallFunc020e52a0_020e5294(((BattleActionState*)data_ov004_021707e0)->controller, selected->value);
+            controller->selected = func_020e5294(((BattleActionState*)data_ov004_021707e0)->controller, selected->value);
 #endif
             func_ov011_021848a0(obj, 0x23b6);
             return 0;
         }
     }
-    if (type == 7 && GetHalfwordEntryFromField150((Field150Holder02052df8*)combatant, 9) == 0x4680) {
+    if (type == 7 && func_02052df8((Field150Holder02052df8*)combatant, 9) == 0x4680) {
         int unavailable;
         if (!combatant) unavailable = 0;
         else {
@@ -2283,31 +2283,31 @@ extern "C" ARM int func_ov004_02159fcc(void* obj) {
     }
     Obj021fbdf4* node = ((Obj021fbdf4*)func_ov004_02157054(obj, 7));
     if (node) {
-        SetFieldThenTailCallOffset20_021fbdf4(node, -1);
+        func_ov023_021fbdf4(node, -1);
         ((BattleActionState*)data_ov004_021707e0)->active = 1;
     }
     return func_ov004_02157a28(obj, 0);
 }
-void* ResetCombatantFields_0215a2f8(void*);
+extern "C" void* func_ov004_0215a2f8(void*);
 extern "C" void func_ov023_021f65d4(void* a, int key, int mask);
 
-// USA: func_ov004_0215a294  (semantic: UpdateThenResetAndFlag_0215a294)
+// USA: func_ov004_0215a294
 extern "C" ARM int func_ov004_0215a294(void* obj) {
     GameState* battle = GameState::GetInstance();
-    GetPtrField0x2a04_02010828(battle);
+    func_02010828(battle);
     unsigned char* fieldPtr __attribute__((aligned(4))) = data_ov004_021707e0;
     unsigned char byteVal = (unsigned char)*(short*)(fieldPtr + 0x3a);
     short base0x396 = 0x396;
     short f32 = *(short*)(fieldPtr + 0x32);
     *(short*)(fieldPtr + 0x3c) = f32;
     func_ov011_021848a0(obj, base0x396 + byteVal);
-    ResetCombatantFields_0215a2f8(data_ov004_021707e0);
+    func_ov004_0215a2f8(data_ov004_021707e0);
     func_ov023_021f65d4(obj, 2, 8);
     return 0;
 }
 
 // USA: func_ov004_0215a2f8
-ARM void* ResetCombatantFields_0215a2f8(void* obj) {
+extern "C" ARM void* func_ov004_0215a2f8(void* obj) {
 	*(short*)((char*)obj + 0x6c) = -1;
 	*(char*)((char*)obj + 0x6e) = 0;
 	*(char*)((char*)obj + 0x6f) = 0;
@@ -2353,38 +2353,38 @@ struct Element0215a31c {
     void* data;
 };
 struct S_a0b8c;
-int CountNonZeroValues020a0b8c(S_a0b8c* p);
-int GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" int func_020a0b8c(S_a0b8c* p);
+extern "C" int func_02053c6c(unsigned char*);
 extern "C" int func_020dcc98(signed char combatantId);
-extern "C" int _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(Grid021f9b30_0215a31c* self, unsigned short val, unsigned int x, unsigned int y);
+typedef int (*GridCellSetter_0215a31c)(Grid021f9b30_0215a31c*, unsigned short, unsigned int, unsigned int);
 extern "C" void func_ov023_021f9ba8(Grid021f9b30_0215a31c* grid, int v);
-void* CheckThenNotify_02157088(void* object, int key);
+extern "C" void* func_ov004_02157088(void* object, int key);
 extern "C" void func_ov023_021dcae0(struct Obj021dcae0*, int);
 
 // USA: func_ov004_0215a31c
 extern "C" ARM int func_ov004_0215a31c(void* obj) {
     signed char flag = func_ov004_02157128(obj);
     Container020dedd0* items = ((Container020dedd0*)func_ov004_02156fd4(obj, 5));
-    TableA68* table = ((TableA68*)DispatchAdjustmentIfType4_02157018(obj, 3));
+    TableA68* table = ((TableA68*)func_ov004_02157018(obj, 3));
     short* keys;
     Grid021f9b30_0215a31c* grid = ((Grid021f9b30_0215a31c*)func_ov004_02156ed0(obj, 0x63));
     int i;
     int slot;
 
     if (flag == -1) {
-        unsigned char* list = (unsigned char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+        unsigned char* list = (unsigned char*)func_02010828(GameState::GetInstance());
         if (!list) return 0;
         keys = (short*)(list + 0xc);
         signed char* counts = (signed char*)(list + 0x13c);
         Node0215a31c* node = ((Node0215a31c*)func_ov004_02156f04(obj, 0x454));
         if (node) {
-            node->data = FindEntryByKey_02072a68(table, 0xb);
+            node->data = func_02072a68(table, 0xb);
         }
         short page = grid->page;
         short pageCount = grid->pageCount;
         if (!(page > 0 && pageCount > 0)) {
             page = 0;
-            pageCount = (CountNonZeroValues020a0b8c((S_a0b8c*)list) - 1) / 8 + 1;
+            pageCount = (func_020a0b8c((S_a0b8c*)list) - 1) / 8 + 1;
             if (pageCount < 1) pageCount = 1;
             grid->page = 0;
             grid->pageCount = pageCount;
@@ -2394,19 +2394,19 @@ extern "C" ARM int func_ov004_0215a31c(void* obj) {
         if (node) node->flags &= ~8;
         ((Node0215a31c*)func_ov004_02156f38(obj, 0x456))->SetValue(page + 1);
         ((Node0215a31c*)func_ov004_02156f38(obj, 0x457))->SetValue(pageCount);
-        ClearNodeMaskById_021f6600(obj, 0x456, 8);
-        ClearNodeMaskById_021f6600(obj, 0x457, 8);
-        ClearNodeMaskById_021f6600(obj, 0x469, 8);
-        ClearNodeMaskById_021f6600(obj, 0x46a, 8);
+        func_ov023_021f6600(obj, 0x456, 8);
+        func_ov023_021f6600(obj, 0x457, 8);
+        func_ov023_021f6600(obj, 0x469, 8);
+        func_ov023_021f6600(obj, 0x46a, 8);
         for (i = 0; i < 8; i++) {
-            ClearNodeMaskById_021f6600(obj, i + 0x459, 8);
-            ClearNodeMaskById_021f6600(obj, i + 0x461, 8);
+            func_ov023_021f6600(obj, i + 0x459, 8);
+            func_ov023_021f6600(obj, i + 0x461, 8);
             ((Node0215a31c*)func_ov004_02156f38(obj, i + 0x461))->SetValue(counts[i]);
         }
     } else {
-        GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), flag);
+        GameObject* combatant = func_0200ff1c(GameState::GetInstance(), flag);
         if (!combatant) return 0;
-        keys = (short*)(((unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)combatant)) + 0x454);
+        keys = (short*)(((unsigned char*)func_02053c6c((unsigned char*)combatant)) + 0x454);
         Node0215a31c* node = ((Node0215a31c*)func_ov004_02156f04(obj, 0x454));
         if (node) {
             node->data = combatant->baseStats_;
@@ -2425,32 +2425,32 @@ extern "C" ARM int func_ov004_0215a31c(void* obj) {
     }
 
     for (slot = 0; slot < 8; slot++) {
-        Element0215a31c* elem = ((Element0215a31c*)FindElementByKey020dedd0(items, keys[slot]));
+        Element0215a31c* elem = ((Element0215a31c*)func_020dedd0(items, keys[slot]));
         Node0215a31c* node = ((Node0215a31c*)func_ov004_02156f04(obj, slot + 0x44c));
         if (!elem) {
             node->flags |= 8;
             func_ov023_021f65d4(obj, slot + 0x459, 8);
             func_ov023_021f65d4(obj, slot + 0x461, 8);
-            _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, 0, (unsigned short)slot, 0);
+            ((GridCellSetter_0215a31c)func_ov023_021f9b30)(grid, 0, (unsigned short)slot, 0);
         } else {
             void* data = elem->data ? elem->data : 0;
             if (node) {
                 node->flags &= ~8;
                 node->data = data;
-                _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, (unsigned short)(slot + 0x44c), (unsigned short)slot, 0);
+                ((GridCellSetter_0215a31c)func_ov023_021f9b30)(grid, (unsigned short)(slot + 0x44c), (unsigned short)slot, 0);
             }
         }
     }
     func_ov023_021f9ba8(grid, 0);
     void* list = func_ov004_02156f6c(obj, 0x17);
     if (list) func_ov023_021f809c(list, obj);
-    void* notified = CheckThenNotify_02157088(obj, 7);
+    void* notified = func_ov004_02157088(obj, 7);
     if (notified) func_ov023_021dcae0((Obj021dcae0*)notified, -1);
     return 0;
 }
-int HasFlag101_021571d8(int a);
-void* GetPointerFromArray0xbd0_0207c5f8(unsigned char*, unsigned int);
-void* GetPointerAt0xbf0_0207c60c(void*, unsigned int);
+extern "C" int func_ov004_021571d8(int a);
+extern "C" void* func_0207c5f8(unsigned char*, unsigned int);
+extern "C" void* func_0207c60c(void*, unsigned int);
 extern "C" void func_ov023_021f65d4(void* obj, int key, int mask);
 
 struct Grid021f9b30_0215a738 {
@@ -2499,18 +2499,18 @@ extern "C" ARM int func_ov004_0215a738(void* obj) {
     short base;
     short saved;
     GameState* bs = GameState::GetInstance();
-    unsigned char* p = (unsigned char*)GetPtrField0x2a04_02010828(bs);
+    unsigned char* p = (unsigned char*)func_02010828(bs);
     if (!p) return 0;
     Grid021f9b30_0215a738* grid = ((Grid021f9b30_0215a738*)func_ov004_02156ed0(obj, 0x63));
     base = grid->field5c;
     saved = grid->field5e;
     short* keys;
     signed char* bytes;
-    if (HasFlag101_021571d8((int)obj)) {
-        int idx = DispatchNodeIfType7_02156e2c(obj, 0x65);
+    if (func_ov004_021571d8((int)obj)) {
+        int idx = func_ov004_02156e2c(obj, 0x65);
         if (idx < 0) return 0;
-        keys = (short*)GetPointerFromArray0xbd0_0207c5f8(p + 0x1d4, *(data_ov004_021707e0 + idx + 0x7c));
-        bytes = (signed char*)GetPointerAt0xbf0_0207c60c(p + 0x1d4, *(data_ov004_021707e0 + idx + 0x7c));
+        keys = (short*)func_0207c5f8(p + 0x1d4, *(data_ov004_021707e0 + idx + 0x7c));
+        bytes = (signed char*)func_0207c60c(p + 0x1d4, *(data_ov004_021707e0 + idx + 0x7c));
     } else {
         if (((int)func_ov004_02157128(obj)) >= 0) return 0;
         keys = (short*)(p + 0xc);
@@ -2519,11 +2519,11 @@ extern "C" ARM int func_ov004_0215a738(void* obj) {
     Container020dedd0* node = (Container020dedd0*)((void*)func_ov004_02156fd4(obj, 5));
     for (int i = 0; i < 8; i++) {
         int k = i + base * 8;
-        Element020de650_0215a738* elem = ((Element020de650_0215a738*)FindElementByKey020dedd0(node, keys[k]));
+        Element020de650_0215a738* elem = ((Element020de650_0215a738*)func_020dedd0(node, keys[k]));
         Slot02156f04* slot = ((Slot02156f04*)func_ov004_02156f04(obj, i + 0x44c));
         if (elem == 0) {
             slot->flags |= 8;
-            _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((Grid021f9b30_0215a31c*)grid, 0, (unsigned short)i, (unsigned short)0);
+            ((GridCellSetter_0215a31c)func_ov023_021f9b30)((Grid021f9b30_0215a31c*)grid, 0, (unsigned short)i, (unsigned short)0);
             func_ov023_021f65d4(obj, i + 0x459, 8);
             func_ov023_021f65d4(obj, i + 0x461, 8);
         } else {
@@ -2531,54 +2531,54 @@ extern "C" ARM int func_ov004_0215a738(void* obj) {
             if (slot) {
                 slot->flags &= ~8;
                 slot->field20 = v;
-                _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((Grid021f9b30_0215a31c*)grid, i + 0x44c, (unsigned short)i, (unsigned short)0);
-                ClearNodeMaskById_021f6600(obj, i + 0x459, 8);
-                ClearNodeMaskById_021f6600(obj, i + 0x461, 8);
+                ((GridCellSetter_0215a31c)func_ov023_021f9b30)((Grid021f9b30_0215a31c*)grid, i + 0x44c, (unsigned short)i, (unsigned short)0);
+                func_ov023_021f6600(obj, i + 0x459, 8);
+                func_ov023_021f6600(obj, i + 0x461, 8);
                 ((VObj0215a738*)func_ov004_02156f38(obj, i + 0x461))->Notify(bytes[k]);
             }
         }
     }
     ((VObj0215a738*)func_ov004_02156f38(obj, 0x456))->Notify(base + 1);
     ((VObj0215a738*)func_ov004_02156f38(obj, 0x457))->Notify(saved);
-    ClearNodeMaskById_021f6600(obj, 0x456, 8);
-    ClearNodeMaskById_021f6600(obj, 0x457, 8);
-    ClearNodeMaskById_021f6600(obj, 0x469, 8);
-    ClearNodeMaskById_021f6600(obj, 0x46a, 8);
+    func_ov023_021f6600(obj, 0x456, 8);
+    func_ov023_021f6600(obj, 0x457, 8);
+    func_ov023_021f6600(obj, 0x469, 8);
+    func_ov023_021f6600(obj, 0x46a, 8);
     void* n = func_ov004_02156f6c(obj, 0x17);
     if (n) func_ov023_021f809c(n, obj);
-    void* r = (void*)CheckThenNotify_02157088(obj, 7);
-    int idx2 = DispatchNodeIfType7_02156e2c(obj, 0x63);
+    void* r = (void*)func_ov004_02157088(obj, 7);
+    int idx2 = func_ov004_02156e2c(obj, 0x63);
     if (r) func_ov023_021dcae0((Obj021dcae0*)r, keys[idx2 + base * 8]);
     return 0;
 }
-struct GameObject* GetCombatantWithFlag0x100_0200ff1c(struct GameState*, int);
+extern "C" struct GameObject* func_0200ff1c(struct GameState*, int);
 struct Slots02083960;
-int CountPositiveSlots02083960(struct Slots02083960* s);
-short CountPositiveEntries0207c638(void*, unsigned int);
+extern "C" int func_02083960(struct Slots02083960* s);
+extern "C" short func_0207c638(void*, unsigned int);
 
 // USA: func_ov004_0215aa10
 extern "C" ARM int func_ov004_0215aa10(void* obj) {
     GameState* bs = GameState::GetInstance();
     int result;
-    if (HasFlag101_021571d8((int)obj)) {
-        int idx = DispatchNodeIfType7_02156e2c(obj, 0x65);
+    if (func_ov004_021571d8((int)obj)) {
+        int idx = func_ov004_02156e2c(obj, 0x65);
         if (idx < 0) return 0;
-        void* p = GetPtrField0x2a04_02010828(bs);
+        void* p = func_02010828(bs);
         if (!p) return 0;
         unsigned char key = *(data_ov004_021707e0 + idx + 0x7c);
-        result = CountPositiveEntries0207c638((char*)p + 0x1d4, key);
+        result = func_0207c638((char*)p + 0x1d4, key);
         *(int*)(data_ov004_021707e0 + 0x74) = key;
     } else {
         int val = ((int)func_ov004_02157128(obj));
         if (val == -1) {
-            void* p = GetPtrField0x2a04_02010828(bs);
+            void* p = func_02010828(bs);
             if (!p) return 0;
-            result = CountNonZeroValues020a0b8c((struct S_a0b8c*)p);
+            result = func_020a0b8c((struct S_a0b8c*)p);
         } else {
-            GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, val);
+            GameObject* c = func_0200ff1c(bs, val);
             if (!c) return 0;
-            int ptrAsInt = GetFieldAt0x150_02053c6c((unsigned char*)c);
-            result = CountPositiveSlots02083960((struct Slots02083960*)ptrAsInt);
+            int ptrAsInt = func_02053c6c((unsigned char*)c);
+            result = func_02083960((struct Slots02083960*)ptrAsInt);
         }
     }
     if (result > 0) {
@@ -2592,16 +2592,16 @@ struct Stat02156ed0_0215aaf0 { char pad[0x5c]; short field5c; };
 struct Bits2_0215aaf0 { unsigned int low12 : 12; unsigned int field2 : 2; unsigned int rest : 18; };
 struct Element020de650_0215aaf0 { char pad[8]; Bits2_0215aaf0 bits; };
 
-int EvalOrDispatch020de194(void* s);
+extern "C" int func_020de194(void* s);
 
 // USA: func_ov004_0215aaf0
 extern "C" ARM int func_ov004_0215aaf0(void* obj) {
     GameState* bs = GameState::GetInstance();
     struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
-    unsigned char* ptr2a04 = (unsigned char*)GetPtrField0x2a04_02010828(bs);
+    unsigned char* ptr2a04 = (unsigned char*)func_02010828(bs);
     if (!ptr2a04) return 0;
 
-    int idx = DispatchNodeIfType7_02156e2c(obj, 0x63);
+    int idx = func_ov004_02156e2c(obj, 0x63);
     if (idx < 0) return 0;
 
     Stat02156ed0_0215aaf0* stat = ((Stat02156ed0_0215aaf0*)func_ov004_02156ed0(obj, 0x63));
@@ -2609,10 +2609,10 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
 
     struct Element020de650_0215aaf0* elem;
 
-    if (HasFlag101_021571d8((int)obj)) {
-        unsigned char* keyArr = (unsigned char*)GetPointerFromArray0xbd0_0207c5f8(ptr2a04 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
-        unsigned char* byteArr = (unsigned char*)GetPointerAt0xbf0_0207c60c(ptr2a04 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
-        elem = ((struct Element020de650_0215aaf0*)FindElementByKey020dedd0(node, ((short*)keyArr)[slot]));
+    if (func_ov004_021571d8((int)obj)) {
+        unsigned char* keyArr = (unsigned char*)func_0207c5f8(ptr2a04 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
+        unsigned char* byteArr = (unsigned char*)func_0207c60c(ptr2a04 + 0x1d4, *(unsigned int*)(data_ov004_021707e0 + 0x74));
+        elem = ((struct Element020de650_0215aaf0*)func_020dedd0(node, ((short*)keyArr)[slot]));
         if (elem->bits.field2 == 0) {
             func_ov011_021848a0(obj, 0x3a1);
             return 0;
@@ -2622,7 +2622,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
     } else {
         int flagVal = ((int)func_ov004_02157128(obj));
         if (flagVal == -1) {
-            elem = ((struct Element020de650_0215aaf0*)FindElementByKey020dedd0(node, *(short*)(ptr2a04 + slot * 2 + 0xc)));
+            elem = ((struct Element020de650_0215aaf0*)func_020dedd0(node, *(short*)(ptr2a04 + slot * 2 + 0xc)));
             if (elem->bits.field2 == 0) {
                 func_ov011_021848a0(obj, 0x3a1);
                 return 0;
@@ -2631,10 +2631,10 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
             unsigned char* p100 = ptr2a04 + slot + 0x100;
             data_ov004_021707e0[0x6f] = *(signed char*)(p100 + 0x3c);
         } else {
-            GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(bs, flagVal);
+            GameObject* combatant = func_0200ff1c(bs, flagVal);
             if (!combatant) return 0;
-            int field150 = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
-            elem = ((struct Element020de650_0215aaf0*)FindElementByKey020dedd0(node, ((short*)((char*)field150 + 0x400 + 0x54))[idx]));
+            int field150 = func_02053c6c((unsigned char*)combatant);
+            elem = ((struct Element020de650_0215aaf0*)func_020dedd0(node, ((short*)((char*)field150 + 0x400 + 0x54))[idx]));
             if (elem->bits.field2 == 0) {
                 func_ov011_021848a0(obj, 0x3a1);
                 return 0;
@@ -2645,7 +2645,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
         data_ov004_021707e0[0x70] = (unsigned char)flagVal;
     }
 
-    int evalResult = EvalOrDispatch020de194(elem);
+    int evalResult = func_020de194(elem);
     int scaled = (int)((float)(unsigned int)evalResult * 0.75f);
     *(int*)(data_ov004_021707e0 + 0x78) = scaled;
     data_ov004_021707e0[0x6e] = 1;
@@ -2655,8 +2655,8 @@ extern "C" ARM int func_ov004_0215aaf0(void* obj) {
 extern "C" void func_ov023_021fb27c(void* node, int val);
 
 // USA: func_ov004_0215ad34
-ARM int StoreDigitsAndNotify_0215ad34(void* obj) {
-    struct Element020de650* elem = FindElementByKey020dedd0(((struct Container020dedd0*)func_ov004_02156fd4(obj, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
+extern "C" ARM int func_ov004_0215ad34(void* obj) {
+    struct Element020de650* elem = func_020dedd0(((struct Container020dedd0*)func_ov004_02156fd4(obj, 5)), *(short*)(((char*)data_ov004_021707e0) + 0x6c));
     int val;
     int i;
     if (elem == NULL) return 0;
@@ -2680,7 +2680,7 @@ extern "C" double func_020095a4(double, double);
 extern "C" int _dfix(double);
 
 // USA: func_ov004_0215adf8
-ARM int ComputeChecksumAndNotify_0215adf8(void* obj) {
+extern "C" ARM int func_ov004_0215adf8(void* obj) {
     int i;
     *(int*)(((char*)data_ov004_021707e0) + 0x78) = 0;
     for (i = 0; i < 7; i++) {
@@ -2700,7 +2700,7 @@ ARM int ComputeChecksumAndNotify_0215adf8(void* obj) {
     return 0;
 }
 
-// USA: func_ov004_0215aea8  (semantic: IncrementDigitAndNotify_0215aea8)
+// USA: func_ov004_0215aea8
 extern "C" ARM int func_ov004_0215aea8(void* obj) {
     char* ptr = ((char*)data_ov004_021707e0);
     signed char* arr = (signed char*)(ptr + 0x3f);
@@ -2721,7 +2721,7 @@ extern "C" ARM int func_ov004_0215aea8(void* obj) {
     return 0;
 }
 
-// USA: func_ov004_0215af14  (semantic: DecrementDigitAndNotify_0215af14)
+// USA: func_ov004_0215af14
 extern "C" ARM int func_ov004_0215af14(void* obj) {
     char* ptr = ((char*)data_ov004_021707e0);
     signed char* arr = (signed char*)(ptr + 0x3f);
@@ -2761,7 +2761,7 @@ public:
     virtual void NotifyByte(int n);
 };
 
-// USA: func_ov004_0215af80  (semantic: NotifyTwoVTableEvents_0215af80)
+// USA: func_ov004_0215af80
 extern "C" ARM int func_ov004_0215af80(void* a) {
     VObj0215af80* node = (VObj0215af80*)func_ov004_02156f38(a, 0x25a);
     if (node) {
@@ -2774,7 +2774,7 @@ extern "C" ARM int func_ov004_0215af80(void* a) {
     return 0;
 }
 
-// USA: func_ov004_0215aff0  (semantic: NotifyFlagState_0215aff0)
+// USA: func_ov004_0215aff0
 extern "C" ARM int func_ov004_0215aff0(void* a) {
     if (data_ov004_021707e0[0x6e] == 1) {
         func_ov011_021848a0(a, 0x39c);
@@ -2789,7 +2789,7 @@ struct Handler0215b02c { char pad[0xe0]; FuncPtr0215b02c func; };
 struct Node0215b02c { Handler0215b02c* handler; };
 
 // USA: func_ov004_0215b02c
-ARM int IncrementFlag6eThenNotify_0215b02c(void* obj) {
+extern "C" ARM int func_ov004_0215b02c(void* obj) {
     if (data_ov004_021707e0[0x6e] < data_ov004_021707e0[0x6f]) {
         data_ov004_021707e0[0x6e]++;
         Node0215b02c* node = ((Node0215b02c*)func_ov004_02156f38(obj, 0x25a));
@@ -2823,7 +2823,7 @@ public:
     virtual void NotifyCount(int n);
 };
 
-// USA: func_ov004_0215b0a8  (semantic: DecrementAndNotifyVTable_0215b0a8)
+// USA: func_ov004_0215b0a8
 extern "C" ARM int func_ov004_0215b0a8(void* obj) {
     unsigned char cur = data_ov004_021707e0[0x6e];
     if (cur <= 1) {
@@ -2850,7 +2850,7 @@ end:
 struct Container020e0310;
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #endif
 
 struct Element020de650_0215b120 {
@@ -2892,13 +2892,13 @@ struct ItemSelection0215b120 {
     NameTable0215b120 names;
 };
 
-// USA: func_ov004_0215b120  (semantic: StoreCallResultAndDispatch_0215b120)
+// USA: func_ov004_0215b120
 extern "C" ARM int func_ov004_0215b120(void* self) {
-    void* g = (void*)GetGlobalField0x1c020421a0();
+    void* g = (void*)func_020421a0();
     func_02046380(g);
 
     struct Container020dedd0* c = ((struct Container020dedd0*)func_ov004_02156fd4(self, 5));
-    struct Element020de650_0215b120* elem = ((struct Element020de650_0215b120*)FindElementByKey020dedd0(c, ((ItemSelection0215b120*)data_ov004_021707e0)->itemId));
+    struct Element020de650_0215b120* elem = ((struct Element020de650_0215b120*)func_020dedd0(c, ((ItemSelection0215b120*)data_ov004_021707e0)->itemId));
 
     ItemSelection0215b120* selection = ((ItemSelection0215b120*)data_ov004_021707e0);
     unsigned char quantity = selection->quantity;
@@ -2908,36 +2908,36 @@ extern "C" ARM int func_ov004_0215b120(void* self) {
 #if defined(jpn)
         char name[80];
         func_020e207c(names, name, elem->key);
-        SetIndexedName02046574((Obj02046574*)g, 1, name);
+        func_02046574((Obj02046574*)g, 1, name);
 #else
-        void* r = CallFunc020e52a0_020e5294(names, elem->key);
+        void* r = func_020e5294(names, elem->key);
         *(void**)((char*)g + 0x18) = r;
 #endif
-        StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 0, ((ItemSelection0215b120*)data_ov004_021707e0)->value);
+        func_020465c0((struct StoreStruct*)g, 0, ((ItemSelection0215b120*)data_ov004_021707e0)->value);
     } else {
 #if defined(jpn)
         char name[80];
         func_020e207c(names, name, elem->key);
-        SetIndexedName02046574((Obj02046574*)g, 1, name);
+        func_02046574((Obj02046574*)g, 1, name);
 #else
-        void* r = CallFunc020e52a0_020e5294(names, elem->key);
+        void* r = func_020e5294(names, elem->key);
         *(void**)((char*)g + 0x18) = r;
 #endif
-        StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 0, ((ItemSelection0215b120*)data_ov004_021707e0)->value);
-        StoreInArray0x8b0_020465c0((struct StoreStruct*)g, 1, ((ItemSelection0215b120*)data_ov004_021707e0)->quantity);
+        func_020465c0((struct StoreStruct*)g, 0, ((ItemSelection0215b120*)data_ov004_021707e0)->value);
+        func_020465c0((struct StoreStruct*)g, 1, ((ItemSelection0215b120*)data_ov004_021707e0)->quantity);
     }
     return 0;
 }
 struct KeyMap020a0a08;
-int DecrementKeyValue020a0a08(struct KeyMap020a0a08* map, int key, int amount);
+extern "C" int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount);
 struct Slots020838c4;
-int RemoveSlotValueAndCompact020838c4(struct Slots020838c4* s, int value);
+extern "C" int func_020838c4(struct Slots020838c4* s, int value);
 
 struct Bits0xc_0215b1d4 { unsigned short low13 : 13; unsigned short high3 : 3; };
 
 #if defined(jpn)
-void* GetPtrField0x2a04_02010828(struct GameState*);
-struct GameObject* GetCombatantWithFlag0x100_0200ff1c(struct GameState*, int);
+extern "C" void* func_02010828(struct GameState*);
+extern "C" struct GameObject* func_0200ff1c(struct GameState*, int);
 
 #endif
 // USA: func_ov004_0215b1d4
@@ -2955,28 +2955,28 @@ extern "C" ARM int func_ov004_0215b1d4(void* obj) {
 
     int cnt = *(int*)(data_ov004_021707e0 + 0x74);
     if (cnt >= 0) {
-        void* result = GetPtrField0x2a04_02010828(bs);
+        void* result = func_02010828(bs);
         if (!result) return 0;
         short key = *(short*)(data_ov004_021707e0 + 0x6c);
         signed char amt = *(signed char*)(data_ov004_021707e0 + 0x6e);
         int key2 = *(int*)(data_ov004_021707e0 + 0x74);
-        DecrementKeyedStackAmount0207c484((struct KeyedList0207c484*)((char*)result + 0x1d4), key, amt, key2);
+        func_0207c484((struct KeyedList0207c484*)((char*)result + 0x1d4), key, amt, key2);
     } else if (*(signed char*)(data_ov004_021707e0 + 0x70) == -1) {
-        void* result = GetPtrField0x2a04_02010828(bs);
+        void* result = func_02010828(bs);
         if (!result) return 0;
         short key = *(short*)(data_ov004_021707e0 + 0x6c);
         signed char amt = *(signed char*)(data_ov004_021707e0 + 0x6e);
-        DecrementKeyValue020a0a08((struct KeyMap020a0a08*)result, key, amt);
+        func_020a0a08((struct KeyMap020a0a08*)result, key, amt);
     } else {
         int combatantId = *(signed char*)(data_ov004_021707e0 + 0x70);
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, combatantId);
+        GameObject* c = func_0200ff1c(bs, combatantId);
         if (!c) return 0;
-        int field = GetFieldAt0x150_02053c6c((unsigned char*)c);
+        int field = func_02053c6c((unsigned char*)c);
         short key = *(short*)(data_ov004_021707e0 + 0x6c);
-        RemoveSlotValueAndCompact020838c4((struct Slots020838c4*)field, key);
+        func_020838c4((struct Slots020838c4*)field, key);
     }
 
-    ResetCombatantFields_0215a2f8(data_ov004_021707e0);
+    func_ov004_0215a2f8(data_ov004_021707e0);
 
     Bits0xc_0215b1d4* bits = (Bits0xc_0215b1d4*)(base + 0x10c);
     bits->low13 |= 0x10;
@@ -2990,9 +2990,9 @@ extern "C" ARM int func_ov004_0215b1d4(void* obj) {
     return 0;
 }
 
-// USA: func_ov004_0215b330  (semantic: ResetSomeCombatant_0215b330)
+// USA: func_ov004_0215b330
 extern "C" ARM void* func_ov004_0215b330(void* obj) {
-    ResetCombatantFields_0215a2f8(data_ov004_021707e0);
+    func_ov004_0215a2f8(data_ov004_021707e0);
     func_ov011_021848a0(obj, 0x39e);
     return 0;
 }
@@ -3076,7 +3076,7 @@ struct Element020de650_0215b360 {
     unsigned int field_0;
     void* value;
 };
-int DispatchNodeIfType7_02156e2c(void*, int);
+extern "C" int func_ov004_02156e2c(void*, int);
 extern "C" void func_ov023_021f65d4(void*, int, int);
 typedef void (*UnsignedGridCellSetter)(Grid021f9b30_0215b360*, unsigned short, unsigned int, unsigned int);
 typedef void* (*ContextNodeQuery)(void*, int);
@@ -3087,19 +3087,19 @@ extern "C" ARM int func_ov004_0215b360(void* object) {
     signed char* amounts = NULL;
     int count = 0;
     Container020dedd0* container = ((Container020dedd0*)func_ov004_02156fd4(object, 5));
-    TableA68* table = ((TableA68*)DispatchAdjustmentIfType4_02157018(object, 3));
-    int selected = DispatchNodeIfType7_02156e2c(object, 0x65);
+    TableA68* table = ((TableA68*)func_ov004_02157018(object, 3));
+    int selected = func_ov004_02156e2c(object, 0x65);
     if (selected < 0) return 0;
-    PartyState0215b360* party = (PartyState0215b360*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    PartyState0215b360* party = (PartyState0215b360*)func_02010828(GameState::GetInstance());
     if (!party) return 0;
     for (int i = 0; i < 8; i++) {
         if (i == selected) {
             ItemNode0215b360* node = ((ItemNode0215b360*)func_ov004_02156f04(object, 0x454));
-            if (node) node->value = FindEntryByKey_02072a68(table, (short)(i + 0x1b));
-            ClearNodeMaskById_021f6600(object, i + 0x38c, 8);
-            items = ((short*)GetPointerFromArray0xbd0_0207c5f8(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
-            amounts = ((signed char*)GetPointerAt0xbf0_0207c60c(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
-            count = ((int)CountPositiveEntries0207c638(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
+            if (node) node->value = func_02072a68(table, (short)(i + 0x1b));
+            func_ov023_021f6600(object, i + 0x38c, 8);
+            items = ((short*)func_0207c5f8(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
+            amounts = ((signed char*)func_0207c60c(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
+            count = ((int)func_0207c638(party->inventory, ((ItemLists0215b360*)data_ov004_021707e0)->listIds[selected]));
         } else {
             func_ov023_021f65d4(object, i + 0x38c, 8);
         }
@@ -3115,53 +3115,53 @@ extern "C" ARM int func_ov004_0215b360(void* object) {
     for (int i = 0; i < 8; i++)
         ((ItemNode0215b360*)func_ov004_02156f38(object, i + 0x461))->notify(amounts[i]);
     for (int i = 0; i < 8; i++) {
-        Element020de650_0215b360* entry = ((Element020de650_0215b360*)FindElementByKey020dedd0(container, items[i]));
+        Element020de650_0215b360* entry = ((Element020de650_0215b360*)func_020dedd0(container, items[i]));
         ItemNode0215b360* node = ((ItemNode0215b360*)func_ov004_02156f04(object, i + 0x44c));
         if (!entry) {
             node->flags |= 8;
             func_ov023_021f65d4(object, i + 0x459, 8);
             func_ov023_021f65d4(object, i + 0x461, 8);
-            SetCellIfInBounds_021f9b30((Grid021f9b30*)grid, 0, (unsigned short)i, 0);
+            func_ov023_021f9b30((Grid021f9b30*)grid, 0, (unsigned short)i, 0);
         } else {
             void* value = entry->value ? entry->value : NULL;
             if (node) {
                 node->flags &= ~8;
                 node->value = value;
-                ClearNodeMaskById_021f6600(object, i + 0x459, 8);
-                ClearNodeMaskById_021f6600(object, i + 0x461, 8);
-                ((UnsignedGridCellSetter)SetCellIfInBounds_021f9b30)(grid, (unsigned short)(i + 0x44c), (unsigned short)i, 0);
+                func_ov023_021f6600(object, i + 0x459, 8);
+                func_ov023_021f6600(object, i + 0x461, 8);
+                ((UnsignedGridCellSetter)func_ov023_021f9b30)(grid, (unsigned short)(i + 0x44c), (unsigned short)i, 0);
             }
         }
     }
     void* node = func_ov004_02156f6c(object, 0x17);
     if (node) func_ov023_021f809c(node, object);
-    void* notifier = ((ContextNodeQuery)CheckThenNotify_02157088)(object, 7);
+    void* notifier = ((ContextNodeQuery)func_ov004_02157088)(object, 7);
     if (notifier) func_ov023_021dcae0((Obj021dcae0*)notifier, -1);
     return 0;
 }
-int Compact0207c51c(unsigned char* base, int key);
+extern "C" int func_0207c51c(unsigned char* base, int key);
 
-// USA: func_ov004_0215b694  (semantic: CompactAndResetCombatants_0215b694)
+// USA: func_ov004_0215b694
 extern "C" ARM int func_ov004_0215b694(void* obj) {
-    void* ptr = GetPtrField0x2a04_02010828(GameState::GetInstance());
+    void* ptr = func_02010828(GameState::GetInstance());
     if (!ptr) {
         return 0;
     }
     for (int i = 0; i < 8; i++) {
         int key = *(data_ov004_021707e0 + i + 0x7c);
-        Compact0207c51c((unsigned char*)ptr + 0x1d4, key);
+        func_0207c51c((unsigned char*)ptr + 0x1d4, key);
     }
-    ResetCombatantFields_0215a2f8(data_ov004_021707e0);
+    func_ov004_0215a2f8(data_ov004_021707e0);
     func_ov011_021848a0(obj, 0x3a0);
     func_ov023_021f65d4(obj, 2, 8);
     return 0;
 }
 
-// USA: func_ov004_0215b710  (semantic: ClearNodeMaskIfType7_0215b710)
+// USA: func_ov004_0215b710
 extern "C" ARM int func_ov004_0215b710(void* obj) {
-    int id = DispatchNodeIfType7_02156e2c(obj, 0x65);
+    int id = func_ov004_02156e2c(obj, 0x65);
     if (id >= 0) {
-        ClearNodeMaskById_021f6600(obj, id + 0x38c, 8);
+        func_ov023_021f6600(obj, id + 0x38c, 8);
     }
     return 0;
 }
@@ -3169,7 +3169,7 @@ extern "C" void func_0207d300(void* buf, int a, int b, int c);
 extern "C" void func_ov004_0215b7c8(struct ShortTriple_0215b7c8*);
 
 // USA: func_ov004_0215b740
-ARM int InitAndNotifyStruct_0215b740(void* obj) {
+extern "C" ARM int func_ov004_0215b740(void* obj) {
 #if defined(jpn)
     enum { memberOffset = 0xc };
 #else
@@ -3179,9 +3179,9 @@ ARM int InitAndNotifyStruct_0215b740(void* obj) {
     void* node = ((void*)func_ov004_02156fd4(obj, 5));
     char buf[0x38];
     ((SafeAllocator*)buf)->ResetAllocatorPointer();
-    ZeroInitReturn020de824(buf + 0x14);
-    InitStruct0207cbe8(buf);
-    InitStruct0207cbe8(buf);
+    func_020de824(buf + 0x14);
+    func_0207cbe8(buf);
+    func_0207cbe8(buf);
     *(void**)(buf + 0x2c) = node;
     short a = *(short*)(p + 0xf8);
     signed char b = *(unsigned short*)(p + 0xfa);
@@ -3193,14 +3193,14 @@ ARM int InitAndNotifyStruct_0215b740(void* obj) {
 
 struct ShortTriple_0215b7c8 { short a, b, c; };
 
-// USA: func_ov004_0215b7c8  (semantic: InitShortTriple_0215b7c8)
+// USA: func_ov004_0215b7c8
 extern "C" ARM void func_ov004_0215b7c8(ShortTriple_0215b7c8* s) {
     s->a = -1;
     s->b = 0;
     s->c = 0;
 }
 
-// USA: func_ov004_0215b7e0  (semantic: SetOv011FieldTo_0215b7e0)
+// USA: func_ov004_0215b7e0
 extern "C" ARM int func_ov004_0215b7e0(void* obj) {
     func_ov011_021848a0(obj, 0x3a5);
     return 0;
@@ -3256,7 +3256,7 @@ extern "C" void func_02096660(FontBankLoader*, int, char*, int);
 
 // USA: func_ov004_0215b7f8
 extern "C" ARM int func_ov004_0215b7f8(void* obj) {
-    if (!((struct TableA68*)DispatchAdjustmentIfType4_02157018(obj, 4))) return 0;
+    if (!((struct TableA68*)func_ov004_02157018(obj, 4))) return 0;
     GameState* gs = GameState::GetInstance();
     Battle0215b7f8* battle = (Battle0215b7f8*)((char*)gs + regionalAreaOffset + 0x5c00);
     if (func_0202c508((CheckField0AndGlobalHalfStruct0202c508*)(func_0202ae18())) && func_ov017_021b213c(battle->slot.handle, ((State0215b7f8*)data_ov004_021707e0)->key)) {
@@ -3265,12 +3265,12 @@ extern "C" ARM int func_ov004_0215b7f8(void* obj) {
         int size = ((Full0215b7f8*)gs)->slot.size;
         memcpy(data, ((Full0215b7f8*)gs)->slot.data, size);
 #if defined(jpn)
-        func_02096660(GetGlobal02109400_02094a00(), 5001, data, size);
+        func_02096660(func_02094a00(), 5001, data, size);
 #else
-        AlwaysFalse02094b54(GetGlobal02109400_02094a00(), 5001, data, size);
+        func_02094b54(func_02094a00(), 5001, data, size);
 #endif
         AddPadWait0215b7f8(text, ((Full0215b7f8*)gs)->slot.name);
-        TextRenderer0215b7f8* tr = ((TextRenderer0215b7f8*)GetGlobalField0x1c020421a0());
+        TextRenderer0215b7f8* tr = ((TextRenderer0215b7f8*)func_020421a0());
 #if defined(jpn)
         func_0204500c(tr, text, 0);
 #else
@@ -3332,16 +3332,16 @@ struct Obj02046574;
 #if defined(jpn)
 extern "C" char* func_020e207c(struct Container020e0310*, char*, int);
 #else
-void* CallFunc020e52a0_020e5294(void*, int);
+extern "C" void* func_020e5294(void*, int);
 #endif
 
-void SetIndexedName02046574(struct Obj02046574* obj, int index, char* str);
+extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
 
 // USA: func_ov004_0215b934
 extern "C" ARM int func_ov004_0215b934(void* obj) {
     if (((BattleMenuState0215b934*)data_ov004_021707e0)->active) {
         GameState* gs = GameState::GetInstance();
-        Wallet0215b934* wallet = (Wallet0215b934*)GetPtrField0x2a04_02010828(gs);
+        Wallet0215b934* wallet = (Wallet0215b934*)func_02010828(gs);
         Element0215b934* elem;
         Message0215b934* msg;
         unsigned int amount;
@@ -3351,9 +3351,9 @@ extern "C" ARM int func_ov004_0215b934(void* obj) {
             return 0;
         }
         struct Container020dedd0* items = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
-        elem = ((Element0215b934*)FindElementByKey020dedd0(items, area->reward.itemId));
+        elem = ((Element0215b934*)func_020dedd0(items, area->reward.itemId));
         if (!elem) return 0;
-        msg = ((Message0215b934*)GetGlobalField0x1c020421a0());
+        msg = ((Message0215b934*)func_020421a0());
         func_02046380(msg);
         unsigned int kind = area->reward.kind;
         if (kind & 1) {
@@ -3362,31 +3362,31 @@ extern "C" ARM int func_ov004_0215b934(void* obj) {
                 amount = 9999999 - wallet->gold;
             }
             wallet->gold += amount;
-            struct TableA68* names = ((struct TableA68*)DispatchAdjustmentIfType4_02157018(obj, 9));
+            struct TableA68* names = ((struct TableA68*)func_ov004_02157018(obj, 9));
 #if defined(jpn)
             char name[80];
             func_020e207c((Container020e0310*)(((BattleMenuState0215b934*)data_ov004_021707e0)->table), name, elem->nameId);
-            SetIndexedName02046574((Obj02046574*)msg, 1, name);
+            func_02046574((Obj02046574*)msg, 1, name);
 #else
-            msg->name = ((int)CallFunc020e52a0_020e5294(((BattleMenuState0215b934*)data_ov004_021707e0)->table, elem->nameId));
+            msg->name = ((int)func_020e5294(((BattleMenuState0215b934*)data_ov004_021707e0)->table, elem->nameId));
 #endif
-            SetIndexedName02046574((struct Obj02046574*)msg, 2, ((char*)FindEntryByKey_02072a68(names, (short)(rand() % 0x3a))));
-            SetIndexedName02046574((struct Obj02046574*)msg, 3, ((char*)FindEntryByKey_02072a68(names, (short)(rand() % 6 + 1000))));
-            StoreInArray0x8b0_020465c0((struct StoreStruct*)msg, 0, amount);
+            func_02046574((struct Obj02046574*)msg, 2, ((char*)func_02072a68(names, (short)(rand() % 0x3a))));
+            func_02046574((struct Obj02046574*)msg, 3, ((char*)func_02072a68(names, (short)(rand() % 6 + 1000))));
+            func_020465c0((struct StoreStruct*)msg, 0, amount);
             func_ov011_021848a0(obj, 0x3a8);
         } else if (kind & 2) {
             char buf[0x38];
             ((SafeAllocator*)buf)->ResetAllocatorPointer();
-            ZeroInitReturn020de824(buf + 0x14);
-            InitStruct0207cbe8(buf);
-            InitStruct0207cbe8(buf);
+            func_020de824(buf + 0x14);
+            func_0207cbe8(buf);
+            func_0207cbe8(buf);
             func_0207d300(buf, area->reward.itemId, (signed char)area->reward.count, 0);
 #if defined(jpn)
             char name[80];
             func_020e207c((Container020e0310*)(((BattleMenuState0215b934*)data_ov004_021707e0)->table), name, elem->nameId);
-            SetIndexedName02046574((Obj02046574*)msg, 1, name);
+            func_02046574((Obj02046574*)msg, 1, name);
 #else
-            msg->name = ((int)CallFunc020e52a0_020e5294(((BattleMenuState0215b934*)data_ov004_021707e0)->table, elem->nameId));
+            msg->name = ((int)func_020e5294(((BattleMenuState0215b934*)data_ov004_021707e0)->table, elem->nameId));
 #endif
             func_ov011_021848a0(obj, 0x3a9);
         } else {
@@ -3417,22 +3417,22 @@ extern "C" ARM int func_ov004_0215bb54(void* obj) {
     if (flag == 0) {
         void* obj2 = func_ov011_021845f8((unsigned char*)obj, (int)1);
         if (obj2 == 0) {
-            ResetCombatantFields_0215a2f8(data_ov004_021707e0);
+            func_ov004_0215a2f8(data_ov004_021707e0);
             func_ov011_021848a0(obj, 0x39e);
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
         func_ov017_021b1d44((unsigned char*)five, 4, 1);
         *(void**)((char*)five + 8) = (char*)obj2 + 4;
-        int fieldB4 = GetFieldB4_02184548((struct Obj_02184548*)obj);
-        int fieldB0 = GetFieldB0_02184540((struct Obj_02184540*)obj);
+        int fieldB4 = func_ov011_02184548((struct Obj_02184548*)obj);
+        int fieldB0 = func_ov011_02184540((struct Obj_02184540*)obj);
         *(int*)((char*)five + 0x34) = fieldB0;
         *(int*)((char*)five + 0x38) = fieldB4;
         data_ov004_021707e0[0x13]++;
         func_ov011_021848a0(obj, 0x3aa);
-        void* node = (void*)DispatchAdjustmentIfType4_02157018(obj, 4);
-        int g = GetGlobalField0x1c020421a0();
-        void* found = FindEntryByKey_02072a68((struct TableA68*)node, 0x13);
+        void* node = (void*)func_ov004_02157018(obj, 4);
+        int g = func_020421a0();
+        void* found = func_02072a68((struct TableA68*)node, 0x13);
 #if defined(jpn)
         func_0204500c((void*)g, (const char*)found, 0);
 #else
@@ -3453,11 +3453,11 @@ enum { bufferOffset = 0x28, clearSize = 0x800, statusOffset = 0x868 };
 enum { bufferOffset = 0x5c, clearSize = 0x960, statusOffset = 0x998 };
 #endif
 
-ARM void ClearOrMaskNodesByState_0215781c(void* obj);
-ARM int GetFieldromField_021b1fd4_021b1fd4(void* obj);
+extern "C" ARM void func_ov004_0215781c(void* obj);
+extern "C" ARM int func_ov017_021b1fd4(void* obj);
 extern "C" void func_ov004_021571f4(void* obj, int val);
-ARM void MaskNodesForRange_02157874(void* obj);
-int GetSubWordField394_021b1ffc(Obj24_021b1ffc* obj);
+extern "C" ARM void func_ov004_02157874(void* obj);
+extern "C" int func_ov017_021b1ffc(Obj24_021b1ffc* obj);
 #if defined(jpn)
 extern "C" void func_0204500c(void*, const char*, int);
 #else
@@ -3470,39 +3470,39 @@ extern "C" ARM int func_ov004_0215bc9c(void* obj) {
     GameResources* resources = GetGameResources();
     void* list = resources->unknown_ptr_array_36fc[0];
     void* five = resources->unknown_ptr_array_3afc[19];
-    void* table = (void*)DispatchAdjustmentIfType4_02157018(obj, 4);
-    g = GetGlobalField0x1c020421a0();
+    void* table = (void*)func_ov004_02157018(obj, 4);
+    g = func_020421a0();
     unsigned char flag = data_ov004_021707e0[0x13];
 
     if (flag == 2) {
-        ClearOrMaskNodesByState_0215781c(obj);
+        func_ov004_0215781c(obj);
         func_ov017_021b1e24(five, (int)list);
-        int t = GetFieldromField_021b1fd4_021b1fd4(five) >> 12;
+        int t = func_ov017_021b1fd4(five) >> 12;
         func_ov004_021571f4(obj, t);
-        GetSubByteField34_021b2024((Obj24_021b2024*)five);
-        GetSubByteField35_021b2038((Obj24_021b2038*)five);
+        func_ov017_021b2024((Obj24_021b2024*)five);
+        func_ov017_021b2038((Obj24_021b2038*)five);
         if (*(int*)(resources->unknown_4490 + 4) == 0) {
             data_ov004_021707e0[0x13]++;
         }
         goto returnOne;
     } else if (flag == 3) {
-        MaskNodesForRange_02157874(obj);
+        func_ov004_02157874(obj);
         char* buf = *(char**)((char*)g + bufferOffset);
         memset(buf, 0, clearSize);
 
-        if (GetSubByteField44_021b1fe8((Obj24_021b1fe8*)five) & 4) {
+        if (func_ov017_021b1fe8((Obj24_021b1fe8*)five) & 4) {
             data_ov004_021707e0[0x15] = 1;
-            const char* name = (const char*)FindEntryByKey_02072a68((struct TableA68*)table, 0x26);
+            const char* name = (const char*)func_02072a68((struct TableA68*)table, 0x26);
             memcpy(buf, name, strlen(name));
             func_ov011_021848a0(obj, 0x3af);
         } else {
             data_ov004_021707e0[0x15] = 0;
-            const char* name = (const char*)FindEntryByKey_02072a68((struct TableA68*)table, 0x15);
+            const char* name = (const char*)func_02072a68((struct TableA68*)table, 0x15);
             int len = strlen(name);
             memcpy(buf, name, len);
 
-            int key394 = GetSubWordField394_021b1ffc((Obj24_021b1ffc*)five);
-            int cat398 = GetSubByteField398_021b2010((Obj24_021b2010*)five);
+            int key394 = func_ov017_021b1ffc((Obj24_021b1ffc*)five);
+            int cat398 = func_ov017_021b2010((Obj24_021b2010*)five);
             func_ov004_02157374(obj, key394, cat398, buf + len, 0);
             strlen(buf + len);
             func_ov011_021848a0(obj, 0x242d);
@@ -3527,41 +3527,41 @@ returnOne:
 }
 
 struct Stat0215be9c { char pad[0x5c]; short cur; short max; };
-int HasFlag101_021571d8(int flag);
-int DispatchNodeIfType7_02156e2c(void* node, int type);
+extern "C" int func_ov004_021571d8(int flag);
+extern "C" int func_ov004_02156e2c(void* node, int type);
 
 // USA: func_ov004_0215be9c
 extern "C" ARM int func_ov004_0215be9c(int obj) {
     GameState* gs = GameState::GetInstance();
-    unsigned char* p = (unsigned char*)GetPtrField0x2a04_02010828(gs);
+    unsigned char* p = (unsigned char*)func_02010828(gs);
     if (p == 0) {
         return 0;
     }
     Stat0215be9c* stat = ((Stat0215be9c*)func_ov004_02156ed0((void*)obj, 0x63));
     int idx = stat->cur << 3;
     unsigned char* node;
-    if (HasFlag101_021571d8(obj)) {
-        int id = DispatchNodeIfType7_02156e2c((void*)obj, 0x65);
+    if (func_ov004_021571d8(obj)) {
+        int id = func_ov004_02156e2c((void*)obj, 0x65);
         if (id < 0) {
             return 0;
         }
-        node = (unsigned char*)GetPointerFromArray0xbd0_0207c5f8(p + 0x1d4, *(data_ov004_021707e0 + id + 0x7c));
+        node = (unsigned char*)func_0207c5f8(p + 0x1d4, *(data_ov004_021707e0 + id + 0x7c));
     } else {
         signed char flag = func_ov004_02157128((void*)obj);
         if (flag >= 0) {
-            void* found = GetCombatantWithFlag0x100_0200ff1c(gs, flag);
+            void* found = func_0200ff1c(gs, flag);
             if (found == 0) {
                 return 0;
             }
-            unsigned char* field = (unsigned char*)((void*)GetFieldAt0x150_02053c6c((unsigned char*)found)) + 0x54;
+            unsigned char* field = (unsigned char*)((void*)func_02053c6c((unsigned char*)found)) + 0x54;
             node = field + 0x400;
             idx = 0;
         } else {
             node = p + 0xc;
         }
     }
-    void* notified = CheckThenNotify_02157088((void*)obj, 7);
-    int id2 = DispatchNodeIfType7_02156e2c((void*)obj, 0x63);
+    void* notified = func_ov004_02157088((void*)obj, 7);
+    int id2 = func_ov004_02156e2c((void*)obj, 0x63);
     if (notified != 0) {
         func_ov023_021dcae0((Obj021dcae0*)((void*)notified), (short)(((short*)node)[idx + id2]));
     }
@@ -3569,7 +3569,7 @@ extern "C" ARM int func_ov004_0215be9c(int obj) {
 }
 
 #if defined(jpn)
-int ApplyNodeUpdater020e038c(void*, void*, int);
+extern "C" int func_020e038c(void*, void*, int);
 #endif
 
 #if defined(jpn)
@@ -3604,18 +3604,18 @@ struct ItemNameLoader0215bf94 {
 extern "C" unsigned int GetSubBG0ScreenBase(void);
 extern "C" unsigned int GetMainBG3ScreenBase(void);
 struct Actor0209c3b4;
-void SetStateAndDispatch0209c3b4(struct Actor0209c3b4* actor, int val);
-void SetModeClamped0209ca70(void* obj, int val);
-void OrGlobalFlag0x40_020dc2bc(void);
+extern "C" void func_0209c3b4(struct Actor0209c3b4* actor, int val);
+extern "C" void func_0209ca70(void* obj, int val);
+extern "C" void func_020dc2bc(void);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-int TryInvoke020e53bc_020e56fc(void* a0, int a1, int a2);
+extern "C" int func_020e56fc(void* a0, int a1, int a2);
 
 #if defined(jpn)
 // USA: func_ov004_0215bf94
 extern "C" ARM int func_ov004_0215cfdc() {
 #else
 // USA: func_ov004_0215bf94
-ARM int LoadGP2FileAndDispatch_0215bf94() {
+extern "C" ARM int func_ov004_0215bf94() {
 #endif
     unsigned short* bg0 = (unsigned short*)GetSubBG0ScreenBase();
     int i;
@@ -3634,27 +3634,27 @@ ARM int LoadGP2FileAndDispatch_0215bf94() {
     };
     GlobalState0215bf94* owner = (GlobalState0215bf94*)func_02012fe4();
     unsigned char v = owner->current->state;
-    SetStateAndDispatch0209c3b4((struct Actor0209c3b4*)data_02109bf4, v);
-    SetModeClamped0209ca70(data_02109bf4, ((ItemNameLoader0215bf94*)data_ov004_021707e0)->mode);
-    OrGlobalFlag0x40_020dc2bc();
+    func_0209c3b4((struct Actor0209c3b4*)data_02109bf4, v);
+    func_0209ca70(data_02109bf4, ((ItemNameLoader0215bf94*)data_ov004_021707e0)->mode);
+    func_020dc2bc();
 #if defined(jpn)
     unsigned int size;
     LoadFileIntoMemory("data/prm/itemname.nat", ((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, &size);
-    ApplyNodeUpdater020e038c(&((ItemNameLoader0215bf94*)data_ov004_021707e0)->names, ((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, (int)size);
+    func_020e038c(&((ItemNameLoader0215bf94*)data_ov004_021707e0)->names, ((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, (int)size);
 #else
     BackgroundLoader::AddLockGlobal();
     unsigned int size;
     void* buf = ExtractFileFromGP2("data/prm/itemname.gp2", "itemname_<LG>.nat", &size);
     if (size <= 0x10800) {
         memcpy(((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, buf, size);
-        TryInvoke020e53bc_020e56fc(&((ItemNameLoader0215bf94*)data_ov004_021707e0)->names, (int)((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, (int)size);
+        func_020e56fc(&((ItemNameLoader0215bf94*)data_ov004_021707e0)->names, (int)((ItemNameLoader0215bf94*)data_ov004_021707e0)->fileBuffer, (int)size);
     }
     BackgroundLoader::RemoveLockGlobal();
 #endif
     return 0;
 }
 
-// USA: func_ov004_0215c064  (semantic: SetFlag80AndClearMask_0215c064)
+// USA: func_ov004_0215c064
 extern "C" ARM int func_ov004_0215c064(void* obj) {
 	func_ov011_021848a0(obj, 0x50);
 	func_ov023_021f65d4(obj, 2, 8);
@@ -3662,18 +3662,18 @@ extern "C" ARM int func_ov004_0215c064(void* obj) {
 }
 
 // USA: func_ov004_0215c08c
-ARM int ReturnZero_0215c08c(void) {
+extern "C" ARM int func_ov004_0215c08c(void) {
     return 0;
 }
 
-// USA: func_ov004_0215c094  (semantic: SetOv011FieldTo_0215c094)
+// USA: func_ov004_0215c094
 extern "C" ARM int func_ov004_0215c094(void* obj) {
     func_ov011_021848a0(obj, 0x387);
     return 0;
 }
 
 // USA: func_ov004_0215c0ac
-ARM int SetMessageFlag0215c0ac(int a) {
+extern "C" ARM int func_ov004_0215c0ac(int a) {
 	func_ov011_021848a0((void*)a, 0x65);
 	return 0;
 }
@@ -3681,13 +3681,13 @@ ARM int SetMessageFlag0215c0ac(int a) {
 struct Combined0215c0c0 { unsigned int low7 : 7; unsigned int rest : 25; };
 struct Field2a04_0215c0c0 { char pad[0xf6c]; int f0xf6c; };
 
-// USA: func_ov004_0215c0c0  (semantic: TickCounterAndConsumeResource_0215c0c0)
+// USA: func_ov004_0215c0c0
 extern "C" ARM int func_ov004_0215c0c0(void* obj) {
-    int code = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int code = func_ov004_02156e2c(obj, 0x5b);
     if (code < 0) return 0;
-    void* entry = GetEntryFor_021570a4(obj, code & 0xff);
+    void* entry = func_ov004_021570a4(obj, code & 0xff);
     if (!entry) return 0;
-    struct Field2a04_0215c0c0* fld = (struct Field2a04_0215c0c0*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    struct Field2a04_0215c0c0* fld = (struct Field2a04_0215c0c0*)func_02010828(GameState::GetInstance());
     struct Combined0215c0c0* c = (struct Combined0215c0c0*)((char*)entry + 4);
     unsigned char rate = data_ov004_021707e0[0x11];
     unsigned int restVal = c->rest;
@@ -3710,7 +3710,7 @@ extern "C" ARM int func_ov004_0215c0c0(void* obj) {
     return 0;
 }
 
-// USA: func_ov004_0215c194  (semantic: SetOv011FieldTo_0215c194)
+// USA: func_ov004_0215c194
 extern "C" ARM int func_ov004_0215c194(void* obj) {
     func_ov011_021848a0(obj, 0x39f);
     return 0;
@@ -3736,7 +3736,7 @@ public:
     virtual void Dispatch54(int n);
 };
 
-// USA: func_ov004_0215c1ac  (semantic: ClearFlagAndDispatchAll_0215c1ac)
+// USA: func_ov004_0215c1ac
 extern "C" ARM int func_ov004_0215c1ac(void* obj) {
     for (int i = 0; i < 8; i++) {
         void* node = func_ov004_02156f04(obj, i + 0x44c);
@@ -3752,35 +3752,35 @@ extern "C" ARM int func_ov004_0215c1ac(void* obj) {
 }
 
 // USA: func_ov004_0215c228
-ARM int SetMessageFlag0215c228(int a) {
+extern "C" ARM int func_ov004_0215c228(int a) {
 	func_ov011_021848a0((void*)a, 0x6a);
 	return 0;
 }
 
 // USA: func_ov004_0215c23c
-ARM int SetMessageFlag0215c23c(int a) {
+extern "C" ARM int func_ov004_0215c23c(int a) {
 	func_ov011_021848a0((void*)a, 0x6c);
 	return 0;
 }
 
 // USA: func_ov004_0215c250
-ARM int SetOv011FieldTo_0215c250_0215c250(void* obj) {
+extern "C" ARM int func_ov004_0215c250(void* obj) {
     func_ov011_021848a0(obj, 0x396);
     return 0;
 }
 
-int DispatchEventAndSetFlag_021589e8(void*);
+extern "C" int func_ov004_021589e8(void*);
 
 // USA: func_ov004_0215c268
-ARM int TickGlobalCounter_0215c268(void* obj) {
+extern "C" ARM int func_ov004_0215c268(void* obj) {
 	int result;
 	unsigned char* p = (unsigned char*)((char*)data_ov004_021707e0);
 	if (p[0x30] == 0) goto skip;
 	{
-		FontBankLoader* g = GetGlobal02109400_02094a00();
+		FontBankLoader* g = func_02094a00();
 		unsigned char* p2 = (unsigned char*)((char*)data_ov004_021707e0);
 		if (p2[0x2c] != 0) goto elseBranch;
-		BlankFunction02094b34(g, 0x72, 0x202, 0, 0);
+		func_02094b34(g, 0x72, 0x202, 0, 0);
 		{
 			unsigned char* p3 = (unsigned char*)((char*)data_ov004_021707e0);
 			p3[0x2c] = p3[0x2c] + 1;
@@ -3788,7 +3788,7 @@ ARM int TickGlobalCounter_0215c268(void* obj) {
 		result = 1;
 		goto done;
 	elseBranch:
-		if (AlwaysTrue02094b4c(g)) {
+		if (func_02094b4c(g)) {
 			unsigned char* p4 = (unsigned char*)((char*)data_ov004_021707e0);
 			p4[0x2c] = 0;
 			goto skip;
@@ -3797,7 +3797,7 @@ ARM int TickGlobalCounter_0215c268(void* obj) {
 		goto done;
 	}
 skip:
-	DispatchEventAndSetFlag_021589e8(obj);
+	func_ov004_021589e8(obj);
 	result = 0;
 done:
 	return result;
@@ -3807,20 +3807,20 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 extern "C" void* func_ov004_0215c448(void* obj);
 extern "C" void* func_ov004_0215c474(void* obj);
-ARM int InitObjWithMisc_021f6f20(void* obj, int p1, int p3, int p4, int arg5, unsigned int arg6);
-ARM void* AddOffset20_021f7318(void* p);
-ARM void SetField1cTo2_021f7320(void* p);
+extern "C" ARM int func_ov023_021f6f20(void* obj, int p1, int p3, int p4, int arg5, unsigned int arg6);
+extern "C" ARM void* func_ov023_021f7318(void* p);
+extern "C" ARM void func_ov023_021f7320(void* p);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 extern "C" void func_0204719c(void* obj);
-void Forward02047b30(void* a, int b, int c, int d);
+extern "C" void func_02047b30(void* a, int b, int c, int d);
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 static inline char* GetPairTable(GameResources* res, int index) { return res->unknown_2cc + index * 0x70; }
 
@@ -3841,7 +3841,7 @@ extern "C" ARM int func_ov004_0215c30c(void* ctx) {
     func_ov004_0215c448(&local);
     memcpy(block, &local, sizeof(local));
 
-    if (InitObjWithMisc_021f6f20(block, (int)ctx, 0x6a4, 6, 0, 0) == 0) {
+    if (func_ov023_021f6f20(block, (int)ctx, 0x6a4, 6, 0, 0) == 0) {
         int result = 0;
         func_ov004_0215c474(&local);
         return result;
@@ -3851,17 +3851,17 @@ extern "C" ARM int func_ov004_0215c30c(void* ctx) {
     unsigned int size;
     void* file = LoadFileIntoMemory("data/menu/dqa_rox.spr", data_0211e33c, &size);
     char* pairs = GetPairTable(GetGameResources(), 0);
-    void* model = AddOffset20_021f7318(block);
-    CopyInternalFields0207df50((struct Foo0207df50*)pairs);
-    RestorePairTables0207df90(pairs);
+    void* model = func_ov023_021f7318(block);
+    func_0207df50((struct Foo0207df50*)pairs);
+    func_0207df90(pairs);
     func_0204719c(model);
     if (file != 0) {
-        Forward02047b30(model, (int)file, size, (int)((char*)node + 4));
+        func_02047b30(model, (int)file, size, (int)((char*)node + 4));
     }
-    BackupPairTables0207dfac(pairs);
+    func_0207dfac(pairs);
     BackgroundLoader::RemoveLockGlobal();
-    SetField1cTo2_021f7320(block);
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
+    func_ov023_021f7320(block);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
 
     int result = 0;
     func_ov004_0215c474(&local);
@@ -3869,62 +3869,62 @@ extern "C" ARM int func_ov004_0215c30c(void* ctx) {
 }
 
 struct NameTable02048080;
-void ClearNameTable(struct NameTable02048080* table);
+extern "C" void func_02048080(struct NameTable02048080* table);
 extern int data_ov023_021fe3e4;
 
-// USA: func_ov004_0215c448  (semantic: InitStructVtableAndClear_0215c448)
+// USA: func_ov004_0215c448
 extern "C" ARM void* func_ov004_0215c448(void* obj) {
     NameTable02048080* names = (NameTable02048080*)((char*)obj + 0x34);
     void* model = (char*)obj + 0x20;
     *(void**)obj = &data_ov023_021fe3e4;
-    ClearNameTable(names);
+    func_02048080(names);
     func_0204719c(model);
 	return obj;
 }
 
 struct Foo02048004;
-void MaybeInvoke0204719c_02047230(struct Foo02048004* obj);
+extern "C" void func_02047230(struct Foo02048004* obj);
 
-// USA: func_ov004_0215c474  (semantic: InvokeAndClearNameTable_0215c474)
+// USA: func_ov004_0215c474
 extern "C" ARM void* func_ov004_0215c474(void* self) {
-    MaybeInvoke0204719c_02047230((struct Foo02048004*)((int)self + 0x20));
-    ClearNameTable((struct NameTable02048080*)((int)self + 0x34));
+    func_02047230((struct Foo02048004*)((int)self + 0x20));
+    func_02048080((struct NameTable02048080*)((int)self + 0x34));
     return self;
 }
 
-// USA: func_ov004_0215c494  (semantic: ResetCounterAndNotify_0215c494)
+// USA: func_ov004_0215c494
 extern "C" ARM int func_ov004_0215c494(void* obj) {
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) {
         return 0;
     }
-    void* entry = GetEntryFor_021570a4(obj, (unsigned char)key);
+    void* entry = func_ov004_021570a4(obj, (unsigned char)key);
     if (!entry) {
         return 0;
     }
     unsigned char old = data_ov004_021707e0[0x11];
     data_ov004_021707e0[0x11] = 1;
     if (data_ov004_021707e0[0x11] < old) {
-        CallVTableFnAt240_021f66bc(obj, 0x25c, (void*)1);
+        func_ov023_021f66bc(obj, 0x25c, (void*)1);
     }
-    NotifyCountedEvents_02159384(obj);
+    func_ov004_02159384(obj);
     return 0;
 }
 
 struct ResultEntry0215c50c { short field0; short pad2; int field4; };
 
-// USA: func_ov004_0215c50c  (semantic: RecalcCounterAndNotify_0215c50c)
+// USA: func_ov004_0215c50c
 extern "C" ARM int func_ov004_0215c50c(void* a) {
-    int b = DispatchNodeIfType7_02156e2c(a, 0x5b);
+    int b = func_ov004_02156e2c(a, 0x5b);
     if (b < 0) return 0;
 
-    ResultEntry0215c50c* entry = (ResultEntry0215c50c*)GetEntryFor_021570a4(a, (unsigned char)b);
+    ResultEntry0215c50c* entry = (ResultEntry0215c50c*)func_ov004_021570a4(a, (unsigned char)b);
     if (!entry) return 0;
 
     unsigned char orig11 = data_ov004_021707e0[0x11];
     data_ov004_021707e0[0x11] = (unsigned char)((unsigned int)(entry->field4 << 25) >> 25);
 
-    void* ptr2a04 = GetPtrField0x2a04_02010828(GameState::GetInstance());
+    void* ptr2a04 = func_02010828(GameState::GetInstance());
     unsigned int hi = (unsigned int)entry->field4 >> 7;
     unsigned int product = data_ov004_021707e0[0x11] * hi;
     int f6c = *(int*)((char*)ptr2a04 + 0xf6c);
@@ -3938,7 +3938,7 @@ extern "C" ARM int func_ov004_0215c50c(void* a) {
     if (!contPtr) return 0;
 
     short shortE = *(short*)(data_ov004_021707e0 + 0xe);
-    Element020de650* elem = FindElementByKey020dedd0((Container020dedd0*)contPtr, shortE);
+    Element020de650* elem = func_020dedd0((Container020dedd0*)contPtr, shortE);
     if (!elem) return 0;
 
     int elemField8 = *(int*)((char*)elem + 8);
@@ -3952,10 +3952,10 @@ extern "C" ARM int func_ov004_0215c50c(void* a) {
     if (data_ov004_021707e0[0x11] == 0) data_ov004_021707e0[0x11] = 1;
 
     if (orig11 < data_ov004_021707e0[0x11]) {
-        CallVTableFnAt240_021f66bc(a, 0x25b, (void*)1);
+        func_ov023_021f66bc(a, 0x25b, (void*)1);
     }
 
-    NotifyCountedEvents_02159384(a);
+    func_ov004_02159384(a);
     return 0;
 }
 
@@ -3964,7 +3964,7 @@ struct Handler0215c684 { char pad[0xe0]; FuncPtr0215c684 func; };
 struct Node0215c684 { Handler0215c684* handler; };
 
 // USA: func_ov004_0215c684
-ARM int SetFlag6eTo1ThenNotify_0215c684(void* obj) {
+extern "C" ARM int func_ov004_0215c684(void* obj) {
     if (data_ov004_021707e0[0x6e] > 1) {
         data_ov004_021707e0[0x6e] = 1;
         Node0215c684* node = ((Node0215c684*)func_ov004_02156f38(obj, 0x25a));
@@ -3984,7 +3984,7 @@ struct Handler0215c6fc { char pad[0xe0]; FuncPtr0215c6fc func; };
 struct Node0215c6fc { Handler0215c6fc* handler; };
 
 // USA: func_ov004_0215c6fc
-ARM int SetFlag6eToMaxThenNotify_0215c6fc(void* obj) {
+extern "C" ARM int func_ov004_0215c6fc(void* obj) {
     if (data_ov004_021707e0[0x6e] < data_ov004_021707e0[0x6f]) {
         data_ov004_021707e0[0x6e] = data_ov004_021707e0[0x6f];
         Node0215c6fc* node = ((Node0215c6fc*)func_ov004_02156f38(obj, 0x25a));
@@ -4030,16 +4030,16 @@ struct ArchiveVariant0215c774 {
 };
 extern "C" void* func_ov004_0215c448(void*);
 extern "C" void* func_ov004_0215c474(void*);
-int InitObjWithMisc_021f6f20(void*, int, int, int, int, unsigned int);
+extern "C" int func_ov023_021f6f20(void*, int, int, int, int, unsigned int);
 extern "C" void* ExtractFileFromGP2(const char*, const char*, unsigned int*);
-void* AddOffset20_021f7318(void*);
-PairTableNode0215c774* FindNodeById0218466c(void*, unsigned short);
-void RestorePairTables0207df90(char*);
+extern "C" void* func_ov023_021f7318(void*);
+extern "C" PairTableNode0215c774* func_ov011_0218466c(void*, unsigned short);
+extern "C" void func_0207df90(char*);
 extern "C" void func_0204719c(void*);
-void Forward02047b30(void*, int, int, int);
-void BackupPairTables0207dfac(char*);
-void SetField1cTo2_021f7320(void*);
-void AppendNodeToList_021f67ac(ListHead_021f67ac*, ListNode_021f67ac*);
+extern "C" void func_02047b30(void*, int, int, int);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_ov023_021f7320(void*);
+extern "C" void func_ov023_021f67ac(ListHead_021f67ac*, ListNode_021f67ac*);
 
 // USA: func_ov004_0215c774
 extern "C" ARM int func_ov004_0215c774(void* context) {
@@ -4051,7 +4051,7 @@ extern "C" ARM int func_ov004_0215c774(void* context) {
     MessageNode0215c774 temporary;
     func_ov004_0215c448(&temporary);
     memcpy(node, &temporary, sizeof(temporary));
-    if (InitObjWithMisc_021f6f20(node, (int)context, 0x640, 10, 0, 0) == 0) {
+    if (func_ov023_021f6f20(node, (int)context, 0x640, 10, 0, 0) == 0) {
 #if defined(jpn)
         int result = 0;
         func_ov004_0215c474(&temporary);
@@ -4079,18 +4079,18 @@ extern "C" ARM int func_ov004_0215c774(void* context) {
     unsigned int size;
     void* file = ExtractFileFromGP2(archivePath, innerPath, &size);
 #endif
-    void* model = AddOffset20_021f7318(node);
-    PairTableNode0215c774* pairs = FindNodeById0218466c(context, 0);
+    void* model = func_ov023_021f7318(node);
+    PairTableNode0215c774* pairs = func_ov011_0218466c(context, 0);
     char* tables = pairs->tables;
-    RestorePairTables0207df90(tables);
+    func_0207df90(tables);
     func_0204719c(model);
     if (file != 0) {
-        Forward02047b30(model, (int)file, size, (int)&owner->allocator);
+        func_02047b30(model, (int)file, size, (int)&owner->allocator);
     }
-    BackupPairTables0207dfac(tables);
+    func_0207dfac(tables);
     BackgroundLoader::RemoveLockGlobal();
-    SetField1cTo2_021f7320(node);
-    AppendNodeToList_021f67ac(((ListHead_021f67ac*)func_ov011_021849c8(context)), &node->listNode);
+    func_ov023_021f7320(node);
+    func_ov023_021f67ac(((ListHead_021f67ac*)func_ov011_021849c8(context)), &node->listNode);
 #if defined(jpn)
     int result = 0;
     func_ov004_0215c474(&temporary);
@@ -4126,9 +4126,8 @@ struct DownloadedData {
     unsigned short unknown10E;
 };
 
-// KEEP-NAME
 // USA: func_ov004_0215c900
-ARM int CheckBitAndNotify_0215c900(void* obj) {
+extern "C" ARM int func_ov004_0215c900(void* obj) {
 #if defined(jpn)
     const DownloadedData* data = (const DownloadedData*)((const char*)GameState::GetInstance() + 0x5c0c);
 #else
@@ -4143,22 +4142,22 @@ ARM int CheckBitAndNotify_0215c900(void* obj) {
 }
 
 // USA: func_ov004_0215c948
-ARM int SetMessageFlag0215c948(int a) {
+extern "C" ARM int func_ov004_0215c948(int a) {
 	func_ov011_021848a0((void*)a, 0x384);
 	return 0;
 }
 
 // USA: func_ov004_0215c95c
-ARM int SetOv011FieldTo_0215c95c_0215c95c(void* obj) {
+extern "C" ARM int func_ov004_0215c95c(void* obj) {
     func_ov011_021848a0(obj, 0x395);
     return 0;
 }
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
 extern "C" int func_020aad1c(void* loader, void* name, int a, int b);
 extern "C" int func_ov004_0215b1d4(void* obj);
-void* GetOffsetPtrromField_021b1fc0_021b1fc0(void* obj);
+extern "C" void* func_ov017_021b1fc0(void* obj);
 struct Obj_02184534;
-void SetFieldsB0B4_02184534(struct Obj_02184534* obj, int b0, int b4);
+extern "C" void func_ov011_02184534(struct Obj_02184534* obj, int b0, int b4);
 #if defined(jpn)
 extern "C" void func_0204500c(void*, const char*, int);
 #else
@@ -4187,10 +4186,10 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
     char* base;
     int i;
 
-    ClearNodeMaskById_021f6600(obj, 0x36, 8);
+    func_ov023_021f6600(obj, 0x36, 8);
 
-    data = GetDataPtr02114e04_020d6c00();
-    OrBitsIntoField0_020466e4((unsigned int*)data, 0x80);
+    data = func_020d6c00();
+    func_020466e4((unsigned int*)data, 0x80);
 
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
@@ -4198,11 +4197,11 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
     BackgroundLoader::RemoveLockGlobal();
     if (!queued) return 1;
 
-    ClearFlags020466f4((struct FlagWord020466f4*)data, 0x80);
+    func_020466f4((struct FlagWord020466f4*)data, 0x80);
 
     func_ov023_021f65d4(obj, 0x36, 8);
 
-    g = GetGlobalField0x1c020421a0();
+    g = func_020421a0();
     cur = *(char**)((char*)g + messageBufferOffset_0215c974);
     memset(cur, 0, messageBufferSize_0215c974);
 
@@ -4213,9 +4212,9 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
 #else
     gs = (char*)GameState::GetInstance() + areaOffset_0215c974;
 #endif
-    table = (struct TableA68*)DispatchAdjustmentIfType4_02157018(obj, 4);
+    table = (struct TableA68*)func_ov004_02157018(obj, 4);
 
-    head = (const char*)FindEntryByKey_02072a68(table, 0x21);
+    head = (const char*)func_02072a68(table, 0x21);
     len = strlen(head);
     memcpy(cur, head, len);
     cur += len;
@@ -4224,17 +4223,17 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
         func_ov004_0215b1d4(obj);
         void* q = func_02012fe4();
         Bits7_0215c974* b = (Bits7_0215c974*)((char*)(*(void**)((char*)q + 8)) + 0xd);
-        SetStateAndDispatch0209c3b4((struct Actor0209c3b4*)data_02109bf4, b->low7);
-        SetModeClamped0209ca70(data_02109bf4, data_ov004_021707e0[0x2d]);
+        func_0209c3b4((struct Actor0209c3b4*)data_02109bf4, b->low7);
+        func_0209ca70(data_02109bf4, data_ov004_021707e0[0x2d]);
     } else if (data_ov004_021707e0[0x14] != 0) {
         void* raw = GetGameResources();
         void* five = *(void**)((char*)raw + taskOffset_0215c974);
-        rec = (char*)GetOffsetPtrromField_021b1fc0_021b1fc0(five);
+        rec = (char*)func_ov017_021b1fc0(five);
         base = *(char**)((char*)five + 0x34);
 
         for (i = 0; i < 4; i++) {
             if (strstr((char*)rec + 0x88, "info")) {
-                SetFieldsB0B4_02184534((struct Obj_02184534*)obj, (int)base, *(int*)((char*)rec + 0xac));
+                func_ov011_02184534((struct Obj_02184534*)obj, (int)base, *(int*)((char*)rec + 0xac));
                 break;
             }
             base += *(int*)((char*)rec + 0xac);
@@ -4251,7 +4250,7 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
         flags = flags << 0x13;
         flags = (unsigned)flags >> 0x13;
         if (flags & 0x40) {
-            const char* s = (const char*)FindEntryByKey_02072a68(table, 0x1c);
+            const char* s = (const char*)func_02072a68(table, 0x1c);
             int l = strlen(s);
             memcpy(cur, s, l);
             cur += l;
@@ -4261,9 +4260,9 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
         if (data_ov004_021707e0[0x2f] != voiceOn) {
             const char* s;
             if (voiceOn) {
-                s = (const char*)FindEntryByKey_02072a68(table, 0x1d);
+                s = (const char*)func_02072a68(table, 0x1d);
             } else {
-                s = (const char*)FindEntryByKey_02072a68(table, 0x1e);
+                s = (const char*)func_02072a68(table, 0x1e);
             }
             int l = strlen(s);
             memcpy(cur, s, l);
@@ -4274,7 +4273,7 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
         flags = flags << 0x13;
         flags = (unsigned)flags >> 0x13;
         if (flags & 0x200) {
-            const char* s = (const char*)FindEntryByKey_02072a68(table, 0x1f);
+            const char* s = (const char*)func_02072a68(table, 0x1f);
             memcpy(cur, s, strlen(s));
         }
     }
@@ -4289,28 +4288,28 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
 }
 
 // USA: func_ov004_0215cbec
-ARM int SetOv023ThenOv011Field_0215cbec(void* obj) {
+extern "C" ARM int func_ov004_0215cbec(void* obj) {
     func_ov023_021f65d4(obj, 2, 8);
     func_ov011_021848a0(obj, 0x68);
     return 0;
 }
 
 // USA: func_ov004_0215cc14
-ARM int SetupPairAndEnqueue_0215cc14_0215cc14(void* obj) {
+extern "C" ARM int func_ov004_0215cc14(void* obj) {
     func_ov023_021f65d4(obj, 2, 8);
     func_ov011_021848a0(obj, 0x396);
     return 0;
 }
 
 // USA: func_ov004_0215cc40
-ARM int SetOv011FieldTo_0215cc40_0215cc40(void* obj) {
+extern "C" ARM int func_ov004_0215cc40(void* obj) {
     func_ov011_021848a0(obj, 0x3b1);
     return 0;
 }
 
 extern "C" void func_ov004_021578a8(void* obj);
 
-// USA: func_ov004_0215cc58  (semantic: IncrementFlag3eClamp6_0215cc58)
+// USA: func_ov004_0215cc58
 extern "C" ARM int func_ov004_0215cc58(void* obj) {
 	if (data_ov004_021707e0[0x3e] < 6) {
 		data_ov004_021707e0[0x3e]++;
@@ -4319,7 +4318,7 @@ extern "C" ARM int func_ov004_0215cc58(void* obj) {
 	return 0;
 }
 
-// USA: func_ov004_0215cc84  (semantic: DecrementFlag3eClamp0_0215cc84)
+// USA: func_ov004_0215cc84
 extern "C" ARM int func_ov004_0215cc84(void* obj) {
 	if (data_ov004_021707e0[0x3e] != 0) {
 		data_ov004_021707e0[0x3e]--;
@@ -4329,49 +4328,49 @@ extern "C" ARM int func_ov004_0215cc84(void* obj) {
 }
 
 // USA: func_ov004_0215ccb0
-ARM int SetFieldFlagValue0_0215ccb0(void* obj) {
+extern "C" ARM int func_ov004_0215ccb0(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 0;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215ccd4
-ARM int SetFieldFlagValue1_0215ccd4(void* obj) {
+extern "C" ARM int func_ov004_0215ccd4(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 1;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215ccf8
-ARM int SetFieldFlagValue2_0215ccf8(void* obj) {
+extern "C" ARM int func_ov004_0215ccf8(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 2;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215cd1c
-ARM int SetFieldFlagValue3_0215cd1c(void* obj) {
+extern "C" ARM int func_ov004_0215cd1c(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 3;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215cd40
-ARM int SetFieldFlagValue4_0215cd40(void* obj) {
+extern "C" ARM int func_ov004_0215cd40(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 4;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215cd64
-ARM int SetFieldFlagValue5_0215cd64(void* obj) {
+extern "C" ARM int func_ov004_0215cd64(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 5;
 	func_ov004_021578a8(obj);
 	return 0;
 }
 
 // USA: func_ov004_0215cd88
-ARM int SetFieldFlagValue6_0215cd88(void* obj) {
+extern "C" ARM int func_ov004_0215cd88(void* obj) {
 	((char*)data_ov004_021707e0)[0x3e] = 6;
 	func_ov004_021578a8(obj);
 	return 0;
@@ -4381,7 +4380,7 @@ struct Stat0215cdac { char pad[0x5c]; short cur; short max; };
 extern "C" int func_ov004_02158fec(void*);
 
 // USA: func_ov004_0215cdac
-ARM int IncrementStat5b_0215cdac(void* obj) {
+extern "C" ARM int func_ov004_0215cdac(void* obj) {
     Stat0215cdac* stat = ((Stat0215cdac*)func_ov004_02156ed0(obj, 0x5b));
     short cur = stat->cur;
     short max = stat->max;
@@ -4396,7 +4395,7 @@ ARM int IncrementStat5b_0215cdac(void* obj) {
 struct Stat0215cdf0 { char pad[0x5c]; short cur; short max; };
 
 // USA: func_ov004_0215cdf0
-ARM int DecrementStat5b_0215cdf0(void* obj) {
+extern "C" ARM int func_ov004_0215cdf0(void* obj) {
     Stat0215cdf0* stat = ((Stat0215cdf0*)func_ov004_02156ed0(obj, 0x5b));
     short cur = stat->cur;
     short max = stat->max;
@@ -4412,7 +4411,7 @@ struct Stat0215ce38 { char pad[0x5c]; short cur; short max; };
 extern "C" int func_ov004_0215a738(void*);
 
 // USA: func_ov004_0215ce38
-ARM int IncrementStat63_0215ce38(void* obj) {
+extern "C" ARM int func_ov004_0215ce38(void* obj) {
     Stat0215ce38* stat = ((Stat0215ce38*)func_ov004_02156ed0(obj, 0x63));
     short cur = stat->cur;
     short max = stat->max;
@@ -4427,7 +4426,7 @@ ARM int IncrementStat63_0215ce38(void* obj) {
 struct Stat0215ce7c { char pad[0x5c]; short cur; short max; };
 
 // USA: func_ov004_0215ce7c
-ARM int DecrementStat63_0215ce7c(void* obj) {
+extern "C" ARM int func_ov004_0215ce7c(void* obj) {
     Stat0215ce7c* stat = ((Stat0215ce7c*)func_ov004_02156ed0(obj, 0x63));
     short cur = stat->cur;
     short max = stat->max;
@@ -4445,7 +4444,7 @@ struct MemberIds_0215cec4 { int ids[4]; };
 extern MemberIds_0215cec4 data_ov004_0216fb70;
 struct Entry_0215cec4 { short key; };
 struct Element020de650_0215cec4 { char pad[8]; unsigned int kind : 4; };
-int IsValueInCombatantField150List_020dd718(int combatantId, int value);
+extern "C" int func_020dd718(int combatantId, int value);
 
 typedef void (*FuncPtrE0_0215cec4)(void*, int);
 struct HandlerE0_0215cec4 { char pad[0xe0]; FuncPtrE0_0215cec4 func; };
@@ -4480,13 +4479,13 @@ struct TitlePanel_0215cec4 { char pad[0x38]; short style; };
 // USA: func_ov004_0215cec4
 extern "C" ARM int func_ov004_0215cec4(void* a) {
     GameState* bs = GameState::GetInstance();
-    int key = DispatchNodeIfType7_02156e2c(a, 0x5b);
+    int key = func_ov004_02156e2c(a, 0x5b);
     if (key < 0) return 0;
-    Entry_0215cec4* entry = ((Entry_0215cec4*)GetEntryFor_021570a4(a, key & 0xff));
+    Entry_0215cec4* entry = ((Entry_0215cec4*)func_ov004_021570a4(a, key & 0xff));
     if (!entry) return 0;
     Container020dedd0* node = ((Container020dedd0*)func_ov004_02156fd4(a, 5));
     if (!node) return 0;
-    Element020de650_0215cec4* elem = ((Element020de650_0215cec4*)FindElementByKey020dedd0(node, entry->key));
+    Element020de650_0215cec4* elem = ((Element020de650_0215cec4*)func_020dedd0(node, entry->key));
     if (!elem) return 0;
 
     MessageSlotTable_020dd7ac buf;
@@ -4514,31 +4513,31 @@ extern "C" ARM int func_ov004_0215cec4(void* a) {
             if (!stat) return 0;
             stat->stats = member->baseStats_;
             stat->SetIcon(func_020dcc98(members.ids[j]));
-            if (IsValueInCombatantField150List_020dd718((signed char)members.ids[j], entry->key)) {
+            if (func_020dd718((signed char)members.ids[j], entry->key)) {
                 func_ov023_021f65d4(a, j + 0x1c6, 8);
                 func_ov023_021f65d4(a, j + 0x1ce, 8);
                 func_ov023_021f65d4(a, j + 0x1ca, 8);
                 func_ov023_021f65d4(a, j + 0x1d2, 8);
-                ClearNodeMaskById_021f6600(a, j + 0x1d7, 8);
+                func_ov023_021f6600(a, j + 0x1d7, 8);
             } else if (func_020dd4c4((signed char)id, (Entry020dd4c4*)elem)) {
                 func_ov023_021f65d4(a, j + 0x1c6, 8);
                 func_ov023_021f65d4(a, j + 0x1ce, 8);
                 func_ov023_021f65d4(a, j + 0x1ca, 8);
-                ClearNodeMaskById_021f6600(a, j + 0x1d2, 8);
+                func_ov023_021f6600(a, j + 0x1d2, 8);
                 func_ov023_021f65d4(a, j + 0x1d7, 8);
             } else {
-                ClearNodeMaskById_021f6600(a, j + 0x1c6, 8);
-                ClearNodeMaskById_021f6600(a, j + 0x1ce, 8);
-                ClearNodeMaskById_021f6600(a, j + 0x1ca, 8);
+                func_ov023_021f6600(a, j + 0x1c6, 8);
+                func_ov023_021f6600(a, j + 0x1ce, 8);
+                func_ov023_021f6600(a, j + 0x1ca, 8);
                 func_ov023_021f65d4(a, j + 0x1d2, 8);
                 func_ov023_021f65d4(a, j + 0x1d7, 8);
 
                 func_020dd7ac(&buf);
                 unsigned short valA, valB;
                 if (elem->kind == 0) {
-                    Setup020ddaf4((int)&buf, id, (int)elem, 0, (int)&valA, (int)&valB);
+                    func_020ddaf4((int)&buf, id, (int)elem, 0, (int)&valA, (int)&valB);
                 } else {
-                    Setup020ddaf4((int)&buf, id, (int)elem, 1, (int)&valA, (int)&valB);
+                    func_020ddaf4((int)&buf, id, (int)elem, 1, (int)&valA, (int)&valB);
                 }
 
                 NodeE0_0215cec4* hA = (NodeE0_0215cec4*)func_ov004_02156f38(a, j + 0x1c6);
@@ -4575,10 +4574,10 @@ extern "C" ARM int func_ov004_0215cec4(void* a) {
     return 0;
 }
 struct Obj02086aec;
-short SumCombatantKeyMatches02086aec(struct Obj02086aec* obj, int key);
-int ScaleStatsIfType12_021f6f10(void*);
+extern "C" short func_02086aec(struct Obj02086aec* obj, int key);
+extern "C" int func_ov024_021f6f10(void*);
 struct Struct0200fb08;
-unsigned char NormalizeField5_0200fb08(struct Struct0200fb08*);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08*);
 
 struct Args0215d384 { int a; int b; int c; };
 
@@ -4611,14 +4610,14 @@ public:
 // USA: func_ov004_0215d384
 extern "C" ARM int func_ov004_0215d384(void* a) {
     GameState* bs = GameState::GetInstance();
-    int idx = DispatchNodeIfType7_02156e2c(a, 0x5b);
+    int idx = func_ov004_02156e2c(a, 0x5b);
     if (idx < 0) return 0;
-    void* entry = GetEntryFor_021570a4(a, idx & 0xff);
+    void* entry = func_ov004_021570a4(a, idx & 0xff);
     if (!entry) return 0;
     VObjA0215d384* nodeA = (VObjA0215d384*)func_ov004_02156f38(a, 0x1dc);
     if (!nodeA) return 0;
 
-    int matches = SumCombatantKeyMatches02086aec((struct Obj02086aec*)GetPtrField0x2a04_02010828(bs), *(short*)entry);
+    int matches = func_02086aec((struct Obj02086aec*)func_02010828(bs), *(short*)entry);
     nodeA->MethodE0(matches);
 
     void* nodeC = func_ov004_02156f6c(a, 0x1b);
@@ -4627,12 +4626,12 @@ extern "C" ARM int func_ov004_0215d384(void* a) {
 #if !defined(jpn)
     VObjB0215d384* nodeB = (VObjB0215d384*)func_ov023_021f6880((void**)(func_ov011_021849c8(a)), 0x1dd);
     if (!nodeB) return 0;
-    if (ScaleStatsIfType12_021f6f10(nodeB) != 8) return 0;
+    if (func_ov024_021f6f10(nodeB) != 8) return 0;
 
     Args0215d384 args;
     args.b = 0x4000;
     args.c = 0;
-    int kind = ((int)NormalizeField5_0200fb08((struct Struct0200fb08*)bs));
+    int kind = ((int)func_0200fb08((struct Struct0200fb08*)bs));
     switch (kind) {
     case 1: args.a = 0x14000; nodeB->Method1c(args); break;
     case 2: args.a = 0xe000; nodeB->Method1c(args); break;
@@ -4650,10 +4649,10 @@ struct Entry0215d534 { short id; short pad2; unsigned int limit : 7; };
 struct Battle021707d8_0215d534 { char pad[0x11]; unsigned char count; };
 
 struct SearchStruct;
-int DispatchNodeIfType7_02156e2c(void* obj, int key);
+extern "C" int func_ov004_02156e2c(void* obj, int key);
 extern "C" int func_ov004_0215c0c0(void* obj);
-void EnqueueEventTag184_021d3bbc(int a, int b, int c, int d);
-int TestFlagBitAt0xe_0202c578(SearchStruct* obj, int value);
+extern "C" void func_ov017_021d3bbc(int a, int b, int c, int d);
+extern "C" int func_0202c578(SearchStruct* obj, int value);
 extern "C" void func_ov011_02184a40(void* obj, int val);
 
 // USA: func_ov004_0215d534
@@ -4663,27 +4662,27 @@ extern "C" ARM int func_ov004_0215d534(void* obj) {
 #else
  enum { stateOffset_0215d534 = 0x26c };
 #endif
-    int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+    int key = func_ov004_02156e2c(obj, 0x5b);
     if (key < 0) return 0;
 
     SearchStruct* search = ((SearchStruct*)func_0202ae18());
-    if (!CheckField0NonZero_0202b7d8((int*)search)) {
+    if (!func_0202b7d8((int*)search)) {
         func_ov004_0215c0c0(obj);
     } else {
         int slot = ((Stat0215d534*)func_ov004_02156ed0(obj, 0x5b))->cur * 6 + key;
-        Entry0215d534* entry = (Entry0215d534*)GetEntryFor_021570a4(obj, (unsigned char)key);
+        Entry0215d534* entry = (Entry0215d534*)func_ov004_021570a4(obj, (unsigned char)key);
 
         if (func_0202c508((CheckField0AndGlobalHalfStruct0202c508*)search)) {
             if (entry->limit >= ((Battle021707d8_0215d534*)data_ov004_021707e0)->count) {
                 func_ov004_0215c0c0(obj);
-                EnqueueEventTag184_021d3bbc(slot, ((Battle021707d8_0215d534*)data_ov004_021707e0)->count, 1, 0);
+                func_ov017_021d3bbc(slot, ((Battle021707d8_0215d534*)data_ov004_021707e0)->count, 1, 0);
             } else {
                 func_ov011_021848a0(obj, 0x2367);
             }
-        } else if (!TestFlagBitAt0xe_0202c578(search, 0)) {
+        } else if (!func_0202c578(search, 0)) {
             char* p = (char*)GameState::GetInstance() + stateOffset_0215d534;
             *(unsigned short*)(p + 0x5d00 + 0xc) &= ~0xe000;
-            EnqueueEventTag184_021d3bbc(slot, ((Battle021707d8_0215d534*)data_ov004_021707e0)->count, 3, 0);
+            func_ov017_021d3bbc(slot, ((Battle021707d8_0215d534*)data_ov004_021707e0)->count, 3, 0);
             func_ov011_02184a40(obj, 0x5c);
         } else {
             func_ov011_021848a0(obj, 0x2369);
@@ -4693,7 +4692,7 @@ extern "C" ARM int func_ov004_0215d534(void* obj) {
 }
 
 // USA: func_ov004_0215d670
-ARM int DispatchByFieldState_0215d670(void* obj) {
+extern "C" ARM int func_ov004_0215d670(void* obj) {
 #if defined(jpn)
  enum { stateOffset_0215d670 = 0xc };
 #else
@@ -4711,14 +4710,14 @@ ARM int DispatchByFieldState_0215d670(void* obj) {
         func_ov011_021848a0(obj, 0x2367);
         return 0;
     }
-    if (!TestFlagBitAt0xe_0202c578((struct SearchStruct*)s, 0)) {
+    if (!func_0202c578((struct SearchStruct*)s, 0)) {
         return 1;
     }
     func_ov011_021848a0(obj, 0x2369);
     return 0;
 }
 
-// USA: func_ov004_0215d6f8  (semantic: NotifyByFlagState_0215d6f8)
+// USA: func_ov004_0215d6f8
 extern "C" ARM int func_ov004_0215d6f8(void* obj) {
     void* p = data_ov004_021707e0;
     if (*(unsigned char*)((char*)p + 0x11) == 1) {
@@ -4728,8 +4727,8 @@ extern "C" ARM int func_ov004_0215d6f8(void* obj) {
     }
     return 0;
 }
-int DispatchBySelector02086c4c(unsigned char* obj, int id, int key);
-short SumKeyedLookups02086bf4(char* obj, int key);
+extern "C" int func_02086c4c(unsigned char* obj, int id, int key);
+extern "C" short func_02086bf4(char* obj, int key);
 
 class VObj0215d738 {
 public:
@@ -4762,14 +4761,14 @@ extern const Slots0215d738 data_ov004_0216fb80;
 // USA: func_ov004_0215d738
 extern "C" ARM int func_ov004_0215d738(void* a) {
     GameState* bs = GameState::GetInstance();
-    unsigned char* p = (unsigned char*)GetPtrField0x2a04_02010828(bs);
-    int idx = DispatchNodeIfType7_02156e2c(a, 0x5b);
+    unsigned char* p = (unsigned char*)func_02010828(bs);
+    int idx = func_ov004_02156e2c(a, 0x5b);
     if (idx < 0) return 0;
-    short* entry = (short*)GetEntryFor_021570a4(a, idx & 0xff);
+    short* entry = (short*)func_ov004_021570a4(a, idx & 0xff);
     if (!entry) return 0;
     void* container = ((void*)func_ov004_02156fd4(a, 5));
     if (!container) return 0;
-    if (!FindElementByKey020dedd0((struct Container020dedd0*)container, *entry)) return 0;
+    if (!func_020dedd0((struct Container020dedd0*)container, *entry)) return 0;
 
     int ids[4];
     *(Slots0215d738*)ids = data_ov004_0216fb80;
@@ -4790,24 +4789,24 @@ extern "C" ARM int func_ov004_0215d738(void* a) {
             node->f20 = *(int*)((char*)member + 0x134);
             id = ids[i];
             ((VObj0215d738*)node)->MethodD8(func_020dcc98((signed char)id));
-            int r = DispatchBySelector02086c4c(p, id, *entry);
+            int r = func_02086c4c(p, id, *entry);
             if (r == 0) {
                 func_ov023_021f65d4(a, i + 0x1e4, 8);
                 func_ov023_021f65d4(a, i + 0x1ee, 8);
-                ClearNodeMaskById_021f6600(a, i + 0x1e9, 8);
+                func_ov023_021f6600(a, i + 0x1e9, 8);
             } else {
-                ClearNodeMaskById_021f6600(a, i + 0x1e4, 8);
-                ClearNodeMaskById_021f6600(a, i + 0x1ee, 8);
+                func_ov023_021f6600(a, i + 0x1e4, 8);
+                func_ov023_021f6600(a, i + 0x1ee, 8);
                 func_ov023_021f65d4(a, i + 0x1e9, 8);
                 VObj0215d738* n = ((VObj0215d738*)func_ov004_02156f38(a, i + 0x1e4));
                 if (n) n->MethodE0(r);
             }
         } else if (i == count) {
-            ClearNodeMaskById_021f6600(a, i + 0x1df, 8);
-            ClearNodeMaskById_021f6600(a, i + 0x1e4, 8);
-            ClearNodeMaskById_021f6600(a, i + 0x1ee, 8);
+            func_ov023_021f6600(a, i + 0x1df, 8);
+            func_ov023_021f6600(a, i + 0x1e4, 8);
+            func_ov023_021f6600(a, i + 0x1ee, 8);
             func_ov023_021f65d4(a, i + 0x1e9, 8);
-            int sum = SumKeyedLookups02086bf4((char*)p, *entry);
+            int sum = func_02086bf4((char*)p, *entry);
             VObj0215d738* n = ((VObj0215d738*)func_ov004_02156f38(a, i + 0x1e4));
             if (n) n->MethodE0(sum);
         } else {
@@ -4826,8 +4825,8 @@ extern "C" void func_0207cf30(void*, int, int, int);
 
 // USA: func_ov004_0215da0c
 extern "C" ARM int func_ov004_0215da0c(void* obj) {
-    void* p = GetPtrField0x2a04_02010828(GameState::GetInstance());
-    int result4 = SumKeyedLookups02086bf4((char*)p, *(short*)(data_ov004_021707e0 + 0xe));
+    void* p = func_02010828(GameState::GetInstance());
+    int result4 = func_02086bf4((char*)p, *(short*)(data_ov004_021707e0 + 0xe));
 
 #if !defined(jpn)
     unsigned char flag = data_ov004_021707e0[0x9d];
@@ -4838,14 +4837,14 @@ extern "C" ARM int func_ov004_0215da0c(void* obj) {
     if (container) {
         unsigned char local[0x38];
         ((SafeAllocator*)local)->ResetAllocatorPointer();
-        ZeroInitReturn020de824(local + 0x14);
-        InitStruct0207cbe8((char*)local);
-        InitStruct0207cbe8((char*)local);
+        func_020de824(local + 0x14);
+        func_0207cbe8((char*)local);
+        func_0207cbe8((char*)local);
 
         *(int*)(local + 0x2c) = container;
         func_0207cf30(local, *(short*)(data_ov004_021707e0 + 0xe), data_ov004_021707e0[0x11], 1);
 
-        InitStruct0207cc0c((char*)local);
+        func_0207cc0c((char*)local);
 #if defined(jpn)
         data_ov004_021707e0[0xa9] = 0;
 #else
@@ -4884,8 +4883,8 @@ extern IndexList0215db14 data_ov004_0216fb40;
 struct ItemTransferContext0215db14 { SafeAllocator allocator; char state[0x18]; int container; char pad[8]; };
 struct Combatant0215db14 { char pad[0x130]; unsigned int* flags; };
 extern "C" int func_ov004_0215da0c(void*);
-int CountPositiveSlots02083960(Slots02083960*);
-short SumKeyedLookups02086bf4(char*, int);
+extern "C" int func_02083960(Slots02083960*);
+extern "C" short func_02086bf4(char*, int);
 extern "C" void func_0207ccf0(void*, int, int, int, int, int, int);
 
 // USA: func_ov004_0215db14
@@ -4894,7 +4893,7 @@ extern "C" ARM int func_ov004_0215db14(void* obj) {
 #if !defined(jpn)
     if (!((Menu0215db14*)data_ov004_021707e0)->active) return 0;
 #endif
-    int index = DispatchNodeIfType7_02156e2c(obj, 0x5f);
+    int index = func_ov004_02156e2c(obj, 0x5f);
     if (index < 0) return 0;
     GameObject* combatant;
     int freeSlots;
@@ -4913,23 +4912,23 @@ extern "C" ARM int func_ov004_0215db14(void* obj) {
     }
     selected = list.entries[index];
     menu->combatant = selected;
-    combatant = GetCombatantWithFlag0x100_0200ff1c(state, ((Menu0215db14*)data_ov004_021707e0)->combatant);
+    combatant = func_0200ff1c(state, ((Menu0215db14*)data_ov004_021707e0)->combatant);
     freeSlots = 0;
     if (combatant) {
-        Slots02083960* slots = ((Slots02083960*)GetFieldAt0x150_02053c6c((unsigned char*)combatant));
-        if (slots) freeSlots = 8 - CountPositiveSlots02083960(slots);
+        Slots02083960* slots = ((Slots02083960*)func_02053c6c((unsigned char*)combatant));
+        if (slots) freeSlots = 8 - func_02083960(slots);
     }
-    int total = SumKeyedLookups02086bf4((char*)GetPtrField0x2a04_02010828(state), ((Menu0215db14*)data_ov004_021707e0)->key);
+    int total = func_02086bf4((char*)func_02010828(state), ((Menu0215db14*)data_ov004_021707e0)->key);
     int container = func_ov004_02156fd4(obj, 5);
     if (container) {
         ItemTransferContext0215db14 work;
         work.allocator.ResetAllocatorPointer();
-        ZeroInitReturn020de824(work.state);
-        InitStruct0207cbe8((char*)&work);
-        InitStruct0207cbe8((char*)&work);
+        func_020de824(work.state);
+        func_0207cbe8((char*)&work);
+        func_0207cbe8((char*)&work);
         work.container = container;
         func_0207ccf0(&work, ((Menu0215db14*)data_ov004_021707e0)->key, ((Menu0215db14*)data_ov004_021707e0)->quantity, selected, 1, 1, 0);
-        InitStruct0207cc0c((char*)&work);
+        func_0207cc0c((char*)&work);
         ((Menu0215db14*)data_ov004_021707e0)->active = 0;
     }
     if (((Menu0215db14*)data_ov004_021707e0)->quantity > freeSlots && total < 99) {
@@ -4955,16 +4954,16 @@ struct Node { unsigned int w0; Bits f; };
 struct FlagByte { unsigned char bit0 : 1; unsigned char _rest : 7; };
 #if defined(jpn)
 
-struct GameObject* GetCombatantWithFlag0x100_0200ff1c(struct GameState*, int);
+extern "C" struct GameObject* func_0200ff1c(struct GameState*, int);
 #endif
 
 // USA: func_ov004_0215dd3c
 extern "C" ARM int func_ov004_0215dd3c(void* a) {
     int prev = ((int)func_ov004_02157128(a));
     GameState* bs = GameState::GetInstance();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(bs, prev);
+    GameObject* combatant = func_0200ff1c(bs, prev);
     if (!combatant) return 0;
-    void* ptr = GetPtrField0x2a04_02010828(bs);
+    void* ptr = func_02010828(bs);
     Bytes8 buf;
     buf = data_ov004_0216fb20;
     unsigned char flags[2];
@@ -5004,16 +5003,16 @@ extern "C" ARM int func_ov004_0215dd3c(void* a) {
 }
 
 struct Struct0209c830;
-void SetValueAndActivate0209c830(Struct0209c830*, int);
+extern "C" void func_0209c830(Struct0209c830*, int);
 
-// USA: func_ov004_0215de80  (semantic: SetOv009cbb830To61_0215de80)
+// USA: func_ov004_0215de80
 extern "C" ARM int func_ov004_0215de80(void) {
-    SetValueAndActivate0209c830((Struct0209c830*)data_02109bf4, 0x3d);
+    func_0209c830((Struct0209c830*)data_02109bf4, 0x3d);
     return 0;
 }
 #if !defined(jpn)
 struct Obj021fb25c;
-void SetShorts_021fb25c(Obj021fb25c* obj, unsigned int a, unsigned int b, unsigned int c, int d);
+extern "C" void func_ov023_021fb25c(Obj021fb25c* obj, unsigned int a, unsigned int b, unsigned int c, int d);
 
 struct ParamsDE9C { int type; int x; int y; };
 
@@ -5030,46 +5029,46 @@ extern "C" ARM int func_ov004_0215de9c(void* a) {
 	void* base = func_ov011_021849c8(a);
 	VObjDE9C* node = (VObjDE9C*)func_ov023_021f6880((void**)base, 0x2be);
 	if (!node) return 0;
-	if (ScaleStatsIfType12_021f6f10(node) != 1) return 0;
+	if (func_ov024_021f6f10(node) != 1) return 0;
 	ParamsDE9C p;
 	p.x = 0x5a000;
 	p.y = 0;
-	switch (NormalizeField5_0200fb08((struct Struct0200fb08*)battle)) {
+	switch (func_0200fb08((struct Struct0200fb08*)battle)) {
 	case 1:
 		p.type = 0x90000;
 		node->SetParams(&p);
-		SetShorts_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x2c, 0xc);
+		func_ov023_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x2c, 0xc);
 		break;
 	case 2:
 		p.type = 0x90000;
 		node->SetParams(&p);
-		SetShorts_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x2c, 0xc);
+		func_ov023_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x2c, 0xc);
 		break;
 	case 3:
 		p.type = 0x98000;
 		node->SetParams(&p);
-		SetShorts_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x20, 0xc);
+		func_ov023_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x20, 0xc);
 		break;
 	case 4:
 		p.type = 0x8c000;
 		node->SetParams(&p);
-		SetShorts_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x32, 0xc);
+		func_ov023_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x32, 0xc);
 		break;
 	case 5:
 		p.type = 0x8c000;
 		node->SetParams(&p);
-		SetShorts_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x32, 0xc);
+		func_ov023_021fb25c((struct Obj021fb25c*)node, 0, 0, 0x32, 0xc);
 		break;
 	}
 	void* node2 = func_ov023_021f6880((void**)base, 0x2bf);
 	if (!node2) return 0;
-	if (ScaleStatsIfType12_021f6f10(node2) != 1) return 0;
-	switch (NormalizeField5_0200fb08((struct Struct0200fb08*)battle)) {
-	case 1: SetShorts_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x2c, 0xc); break;
-	case 2: SetShorts_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x2c, 0xc); break;
-	case 3: SetShorts_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x24, 0xc); break;
-	case 4: SetShorts_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x30, 0xc); break;
-	case 5: SetShorts_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x30, 0xc); break;
+	if (func_ov024_021f6f10(node2) != 1) return 0;
+	switch (func_0200fb08((struct Struct0200fb08*)battle)) {
+	case 1: func_ov023_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x2c, 0xc); break;
+	case 2: func_ov023_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x2c, 0xc); break;
+	case 3: func_ov023_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x24, 0xc); break;
+	case 4: func_ov023_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x30, 0xc); break;
+	case 5: func_ov023_021fb25c((struct Obj021fb25c*)node2, 0, 0, 0x30, 0xc); break;
 	}
 	return 0;
 }
@@ -5084,24 +5083,24 @@ extern "C" void func_0207cf30(void* buf, int a, int b, int c);
 #define MESSAGE_FLAG_OFFSET 0x9d
 #endif
 
-// USA: func_ov004_0215e148  (semantic: SetupDamageMessageOrDefault_0215e148)
+// USA: func_ov004_0215e148
 extern "C" ARM int func_ov004_0215e148(void* obj) {
     if (((char*)data_ov004_021707e0) != NULL && *(unsigned char*)(((char*)data_ov004_021707e0) + MESSAGE_FLAG_OFFSET) != 0) {
         GameState::GetInstance();
-        int key = DispatchNodeIfType7_02156e2c(obj, 0x5b);
+        int key = func_ov004_02156e2c(obj, 0x5b);
         if (key < 0) return 0;
-        void* entry = GetEntryFor_021570a4(obj, key & 0xff);
+        void* entry = func_ov004_021570a4(obj, key & 0xff);
         if (!entry) return 0;
         struct Container020dedd0* node = ((struct Container020dedd0*)func_ov004_02156fd4(obj, 5));
         if (!node) return 0;
-        struct Element020de650_0215e148* elem = ((struct Element020de650_0215e148*)FindElementByKey020dedd0(node, *(short*)entry));
+        struct Element020de650_0215e148* elem = ((struct Element020de650_0215e148*)func_020dedd0(node, *(short*)entry));
         if (!elem) return 0;
 
         char buf[0x38];
         ((SafeAllocator*)buf)->ResetAllocatorPointer();
-        ZeroInitReturn020de824(buf + 0x14);
-        InitStruct0207cbe8(buf);
-        InitStruct0207cbe8(buf);
+        func_020de824(buf + 0x14);
+        func_0207cbe8(buf);
+        func_0207cbe8(buf);
         *(void**)(buf + 0x2c) = node;
         int ok = elem->field8 <= 7;
         if (ok) {
@@ -5109,7 +5108,7 @@ extern "C" ARM int func_ov004_0215e148(void* obj) {
         } else {
             func_0207cf30(buf, *(short*)(((char*)data_ov004_021707e0) + 0xe), *(unsigned char*)(((char*)data_ov004_021707e0) + 0x11), 1);
         }
-        InitStruct0207cc0c(buf);
+        func_0207cc0c(buf);
     }
     return 0;
 }

@@ -49,16 +49,16 @@ struct BattleMenu021592d8 {
     char messages[0x18];
 };
 
-struct MessageWork021592d8* GetGlobalField0x1c020421a0();
-struct VocationData021592d8* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" struct MessageWork021592d8* func_020421a0();
+extern "C" struct VocationData021592d8* func_02053c6c(unsigned char* obj);
 extern "C" void func_02046380(void* obj);
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void SetIndexedName02046574(struct Obj02046574* obj, int index, char* str);
-void* Clear0x54Bytes0208247c(void* obj);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
+extern "C" void* func_0208247c(void* obj);
 extern "C" int func_02082490(void* output, void* resource, unsigned int size, int selection, int extra);
-void StoreInArray0x8b0_020465c0(struct StoreStruct* base, int index, int value);
-void SetByteInRange_020465f0(unsigned char* base, int index, unsigned char value);
+extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
+extern "C" void func_020465f0(unsigned char* base, int index, unsigned char value);
 extern "C" void func_02046608(void* messages, int a, const char* input, char* output, int b, int c, int d);
 
 extern char data_ov003_0217fe18[];
@@ -70,21 +70,21 @@ extern "C" ARM void func_ov003_021592d8(struct BattleMenu021592d8* self, struct 
     if (out == NULL || combatant == NULL) {
         return;
     }
-    struct MessageWork021592d8* work = GetGlobalField0x1c020421a0();
-    struct VocationData021592d8* data = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    struct MessageWork021592d8* work = func_020421a0();
+    struct VocationData021592d8* data = func_02053c6c((unsigned char*)combatant);
     int vocation = data->vocation;
     func_02046380(work);
 #if defined(jpn)
-    SetIndexedName02046574((struct Obj02046574*)work, 0, combatant->name);
+    func_02046574((struct Obj02046574*)work, 0, combatant->name);
 #else
     struct UnitObj021592d8 unit;
-    InitObjFromCombatantId020e4bf4(&unit, combatant->id);
+    func_020e4bf4(&unit, combatant->id);
     work->subject = &unit;
 #endif
     int key;
     if (data->levels[vocation] == 99) {
-        SetIndexedName02046574((struct Obj02046574*)work, 1,
-                               (char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages,
+        func_02046574((struct Obj02046574*)work, 1,
+                               (char*)func_020e0434((struct Container020e0310*)self->messages,
                                                             (short)(data->vocation + 0x1e)));
         key = 0x3fe;
     } else {
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov003_021592d8(struct BattleMenu021592d8* self, struct 
         BackgroundLoader::AddLockGlobal();
         void* file = LoadFileIntoMemory(path, data_0211e33c, &size);
         struct LevelEntry021592d8 next;
-        Clear0x54Bytes0208247c(&next);
+        func_0208247c(&next);
         if (file != NULL) {
             func_02082490(&next, file, size, data->levels[vocation] + 1, 0);
         }
@@ -104,8 +104,8 @@ extern "C" ARM void func_ov003_021592d8(struct BattleMenu021592d8* self, struct 
             remaining = entry->exp - data->exp[vocation];
         }
         if (remaining > 0) {
-            StoreInArray0x8b0_020465c0((struct StoreStruct*)work, 0, remaining);
-            SetByteInRange_020465f0((unsigned char*)work, 0, 0);
+            func_020465c0((struct StoreStruct*)work, 0, remaining);
+            func_020465f0((unsigned char*)work, 0, 0);
             key = 0x3fd;
         } else {
             key = 0x3ff;
@@ -113,9 +113,9 @@ extern "C" ARM void func_ov003_021592d8(struct BattleMenu021592d8* self, struct 
         BackgroundLoader::RemoveLockGlobal();
     }
 #if defined(jpn)
-    func_020474a8(work, 0xc, (const char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages, key), out);
+    func_020474a8(work, 0xc, (const char*)func_020e0434((struct Container020e0310*)self->messages, key), out);
 #else
-    func_02046608(work, 0xc, (const char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages, key), out,
+    func_02046608(work, 0xc, (const char*)func_020e0434((struct Container020e0310*)self->messages, key), out,
                   0xe3, 0, 1);
 #endif
 }

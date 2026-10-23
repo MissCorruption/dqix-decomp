@@ -3,14 +3,14 @@
 struct Actor0209c678;
 struct Actor0209c3b4;
 
-void DispatchContextByState0209c678(struct Actor0209c678* actor, int arg);
-int IsMissingFromTable0209c0f4(int value, int type);
-void SetStateAndDispatch0209c3b4(struct Actor0209c3b4* actor, int val);
-void Forward0203aa80(void* obj, int arg2);
-int SetContextAndQuery0203ab6c(void*, void*);
-int IsBattleActiveAndCombatantsBit0Set_0209c140();
-void* CallFunc020bc594OnField0_020bc068(void* obj, int unused);
-int IsHandleB8Active0209c6bc(void* obj);
+extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
+extern "C" int func_0209c0f4(int value, int type);
+extern "C" void func_0209c3b4(struct Actor0209c3b4* actor, int val);
+extern "C" void func_0203aa80(void* obj, int arg2);
+extern "C" int func_0203ab6c(void*, void*);
+extern "C" int func_0209c140();
+extern "C" void* func_020bc068(void* obj, int unused);
+extern "C" int func_0209c6bc(void* obj);
 extern "C" void func_0209c5e8(void* actor);
 
 struct Actor0209c530 {
@@ -34,23 +34,23 @@ struct Actor0209c530 {
 extern "C" ARM void func_0209c530(struct Actor0209c530* a) {
     if (a->state != 2) return;
 
-    DispatchContextByState0209c678((struct Actor0209c678*)a, 0);
+    func_0209c678((struct Actor0209c678*)a, 0);
     a->state = 1;
 
-    if (IsMissingFromTable0209c0f4(a->field_b8, a->field_ba) != 0) {
+    if (func_0209c0f4(a->field_b8, a->field_ba) != 0) {
         short v = a->field_b8;
         a->field_b8 = -1;
-        SetStateAndDispatch0209c3b4((struct Actor0209c3b4*)a, v);
+        func_0209c3b4((struct Actor0209c3b4*)a, v);
     } else {
         if (a->field_b4 > 0) {
-            Forward0203aa80(a, a->field_b4);
+            func_0203aa80(a, a->field_b4);
         }
-        SetContextAndQuery0203ab6c(a, (void*)a->field_b8);
-        if (IsBattleActiveAndCombatantsBit0Set_0209c140() != 0) {
-            DispatchContextByState0209c678((struct Actor0209c678*)a, 0);
+        func_0203ab6c(a, (void*)a->field_b8);
+        if (func_0209c140() != 0) {
+            func_0209c678((struct Actor0209c678*)a, 0);
         } else {
-            CallFunc020bc594OnField0_020bc068(&a->fieldBC, 0);
-            if (IsHandleB8Active0209c6bc(a) == 0) {
+            func_020bc068(&a->fieldBC, 0);
+            if (func_0209c6bc(a) == 0) {
                 func_0209c5e8(a);
             }
         }

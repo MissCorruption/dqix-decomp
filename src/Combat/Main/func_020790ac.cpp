@@ -4,16 +4,16 @@
 extern "C" void* func_0202ae18(void);
 extern "C" void __clear(void* buf, int n);
 
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 
 struct U16Field0x6_020375f8;
 
 struct Object3D;
 extern "C" int func_02079238(Object3D* obj, int arg);
 extern "C" short func_020793c0(Object3D* obj, int maximumDistance);
-int TrySetMode02076ccc(void* obj, int mode);
+extern "C" int func_02076ccc(void* obj, int mode);
 
 struct Vec3Zero020790ac { int a; int b; int c; };
 extern "C" void func_ov017_021c95ec(int c1, int rem, int f2val, int tag, int phase,
@@ -40,7 +40,7 @@ extern "C" ARM void func_020790ac(struct Obj020790ac* obj) {
     if (obj->f130 != 1 && obj->f130 != 2) return;
 
     void* g = func_0202ae18();
-    if (CheckField0NonZero_0202b7d8((int*)g) && GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g) != 0) {
+    if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) != 0) {
         return;
     }
     if (obj->f154 < 0x7d0) return;
@@ -57,10 +57,10 @@ extern "C" ARM void func_020790ac(struct Obj020790ac* obj) {
     if (phase == -1) return;
 
     obj->f166 = phase;
-    TrySetMode02076ccc(obj, 0xa);
+    func_02076ccc(obj, 0xa);
 
     void* g2 = func_0202ae18();
-    if (!CheckField0NonZero_0202b7d8((int*)g2) || GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g2) != 0) {
+    if (!func_0202b7d8((int*)g2) || func_0202c1a4((struct SearchStruct0202c1a4*)g2) != 0) {
         return;
     }
 

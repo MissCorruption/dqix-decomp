@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov031_0220b1d0(unsigned int* dst, const void* src, unsigned int len);
-ARM unsigned int ExpandScheduleWord_0220b148(unsigned int t, unsigned int* w);
+extern "C" ARM unsigned int func_ov031_0220b148(unsigned int t, unsigned int* w);
 
 #define ROL(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
 
@@ -36,37 +36,37 @@ extern "C" ARM void func_ov031_0220b218(unsigned int* state, const void* block) 
         i += 5;
     }
     R(F1, 0x5a827999, a, b, c, d, e, w[15]);
-    R(F1, 0x5a827999, e, a, b, c, d, ExpandScheduleWord_0220b148(0, w));
-    R(F1, 0x5a827999, d, e, a, b, c, ExpandScheduleWord_0220b148(1, w));
-    R(F1, 0x5a827999, c, d, e, a, b, ExpandScheduleWord_0220b148(2, w));
-    R(F1, 0x5a827999, b, c, d, e, a, ExpandScheduleWord_0220b148(3, w));
+    R(F1, 0x5a827999, e, a, b, c, d, func_ov031_0220b148(0, w));
+    R(F1, 0x5a827999, d, e, a, b, c, func_ov031_0220b148(1, w));
+    R(F1, 0x5a827999, c, d, e, a, b, func_ov031_0220b148(2, w));
+    R(F1, 0x5a827999, b, c, d, e, a, func_ov031_0220b148(3, w));
 
     i = 4;
     for (j = 0; j < 4; j++) {
-        R(F2, 0x6ed9eba1, a, b, c, d, e, ExpandScheduleWord_0220b148(i, w));
-        R(F2, 0x6ed9eba1, e, a, b, c, d, ExpandScheduleWord_0220b148(i + 1, w));
+        R(F2, 0x6ed9eba1, a, b, c, d, e, func_ov031_0220b148(i, w));
+        R(F2, 0x6ed9eba1, e, a, b, c, d, func_ov031_0220b148(i + 1, w));
         i = (i + 2) & 0xf;
-        R(F2, 0x6ed9eba1, d, e, a, b, c, ExpandScheduleWord_0220b148(i, w));
-        R(F2, 0x6ed9eba1, c, d, e, a, b, ExpandScheduleWord_0220b148(i + 1, w));
-        R(F2, 0x6ed9eba1, b, c, d, e, a, ExpandScheduleWord_0220b148(i + 2, w));
+        R(F2, 0x6ed9eba1, d, e, a, b, c, func_ov031_0220b148(i, w));
+        R(F2, 0x6ed9eba1, c, d, e, a, b, func_ov031_0220b148(i + 1, w));
+        R(F2, 0x6ed9eba1, b, c, d, e, a, func_ov031_0220b148(i + 2, w));
         i += 3;
     }
     for (j = 0; j < 4; j++) {
-        R(F3, 0x8f1bbcdc, a, b, c, d, e, ExpandScheduleWord_0220b148(i, w));
-        R(F3, 0x8f1bbcdc, e, a, b, c, d, ExpandScheduleWord_0220b148(i + 1, w));
-        R(F3, 0x8f1bbcdc, d, e, a, b, c, ExpandScheduleWord_0220b148(i + 2, w));
+        R(F3, 0x8f1bbcdc, a, b, c, d, e, func_ov031_0220b148(i, w));
+        R(F3, 0x8f1bbcdc, e, a, b, c, d, func_ov031_0220b148(i + 1, w));
+        R(F3, 0x8f1bbcdc, d, e, a, b, c, func_ov031_0220b148(i + 2, w));
         i = (i + 3) & 0xf;
-        R(F3, 0x8f1bbcdc, c, d, e, a, b, ExpandScheduleWord_0220b148(i, w));
-        R(F3, 0x8f1bbcdc, b, c, d, e, a, ExpandScheduleWord_0220b148(i + 1, w));
+        R(F3, 0x8f1bbcdc, c, d, e, a, b, func_ov031_0220b148(i, w));
+        R(F3, 0x8f1bbcdc, b, c, d, e, a, func_ov031_0220b148(i + 1, w));
         i += 2;
     }
     for (j = 0; j < 4; j++) {
-        R(F2, 0xca62c1d6, a, b, c, d, e, ExpandScheduleWord_0220b148(i, w));
-        R(F2, 0xca62c1d6, e, a, b, c, d, ExpandScheduleWord_0220b148(i + 1, w));
-        R(F2, 0xca62c1d6, d, e, a, b, c, ExpandScheduleWord_0220b148(i + 2, w));
-        R(F2, 0xca62c1d6, c, d, e, a, b, ExpandScheduleWord_0220b148(i + 3, w));
+        R(F2, 0xca62c1d6, a, b, c, d, e, func_ov031_0220b148(i, w));
+        R(F2, 0xca62c1d6, e, a, b, c, d, func_ov031_0220b148(i + 1, w));
+        R(F2, 0xca62c1d6, d, e, a, b, c, func_ov031_0220b148(i + 2, w));
+        R(F2, 0xca62c1d6, c, d, e, a, b, func_ov031_0220b148(i + 3, w));
         i = (i + 4) & 0xf;
-        R(F2, 0xca62c1d6, b, c, d, e, a, ExpandScheduleWord_0220b148(i, w));
+        R(F2, 0xca62c1d6, b, c, d, e, a, func_ov031_0220b148(i, w));
         i++;
     }
 

@@ -49,20 +49,20 @@ struct Battle0215af54 {
     unsigned char effectCount;
 };
 
-int IsFlag10088Set_02010088(struct S_10088* obj);
-int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject* combatant);
-void InitStruct02160030(void* obj);
-void ResetStruct02157cdc(void* obj);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" int func_02010088(struct S_10088* obj);
+extern "C" int func_ov000_02153c0c(GameObject* combatant);
+extern "C" void func_ov000_02160030(void* obj);
+extern "C" void func_ov000_02157cdc(void* obj);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
-void AppendToChainAndIncCount0215ffc4(void* obj, void* node, int idx);
+extern "C" void func_ov000_0215ffc4(void* obj, void* node, int idx);
 struct Obj02160068;
 struct Node02160068;
 struct Obj021600cc;
 struct Node021600cc;
-void AppendNode02160068(struct Obj02160068* obj, struct Node02160068* newNode);
-void AppendNode021600cc(struct Obj021600cc* obj, struct Node021600cc* newNode);
+extern "C" void func_ov000_02160068(struct Obj02160068* obj, struct Node02160068* newNode);
+extern "C" void func_ov000_021600cc(struct Obj021600cc* obj, struct Node021600cc* newNode);
 
 static inline int IsPartyIndex(int index) {
     return index >= 0 && index <= 3;
@@ -84,21 +84,21 @@ extern "C" ARM void func_ov000_0215af54(struct Battle0215af54* battle, int index
     if (c == NULL) {
         return;
     }
-    if (IsFlag10088Set_02010088((struct S_10088*)c)) {
+    if (func_02010088((struct S_10088*)c)) {
         return;
     }
-    if (IsFlag0x18Bit0x2000Set_ov000_02153c0c(c)) {
+    if (func_ov000_02153c0c(c)) {
         return;
     }
 
     action = &battle->actions[battle->actionCount];
-    InitStruct02160030(action);
+    func_ov000_02160030(action);
     actor = &battle->actors[battle->actorCount];
     memset(actor, 0, 0x30);
     actor->field1C = -1;
     actor->field30 = 0;
     target = &battle->targets[battle->targetCount];
-    ResetStruct02157cdc(target);
+    func_ov000_02157cdc(target);
     effect = &battle->effects[battle->effectCount];
     memset(effect, 0, 0x20);
     effect->field20 = 0;
@@ -109,22 +109,22 @@ extern "C" ARM void func_ov000_0215af54(struct Battle0215af54* battle, int index
         } else {
             action->actionId = 0x39d;
         }
-        AddEntryAndIncrementCount0215a88c(battle, effect, 0x35);
+        func_ov000_0215a88c(battle, effect, 0x35);
     } else {
         action->actionId = 0x39a;
-        AddEntryAndIncrementCount0215a88c(battle, effect, 0x213);
+        func_ov000_0215a88c(battle, effect, 0x213);
     }
     action->flags |= 4;
 
     actor->combatantId = index;
     actor->hp = c->currentStats_->primaryStats.currHP;
     actor->mp = c->currentStats_->primaryStats.currMP;
-    PopulateEntry_0215ccbc((int)battle, (struct OutStruct0215ccbc*)effect, c, 0, CurrHP(c), CurrMP(c), 0, 0);
+    func_ov000_0215ccbc((int)battle, (struct OutStruct0215ccbc*)effect, c, 0, CurrHP(c), CurrMP(c), 0, 0);
     target->combatantId = index;
     target->field17 = 1;
-    AppendToChainAndIncCount0215ffc4(target, effect, 0);
-    AppendNode02160068((struct Obj02160068*)action, (struct Node02160068*)actor);
-    AppendNode021600cc((struct Obj021600cc*)action, (struct Node021600cc*)target);
+    func_ov000_0215ffc4(target, effect, 0);
+    func_ov000_02160068((struct Obj02160068*)action, (struct Node02160068*)actor);
+    func_ov000_021600cc((struct Obj021600cc*)action, (struct Node021600cc*)target);
 
     battle->actionCount++;
     battle->actorCount++;

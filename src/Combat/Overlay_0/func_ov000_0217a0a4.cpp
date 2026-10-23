@@ -42,26 +42,26 @@ struct BattleField0217a0a4 {
     unsigned char field1D81;
 };
 
-int GetGlobalField0x1c020421a0();
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8*, int, int);
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c*, int);
+extern "C" int func_020421a0();
+extern "C" void func_0205def8(struct Struct_0205def8*, int, int);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c*, int);
 extern "C" void func_ov000_0217a2dc(struct BattleField0217a0a4*, int, void*);
 extern "C" void func_ov000_0217a19c(struct BattleField0217a0a4*, int);
 
 // USA: func_ov000_0217a0a4
 extern "C" ARM void func_ov000_0217a0a4(struct BattleField0217a0a4* field) {
-    void* buf = *(void**)(GetGlobalField0x1c020421a0() + REGION_OFFSET_0);
+    void* buf = *(void**)(func_020421a0() + REGION_OFFSET_0);
     memset(buf, 0, REGION_OFFSET_1);
     func_ov000_0217a2dc(field, 0, buf);
 #if defined(jpn)
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)field->elements, 0x17, (int)buf, 1);
+    func_0205d5d0((struct StructA0205d5d0*)field->elements, 0x17, (int)buf, 1);
 #else
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)field->elements, 0x17, (int)buf, 1, 0);
+    func_0205d5d0((struct StructA0205d5d0*)field->elements, 0x17, (int)buf, 1, 0);
 #endif
     if (field->field1D81) {
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)field->elements, 0, 0x18);
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)field->elements, 0, 0x19);
-        struct Elem_0205d81c* elem = FindElementByC40205d81c((struct Struct_0205d81c*)field->elements, 0x17);
+        func_0205def8((struct Struct_0205def8*)field->elements, 0, 0x18);
+        func_0205def8((struct Struct_0205def8*)field->elements, 0, 0x19);
+        struct Elem_0205d81c* elem = func_0205d81c((struct Struct_0205d81c*)field->elements, 0x17);
         if (elem) {
             elem->fieldC5 &= ~0x40;
             elem->fieldC2 = 0;
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov000_0217a0a4(struct BattleField0217a0a4* field) {
     if (field->field1D79) {
         func_ov000_0217a19c(field, 0);
     } else {
-        struct Elem_0205d81c* elem = FindElementByC40205d81c((struct Struct_0205d81c*)field->elements, 0x18);
+        struct Elem_0205d81c* elem = func_0205d81c((struct Struct_0205d81c*)field->elements, 0x18);
         if (elem) {
             elem->fieldC2 = 0;
         }

@@ -32,16 +32,16 @@ struct TextWindow {
     char unk_98[0xbc - 0x98];
 };
 
-void AdvanceActor020a20d8(void* camera);
-Canvas* FindElementForFieldB0_0205d8c4(Struct_0205d81c* window);
-int IsField0x9cEqual3_0204c7cc(unsigned char* canvas);
-void SetFieldAt0x30_0205bc24(void* frame, int value);
+extern "C" void func_020a20d8(void* camera);
+extern "C" Canvas* func_0205d8c4(Struct_0205d81c* window);
+extern "C" int func_0204c7cc(unsigned char* canvas);
+extern "C" void func_0205bc24(void* frame, int value);
 extern "C" int func_0205d0e0(TextWindow* window, unsigned int ticks);
 extern "C" void func_ov023_021e5020(void* character);
 extern "C" void func_ov009_02188604(void* self, unsigned int ticks);
 extern "C" void func_ov009_02188454(void* self);
-void UpdateFlag021885b8(Struct021885b8* self);
-void UpdateCombatantState_02184d70(void* self);
+extern "C" void func_ov009_021885b8(Struct021885b8* self);
+extern "C" void func_ov009_02184d70(void* self);
 
 struct CharacterCreation {
     char unk_0[R(0x1bc, 0x1f8)];
@@ -81,12 +81,12 @@ extern "C" ARM int func_ov009_02184a18(CharacterCreation* self)
     if (ticks == 0)
         ticks = 1;
     if (self->state_ != 0)
-        AdvanceActor020a20d8(self->camera_);
+        func_020a20d8(self->camera_);
     if (self->state_ == 9 && self->step_ == 2)
     {
-        Canvas* canvas = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)&self->windows_[1]);
-        if (canvas != NULL && IsField0x9cEqual3_0204c7cc((unsigned char*)canvas) != 0 && !(canvas->flags_ & 2))
-            SetFieldAt0x30_0205bc24(&self->windows_[1].base_.frame_, -1);
+        Canvas* canvas = func_0205d8c4((Struct_0205d81c*)&self->windows_[1]);
+        if (canvas != NULL && func_0204c7cc((unsigned char*)canvas) != 0 && !(canvas->flags_ & 2))
+            func_0205bc24(&self->windows_[1].base_.frame_, -1);
     }
     func_0205d0e0(&self->windows_[0], ticks);
     self->unk_d85 = func_0205d0e0(&self->windows_[1], ticks);
@@ -101,14 +101,14 @@ extern "C" ARM int func_ov009_02184a18(CharacterCreation* self)
         func_ov023_021e5020(self->nextCharacter_);
     func_ov009_02188604(self, ticks);
     func_ov009_02188454(self);
-    UpdateFlag021885b8((Struct021885b8*)self);
+    func_ov009_021885b8((Struct021885b8*)self);
 
     StateTable table = data_ov009_0218ab9c;
     table.states[12] = data_020e6d5c;
     if (table.states[self->state_] == 0)
         return 0;
     (self->*table.states[self->state_])();
-    UpdateCombatantState_02184d70(self);
+    func_ov009_02184d70(self);
 #if defined(jpn)
     func_ov009_02185c58((char*)self + 0xdc);
 #endif

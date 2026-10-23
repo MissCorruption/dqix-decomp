@@ -8,10 +8,10 @@ struct ByteStream02044974 {
 };
 
 extern "C" ARM const char* func_020449a4(struct RingBuffer020457e8* rb, const char* msg);
-ARM void WriteHalfwordToStream02044974(struct ByteStream02044974* stream, int value);
-ARM int StringStartsWithCI020d85dc(const char* str, const char* prefix);
+extern "C" ARM void func_02044974(struct ByteStream02044974* stream, int value);
+extern "C" ARM int func_020d85dc(const char* str, const char* prefix);
 extern "C" ARM int func_02005a94(const char* s);
-ARM void PushToRingBuffer020457e8(struct RingBuffer020457e8* rb, int value);
+extern "C" ARM void func_020457e8(struct RingBuffer020457e8* rb, int value);
 
 extern char data_020f00a3[];
 
@@ -34,12 +34,12 @@ extern "C" ARM void func_0204483c(struct RingBuffer020457e8* rb, const char* msg
         }
         signed char next = msg[1];
         if ((c == '\\' && next == 'n') || (c == '\r' && next == '\n')) {
-            WriteHalfwordToStream02044974(output, newline);
+            func_02044974(output, newline);
             msg += 2;
             continue;
         }
         if (c == '\n') {
-            WriteHalfwordToStream02044974(output, newline);
+            func_02044974(output, newline);
             msg += 1;
             continue;
         }
@@ -50,13 +50,13 @@ extern "C" ARM void func_0204483c(struct RingBuffer020457e8* rb, const char* msg
                 break;
             }
             const char* nextText = closingTag + 1;
-            if (StringStartsWithCI020d85dc(msg + 1, data_020f00a3)) {
+            if (func_020d85dc(msg + 1, data_020f00a3)) {
                 int timeValue = func_02005a94(msg + 6);
                 if (timeValue < 0) {
                     timeValue = 0;
                 }
-                PushToRingBuffer020457e8(rb, timeValue);
-                WriteHalfwordToStream02044974(output, TextTime0204483c);
+                func_020457e8(rb, timeValue);
+                func_02044974(output, TextTime0204483c);
             } else {
                 recognizedTag = 0;
             }
@@ -69,5 +69,5 @@ extern "C" ARM void func_0204483c(struct RingBuffer020457e8* rb, const char* msg
         stream.cursor = writeCursor + 1;
         *writeCursor = *msg++;
     }
-    WriteHalfwordToStream02044974(&stream, TextEnd0204483c);
+    func_02044974(&stream, TextEnd0204483c);
 }

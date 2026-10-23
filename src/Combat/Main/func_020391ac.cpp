@@ -41,13 +41,13 @@ struct FollowingActor {
 };
 
 extern "C" void func_ov017_021917f0(int, int);
-void SetByteIfChanged02033b68(Obj02033b68*, int);
+extern "C" void func_02033b68(Obj02033b68*, int);
 int fix32ReduceAngle0To2Pi(int);
-void SetVecYByMode02033834(Obj02033834*, int);
-void ClearBytesAndZeroBlock02039d24(unsigned char*);
-void SetByteSavingPrevious(Foo02033b58*, unsigned char);
-int IsField0Null_02046b08(void**);
-void SetVecYFromValue02033874(Obj02033874*, int);
+extern "C" void func_02033834(Obj02033834*, int);
+extern "C" void func_02039d24(unsigned char*);
+extern "C" void func_02033b58(Foo02033b58*, unsigned char);
+extern "C" int func_02046b08(void**);
+extern "C" void func_02033874(Obj02033874*, int);
 
 // USA: func_020391ac
 extern "C" ARM void func_020391ac(FollowingActor* actor) {
@@ -76,12 +76,12 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
         if (actor->state != 2) {
             func_ov017_021917f0(actor->object.unknown_4_, 1);
         }
-        SetByteIfChanged02033b68((Obj02033b68*)actor, 2);
+        func_02033b68((Obj02033b68*)actor, 2);
         return;
     }
     if (actor->state == 2) {
         func_ov017_021917f0(actor->object.unknown_4_, 0);
-        SetByteIfChanged02033b68((Obj02033b68*)actor, 0);
+        func_02033b68((Obj02033b68*)actor, 0);
     }
     if (target->followerEnabled) {
         if (target->targetMode == 0 || target->targetMode == 1 || target->targetMode == 2) {
@@ -93,12 +93,12 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
             Vector3fix_Subtract(&destination, &origin, &direction);
             int distance = Vector3fix_Length(&direction);
             Vector3fix_Normalize(&direction, &direction);
-            SetVecYByMode02033834((Obj02033834*)actor, fix32ReduceAngle0To2Pi(fix32_Atan2(direction.x, direction.z)));
+            func_02033834((Obj02033834*)actor, fix32ReduceAngle0To2Pi(fix32_Atan2(direction.x, direction.z)));
             if (distance < 0x1000)
-                SetByteIfChanged02033b68((Obj02033b68*)actor, 0);
+                func_02033b68((Obj02033b68*)actor, 0);
             else {
                 actor->animation = 0x189;
-                SetByteIfChanged02033b68((Obj02033b68*)actor, 1);
+                func_02033b68((Obj02033b68*)actor, 1);
             }
             actor->object.SetInheritedAlpha(31 - actor->fade);
             actor->followFlags &= ~4;
@@ -109,8 +109,8 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
             actor->fade = 0;
             actor->object.position_ = target->object.position_;
             actor->object.SetInheritedAlpha(31);
-            ClearBytesAndZeroBlock02039d24((unsigned char*)actor);
-            SetByteIfChanged02033b68((Obj02033b68*)actor, 0);
+            func_02039d24((unsigned char*)actor);
+            func_02033b68((Obj02033b68*)actor, 0);
             actor->followFlags |= 4;
         }
         return;
@@ -135,7 +135,7 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
         }
     }
     if (actor->queued == 0) {
-        SetByteSavingPrevious((Foo02033b58*)actor, 0);
+        func_02033b58((Foo02033b58*)actor, 0);
         return;
     }
     moving = actor->movementFlag != 0;
@@ -171,7 +171,7 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
         actor->animation = 0x189;
     threshold = spacing + 0xb33;
     ready = 1;
-    if (!IsField0Null_02046b08(resource))
+    if (!func_02046b08(resource))
         ready = 0;
     if (gap >= 1 || (separation > threshold && ready) || moving) {
         Vector3fix origin = actor->object.position_;
@@ -185,17 +185,17 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
         Vector3fix_Normalize(&direction, &direction);
         angle = fix32ReduceAngle0To2Pi(fix32_Atan2(direction.x, direction.z));
         if (moving)
-            SetVecYFromValue02033874((Obj02033874*)actor, leader->object.rotation_.y);
+            func_02033874((Obj02033874*)actor, leader->object.rotation_.y);
         else
-            SetVecYByMode02033834((Obj02033834*)actor, angle);
+            func_02033834((Obj02033834*)actor, angle);
         if (distance <= 0x800 && actor->readIndex != actor->writeIndex) {
             ++actor->readIndex;
             actor->readIndex %= 16;
         }
         if (moving)
-            SetByteIfChanged02033b68((Obj02033b68*)actor, 0);
+            func_02033b68((Obj02033b68*)actor, 0);
         else if (actor->state != 1)
-            SetByteIfChanged02033b68((Obj02033b68*)actor, 1);
+            func_02033b68((Obj02033b68*)actor, 1);
     } else if (actor->state != 0)
-        SetByteIfChanged02033b68((Obj02033b68*)actor, 0);
+        func_02033b68((Obj02033b68*)actor, 0);
 }

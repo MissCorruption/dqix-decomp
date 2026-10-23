@@ -47,22 +47,22 @@ extern unsigned char data_ov004_021710d5[];
 extern int data_ov004_0216fe5c[];
 extern unsigned char data_ov004_02170845[];
 #endif
-Equipment0216276c* GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" Equipment0216276c* func_02053c6c(unsigned char*);
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void func_ov004_0215e574(void*, int, int, int, int);
 extern "C" SlotNode0216276c* func_ov023_021f6880(void*, int);
-int GetFlagBitFromField150_0215eb20(void*, int);
-int CheckAfterTwoCalls_0215e460();
-void SetField38IfState8_0215e49c(void*, int, int);
+extern "C" int func_ov004_0215eb20(void*, int);
+extern "C" int func_ov004_0215e460();
+extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" int func_ov004_0215e4e8(void*, short);
 extern "C" SlotNode0216276c* func_ov004_0215e47c(void*, int);
 
 // USA: func_ov004_0216276c
 extern "C" ARM int func_ov004_0216276c(void* self) {
     data_ov004_021707e8.state = 0x68;
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), data_ov004_021707e8.combatant);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), data_ov004_021707e8.combatant);
     if (!combatant) return 0;
-    Equipment0216276c* equipment = GetFieldAt0x150_02053c6c(((unsigned char*)(combatant)));
+    Equipment0216276c* equipment = func_02053c6c(((unsigned char*)(combatant)));
     if (!equipment) return 0;
     void* list = func_ov011_021849c8(self);
 #if !defined(jpn)
@@ -94,18 +94,18 @@ extern "C" ARM int func_ov004_0216276c(void* self) {
 #endif
     for (int index = 0; index < 12; ++index) {
         int tableIndex = index + 1;
-        if (!GetFlagBitFromField150_0215eb20(combatant, slots[tableIndex]) || !enabled[tableIndex]) continue;
+        if (!func_ov004_0215eb20(combatant, slots[tableIndex]) || !enabled[tableIndex]) continue;
         SlotNode0216276c* node = func_ov023_021f6880(list, row + 13);
         if (!node) continue;
         node->flags &= ~8;
         node = func_ov023_021f6880(list, row + 25);
         if (!node) continue;
         node->flags &= ~8;
-        if (CheckAfterTwoCalls_0215e460())
-            SetField38IfState8_0215e49c(self, row + 13, 4);
+        if (func_ov004_0215e460())
+            func_ov004_0215e49c(self, row + 13, 4);
         else
-            SetField38IfState8_0215e49c(self, row + 13, slots[tableIndex] + 4);
-        SetField38IfState8_0215e49c(self, row + 25, 0x1f1);
+            func_ov004_0215e49c(self, row + 13, slots[tableIndex] + 4);
+        func_ov004_0215e49c(self, row + 25, 0x1f1);
         node = func_ov023_021f6880(list, row + 0x51);
         if (!node) continue;
         int slot = slots[index + 1];

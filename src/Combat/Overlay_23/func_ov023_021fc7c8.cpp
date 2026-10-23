@@ -37,15 +37,15 @@ public:
 
 struct Words021e60c4;
 
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_ov023_021e5020(CharacterModel_021fc7c8* model);
 extern "C" Vector3i func_ov023_021e613c(CharacterModel_021fc7c8* model);
-char* GetFieldIfFlag4_020100f8(char* gameState);
-void SetFlagsAt0x244_020a28a0(unsigned char* camera, unsigned char flags);
-void ClearFlagBits_020a28b0(unsigned char* camera, int flags);
-void CallFunc020a0db8AtField0x16c_0202ee38(char*, int, int);
-void CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(char*, int, int);
-void SetFourWordBlocks_021e6088(void* model, Words021e60c4* rotation);
+extern "C" char* func_020100f8(char* gameState);
+extern "C" void func_020a28a0(unsigned char* camera, unsigned char flags);
+extern "C" void func_020a28b0(unsigned char* camera, int flags);
+extern "C" void func_0202ee38(char*, int, int);
+extern "C" void func_0202ee58(char*, int, int);
+extern "C" void func_ov023_021e6088(void* model, Words021e60c4* rotation);
 
 extern const Vector3i data_ov023_021fda08;
 extern const Vector3i data_ov023_021fd9fc;
@@ -55,7 +55,7 @@ extern const Vector3i data_ov023_021fd9e4;
 // USA: func_ov023_021fc7c8
 extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* script)
 {
-    SetFogState_020c54a4(0, 0, 0, 0);
+    func_020c54a4(0, 0, 0, 0);
     GameState* gameState = GameState::GetInstance();
     unsigned int ticks = gameState->GetTickCount();
     if (ticks == 0)
@@ -84,19 +84,19 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
     {
         const Vector3i position = data_ov023_021fda08;
         const Vector3i target = data_ov023_021fd9fc;
-        char* camera = GetFieldIfFlag4_020100f8((char*)gameState);
-        SetFlagsAt0x244_020a28a0((unsigned char*)camera, 2);
-        CallFunc020a0db8AtField0x16c_0202ee38(camera, (int)&position, 0xa000);
-        CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(camera, (int)&target, 0xa000);
+        char* camera = func_020100f8((char*)gameState);
+        func_020a28a0((unsigned char*)camera, 2);
+        func_0202ee38(camera, (int)&position, 0xa000);
+        func_0202ee58(camera, (int)&target, 0xa000);
     }
     else if (g_keyManager.TestKeysHeld(0x80))
     {
         const Vector3i position = data_ov023_021fd9f0;
         const Vector3i target = data_ov023_021fd9e4;
-        char* camera = GetFieldIfFlag4_020100f8((char*)gameState);
-        ClearFlagBits_020a28b0((unsigned char*)camera, 2);
-        CallFunc020a0db8AtField0x16c_0202ee38(camera, (int)&position, 0xa000);
-        CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(camera, (int)&target, 0xa000);
+        char* camera = func_020100f8((char*)gameState);
+        func_020a28b0((unsigned char*)camera, 2);
+        func_0202ee38(camera, (int)&position, 0xa000);
+        func_0202ee58(camera, (int)&target, 0xa000);
     }
     if (self->turnBack_)
     {
@@ -156,5 +156,5 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
             rotation.y = fix32ReduceAngle0To2Pi(rotation.y);
         }
     }
-    SetFourWordBlocks_021e6088(model, (Words021e60c4*)&rotation);
+    func_ov023_021e6088(model, (Words021e60c4*)&rotation);
 }

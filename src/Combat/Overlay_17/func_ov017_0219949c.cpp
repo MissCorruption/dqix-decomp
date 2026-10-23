@@ -10,14 +10,14 @@ enum { RegionOffset4447 = 0x4447 };
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 struct U16Field0x6_020375f8;
-void EnqueueEventTag154_021d0860(int a, int b, int c);
+extern "C" void func_ov017_021d0860(int a, int b, int c);
 
 // USA: func_ov017_0219949c
 extern "C" ARM void func_ov017_0219949c(void* ctx, int combatantId, int matchType, unsigned char slotId, signed char threshold) {
     struct SearchStruct0202c1a4* search = (struct SearchStruct0202c1a4*)func_0202ae18();
-    signed char arrEntry = GetSearchStructCurrentArrEntry(search);
+    signed char arrEntry = func_0202c1a4(search);
 
     if (matchType != arrEntry && matchType != 4) {
         return;
@@ -30,20 +30,20 @@ extern "C" ARM void func_ov017_0219949c(void* ctx, int combatantId, int matchTyp
     unsigned short v2 = ((Object3D*)((struct U16Field0x6_020375f8*)target))->GetField06();
 
     if (v1 != v2) {
-        EnqueueEventTag154_021d0860(slotId, 1, 1);
+        func_ov017_021d0860(slotId, 1, 1);
         return;
     }
 
     if (threshold != *(signed char*)((char*)ctx + RegionOffset4447)) {
         GetGameResources();
-        EnqueueEventTag154_021d0860(slotId, 1, 1);
+        func_ov017_021d0860(slotId, 1, 1);
         return;
     }
 
-    unsigned char arrEntry2 = (unsigned char)GetSearchStructCurrentArrEntry(search);
+    unsigned char arrEntry2 = (unsigned char)func_0202c1a4(search);
     if (slotId < arrEntry2) {
-        EnqueueEventTag154_021d0860(slotId, 1, 1);
+        func_ov017_021d0860(slotId, 1, 1);
         return;
     }
-    EnqueueEventTag154_021d0860(slotId, 1, 0);
+    func_ov017_021d0860(slotId, 1, 0);
 }

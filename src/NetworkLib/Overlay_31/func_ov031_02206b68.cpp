@@ -9,8 +9,8 @@ unsigned int SetIRQInterruptState(int mask);
 
 struct Node02207108;
 struct Node02207168;
-ARM void* RemoveFromGlobal0224e22c_02207108(Node02207108* item);
-ARM void* RemoveFromList0224e230(Node02207168* item);
+extern "C" ARM void* func_ov031_02207108(Node02207108* item);
+extern "C" ARM void* func_ov031_02207168(Node02207168* item);
 
 struct ListNode02206a68 { ListNode02206a68* next; };
 struct VTable022496a4 { char pad[0x1c]; void (*field1c)(ListNode02206a68*); };
@@ -33,7 +33,7 @@ struct Ctx02206a68 {
 	signed char field73;
 };
 
-// USA: func_ov031_02206a68  (semantic: ShutdownAndUnblock_02206a68)
+// USA: func_ov031_02206a68
 extern "C" ARM void func_ov031_02206a68(Ctx02206a68* a) {
 	if (a == NULL) return;
 	a->field70 = 0;
@@ -62,8 +62,8 @@ extern "C" ARM void func_ov031_02206a68(Ctx02206a68* a) {
 	}
 
 	unsigned int prev = DisableIRQInterrupts();
-	RemoveFromGlobal0224e22c_02207108((Node02207108*)a);
-	RemoveFromList0224e230((Node02207168*)a);
+	func_ov031_02207108((Node02207108*)a);
+	func_ov031_02207168((Node02207168*)a);
 	data_ov031_022496a4->field1c((ListNode02206a68*)a);
 	SetIRQInterruptState(prev);
 }

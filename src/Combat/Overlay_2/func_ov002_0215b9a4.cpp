@@ -44,12 +44,12 @@ struct Elem_0205d81c {
     unsigned char flags;
     unsigned char unknownC6[0xe0 - 0xc6];
 };
-Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c*, int);
+extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c*, int);
 
 // USA: func_ov002_0215b9a4
 // JPN: func_ov002_0215cb1c
 extern "C" ARM void func_ov002_0215b9a4(Battle0215b9a4 *self, unsigned char key, int flag) {
-    Elem_0205d81c* elem = FindElementByC40205d81c(((Struct_0205d81c*)(&self->window)), key);
+    Elem_0205d81c* elem = func_0205d81c(((Struct_0205d81c*)(&self->window)), key);
     if (elem == 0) {
         return;
     }
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov002_0215b9a4(Battle0215b9a4 *self, unsigned char key,
         return;
     }
     (self->*data_ov002_0216cfac[key])(self->text, hl);
-    TryApplyElemFields0205d5d0(((StructA0205d5d0*)(&self->window)), key, ((int)(self->text)),
+    func_0205d5d0(((StructA0205d5d0*)(&self->window)), key, ((int)(self->text)),
 #if defined(jpn)
                              1);
 #else
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov002_0215b9a4(Battle0215b9a4 *self, unsigned char key,
                 break;
             }
             (self->*data_ov002_0216cfac[page])(self->text, hl);
-            TryApplyElemFields0205d5d0(((StructA0205d5d0*)(&self->window)), static_cast<unsigned char>(page), ((int)(self->text)),
+            func_0205d5d0(((StructA0205d5d0*)(&self->window)), static_cast<unsigned char>(page), ((int)(self->text)),
 #if defined(jpn)
                                      1);
 #else

@@ -6,20 +6,19 @@
 #define REG_BG_SCROLL_020439b0 (*(volatile unsigned int*)0x04000018)
 #define REG_DISPLAY_020439b0 (*(volatile unsigned int*)0x04000000)
 
-void LoadStateBytePair0206b804(char* obj, int* out1, int* out2);
+extern "C" void func_0206b804(char* obj, int* out1, int* out2);
 extern "C" void func_02044c74(void* obj, void* out);
 extern "C" void func_02066cf0(void* self, int flag);
 #if defined(jpn)
-#define ZeroFourHalfwords02044074 func_0204483c
-extern "C"
+#define func_02044074 func_0204483c
 #endif
-void ZeroFourHalfwords02044074(struct Struct02044074* s);
+extern "C" void func_02044074(struct Struct02044074* s);
 #if defined(jpn)
 #define func_02042b98 func_02043270
 #define func_02043600 func_02043de0
 #endif
 extern "C" void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4);
-void SetFourHalfwords(struct Struct0204408c* s, short x, short y, short z, short w);
+extern "C" void func_0204408c(struct Struct0204408c* s, short x, short y, short z, short w);
 extern "C" void func_02043600(void* a, void* box);
 #include "Resource/MessageUpdate.h"
 extern "C" void func_02043124(void* self);
@@ -27,25 +26,24 @@ extern "C" void func_020437bc(void* buf, void* box, int index);
 
 struct Struct0204394c;
 #if defined(jpn)
-#define PrepareEncodeStreamBuffer0204394c func_02044104
-extern "C"
+#define func_0204394c func_02044104
 #endif
-void PrepareEncodeStreamBuffer0204394c(struct Struct0204394c* obj);
+extern "C" void func_0204394c(struct Struct0204394c* obj);
 
 struct Entry020e2cc4;
-void SetEntryEnabled020e2cc4(struct Entry020e2cc4* obj, int enabled);
+extern "C" void func_020e2cc4(struct Entry020e2cc4* obj, int enabled);
 
-void RestorePairTables0207df90(char* obj);
+extern "C" void func_0207df90(char* obj);
 struct Obj02041754;
-void DisableField16Bit002041754(MessageGlyphSlot* obj);
-void BackupPairTables0207dfac(char* obj);
-void ClearBitInArray_02042af4(int unused, unsigned char* arr, int index);
+extern "C" void func_02041754(MessageGlyphSlot* obj);
+extern "C" void func_0207dfac(char* obj);
+extern "C" void func_02042af4(int unused, unsigned char* arr, int index);
 
 struct Rect020e2d2c;
-void SetRectFromPosAndSize(struct Rect020e2d2c* s, int a, int b, int c, int d);
+extern "C" void func_020e2d2c(struct Rect020e2d2c* s, int a, int b, int c, int d);
 
 struct Entry020e2c34;
-void UpdateAndDrawEntry020e2c34(struct Entry020e2c34* obj);
+extern "C" void func_020e2c34(struct Entry020e2c34* obj);
 
 struct RectangleState020439b0 {
     short x;
@@ -95,7 +93,7 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
     Rect020439b0 mainBounds, targetBounds, otherBounds;
 
     if (controller->b19cc != 0) {
-        LoadStateBytePair0206b804(self, &dx, &dy);
+        func_0206b804(self, &dx, &dy);
         func_02044c74(self, (*(Stream020439b0**)(self + StreamOffset)));
 
         Stream020439b0* stream = (*(Stream020439b0**)(self + StreamOffset));
@@ -110,9 +108,9 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
                 controller->stream40 = 0;
             }
 
-            ZeroFourHalfwords02044074(&mainBounds.zero);
-            ZeroFourHalfwords02044074(&targetBounds.zero);
-            ZeroFourHalfwords02044074(&otherBounds.zero);
+            func_02044074(&mainBounds.zero);
+            func_02044074(&targetBounds.zero);
+            func_02044074(&otherBounds.zero);
 
             if (controller->active != 0 && controller->b19b1 != 0) {
                 goto prepareBounds;
@@ -121,9 +119,9 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
             prepareBounds:
                 if (controller->b19b1 != 0) {
                     func_02042b98(self, 2, 0x74, 0xfc, 0x4a);
-                    SetFourHalfwords(&mainBounds.bounds, dx + 2, dy + 0x74, 0xfc, 0x4a);
+                    func_0204408c(&mainBounds.bounds, dx + 2, dy + 0x74, 0xfc, 0x4a);
                     func_02043600((*(Stream020439b0**)(self + StreamOffset)), &mainBounds);
-                    SetFourHalfwords(&mainBounds.bounds, 2, 0x74, 0xfc, 0x4a);
+                    func_0204408c(&mainBounds.bounds, 2, 0x74, 0xfc, 0x4a);
 
                 }
 
@@ -141,16 +139,16 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
                             sz = holder->currentBounds->width;
                             sw = holder->currentBounds->height;
                         }
-                        SetFourHalfwords(&targetBounds.bounds, sx + dx, sy + dy, sz, sw);
+                        func_0204408c(&targetBounds.bounds, sx + dx, sy + dy, sz, sw);
                         func_02043600((*(Stream020439b0**)(self + StreamOffset)), &targetBounds);
-                        SetFourHalfwords(&targetBounds.bounds, sx, sy, sz, sw);
+                        func_0204408c(&targetBounds.bounds, sx, sy, sz, sw);
                     }
                     holder->currentBounds = &(*(RectangleState020439b0*)(self + FirstRectangleOffset));
                 }
 
                 if (controller->mode == 6) {
                     if ((*(unsigned char*)(self + OtherBoundsFlagOffset)) != 0 && (*(unsigned char*)(self + ShowBoundsOffset)) != 0) {
-                        SetFourHalfwords(&otherBounds.bounds, (*(Struct0204408c*)(self + BoundsOffset)).x, (*(Struct0204408c*)(self + BoundsOffset)).y,
+                        func_0204408c(&otherBounds.bounds, (*(Struct0204408c*)(self + BoundsOffset)).x, (*(Struct0204408c*)(self + BoundsOffset)).y,
                             (*(Struct0204408c*)(self + BoundsOffset)).z, (*(Struct0204408c*)(self + BoundsOffset)).w);
                         func_02043600((*(Stream020439b0**)(self + StreamOffset)), &otherBounds);
                     }
@@ -225,9 +223,9 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
         FreeVRAMStagingMemory((const void*)(*(Stream020439b0**)(self + StreamOffset))->value);
 
         if (controller->active == 0) {
-            InitCombatSlots02043040((MessageSystem*)self);
+            func_02043040((MessageSystem*)self);
             func_02043124(self);
-            ResetControllerState020430b0((MessageSystem*)self);
+            func_020430b0((MessageSystem*)self);
         }
     }
 
@@ -238,12 +236,12 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
             controller->b19ce
 #endif
         ) != 0 && controller->stream44 == 0) {
-        PrepareEncodeStreamBuffer0204394c((struct Struct0204394c*)(controller->encoder));
+        func_0204394c((struct Struct0204394c*)(controller->encoder));
     }
     {
         int i;
         for (i = 0; i < 2; i++) {
-            SetEntryEnabled020e2cc4((Entry020e2cc4*)&controller->entries[i], 0);
+            func_020e2cc4((Entry020e2cc4*)&controller->entries[i], 0);
         }
     }
 
@@ -266,11 +264,11 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
         ) != 0) {
                             entry->pendingUpload = 0;
                         } else {
-                            RestorePairTables0207df90((char*)controller->encoder);
-                            DisableField16Bit002041754(entry);
-                            BackupPairTables0207dfac((char*)controller->encoder);
+                            func_0207df90((char*)controller->encoder);
+                            func_02041754(entry);
+                            func_0207dfac((char*)controller->encoder);
                         }
-                        ClearBitInArray_02042af4((int)self, controller->bitmapAllocationBits, entry->bitmapIndex);
+                        func_02042af4((int)self, controller->bitmapAllocationBits, entry->bitmapIndex);
                     }
                 }
             }
@@ -278,9 +276,9 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
     }
 
     if ((*(RectangleState020439b0*)(self + FirstRectangleOffset)).state >= 2) {
-        SetRectFromPosAndSize((Rect020e2d2c*)&controller->entries[0], 4, 0x76, 0xf8, 0x46);
+        func_020e2d2c((Rect020e2d2c*)&controller->entries[0], 4, 0x76, 0xf8, 0x46);
         if ((*(unsigned char*)(self + ShowEntriesOffset)) != 0) {
-            SetEntryEnabled020e2cc4((Entry020e2cc4*)&controller->entries[0], 1);
+            func_020e2cc4((Entry020e2cc4*)&controller->entries[0], 1);
         }
     }
 
@@ -289,14 +287,14 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
         int top = (*(Struct0204408c*)(self + BoundsOffset)).y;
         int right = (*(Struct0204408c*)(self + BoundsOffset)).z;
         int bottom = (*(Struct0204408c*)(self + BoundsOffset)).w;
-        SetRectFromPosAndSize((Rect020e2d2c*)&controller->entries[1], left + 2, top + 2, right - 4, bottom - 4);
+        func_020e2d2c((Rect020e2d2c*)&controller->entries[1], left + 2, top + 2, right - 4, bottom - 4);
         if ((*(unsigned char*)(self + ShowEntriesOffset)) != 0) {
-            SetEntryEnabled020e2cc4((Entry020e2cc4*)&controller->entries[1], 1);
+            func_020e2cc4((Entry020e2cc4*)&controller->entries[1], 1);
         }
     }
 
     int k;
     for (k = 0; k < 2; k++) {
-        UpdateAndDrawEntry020e2c34((Entry020e2c34*)&controller->entries[k]);
+        func_020e2c34((Entry020e2c34*)&controller->entries[k]);
     }
 }

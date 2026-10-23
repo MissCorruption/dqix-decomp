@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 extern "C" void func_ov017_021a7c94(unsigned char* obj, int id, int arg2);
 struct FieldStruct021a85d4;
-void SetFieldndMaybe_021a85d4_021a85d4(struct FieldStruct021a85d4* obj, int val);
-void CallIfGlobalPtrSet_021a5a28(void* obj, int mode);
-int GetByteAtOffset7289OrFF_021a5a48(void* obj);
+extern "C" void func_ov017_021a85d4(struct FieldStruct021a85d4* obj, int val);
+extern "C" void func_ov017_021a5a28(void* obj, int mode);
+extern "C" int func_ov017_021a5a48(void* obj);
 
 struct Evt021d01e4 {
     unsigned char pad0[4];
@@ -34,8 +34,8 @@ struct Work021d01e4 {
 
 // USA: func_ov017_021d01e4
 extern "C" ARM void func_ov017_021d01e4(int unused0, struct Evt021d01e4* evt, GameState* bs, struct Work021d01e4* work) {
-    GetField0x3acValue_020100a8(bs);
-    unsigned char* list = (unsigned char*)GetPtrField0x2a04_02010828(bs);
+    func_020100a8(bs);
+    unsigned char* list = (unsigned char*)func_02010828(bs);
     unsigned char* ids = list + 0xf78;
     unsigned char count = list[0xf7c];
     int idA = evt->idA;
@@ -65,39 +65,39 @@ extern "C" ARM void func_ov017_021d01e4(int unused0, struct Evt021d01e4* evt, Ga
         break;
     case 2:
         if (foundB) {
-            SetFieldndMaybe_021a85d4_021a85d4(field, 6);
+            func_ov017_021a85d4(field, 6);
         }
         break;
     case 3:
         if (foundB) {
-            SetFieldndMaybe_021a85d4_021a85d4(field, 5);
+            func_ov017_021a85d4(field, 5);
         }
         break;
     case 4:
         if (foundA) {
-            CallIfGlobalPtrSet_021a5a28(p, 2);
+            func_ov017_021a5a28(p, 2);
         }
         break;
     case 5:
         if (foundA) {
-            CallIfGlobalPtrSet_021a5a28(p, 6);
+            func_ov017_021a5a28(p, 6);
         }
         break;
     case 6:
         if (foundA) {
-            if (GetByteAtOffset7289OrFF_021a5a48(p) != 4) {
-                CallIfGlobalPtrSet_021a5a28(p, 8);
+            if (func_ov017_021a5a48(p) != 4) {
+                func_ov017_021a5a28(p, 8);
             }
         }
         break;
     case 7:
         if (foundA) {
-            CallIfGlobalPtrSet_021a5a28(p, 5);
+            func_ov017_021a5a28(p, 5);
         }
         break;
     case 8:
         if (foundA) {
-            CallIfGlobalPtrSet_021a5a28(p, 7);
+            func_ov017_021a5a28(p, 7);
         }
         break;
     }

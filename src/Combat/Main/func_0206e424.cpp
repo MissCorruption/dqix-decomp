@@ -34,12 +34,12 @@ struct S_a04c8 {
     unsigned char padding_0x18[0xb0 - 0x18];
 };
 extern SlotOrder0206e424 data_020e87b4;
-int GetFieldAt0x150_02053c6c(unsigned char*);
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-void LoadBattleBlock020ac4c0(void*);
-void AddClamped11BitFieldAt0x14_020a04c8(S_a04c8*, unsigned int);
-void CopyInBattleField0x7540_020ac494(void*);
+extern "C" void func_020ac4c0(void*);
+extern "C" void func_020a04c8(S_a04c8*, unsigned int);
+extern "C" void func_020ac494(void*);
 
 static inline int IsUsableSlot0206e424(SpellSlot0206e424* slot) {
     return slot->kind <= 7;
@@ -53,7 +53,7 @@ extern "C" ARM void func_0206e424(LearnedSpellFlags0206e424* owner, int combatan
     if (!inParty) return;
     GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(combatantId);
     if (!combatant) return;
-    SpellData0206e424* spellData = (SpellData0206e424*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    SpellData0206e424* spellData = (SpellData0206e424*)func_02053c6c((unsigned char*)combatant);
     if (!spellData) return;
     SlotOrder0206e424 order = data_020e87b4;
     SpellSlot0206e424* slots = spellData->slots;
@@ -64,7 +64,7 @@ extern "C" ARM void func_0206e424(LearnedSpellFlags0206e424* owner, int combatan
         if (IsUsableSlot0206e424(slot)) {
             unsigned short spellId = slot->spellId;
             if (spellId) {
-                if (!TestBitInByteArray_0206dfb0((int)owner, owner->bits, spellId + 0xc76)) {
+                if (!func_0206dfb0((int)owner, owner->bits, spellId + 0xc76)) {
                     func_0206df6c(owner, owner->bits, spellId + 0xc76, 1);
                     learned++;
                 }
@@ -73,7 +73,7 @@ extern "C" ARM void func_0206e424(LearnedSpellFlags0206e424* owner, int combatan
         index++;
     }
     S_a04c8 block;
-    LoadBattleBlock020ac4c0(&block);
-    AddClamped11BitFieldAt0x14_020a04c8(&block, learned);
-    CopyInBattleField0x7540_020ac494(&block);
+    func_020ac4c0(&block);
+    func_020a04c8(&block, learned);
+    func_020ac494(&block);
 }

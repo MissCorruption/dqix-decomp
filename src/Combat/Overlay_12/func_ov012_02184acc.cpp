@@ -111,7 +111,7 @@ struct Entry_0205d6a0;
 extern "C" void func_ov023_021e7404(void* card, int input);
 extern "C" int func_0205d0e0(void* window, int input);
 extern "C" void func_ov012_02185cf8(ProfileEditor02184acc* self);
-Messages02184acc* GetGlobalField0x1c020421a0();
+extern "C" Messages02184acc* func_020421a0();
 extern "C" void func_ov012_0218adac(ProfileEditor02184acc* self, int animate, int design, int keepPage);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov012_021845f8(void* checker);
@@ -119,11 +119,11 @@ extern "C" int func_ov012_02184d80(void* checker, char* text);
 #if defined(jpn)
 struct SearchStruct;
 extern "C" SearchStruct* func_0202ae18();
-int TestFlagBitAt0xe_0202c578(SearchStruct*, int);
+extern "C" int func_0202c578(SearchStruct*, int);
 #endif
-void SetElementFlag0x20ByKey0205def8(Struct_0205def8* window, int a, int b);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
-void ReinitController02043204(char* messages);
+extern "C" void func_0205def8(Struct_0205def8* window, int a, int b);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
+extern "C" void func_02043204(char* messages);
 
 extern "C" const StateTable02184acc data_ov012_0218b188;
 extern "C" StateFn02184acc data_020e6d5c;
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
         (self->*states.states[self->state_])();
     func_ov012_02185cf8(self);
 
-    Messages02184acc* messages = GetGlobalField0x1c020421a0();
+    Messages02184acc* messages = func_020421a0();
 #if !defined(jpn)
     GameState* gameState = GameState::GetInstance();
 #endif
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
 #endif
 #if defined(jpn)
         if ((messages->busy_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
-            TestFlagBitAt0xe_0202c578(func_0202ae18(), 0))
+            func_0202c578(func_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())
 #endif
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
 #endif
                 if (forbidden)
                 {
-                    SetElementFlag0x20ByKey0205def8((Struct_0205def8*)self->window_, 0, 14);
+                    func_0205def8((Struct_0205def8*)self->window_, 0, 14);
                     self->step_ = 10;
                     return 0;
                 }
@@ -197,11 +197,11 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
             self->finished_ = 1;
             self->unk_13a0 = 0;
             self->selection_ = 0;
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
             self->state_ = 15;
             self->step_ = 0;
             if (messages->busy_ != 0)
-                ReinitController02043204((char*)messages);
+                func_02043204((char*)messages);
 
             BackgroundLoader* loader = BackgroundLoader::GetInstance();
             for (int i = 0; i < (int)(sizeof(self->tasks_) / sizeof(self->tasks_[0])); i++)

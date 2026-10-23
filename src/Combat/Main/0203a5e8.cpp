@@ -5,7 +5,7 @@
 
 extern "C" void* __clear(void*, int);
 struct Vec3copy0202ec84 { unsigned int v[3]; };
-int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 
 struct SlotEntry02039fec {
     unsigned char pad0[5];
@@ -45,7 +45,7 @@ extern "C" ARM void func_0203a5e8(Obj02039fec* obj, int index) {
     ObjProjection0203a5e8* projection = (ObjProjection0203a5e8*)obj;
     signed char horizontal = 0;
     int vertical = 0;
-    void* camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
+    void* camera = func_020100bc(GameState::GetInstance());
     if (camera != NULL) {
         bool alternate = false;
         int step = alternate;
@@ -58,7 +58,7 @@ extern "C" ARM void func_0203a5e8(Obj02039fec* obj, int index) {
         for (int i = 0; i < 16; i++) {
             if (projection->slots[i].timer > 0) {
                 int x, y = 0;
-                ComputeTwoFromVec3_0202ec84(camera, &projection->slots[i].vector, &x, &y);
+                func_0202ec84(camera, &projection->slots[i].vector, &x, &y);
                 x += projection->slots[i].horizontalOffset;
                 y += projection->slots[i].verticalOffset;
                 ys[i] = y;

@@ -58,22 +58,22 @@ struct StreamResources0215f3fc
 #endif
     StreamRecord0215f3fc records[33];
 };
-void* GetGlobalPtr021075f4_0203cf4c();
-int GetWord0x0_0200fb8c(int*);
+extern "C" void* func_0203cf4c();
+extern "C" int func_0200fb8c(int*);
 extern "C" const char* func_ov017_021d612c(void*);
-int FindEmptySlotIndex(SlotArray_0203e03c*);
+extern "C" int func_0203e03c(SlotArray_0203e03c*);
 extern "C" void func_ov017_021d6134(void*, int);
-unsigned int LoadResourceIntoGlobalBuffer_0215a750(const char*, void**);
+extern "C" unsigned int func_ov001_0215a750(const char*, void**);
 extern "C" int func_ov017_021d60f4(TaggedValue0215f3fc*);
-void Init020404c0(int*);
-void InitializeRandomMotion0203c794(void*);
-void* EmptyStub0203d004(void*);
-void SetField0xc_02040530(int*, int);
-void SetField0x8_02040520(int*, int);
-void UpdateElementStream0203f02c(Obj0203f02c*, int, int, char*, int, int);
+extern "C" void func_020404c0(int*);
+extern "C" void func_0203c794(void*);
+extern "C" void* func_0203d004(void*);
+extern "C" void func_02040530(int*, int);
+extern "C" void func_02040520(int*, int);
+extern "C" void func_0203f02c(Obj0203f02c*, int, int, char*, int, int);
 extern "C" void func_0203f138(Obj0203f02c*, int);
-void SetActiveChildShorts020408c8(Node020408c8*, short, short, short);
-void SetSlotIfIndexBelow32(SlotArray0203dd10*, unsigned int, int);
+extern "C" void func_020408c8(Node020408c8*, short, short, short);
+extern "C" void func_0203dd10(SlotArray0203dd10*, unsigned int, int);
 extern const char data_ov001_021657ad[];
 extern const char data_ov001_021657b2[];
 extern const char data_ov001_021657be[];
@@ -85,15 +85,15 @@ extern const char data_ov001_021657d1[];
 extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count)
 {
     GameState* game = GameState::GetInstance();
-    void* list = GetGlobalPtr021075f4_0203cf4c();
-    StreamResources0215f3fc* resources = (StreamResources0215f3fc*)GetWord0x0_0200fb8c((int*)game);
+    void* list = func_0203cf4c();
+    StreamResources0215f3fc* resources = (StreamResources0215f3fc*)func_0200fb8c((int*)game);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (!resources)
     {
         return 0;
     }
     const char* name = func_ov017_021d612c(arguments++);
-    int slot = FindEmptySlotIndex((SlotArray_0203e03c*)list);
+    int slot = func_0203e03c((SlotArray_0203e03c*)list);
     if (slot == -1)
     {
         return 0;
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
     {
         BackgroundLoader::AddLockGlobal();
         locked = 1;
-        if (!LoadResourceIntoGlobalBuffer_0215a750(filename, &file))
+        if (!func_ov001_0215a750(filename, &file))
         {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
@@ -146,7 +146,7 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
         }
         return 0;
     }
-    Init020404c0((int*)entry);
+    func_020404c0((int*)entry);
     Rec0206bf2c* record = (Rec0206bf2c*)allocator->Allocate(0x78);
     if (!record)
     {
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
         }
         return 0;
     }
-    ClearWorkRecord0206bf2c(record);
+    func_0206bf2c(record);
 #if defined(jpn)
     enum { regionalOffset0 = 0x20 };
 #else
@@ -181,8 +181,8 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
         }
         return 0;
     }
-    InitializeRandomMotion0203c794(entry->motion);
-    void* context = EmptyStub0203d004(list);
+    func_0203c794(entry->motion);
+    void* context = func_0203d004(list);
     if (entry->motion)
     {
         entry->motion->context = context;
@@ -203,15 +203,15 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
     {
         sprintf(descriptor->name, data_ov001_021657d1, name);
     }
-    SetField0xc_02040530((int*)entry, (int)record);
-    SetField0x8_02040520((int*)entry, (int)descriptor);
+    func_02040530((int*)entry, (int)record);
+    func_02040520((int*)entry, (int)descriptor);
     StreamRecord0215f3fc* recordBase = resources->records;
     char* recordData = recordBase[recordIndex].data;
     unsigned int loadedLength = length;
     void* loadedFile = file;
     if (entry->motion)
     {
-        UpdateElementStream0203f02c(entry->motion, (int)(filename + 9), (int)allocator,
+        func_0203f02c(entry->motion, (int)(filename + 9), (int)allocator,
             recordData, (int)loadedFile, loadedLength);
     }
     if (entry->motion)
@@ -222,7 +222,7 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
     {
         BackgroundLoader::RemoveLockGlobal();
     }
-    SetActiveChildShorts020408c8((Node020408c8*)entry, 0x8f, 0x8f, 0x8f);
-    SetSlotIfIndexBelow32((SlotArray0203dd10*)list, slot, (int)entry);
+    func_020408c8((Node020408c8*)entry, 0x8f, 0x8f, 0x8f);
+    func_0203dd10((SlotArray0203dd10*)list, slot, (int)entry);
     return 1;
 }

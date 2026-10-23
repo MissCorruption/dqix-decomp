@@ -8,10 +8,10 @@ extern "C" void* func_ov023_021f6524(void* ctx, int value);
 #endif
 extern "C" int func_ov023_021f9bc8(char* obj);
 struct Fields021695fc;
-void ResetFieldBlocks_021695fc(struct Fields021695fc* obj);
+extern "C" void func_ov004_021695fc(struct Fields021695fc* obj);
 extern "C" void func_ov004_0216920c(void* obj);
 extern "C" void func_ov011_021848a0(void* obj, int val);
-int ClearMasksAndNotify_02169adc(void* obj);
+extern "C" int func_ov004_02169adc(void* obj);
 
 extern void* data_ov004_02171030;
 
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov004_0216950c(void* obj) {
     int idx = func_ov023_021f9bc8((char*)node) + f5c * 8;
     cur = table + 4 + idx * 0x2c;
     next = table + 4 + (idx + 1) * 0x2c;
-    ResetFieldBlocks_021695fc((struct Fields021695fc*)cur);
+    func_ov004_021695fc((struct Fields021695fc*)cur);
 
     int n = 0x2c;
     for (; idx < table[0]; idx++) {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov004_0216950c(void* obj) {
 
     unsigned char nc = --table[0];
     unsigned char* last = table + 4 + nc * 0x2c;
-    ResetFieldBlocks_021695fc((struct Fields021695fc*)last);
+    func_ov004_021695fc((struct Fields021695fc*)last);
 
     if (table[0] <= 8) {
         node->f5c = 0;
@@ -59,6 +59,6 @@ extern "C" ARM int func_ov004_0216950c(void* obj) {
         func_ov011_021848a0(obj, 0x66);
         return 0;
     }
-    ClearMasksAndNotify_02169adc(obj);
+    func_ov004_02169adc(obj);
     return 0;
 }

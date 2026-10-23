@@ -8,12 +8,12 @@ struct S_a0b8c;
 struct Obj021e1318;
 struct ObjStruct_021e1474;
 struct Container020dedd0;
-short CountNonZeroValues020a0b8c(struct S_a0b8c *s);
-unsigned char *GetFieldAt0x150_02053c6c(unsigned char *p);
-void ClearObj_021e1318(struct Obj021e1318 *obj);
-void InitScriptAndRun_021e133c(void *a, void *b, int c, int d, int e, short f);
-void ClearElements_021e1518(void *p);
-void RefreshEntryStatusFlags_021e1474(struct ObjStruct_021e1474 *obj,
+extern "C" short func_020a0b8c(struct S_a0b8c *s);
+extern "C" unsigned char *func_02053c6c(unsigned char *p);
+extern "C" void func_ov023_021e1318(struct Obj021e1318 *obj);
+extern "C" void func_ov023_021e133c(void *a, void *b, int c, int d, int e, short f);
+extern "C" void func_ov023_021e1518(void *p);
+extern "C" void func_ov023_021e1474(struct ObjStruct_021e1474 *obj,
                                                                                               struct Container020dedd0 *c);
 extern "C" void *ExtractFileFromGP2(const char *gp2Path, const char *innerFilePath, unsigned int *outSize);
 extern "C" char data_ov002_0216cf83[];
@@ -34,15 +34,15 @@ extern "C" ARM void func_ov002_0215b2c8(char *base) {
     short v;
     short count;
     gs    = GameState::GetInstance();
-    party = (char *) GetPtrField0x2a04_02010828(gs);
+    party = (char *) func_02010828(gs);
     src   = *(void **) party;
-    count = CountNonZeroValues020a0b8c((struct S_a0b8c *) party);
+    count = func_020a0b8c((struct S_a0b8c *) party);
     memset(buf, -1, sizeof(buf));
     memcpy(buf, src, count * 2);
     for (i = 0; i < *(unsigned char *) (party + 0xf7c); i++) {
         m = gs->GetPartyMemberByIndex(*(signed char *) (party + 0xf78 + i));
         if (m == NULL) continue;
-        data = GetFieldAt0x150_02053c6c((unsigned char *) m);
+        data = func_02053c6c((unsigned char *) m);
         for (j = 0; j < 8; j++) {
             v = ((short *) (data + 0x454))[j];
             if (v > 0) {
@@ -53,16 +53,16 @@ extern "C" ARM void func_ov002_0215b2c8(char *base) {
     }
     ((SafeAllocator *) (base + 0x850))->Reset();
     sub = base + 4;
-    ClearObj_021e1318((struct Obj021e1318 *) (sub + 0x800));
+    func_ov023_021e1318((struct Obj021e1318 *) (sub + 0x800));
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     void *file = ExtractFileFromGP2(data_ov002_0216cf83, data_ov002_0216cf99, &size);
     if (file != NULL) {
-        InitScriptAndRun_021e133c(sub + 0x800, base + 0x850, (int) file, size, (int) buf, count);
+        func_ov023_021e133c(sub + 0x800, base + 0x850, (int) file, size, (int) buf, count);
     }
     BackgroundLoader::RemoveLockGlobal();
-    ClearElements_021e1518(sub + 0x800);
-    RefreshEntryStatusFlags_021e1474(
+    func_ov023_021e1518(sub + 0x800);
+    func_ov023_021e1474(
         (struct ObjStruct_021e1474 *) (sub + 0x800), (struct Container020dedd0 *) (base + 0x3ec + 0x400));
     *(void **) (base + 0x2534) = ((SafeAllocator *) (base + 0x850))->Allocate(0x140);
     *(void **) (base + 0x2538) = ((SafeAllocator *) (base + 0x850))->Allocate(0xa0);

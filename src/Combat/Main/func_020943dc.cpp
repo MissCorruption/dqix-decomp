@@ -22,8 +22,8 @@ struct MessageLoadState {
     char pad13b[2];
     unsigned char flags;
 };
-Obj02046574* GetGlobalField0x1c020421a0();
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" Obj02046574* func_020421a0();
+extern "C" void func_02046574(Obj02046574*, int, char*);
 extern "C" void func_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_020474a8(Obj02046574*, int, char*, char*);
 extern const char data_020f146e[];
@@ -46,16 +46,16 @@ extern "C" ARM int func_020943dc(MessageLoadState* state) {
             if (file) {
                 char message[0x40] = {};
                 func_020e046c(message, file, size, state->messageId);
-                Obj02046574* formatter = GetGlobalField0x1c020421a0();
+                Obj02046574* formatter = func_020421a0();
                 char* previousName = formatter->names[0].text;
                 char savedName[0x40] = {};
                 if (previousName) memcpy(savedName, previousName, strlen(previousName));
-                SetIndexedName02046574(formatter, 0, state->name);
+                func_02046574(formatter, 0, state->name);
                 memset(state->text, 0, sizeof(state->text));
                 func_020474a8(formatter, 10, message, state->text);
                 state->text[0x2f] = 0;
                 state->position = 0;
-                if (previousName) SetIndexedName02046574(formatter, 0, savedName);
+                if (previousName) func_02046574(formatter, 0, savedName);
             }
             loader->RemoveTask(state->taskId);
             state->taskId = -1;
@@ -86,8 +86,8 @@ struct MessageLoadState {
     char pad3cb[2];
     unsigned char flags;
 };
-Obj02046574* GetGlobalField0x1c020421a0();
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" Obj02046574* func_020421a0();
+extern "C" void func_02046574(Obj02046574*, int, char*);
 extern "C" void func_020e046c(char*, void*, unsigned int, int);
 extern "C" void func_02046608(Obj02046574*, int, char*, char*, int, int, int);
 extern const char data_020f13aa[];
@@ -112,16 +112,16 @@ extern "C" ARM int func_020943dc(MessageLoadState* state) {
             if (file) {
                 char message[0x40] = {};
                 func_020e046c(message, file, size, state->messageId);
-                Obj02046574* formatter = GetGlobalField0x1c020421a0();
+                Obj02046574* formatter = func_020421a0();
                 char* previousName = formatter->names[0].text;
                 char savedName[0x40] = {};
                 if (previousName) memcpy(savedName, previousName, strlen(previousName));
-                SetIndexedName02046574(formatter, 0, state->name);
+                func_02046574(formatter, 0, state->name);
                 memset(state->text, 0, sizeof(state->text));
                 func_02046608(formatter, 10, message, state->text, 0x100, 0, 0);
                 state->text[0x7f] = 0;
                 state->position = 0;
-                if (previousName) SetIndexedName02046574(formatter, 0, savedName);
+                if (previousName) func_02046574(formatter, 0, savedName);
             }
             loader->RemoveTask(state->taskId);
             state->taskId = -1;

@@ -12,17 +12,17 @@ struct Cont0207fe44;
 struct Obj0208203c;
 struct Obj0205eaa0;
 
-short FindMappedMemberId02080468(void* obj, int id);
+extern "C" short func_02080468(void* obj, int id);
 extern "C" void func_020813ec(void* obj, int id, int value);
-void SetEntryLowNibbleAndElement02080c68(void* obj, int id, int value);
-void SetElementFlag0x40_02081ea4(struct Obj2081* obj, int id, int value);
-void ResetWithSub0208203c(struct Obj0208203c* obj);
+extern "C" void func_02080c68(void* obj, int id, int value);
+extern "C" void func_02081ea4(struct Obj2081* obj, int id, int value);
+extern "C" void func_0208203c(struct Obj0208203c* obj);
 extern "C" int func_ov003_021765b4(void* self);
 extern "C" int func_ov003_021766e8(void* self);
 extern struct Obj0205eaa0 data_02108760;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern "C" int _s32_div_f(int a, int b);
-void CallFunc0204c804OverAllElems(struct Cont0207fe44* obj);
+extern "C" void func_0207fe44(struct Cont0207fe44* obj);
 
 // USA: func_ov003_021786bc
 extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
@@ -33,15 +33,15 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
         *(unsigned short*)(self + J(0x1000 + 0x46)) &= ~0x400;
         *(short*)(self + J(0xf00 + 0xfe)) = 2;
         if (*(short*)(self + J(0x1000 + 4)) < 0) {
-            short id = FindMappedMemberId02080468(elemObj, *(short*)(self + J(0xf00 + 0xfe)));
+            short id = func_02080468(elemObj, *(short*)(self + J(0xf00 + 0xfe)));
             *(short*)(self + J(0x1000 + 4)) = id;
         }
         short value = *(short*)(self + J(0x1000 + 4));
         *(short*)((char*)elemObj + RG(0x36, 0x2a)) = value;
         func_020813ec(elemObj, *(short*)(self + J(0xf00 + 0xfe)), value);
-        SetEntryLowNibbleAndElement02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 0);
-        SetElementFlag0x40_02081ea4(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 0);
-        ResetWithSub0208203c((struct Obj0208203c*)(self + J(0x88c)));
+        func_02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 0);
+        func_02081ea4(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 0);
+        func_0208203c((struct Obj0208203c*)(self + J(0x88c)));
         *(void**)(self + J(0xff8)) = 0;
         (*(unsigned char*)(self + J(0x1000 + 0x3f)))++;
         return;
@@ -51,8 +51,8 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
 
     *(void**)(self + J(0xff8)) = self + J(0x1000 + 4);
     if (func_ov003_021765b4(self) != 0) {
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-        ResetWithSub0208203c((struct Obj0208203c*)(self + J(0x88c)));
+        func_0205eaa0(&data_02108760, 1, 0);
+        func_0208203c((struct Obj0208203c*)(self + J(0x88c)));
         *(void**)(self + J(0xff8)) = 0;
 
         unsigned char mode = 0;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
         case 4:
             mark = 1;
             mode = 2;
-            SetEntryLowNibbleAndElement02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 1);
+            func_02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 1);
             *(short*)(self + J(0xf00 + 0xfc)) = *(short*)(self + J(0xf00 + 0xfe));
             *(unsigned short*)(self + J(0x1000 + 0x46)) |= 0x20;
             *(short*)(self + J(0x1000 + 0x14)) = 0;
@@ -75,13 +75,13 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
         case 5:
             mode = 3;
             *(short*)(self + J(0x1000 + 0xc)) = 0x76;
-            SetEntryLowNibbleAndElement02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 1);
+            func_02080c68(elemObj, *(short*)(self + J(0xf00 + 0xfe)), 1);
             *(short*)(self + J(0xf00 + 0xfc)) = *(short*)(self + J(0xf00 + 0xfe));
             break;
         case 6:
             mode = 9;
             mark = 6;
-            CallFunc0204c804OverAllElems((struct Cont0207fe44*)elemObj);
+            func_0207fe44((struct Cont0207fe44*)elemObj);
             break;
         }
 
@@ -92,9 +92,9 @@ extern "C" ARM void func_ov003_021786bc(unsigned char* self) {
     }
 
     if (func_ov003_021766e8(self) == 0) return;
-    ResetWithSub0208203c((struct Obj0208203c*)(self + J(0x88c)));
+    func_0208203c((struct Obj0208203c*)(self + J(0x88c)));
     *(void**)(self + J(0xff8)) = 0;
     *(unsigned char*)(self + J(0x1000 + 0x3e)) = 9;
     *(short*)(self + J(0x1000 + 0x36)) = 6;
-    CallFunc0204c804OverAllElems((struct Cont0207fe44*)elemObj);
+    func_0207fe44((struct Cont0207fe44*)elemObj);
 }

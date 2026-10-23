@@ -8,15 +8,15 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
-int GetBitmapPixel_0206eaec(unsigned char* base, int row, int col);
-void* GetPointerFromArray0x3c_0201e838(unsigned char* obj, unsigned int index);
-int LookupAndForEachNodeIfMatch02064b24(void* a, int mode, unsigned short id, void* c);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" int func_0206eaec(unsigned char* base, int row, int col);
+extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
+extern "C" int func_02064b24(void* a, int mode, unsigned short id, void* c);
 
 struct Obj0201b600;
 struct Elem0201b600;
 struct FeatureElem02017a94;
-struct FeatureElem02017a94* FindElemByKeys(Obj0201b600*, int, unsigned short);
+extern "C" struct FeatureElem02017a94* func_0201b600(Obj0201b600*, int, unsigned short);
 
 struct FeatureElem02017a94 {
     unsigned short key;
@@ -45,7 +45,7 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
     if (gs == NULL) {
         return;
     }
-    if (GetField0x3f8Address_0200fd0c(gs) == NULL) {
+    if (func_0200fd0c(gs) == NULL) {
         return;
     }
 #if defined(jpn)
@@ -60,18 +60,18 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
     if (bmp != NULL && *(unsigned char*)((char*)zone + BitmapFlagOffset) != 0) {
         for (row = 0; row < 2; row++) {
             for (colLow = 0; colLow < 0x7f; colLow++) {
-                if (GetBitmapPixel_0206eaec(bmp, (unsigned char)row, (short)colLow)) {
+                if (func_0206eaec(bmp, (unsigned char)row, (short)colLow)) {
                     struct FeatureElem02017a94* e =
-                        FindElemByKeys((struct Obj0201b600*)zone, row, colLow);
+                        func_0201b600((struct Obj0201b600*)zone, row, colLow);
                     if (e != NULL) {
                         e->flags &= ~4;
                     }
                 }
             }
             for (colHigh = 0x80; colHigh < 0xff; colHigh++) {
-                if (GetBitmapPixel_0206eaec(bmp, (unsigned char)row, (short)colHigh)) {
+                if (func_0206eaec(bmp, (unsigned char)row, (short)colHigh)) {
                     struct FeatureElem02017a94* e =
-                        FindElemByKeys((struct Obj0201b600*)zone, row, colHigh - 0x80);
+                        func_0201b600((struct Obj0201b600*)zone, row, colHigh - 0x80);
                     struct FeatureNode02017a94* n;
                     if (e != NULL) {
                         e->flags |= 4;
@@ -80,7 +80,7 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
                             unsigned short mask;
                             e->flags |= 1;
                             n = (struct FeatureNode02017a94*)
-                                GetPointerFromArray0x3c_0201e838((unsigned char*)&zone->substruct_6c_, 2);
+                                func_0201e838((unsigned char*)&zone->substruct_6c_, 2);
                             while (n != NULL) {
                                 if (n->id2d == e->key) {
                                     cur = n->field2e;
@@ -97,8 +97,8 @@ extern "C" ARM void func_02017a94(Zone3D* zone) {
         }
         struct AppendContext02017a94 ctx;
         ctx.zoneId = zone->currentZoneID_;
-        LookupAndForEachNodeIfMatch02064b24(bmp, 3, 0x6c, &ctx);
-        LookupAndForEachNodeIfMatch02064b24(bmp, 0x14, 0x6c, &ctx);
+        func_02064b24(bmp, 3, 0x6c, &ctx);
+        func_02064b24(bmp, 0x14, 0x6c, &ctx);
         zone->unk_276c[0x281d - 0x276c] = 0;
     }
 }

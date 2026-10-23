@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int HasAnyFlags_021719f8_021719f8(int* obj);
+extern "C" int func_ov000_021719f8(int* obj);
 struct Struct02170fd0;
-void CallHandlerIfF38Set02170fd0(struct Struct02170fd0* obj, int b);
-void* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" void func_ov000_02170fd0(struct Struct02170fd0* obj, int b);
+extern "C" void* func_02053c6c(unsigned char* obj);
 
 struct Entry0217f7d4 {
     char pad0[0x18];
@@ -24,7 +24,7 @@ struct Entry0217f7d4 {
     char pad6[0x448 - 0x446];
 };
 
-// USA: func_ov000_0217f7d4  (semantic: FindReadyCombatantId_0217f7d4)
+// USA: func_ov000_0217f7d4
 extern "C" ARM int func_ov000_0217f7d4(char* obj) {
     int result = -1;
     GameState* bs = GameState::GetInstance();
@@ -34,11 +34,11 @@ extern "C" ARM int func_ov000_0217f7d4(char* obj) {
         entry = (struct Entry0217f7d4*)(obj + 0x958) + idx;
         if (entry->field4c < 0) continue;
         if (entry->field87 == 0) continue;
-        if (HasAnyFlags_021719f8_021719f8((int*)entry)) continue;
+        if (func_ov000_021719f8((int*)entry)) continue;
         if (entry->field445 == 0) continue;
 
         if (*(int*)(obj + 0x17c) == entry->field4c) {
-            CallHandlerIfF38Set02170fd0((struct Struct02170fd0*)entry, 0);
+            func_ov000_02170fd0((struct Struct02170fd0*)entry, 0);
             entry->field24 = entry->field24 & ~4;
             break;
         }
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov000_0217f7d4(char* obj) {
 #else
         enum { statusOffset = 0x94c };
 #endif
-        if (c == NULL || (signed char)*(int*)((char*)GetFieldAt0x150_02053c6c((unsigned char*)c) + statusOffset) == 5) {
+        if (c == NULL || (signed char)*(int*)((char*)func_02053c6c((unsigned char*)c) + statusOffset) == 5) {
             signed char v = *(signed char*)((char*)entry + entry->field18 + 0x10);
             if (v == 0x64) result = entry->field4c;
         }

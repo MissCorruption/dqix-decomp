@@ -24,10 +24,10 @@ struct Effect02059a54 {
     int polygonId;
     float red, green, blue, alpha, width, height;
 };
-int CheckByte0xcZeroAndField8LeField4(State02059a2c*);
-EffectModelInfo02059a54* GetSubField0x14_02055108(S02055080*);
-void* GetField0x3b0Value_020100bc(GameState*);
-void* GetPtrField0x144_0202ed74(void*);
+extern "C" int func_02059a2c(State02059a2c*);
+extern "C" EffectModelInfo02059a54* func_02055108(S02055080*);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void* func_0202ed74(void*);
 extern "C" void func_020ca528(void*, const void*);
 extern "C" void NSBXX_Model_SetPolygonID(void*, int);
 extern int data_0210a0cc;
@@ -36,8 +36,8 @@ static inline NSBXXInternalModel* GetEffectModel(Effect02059a54* effect) { retur
 
 // USA: func_02059a54
 extern "C" ARM void func_02059a54(Effect02059a54* self) {
-    if (self->active && !CheckByte0xcZeroAndField8LeField4((State02059a2c*)self)) {
-        EffectModelInfo02059a54* info = GetSubField0x14_02055108(self->resource);
+    if (self->active && !func_02059a2c((State02059a2c*)self)) {
+        EffectModelInfo02059a54* info = func_02055108(self->resource);
         int x;
         int y;
         unsigned int time;
@@ -57,9 +57,9 @@ extern "C" ARM void func_02059a54(Effect02059a54* self) {
             NSBXX_Model_SetPolygonID(self->object.pModel_->rawInternalModel_, self->polygonId);
             Vector3fix position = self->object.position_;
             RenderConfig::SetObjectPosition(&position);
-            void* camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
+            void* camera = func_020100bc(GameState::GetInstance());
             if (camera) {
-                func_020ca528(GetPtrField0x144_0202ed74(camera), &data_0210a0cc);
+                func_020ca528(func_0202ed74(camera), &data_0210a0cc);
                 data_0210a010.flags &= ~0xa4;
             }
             Vector3fix scale = data_020e7da4;

@@ -5,21 +5,21 @@
 
 
 struct Struct02074bd0;
-void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
+extern "C" void func_02074bd0(struct Struct02074bd0* obj);
 struct Struct02074bf4;
-void ClearFlag0x11IfSet(struct Struct02074bf4* obj);
+extern "C" void func_02074bf4(struct Struct02074bf4* obj);
 
 struct Obj0204b010;
-void ClearBuffer0204b010(struct Obj0204b010* obj, void* p);
+extern "C" void func_0204b010(struct Obj0204b010* obj, void* p);
 extern "C" void func_0204b04c(void* p, int flag);
 extern "C" void func_0204b088(void* p, int flag);
 struct List0204afb4;
-void ResetRecordList0204afb4(struct List0204afb4* obj);
+extern "C" void func_0204afb4(struct List0204afb4* obj);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void __clear(void* buf, int len);
 
-// USA: func_ov023_021eb26c  (semantic: ResetCombatSceneAndFlushVram_021eb26c)
+// USA: func_ov023_021eb26c
 extern "C" ARM void func_ov023_021eb26c(void* obj) {
     char* o = (char*)obj;
     int data4 = (int)BackgroundLoader::GetInstance();
@@ -33,15 +33,15 @@ extern "C" ARM void func_ov023_021eb26c(void* obj) {
     unsigned int* reg1 = (unsigned int*)0x4001000;
     *reg1 = (*reg1 & ~0x1f00) | (*(int*)(o + 0x40) << 8);
 
-    ClearFlag0x10IfSet((struct Struct02074bd0*)(o + 0x2a));
-    ClearFlag0x11IfSet((struct Struct02074bf4*)(o + 0x2a));
+    func_02074bd0((struct Struct02074bd0*)(o + 0x2a));
+    func_02074bf4((struct Struct02074bf4*)(o + 0x2a));
 
     unsigned char mode = *(unsigned char*)(o + 0x430);
     if (mode == 2 || (mode == 7 && (*(unsigned short*)(o + 0x438) & 8) != 0)) {
-        ClearBuffer0204b010((struct Obj0204b010*)(o + 0x44), 0);
+        func_0204b010((struct Obj0204b010*)(o + 0x44), 0);
         func_0204b04c(o + 0x44, 0);
         func_0204b088(o + 0x44, 0);
-        ResetRecordList0204afb4((struct List0204afb4*)(o + 0x44));
+        func_0204afb4((struct List0204afb4*)(o + 0x44));
         memset(*(void**)(o + 0x420), 0, 0x20);
         CleanInvalidateCacheRange(*(void**)(o + 0x420), 0x20);
         LoadToMainBG1CharacterData(*(int*)(o + 0x420), 0, 0x20);

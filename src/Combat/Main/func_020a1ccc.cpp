@@ -3,8 +3,8 @@
 #include "Resource/ResourceMutex.h"
 #include "NitroSDK/Filesystem/OverlayFSManagement.h"
 
-void DispatchByFlag020d9834(int flag);
-void CallAndReturnTrue020cd584(OverlayMetadata* meta);
+extern "C" void func_020d9834(int flag);
+extern "C" void func_020cd584(OverlayMetadata* meta);
 
 extern volatile int data_01ffd348;
 extern volatile unsigned char data_01ffd344;
@@ -42,12 +42,12 @@ extern "C" ARM int func_020a1ccc(unsigned int id) {
     }
 
     while (data_01ffd340) {
-        DispatchByFlag020d9834(0);
+        func_020d9834(0);
     }
 
     data_01ffd340 = 1;
     LockResourceMutex();
-    CallAndReturnTrue020cd584(&data_01ffd394[id]);
+    func_020cd584(&data_01ffd394[id]);
     UnlockResourceMutex();
     data_01ffd340 = 0;
 

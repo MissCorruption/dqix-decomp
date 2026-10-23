@@ -25,13 +25,13 @@ struct Obj_021dc540 {
 
 struct OutStruct0215ccbc;
 
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* world);
-void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
-short ApplyMPDelta0215a1d4(void* world, int id, int delta, short* outApplied);
+extern "C" void func_ov000_0215a88c(void* world, void* entry, int msg);
+extern "C" short func_ov000_0215a1d4(void* world, int id, int delta, short* outApplied);
 extern "C" void func_ov000_02159eac(void* world, unsigned long long* bits, int bit);
-int ConsumeMP0215a124(void* world, int id, int amount);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" int func_ov000_0215a124(void* world, int id, int amount);
+extern "C" void func_ov000_0215ccbc(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
 
 static inline int GetCurrentHP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currHP; }
@@ -51,22 +51,22 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021dc540(struct Obj_021dc540
     if (amount > srcMP) amount = srcMP;
     unsigned short sel;
     if (flagArg && amount > 0) {
-        sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+        sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
     } else {
         amount = 0;
-        sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+        sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
     }
     struct OutStruct0215ccbc* entry = func_ov000_0215e958(obj->f10);
     if (!entry) return 0;
-    AddEntryAndIncrementCount0215a88c(obj->f10, entry, sel);
+    func_ov000_0215a88c(obj->f10, entry, sel);
     unsigned long long bits = 0;
     short applied = 0;
-    short delta = ApplyMPDelta0215a1d4(obj->f10, id, amount, &applied);
+    short delta = func_ov000_0215a1d4(obj->f10, id, amount, &applied);
     if (applied != 0) {
         func_ov000_02159eac(obj->f10, &bits, 0x22);
     }
-    ConsumeMP0215a124(obj->f10, srcId, applied);
+    func_ov000_0215a124(obj->f10, srcId, applied);
     struct Flag_021dc540* fl = (struct Flag_021dc540*)((char*)obj->fc + 0x1c);
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->f10, entry, tgt, -applied, GetCurrentHP(tgt), delta, bits, fl->flag != 0);
+    func_ov000_0215ccbc(obj->f10, entry, tgt, -applied, GetCurrentHP(tgt), delta, bits, fl->flag != 0);
     return entry;
 }

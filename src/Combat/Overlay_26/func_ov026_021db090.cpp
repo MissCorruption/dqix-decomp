@@ -94,15 +94,15 @@ struct TextBuffers {
 };
 
 extern "C" void __clear(void* p, int size);
-MessageWindow* GetGlobalField0x1c020421a0();
-int IsFlag10088Set_02010088(struct S_10088*);
-void InitObjFromCombatant020e4c74(void*, GameObject*);
-void SetField0x158_02053ec8(void*, int);
-void EnqueueEventTag86_021c9ad4(unsigned short);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void ReinitController02043204(char*);
-void SetFieldsAndSignalData02184220_ov000_02160d80(void*, int);
-CommandSlot* FindSlotById_021dae60(Container_021dae60*, int);
+extern "C" MessageWindow* func_020421a0();
+extern "C" int func_02010088(struct S_10088*);
+extern "C" void func_020e4c74(void*, GameObject*);
+extern "C" void func_02053ec8(void*, int);
+extern "C" void func_ov017_021c9ad4(unsigned short);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_02043204(char*);
+extern "C" void func_ov000_02160d80(void*, int);
+extern "C" CommandSlot* func_ov026_021dae60(Container_021dae60*, int);
 
 extern "C" {
 int func_ov000_0215e9fc(BattleState*, short*, int, int);
@@ -133,7 +133,7 @@ extern Obj0205eaa0 data_02108760;
 // USA: func_ov026_021db090
 extern "C" ARM void func_ov026_021db090(BattleWork* self) {
     GameState* gs = GameState::GetInstance();
-    MessageWindow* win = GetGlobalField0x1c020421a0();
+    MessageWindow* win = func_020421a0();
 
     if (self->state == 0) {
 #if defined(jpn)
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
 #endif
         for (i = 0; i < n; i++) {
             GameObject* c = gs->GetCombatantByIndex(ids[i]);
-            if (c == NULL || IsFlag10088Set_02010088((S_10088*)c)) {
+            if (c == NULL || func_02010088((S_10088*)c)) {
                 continue;
             }
             func_ov000_02162c14(self, ids[i], &info);
@@ -200,14 +200,14 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
             strcat(name, data_ov026_021df3fa);
         }
 #else
-        InitObjFromCombatant020e4c74(&ref, gs->GetPartyMemberByIndex(picked.ids[0]));
+        func_020e4c74(&ref, gs->GetPartyMemberByIndex(picked.ids[0]));
 #endif
 
         if (self->mode == 2) {
 #if defined(jpn)
             sprintf(message, data_ov026_021df3ff, name);
 #else
-            text = ((TextBuffers*)GetGlobalField0x1c020421a0())->text;
+            text = ((TextBuffers*)func_020421a0())->text;
             memset(text, 0, 0x960);
             func_020dd0b0(1, text);
             strcat(message, text);
@@ -217,23 +217,23 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
             PartyList* party;
             GameState* state;
             state = GameState::GetInstance();
-            party = (PartyList*)GetPtrField0x2a04_02010828(state);
+            party = (PartyList*)func_02010828(state);
             for (j = 0; j < party->count; j++) {
-                GameObject* member = GetCombatantWithFlag0x100_0200ff1c(state, party->members[j]);
+                GameObject* member = func_0200ff1c(state, party->members[j]);
                 if (member != NULL) {
-                    SetField0x158_02053ec8(member, 2);
+                    func_02053ec8(member, 2);
                 }
             }
             GameResources* res = GetGameResources();
             func_02012fe4();
             unsigned short netId = self->party->netId;
-            EnqueueEventTag86_021c9ad4(netId);
+            func_ov017_021c9ad4(netId);
             func_ov017_021a23b0(res, netId);
         } else if (self->mode == 4) {
 #if defined(jpn)
             sprintf(message, data_ov026_021df423, name);
 #else
-            text = ((TextBuffers*)GetGlobalField0x1c020421a0())->text;
+            text = ((TextBuffers*)func_020421a0())->text;
             memset(text, 0, 0x960);
             func_020dd0b0(2, text);
             strcat(message, text);
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
 #if defined(jpn)
             sprintf(message, data_ov026_021df465, name);
 #else
-            text = ((TextBuffers*)GetGlobalField0x1c020421a0())->text;
+            text = ((TextBuffers*)func_020421a0())->text;
             memset(text, 0, 0x960);
             func_020dd0b0(3, text);
             strcat(message, text);
@@ -260,18 +260,18 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
         win->b19be = 1;
         win->flags |= 2;
         win->active = 1;
-        DispatchWithShortB4_0205eaa0(&data_02108760, 9, 0);
+        func_0205eaa0(&data_02108760, 9, 0);
         self->state++;
     } else if (win->busy == 0) {
         self->state++;
         if (self->state >= 0x1e) {
-            ReinitController02043204((char*)win);
+            func_02043204((char*)win);
             func_02043124(win);
             if (self->mode == 2) {
-                SetFieldsAndSignalData02184220_ov000_02160d80(self, 4);
+                func_ov000_02160d80(self, 4);
             } else {
                 for (int i = 0; i < 4; i++) {
-                    CommandSlot* slot = FindSlotById_021dae60(&self->list, i);
+                    CommandSlot* slot = func_ov026_021dae60(&self->list, i);
                     if (slot != NULL && slot->kind == 6) {
                         slot->selections[slot->selection] = 0x66;
                     }

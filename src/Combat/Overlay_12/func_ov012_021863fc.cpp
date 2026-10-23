@@ -117,15 +117,15 @@ struct ProfileEditor021863fc
 
 struct TableA68;
 
-int GetWord0x0_0200fb8c(int* gameState);
-int IsField0Null_02046b08(void** p);
-void* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int bits);
-Messages021863fc* GetGlobalField0x1c020421a0();
-void OrGlobalFlag0x40_020dc2bc();
+extern "C" int func_0200fb8c(int* gameState);
+extern "C" int func_02046b08(void** p);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466e4(unsigned int* word, unsigned int bits);
+extern "C" Messages021863fc* func_020421a0();
+extern "C" void func_020dc2bc();
 extern "C" void func_ov012_02185e18(ProfileEditor021863fc* self);
-void ClearAndCopyEntry_02185ea8(char* self);
-void ResetAndRebuildEntry_02185f04(char* self);
+extern "C" void func_ov012_02185ea8(char* self);
+extern "C" void func_ov012_02185f04(char* self);
 extern "C" void func_ov012_02185f74(ProfileEditor021863fc* self);
 extern "C" void func_ov012_021861e0(ProfileEditor021863fc* self);
 extern "C" void func_ov012_021862fc(ProfileEditor021863fc* self);
@@ -133,14 +133,14 @@ extern "C" void func_ov012_02184654(ProfileEditor021863fc* self);
 void SetSubBrightness(GameResources* resources, int brightness, int frames);
 int IsSubBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_ov023_021e7220(void* card, int mode);
-void CreateThreeAllocators_021e71b4(void* card, SafeAllocator* allocator);
+extern "C" void func_ov023_021e71b4(void* card, SafeAllocator* allocator);
 extern "C" int func_ov023_021e76c4(void* card);
-int GetField0x3acValue_020100a8(GameState* gameState);
+extern "C" int func_020100a8(GameState* gameState);
 extern "C" void func_ov023_021e7b34(void* card, int design);
 extern "C" void func_ov012_0218adac(ProfileEditor021863fc* self, int animate, int design, int keepPage);
 extern "C" void* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int a, unsigned char* bits, int index);
-const char* FindEntryByKey_02072a68(TableA68* table, int key);
+extern "C" int func_0206dfb0(int a, unsigned char* bits, int index);
+extern "C" const char* func_02072a68(TableA68* table, int key);
 #if !defined(jpn)
 extern "C" void func_0204500c(Messages021863fc* messages, const char* text, int a, int b);
 #endif
@@ -251,16 +251,16 @@ extern "C" const char data_ov012_0218bfad[];
 extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
 {
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)gameState);
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)gameState);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GetGlobal02109400_02094a00();
+    func_02094a00();
     if (self->step_ == 0)
     {
-        if (IsField0Null_02046b08(*(void***)((char*)resources + 0x34f0)))
+        if (func_02046b08(*(void***)((char*)resources + 0x34f0)))
         {
             SetFlags00(resources, 0x10);
-            OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
-            self->text_ = (char*)((MessagesJ021863fc*)GetGlobalField0x1c020421a0())->unk_28;
+            func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+            self->text_ = (char*)((MessagesJ021863fc*)func_020421a0())->unk_28;
             unsigned int female = 0;
             MemberJ021863fc* protagonist = (MemberJ021863fc*)gameState->GetProtagonist();
             if (protagonist != 0)
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
             self->tasks_[1] = loader->QueueLoadFile(archive, 0);
             self->tasks_[2] = loader->QueueLoadFile(data_ov012_0218bf9a, 0);
             self->tasks_[3] = loader->QueueLoadFile(data_ov012_0218bfad, 0);
-            OrGlobalFlag0x40_020dc2bc();
+            func_020dc2bc();
             self->step_++;
         }
         return;
@@ -294,7 +294,7 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
                         func_ov012_02185e18((ProfileEditor021863fc*)self);
                         break;
                     case 1:
-                        ResetAndRebuildEntry_02185f04((char*)self);
+                        func_ov012_02185f04((char*)self);
                         break;
                     case 2:
                         func_ov012_02185f74((ProfileEditor021863fc*)self);
@@ -318,21 +318,21 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        FontBankLoader* music = GetGlobal02109400_02094a00();
+        FontBankLoader* music = func_02094a00();
         func_02094ab0(music);
-        BlankFunction02094b34(music, 0x6e, 0x1ff, 0, 0);
+        func_02094b34(music, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(resources, -16, 15);
         self->step_++;
         return;
     }
     else if (self->step_ == 3)
     {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) && !IsSubBrightnessTransitionActive(resources))
+        if (func_02094b4c(func_02094a00()) && !IsSubBrightnessTransitionActive(resources))
         {
-            OrGlobalFlag0x40_020dc2bc();
+            func_020dc2bc();
             self->allocators_[2].Reset();
             func_ov023_021e7220(&self->card_, 2);
-            CreateThreeAllocators_021e71b4(&self->card_, &self->allocators_[2]);
+            func_ov023_021e71b4(&self->card_, &self->allocators_[2]);
             self->card_.strings_ = &self->strings_;
             self->card_.texts_ = &self->texts_;
             self->card_.unk_5fc = self->unk_1414;
@@ -349,13 +349,13 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
     {
         if (func_ov012_02186f3c(&self->pane_) && func_ov023_021e76c4(&self->card_))
         {
-            func_ov023_021e7b34(&self->card_, GetField0x3acValue_020100a8(gameState));
+            func_ov023_021e7b34(&self->card_, func_020100a8(gameState));
             func_ov012_0218bba0(self, 1, -1);
             SetSubBrightness(resources, 0, 15);
             void* unk = func_0205ec34();
             for (int i = 0; i < 0x12; i++)
             {
-                if (TestBitInByteArray_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, i + 0x200))
+                if (func_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, i + 0x200))
                 {
                     self->unk_1418[self->unk_141c_0] = i;
                     self->unk_141c_0++;
@@ -382,15 +382,15 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
     }
     else if (self->step_ == 5)
     {
-        MessagesJ021863fc* messages = (MessagesJ021863fc*)GetGlobalField0x1c020421a0();
-        func_0204500c(messages, FindEntryByKey_02072a68((TableA68*)self->strings_, 500), 0);
+        MessagesJ021863fc* messages = (MessagesJ021863fc*)func_020421a0();
+        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 500), 0);
         messages->busy_ = 1;
         self->step_++;
         return;
     }
     else if (self->step_ == 6)
     {
-        if (((MessagesJ021863fc*)GetGlobalField0x1c020421a0())->busy_ == 0)
+        if (((MessagesJ021863fc*)func_020421a0())->busy_ == 0)
         {
             Profile021863fc* profile = GetProfileJ021863fc(gameState);
             profile->edited_ = 1;
@@ -404,16 +404,16 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditorJ021863fc* self)
 extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
 {
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)gameState);
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)gameState);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GetGlobal02109400_02094a00();
+    func_02094a00();
     if (self->step_ == 0)
     {
-        if (IsField0Null_02046b08(*(void***)((char*)resources + 0x3700)))
+        if (func_02046b08(*(void***)((char*)resources + 0x3700)))
         {
             SetFlags00(resources, 0x10);
-            OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
-            self->text_ = (char*)GetGlobalField0x1c020421a0()->unk_5c;
+            func_020466e4((unsigned int*)func_020d6c00(), 0xf);
+            self->text_ = (char*)func_020421a0()->unk_5c;
             unsigned int female = 0;
             Member021863fc* protagonist = (Member021863fc*)gameState->GetProtagonist();
             if (protagonist != 0)
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
             self->tasks_[3] = loader->QueueLoadFile(data_ov012_0218b29a, 0);
             self->tasks_[4] = loader->QueueLoadFileInGP2(data_ov012_0218b2ad, data_ov012_0218b2c2, 0);
             self->tasks_[5] = loader->QueueLoadFile(data_ov012_0218b2d3, 0);
-            OrGlobalFlag0x40_020dc2bc();
+            func_020dc2bc();
             self->step_++;
         }
         return;
@@ -451,10 +451,10 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
                         func_ov012_02185e18(self);
                         break;
                     case 1:
-                        ClearAndCopyEntry_02185ea8((char*)self);
+                        func_ov012_02185ea8((char*)self);
                         break;
                     case 2:
-                        ResetAndRebuildEntry_02185f04((char*)self);
+                        func_ov012_02185f04((char*)self);
                         break;
                     case 3:
                         func_ov012_02185f74(self);
@@ -481,21 +481,21 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
         BG2CNT = (BG2CNT & ~3) | 1;
         BG3CNT = (BG3CNT & ~3) | 0;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
-        FontBankLoader* music = GetGlobal02109400_02094a00();
+        FontBankLoader* music = func_02094a00();
         func_02094ab0(music);
-        BlankFunction02094b34(music, 0x6e, 0x1ff, 0, 0);
+        func_02094b34(music, 0x6e, 0x1ff, 0, 0);
         SetSubBrightness(resources, -16, 15);
         self->step_++;
         return;
     }
     else if (self->step_ == 3)
     {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) && !IsSubBrightnessTransitionActive(resources))
+        if (func_02094b4c(func_02094a00()) && !IsSubBrightnessTransitionActive(resources))
         {
-            OrGlobalFlag0x40_020dc2bc();
+            func_020dc2bc();
             self->allocators_[2].Reset();
             func_ov023_021e7220(&self->card_, 2);
-            CreateThreeAllocators_021e71b4(&self->card_, &self->allocators_[2]);
+            func_ov023_021e71b4(&self->card_, &self->allocators_[2]);
             self->card_.strings_ = &self->strings_;
             self->card_.texts_ = &self->texts_;
             self->card_.unk_5fc = self->unk_13bc;
@@ -509,13 +509,13 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
     {
         if (func_ov023_021e76c4(&self->card_))
         {
-            func_ov023_021e7b34(&self->card_, GetField0x3acValue_020100a8(gameState));
+            func_ov023_021e7b34(&self->card_, func_020100a8(gameState));
             func_ov012_0218adac(self, 1, -1, 0);
             SetSubBrightness(resources, 0, 15);
             void* unk = func_0205ec34();
             for (int i = 0; i < 0x12; i++)
             {
-                if (TestBitInByteArray_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, i + 0x200))
+                if (func_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, i + 0x200))
                 {
                     self->unk_13c0[self->unk_13c4_0] = i;
                     self->unk_13c4_0++;
@@ -556,15 +556,15 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
     }
     else if (self->step_ == 5)
     {
-        Messages021863fc* messages = GetGlobalField0x1c020421a0();
-        func_0204500c(messages, FindEntryByKey_02072a68((TableA68*)self->strings_, 500), 0, 0xe3);
+        Messages021863fc* messages = func_020421a0();
+        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 500), 0, 0xe3);
         messages->busy_ = 1;
         self->step_++;
         return;
     }
     else if (self->step_ == 6)
     {
-        if (GetGlobalField0x1c020421a0()->busy_ == 0)
+        if (func_020421a0()->busy_ == 0)
         {
             Profile021863fc* profile = GetProfile021863fc(gameState);
             profile->edited_ = 1;

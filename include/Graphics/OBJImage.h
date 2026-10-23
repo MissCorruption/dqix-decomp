@@ -34,6 +34,6 @@ struct InitStruct02075cdcStruct {
     int f6c;
 };
 
-void InitStruct02075cdc(InitStruct02075cdcStruct *resource);
+extern "C" void func_02075cdc(InitStruct02075cdcStruct *resource);
 
 extern "C" int func_02076738(InitStruct02075cdcStruct *resource, const unsigned char *stream, int length);

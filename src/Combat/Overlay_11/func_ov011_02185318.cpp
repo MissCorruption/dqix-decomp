@@ -23,7 +23,7 @@ struct TaggedInput02185318 {
     TaggedNumber02184c30 g;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov023_021f7da0(struct Obj021f7da0* obj, void* ctx, int a
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern int data_ov023_021fe604;
 
@@ -41,13 +41,13 @@ struct Buf02185318 { void* vtable; char pad[0x110 - 4]; };
 
 // USA: func_ov011_02185318
 extern "C" ARM int func_ov011_02185318(struct TaggedInput02185318* obj) {
-    int tag0 = GetTaggedValueAsInt_02184c30(&obj->a);
-    int tag8 = GetTaggedValueAsInt_02184c30(&obj->b);
-    int tag10 = GetTaggedValueAsInt_02184c30(&obj->c);
-    int tag18 = GetTaggedValueAsInt_02184c30(&obj->d);
-    int tag20 = GetTaggedValueAsInt_02184c30(&obj->e);
-    int tag28 = GetTaggedValueAsInt_02184c30(&obj->f);
-    int tag30 = GetTaggedValueAsInt_02184c30(&obj->g);
+    int tag0 = func_ov011_02184c30(&obj->a);
+    int tag8 = func_ov011_02184c30(&obj->b);
+    int tag10 = func_ov011_02184c30(&obj->c);
+    int tag18 = func_ov011_02184c30(&obj->d);
+    int tag20 = func_ov011_02184c30(&obj->e);
+    int tag28 = func_ov011_02184c30(&obj->f);
+    int tag30 = func_ov011_02184c30(&obj->g);
 
     void* ctx = func_ov017_021b2164();
     void* node = func_ov011_021845f8(ctx, tag8);
@@ -63,6 +63,6 @@ extern "C" ARM int func_ov011_02185318(struct TaggedInput02185318* obj) {
 
     if (func_ov023_021f7da0((struct Obj021f7da0*)block, ctx, tag0, tag8, tag10, tag18, tag20, tag28, tag30) == 0) return 0;
 
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
     return 1;
 }

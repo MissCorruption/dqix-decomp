@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
-int StringLength_020d2ff0(const char*);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" int func_02001aec(const char*, const char*, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void* memset(void*, int, unsigned int);
@@ -35,7 +35,7 @@ extern "C" ARM void func_020e4958(char** destination, int value, int inputMode, 
     char expanded[0x100];
     mode = 1 - mode;
     __clear(expanded, 0x100);
-    if (choice == -1 && NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance()) == 3) choice = 0;
+    if (choice == -1 && func_0200fb08((Struct0200fb08*)GameState::GetInstance()) == 3) choice = 0;
     char* input;
     char* output = expanded;
     input = source;
@@ -68,7 +68,7 @@ extern "C" ARM void func_020e4958(char** destination, int value, int inputMode, 
     *output = *input;
     memset(source, 0, 0x100);
     func_020e4864(expanded, source, mode, kind, selection, choice);
-    int length = StringLength_020d2ff0(source);
+    int length = func_020d2ff0(source);
     memcpy(*destination, source, length);
     *destination += length;
 }

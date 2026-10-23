@@ -71,16 +71,16 @@ extern "C" void func_ov031_02217db4(Conn_022192c0* conn, int priority);
 extern "C" int func_ov031_02218b8c(Conn_022192c0* conn, int flag);
 extern "C" char* func_ov031_02218e2c(Conn_022192c0* conn, const char* key);
 extern "C" int func_02005a94(const char* s);
-int BuildAndApplyBuffer_022175dc(void* buf);
+extern "C" int func_ov031_022175dc(void* buf);
 extern "C" int func_ov031_022178b4(Conn_022192c0* conn, void* buf, int flag);
 extern "C" int func_ov031_02218604(Conn_022192c0* conn, const char* name, const char* value, int len);
 extern "C" void func_ov031_0221ae00(Clock_022192c0* out);
 extern "C" int func_ov031_022167c8(Session_022192c0* session, Conn_022192c0* conn);
-void AwaitIfActive_02216a84();
-int GetFieldAndReleaseRef_02216ab4();
+extern "C" void func_ov031_02216a84();
+extern "C" int func_ov031_02216ab4();
 extern "C" void func_ov031_02216b00(int* out);
-void InvokeHandlerAndClear_02216a2c();
-int FindAndTerminate_02218e84(void* self, int key, char* buf, int size);
+extern "C" void func_ov031_02216a2c();
+extern "C" int func_ov031_02218e84(void* self, int key, char* buf, int size);
 extern "C" int func_ov031_02218710(Conn_022192c0* conn, char* body);
 
 #if defined(jpn)
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
                 G.req.timeout = 20000;
                 if (strcmp(data_ov031_02249b54, data_ov031_0224a130) != 0) G.req.secure = 1;
                 if (func_ov031_02217c00(G.conn, &data_ov031_0224e624) != 0) FAIL(1);
-                if (BuildAndApplyBuffer_022175dc(body) == 0 || func_ov031_022178b4(G.conn, body, 1) == 0) FAIL(8);
+                if (func_ov031_022175dc(body) == 0 || func_ov031_022178b4(G.conn, body, 1) == 0) FAIL(8);
                 if (func_ov031_02218604(G.conn, data_ov031_0224a150, data_ov031_0224a158, 7) != 0 ||
                     (redirectUrl = G.base->buf118,
                      func_ov031_02218604(G.conn, data_ov031_0224a160, redirectUrl, strlen(redirectUrl)) != 0)) FAIL(8);
@@ -235,25 +235,25 @@ extern "C" ARM void func_ov031_022192c0(void) {
                 func_ov031_0221a1d4(5);
                 goto done;
             }
-            AwaitIfActive_02216a84();
-            if (GetFieldAndReleaseRef_02216ab4() != 0x15) {
-                if (GetFieldAndReleaseRef_02216ab4() == 9) {
+            func_ov031_02216a84();
+            if (func_ov031_02216ab4() != 0x15) {
+                if (func_ov031_02216ab4() == 9) {
                     G.base->state = -1;
                 } else {
                     func_ov031_02216b00(info);
-                    if (G.fc == 1 && (info[0] == (int)0xffffa4fa || GetFieldAndReleaseRef_02216ab4() == 0xb)) {
+                    if (G.fc == 1 && (info[0] == (int)0xffffa4fa || func_ov031_02216ab4() == 0xb)) {
                         G.base->state = 0;
-                        InvokeHandlerAndClear_02216a2c();
+                        func_ov031_02216a2c();
                         func_ov031_0221a1d4(0xb);
                         goto done;
                     }
                     G.base->state = info[0];
                 }
-                InvokeHandlerAndClear_02216a2c();
+                func_ov031_02216a2c();
                 func_ov031_0221a1d4(6);
                 goto done;
             }
-            InvokeHandlerAndClear_02216a2c();
+            func_ov031_02216a2c();
         }
         if (code == 200) {
             G.base->state = 0;
@@ -270,7 +270,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         G.req.timeout = 40000;
         if (strcmp(data_ov031_02249b54, data_ov031_0224a130) != 0) G.req.secure = 1;
         if (func_ov031_02217c00(G.conn, &data_ov031_0224e624) != 0) FAIL(1);
-        if (BuildAndApplyBuffer_022175dc(body) == 0 || func_ov031_022178b4(G.conn, body, 1) == 0) FAIL(8);
+        if (func_ov031_022175dc(body) == 0 || func_ov031_022178b4(G.conn, body, 1) == 0) FAIL(8);
         if (func_ov031_02218604(G.conn, data_ov031_0224a150, data_ov031_0224a170, 5) != 0 ||
             (savedUrl = G.base->buf114,
              func_ov031_02218604(G.conn, data_ov031_0224a178, savedUrl, strlen(savedUrl)) != 0)) FAIL(8);
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
             goto done;
         }
 
-        if (FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a180, numBuf, 4) <= 0) FAIL(9);
+        if (func_ov031_02218e84(G.conn, (int)data_ov031_0224a180, numBuf, 4) <= 0) FAIL(9);
         status = func_02005a94(numBuf);
         if (data_020f3390 == 0x22) FAIL(9);
         if (G.fc == 1 && status == 0x72) {
@@ -321,11 +321,11 @@ extern "C" ARM void func_ov031_022192c0(void) {
         }
         if (status >= 100) FAIL(6);
 
-        userLen = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a18c, 0, 0);
+        userLen = func_ov031_02218e84(G.conn, (int)data_ov031_0224a18c, 0, 0);
         if (userLen <= 0) FAIL(9);
-        passLen = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a190, 0, 0);
+        passLen = func_ov031_02218e84(G.conn, (int)data_ov031_0224a190, 0, 0);
         if (passLen <= 0) FAIL(9);
-        waitLen = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a198, 0, 0);
+        waitLen = func_ov031_02218e84(G.conn, (int)data_ov031_0224a198, 0, 0);
         user = (char*)alloc(data_ov031_0224a0d8, userLen + 1);
         if (user == 0) FAIL(4);
         pass = (char*)alloc(data_ov031_0224a0e4, passLen + 1);
@@ -334,15 +334,15 @@ extern "C" ARM void func_ov031_022192c0(void) {
             waitStr = (char*)alloc(data_ov031_0224a0f4, waitLen + 1);
             if (waitStr == 0) FAIL(4);
         }
-        code = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a18c, user, userLen + 1);
+        code = func_ov031_02218e84(G.conn, (int)data_ov031_0224a18c, user, userLen + 1);
         if (code < 0) FAIL(9);
         user[code] = 0;
-        code = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a190, pass, passLen + 1);
+        code = func_ov031_02218e84(G.conn, (int)data_ov031_0224a190, pass, passLen + 1);
         if (code < 0) FAIL(9);
         pass[code] = 0;
         wait = 0;
         if (waitLen > 0) {
-            code = FindAndTerminate_02218e84(G.conn, (int)data_ov031_0224a198, waitStr, waitLen + 1);
+            code = func_ov031_02218e84(G.conn, (int)data_ov031_0224a198, waitStr, waitLen + 1);
             if (code < 0) FAIL(9);
             waitStr[code] = 0;
             code = func_02005a94(waitStr);

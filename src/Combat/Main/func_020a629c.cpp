@@ -9,8 +9,8 @@ struct Palette020a629c { char pad[0xc]; char data[0x200]; };
 struct ActiveEntry02046900;
 struct Rec020467f0;
 extern char data_020f1b28;
-int CountActiveEntries(ActiveEntry02046900*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 // USA: func_020a629c
 extern "C" ARM void func_020a629c(Obj020a629c* self) {
     GetGameResources();
@@ -25,8 +25,8 @@ extern "C" ARM void func_020a629c(Obj020a629c* self) {
         void* resources[3];
         int fields[3];
         loader->GetLoadedFileByID(self->task, &file, &size);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
-        for (int i = 0;i < count;i++) resources[i] = FindRecordByIndex((Rec020467f0*)file, i, &record, &fields[i]);
+        int count = func_02046900((ActiveEntry02046900*)file);
+        for (int i = 0;i < count;i++) resources[i] = func_020467f0((Rec020467f0*)file, i, &record, &fields[i]);
         Resource020a629c* chars = (Resource020a629c*)resources[0];
         unsigned int charsSize = chars->size;
         CleanInvalidateCacheRange(chars->data, charsSize);

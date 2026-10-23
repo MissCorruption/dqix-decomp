@@ -3,15 +3,15 @@
 #include "Memory/SafeAllocator.h"
 
 struct Header020e544c;
-unsigned int GetField0Low12Times16020e544c(Header020e544c* header);
+extern "C" unsigned int func_020e544c(Header020e544c* header);
 
 struct ElementList020e545c;
 struct Element020e545c;
 typedef void (*ElementCallback020e545c)(ElementList020e545c*, Element020e545c*);
-int InvokeCallbackPerElement020e545c(ElementList020e545c* list, ElementCallback020e545c callback);
+extern "C" int func_020e545c(ElementList020e545c* list, ElementCallback020e545c callback);
 
 struct Pair020e5204;
-void RemapBothPointerFields(void* a, Pair020e5204* b);
+extern "C" void func_020e5204(void* a, Pair020e5204* b);
 
 struct List020e5604 {
     unsigned int field0;
@@ -30,7 +30,7 @@ extern "C" ARM int func_020e5604(struct List020e5604* self, SafeAllocator* alloc
         return 0;
     }
     memcpy(self, src, 4);
-    size1 = GetField0Low12Times16020e544c((Header020e544c*)self);
+    size1 = func_020e544c((Header020e544c*)self);
     size2 = (self->field0 << 1) >> 13;
     if (size1)
         self->field4 = alloc->Allocate(size1);
@@ -41,11 +41,11 @@ extern "C" ARM int func_020e5604(struct List020e5604* self, SafeAllocator* alloc
         memcpy(self->field4, src + 4, size1);
     }
     if (self->field8) {
-        memcpy(self->field8, src + (GetField0Low12Times16020e544c((Header020e544c*)self) + 4), size2);
+        memcpy(self->field8, src + (func_020e544c((Header020e544c*)self) + 4), size2);
     }
-    if ((void*)RemapBothPointerFields != 0) {
-        InvokeCallbackPerElement020e545c((ElementList020e545c*)self,
-            (ElementCallback020e545c)RemapBothPointerFields);
+    if ((void*)func_020e5204 != 0) {
+        func_020e545c((ElementList020e545c*)self,
+            (ElementCallback020e545c)func_020e5204);
     }
     self->field0 = (self->field0 & ~0x80000000) | 0x80000000;
     return 1;

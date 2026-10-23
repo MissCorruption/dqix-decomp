@@ -1,0 +1,32 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+#include "Resource/GameResources.h"
+
+struct BitArrayObj0205e830;
+extern "C" int func_0205e830(struct BitArrayObj0205e830* obj, int index);
+extern "C" void* func_0202ae24(void);
+extern "C" void* func_0202ae18(void);
+
+struct Node021d48f0 { unsigned char idx; };
+extern "C" Node021d48f0* func_0205e41c(void* obj, int* outPtr);
+
+typedef void (*Handler021d7f98)(int, Node021d48f0*, GameState*, GameResources*, void*);
+extern Handler021d7f98 data_ov017_021d7f98[];
+
+// USA: func_ov017_021d48f0
+extern "C" ARM void func_ov017_021d48f0(void) {
+    GameState* bs = GameState::GetInstance();
+    GameResources* ov = GetGameResources();
+    void* data = func_0202ae24();
+    void* extra = func_0202ae18();
+    int outVal;
+    Node021d48f0* node;
+    while ((node = func_0205e41c(data, &outVal)) != NULL) {
+        unsigned char idx = node->idx;
+        if (idx < 0xbc) {
+            if (func_0205e830((struct BitArrayObj0205e830*)data, idx)) {
+                data_ov017_021d7f98[idx](outVal, node, bs, ov, extra);
+            }
+        }
+    }
+}

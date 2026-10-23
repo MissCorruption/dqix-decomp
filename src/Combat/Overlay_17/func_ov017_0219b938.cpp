@@ -17,11 +17,11 @@ struct ZoneStruct0219b938 {
 };
 
 extern "C" struct ZoneStruct0219b938* func_02012fe4(void);
-void InvokeAllEntries020966a0(struct Entry020966a0* entries);
+extern "C" void func_020966a0(struct Entry020966a0* entries);
 extern "C" void func_0204719c(void* p);
-void* GetData02109020_0208e9e8(void);
+extern "C" void* func_0208e9e8(void);
 extern "C" void func_0208f36c(void* p, int value);
-void CopyInternalFields0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df50(struct Foo0207df50* p);
 
 struct EntryIdList0219b938 {
     int ids[17];
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_0219b938(struct Battle0219b938* self) {
     struct ZoneStruct0219b938* zone = func_02012fe4();
     zone->GetModel(0)->Func0207e2e0();
     zone->GetModel(1)->Func0207e2e0();
-    InvokeAllEntries020966a0(self->callbacks);
+    func_020966a0(self->callbacks);
     struct EntryIdList0219b938 list = data_ov017_021d64b0;
     int i;
     for (i = 0; list.ids[i] >= 0; i++) {
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_0219b938(struct Battle0219b938* self) {
     }
     func_0204719c(&self->entries[0x12]);
     func_0204719c(&self->entries[0x13]);
-    func_0208f36c(GetData02109020_0208e9e8(), 0);
+    func_0208f36c(func_0208e9e8(), 0);
     self->allocator.Reset();
-    CopyInternalFields0207df50((struct Foo0207df50*)self->fields4fc);
+    func_0207df50((struct Foo0207df50*)self->fields4fc);
 }

@@ -12,8 +12,8 @@ extern "C" void func_ov031_0222fe30(int, int, int);
 extern "C" void func_ov031_02230120(void);
 extern "C" void func_ov031_02230e90(void);
 extern "C" void func_ov031_0222f68c(void);
-void SetField1e_0223521c(void);
-void SetField_022274c0_022274c0(int v);
+extern "C" void func_ov031_0223521c(void);
+extern "C" void func_ov031_022274c0(int v);
 
 extern unsigned char data_ov031_02249054;
 
@@ -24,7 +24,7 @@ struct HolderData0222f20c {
 };
 extern struct HolderData0222f20c data_ov031_02290ca0;
 
-// USA: func_ov031_0222f20c  (semantic: DispatchByIdAndTransition_0222f20c)
+// USA: func_ov031_0222f20c
 extern "C" ARM void func_ov031_0222f20c(int id) {
 	if (func_ov031_0222fd9c(id) == 0) {
 		func_ov031_02236878(9);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov031_0222f20c(int id) {
 			if (func_ov031_02230df0() == 0) {
 				func_ov031_02236878(9);
 				func_ov031_02237b2c(6, 1, 1, -1, 0);
-				SetField_022274c0_022274c0((int)func_ov031_02230e90);
+				func_ov031_022274c0((int)func_ov031_02230e90);
 				return;
 			}
 			if (id == 0xb) func_ov031_02236878(6);
@@ -63,8 +63,8 @@ extern "C" ARM void func_ov031_0222f20c(int id) {
 			func_ov031_0222fe30(0, 1, r);
 			func_ov031_02230120();
 		}
-		SetField1e_0223521c();
-		SetField_022274c0_022274c0((int)func_ov031_0222f68c);
+		func_ov031_0223521c();
+		func_ov031_022274c0((int)func_ov031_0222f68c);
 		return;
 	}
 }

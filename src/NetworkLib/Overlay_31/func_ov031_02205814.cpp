@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-int IsNotInList0224e22c_02207180(void* v);
+extern "C" int func_ov031_02207180(void* v);
 extern "C" ARM int func_ov031_02205814(void* obj);
 
 struct Obj022056bc {
@@ -11,9 +11,9 @@ struct Obj022056bc {
     short field74;
 };
 
-// USA: func_ov031_022056bc  (semantic: SetValueIfValid_022056bc)
+// USA: func_ov031_022056bc
 extern "C" ARM int func_ov031_022056bc(Obj022056bc* obj, int val) {
-    if (IsNotInList0224e22c_02207180(obj)) {
+    if (func_ov031_02207180(obj)) {
         return ~0x1b;
     }
     int flag = 0;

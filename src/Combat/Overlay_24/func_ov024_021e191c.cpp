@@ -2,13 +2,13 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 struct FlagObj_021dd260;
-int IsFlagBit24Set_021dd260(FlagObj_021dd260*);
-int CheckField0x14FiveFlagsClear020881c4(unsigned char*);
-void SetFlag0x800000AndByte0x24_02088220(void*, int);
-void ResetAndSetFlag0x1000000_02088150(void*);
+extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
+extern "C" int func_020881c4(unsigned char*);
+extern "C" void func_02088220(void*, int);
+extern "C" void func_02088150(void*);
 extern "C" void* func_ov000_0215e958(void*);
-void AddEntryAndIncrementCount0215a88c(void*,void*,int);
-void AppendToChainAndIncCount0215ffc4(void*,void*,int);
+extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void func_ov000_0215ffc4(void*,void*,int);
 extern "C" void func_ov000_02159eac(void*,unsigned long long*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,short,unsigned long long,unsigned char);
 extern "C" void func_ov000_0215af54(void*,int,int);
@@ -22,12 +22,12 @@ extern "C" ARM void* func_ov024_021e191c(Obj021e191c* obj,int unused,int id,Para
  GameObject* target=GetCombatantByID((int)obj->context,id);
  if(!target)return 0;
  unsigned long long effects=0;
- if(IsFlagBit24Set_021dd260((FlagObj_021dd260*)target) || !CheckField0x14FiveFlagsClear020881c4((unsigned char*)target->currentStats_)){
+ if(func_ov024_021dd260((FlagObj_021dd260*)target) || !func_020881c4((unsigned char*)target->currentStats_)){
   void* entry=func_ov000_0215e958(obj->context);
   if(!entry)return 0;
-  AddEntryAndIncrementCount0215a88c(obj->context,entry,0x1f);
+  func_ov000_0215a88c(obj->context,entry,0x1f);
   func_ov000_0215cd44(obj->context,entry,target,0,0,obj->action->flag!=0);
-  AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+  func_ov000_0215ffc4(obj->action,entry,0);
   ++*((unsigned char*)obj->context+0x8e02);
   obj->changed=1;
  }else{
@@ -36,9 +36,9 @@ extern "C" ARM void* func_ov024_021e191c(Obj021e191c* obj,int unused,int id,Para
   void* entry=func_ov000_0215e958(obj->context);
   if(!entry)return 0;
   func_ov000_0215cd44(obj->context,entry,target,stage,effects,obj->action->flag!=0);
-  AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+  func_ov000_0215ffc4(obj->action,entry,0);
   ++*((unsigned char*)obj->context+0x8e02);
-  AddEntryAndIncrementCount0215a88c(obj->context,entry,0x1bc);
+  func_ov000_0215a88c(obj->context,entry,0x1bc);
   if(params->field4.code==0x20b){
    if(obj->mode || stage>=3)stage=3;
    else stage=2;
@@ -53,21 +53,21 @@ extern "C" ARM void* func_ov024_021e191c(Obj021e191c* obj,int unused,int id,Para
    void* step=func_ov000_0215e958(obj->context);
    if(!step)return 0;
    func_ov000_0215cd44(obj->context,step,target,stage,effects,obj->action->flag!=0);
-   AppendToChainAndIncCount0215ffc4(obj->action,step,0);
+   func_ov000_0215ffc4(obj->action,step,0);
    ++*((unsigned char*)obj->context+0x8e02);
    obj->changed=1;
-   AddEntryAndIncrementCount0215a88c(obj->context,step,message);
+   func_ov000_0215a88c(obj->context,step,message);
   }
-  SetFlag0x800000AndByte0x24_02088220(target->currentStats_,3);
+  func_02088220(target->currentStats_,3);
   }
   if(obj->mode || original>=3){
    void* last=func_ov000_0215e958(obj->context);
    if(!last)return 0;
-   ResetAndSetFlag0x1000000_02088150(target->currentStats_);
-   AddEntryAndIncrementCount0215a88c(obj->context,last,0x34);
+   func_02088150(target->currentStats_);
+   func_ov000_0215a88c(obj->context,last,0x34);
    func_ov000_02159eac(obj->context,&effects,7);
    func_ov000_0215cd44(obj->context,last,target,4,effects,obj->action->flag!=0);
-   AppendToChainAndIncCount0215ffc4(obj->action,last,0);
+   func_ov000_0215ffc4(obj->action,last,0);
    ++*((unsigned char*)obj->context+0x8e02);
    obj->changed=1;
    if(params->field4.code==0x20b)obj->action->other|=2;

@@ -6,7 +6,7 @@
 struct Req0223883c { char* path; };
 
 extern void* data_ov031_02290d14;
-int ComputeReadAheadSize_021d9e1c(NitroVM* vm);
+extern "C" int func_ov027_021d9e1c(NitroVM* vm);
 extern "C" int func_ov027_021d9e9c(NitroVM* vm, void* val, unsigned int size);
 extern "C" int func_ov027_021da38c(Req0223883c* req, void* val);
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov031_0223883c(Req0223883c* req) {
 		vmPtr = &vm;
 	}
 
-	if (ComputeReadAheadSize_021d9e1c(vmPtr) != 0) {
+	if (func_ov027_021d9e1c(vmPtr) != 0) {
 		*(void**)((char*)data_ov031_02290d14 + 0x1b000 + 0x144) = (char*)data_ov031_02290d14 + 0x2c;
 		void* val = *(void**)((char*)data_ov031_02290d14 + 0x1b000 + 0x144);
 		if (val != NULL) {

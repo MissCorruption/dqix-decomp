@@ -26,8 +26,8 @@ struct EntryList_1f170 {
     int count;
 };
 
-void AppendElementCapped0201f0f0(struct List0201f0f0*, struct Elem0201f0f0*);
-struct Entry_1f170* FindEntryBySignedId_0201f170(struct EntryList_1f170*, int);
+extern "C" void func_0201f0f0(struct List0201f0f0*, struct Elem0201f0f0*);
+extern "C" struct Entry_1f170* func_0201f170(struct EntryList_1f170*, int);
 
 struct Container0201ec00 {
     struct Entry_1f170* f0;
@@ -59,7 +59,7 @@ extern "C" ARM int func_0201ec00(Script::Parameter* params, int count) {
         e.f3 = params->ToInt();
     }
     e.f8 = 0;
-    AppendElementCapped0201f0f0(data_020fdc40.list, &e);
-    data_020fdc40.f0 = FindEntryBySignedId_0201f170((struct EntryList_1f170*)data_020fdc40.list, e.f0);
+    func_0201f0f0(data_020fdc40.list, &e);
+    data_020fdc40.f0 = func_0201f170((struct EntryList_1f170*)data_020fdc40.list, e.f0);
     return 1;
 }

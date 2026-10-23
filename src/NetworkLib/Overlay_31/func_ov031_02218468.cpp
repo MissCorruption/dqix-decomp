@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-int Setup_022187a4(char* obj, void* out, int len);
-int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
+extern "C" int func_ov031_022187a4(char* obj, void* out, int len);
+extern "C" int func_020c7170(char* destination, unsigned long capacity, const char* format, ...);
 
 struct Ctx02218468 {
     char* begin;
@@ -26,11 +26,11 @@ extern "C" ARM int func_ov031_02218468(char* obj) {
     unsigned int total = lenA + ((lenFmt - 4) + lenB);
     total = total + 0x400;
 
-    if (Setup_022187a4(obj, obj + 0x1f8 + 0x1800, total) != 1) {
+    if (func_ov031_022187a4(obj, obj + 0x1f8 + 0x1800, total) != 1) {
         return 1;
     }
 
-    int written = VariadicForward020c7170(ctx->current, ctx->capacity, fmt,
+    int written = func_020c7170(ctx->current, ctx->capacity, fmt,
         *(char**)(obj + 0x1128), *(char**)(obj + 0x1124));
     ctx->current = ctx->current + written;
     return 0;

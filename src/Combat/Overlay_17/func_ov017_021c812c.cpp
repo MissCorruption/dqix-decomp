@@ -3,11 +3,11 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-void* GetData02100044_0202ae24(void);
-ARM void* GetField6b0_021b8470(void* obj);
+extern "C" void* func_0202ae24(void);
+extern "C" ARM void* func_ov017_021b8470(void* obj);
 extern "C" int func_ov000_0215e9fc(void* obj, short* buf, int max, int start);
 extern "C" int func_ov000_0215eb1c(void* obj, short* buf, int max, int start);
-int GetSubstructByte0x1c_020493a4(unsigned char* obj);
+extern "C" int func_020493a4(unsigned char* obj);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct FieldsMsg021c812c {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char mode, int flag) {
 #endif
     GameState* bs = GameState::GetInstance();
     char* base = (char*)GetGameResources();
-    void* data = GetData02100044_0202ae24();
+    void* data = func_0202ae24();
 
     Whole021c812c msg;
     memset(&msg, 0, sizeof(msg));
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char mode, int flag) {
         for (int i = 0; i < 8; i++) {
             fp->monsters[i] = 0xff;
         }
-        void* obj = GetField6b0_021b8470(*(void**)(base + 0x3000 + regionalOffset));
+        void* obj = func_ov017_021b8470(*(void**)(base + 0x3000 + regionalOffset));
         if (obj != NULL) {
             short buf[8];
             int n = func_ov000_0215e9fc(obj, buf, 8, 0x10);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char mode, int flag) {
                 GameObject* c = bs->GetCombatantByIndex(buf[i]);
                 if (c != NULL) {
                     int idx = c->obj3D_.unknown_4_;
-                    fp->party[idx] = GetSubstructByte0x1c_020493a4((unsigned char*)c);
+                    fp->party[idx] = func_020493a4((unsigned char*)c);
                 }
             }
             n = func_ov000_0215eb1c(obj, buf, 8, 0x10);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char mode, int flag) {
                 GameObject* c = bs->GetCombatantByIndex(buf[i]);
                 if (c != NULL) {
                     int idx = c->obj3D_.unknown_4_ - 0xc0;
-                    fp->monsters[idx] = GetSubstructByte0x1c_020493a4((unsigned char*)c);
+                    fp->monsters[idx] = func_020493a4((unsigned char*)c);
                 }
             }
         }

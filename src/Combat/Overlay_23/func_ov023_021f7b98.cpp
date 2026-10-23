@@ -19,18 +19,18 @@ struct List0204af64 {
     void SetLo(unsigned char v) { b1c_lo = v; }
     void SetHi(unsigned char v) { b1c_hi = v; }
 };
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void func_0204af64(struct List0204af64* obj);
 
 struct ActiveEntry02046900;
-int CountActiveEntries(struct ActiveEntry02046900* entry);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
 
 struct Rec020467f0;
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
 
-void DispatchByTag0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* obj, char* str);
 
 struct SelfTag0204b3a0;
-void DispatchByTagLookup0204b3a0(struct SelfTag0204b3a0* self, char* str);
+extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
 
 struct Obj021f7b98 {
 #if defined(jpn)
@@ -50,17 +50,17 @@ extern "C" ARM void func_ov023_021f7b98(struct Obj021f7b98* self, void* keyObj, 
     if (entry == 0 || entryLength == 0) {
         return;
     }
-    int count = CountActiveEntries((struct ActiveEntry02046900*)entry);
+    int count = func_02046900((struct ActiveEntry02046900*)entry);
     for (int i = 0; i < count; i++) {
-        char* rec = (char*)FindRecordByIndex(entry, i, &rp, &size);
+        char* rec = (char*)func_020467f0(entry, i, &rp, &size);
         if (rec) {
-            ResetList0204af64(&list);
+            func_0204af64(&list);
             list.SetLo(self->list.GetLo());
             list.SetHi(self->list.GetHi());
             if (useTag) {
-                DispatchByTag0204b2e0(&list, rec);
+                func_0204b2e0(&list, rec);
             } else {
-                DispatchByTagLookup0204b3a0((struct SelfTag0204b3a0*)&list, rec);
+                func_0204b3a0((struct SelfTag0204b3a0*)&list, rec);
             }
         }
     }

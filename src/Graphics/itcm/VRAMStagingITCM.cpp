@@ -26,11 +26,11 @@
 extern "C"
 {
     void* func_0202ae18();
-    void* _Z24GetData02100044_0202ae24v();
+    void* func_0202ae24();
     void func_0202b2f0(void*);
     void func_0205e57c(void*);
 
-    int _Z24GetByte0214e4a0_020d8704v();
+    int func_020d8704();
 }
 
 extern VRAMStagingManager::CommonVRAMRegionTaskSet g_vramStagingRegionalTaskSets[10];
@@ -486,9 +486,9 @@ void VRAMStagingManager::SendReadyDataToVRAM()
     int bVar1;
     int canOverrideCopyLimits = (DATA_027fffa8 & 0x8000) >> 15;
 
-    bVar1 = frameBufferIndex_ != _Z24GetByte0214e4a0_020d8704v() || canOverrideCopyLimits != 0;
+    bVar1 = frameBufferIndex_ != func_020d8704() || canOverrideCopyLimits != 0;
     if (bVar1)
-        frameBufferIndex_ = _Z24GetByte0214e4a0_020d8704v();
+        frameBufferIndex_ = func_020d8704();
 
     unsigned int queueHead;
     queueHead = queueFront_;
@@ -649,7 +649,7 @@ void VRAMStagingManager::SendReadyDataToVRAM()
     }
 
     void* unknownPtr1 = func_0202ae18();
-    void* unknownPtr2 = _Z24GetData02100044_0202ae24v();
+    void* unknownPtr2 = func_0202ae24();
     func_0202b2f0(unknownPtr1);
     func_0205e57c(unknownPtr2);
 

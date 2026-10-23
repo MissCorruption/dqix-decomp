@@ -15,22 +15,22 @@
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
-void* GetFieldIfFlag4_020100f8(char* obj);
+extern "C" void* func_020100f8(char* obj);
 
 struct PointerField32c_ffc0
 {
     char padding0[0x32c];
     void* field_0x32c;
 };
-void* GetPointerAt0x32c_0200ffc0(struct PointerField32c_ffc0* obj);
+extern "C" void* func_0200ffc0(struct PointerField32c_ffc0* obj);
 
-void* GetField0x3f8Address_0200fd0c(GameState*);
+extern "C" void* func_0200fd0c(GameState*);
 
 extern "C" void func_020da77c(void* target, int type, void* msg);
 
-void SetField0x21c_020a2770(void* obj, short value);
+extern "C" void func_020a2770(void* obj, short value);
 
-void StoreVec3AtField0x50_0203db34(unsigned char* obj, int a, int b, int c);
+extern "C" void func_0203db34(unsigned char* obj, int a, int b, int c);
 
 extern "C" int func_0202c508(void* obj);
 extern "C" int func_0202c540(void* obj);
@@ -38,26 +38,26 @@ extern "C" int func_0202c540(void* obj);
 extern "C" void func_ov017_021d1a18(int a, short b, short c, unsigned char d);
 
 struct Obj02033874;
-void SetVecYFromValue02033874(struct Obj02033874* obj, int arg);
+extern "C" void func_02033874(struct Obj02033874* obj, int arg);
 
 extern "C" void* func_0201b678(void* savedEvent, void* ptr);
 struct TerrainCtx02018fbc;
 extern "C" int func_02018fbc(TerrainCtx02018fbc*, Vector3fix*);
 extern "C" void func_ov017_0219c598(int* srcVec3, short* srcAngle, int forceFlag);
 
-void* FindNodeByField0x2c0201b754(void* obj, int key);
-void ClearCombatantSlot_0200fd48(GameState*, int);
+extern "C" void* func_0201b754(void* obj, int key);
+extern "C" void func_0200fd48(GameState*, int);
 
 struct Obj0201b600;
 struct Elem0201b600;
 struct Struct02013380;
-struct Elem0201b600* FindElemByKeys(Obj0201b600*, int, unsigned short);
-void SetFlag0x40AndToggle0x4(struct Struct02013380* obj, int unused, int clear4);
-void ApplyElementFlags0201b8c8(struct Obj0201b600* obj, int a1, int a2, int a3);
+extern "C" struct Elem0201b600* func_0201b600(Obj0201b600*, int, unsigned short);
+extern "C" void func_02013380(struct Struct02013380* obj, int unused, int clear4);
+extern "C" void func_0201b8c8(struct Obj0201b600* obj, int a1, int a2, int a3);
 
 extern "C" void func_020da244(void* sb);
 
-void SetVec3At0x0020a6aa4(Vector3i* obj, int x, int y, int z);
+extern "C" void func_020a6aa4(Vector3i* obj, int x, int y, int z);
 
 struct EventDispatcher020a6aac;
 extern EventDispatcher020a6aac data_ov017_021d82fc;
@@ -120,10 +120,10 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
     LightingManager::GetInstance();
     void* events = func_0202ae18();
     func_0205ec34();
-    EventController020a6aac* controller = (EventController020a6aac*)GetFieldIfFlag4_020100f8((char*)state);
-    ActorView020a6aac* actor = (ActorView020a6aac*)GetPointerAt0x32c_0200ffc0((struct PointerField32c_ffc0*)state);
+    EventController020a6aac* controller = (EventController020a6aac*)func_020100f8((char*)state);
+    ActorView020a6aac* actor = (ActorView020a6aac*)func_0200ffc0((struct PointerField32c_ffc0*)state);
     GameObject* unknown = state->GetUnknownGameObject();
-    MovementView020a6aac* movement = (MovementView020a6aac*)GetField0x3f8Address_0200fd0c(state);
+    MovementView020a6aac* movement = (MovementView020a6aac*)func_0200fd0c(state);
 
     if ((unsigned int)(eventCode - 0x170c) <= 3) {
         controller->transitionActive = 1;
@@ -134,7 +134,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
     }
 
     if (eventCode == 0x2710) {
-        MovementView020a6aac* movementState = (MovementView020a6aac*)GetField0x3f8Address_0200fd0c(state);
+        MovementView020a6aac* movementState = (MovementView020a6aac*)func_0200fd0c(state);
         int flagMatch = 0;
         if (movementState->eventId == 0x25f1)
         {
@@ -150,7 +150,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
             local.id = 0xc9;
             func_020da77c(&data_ov017_021d82fc, 1, &local);
         }
-        SetField0x21c_020a2770(controller, 0xc9);
+        func_020a2770(controller, 0xc9);
         actor->object.DisableFlag(0x100);
         actor->object.MakeVisible();
         actor->scripted = 1;
@@ -161,7 +161,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
         saved = savedEvent->GetSavedActorState();
         actor->secondaryPosition = saved->position;
         int savedRotationY = savedEvent->savedActor_.rotationY;
-        StoreVec3AtField0x50_0203db34((unsigned char*)actor, 0, savedRotationY, 0);
+        func_0203db34((unsigned char*)actor, 0, savedRotationY, 0);
         if (func_0202c508(events) != 0 && flagMatch == 0) {
             savedEvent->savedActor_.active = 1;
             func_ov017_021d1a18(1, -1, 1, 0);
@@ -170,7 +170,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
             actor->object.position_.x = 0x19000;
             actor->object.position_.y = 0x199;
             actor->object.position_.z = 0x38ccc;
-            SetVecYFromValue02033874((struct Obj02033874*)actor, 0);
+            func_02033874((struct Obj02033874*)actor, 0);
         }
     } else if (eventCode == 0x2774) {
         actor->scripted = 0;
@@ -190,13 +190,13 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
                     spawnPosition.y = func_02018fbc((TerrainCtx02018fbc*)savedEvent, &spawnPosition);
                     if (movement->busy == 0) {
                         unknown->obj3D_.position_ = spawnPosition;
-                        StoreVec3AtField0x50_0203db34((unsigned char*)unknown, 0, node1->height, 0);
+                        func_0203db34((unsigned char*)unknown, 0, node1->height, 0);
                         func_ov017_0219c598(&spawnPosition.x, &node1->height, 0);
                     }
                     savedEvent->savedActor_.nodeId = node1->id;
                     savedEvent->savedActor_.zoneId = (unsigned short)eventCode;
                 }
-                SetField0x21c_020a2770(controller, unknown->obj3D_.unknown_4_);
+                func_020a2770(controller, unknown->obj3D_.unknown_4_);
                 ClearFlags04((GameResources*)obj, 0x10004);
                 savedEvent->savedActor_.active = 0;
                 short savedEventId = (short)savedEvent->savedActor_.zoneId;
@@ -204,7 +204,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
                 func_ov017_021d1a18(savedEventId, savedNodeId, 0, 0);
             } else if (previousCode == 0x170c) {
                 short savedNodeId = savedEvent->savedActor_.nodeId;
-                EventNode020a6aac* node2 = (EventNode020a6aac*)FindNodeByField0x2c0201b754(savedEvent, savedNodeId);
+                EventNode020a6aac* node2 = (EventNode020a6aac*)func_0201b754(savedEvent, savedNodeId);
                 if (node2 != 0) {
                     Vector3i spawnPosition = node2->spawnPosition;
                     spawnPosition.y = func_02018fbc((TerrainCtx02018fbc*)savedEvent, &spawnPosition);
@@ -213,18 +213,18 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
                         func_ov017_0219c598(&spawnPosition.x, &node2->height, 0);
                     }
                 }
-                SetField0x21c_020a2770(controller, unknown->obj3D_.unknown_4_);
+                func_020a2770(controller, unknown->obj3D_.unknown_4_);
                 ClearFlags04((GameResources*)obj, 0x10004);
             }
             unsigned short savedEventId = savedEvent->savedActor_.zoneId;
             if (eventCode == savedEventId) {
                 short savedNodeId = savedEvent->savedActor_.nodeId;
-                EventNode020a6aac* node3 = (EventNode020a6aac*)FindNodeByField0x2c0201b754(savedEvent, savedNodeId);
+                EventNode020a6aac* node3 = (EventNode020a6aac*)func_0201b754(savedEvent, savedNodeId);
                 if (node3 != 0) {
                     actor->object.EnableFlag(0x100);
                     actor->object.position_ = node3->position;
                     actor->secondaryPosition = node3->position;
-                    SetVecYFromValue02033874((struct Obj02033874*)actor, node3->angle);
+                    func_02033874((struct Obj02033874*)actor, node3->angle);
                     Vector3i savedPosition = node3->savedPosition;
                     savedEvent->savedActor_.position = savedPosition;
                 }
@@ -236,26 +236,26 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
     } else if (eventCode == 0x170c) {
         if (previousCode == 0x2710) {
             GameObject* currentObject = state->GetUnknownGameObject();
-            SetField0x21c_020a2770(controller, currentObject->obj3D_.unknown_4_);
+            func_020a2770(controller, currentObject->obj3D_.unknown_4_);
             ClearFlags04((GameResources*)obj, 0x10004);
-            ClearCombatantSlot_0200fd48(state, 0xc9);
+            func_0200fd48(state, 0xc9);
             if (func_0202c540(events) != 0) {
                 if (savedEvent->savedActor_.active == 0) {
-                    ApplyElementFlags0201b8c8((struct Obj0201b600*)savedEvent, 0, 1, 0);
+                    func_0201b8c8((struct Obj0201b600*)savedEvent, 0, 1, 0);
                 } else {
-                    ApplyElementFlags0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
+                    func_0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
                 }
             } else {
-                ApplyElementFlags0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
+                func_0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
                 savedEvent->savedActor_.active = 1;
                 func_ov017_021d1a18(1, -1, 1, 0);
             }
         } else {
             if (savedEvent->savedActor_.active != 0) {
-                ApplyElementFlags0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
+                func_0201b8c8((struct Obj0201b600*)savedEvent, 1, 0, 1);
                 func_ov017_021d1a18(1, -1, 1, 0);
             } else {
-                ApplyElementFlags0201b8c8((struct Obj0201b600*)savedEvent, 0, 1, 0);
+                func_0201b8c8((struct Obj0201b600*)savedEvent, 0, 1, 0);
                 short savedEventId = (short)savedEvent->savedActor_.zoneId;
                 short savedNodeId = savedEvent->savedActor_.nodeId;
                 func_ov017_021d1a18(savedEventId, savedNodeId, 0, 0);
@@ -268,58 +268,58 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
             Vector3i homePosition = data_020e909c;
             short angle570 = 0x570;
             currentObject->obj3D_.position_ = homePosition;
-            SetVecYFromValue02033874((struct Obj02033874*)currentObject, angle570);
+            func_02033874((struct Obj02033874*)currentObject, angle570);
             func_ov017_0219c598(&homePosition.x, &angle570, 0);
             savedState->savedActor_.active = 0;
             func_ov017_021d1a18((short)eventCode, -1, 0, 0);
             savedState->savedActor_.nodeId = 0;
             savedState->savedActor_.zoneId = (unsigned short)eventCode;
             short objectId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
-            SetField0x21c_020a2770(controller, objectId);
+            func_020a2770(controller, objectId);
             ClearFlags04((GameResources*)obj, 0x10004);
-            struct Elem0201b600* firstSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 4);
+            struct Elem0201b600* firstSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 4);
             if (firstSlot != 0)
             {
-                SetFlag0x40AndToggle0x4((struct Struct02013380*)firstSlot, 0, 1);
+                func_02013380((struct Struct02013380*)firstSlot, 0, 1);
             }
-            struct Elem0201b600* secondSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 0x28);
+            struct Elem0201b600* secondSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 0x28);
             if (secondSlot != 0)
             {
-                SetFlag0x40AndToggle0x4((struct Struct02013380*)secondSlot, 0, 1);
+                func_02013380((struct Struct02013380*)secondSlot, 0, 1);
             }
         } else {
             unsigned short savedEventId = savedState->savedActor_.zoneId;
             if (savedEventId == 0x76c) {
-                struct Elem0201b600* firstSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 4);
+                struct Elem0201b600* firstSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 4);
                 if (firstSlot != 0)
                 {
-                    SetFlag0x40AndToggle0x4((struct Struct02013380*)firstSlot, 0, 1);
+                    func_02013380((struct Struct02013380*)firstSlot, 0, 1);
                 }
-                struct Elem0201b600* secondSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 0x28);
+                struct Elem0201b600* secondSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 0x28);
                 if (secondSlot != 0)
                 {
-                    SetFlag0x40AndToggle0x4((struct Struct02013380*)secondSlot, 0, 1);
+                    func_02013380((struct Struct02013380*)secondSlot, 0, 1);
                 }
             } else {
-                struct Elem0201b600* firstSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 4);
+                struct Elem0201b600* firstSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 4);
                 if (firstSlot != 0)
                 {
-                    SetFlag0x40AndToggle0x4((struct Struct02013380*)firstSlot, 0, 0);
+                    func_02013380((struct Struct02013380*)firstSlot, 0, 0);
                 }
-                struct Elem0201b600* secondSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 0x28);
+                struct Elem0201b600* secondSlot = func_0201b600((struct Obj0201b600*)savedState, 0, 0x28);
                 if (secondSlot != 0)
                 {
-                    SetFlag0x40AndToggle0x4((struct Struct02013380*)secondSlot, 0, 0);
+                    func_02013380((struct Struct02013380*)secondSlot, 0, 0);
                 }
             }
         }
-        ClearCombatantSlot_0200fd48(state, 0xc9);
+        func_0200fd48(state, 0xc9);
     } else {
         if (previousCode == 0x2710) {
             ClearFlags04((GameResources*)obj, 0x10004);
-            ClearCombatantSlot_0200fd48(state, 0xc9);
+            func_0200fd48(state, 0xc9);
             short actorId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
-            SetField0x21c_020a2770(controller, actorId);
+            func_020a2770(controller, actorId);
             short savedEventId = (short)savedEvent->savedActor_.zoneId;
             short savedNodeId = savedEvent->savedActor_.nodeId;
             unsigned char flag2788 = savedEvent->savedActor_.active;
@@ -333,7 +333,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
 
     Vector3i fallbackPosition = savedEvent->savedActor_.position;
     if (fallbackPosition.x == 0 && fallbackPosition.z == 0) {
-        SetVec3At0x0020a6aa4(&fallbackPosition, 0x19000, 0x199, 0x38ccc);
+        func_020a6aa4(&fallbackPosition, 0x19000, 0x199, 0x38ccc);
         savedEvent->savedActor_.position = fallbackPosition;
     }
 }

@@ -95,13 +95,13 @@ extern "C" int func_ov023_021e63bc(ProfileEditor02187608* self);
 extern "C" void func_ov023_021e61f4(ProfileEditor02187608* self);
 extern "C" void func_ov012_02185bf0(ProfileEditor02187608* self, unsigned char item, int selected);
 extern "C" int func_0205df38(void* window, int item);
-void SetThreeElementFields_021e6378(void* self, int state, int year, int month, unsigned char day);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
+extern "C" void func_ov023_021e6378(void* self, int state, int year, int month, unsigned char day);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
 extern "C" int func_ov023_021e6de4(ProfileEditor02187608* self);
-int CalculateAge_02098f20(int year, int month, int day);
+extern "C" int func_02098f20(int year, int month, int day);
 #if defined(jpn)
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
+extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
 extern "C" void func_ov012_0218a054(ProfileEditor02187608* self);
 extern "C" void func_ov023_021e65a0(ProfileEditor02187608* self);
 extern "C" void func_ov023_021e65e8(ProfileEditor02187608* self);
@@ -109,8 +109,8 @@ extern "C" void func_ov012_0218bba0(ProfileEditor02187608* self, int animate, in
 #else
 extern "C" void func_ov012_0218adac(ProfileEditor02187608* self, int animate, int design, int keepPage);
 #endif
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20* self);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
+extern "C" int func_ov023_021e6e20(Obj021e6e20* self);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
 extern "C" void func_ov023_021e6e60(ProfileEditor02187608* self);
 extern "C" void func_ov012_0218943c(ProfileEditor02187608* self);
 
@@ -127,7 +127,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
 #if defined(jpn)
     if (self->step_ == 0)
     {
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         self->step_++;
     }
     else if (self->step_ == 1)
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
         self->year_ = GetProfile02187608(gameState)->year_;
         self->month_ = GetProfile02187608(gameState)->month_;
         self->day_ = GetProfile02187608(gameState)->day_;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->window_, 0, 2);
+        func_0205de24((Struct0205de24*)self->window_, 0, 2);
         func_ov023_021e6e60(self);
         func_ov012_0218a054(self);
         self->unk_13a0 = 0;
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
 #if defined(jpn)
             func_ov023_021e65a0(self);
 #else
-            SetThreeElementFields_021e6378(self, 8, 1, 0, 1);
+            func_ov023_021e6378(self, 8, 1, 0, 1);
 #endif
             changed = 1;
             canCancel = 0;
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
 #if defined(jpn)
             func_ov023_021e65e8(self);
 #else
-            SetThreeElementFields_021e6378(self, 9, 1, 1, 0);
+            func_ov023_021e6378(self, 9, 1, 1, 0);
 #endif
             changed = 1;
             canCancel = 0;
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
         if (changed)
         {
             func_ov012_02185bf0(self, self->state_, 1);
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
         }
 
         int close = 0;
@@ -251,12 +251,12 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
             GameState* gameState = GameState::GetInstance();
             Profile02187608* profile = GetProfile02187608(gameState);
             func_ov012_02185bf0(self, self->state_, 1);
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             profile->year_ = self->year_;
             profile->month_ = self->month_;
             profile->day_ = self->day_;
             profile->birthdayChosen_ = 1;
-            profile->unk_4_0 = CalculateAge_02098f20(self->year_, self->month_, self->day_);
+            profile->unk_4_0 = func_02098f20(self->year_, self->month_, self->day_);
 #if defined(jpn)
             func_ov012_0218bba0(self, 0, -1);
 #else
@@ -265,13 +265,13 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
             self->state_ = 6;
             self->step_ = 0;
         }
-        else if (TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)self) && canCancel)
+        else if (func_ov023_021e6e20((Obj021e6e20*)self) && canCancel)
         {
             close = 1;
         }
         if (!close)
             return;
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         self->step_++;
         return;
     }

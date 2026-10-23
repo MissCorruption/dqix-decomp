@@ -7,19 +7,19 @@ struct Struct_0205bcdc;
 struct Struct_0205def8;
 struct Obj_0205da38;
 struct Obj0205eaa0;
-int GetActiveScaledSum0205d794(Struct_0205c570*);
+extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" int abs(int);
-void SetIndexIfValid0205bcdc(Struct_0205bcdc*, int);
+extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
 extern "C" void func_0205bb04(void*, int);
-void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205def8(Struct_0205def8*, int, int);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 #if defined(jpn)
 extern "C" void func_ov000_02171e60(void*);
 #else
 extern "C" void func_ov000_02171e60(void*);
 #endif
-int CheckFlagsOrField_0217ab48_0217ab48(void*);
+extern "C" int func_ov000_0217ab48(void*);
 extern "C" void func_ov000_0217629c(void*);
 extern "C" void func_ov000_0217ab8c(void*, int, int);
 extern "C" void func_ov000_02176e3c(void*, void*, int, int, int, int);
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov000_0217b8a4(Menu0217b8a4* obj, int arg1, int arg2) {
     data_ov000_02184294.context->flags |= 0x100;
     MenuWindow0217b8a4* window = obj->window;
     signed char previous = obj->cursor;
-    signed char cursor = GetActiveScaledSum0205d794((Struct_0205c570*)obj->window);
+    signed char cursor = func_0205d794((Struct_0205c570*)obj->window);
     row = window->row;
     signed char originalCursor = cursor;
     signed char oldColumn = obj->cursor & 3;
@@ -93,24 +93,24 @@ extern "C" ARM int func_ov000_0217b8a4(Menu0217b8a4* obj, int arg1, int arg2) {
         cursor--;
     }
     if (originalCursor != cursor) {
-        SetIndexIfValid0205bcdc((Struct_0205bcdc*)window->selection, cursor);
+        func_0205bcdc((Struct_0205bcdc*)window->selection, cursor);
         func_0205bb04(window->controls, cursor);
     }
     obj->cursor = cursor;
     obj->selectedCount = -1;
     MenuContext0217b8a4* context = data_ov000_02184294.context;
-    SetElementFlag0x20ByKey0205def8((Struct_0205def8*)context->list, 1, 0x24);
+    func_0205def8((Struct_0205def8*)context->list, 1, 0x24);
     if (previous != cursor) return -1;
     int flag = g_keyManager.TestKeysPressed(0x601);
-    int active = (flag | IsActiveElementFlag2Set0205da38((Obj_0205da38*)obj->window, 0x14)) != 0;
+    int active = (flag | func_0205da38((Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field_444) {
         MenuItem0217b8a4* item = obj->items[cursor];
         if (!item) return -1;
         short count = item->count;
         if (count <= 0) return -1;
         obj->selectedCount = count;
-        SetElementFlag0x20ByKey0205def8((Struct_0205def8*)context->list, 0, 0x24);
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205def8((Struct_0205def8*)context->list, 0, 0x24);
+        func_0205eaa0(&data_02108760, 1, 0);
 #if defined(jpn)
         func_ov000_02171e60(obj);
 #else
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov000_0217b8a4(Menu0217b8a4* obj, int arg1, int arg2) {
         if (obj->selections[obj->depth] != 100) obj->window->state = 0x11;
         return obj->selections[obj->depth];
     }
-    if (CheckFlagsOrField_0217ab48_0217ab48(obj)) {
+    if (func_ov000_0217ab48(obj)) {
         func_ov000_0217629c(obj);
         obj->selections[obj->depth] = 0;
         obj->depth--;

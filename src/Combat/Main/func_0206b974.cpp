@@ -28,16 +28,16 @@ public:
 };
 
 extern "C" int func_02001aec(const void* lhs, const void* rhs, unsigned int length);
-int FindEntryIndexByKey020424e4(int, int);
+extern "C" int func_020424e4(int, int);
 
-char* FindUnescapedAngleBracket_020424ac(char*);
-FontIndexFile::Glyph* GetBoundedEntry020425b4(int glyph, int fontType);
-int LookupKeyValue020425e4(int leftGlyph, int rightGlyph, int fontType);
-int GetWordFromTable02042648(int fontType);
-int Dispatch02044420(void*, void*);
-bool IsHighByteFF02044494(void*, void*);
-int StringLength_020d2ff0(const char*);
-bool StringStartsWithCI020d85dc(const char* str, const char* initial);
+extern "C" char* func_020424ac(char*);
+extern "C" FontIndexFile::Glyph* func_020425b4(int glyph, int fontType);
+extern "C" int func_020425e4(int leftGlyph, int rightGlyph, int fontType);
+extern "C" int func_02042648(int fontType);
+extern "C" int func_02044420(void*, void*);
+extern "C" bool func_02044494(void*, void*);
+extern "C" int func_020d2ff0(const char*);
+extern "C" bool func_020d85dc(const char* str, const char* initial);
 
 struct Struct_020e7e04
 {
@@ -85,7 +85,7 @@ extern "C" ARM void func_0206b974(TextManager* self, bool arg2, char *input, cha
     bool leftAligned = true;
     bool iVar11 = 0;
 
-    unsigned char defaultSpacing = GetWordFromTable02042648(fontType);
+    unsigned char defaultSpacing = func_02042648(fontType);
 
     while (true)
     {
@@ -94,9 +94,9 @@ extern "C" ARM void func_0206b974(TextManager* self, bool arg2, char *input, cha
             break;
         unsigned short control;
         memcpy(&control, input, 2);
-        if (IsHighByteFF02044494(self, &control) && control != ControlWord_Unknown_ff19)
+        if (func_02044494(self, &control) && control != ControlWord_Unknown_ff19)
         {
-            int numControlWordBytes = (Dispatch02044420(self, &control) + 1) * 2;
+            int numControlWordBytes = (func_02044420(self, &control) + 1) * 2;
             memcpy(output, input, numControlWordBytes);
             input += numControlWordBytes;
             output += numControlWordBytes;
@@ -174,22 +174,22 @@ extern "C" ARM void func_0206b974(TextManager* self, bool arg2, char *input, cha
             }
         }
 
-        int nextGlyphIndex = FindEntryIndexByKey020424e4((int)input, fontType);
+        int nextGlyphIndex = func_020424e4((int)input, fontType);
         if (control == ControlWord_Unknown_ff19)
             nextGlyphIndex = -1;
         if (nextChar == '<' && nextGlyphIndex < 0)
         {
-            char* tagEnd = FindUnescapedAngleBracket_020424ac(input);
+            char* tagEnd = func_020424ac(input);
             if (tagEnd != NULL)
             {
                 char* tagInner = input + 1;
                 for (const NewlineCalculationTagProcessor* candidate = data_020e7ec4;
                     candidate->tag != NULL && candidate->proc != NULL; candidate++)
                 {
-                    if (!StringStartsWithCI020d85dc(tagInner, candidate->tag))
+                    if (!func_020d85dc(tagInner, candidate->tag))
                         continue;
 
-                    int procRet = candidate->proc(tagInner + StringLength_020d2ff0(candidate->tag), &local_2c, fontType, margin);
+                    int procRet = candidate->proc(tagInner + func_020d2ff0(candidate->tag), &local_2c, fontType, margin);
                     if (procRet != 1)
                     {
                         if (procRet == 2)
@@ -234,10 +234,10 @@ extern "C" ARM void func_0206b974(TextManager* self, bool arg2, char *input, cha
         }
         if (nextGlyphIndex >= 0)
         {
-            FontIndexFile::Glyph* glyph = GetBoundedEntry020425b4(nextGlyphIndex, fontType);
+            FontIndexFile::Glyph* glyph = func_020425b4(nextGlyphIndex, fontType);
             ioCopyLength = glyph->tagLength;
             unsigned char nextGlyphUC = nextGlyphIndex;
-            int kerning = LookupKeyValue020425e4(lastGlyphIndex, nextGlyphUC, fontType);
+            int kerning = func_020425e4(lastGlyphIndex, nextGlyphUC, fontType);
             lastGlyphIndex = nextGlyphUC;
             glyphSpacing = kerning + glyph->width;
 

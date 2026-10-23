@@ -33,9 +33,9 @@ struct PartyStatusPanel {
 };
 
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
 struct Container02080cc0;
-void SetEntryHighNibble0x13(Container02080cc0*, int, int);
+extern "C" void func_02080cc0(Container02080cc0*, int, int);
 extern "C" void func_020813ec(EntryList*, int);
 
 // USA: func_ov003_02158334
@@ -57,10 +57,10 @@ extern "C" ARM void func_ov003_02158334(PartyStatusPanel* self) {
 
     EntryList* entries = self->entries;
     for (unsigned char i = 0; i < self->memberCount; i++) {
-        Combatant* member = (Combatant*)GetCombatantWithFlag0x100_0200ff1c(gs, self->memberIds[i]);
+        Combatant* member = (Combatant*)func_0200ff1c(gs, self->memberIds[i]);
         if (member != NULL) {
             int color = 0xf;
-            SetEntryFirstField02080f8c((Container02080f8c*)entries, id, (int)member->profile->name);
+            func_02080f8c((Container02080f8c*)entries, id, (int)member->profile->name);
 
             int maxHP = member->profile->maxHP;
             float ratio;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov003_02158334(PartyStatusPanel* self) {
             if (ratio <= 0.08f) color = 0xb;
             if (member->status->flags & 1) color = 9;
 
-            SetEntryHighNibble0x13((Container02080cc0*)entries, id, color);
+            func_02080cc0((Container02080cc0*)entries, id, color);
         }
         id = (short)(id + 1);
     }

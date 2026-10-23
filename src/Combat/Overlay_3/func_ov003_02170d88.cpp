@@ -153,21 +153,21 @@ struct KeyArrayObj_02171f80;
 extern "C" void* func_0202ae18();
 struct Obj_0202aec0;
 extern "C" void func_0202aec0(Obj_0202aec0*);
-void* GetData02100044_0202ae24();
+extern "C" void* func_0202ae24();
 extern "C" void func_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
-void* ResetBuffer02052a10(char*);
-short* GetField150Ptr0x488_02052e2c(Field150Holder02052e2c*);
-int CopyOutBattleField0x7ac0_020ac0b4(void*);
-int UpdatePlayClocks020ac4f8(int);
-int GetFieldPercentOver307_020a0870(BattleRecordSnapshot*);
-int GetFieldPercentOver232_020a08a4(BattleRecordSnapshot*);
-int GetFieldPercentOver944_020a08d8(BattleRecordSnapshot*);
-int GetFieldPercentOver448_020a090c(BattleRecordSnapshot*);
-ProfileCharacterData02170d88* GetFieldAt0x150_02053c6c(unsigned char*);
-unsigned char NormalizeField5_0200fb08(Struct0200fb08*);
-unsigned char CopyToRegion0x6482IfDst_020119f8(char*, void*);
-void ClearUnmatchedKeys_02171f80(KeyArrayObj_02171f80*);
+extern "C" void* func_02052a10(char*);
+extern "C" short* func_02052e2c(Field150Holder02052e2c*);
+extern "C" int func_020ac0b4(void*);
+extern "C" int func_020ac4f8(int);
+extern "C" int func_020a0870(BattleRecordSnapshot*);
+extern "C" int func_020a08a4(BattleRecordSnapshot*);
+extern "C" int func_020a08d8(BattleRecordSnapshot*);
+extern "C" int func_020a090c(BattleRecordSnapshot*);
+extern "C" ProfileCharacterData02170d88* func_02053c6c(unsigned char*);
+extern "C" unsigned char func_0200fb08(Struct0200fb08*);
+extern "C" unsigned char func_020119f8(char*, void*);
+extern "C" void func_ov003_02171f80(KeyArrayObj_02171f80*);
 extern "C" void func_ov017_021b1d44(void*, int, int);
 extern const char* data_ov003_021805e4[5];
 extern const char* data_ov003_021805d0[5];
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     self->result = 0;
     Obj_0202aec0* searchState = static_cast<Obj_0202aec0*>(func_0202ae18());
     func_0202aec0(searchState);
-    void* searchData = GetData02100044_0202ae24();
+    void* searchData = func_0202ae24();
     func_0205e22c(searchData);
     GameState* state = GameState::GetInstance();
     GameObject* actorObject = state->GetProtagonist();
@@ -195,18 +195,18 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
 #if defined(jpn)
     strcpy(self->current.name.text, (const char*)actor->baseStats_);
 #else
-    strcpy(self->current.name.text, (const char*)ResetBuffer02052a10((char*)actor));
+    strcpy(self->current.name.text, (const char*)func_02052a10((char*)actor));
 #endif
     self->current.vocation = actor->data->vocation;
     self->current.level = actor->data->vocationLevels[actor->data->vocation];
     ProfileSaveState02170d88* saved = (ProfileSaveState02170d88*)state;
     memcpy(&self->current.settings, &saved->settings, 0x7c);
-    memcpy(&self->current.effects, GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)actor), 0x1c);
+    memcpy(&self->current.effects, func_02052e2c((Field150Holder02052e2c*)actor), 0x1c);
     VectorizedMemset(&self->current.record, 0, 0x18);
     ProfileRecord02170d88* output = &self->current.record;
     region = &saved->region;
     unsigned int counter = 0;
-    CopyOutBattleField0x7ac0_020ac0b4(&counter);
+    func_020ac0b4(&counter);
     unsigned int flag = 0;
     unsigned int vocationValue = 0;
     GameObject* protagonistObject = state->GetProtagonist();
@@ -216,7 +216,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
         flag = protagonist->data->flag;
         vocationValue = protagonist->data->vocationValues[vocation];
     }
-    UpdatePlayClocks020ac4f8(0);
+    func_020ac4f8(0);
 #if defined(jpn)
     ProfileSettings02170d88* settings = GetSettings02170d88(saved);
 #else
@@ -233,14 +233,14 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     output->fields.value9 = region->record.unknown08_24;
     output->fields.value10 = region->record.unknown0c_14;
     output->fields.value14 = region->record.unknown10_9;
-    output->fields.percent307 = (unsigned char)GetFieldPercentOver307_020a0870(&region->record);
-    output->fields.percent232 = (unsigned char)GetFieldPercentOver232_020a08a4(&region->record);
-    output->fields.percent944 = (unsigned char)GetFieldPercentOver944_020a08d8(&region->record);
-    output->fields.percent448 = (unsigned char)GetFieldPercentOver448_020a090c(&region->record);
+    output->fields.percent307 = (unsigned char)func_020a0870(&region->record);
+    output->fields.percent232 = (unsigned char)func_020a08a4(&region->record);
+    output->fields.percent944 = (unsigned char)func_020a08d8(&region->record);
+    output->fields.percent448 = (unsigned char)func_020a090c(&region->record);
     output->fields.profileValue = settings->fields.value19;
     output->fields.flag = (unsigned char)flag;
     output->fields.vocationValue = (unsigned char)vocationValue;
-    output->fields.unknown17 = GetFieldAt0x150_02053c6c((unsigned char*)protagonist)->unknown56a;
+    output->fields.unknown17 = func_02053c6c((unsigned char*)protagonist)->unknown56a;
 #if !defined(jpn)
     output->fields.captured = 1;
 #endif
@@ -248,7 +248,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     ProfileCode02170d88 code = saved->code;
     self->current.code = code;
 #if !defined(jpn)
-    unsigned char platformLanguage = NormalizeField5_0200fb08((Struct0200fb08*)state);
+    unsigned char platformLanguage = func_0200fb08((Struct0200fb08*)state);
     int language = 0;
     switch (platformLanguage) {
     case 2: language = 1; break;
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     self->sample.settings.fields.value19 = adjustedValue;
     sampleRecord->fields.profileValue = adjustedValue;
     TreasureMapMetadata map;
-    CopyToRegion0x6482IfDst_020119f8((char*)state, &map);
+    func_020119f8((char*)state, &map);
     if (map.GetMapType() != TreasureMapType_Invalid) {
         self->sample.hasMap = 1;
         self->sample.map.metadata.DiscoveryStateAndMapTypeAndUnknown = map.DiscoveryStateAndMapTypeAndUnknown;
@@ -308,7 +308,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
         memcpy(sampleMap->ClearedBy, name, 10);
     }
 #endif
-    ClearUnmatchedKeys_02171f80((KeyArrayObj_02171f80*)self);
+    func_ov003_02171f80((KeyArrayObj_02171f80*)self);
     self->active = 0;
     self->unknown738 = 0;
     self->progress = 0;

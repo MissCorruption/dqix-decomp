@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/MonsterDefinition.h"
 
-char* AllocateStringCopy020da150(SafeAllocator* allocator, const char* source);
+extern "C" char* func_020da150(SafeAllocator* allocator, const char* source);
 
 extern BinarySearchByComparatorStruct* data_02108d14;
 
@@ -36,12 +36,12 @@ extern "C" ARM void func_0206f230(struct BinarySearchByComparatorStruct* output,
         return;
     }
     wasRelocated = 0;
-    InitEntryListFromSource0206f170(&sourceTable, source, &wasRelocated, RelocateThreeFields_0206ef48);
+    func_0206f170(&sourceTable, source, &wasRelocated, func_0206ef48);
     selectedCount = 0;
     for (requestedId = requestedIds, request = 0; request < requestedCount; request++, requestedId++) {
         id = *requestedId;
-        if (BinarySearchByComparator_0206f470(&sourceTable.table, id,
-                                     GetShortAt0x8_0206ef40) != NULL) {
+        if (func_0206f470(&sourceTable.table, id,
+                                     func_0206ef40) != NULL) {
             insertion = selectedIds;
             isNew = true;
             for (position = 0; position < selectedCount; position++, insertion++) {
@@ -77,25 +77,25 @@ extern "C" ARM void func_0206f230(struct BinarySearchByComparatorStruct* output,
     copiedCount = 0;
     destination = output->arr;
     for (selectedId = selectedIds, selected = 0; selected < selectedCount; selected++, selectedId++) {
-        definition = (struct MonsterDefinition*)BinarySearchByComparator_0206f470(
-            &sourceTable.table, *selectedId, GetShortAt0x8_0206ef40);
+        definition = (struct MonsterDefinition*)func_0206f470(
+            &sourceTable.table, *selectedId, func_0206ef40);
         if (definition == NULL) {
             continue;
         }
         memcpy(destination, definition, sizeof(struct MonsterDefinition));
 #if defined(jpn)
-        destination->name = AllocateStringCopy020da150(allocator, definition->name);
+        destination->name = func_020da150(allocator, definition->name);
 #else
         if (textAllocator != NULL && storagePadding != NULL) {
-            destination->name = AllocateStringCopy020da150(textAllocator, definition->name);
-            destination->localizedText = AllocateStringCopy020da150(textAllocator, definition->localizedText);
+            destination->name = func_020da150(textAllocator, definition->name);
+            destination->localizedText = func_020da150(textAllocator, definition->localizedText);
             allocator->Allocate(storagePadding[selected]);
         } else {
-            destination->name = AllocateStringCopy020da150(allocator, definition->name);
-            destination->localizedText = AllocateStringCopy020da150(allocator, definition->localizedText);
+            destination->name = func_020da150(allocator, definition->name);
+            destination->localizedText = func_020da150(allocator, definition->localizedText);
         }
 #endif
-        destination->modelName = AllocateStringCopy020da150(allocator, definition->modelName);
+        destination->modelName = func_020da150(allocator, definition->modelName);
         destination++;
         copiedCount = (short)(copiedCount + 1);
     }

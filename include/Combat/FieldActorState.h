@@ -3,7 +3,7 @@
 #include "Combat/ObjectStateInitialization.h"
 
 // Shared prefix of the field actors initialized by func_02076a8c and updated
-// by TickActorAndDispatchPhase02076b58. The type name is part of the existing
+// by func_02076b58. The type name is part of the existing
 // dispatcher and member-function-table ABI.
 struct Obj02076b58 {
     ObjectStatePrefix base;
@@ -29,7 +29,7 @@ typedef char VerifyFieldActorTickOffset[offsetof(Obj02076b58, tickCount) == 0x15
 typedef char VerifyFieldActorPhaseTimeOffset[offsetof(Obj02076b58, phaseElapsedTime) == 0x154 ? 1 : -1];
 typedef char VerifyFieldActorPrefixSize[sizeof(Obj02076b58) == 0x158 ? 1 : -1];
 
-void TickActorAndDispatchPhase02076b58(Obj02076b58* actor);
+extern "C" void func_02076b58(Obj02076b58* actor);
 
 struct ShadowInfo;
 struct Attributes02078998;

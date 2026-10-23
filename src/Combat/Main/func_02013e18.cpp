@@ -14,17 +14,17 @@ enum { kFinalSubflag = 0x3bc };
 #include "Resource/Brightness.h"
 
 extern "C" {
-    int _Z33ApplyAndClearPendingEntry02013fb4P6Zone3D(void*);
-    int _ZN6Zone3D22UnpackMapAMDJ_020146fcEv(void*);
-    int _Z29AccumulateHandleStats0201498cPv(void*);
+    int func_02013fb4(void*);
+    int _ZN6Zone3D13func_020146fcEv(void*);
+    int func_0201498c(void*);
     int func_0201a600(void*);
     void func_02017a94(Zone3D*);
-    int _Z17IsInRange0201b5b0i(int);
-    int _Z22IsValueInRange0201b5d8i(int);
-    void _Z24Set3DClearColor_020c5588iiiii(int, int, int, int, int);
-    void _Z25NotifyActiveSlots02018f30Ph(unsigned char*);
-    void _Z28CollectMatchingElems020181fcPv(void*);
-    int _Z24GetFieldIfFlag4_020100f8Pc(char const*);
+    int func_0201b5b0(int);
+    int func_0201b5d8(int);
+    void func_020c5588(int, int, int, int, int);
+    void func_02018f30(unsigned char*);
+    void func_020181fc(void*);
+    int func_020100f8(char const*);
 }
 
 // USA: func_02013e18
@@ -33,29 +33,29 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
     if (zone->unknown_424_ == 0)
         return 1;
 
-    if (!_Z33ApplyAndClearPendingEntry02013fb4P6Zone3D(zone))
+    if (!func_02013fb4(zone))
         return 0;
 
-    if (!zone->UnpackMapAMBL_02014108())
+    if (!zone->func_02014108())
         return 0;
 
-    if (!zone->UnpackATS_AMBL_02014c04())
+    if (!zone->func_02014c04())
         return 0;
 
-    if (!_ZN6Zone3D22UnpackMapAMDJ_020146fcEv(zone))
+    if (!_ZN6Zone3D13func_020146fcEv(zone))
         return 0;
 
-    if (!_Z29AccumulateHandleStats0201498cPv(zone))
+    if (!func_0201498c(zone))
         return 0;
 
     int v = zone->pUnknownStruct_8_->unknown_0_;
 
-    if (_Z17IsInRange0201b5b0i(v))
+    if (func_0201b5b0(v))
     {
         func_02019728(zone, v % 20, 0, 0, 0);
         func_0201a600(zone);
     }
-    else if (_Z22IsValueInRange0201b5d8i(v))
+    else if (func_0201b5d8(v))
     {
         func_0201a600(zone);
     }
@@ -74,7 +74,7 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
     else
         color = zone->lighting_.advanced_.backgroundColor[idx];
 
-    _Z24Set3DClearColor_020c5588iiiii(color, 0x10, 0x7fff, 0, 0);
+    func_020c5588(color, 0x10, 0x7fff, 0, 0);
 
     GameResources* res = GetGameResources();
     int t = (unsigned int)((unsigned char*)zone->pUnknownStruct_8_)[0xe] << 24 >> 31;
@@ -83,9 +83,9 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
     else
         ClearFlags04(res, 0x800);
 
-    _Z25NotifyActiveSlots02018f30Ph((unsigned char*)zone);
-    _Z28CollectMatchingElems020181fcPv(zone);
-    (void)_Z24GetFieldIfFlag4_020100f8Pc((char const*)GameState::GetInstance());
+    func_02018f30((unsigned char*)zone);
+    func_020181fc(zone);
+    (void)func_020100f8((char const*)GameState::GetInstance());
 
     zone->unk_830[1] = (char)lm->timeOfDayIndex_;
     zone->unk_830[2] = 0;
@@ -93,7 +93,7 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
 
     unsigned char* sub = (unsigned char*)zone + 0x2000;
     sub[kFinalSubflag] = 1;
-    UpdateEntryFlagsForNodeList_02018ab8(zone);
+    func_02018ab8(zone);
     func_02017a94(zone);
     return 1;
 }

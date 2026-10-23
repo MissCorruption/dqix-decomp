@@ -17,27 +17,27 @@ struct State0207dfc8;
 extern "C" void* func_0202ae18(void);
 extern "C" void func_02012de8(void);
 
-void RunOverlayScript0216d1c4(int, StreamHeader*, int, int*);
-int CheckField0NonZero_0202b7d8(int* obj);
-void BlankFunction020d84f4(void);
-void* ResetObjectState02079a3c(void* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-int CheckField0x56bLowNibble(Obj02061bd8* obj);
-void CopyInternalFields0207df50(Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
-void FormatEffectStats02072c9c(int combatantId, char* buf);
-void ClearEightWords_0203dafc(Struct_203dafc* obj);
+extern "C" void func_ov000_0216d1c4(int, StreamHeader*, int, int*);
+extern "C" int func_0202b7d8(int* obj);
+extern "C" void func_020d84f4(void);
+extern "C" void* func_02079a3c(void* obj);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_02061bd8(Obj02061bd8* obj);
+extern "C" void func_0207df50(Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
+extern "C" void func_02072c9c(int combatantId, char* buf);
+extern "C" void func_0203dafc(Struct_203dafc* obj);
 extern "C" void func_02049c88(void* obj, void* state);
-void SetPtrFieldIfNonNull0x13c_ov000_02165480(void*, int);
+extern "C" void func_ov000_02165480(void*, int);
 struct CombatantData02164fac;
-CombatantData02164fac* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" CombatantData02164fac* func_02053c6c(unsigned char* obj);
 extern "C" void func_ov000_02166a94(void* work);
 #if defined(jpn)
 extern "C" void func_0207ab68(ActionDataTables* tables, SafeAllocator* allocator);
 #endif
-int GetFieldB08_0219e008(void* ov);
-void CopyState0207dfc8(State0207dfc8* src, State0207dfc8* dst);
+extern "C" int func_ov017_0219e008(void* ov);
+extern "C" void func_0207dfc8(State0207dfc8* src, State0207dfc8* dst);
 
 extern const char data_ov000_02183960[];
 extern const char data_ov000_02183976[];
@@ -138,10 +138,10 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
     SafeAllocator* allocator = GetAllocator38(res, 7);
     blocks = (Slot70*)res->unknown_2cc;
     allocator->Reset();
-    CopyInternalFields0207df50((Foo0207df50*)&blocks[7]);
+    func_0207df50((Foo0207df50*)&blocks[7]);
     BackgroundLoader::AddLockGlobal();
     func_02012de8();
-    ActionDataTables* table = GetData02108e10_020797dc();
+    ActionDataTables* table = func_020797dc();
 #if defined(jpn)
     func_0207ab68(table, allocator);
 #else
@@ -154,16 +154,16 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
         GetFileInNarc(data_0211e33c, data_ov000_02183976, &script, &scriptSize, 0);
         if (script != NULL) {
             func_02012de8();
-            RunOverlayScript0216d1c4(work->scriptOwner, (StreamHeader*)script, scriptSize, &work->scriptState);
+            func_ov000_0216d1c4(work->scriptOwner, (StreamHeader*)script, scriptSize, &work->scriptState);
         }
     }
-    if (CheckField0NonZero_0202b7d8(search)) {
-        BlankFunction020d84f4();
+    if (func_0202b7d8(search)) {
+        func_020d84f4();
     }
 
     unsigned char* buf = data_0211e33c;
     int capacity = 0x30000;
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
     const char* path = data_ov000_02183983;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine,
             path, buf, size, capacity, false, 0)) {
@@ -171,10 +171,10 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
         capacity -= size;
 
         for (int i = 0; i < 4; i++) {
-            if (!TestBitAt0x34_020a35e0(work->roster, i)) {
+            if (!func_020a35e0(work->roster, i)) {
                 continue;
             }
-            Combatant02164fac* c = (Combatant02164fac*)GetCombatantWithFlag0x100_0200ff1c(game, i);
+            Combatant02164fac* c = (Combatant02164fac*)func_0200ff1c(game, i);
             unsigned char* model;
             if (c == NULL || (model = c->model) == NULL) {
                 continue;
@@ -182,19 +182,19 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
 
             SafeAllocator* alloc;
             func_02012de8();
-            if (CheckField0x56bLowNibble((Obj02061bd8*)c)) {
+            if (func_02061bd8((Obj02061bd8*)c)) {
                 c->object.Destroy();
                 if (c->info != NULL) {
                     sprintf(name, data_ov000_0218399e, c->info[INFO_NAME_ID]);
                 }
                 alloc = (SafeAllocator*)(model + 4);
                 alloc->Reset();
-                CopyInternalFields0207df50((Foo0207df50*)(model + 0xcc));
-                RestorePairTables0207df90((char*)(model + 0xcc));
+                func_0207df50((Foo0207df50*)(model + 0xcc));
+                func_0207df90((char*)(model + 0xcc));
                 LoadFileIntoMemory(name, data_0211e33c, &size);
                 buf = data_0211e33c;
             } else {
-                FormatEffectStats02072c9c(i, statsName);
+                func_02072c9c(i, statsName);
                 if (c->data->flags.male == 1) {
                     statsName[0] = 'w';
                 }
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
             if (size != 0) {
                 c->object.RemoveAllAnimationPackages();
                 ((SafeAllocator*)(model + 0x52c))->Reset();
-                ClearEightWords_0203dafc((Struct_203dafc*)&info);
+                func_0203dafc((Struct_203dafc*)&info);
                 info.allocator = alloc;
                 info.unk_10 = 1;
                 info.packageID = 0;
@@ -217,8 +217,8 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
 
             func_02049c88(c, &work->models[i]);
             func_02012de8();
-            if (CheckField0x56bLowNibble((Obj02061bd8*)c)) {
-                BackupPairTables0207dfac((char*)(model + 0xcc));
+            if (func_02061bd8((Obj02061bd8*)c)) {
+                func_0207dfac((char*)(model + 0xcc));
                 if (c->info != NULL) {
                     sprintf(name, data_ov000_021839c0, c->info[INFO_NAME_ID]);
                 }
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
             if (size != 0) {
                 c->object.RemoveAnimationPackageByID(1);
                 ((SafeAllocator*)(model + 0x540))->Reset();
-                ClearEightWords_0203dafc((Struct_203dafc*)&info2);
+                func_0203dafc((Struct_203dafc*)&info2);
                 info2.unk_10 = 1;
                 info2.packageID = 1;
                 info2.allocator = (SafeAllocator*)(model + 0x540);
@@ -241,21 +241,21 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
                 info2.fileData = buf;
                 c->object.LoadFromCCHROrCMOTArchive(&info2, NULL);
                 if (FindFilesInNarcBySubstring(buf, data_ov000_021839e2, &script2, &scriptSize2, 1)) {
-                    RunOverlayScript0216d1c4((int)(model + 0x540), (StreamHeader*)script2, scriptSize2, &scriptState);
-                    SetPtrFieldIfNonNull0x13c_ov000_02165480(c, scriptState);
+                    func_ov000_0216d1c4((int)(model + 0x540), (StreamHeader*)script2, scriptSize2, &scriptState);
+                    func_ov000_02165480(c, scriptState);
                 }
             }
 
             c->flags |= 0x20;
             c->object.MaybeSetRegularAnimation(data_ov000_021839e8, 0);
-            if (CheckField0x56bLowNibble((Obj02061bd8*)c)) {
-                CombatantData02164fac* data = GetFieldAt0x150_02053c6c((unsigned char*)c);
+            if (func_02061bd8((Obj02061bd8*)c)) {
+                CombatantData02164fac* data = func_02053c6c((unsigned char*)c);
                 if (data != NULL) {
                     data->phase = 0;
                 }
             }
-            if (CheckField0NonZero_0202b7d8(search)) {
-                BlankFunction020d84f4();
+            if (func_0202b7d8(search)) {
+                func_020d84f4();
             }
         }
     }
@@ -272,10 +272,10 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
     if (mem != NULL) {
         work->effectAllocator.CreateTypeA(mem, effectSize);
     }
-    if (GetFieldB08_0219e008(res) == 0) {
-        CopyState0207dfc8((State0207dfc8*)res->unknown_2cc, (State0207dfc8*)work->state);
+    if (func_ov017_0219e008(res) == 0) {
+        func_0207dfc8((State0207dfc8*)res->unknown_2cc, (State0207dfc8*)work->state);
     } else {
-        CopyState0207dfc8((State0207dfc8*)&blocks[7], (State0207dfc8*)work->state);
+        func_0207dfc8((State0207dfc8*)&blocks[7], (State0207dfc8*)work->state);
     }
     pair.Reset();
     ZeroDestroyGPCPointer(&pair.pGPCFile);

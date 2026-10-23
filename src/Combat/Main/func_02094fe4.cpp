@@ -20,7 +20,7 @@ struct PackedNibbleArray0206e120 {
     unsigned char pad[0x2CC];
     unsigned char bits[1];
 };
-int GetPackedNibbleField(struct PackedNibbleArray0206e120* obj, int index);
+extern "C" int func_0206e120(struct PackedNibbleArray0206e120* obj, int index);
 
 extern "C" void func_0205ec70(SafeAllocator* alloc, int limit, struct Variant02030b0c* arr, void* dst8, void* dstc);
 
@@ -41,7 +41,7 @@ struct Node020958fc {
     int f8;
     void* link;
 };
-void SetSlotA0(struct Owner020958fc* owner, struct Node020958fc* node);
+extern "C" void func_020958fc(struct Owner020958fc* owner, struct Node020958fc* node);
 
 struct Manager02109404 { unsigned char pad[0xc]; SafeAllocator* alloc; };
 extern Manager02109404 data_02109404;
@@ -58,7 +58,7 @@ extern "C" ARM int func_02094fe4(struct Variant02030b0c* arr, int b) {
     void* nibbles = func_0205ec34();
     int p6 = ((Script::Parameter*)&arr[6])->ToInt();
     if (p6 >= 0) {
-        int ok = (GetPackedNibbleField((struct PackedNibbleArray0206e120*)nibbles, p6) == 3);
+        int ok = (func_0206e120((struct PackedNibbleArray0206e120*)nibbles, p6) == 3);
         if (ok == 0) {
             return 0;
         }
@@ -87,6 +87,6 @@ extern "C" ARM int func_02094fe4(struct Variant02030b0c* arr, int b) {
     int local8 = 0;
     func_0205ec70(data_02109404.alloc, b - 0xb, &arr[11], &node->f8, &local8);
 
-    SetSlotA0(&data_02109418, node);
+    func_020958fc(&data_02109418, node);
     return 1;
 }

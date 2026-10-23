@@ -58,14 +58,14 @@ struct List0204af64;
 struct InitTarget0205cfd4;
 struct Struct_0205bef8;
 
-void* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int* field, unsigned int bits);
-void ResetStruct020dfc40(Struct020dfc40* texts);
-void ClearStruct020a13c4(S020a13c4* guides);
-void ResetList0204af64(List0204af64* background);
-void InitStruct0205cfd4(InitTarget0205cfd4* window);
-void Init0205bef8(Struct_0205bef8* cursor);
-void InitCombatController020a2010(void* camera);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
+extern "C" void func_020a13c4(S020a13c4* guides);
+extern "C" void func_0204af64(List0204af64* background);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
+extern "C" void func_0205bef8(Struct_0205bef8* cursor);
+extern "C" void func_020a2010(void* camera);
 extern "C" void func_0204c684(void* canvas);
 
 struct BattleRecords {
@@ -126,7 +126,7 @@ extern "C" void func_ov008_02186cec(BattleRecords* self);
 // USA: func_ov008_021843f8
 extern "C" ARM void func_ov008_021843f8(BattleRecords* self)
 {
-    OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
+    func_020466e4((unsigned int*)func_020d6c00(), 0xf);
     self->allocator_.ResetAllocatorPointer();
     self->backgroundAllocator_.ResetAllocatorPointer();
     self->textAllocator_.ResetAllocatorPointer();
@@ -135,13 +135,13 @@ extern "C" ARM void func_ov008_021843f8(BattleRecords* self)
     self->modelAllocator_.ResetAllocatorPointer();
     self->titleAllocator_.ResetAllocatorPointer();
     self->guideAllocator_.ResetAllocatorPointer();
-    ResetStruct020dfc40((Struct020dfc40*)self->texts_);
+    func_020dfc40((Struct020dfc40*)self->texts_);
     self->text_ = NULL;
-    ClearStruct020a13c4((S020a13c4*)self->titleTable_);
-    ResetList0204af64((List0204af64*)self->backgrounds_[0]);
-    ResetList0204af64((List0204af64*)self->backgrounds_[1]);
-    ResetList0204af64((List0204af64*)self->backgrounds_[2]);
-    InitStruct0205cfd4((InitTarget0205cfd4*)self->window_);
+    func_020a13c4((S020a13c4*)self->titleTable_);
+    func_0204af64((List0204af64*)self->backgrounds_[0]);
+    func_0204af64((List0204af64*)self->backgrounds_[1]);
+    func_0204af64((List0204af64*)self->backgrounds_[2]);
+    func_0205cfd4((InitTarget0205cfd4*)self->window_);
     for (int i = 0; i < 6; i++)
         func_0204c684(self->canvases_[i]);
     self->pixels_ = NULL;
@@ -150,9 +150,9 @@ extern "C" ARM void func_ov008_021843f8(BattleRecords* self)
     self->animations_ = NULL;
     self->iconRenderer_ = NULL;
     self->sprites_ = NULL;
-    Init0205bef8((Struct_0205bef8*)self->cursor_);
+    func_0205bef8((Struct_0205bef8*)self->cursor_);
     self->model_.Initialize();
-    InitCombatController020a2010(self->camera_);
+    func_020a2010(self->camera_);
     self->titles_ = NULL;
     self->guide_ = NULL;
     self->page_ = NULL;
@@ -176,8 +176,8 @@ extern "C" ARM void func_ov008_021843f8(BattleRecords* self)
 #if !defined(jpn)
     self->guestTitles_ = NULL;
 #endif
-    ClearShortByteByte_02184598(&self->times_[0]);
-    ClearShortByteByte_02184598(&self->times_[1]);
+    func_ov008_02184598(&self->times_[0]);
+    func_ov008_02184598(&self->times_[1]);
     SavedRecords* saved = GetSavedRecords(GameState::GetInstance());
     if (saved->records_.unk_10_0 != 0)
         self->flags_ |= 0x2000;

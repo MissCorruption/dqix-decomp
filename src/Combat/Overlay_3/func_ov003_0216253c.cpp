@@ -53,31 +53,31 @@ struct Elem {
 };
 
 extern int data_02108760;
-unsigned int *GetDataPtr02114e04_020d6c00();
+extern "C" unsigned int *func_020d6c00();
 struct StatusOwner02081198;
-void SetEntryNibbleByShortId(StatusOwner02081198*, int, int);
+extern "C" void func_02081198(StatusOwner02081198*, int, int);
 struct StatusOwner02081164;
-void SetEntryFlag0x2ByShortId(StatusOwner02081164*, int, int);
+extern "C" void func_02081164(StatusOwner02081164*, int, int);
 extern "C" void func_020813ec(void *, int);
 extern "C" void func_ov003_02165c9c(Scene *);
 struct Obj0208203c;
-void ResetWithSub0208203c(Obj0208203c*);
-int FindMappedMemberId02080468(void *, int);
-void OrBitsIntoField0_020466e4(unsigned int *, unsigned int);
+extern "C" void func_0208203c(Obj0208203c*);
+extern "C" int func_02080468(void *, int);
+extern "C" void func_020466e4(unsigned int *, unsigned int);
 extern "C" void func_ov003_02165bd8(Scene *);
-void ApplyElementEffect02161438(void*);
+extern "C" void func_ov003_02161438(void*);
 extern "C" int func_ov003_02160854(Scene *);
-int CompareThreshold_021614e8(int);
+extern "C" int func_ov003_021614e8(int);
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0 *, int, int);
 struct Cont0207fe44;
-void CallFunc0204c804OverAllElems(Cont0207fe44*);
-Elem * GetElementAtIndex_02160bd0_02160bd0(void*, int);
+extern "C" void func_0207fe44(Cont0207fe44*);
+extern "C" Elem * func_ov003_02160bd0(void*, int);
 extern "C" int *func_0202ae18();
-int CheckField0NonZero_0202b7d8(int *);
+extern "C" int func_0202b7d8(int *);
 extern "C" int func_0202c508(int *);
-void ClearFlag320_02195540(unsigned char *);
-int CountValidCombatantsMinusField_02160b84(void *);
+extern "C" void func_ov017_02195540(unsigned char *);
+extern "C" int func_ov003_02160b84(void *);
 extern "C" int func_ov003_02160a68(Scene *);
 extern "C" void func_ov003_021612c0(Scene *);
 extern "C" int func_ov003_02161344(Scene *);
@@ -87,7 +87,7 @@ extern "C" int func_ov003_021669f0(Scene *);
 // USA: func_ov003_0216253c
 extern "C" ARM void func_ov003_0216253c(Scene *self) {
     Entries *entries    = self->entries;
-    unsigned int *data  = GetDataPtr02114e04_020d6c00();
+    unsigned int *data  = func_020d6c00();
     unsigned char state = self->state;
 
     if (state == 0) {
@@ -97,11 +97,11 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
         self->h48c   = -1;
         self->h474   = self->h48c;
         entries->sel = self->h48c;
-        SetEntryNibbleByShortId((StatusOwner02081198*)entries, 0x15, 1);
-        SetEntryFlag0x2ByShortId((StatusOwner02081164*)entries, 0x15, 1);
+        func_02081198((StatusOwner02081198*)entries, 0x15, 1);
+        func_02081164((StatusOwner02081164*)entries, 0x15, 1);
         func_020813ec(entries, 0x15);
         func_ov003_02165c9c(self);
-        ResetWithSub0208203c((Obj0208203c*)self->sub308);
+        func_0208203c((Obj0208203c*)self->sub308);
         self->p470 = 0;
         self->flags |= 0x780000;
         if (self->flags & 1) {
@@ -116,21 +116,21 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
         self->h480   = -1;
         self->c49f   = 0;
         self->h488   = 6;
-        self->h48c   = FindMappedMemberId02080468(entries, self->h488);
+        self->h48c   = func_02080468(entries, self->h488);
         self->h474   = self->h48c;
         entries->sel = self->h48c;
-        SetEntryNibbleByShortId((StatusOwner02081198*)entries, 0x15, 1);
-        SetEntryFlag0x2ByShortId((StatusOwner02081164*)entries, 0x15, 1);
+        func_02081198((StatusOwner02081198*)entries, 0x15, 1);
+        func_02081164((StatusOwner02081164*)entries, 0x15, 1);
         func_020813ec(entries, 0x15);
         func_ov003_02165c9c(self);
         self->flags |= 0x780000;
         if (self->flags & 1) {
             self->flags |= 0x800000;
         }
-        ResetWithSub0208203c((Obj0208203c*)self->sub308);
+        func_0208203c((Obj0208203c*)self->sub308);
         self->p470  = 0;
         self->state = self->state + 1;
-        OrBitsIntoField0_020466e4(data, 0x40);
+        func_020466e4(data, 0x40);
         self->flags |= 0x400;
     } else if (state == 5) {
         self->p470 = &self->h48c;
@@ -143,22 +143,22 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
             }
         }
         int idx = self->h48c - 0x15 + self->c49f * 4;
-        ApplyElementEffect02161438(self);
+        func_ov003_02161438(self);
         if (func_ov003_02160854(self) != 0) {
-            if (idx == *((unsigned char *)GetPtrField0x2a04_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c)) {
-                if (CompareThreshold_021614e8((int) self) != 0) {
+            if (idx == *((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c)) {
+                if (func_ov003_021614e8((int) self) != 0) {
                     return;
                 }
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-                ResetWithSub0208203c((Obj0208203c*)self->sub308);
+                func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+                func_0208203c((Obj0208203c*)self->sub308);
                 self->p470 = 0;
-                CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+                func_0207fe44((Cont0207fe44*)entries);
                 self->flags |= 0x80000;
                 self->h484  = 0x4d;
                 self->state = 100;
                 self->flags |= 0x800;
             }
-            Elem *elem = GetElementAtIndex_02160bd0_02160bd0(self, idx);
+            Elem *elem = func_ov003_02160bd0(self, idx);
             if (elem == NULL) {
                 return;
             }
@@ -167,21 +167,21 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
                 return;
             }
             self->h480 = v;
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->sub308);
+            func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->sub308);
             self->p470 = 0;
-            CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+            func_0207fe44((Cont0207fe44*)entries);
             self->flags |= 0x80000;
             self->flags |= 8;
             unsigned char *g = (unsigned char *) GetGameResources();
             int *p           = func_0202ae18();
-            if (CheckField0NonZero_0202b7d8(p) != 0 && func_0202c508(p) != 0) {
-                ClearFlag320_02195540(g);
+            if (func_0202b7d8(p) != 0 && func_0202c508(p) != 0) {
+                func_ov017_02195540(g);
             }
-            int a = *((unsigned char *)GetPtrField0x2a04_02010828(GameState::GetInstance()) + 0xf7c);
-            int n = CountValidCombatantsMinusField_02160b84(self);
+            int a = *((unsigned char *)func_02010828(GameState::GetInstance()) + 0xf7c);
+            int n = func_ov003_02160b84(self);
             if (a + n == 4) {
-                CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+                func_0207fe44((Cont0207fe44*)entries);
                 self->flags |= 0x80000;
                 self->h484  = 6;
                 self->h486  = 2;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
             if (func_ov003_02160a68(self) == 0) {
                 return;
             }
-            CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+            func_0207fe44((Cont0207fe44*)entries);
             self->flags |= 0x80000;
             self->h484  = 2;
             self->c4a3  = 1;
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
                 self->flags |= 2;
             }
         } else {
-            if (*((unsigned char *)GetPtrField0x2a04_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
+            if (*((unsigned char *)func_02010828(GameState::GetInstance()) + 0x2000 + 0xc8c) == 0) {
                 self->state = 0;
             } else {
                 self->h484  = 4;

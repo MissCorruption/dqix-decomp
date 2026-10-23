@@ -15,7 +15,7 @@ extern unsigned char data_ov031_0224f650[0x20];
 extern unsigned char data_ov031_02245fb0[];
 extern unsigned char data_ov031_02245fb8[];
 
-int DispatchOnZeroPair_0220cdd4(int, int, int);
+extern "C" int func_ov031_0220cdd4(int, int, int);
 extern "C" int func_ov031_0221ef80(void);
 
 // USA: func_ov031_0221f02c
@@ -46,7 +46,7 @@ extern "C" THUMB int func_ov031_0221f02c(const unsigned char* address, const uns
         data_ov031_0224f620.key = data_ov031_02245fb8;
     }
     if (data_ov031_0224f620.state == 3) {
-        if (DispatchOnZeroPair_0220cdd4((int)data_ov031_0224f620.address, (int)data_ov031_0224f620.key,
+        if (func_ov031_0220cdd4((int)data_ov031_0224f620.address, (int)data_ov031_0224f620.key,
                                         data_ov031_0224f620.field4) == 3) {
             data_ov031_0224f620.state = 6;
             SetIRQInterruptState(irqState);

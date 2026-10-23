@@ -62,8 +62,8 @@ extern "C" void func_ov023_021e66ac(void* obj);
 
 class PMFObj021e7bc4;
 class PMFObj021e7c58;
-void DispatchEntryByIndex_021e7bc4(PMFObj021e7bc4* obj, unsigned int selector, int idx);
-void DispatchEntryByIndex_021e7c58(PMFObj021e7c58* obj, unsigned int selector, int idx);
+extern "C" void func_ov023_021e7bc4(PMFObj021e7bc4* obj, unsigned int selector, int idx);
+extern "C" void func_ov023_021e7c58(PMFObj021e7c58* obj, unsigned int selector, int idx);
 
 #if !defined(jpn)
 extern "C" int func_ov012_0218ae74(ProfileEditor* self, const ProfileData* profile);
@@ -115,9 +115,9 @@ extern "C" ARM void func_ov012_0218adac(ProfileEditor* self, int animate, int de
     if (result != 0 || flag == 0) {
 #endif
         if (animate != 0) {
-            DispatchEntryByIndex_021e7bc4((PMFObj021e7bc4*)self->controller, 2, 0);
+            func_ov023_021e7bc4((PMFObj021e7bc4*)self->controller, 2, 0);
         } else {
-            DispatchEntryByIndex_021e7c58((PMFObj021e7c58*)self->controller, 2, 0);
+            func_ov023_021e7c58((PMFObj021e7c58*)self->controller, 2, 0);
         }
     }
 

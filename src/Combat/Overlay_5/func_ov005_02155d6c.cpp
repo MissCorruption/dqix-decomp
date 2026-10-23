@@ -29,13 +29,13 @@ struct VRAMManagerState {
     char unk_0[0x70];
 };
 
-void MaybeInvoke0204719c_02047230(Foo02048004* model);
-void CopyInternalFields0207df50(Foo0207df50* state);
-void RestorePairTables0207df90(char* state);
+extern "C" void func_02047230(Foo02048004* model);
+extern "C" void func_0207df50(Foo0207df50* state);
+extern "C" void func_0207df90(char* state);
 extern "C" void func_02047b40(MenuModel* model, void* file, SafeAllocator* allocator);
-void BackupPairTables0207dfac(char* state);
-void SetVec3At0x1c(Vec3Target0203a46c* model, int x, int y, int z);
-void RunTwoCallbacksAndReset02155d38(Obj02155d38* slot);
+extern "C" void func_0207dfac(char* state);
+extern "C" void func_0203a46c(Vec3Target0203a46c* model, int x, int y, int z);
+extern "C" void func_ov005_02155d38(Obj02155d38* slot);
 
 struct EquipmentSlot {
     short item_;
@@ -90,12 +90,12 @@ extern "C" ARM void func_ov005_02155d6c(EquipmentMenu* self) {
         if (self->dragStep_ == 1) {
             EquipmentSlot* slot = &self->slots_[self->dragged_];
             if (slot->offset_ == 0) {
-                MaybeInvoke0204719c_02047230((Foo02048004*)&self->dragModel_);
-                CopyInternalFields0207df50((Foo0207df50*)&self->dragVramState_);
-                RestorePairTables0207df90((char*)&self->dragVramState_);
+                func_02047230((Foo02048004*)&self->dragModel_);
+                func_0207df50((Foo0207df50*)&self->dragVramState_);
+                func_0207df90((char*)&self->dragVramState_);
                 self->dragAllocator_.Reset();
                 func_02047b40(&self->dragModel_, self->dragFile_, &self->dragAllocator_);
-                BackupPairTables0207dfac((char*)&self->dragVramState_);
+                func_0207dfac((char*)&self->dragVramState_);
             }
             slot->offset_ = -1;
             slot->equipped_ = 0;
@@ -107,16 +107,16 @@ extern "C" ARM void func_ov005_02155d6c(EquipmentMenu* self) {
             VRAMManagerState* vramState = slot->vramState_;
             MenuModel* model = slot->model_;
             if (slot->offset_ == 0) {
-                RunTwoCallbacksAndReset02155d38((Obj02155d38*)slot);
-                RestorePairTables0207df90((char*)vramState);
+                func_ov005_02155d38((Obj02155d38*)slot);
+                func_0207df90((char*)vramState);
                 self->equippedAllocators_[self->unk_3dac].Reset();
                 func_02047b40(model, self->itemFile_, &self->equippedAllocators_[self->unk_3dac]);
                 slot->loadedItem_ = slot->item_;
-                BackupPairTables0207dfac((char*)vramState);
+                func_0207dfac((char*)vramState);
             }
             model->unk_82 = 0x1f;
             model->alpha_ = 0x7fff;
-            SetVec3At0x1c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
+            func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
             slot->offset_ = -1;
             slot->equipped_ = 0;
             memset(self->itemFile_, 0, 0x200);
@@ -137,16 +137,16 @@ extern "C" ARM void func_ov005_02155d6c(EquipmentMenu* self) {
                 int offset = slot->offset_;
                 MenuModel* model = slot->model_;
                 if (offset >= 0) {
-                    RunTwoCallbacksAndReset02155d38((Obj02155d38*)slot);
-                    RestorePairTables0207df90((char*)vramState);
+                    func_ov005_02155d38((Obj02155d38*)slot);
+                    func_0207df90((char*)vramState);
                     self->equippedAllocators_[i].Reset();
                     func_02047b40(model, self->equippedFiles_ + offset, &self->equippedAllocators_[i]);
                     slot->loadedItem_ = slot->item_;
-                    BackupPairTables0207dfac((char*)vramState);
+                    func_0207dfac((char*)vramState);
                 }
                 model->unk_82 = 0x1f;
                 model->alpha_ = 0x7fff;
-                SetVec3At0x1c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
+                func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
                 slot->offset_ = -1;
                 slot->equipped_ = 0;
                 count++;
@@ -177,16 +177,16 @@ extern "C" ARM void func_ov005_02155d6c(EquipmentMenu* self) {
                 }
                 int offset = slot->offset_;
                 if (offset >= 0) {
-                    RunTwoCallbacksAndReset02155d38((Obj02155d38*)slot);
-                    RestorePairTables0207df90((char*)vramState);
+                    func_ov005_02155d38((Obj02155d38*)slot);
+                    func_0207df90((char*)vramState);
                     self->itemAllocators_[i - 8].Reset();
                     func_02047b40(model, self->pageFiles_ + offset, &self->itemAllocators_[i - 8]);
                     slot->loadedItem_ = slot->item_;
-                    BackupPairTables0207dfac((char*)vramState);
+                    func_0207dfac((char*)vramState);
                 }
                 model->unk_82 = 0x1f;
                 model->alpha_ = 0x7fff;
-                SetVec3At0x1c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
+                func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
                 slot->offset_ = -1;
                 slot->equipped_ = 0;
                 count++;

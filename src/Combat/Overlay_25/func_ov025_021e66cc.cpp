@@ -49,13 +49,13 @@ struct Outer_02054000;
 struct Obj021e8bac;
 struct Struct_203dafc;
 
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int id);
-ActiveSub021e66cc* GetActiveSub_02054000(struct Outer_02054000* p);
-void ResetStruct_021e3158(struct Reset021e3158* p);
-int SetFlagAndDispatch_021e2628(int a, int b);
-SafeAllocator* GetArrayEntry_021e8a54_021e8a54(char* obj);
-void PushLogNode021e8bac(struct Obj021e8bac* obj, struct Node021e8bac* node);
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int id);
+extern "C" ActiveSub021e66cc* func_02054000(struct Outer_02054000* p);
+extern "C" void func_ov025_021e3158(struct Reset021e3158* p);
+extern "C" int func_ov025_021e2628(int a, int b);
+extern "C" SafeAllocator* func_ov025_021e8a54(char* obj);
+extern "C" void func_ov025_021e8bac(struct Obj021e8bac* obj, struct Node021e8bac* node);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 
 extern struct Global021ef988 data_ov025_021ef988;
 extern struct Reset021e3158 data_ov025_021ef9a8;
@@ -69,22 +69,22 @@ extern "C" ARM int func_ov025_021e66cc(void* unused, struct CombatSlot021e66cc* 
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (data_ov025_021ef988.state == 0) {
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, slot->head->id);
+        GameObject* c = func_0200ff1c(gs, slot->head->id);
         if (c == NULL) {
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
-        ActiveSub021e66cc* sub = GetActiveSub_02054000((struct Outer_02054000*)c);
+        ActiveSub021e66cc* sub = func_02054000((struct Outer_02054000*)c);
         if (sub == NULL) {
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         if (sub->kind == 4) {
-            data_ov025_021ef988.taskId = SetFlagAndDispatch_021e2628((int)data_ov025_021ef7be, (int)data_ov025_021ef811);
+            data_ov025_021ef988.taskId = func_ov025_021e2628((int)data_ov025_021ef7be, (int)data_ov025_021ef811);
         } else if (sub->kind == 0xb) {
-            data_ov025_021ef988.taskId = SetFlagAndDispatch_021e2628((int)data_ov025_021ef7be, (int)data_ov025_021ef81e);
+            data_ov025_021ef988.taskId = func_ov025_021e2628((int)data_ov025_021ef7be, (int)data_ov025_021ef81e);
         } else {
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         data_ov025_021ef988.state++;
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov025_021e66cc(void* unused, struct CombatSlot021e66cc* 
         }
         if (loader->GetDetailedTaskStatus(taskId) != 2) {
             loader->RemoveTask(taskId);
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
 
@@ -109,31 +109,31 @@ extern "C" ARM int func_ov025_021e66cc(void* unused, struct CombatSlot021e66cc* 
         GameObject* holder = gs->GetGameObjectByIndex(200);
         if (holder == NULL) {
             loader->RemoveTask(taskId);
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
 
-        SafeAllocator* allocator = GetArrayEntry_021e8a54_021e8a54(data_ov025_021ef988.battle);
+        SafeAllocator* allocator = func_ov025_021e8a54(data_ov025_021ef988.battle);
         Node021e8bac* node = (Node021e8bac*)allocator->Allocate(sizeof(Node021e8bac));
         if (node == NULL) {
             loader->RemoveTask(taskId);
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         node->type = 0;
         node->id2 = 200;
         node->id4 = 0;
-        PushLogNode021e8bac((struct Obj021e8bac*)data_ov025_021ef988.battle, node);
+        func_ov025_021e8bac((struct Obj021e8bac*)data_ov025_021ef988.battle, node);
 
         ObjectArchiveLoadInfo info;
-        ClearEightWords_0203dafc((struct Struct_203dafc*)&info);
+        func_0203dafc((struct Struct_203dafc*)&info);
         info.fileData = fileData;
         info.unk_8 = length;
         info.unk_10 = 1;
         info.allocator = allocator;
         holder->obj3D_.LoadFromCCHROrCMOTArchive(&info, NULL);
         loader->RemoveTask(taskId);
-        ResetStruct_021e3158(&data_ov025_021ef9a8);
+        func_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 

@@ -2,27 +2,27 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov011_021845f8(void*, int);
-void* FindNodeById0218466c(void* obj, unsigned short id);
+extern "C" void* func_ov011_0218466c(void* obj, unsigned short id);
 
 struct EncodedSize020e03b8;
-int IsEncodedSizeEqual(int unused, struct EncodedSize020e03b8* obj, int val);
-void* ResetAndReturnSelf020dfc2c(void* p);
+extern "C" int func_020e03b8(int unused, struct EncodedSize020e03b8* obj, int val);
+extern "C" void* func_020dfc2c(void* p);
 struct Struct020dfc40;
-void ResetStruct020dfc40(struct Struct020dfc40* p);
+extern "C" void func_020dfc40(struct Struct020dfc40* p);
 extern "C" void func_020dfec0(void*, void*, void*, unsigned int);
 struct Source020e03f0;
 struct StructAA8;
-int ApplyPtrAndShorts(struct Source020e03f0* self, struct StructAA8* obj);
+extern "C" int func_020e03f0(struct Source020e03f0* self, struct StructAA8* obj);
 
 struct Sub0x150_021fa644 {
     char pad[0x49c];
     unsigned char bit0 : 1;
 };
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 
 struct List020727d8;
-void ResetListHeader020727d8(struct List020727d8* list);
+extern "C" void func_020727d8(struct List020727d8* list);
 
 struct StreamHeader;
 extern "C" void func_020728ac(int, int, struct StreamHeader*, int, int, unsigned short, unsigned char);
@@ -40,7 +40,7 @@ struct Obj021fa644 {
     unsigned char field2c;
 };
 
-// USA: func_ov023_021fa644  (semantic: ApplyEncodedSizeOrResetList_021fa644)
+// USA: func_ov023_021fa644
 extern "C" ARM void func_ov023_021fa644(Obj021fa644* obj, void* ctx, EncodedSize020e03b8* p2, int p3) {
 #if defined(jpn)
  enum {regionalOffset0=0x144};
@@ -51,17 +51,17 @@ extern "C" ARM void func_ov023_021fa644(Obj021fa644* obj, void* ctx, EncodedSize
         return;
     }
     void* allocBase = func_ov011_021845f8(ctx, obj->field8);
-    void* node = FindNodeById0218466c(ctx, obj->fieldA);
+    void* node = func_ov011_0218466c(ctx, obj->fieldA);
     if (allocBase == 0 || node == 0) {
         return;
     }
 
     char local[0x18];
-    ResetAndReturnSelf020dfc2c(local);
-    if (IsEncodedSizeEqual((int)local, p2, p3)) {
-        ResetStruct020dfc40((Struct020dfc40*)local);
+    func_020dfc2c(local);
+    if (func_020e03b8((int)local, p2, p3)) {
+        func_020dfc40((Struct020dfc40*)local);
         func_020dfec0(local, (char*)allocBase + 4, p2, (unsigned int)p3);
-        ApplyPtrAndShorts((Source020e03f0*)local, (StructAA8*)((char*)obj + 0x20));
+        func_020e03f0((Source020e03f0*)local, (StructAA8*)((char*)obj + 0x20));
         return;
     }
 
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov023_021fa644(Obj021fa644* obj, void* ctx, EncodedSize
     int flag5 = 0;
     if (kind == 1) {
         GameState* bs = GameState::GetInstance();
-        int val = GetField0x3acValue_020100a8(bs);
+        int val = func_020100a8(bs);
         GameObject* combatant = bs->GetPartyMemberByIndex(val);
         if (combatant != 0) {
             Sub0x150_021fa644* sub = *(Sub0x150_021fa644**)((char*)combatant + regionalOffset0);
@@ -80,6 +80,6 @@ extern "C" ARM void func_ov023_021fa644(Obj021fa644* obj, void* ctx, EncodedSize
         flag5 = 1;
     }
 
-    ResetListHeader020727d8((List020727d8*)((char*)obj + 0x20));
+    func_020727d8((List020727d8*)((char*)obj + 0x20));
     func_020728ac((int)((char*)obj + 0x20), (int)((char*)allocBase + 4), (StreamHeader*)p2, p3, 0, 0, flag5);
 }

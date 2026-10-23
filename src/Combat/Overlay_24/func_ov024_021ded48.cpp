@@ -4,11 +4,11 @@
 
 struct StatStageStruct02088018;
 struct StatStageStruct0208806c;
-int CanAdjustStatStageBit24(struct StatStageStruct02088018* p, int decrease);
-int SetStatStageBit24(struct StatStageStruct0208806c* p, int delta);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" int func_02088018(struct StatStageStruct02088018* p, int decrease);
+extern "C" int func_0208806c(struct StatStageStruct0208806c* p, int delta);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct PackedPair_021ded48 {
@@ -39,20 +39,20 @@ extern "C" ARM void* func_ov024_021ded48(struct Obj_021ded48* obj, int unused, i
 		if (stage > 2) stage = 2;
 		int decrease = 0;
 		if (stage < 0) decrease = 1;
-		if (CanAdjustStatStageBit24((struct StatStageStruct02088018*)c->currentStats_, (unsigned char)decrease)) {
-			SetStatStageBit24((struct StatStageStruct0208806c*)c->currentStats_, (signed char)stage);
+		if (func_02088018((struct StatStageStruct02088018*)c->currentStats_, (unsigned char)decrease)) {
+			func_0208806c((struct StatStageStruct0208806c*)c->currentStats_, (signed char)stage);
 			applied = 1;
 		}
 	}
 	unsigned short sel;
 	if (applied) {
-		sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+		sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	struct Flag_021ded48* fl = (struct Flag_021ded48*)((char*)obj->field0xc + 0x1c);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
 	return entry;

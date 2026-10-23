@@ -6,7 +6,7 @@ struct Field0Low12_02079b94 {
     unsigned int value : 12;
 };
 
-int GetField0Low12Times60(struct Field0Low12_02079b94* obj);
+extern "C" int func_02079b94(struct Field0Low12_02079b94* obj);
 
 extern "C" void* memcpy(void* dst, const void* src, unsigned int len);
 
@@ -33,7 +33,7 @@ extern "C" ARM int func_02079a58(Struct02079a58* obj, SafeAllocator* alloc, void
 
     memcpy(obj, data, 4);
 
-    unsigned int n = (unsigned int)GetField0Low12Times60((struct Field0Low12_02079b94*)obj);
+    unsigned int n = (unsigned int)func_02079b94((struct Field0Low12_02079b94*)obj);
     unsigned int m = obj->size;
 
     obj->p1 = (n != 0) ? alloc->Allocate(n) : NULL;
@@ -45,7 +45,7 @@ extern "C" ARM int func_02079a58(Struct02079a58* obj, SafeAllocator* alloc, void
 
     if (obj->p2 != NULL) {
         memcpy(obj->p2,
-               (unsigned char*)data + (GetField0Low12Times60((struct Field0Low12_02079b94*)obj) + 4),
+               (unsigned char*)data + (func_02079b94((struct Field0Low12_02079b94*)obj) + 4),
                m);
     }
 

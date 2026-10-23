@@ -16,20 +16,20 @@ struct ForwardingRecord02024518 {
     int x;
     int y;
 };
-void* GetData02105254_0203b628();
+extern "C" void* func_0203b628();
 extern "C" void* func_02012fe4();
-void SetArraySlotFlag0203b718(void*, int, int, int);
-Entry_02027878* GetEntryFromList(List_02027878*, int);
-void ForwardParamsToB8bc_0203bcb8(Bcb8Params*, int, int);
-void AccumulateBattleTimer0202441c(BattleTimer0202441c*);
-int CheckCombatantReadyForAction020243b8(void*, int);
-int CheckActionAllowed(CombatActionPosition*, int);
-void SetElementFields0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
+extern "C" void func_0203b718(void*, int, int, int);
+extern "C" Entry_02027878* func_02027878(List_02027878*, int);
+extern "C" void func_0203bcb8(Bcb8Params*, int, int);
+extern "C" void func_0202441c(BattleTimer0202441c*);
+extern "C" int func_020243b8(void*, int);
+extern "C" int func_02024d48(CombatActionPosition*, int);
+extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 
 // USA: func_02025b0c
 extern "C" ARM void func_02025b0c(MapDisplay* self) {
     GameObject* object = GameState::GetInstance()->GetUnknownGameObject();
-    void* displayState = GetData02105254_0203b628();
+    void* displayState = func_0203b628();
     func_02012fe4();
     Vector3i position = object->obj3D_.position_;
     CombatActionPosition entries[17];
@@ -55,19 +55,19 @@ extern "C" ARM void func_02025b0c(MapDisplay* self) {
     self->screenY = cameraY;
     int tileY = cameraY < 0 ? cameraY / 8 - 1 : cameraY / 8;
     self->forwardingPending = 0;
-    SetArraySlotFlag0203b718(displayState, 1, 0, self->forwardingFill);
+    func_0203b718(displayState, 1, 0, self->forwardingFill);
     for (int i = 0; i < self->forwardingCount; ++i) {
-        Entry_02027878* entry = GetEntryFromList((List_02027878*)self, self->forwarding[i].entryIndex);
+        Entry_02027878* entry = func_02027878((List_02027878*)self, self->forwarding[i].entryIndex);
         if (entry) {
             int forwardY = self->forwardingY + self->forwarding[i].y;
             int forwardX = self->forwardingX + self->forwarding[i].x;
-            ForwardParamsToB8bc_0203bcb8(reinterpret_cast<Bcb8Params*>(reinterpret_cast<unsigned char*>(entry) + 8), forwardX + 16, tileY + forwardY + 16);
+            func_0203bcb8(reinterpret_cast<Bcb8Params*>(reinterpret_cast<unsigned char*>(entry) + 8), forwardX + 16, tileY + forwardY + 16);
         }
     }
-    AccumulateBattleTimer0202441c((BattleTimer0202441c*)self);
+    func_0202441c((BattleTimer0202441c*)self);
     for (int i = 0; i < count; ++i) {
         CombatActionPosition* entry = &entries[i];
-        if (!CheckCombatantReadyForAction020243b8(self, entry->combatantId)) {
+        if (!func_020243b8(self, entry->combatantId)) {
             continue;
         }
         fix32_t entryScale = self->scale;
@@ -83,10 +83,10 @@ extern "C" ARM void func_02025b0c(MapDisplay* self) {
                 continue;
             }
         }
-        if (!CheckActionAllowed(entry, self->actionState)) {
+        if (!func_02024d48(entry, self->actionState)) {
             continue;
         }
-        SetElementFields0202756c(self, (x + 0x7c) << 12, (y + 0x5c) << 12,
+        func_0202756c(self, (x + 0x7c) << 12, (y + 0x5c) << 12,
             entry->elementId, entry->type, 0, entry->palette, 0xff, 0x1000, 0x1000);
     }
     func_02023b5c(self, 0, self->screenY, 0x7c, 0x5c, 1);

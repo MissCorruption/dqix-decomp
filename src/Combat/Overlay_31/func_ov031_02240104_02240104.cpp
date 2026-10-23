@@ -13,7 +13,7 @@ struct NodeAlloc02240104 {
 extern struct NodeAlloc02240104* data_ov031_02290fdc;
 extern int data_ov031_02290fd8;
 
-// USA: func_ov031_02240104  (semantic: AllocAndLinkNode_02240104)
+// USA: func_ov031_02240104
 extern "C" ARM int func_ov031_02240104(int arg) {
 	int id = -1;
 	struct NodeAlloc02240104* node = (struct NodeAlloc02240104*)data_ov031_02290fc4(0x14, 4);

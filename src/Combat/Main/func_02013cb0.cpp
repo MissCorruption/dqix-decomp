@@ -1,0 +1,24 @@
+#include <globaldefs.h>
+#include "World/ZoneChest.h"
+
+struct Entry_02028bd0;
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* base, int key);
+
+// USA: func_02013cb0
+extern "C" ARM void func_02013cb0(Zone3D* zone, unsigned int mask) {
+    int i;
+    for (i = 0; i < zone->unknown_476_; i++) {
+        if (mask & (1 << i)) {
+            zone->unknown_478_[i].field2 = -1;
+        }
+    }
+    Entry_02028bd0* base = func_02027ca4();
+    Entry_02028bd0* result = func_02028bd0(base, zone->currentZoneID_);
+    if (result == NULL) {
+        return;
+    }
+    unsigned short* fieldPtr = (unsigned short*)((unsigned char*)result + 2);
+    unsigned int cur = *fieldPtr;
+    *fieldPtr = (cur & 0xffff000f) | ((mask << 20) >> 16);
+}

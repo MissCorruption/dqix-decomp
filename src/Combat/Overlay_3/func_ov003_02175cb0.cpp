@@ -22,11 +22,11 @@ struct Element020de650 {
     short key;
 };
 
-struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-void* GetPtrField0x2a04_02010828(GameState* battleStruct);
-void ZeroInitReturn020de824(void* obj);
-void InitStruct0207cbe8(char* obj);
-void InitStruct0207cc0c(char* obj);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" void func_020de824(void* obj);
+extern "C" void func_0207cbe8(char* obj);
+extern "C" void func_0207cc0c(char* obj);
 extern "C" void func_0207d134(void* buf, int key, int amount);
 extern "C" void func_0207cf30(void* buf, int key, int amount, int arg);
 
@@ -34,18 +34,18 @@ extern "C" void func_0207cf30(void* buf, int key, int amount, int arg);
 extern "C" ARM int func_ov003_02175cb0(char* self, int arg) {
     *(unsigned char*)(self + kRegion104f) = 0;
     struct Element020de650* elem =
-        FindElementByKey020dedd0((struct Container020dedd0*)(self + kRegion874), *(short*)(self + kRegion103a));
+        func_020dedd0((struct Container020dedd0*)(self + kRegion874), *(short*)(self + kRegion103a));
     if (elem == NULL) {
         return 0;
     }
 
-    GetPtrField0x2a04_02010828(GameState::GetInstance());
+    func_02010828(GameState::GetInstance());
 
     char buf[0x38];
     ((SafeAllocator*)buf)->ResetAllocatorPointer();
-    ZeroInitReturn020de824(buf + 0x14);
-    InitStruct0207cbe8(buf);
-    InitStruct0207cbe8(buf);
+    func_020de824(buf + 0x14);
+    func_0207cbe8(buf);
+    func_0207cbe8(buf);
     *(void**)(buf + 0x2c) = self + kRegion874;
     int ok = elem->kind <= 7;
     if (ok) {
@@ -53,6 +53,6 @@ extern "C" ARM int func_ov003_02175cb0(char* self, int arg) {
     } else {
         func_0207cf30(buf, elem->key, *(unsigned char*)(self + kRegion103c), arg);
     }
-    InitStruct0207cc0c(buf);
+    func_0207cc0c(buf);
     return 0;
 }

@@ -62,15 +62,15 @@ struct GroupEvent02197a64 {
 };
 
 extern "C" void* func_02012fe4(void);
-void* GetPointerFromArray0x3c_0201e838(unsigned char* obj, unsigned int index);
-Obj020968d0* GetField4328_0218d268(void* res);
-void InitObj0219a674(unsigned char* self);
+extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
+extern "C" Obj020968d0* func_ov017_0218d268(void* res);
+extern "C" void func_ov017_0219a674(unsigned char* self);
 extern "C" int func_02094b9c(void* a, void* b);
-int BuildAndForwardVec_0218da48(void* obj, int angle, int c, int d, unsigned char e);
-int CheckAndComputeDistance020968d0(Obj020968d0* obj, int* outDist);
+extern "C" int func_ov017_0218da48(void* obj, int angle, int c, int d, unsigned char e);
+extern "C" int func_020968d0(Obj020968d0* obj, int* outDist);
 extern "C" void __clear(void* buf, int count);
 struct Vec3;
-short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
+extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(Self02197a64* self, GroupEvent02197a64* event);
 extern "C" void func_ov017_02198f84(Self02197a64* self);
 
@@ -83,18 +83,18 @@ extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
     void* cache = func_02012fe4();
     Leader02197a64* leader = (Leader02197a64*)gs->GetUnknownGameObject();
     Vector3fix filter = leader->position;
-    GroupNode02197a64* node = (GroupNode02197a64*)GetPointerFromArray0x3c_0201e838((unsigned char*)cache + RegionOffset6c, 2);
-    Obj020968d0* field = GetField4328_0218d268(res);
+    GroupNode02197a64* node = (GroupNode02197a64*)func_0201e838((unsigned char*)cache + RegionOffset6c, 2);
+    Obj020968d0* field = func_ov017_0218d268(res);
     int notify = 0;
     GroupEvent02197a64 event;
-    InitObj0219a674((unsigned char*)&event);
+    func_ov017_0219a674((unsigned char*)&event);
     int counted = 0;
     int built = 0;
 
     while (node != NULL && event.count < 2) {
         if (!(node->flags & 1) && !(node->flags & 4) && func_02094b9c(node, &filter)) {
             if (!built) {
-                built = BuildAndForwardVec_0218da48(self, node->angle, FACING_LIMIT, FACING_LIMIT >> 3, 0);
+                built = func_ov017_0218da48(self, node->angle, FACING_LIMIT, FACING_LIMIT >> 3, 0);
             }
             Vector3fix dir;
             int c = fix32cos(node->angle);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
             int facing = Vector3fix_InnerProduct(&dir, &fwd);
             int along = Vector3fix_InnerProduct(&dir, &heading);
             if ((heading.x != 0 || heading.z != 0) &&
-                (CheckAndComputeDistance020968d0(field, NULL) != 0 || g_keyManager.TestKeysHeld(0xf0) != 0)) {
+                (func_020968d0(field, NULL) != 0 || g_keyManager.TestKeysHeld(0xf0) != 0)) {
                 facing = along;
             }
             if (node->flags & 0x10) {
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
             Vector3fix_Add(&center, &event.nodes[i]->position, &center);
         }
         Vector3fixDivideScalar(&center, event.count << 12, &center);
-        event.angle = GetAbsAngleDeltaBetween_021a4754(&leader->position, (short)leader->rotationY, &center);
+        event.angle = func_ov017_021a4754(&leader->position, (short)leader->rotationY, &center);
         event.tag = 4;
         func_ov017_0219b33c(self, &event);
     }

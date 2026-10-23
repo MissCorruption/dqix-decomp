@@ -11,22 +11,22 @@ enum { kRegionValue1E6_1E2 = 0x1e6 };
 #endif
 
 struct IntField0x23c_020a27c4;
-int GetFieldIfFlag4_020100f8(char* obj);
-int GetIntAt0x23c(struct IntField0x23c_020a27c4* obj);
+extern "C" int func_020100f8(char* obj);
+extern "C" int func_020a27c4(struct IntField0x23c_020a27c4* obj);
 extern "C" int func_ov003_021550dc(void* obj);
 extern "C" int func_ov003_02155208(void* self);
 
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 
 struct Obj2081;
-void CallFunc0204c804OnMatchingKey_0207fdcc(struct Obj2081* obj, int key);
+extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
 
 struct Obj0208203c;
-void ResetWithSub0208203c(struct Obj0208203c* obj);
+extern "C" void func_0208203c(struct Obj0208203c* obj);
 
 struct Obj020e25e8;
-void ResetSelectionState020e25e8(struct Obj020e25e8* obj);
+extern "C" void func_020e25e8(struct Obj020e25e8* obj);
 
 extern struct Obj0205eaa0 data_02108760;
 
@@ -37,13 +37,13 @@ extern "C" ARM int func_ov003_02155618(char* obj) {
     int flagB = result;
 
     GameState* battle = GameState::GetInstance();
-    struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)GetFieldIfFlag4_020100f8((char*)battle);
-    if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || GetIntAt0x23c(p) == 0)) {
+    struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)func_020100f8((char*)battle);
+    if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || func_020a27c4(p) == 0)) {
         flagB = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
     }
 
     if (func_ov003_021550dc(obj) != 0 || flagB != 0) {
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
         result = -1;
         if (*(short*)(obj + kRegionValue1EA_1E6) == 6) {
             result = 1;
@@ -55,13 +55,13 @@ extern "C" ARM int func_ov003_02155618(char* obj) {
     }
 
     if (result != 0) {
-        CallFunc0204c804OnMatchingKey_0207fdcc(*(struct Obj2081**)(obj + 0x18), *(short*)(obj + kRegionValue1E6_1E2));
-        ResetWithSub0208203c((struct Obj0208203c*)(obj + 0x80));
+        func_0207fdcc(*(struct Obj2081**)(obj + 0x18), *(short*)(obj + kRegionValue1E6_1E2));
+        func_0208203c((struct Obj0208203c*)(obj + 0x80));
         *(void**)(obj + 8) = 0;
     }
 
     if (*(void**)(obj + 0x1c) != 0 && result != 0) {
-        ResetSelectionState020e25e8(*(struct Obj020e25e8**)(obj + 0x1c));
+        func_020e25e8(*(struct Obj020e25e8**)(obj + 0x1c));
     }
 
     return result;

@@ -31,15 +31,15 @@ struct MenuContext {
 
 struct Entry_0205d6a0;
 
-MemberScreen* GetField1c_021a193c(int* p);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int unk);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int unk);
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
 
 // USA: func_ov005_02159850
 extern "C" ARM void func_ov005_02159850(EquipmentMenu* self) {
     if (self->menuStep_ != 0)
         return;
-    ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+    func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
     if (self->slot_ >= 0 && self->slot_ < 8)
         func_ov005_0215792c(self, 3);
     else if (self->slot_ >= 8 && self->slot_ < 24)
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov005_02159850(EquipmentMenu* self) {
     self->menuStep_ = 0;
     self->menuChoice_ = 0;
     self->menuState_ = 0;
-    MemberScreen* screen = GetField1c_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708);
+    MemberScreen* screen = func_ov017_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708);
     screen->flags_ |= 0x81;
     self->flags_ |= 0xc;
 }

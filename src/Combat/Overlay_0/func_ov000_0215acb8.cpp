@@ -3,8 +3,8 @@
 #include "std_library_functions.h"
 
 struct S_10088;
-int IsFlag10088Set_02010088(struct S_10088* obj);
-int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject* combatant);
+extern "C" int func_02010088(struct S_10088* obj);
+extern "C" int func_ov000_02153c0c(GameObject* combatant);
 
 struct ActionNode0215acb8 {
     unsigned short action;
@@ -45,19 +45,19 @@ struct Battle0215acb8 {
     unsigned char actionCount;
 };
 
-void InitStruct02160030(void* obj);
-void ResetStruct02157cdc(void* obj);
-void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" void func_ov000_02160030(void* obj);
+extern "C" void func_ov000_02157cdc(void* obj);
+extern "C" void func_ov000_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-void AppendToChainAndIncCount0215ffc4(void* obj, void* node, int idx);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215ffc4(void* obj, void* node, int idx);
 
 struct Obj02160068;
 struct Node02160068;
-void AppendNode02160068(struct Obj02160068* obj, struct Node02160068* newNode);
+extern "C" void func_ov000_02160068(struct Obj02160068* obj, struct Node02160068* newNode);
 struct Obj021600cc;
 struct Node021600cc;
-void AppendNode021600cc(struct Obj021600cc* obj, struct Node021600cc* newNode);
+extern "C" void func_ov000_021600cc(struct Obj021600cc* obj, struct Node021600cc* newNode);
 
 // USA: func_ov000_0215acb8
 extern "C" ARM void func_ov000_0215acb8(struct Battle0215acb8* battle, int combatantId, short amount, short valB) {
@@ -68,20 +68,20 @@ extern "C" ARM void func_ov000_0215acb8(struct Battle0215acb8* battle, int comba
     if (c == NULL) {
         return;
     }
-    if (IsFlag10088Set_02010088((struct S_10088*)c)) {
+    if (func_02010088((struct S_10088*)c)) {
         return;
     }
-    if (IsFlag0x18Bit0x2000Set_ov000_02153c0c(c)) {
+    if (func_ov000_02153c0c(c)) {
         return;
     }
     struct ActionNode0215acb8* action = &battle->actions[battle->actionCount];
-    InitStruct02160030(action);
+    func_ov000_02160030(action);
     struct ActionEntry0215acb8* entry = &battle->entries[battle->actionCount];
     memset(entry, 0, 0x30);
     entry->field1c = -1;
     entry->field30 = 0;
     struct TargetNode0215acb8* target = &battle->targets[battle->actionCount];
-    ResetStruct02157cdc(target);
+    func_ov000_02157cdc(target);
     struct OutStruct0215ccbc* out = &battle->outs[battle->actionCount];
     memset(out, 0, 0x20);
     out->field20 = 0;
@@ -89,12 +89,12 @@ extern "C" ARM void func_ov000_0215acb8(struct Battle0215acb8* battle, int comba
     entry->combatantId = combatantId;
     entry->currHP = c->currentStats_->primaryStats.currHP;
     entry->currMP = c->currentStats_->primaryStats.currMP;
-    PopulateEntry_0215ccbc((int)battle, out, c, -amount, c->currentStats_->primaryStats.currHP, valB, 0x800000000ULL, 0);
-    AddEntryAndIncrementCount0215a88c(battle, out, 0x243);
+    func_ov000_0215ccbc((int)battle, out, c, -amount, c->currentStats_->primaryStats.currHP, valB, 0x800000000ULL, 0);
+    func_ov000_0215a88c(battle, out, 0x243);
     target->combatantId = combatantId;
     target->active = 1;
-    AppendToChainAndIncCount0215ffc4(target, out, 0);
-    AppendNode02160068((struct Obj02160068*)action, (struct Node02160068*)entry);
-    AppendNode021600cc((struct Obj021600cc*)action, (struct Node021600cc*)target);
+    func_ov000_0215ffc4(target, out, 0);
+    func_ov000_02160068((struct Obj02160068*)action, (struct Node02160068*)entry);
+    func_ov000_021600cc((struct Obj021600cc*)action, (struct Node021600cc*)target);
     battle->actionCount++;
 }

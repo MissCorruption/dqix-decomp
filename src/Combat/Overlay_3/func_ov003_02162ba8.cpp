@@ -30,19 +30,19 @@ static inline void SetF400(Sub64 *p) {
     p->f400 |= 0x800000;
 }
 
-void SetEntryNibbleByShortId(StatusOwner02081198 *, int, int);
-void SetEntryFlag0x2ByShortId(StatusOwner02081164 *, int, int);
+extern "C" void func_02081198(StatusOwner02081198 *, int, int);
+extern "C" void func_02081164(StatusOwner02081164 *, int, int);
 extern "C" void func_020813ec(void *, int);
-int FindMappedMemberId02080468(void *, int);
-void ResetWithSub0208203c(Obj0208203c *);
+extern "C" int func_02080468(void *, int);
+extern "C" void func_0208203c(Obj0208203c *);
 extern "C" void func_ov003_02165888(unsigned char *, int);
 extern "C" void func_ov003_02160794(unsigned char *);
 extern "C" int func_ov003_02160854(unsigned char *);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *, int, int);
-int CountFlaggedCombatants_02161544(void *);
-void CallFunc0204c804OverAllElems(Cont0207fe44 *);
+extern "C" void func_0205eaa0(Obj0205eaa0 *, int, int);
+extern "C" int func_ov003_02161544(void *);
+extern "C" void func_0207fe44(Cont0207fe44 *);
 extern "C" int func_ov003_02160a68(unsigned char *);
-unsigned char *GetFieldAt0x150_02053c6c(unsigned char *);
+extern "C" unsigned char *func_02053c6c(unsigned char *);
 extern "C" void func_ov003_02161480(unsigned char *);
 extern "C" void func_ov003_02166f40(unsigned char *);
 
@@ -66,13 +66,13 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *self) {
     if (state == 0) {
         *(short *) (self + RO(0x482)) = -1;
         *(short *) (self + RO(0x488)) = 0x13;
-        SetEntryNibbleByShortId((StatusOwner02081198 *) r4, 0x12, 1);
-        SetEntryFlag0x2ByShortId((StatusOwner02081164 *) r4, 0x12, 1);
+        func_02081198((StatusOwner02081198 *) r4, 0x12, 1);
+        func_02081164((StatusOwner02081164 *) r4, 0x12, 1);
         func_020813ec(r4, 0x12);
-        *(short *) (self + RO(0x48e))                = FindMappedMemberId02080468(r4, *(short *) (self + RO(0x488)));
+        *(short *) (self + RO(0x48e))                = func_02080468(r4, *(short *) (self + RO(0x488)));
         *(short *) (self + RO(0x474))                = *(short *) (self + RO(0x48e));
         *(short *) ((unsigned char *) r4 + RO_36) = *(short *) (self + RO(0x48e));
-        ResetWithSub0208203c((Obj0208203c *) (self + RO(0x308)));
+        func_0208203c((Obj0208203c *) (self + RO(0x308)));
         *(int *) (self + RO(0x470)) = 0;
         func_ov003_02165888(self, 1);
         *(unsigned int *) (self + RO(0x464)) |= 0x580000;
@@ -91,29 +91,29 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *self) {
             func_ov003_02165888(self, 1);
         }
         if (func_ov003_02160854(self) != 0) {
-            short idx = *(short *) (self + RO(0x48e)) - FindMappedMemberId02080468(r4, *(short *) (self + RO(0x488)));
+            short idx = *(short *) (self + RO(0x48e)) - func_02080468(r4, *(short *) (self + RO(0x488)));
             if (self[RO(0x4ad)] <= idx) return;
             *(short *) (self + RO(0x482)) = (self + idx)[RO(0x4a9)];
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c *) (self + RO(0x308)));
+            func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+            func_0208203c((Obj0208203c *) (self + RO(0x308)));
             *(int *) (self + RO(0x470)) = 0;
-            if (CountFlaggedCombatants_02161544(self) == 0) {
-                CallFunc0204c804OverAllElems((Cont0207fe44 *) r4);
+            if (func_ov003_02161544(self) == 0) {
+                func_0207fe44((Cont0207fe44 *) r4);
                 *(unsigned int *) (self + RO(0x464)) |= 0x80000;
                 sp[0]       = 0x49;
                 sp[1]       = 2;
                 self[RO(0x4a3)] = 1;
                 self[RO(0x4a4)] = 0;
             } else {
-                CallFunc0204c804OverAllElems((Cont0207fe44 *) r4);
+                func_0207fe44((Cont0207fe44 *) r4);
                 *(unsigned int *) (self + RO(0x464)) |= 0x80000;
                 self[RO(0x4a4)]++;
             }
         } else {
             if (func_ov003_02160a68(self) == 0) return;
-            ResetWithSub0208203c((Obj0208203c *) (self + RO(0x308)));
+            func_0208203c((Obj0208203c *) (self + RO(0x308)));
             *(int *) (self + RO(0x470)) = 0;
-            CallFunc0204c804OverAllElems((Cont0207fe44 *) r4);
+            func_0207fe44((Cont0207fe44 *) r4);
             *(unsigned int *) (self + RO(0x464)) |= 0x80000;
             sp[0]       = 2;
             self[RO(0x4a3)] = 1;
@@ -122,9 +122,9 @@ extern "C" ARM void func_ov003_02162ba8(unsigned char *self) {
     } else if (state == 2) {
         unsigned char saved = self[RO(0x4a3)];
         self[RO(0x4a3)]         = 0x10;
-        GameObject *c       = GetCombatantWithFlag0x100_0200ff1c(gs, *(short *) (self + RO(0x482)));
+        GameObject *c       = func_0200ff1c(gs, *(short *) (self + RO(0x482)));
         if (c == 0) return;
-        unsigned char *o = GetFieldAt0x150_02053c6c((unsigned char *) c);
+        unsigned char *o = func_02053c6c((unsigned char *) c);
         self[RO(0x4a3)]      = saved;
         int f            = (*(short *) (o + 0x454) > 0);
         if (c->combatFields_.savedState_130_->flags & 1) {

@@ -11,13 +11,13 @@ struct Container020dedd0 {
 };
 struct Obj020dee58;
 
-unsigned char *FindElementByByte0xc4_02081da8(Obj2081 *, int);
-bool IsField0x9cEqual3_0204c7cc(unsigned char *);
-Obj020dee58 *FindElementByKey020dedd0(Container020dedd0 *, int);
-void GetLookAndTurnOffsets020809c4(void *, int, int, short *, short *);
-int LookupValueFromField8(Obj020dee58 *);
-void InitEntryAtIndex_0217585c(void *, int, int, int, unsigned char);
-bool CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char *);
+extern "C" unsigned char *func_02081da8(Obj2081 *, int);
+extern "C" bool func_0204c7cc(unsigned char *);
+extern "C" Obj020dee58 *func_020dedd0(Container020dedd0 *, int);
+extern "C" void func_020809c4(void *, int, int, short *, short *);
+extern "C" int func_020dee58(Obj020dee58 *);
+extern "C" void func_ov003_0217585c(void *, int, int, int, unsigned char);
+extern "C" bool func_0204c7e0(unsigned char *);
 
 #if defined(jpn)
 extern unsigned char data_ov003_0217e34d[];
@@ -60,19 +60,19 @@ struct Battle02175504 {
 extern "C" ARM void func_ov003_02175504(Battle02175504 *self) {
     Obj2081 *obj     = self->menu;
     unsigned char k  = 6;
-    unsigned char *e = FindElementByByte0xc4_02081da8(obj, 3);
+    unsigned char *e = func_02081da8(obj, 3);
     if (e) {
-        if (!IsField0x9cEqual3_0204c7cc(e)) return;
+        if (!func_0204c7cc(e)) return;
         short a = 7;
         short b = (short) (self->page * 6);
         for (unsigned char i = 0; i < 6; i++) {
-            Obj020dee58 *it = FindElementByKey020dedd0(&self->entries,
+            Obj020dee58 *it = func_020dedd0(&self->entries,
                                                                                 self->keys_[b]);
             if (it) {
                 short x, y;
-                GetLookAndTurnOffsets020809c4(obj, 3, a, &x, &y);
-                int v = LookupValueFromField8(it);
-                InitEntryAtIndex_0217585c(self, x, y - 1, (v + 6) & 0xff, k);
+                func_020809c4(obj, 3, a, &x, &y);
+                int v = func_020dee58(it);
+                func_ov003_0217585c(self, x, y - 1, (v + 6) & 0xff, k);
             }
             k++;
             a++;
@@ -82,38 +82,38 @@ extern "C" ARM void func_ov003_02175504(Battle02175504 *self) {
     }
     if (self->state == 0x77) {
         Entry02175504 *cand = 0;
-        e                   = FindElementByByte0xc4_02081da8(obj, 0x15);
-        if (e && IsField0x9cEqual3_0204c7cc(e)) cand = (Entry02175504 *) e;
-        e = FindElementByByte0xc4_02081da8(obj, 0x16);
-        if (e && IsField0x9cEqual3_0204c7cc(e)) cand = (Entry02175504 *) e;
-        e = FindElementByByte0xc4_02081da8(obj, 0x1e);
-        if (e && IsField0x9cEqual3_0204c7cc(e)) cand = (Entry02175504 *) e;
+        e                   = func_02081da8(obj, 0x15);
+        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
+        e = func_02081da8(obj, 0x16);
+        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
+        e = func_02081da8(obj, 0x1e);
+        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
         if (cand) {
             int cx = cand->x_;
             int cy = cand->y_;
             cx     = (short) (cx << 3) + 3;
             cy     = (short) (cy << 3) + 3;
 #if defined(jpn)
-            InitEntryAtIndex_0217585c(self, cx, cy, data_ov003_0217e34d[(self->selection + (k - 0x124)) & 0xff], k);
+            func_ov003_0217585c(self, cx, cy, data_ov003_0217e34d[(self->selection + (k - 0x124)) & 0xff], k);
 #else
-            InitEntryAtIndex_0217585c(self, cx, cy, data_ov003_0217fabd[(self->selection + (k - 0x124)) & 0xff], k);
+            func_ov003_0217585c(self, cx, cy, data_ov003_0217fabd[(self->selection + (k - 0x124)) & 0xff], k);
 #endif
             return;
         }
     }
     if (self->updateEnabled == 0) return;
     if (self->selectedIndex < 0) return;
-    e = FindElementByByte0xc4_02081da8(obj, 0xe);
+    e = func_02081da8(obj, 0xe);
     if (!e) return;
-    if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0(e)) return;
+    if (!func_0204c7e0(e)) return;
     short a = 0x68;
     for (unsigned char i = 0; i < 8; i++) {
         short x, y;
-        GetLookAndTurnOffsets020809c4(obj, 0xe, a, &x, &y);
+        func_020809c4(obj, 0xe, a, &x, &y);
 #if defined(jpn)
-        InitEntryAtIndex_0217585c(self, x, y - 1, data_ov003_0217e32c[i], k);
+        func_ov003_0217585c(self, x, y - 1, data_ov003_0217e32c[i], k);
 #else
-        InitEntryAtIndex_0217585c(self, x, y - 1, data_ov003_0217fa9c[i], k);
+        func_ov003_0217585c(self, x, y - 1, data_ov003_0217fa9c[i], k);
 #endif
         a++;
         k++;

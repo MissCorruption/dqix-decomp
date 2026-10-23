@@ -82,11 +82,11 @@ struct MonsterListScreen {
 struct Container02080fa8;
 struct StatusOwner02081164;
 
-void ClearSublistEntriesFlag1_02080bac(void* obj, int id);
-void SetEntryHalfword0xe_0208103c(void* obj, int id, int value);
-void SetEntryFirstField02080fa8(Container02080fa8* obj, int id, int value);
-int SetEntryFlagById02080b2c(void* obj, int id);
-void SetEntryFlag0x2ByShortId(StatusOwner02081164* owner, int id, int enable);
+extern "C" void func_02080bac(void* obj, int id);
+extern "C" void func_0208103c(void* obj, int id, int value);
+extern "C" void func_02080fa8(Container02080fa8* obj, int id, int value);
+extern "C" int func_02080b2c(void* obj, int id);
+extern "C" void func_02081164(StatusOwner02081164* owner, int id, int enable);
 
 extern "C" {
 #if !defined(jpn)
@@ -108,9 +108,9 @@ extern "C" ARM void func_ov014_02188330(MonsterListScreen* self)
 #if !defined(jpn)
     func_020806d8(self->menu_, 0, 2, 1, 4);
 #endif
-    ClearSublistEntriesFlag1_02080bac(self->menu_, 0);
+    func_02080bac(self->menu_, 0);
     if (self->family_ >= 0)
-        SetEntryHalfword0xe_0208103c(self->menu_, 0x2f, (short)(self->family_ + 0x1e));
+        func_0208103c(self->menu_, 0x2f, (short)(self->family_ + 0x1e));
 
     short numKnown = 0;
     MonsterListEntry* entry = self->entries_;
@@ -133,15 +133,15 @@ extern "C" ARM void func_ov014_02188330(MonsterListScreen* self)
         short percent = value;
         completion = percent / 100;
     }
-    SetEntryFirstField02080fa8((Container02080fa8*)self->menu_, 4, completion);
-    SetEntryFirstField02080fa8((Container02080fa8*)self->menu_, 5, numKnown);
+    func_02080fa8((Container02080fa8*)self->menu_, 4, completion);
+    func_02080fa8((Container02080fa8*)self->menu_, 5, numKnown);
     for (unsigned char i = 0;; i++)
     {
         short item = data_ov014_021894cc[hidden][i];
         if (item < 0)
             break;
-        SetEntryFlagById02080b2c(self->menu_, item);
+        func_02080b2c(self->menu_, item);
     }
-    SetEntryFlag0x2ByShortId((StatusOwner02081164*)self->menu_, 0, 1);
+    func_02081164((StatusOwner02081164*)self->menu_, 0, 1);
     func_020813ec(self->menu_, 0);
 }

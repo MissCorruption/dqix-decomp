@@ -9,18 +9,18 @@ enum { RegionOffset150 = 0x150 };
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* obj);
 
 struct List0202fec8;
-void* Clear12Bytes_02099ff0(void* dst);
+extern "C" void* func_02099ff0(void* dst);
 
 struct BitField0209a088;
 struct Obj0209a088 {
     char pad[0xc];
 };
-void InitObjFromSource0209a088(struct Obj0209a088* obj, struct BitField0209a088* src);
+extern "C" void func_0209a088(struct Obj0209a088* obj, struct BitField0209a088* src);
 
-void* BinarySearchRecord0209a004(void* list, int key);
+extern "C" void* func_0209a004(void* list, int key);
 
 extern "C" void func_02083e28(void* a, int arg2);
 
@@ -46,11 +46,11 @@ extern "C" ARM int func_ov017_021b3780(struct Ctx_021b3780* ctx) {
     if (!((BackgroundLoader*)(loadedList))->GetTaskStatus((int)(ctx->listKey))) {
         return 0;
     }
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(battle, ctx->combatantId);
+    GameObject* combatant = func_0200ff1c(battle, ctx->combatantId);
     if (!combatant) {
         return 0;
     }
-    int base150 = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    int base150 = func_02053c6c((unsigned char*)combatant);
     if (!base150) {
         return 0;
     }
@@ -61,9 +61,9 @@ extern "C" ARM int func_ov017_021b3780(struct Ctx_021b3780* ctx) {
     ((BackgroundLoader*)((struct List0202fec8*)loadedList))->GetLoadedFileByID((int)(key), (void**)(&val1), (unsigned int*)((int*)&val2));
 
     struct Obj0209a088 obj;
-    Clear12Bytes_02099ff0(&obj);
+    func_02099ff0(&obj);
     int unused = val2;
-    InitObjFromSource0209a088(&obj, (struct BitField0209a088*)val1);
+    func_0209a088(&obj, (struct BitField0209a088*)val1);
 
     struct Record_021b3780* rec = (struct Record_021b3780*)(*(char**)((char*)combatant + RegionOffset150) + 0x2f4);
     unsigned char* table = &data_ov017_021d6b20;
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov017_021b3780(struct Ctx_021b3780* ctx) {
         unsigned char idx = *table;
         short threshold = *(short*)((char*)base150 + idx * 0x20 + 0x100 + 0xac);
         if (threshold > 0) {
-            void* found = BinarySearchRecord0209a004(&obj, threshold);
+            void* found = func_0209a004(&obj, threshold);
             if (found) {
                 memcpy(rec, found, 0x2c);
             }

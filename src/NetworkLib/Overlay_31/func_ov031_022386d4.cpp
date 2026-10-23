@@ -43,7 +43,7 @@ extern "C" void func_020c9be0(void);
 extern "C" int func_ov027_021dc8d4(int a, int b);
 extern "C" void func_ov023_021d8a40(void* cb);
 extern "C" void func_ov031_02238de4(void);
-void SetGlobal02290d14_02239108(unsigned short v);
+extern "C" void func_ov031_02239108(unsigned short v);
 
 // USA: func_ov031_022386d4
 extern "C" ARM void func_ov031_022386d4(void* ggid, unsigned short tgid) {
@@ -62,5 +62,5 @@ extern "C" ARM void func_ov031_022386d4(void* ggid, unsigned short tgid) {
 	}
 	func_ov027_021dc8d4(0x100, 1);
 	func_ov023_021d8a40((void*)func_ov031_02238de4);
-	SetGlobal02290d14_02239108(1);
+	func_ov031_02239108(1);
 }

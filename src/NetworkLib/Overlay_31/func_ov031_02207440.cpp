@@ -10,7 +10,7 @@ struct HostEnt02207440 {
 };
 
 extern "C" int func_ov031_02206e0c(const char* name);
-int CopyStringBounded020d2f28(char* dst, const char* src, int n);
+extern "C" int func_020d2f28(char* dst, const char* src, int n);
 
 unsigned int data_ov031_0224e234;
 void* data_ov031_0224e238;
@@ -28,7 +28,7 @@ extern "C" ARM HostEnt02207440* func_ov031_02207440(const char* name) {
     unsigned int addr = func_ov031_02206e0c(name);
     if (addr == 0) return 0;
     VectorizedMemset(data_ov031_0224e2ac, 0, 0x101);
-    CopyStringBounded020d2f28(data_ov031_0224e2ac, name, 0x101);
+    func_020d2f28(data_ov031_0224e2ac, name, 0x101);
     data_ov031_0224e254.name = data_ov031_0224e2ac;
     data_ov031_0224e254.aliases = 0;
     data_ov031_0224e254.addrType = 2;

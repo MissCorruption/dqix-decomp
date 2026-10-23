@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_0204c684(void* buf);
-int InitBufferFromDataField4_021ddc34(void* obj, short a, short b, short c, short d);
+extern "C" int func_ov023_021ddc34(void* obj, short a, short b, short c, short d);
 #if defined(jpn)
 #define func_ov023_021dcedc func_ov023_021dd7e0
 #endif
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov023_021dd344(struct Obj021dd344* obj) {
     char buf[0xe0];
     func_0204c684(buf);
 
-    if (!InitBufferFromDataField4_021ddc34(buf, 3, 0x10, 0x1a, 6)) return;
+    if (!func_ov023_021ddc34(buf, 3, 0x10, 0x1a, 6)) return;
 
     func_ov023_021dcedc(obj, buf);
 

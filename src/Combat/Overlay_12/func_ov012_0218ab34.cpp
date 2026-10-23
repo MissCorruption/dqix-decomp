@@ -54,10 +54,10 @@ struct KeyboardScreen {
     char texts_[4];
 };
 
-KeyboardCanvas* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-const char* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern "C" KeyboardCanvas* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" const char* func_02072a68(struct TableA68* table, int key);
 extern "C" int func_020420e8(const char* text, int large);
-void SetField0xa0AndByte0xc4IfFlag0x1Clear_0204f160(unsigned char* obj, int value, int key);
+extern "C" void func_0204f160(unsigned char* obj, int value, int key);
 extern "C" void func_0204ecb4(KeyboardCanvas* wnd, int a, int b, int w, int h, signed char* margins);
 extern "C" void func_0204f41c(KeyboardCanvas* ctx, short x, short y, const char* str, int size,
                               unsigned char palette, short* outA, short* outB, int flag);
@@ -65,7 +65,7 @@ extern "C" void func_0204f3bc(KeyboardCanvas* ctx, int value);
 extern "C" void func_ov003_0215ec68(int size, short* width, short* height);
 extern "C" void func_0204f914(KeyboardCanvas* obj, int mode, short x0, short y0, short x1, short y1);
 struct Obj0204fbf8;
-void InvokeHandlerAfterCacheFlush0204fbf8(struct Obj0204fbf8* obj);
+extern "C" void func_0204fbf8(struct Obj0204fbf8* obj);
 
 // USA: func_ov012_0218ab34
 extern "C" ARM void func_ov012_0218ab34(KeyboardScreen* self, int skip)
@@ -73,13 +73,13 @@ extern "C" ARM void func_ov012_0218ab34(KeyboardScreen* self, int skip)
     if (skip != 0)
         return;
 
-    KeyboardCanvas* canvas = FindElementByC40205d81c((struct Struct_0205d81c*)self->elements_, 0xe);
+    KeyboardCanvas* canvas = func_0205d81c((struct Struct_0205d81c*)self->elements_, 0xe);
     if (canvas == NULL)
         return;
 
     short originX = canvas->originX_ * 8;
     short originY = canvas->originY_ * 8;
-    const char* title = FindEntryByKey_02072a68((struct TableA68*)self->texts_, 0xe);
+    const char* title = func_02072a68((struct TableA68*)self->texts_, 0xe);
     int titleX = (0xf0 - func_020420e8(title, 1)) >> 1;
 
     Keyboard* keyboard = self->keyboard_;
@@ -103,7 +103,7 @@ extern "C" ARM void func_ov012_0218ab34(KeyboardScreen* self, int skip)
 
     if (canvas->pixels_ != NULL)
         memset(canvas->pixels_, 0, 0x7800);
-    SetField0xa0AndByte0xc4IfFlag0x1Clear_0204f160((unsigned char*)canvas, canvas->unk_a0, 0xe);
+    func_0204f160((unsigned char*)canvas, canvas->unk_a0, 0xe);
     func_0204ecb4(canvas, 0, 0, 0x1e, 0x12, 0);
     func_0204f41c(canvas, titleX, 6, title, 0xc, 0xf, &outA, &outB, palette);
     func_0204f3bc(canvas, 0x18);
@@ -128,5 +128,5 @@ extern "C" ARM void func_ov012_0218ab34(KeyboardScreen* self, int skip)
         func_0204f41c(canvas, width + x, y + 2, text, 0xc, 0xf, &outA, &outB, palette);
     }
 
-    InvokeHandlerAfterCacheFlush0204fbf8((struct Obj0204fbf8*)canvas);
+    func_0204fbf8((struct Obj0204fbf8*)canvas);
 }

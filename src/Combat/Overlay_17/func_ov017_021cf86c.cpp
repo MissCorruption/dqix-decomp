@@ -39,24 +39,24 @@ struct WorldSettings { char pad0[0x26a4]; char grottoState_[4]; };
 struct WorldSettings { char pad0[0x2664]; char grottoState_[4]; };
 #endif
 struct GrottoZoneStorage { char pad0[0xc]; int zone_; };
-int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
+extern "C" int func_0202c1a4(SearchStruct0202c1a4*);
 extern "C" WorldSettings* func_02012fe4();
-void* GetField0x3f8Address_0200fd0c(GameState*);
-int ListContainsId(ListHead02046b60*, int);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
+extern "C" void* func_0200fd0c(GameState*);
+extern "C" int func_02046b60(ListHead02046b60*, int);
+extern "C" int func_02046b24(HeadNode02046b24**);
 extern "C" void func_0208f748(void*, int);
-void FillBits5cd0(S_020113e0*);
-int IsInRange0201b588(int);
+extern "C" void func_020113e0(S_020113e0*);
+extern "C" int func_0201b588(int);
 
 // USA: func_ov017_021cf86c
 extern "C" ARM void func_ov017_021cf86c(void*, GrottoPacket* packet, GameState* state, GrottoOverlay* overlay, SearchStruct0202c1a4* search) {
-    if (packet->control_.bits_.player_ >= 0 && GetSearchStructCurrentArrEntry(search) != packet->control_.bits_.player_) return;
+    if (packet->control_.bits_.player_ >= 0 && func_0202c1a4(search) != packet->control_.bits_.player_) return;
     WorldSettings* settings = func_02012fe4();
     GrottoStruct* grotto;
     ListHead02046b60* list = overlay->list_;
-    GetField0x3f8Address_0200fd0c(state);
+    func_0200fd0c(state);
     grotto = state->GetGrottoStruct();
-    if (ListContainsId(list, 0x4e)) {
+    if (func_02046b60(list, 0x4e)) {
         PendingGrotto* pending = overlay->pending_;
         pending->zone_ = packet->zone_;
         pending->mapState_ = packet->mapState_;
@@ -86,10 +86,10 @@ extern "C" ARM void func_ov017_021cf86c(void*, GrottoPacket* packet, GameState* 
         grotto->unknown_0[1] = 0;
     }
     if (grotto->unknown_0[0] && (grotto->activeMapData.GetDiscoveryState() == 2 || grotto->activeMapData.GetDiscoveryState() == 3)) {
-        if (((GrottoZoneStorage*)grotto)->zone_ == state->GetProtagonist()->obj3D_.GetField06() && GetHeadNodeIdOrMinusOne((HeadNode02046b24**)list) != 10) {
+        if (((GrottoZoneStorage*)grotto)->zone_ == state->GetProtagonist()->obj3D_.GetField06() && func_02046b24((HeadNode02046b24**)list) != 10) {
             func_0208f748(settings->grottoState_, 0);
         }
     }
-    if (grotto->unknown_0[0] && packet->control_.bits_.refresh_ && (grotto->activeMapData.GetDiscoveryState() == 2 || grotto->activeMapData.GetDiscoveryState() == 3)) FillBits5cd0((S_020113e0*)state);
-    if (IsInRange0201b588(state->GetPartyMemberByIndex(0)->obj3D_.GetField06()) && packet->control_.bits_.refresh_) FillBits5cd0((S_020113e0*)state);
+    if (grotto->unknown_0[0] && packet->control_.bits_.refresh_ && (grotto->activeMapData.GetDiscoveryState() == 2 || grotto->activeMapData.GetDiscoveryState() == 3)) func_020113e0((S_020113e0*)state);
+    if (func_0201b588(state->GetPartyMemberByIndex(0)->obj3D_.GetField06()) && packet->control_.bits_.refresh_) func_020113e0((S_020113e0*)state);
 }

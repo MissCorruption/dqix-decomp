@@ -13,7 +13,7 @@ struct Recipe {
 
 struct List02071d60;
 
-Recipe* FindEntryByKey02071d60(List02071d60* list, int key);
+extern "C" Recipe* func_02071d60(List02071d60* list, int key);
 
 struct AlchemyIngredients {
     List02071d60* table_;
@@ -25,7 +25,7 @@ struct AlchemyIngredients {
 // USA: func_ov006_02153b9c
 extern "C" ARM void func_ov006_02153b9c(AlchemyIngredients* self, short id, unsigned char* amounts) {
     memset(amounts, 0, 3);
-    Recipe* recipe = FindEntryByKey02071d60(self->table_, id);
+    Recipe* recipe = func_02071d60(self->table_, id);
     if (recipe == 0)
         return;
     for (int category = 0; category < 9; category++) {

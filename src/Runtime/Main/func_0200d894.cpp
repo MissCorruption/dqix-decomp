@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0200d894  (semantic: sys_write0)
+// USA: func_0200d894
 //
 // PROVENANCE: same MSL runtime semihosting family as sys_exit.cpp (func_0200d8bc) and
 // sys_readc.cpp (func_0200d8a8). Operation number r0=3 is ARM semihosting SYS_WRITE0

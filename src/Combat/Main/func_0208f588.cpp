@@ -48,8 +48,8 @@ extern const struct ArchivePath0208f588 data_020e8d54;
 extern "C" struct Context02012fe4* func_02012fe4(void);
 struct ObjectArchiveLoadInfo;
 
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 
 // USA: func_0208f588
 extern "C" ARM int func_0208f588(struct ArchiveHolder0208f588* self, SafeAllocator* allocator, char* pairObj) {
@@ -87,10 +87,10 @@ extern "C" ARM int func_0208f588(struct ArchiveHolder0208f588* self, SafeAllocat
     info.data = self->data;
     info.size = self->size;
 
-    RestorePairTables0207df90(pairObj);
+    func_0207df90(pairObj);
     ((Object3D*)&self->object)->Initialize();
     ((Object3D*)&self->object)->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&info);
     ((Object3D*)&self->object)->MakeHidden();
-    BackupPairTables0207dfac(pairObj);
+    func_0207dfac(pairObj);
     return 1;
 }

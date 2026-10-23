@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
 extern "C" void func_ov023_021ed254(void* obj, void* buf);
 #if defined(jpn)
 extern "C" ARM void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov023_021ed194(char* obj) {
 #endif
     struct Bits0205de24_021ed194 { unsigned char low4 : 4; unsigned char high4 : 4; };
     unsigned char keyLow = ((struct Bits0205de24_021ed194*)(obj + 0xa0))->low4;
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)(obj + 0xc4), keyLow, 3);
+    func_0205de24((struct Struct0205de24*)(obj + 0xc4), keyLow, 3);
 
 #if defined(jpn)
     *(unsigned short*)(obj + 0x164) = 0x10;

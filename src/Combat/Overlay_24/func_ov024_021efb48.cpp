@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215ec80(int battle, short* buf, int max, int group, int extra);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
 
 struct Group_021efb48 {
     unsigned char b0;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov024_021efb48(struct Obj_021efb48* obj, int unused1, in
             if (!c) continue;
             if (c->currentStats_->primaryStats.agility >= 999) continue;
             if (c->currentStats_->agilityBuff >= 2) continue;
-            if (!IsCombatantFlagMask512_021eda60(c)) matched++;
+            if (!func_ov024_021eda60(c)) matched++;
         }
         if (matched > 0) candidates.v[numCandidates++] = g;
     }

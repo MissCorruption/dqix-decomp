@@ -18,7 +18,7 @@ enum { SourceField = 0x48, DestinationField = 0x50, CursorField = 0x54,
 #endif
 
 struct Object02043124;
-void ReinitController02043204(char*);
+extern "C" void func_02043204(char*);
 extern "C" void func_02043124(Object02043124*);
 
 #if defined(jpn)
@@ -34,10 +34,10 @@ struct Entry0204254c {
     signed char flags : 2;
     char unknown6[2];
 };
-int IsHighByteFF0206ac6c(void*, void*);
-int Func0206abf8(void*, void*);
-bool IsCommandInRange02067a9c(void*, void*);
-Entry0204254c* FindEntryByKey0204254c(int, int);
+extern "C" int func_0206ac6c(void*, void*);
+extern "C" int func_0206abf8(void*, void*);
+extern "C" bool func_02067a9c(void*, void*);
+extern "C" Entry0204254c* func_0204254c(int, int);
 extern "C" char* func_0206ac94(void*, unsigned short, char*);
 extern "C" void func_0206ad74(void*);
 #endif
@@ -81,7 +81,7 @@ extern "C" ARM void func_0206aa28(char* context) {
                 cursor = func_0206c730(context, command, *(MessageCharacter**)(context + SourceField));
                 if (!cursor) {
                     unsigned char saved = *(unsigned char*)(context + 0x17fd);
-                    ReinitController02043204(context);
+                    func_02043204(context);
                     func_02043124((Object02043124*)(context));
                     context[0x17fd] = saved;
                     break;
@@ -97,8 +97,8 @@ extern "C" ARM void func_0206aa28(char* context) {
     for (;;) {
         if (!*cursor) break;
         int commandBytes = 0;
-        if (IsHighByteFF0206ac6c(context, cursor)) {
-            int words = Func0206abf8(context, cursor) + 1;
+        if (func_0206ac6c(context, cursor)) {
+            int words = func_0206abf8(context, cursor) + 1;
             commandBytes = words * 2;
             memcpy(output, cursor, commandBytes);
             output += words * 2;
@@ -108,14 +108,14 @@ extern "C" ARM void func_0206aa28(char* context) {
             *(int*)(context + 0x998) = 0;
             break;
         }
-        if (IsHighByteFF0206ac6c(context, cursor)) {
-            if (IsCommandInRange02067a9c(context, cursor)) {
+        if (func_0206ac6c(context, cursor)) {
+            if (func_02067a9c(context, cursor)) {
                 if (seenGlyph) {
                     *(MessageCharacter**)(context + NextField) = cursor;
                     break;
                 }
                 unsigned char saved = *(unsigned char*)(context + 0x19cc);
-                ReinitController02043204(context);
+                func_02043204(context);
                 func_02043124((Object02043124*)(context));
                 context[0x19cc] = saved;
                 break;
@@ -128,7 +128,7 @@ extern "C" ARM void func_0206aa28(char* context) {
                 cursor = func_0206ac94(context, command, *(MessageCharacter**)(context + SourceField));
                 if (!cursor) {
                     unsigned char saved = *(unsigned char*)(context + 0x19cc);
-                    ReinitController02043204(context);
+                    func_02043204(context);
                     func_02043124((Object02043124*)(context));
                     context[0x19cc] = saved;
                     break;
@@ -137,7 +137,7 @@ extern "C" ARM void func_0206aa28(char* context) {
         } else {
             seenGlyph = 1;
             int size = 1;
-            Entry0204254c* entry = FindEntryByKey0204254c((int)(cursor), (unsigned char)(context[0x19dc]));
+            Entry0204254c* entry = func_0204254c((int)(cursor), (unsigned char)(context[0x19dc]));
             if (entry) size = entry->size;
             memcpy(output, cursor, size);
             output += size;

@@ -20,14 +20,14 @@ struct Struct0203c1c8 {
 
 struct Obj0203c108;
 
-void DispatchEntriesOnce021704d8(struct Struct0203c1c8* obj, int* arr1, int* arr2, int* arr3);
-int HasAnyFlags_021719f8_021719f8(int* obj);
+extern "C" void func_ov000_021704d8(struct Struct0203c1c8* obj, int* arr1, int* arr2, int* arr3);
+extern "C" int func_ov000_021719f8(int* obj);
 #if defined(jpn)
 struct Container020e0310;
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
 #endif
-void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* fmt);
-void ReleaseGlobalEntry0203c198(char* obj);
+extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
+extern "C" void func_0203c198(char* obj);
 
 extern "C" void __clear(void* buf, int count);
 
@@ -87,41 +87,41 @@ extern "C" ARM void func_ov000_02170538(struct Slot02170538* e, int ox, int oy, 
         int b2[2] = { e->y + 0xb, e->y + 0xb };
         struct Palette02170538 c2 = data_ov000_021832f4.large;
         c2.v[0] = cls;
-        DispatchEntriesOnce021704d8(&e->text, a2, b2, c2.v);
+        func_ov000_021704d8(&e->text, a2, b2, c2.v);
         return;
     }
     int a[2] = { e->x + RG(0x28, 0x2f) + ox, e->x + 0x30 + ox };
     int b[2] = { e->y + 8 + oy, e->y + 8 + oy };
     struct Palette02170538 c = data_ov000_021832f4.small;
     c.v[0] = cls;
-    DispatchEntriesOnce021704d8(&e->text, a, b, c.v);
+    func_ov000_021704d8(&e->text, a, b, c.v);
     if (e->states[e->index] == 0x67) return;
     int d[2] = { e->x + 0xb3 + ox, e->x + 0xb4 + ox };
     int f[2][2] = { { e->y + 0xf + oy, e->y + 0xf + oy }, { e->y + 8 + oy, e->y + 8 + oy } };
     int sel = 1;
     unsigned int cur = e->f3c & 0x80019;
     unsigned int want = e->f28 & 0x80019;
-    if (HasAnyFlags_021719f8_021719f8((int*)e)) {
+    if (func_ov000_021719f8((int*)e)) {
         if (cur != want) {
 #if defined(jpn)
-            char* str = (char*)GetFieldByKey020e0434(*(struct Container020e0310**)((char*)e + 4), func_ov000_02171a74(e));
+            char* str = (char*)func_020e0434(*(struct Container020e0310**)((char*)e + 4), func_ov000_02171a74(e));
             if (str != NULL) {
-                SwapGlobalEntry0203c108((struct Obj0203c108*)&e->label, str);
+                func_0203c108((struct Obj0203c108*)&e->label, str);
             }
 #else
             char buf[0x80];
             __clear(buf, sizeof(buf));
             if (func_ov000_02171a74(e, buf) >= 0) {
-                SwapGlobalEntry0203c108((struct Obj0203c108*)&e->label, buf);
+                func_0203c108((struct Obj0203c108*)&e->label, buf);
             }
 #endif
             e->f3c = e->f28;
         }
-        DispatchEntriesOnce021704d8(&e->label, d, f[0], c.v);
+        func_ov000_021704d8(&e->label, d, f[0], c.v);
         return;
     }
     if (cur != want && (e->f3c & 0x80019)) {
-        ReleaseGlobalEntry0203c198((char*)&e->label);
+        func_0203c198((char*)&e->label);
         e->f3c = e->f28;
         e->b1d = -1;
         e->s2c = -1;
@@ -142,5 +142,5 @@ extern "C" ARM void func_ov000_02170538(struct Slot02170538* e, int ox, int oy, 
     c.v[0] = k;
     if (mode == 2) return;
     if (e->b443 != 5) sel = 0;
-    DispatchEntriesOnce021704d8(&e->label, d, f[sel], c.v);
+    func_ov000_021704d8(&e->label, d, f[sel], c.v);
 }

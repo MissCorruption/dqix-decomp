@@ -70,15 +70,15 @@ extern "C" void func_ov015_02191af0(S02190c2c* self, int index);
 extern "C" void func_ov015_02191ba0(S02190c2c* self, int index);
 extern "C" void func_ov015_02191c70(S02190c2c* self, int index);
 extern "C" ViewerEntry* func_ov015_02193160(S02190c2c* self, int page, int* index);
-void PushArrayValue021931b4(Struct021931b4* self, int page);
-int Pop021931cc(Owner_021931cc* self);
+extern "C" void func_ov015_021931b4(Struct021931b4* self, int page);
+extern "C" int func_ov015_021931cc(Owner_021931cc* self);
 extern "C" void func_ov015_02192700(S02190c2c* self, int unk);
-int IsFieldValueInRange_02190c2c(S02190c2c* self);
+extern "C" int func_ov015_02190c2c(S02190c2c* self);
 extern "C" void func_ov015_02192158(S02190c2c* self, int index);
 extern "C" void func_ov015_0218f308(ViewObject* object, const char* event);
-void UpdateField4c021900dc(Obj021900dc* object);
+extern "C" void func_ov015_021900dc(Obj021900dc* object);
 extern "C" void func_ov015_0218f0c4(ViewObject* object);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern "C" ViewObject* func_ov015_021919e4(S02190c2c* self, ViewerEntry* entry);
 extern "C" void func_ov015_02192544(S02190c2c* self);
 extern "C" void func_ov015_02190090(ViewObject* object);
@@ -115,12 +115,12 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                 break;
             if (entry->link_ != 0)
             {
-                PushArrayValue021931b4((Struct021931b4*)self, self->page_);
+                func_ov015_021931b4((Struct021931b4*)self, self->page_);
                 self->page_ = entry->link_;
                 func_ov015_02192700(self, 0);
                 return;
             }
-            if (IsFieldValueInRange_02190c2c(self))
+            if (func_ov015_02190c2c(self))
             {
                 func_ov015_02192158(self, index);
                 return;
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                 self->menu_ = 1;
                 func_ov015_02192700(self, 0);
                 self->current_->motion_ = 0;
-                UpdateField4c021900dc((Obj021900dc*)self->current_);
+                func_ov015_021900dc((Obj021900dc*)self->current_);
                 return;
             }
             if (g_keyManager.TestKeysHeld(0x100))
@@ -140,10 +140,10 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                 while (node != NULL)
                 {
                     func_ov015_0218f0c4(node->object_);
-                    TailForward02012da4(&data_02114e20, node->object_);
+                    func_02012da4(&data_02114e20, node->object_);
                     ViewObjectNode* next = node;
                     node = node->next_;
-                    TailForward02012da4(&data_02114e20, next);
+                    func_02012da4(&data_02114e20, next);
                 }
                 self->objects_ = NULL;
             }
@@ -155,12 +155,12 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                 {
                 case 0:
                 case 1:
-                    PushArrayValue021931b4((Struct021931b4*)self, self->page_);
+                    func_ov015_021931b4((Struct021931b4*)self, self->page_);
                     self->page_ = 0x22;
                     func_ov015_02192700(self, 0);
                     return;
                 case 2:
-                    PushArrayValue021931b4((Struct021931b4*)self, self->page_);
+                    func_ov015_021931b4((Struct021931b4*)self, self->page_);
                     self->page_ = 0x21;
                     func_ov015_02192700(self, 0);
                     return;
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                     self->menu_ = 1;
                     func_ov015_02192700(self, 0);
                     self->current_->motion_ = 0;
-                    UpdateField4c021900dc((Obj021900dc*)self->current_);
+                    func_ov015_021900dc((Obj021900dc*)self->current_);
                     return;
                 }
             }
@@ -183,7 +183,7 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
             self->cursors_[self->page_] = func_ov015_02191284(&self->menuList_);
             if (self->page_ == 8)
                 func_ov015_02192544(self);
-            int page = Pop021931cc((Owner_021931cc*)self);
+            int page = func_ov015_021931cc((Owner_021931cc*)self);
             if (page >= 0)
             {
                 self->page_ = page;
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
                 self->redraw_ = 1;
             }
         }
-        else if (g_keyManager.TestKeysPressed(0x100) && (self->page_ == 0x22 || IsFieldValueInRange_02190c2c(self)))
+        else if (g_keyManager.TestKeysPressed(0x100) && (self->page_ == 0x22 || func_ov015_02190c2c(self)))
         {
             func_ov015_02190090(self->current_);
             self->redraw_ = 1;

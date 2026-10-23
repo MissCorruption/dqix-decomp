@@ -10,7 +10,7 @@
 
 #include "std_library_functions.h"
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 
 extern "C" void func_ov000_0217c638(void* obj, int a, int b);
 extern "C" void func_ov000_02177d04(void* obj, void* buf);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov000_02177bf0(void* objRaw, struct InStruct_02177bf0* 
     *(short*)(s + 0xac) = 0xa;
     *(short*)(s + 0xae) = 0xc;
     *(unsigned char*)(s + 0xb1) = 5;
-    void* buf = *(void**)((char*)GetGlobalField0x1c020421a0() + REGION_OFFSET_0);
+    void* buf = *(void**)((char*)func_020421a0() + REGION_OFFSET_0);
     memset(buf, 0, REGION_OFFSET_1);
     func_ov000_02177d04(obj, buf);
 #if defined(jpn)

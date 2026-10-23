@@ -83,7 +83,7 @@ struct SlotState020830cc {
     unsigned short h954;
 };
 
-void Copy3Words02082fa8(struct Words02082fa8*, struct Words02082fa8*);
+extern "C" void func_02082fa8(struct Words02082fa8*, struct Words02082fa8*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_020426bc(void*, char*, int);
 
@@ -100,7 +100,7 @@ extern "C" ARM void func_020830cc(struct SlotState020830cc* src, struct SlotReco
         dst->w1c[i] = src->w138[i];
     }
     for (int i = 0; i < 13; i++) {
-        Copy3Words02082fa8(&dst->tr58[i], &src->tr850[i]);
+        func_02082fa8(&dst->tr58[i], &src->tr850[i]);
     }
     dst->h_f4 = src->h564;
     for (int j = 0; j < 27; j++) {

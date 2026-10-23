@@ -65,9 +65,9 @@ struct RC4Context_021f5e70
     char unk_0[0x104];
 };
 
-unsigned long long ComputeModHash_021f6324(int size, unsigned char* data);
+extern "C" unsigned long long func_ov023_021f6324(int size, unsigned char* data);
 extern "C" void func_ov031_022118a8(RC4Context_021f5e70* context, const char* key, int length);
-extern "C" void Rc4Crypt_02211938(RC4Context_021f5e70* context, const void* input, int size, void* output);
+extern "C" void func_ov031_02211938(RC4Context_021f5e70* context, const void* input, int size, void* output);
 
 extern "C" DownloadState_021f5e70 data_ov023_021fff08;
 extern "C" unsigned char data_ov023_021fff1c[];
@@ -79,13 +79,13 @@ extern "C" ARM int func_ov023_021f5e70(unsigned char* data, int size, void* buff
 {
     Script counter;
     Script script;
-    if (ComputeModHash_021f6324(size, data) != 0)
+    if (func_ov023_021f6324(size, data) != 0)
         return 0;
     int i;
     RC4Context_021f5e70 context;
     const char* key = (const char*)data_ov023_021fe3c8;
     func_ov031_022118a8(&context, key, strlen(key));
-    Rc4Crypt_02211938(&context, data, size - 4, buffer);
+    func_ov031_02211938(&context, data, size - 4, buffer);
     data = (unsigned char*)buffer;
     DownloadedData_021f5e70* downloaded = &((GameStateDownload_021f5e70*)GameState::GetInstance())->downloadedData_;
     data_ov023_021fff08.choosing_ = 0;

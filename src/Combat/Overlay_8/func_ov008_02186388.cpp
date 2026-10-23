@@ -162,22 +162,22 @@ extern char data_ov008_0218b400[] __attribute__((aligned(4)));
 extern unsigned char data_0211e33c[];
 extern Obj0205eaa0 data_02108760;
 
-GameResources* GetWord0x0_0200fb8c(int* gameState);
-MessageSystem* GetGlobalField0x1c020421a0();
+extern "C" GameResources* func_0200fb8c(int* gameState);
+extern "C" MessageSystem* func_020421a0();
 void SetSubBrightness(GameResources* resources, int brightness, int frames);
 int IsBrightnessTransitionActive(GameResources* resources);
 void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
-void ResetListHeader020727d8(List020727d8* list);
-void SubmitAndRunScript02072928(void* list, StreamHeader* file, int size, int id, void* output, unsigned char female);
-int GetField0x3acValue_020100a8(GameState* gameState);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void AppendString02042058(char* text, const char* append);
-Canvas* FindElementByC40205d81c(Struct_0205d81c* window, int canvas);
+extern "C" void func_020727d8(List020727d8* list);
+extern "C" void func_02072928(void* list, StreamHeader* file, int size, int id, void* output, unsigned char female);
+extern "C" int func_020100a8(GameState* gameState);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" Canvas* func_0205d81c(Struct_0205d81c* window, int canvas);
 struct Manager02187664;
-void InitConfig02187664(Manager02187664*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
+extern "C" void func_ov008_02187664(Manager02187664*, int);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int value);
 #if defined(jpn)
-void SubmitScriptFromFile020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
+extern "C" void func_020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
 #endif
 
 extern "C" {
@@ -208,9 +208,9 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     SavedRecords* saved;
 #endif
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = GetWord0x0_0200fb8c((int*)gameState);
+    GameResources* resources = func_0200fb8c((int*)gameState);
     BackgroundLoader::GetInstance();
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
+    MessageSystem* messages = func_020421a0();
 #if defined(jpn)
     saved = GetSavedRecords(gameState);
 #define CLEAR_RECORDS GetClearRecords(saved, 0)
@@ -231,12 +231,12 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     if (step == 1 && func_ov008_02188a54(self, 1))
     {
         func_ov008_0218712c(self, CLEAR_RECORDS);
-        InitConfig02187664((Manager02187664*)self, (int)CLEAR_RECORDS);
+        func_ov008_02187664((Manager02187664*)self, (int)CLEAR_RECORDS);
         func_ov008_02187a70(self, CLEAR_RECORDS);
         func_ov008_02187f6c(self, CLEAR_RECORDS);
         for (int i = 0; i < 5; i++)
         {
-            Canvas* canvas = FindElementByC40205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
+            Canvas* canvas = func_0205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
             if (canvas != NULL)
                 canvas->unk_c2 = 0;
         }
@@ -259,12 +259,12 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
             char* path = self->text_;
             char* comment = path + 0x80;
             TextList list;
-            ResetListHeader020727d8((List020727d8*)&list);
-            SubmitScriptFromFile020727f8(&list, data_ov008_0218b400, 1001, path, 0);
-            PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
-            ResetListHeader020727d8((List020727d8*)&list);
+            func_020727d8((List020727d8*)&list);
+            func_020727f8(&list, data_ov008_0218b400, 1001, path, 0);
+            PartyMember* member = (PartyMember*)func_0200ff1c(gameState, func_020100a8(gameState));
+            func_020727d8((List020727d8*)&list);
             unsigned char female = member->data_->female_;
-            SubmitScriptFromFile020727f8(&list, path, CLEAR_TITLE, comment, female);
+            func_020727f8(&list, path, CLEAR_TITLE, comment, female);
 #else
             char* path = self->text_;
             char* inner = path + 0x80;
@@ -275,22 +275,22 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
             void* file = LoadFileIntoMemory(data_ov008_0218b400, data_0211e33c, &size);
             if (file != NULL)
             {
-                ResetListHeader020727d8((List020727d8*)&list);
-                SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, 1001, path, 0);
-                ResetListHeader020727d8((List020727d8*)&list);
-                SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, 1001, inner, 1);
+                func_020727d8((List020727d8*)&list);
+                func_02072928(&list, (StreamHeader*)file, size, 1001, path, 0);
+                func_020727d8((List020727d8*)&list);
+                func_02072928(&list, (StreamHeader*)file, size, 1001, inner, 1);
             }
             file = ExtractFileFromGP2(path, inner, &size);
             if (file != NULL)
             {
-                PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
-                ResetListHeader020727d8((List020727d8*)&list);
+                PartyMember* member = (PartyMember*)func_0200ff1c(gameState, func_020100a8(gameState));
+                func_020727d8((List020727d8*)&list);
                 unsigned char female = member->data_->female_;
-                SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, CLEAR_TITLE, comment, female);
+                func_02072928(&list, (StreamHeader*)file, size, CLEAR_TITLE, comment, female);
             }
             BackgroundLoader::RemoveLockGlobal();
 #endif
-            AppendString02042058(comment, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 1000));
+            func_02042058(comment, func_020e0434((Container020e0310*)&self->texts_, 1000));
 #if defined(jpn)
             func_0204500c(messages, comment, 0);
 #else
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
         }
         if (ok)
         {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
             self->step_++;
         }
     }
@@ -345,12 +345,12 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     if (step == 6 && func_ov008_02188a54(self, 0))
     {
         func_ov008_0218712c(self, NULL);
-        InitConfig02187664((Manager02187664*)self, (int)NULL);
+        func_ov008_02187664((Manager02187664*)self, (int)NULL);
         func_ov008_02187a70(self, NULL);
         func_ov008_02187f6c(self, NULL);
         for (int i = 0; i < 6; i++)
         {
-            Canvas* canvas = FindElementByC40205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
+            Canvas* canvas = func_0205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
             if (canvas != NULL)
                 canvas->unk_c2 = 0;
         }

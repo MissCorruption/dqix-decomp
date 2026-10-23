@@ -8,7 +8,7 @@ typedef char* va_list;
 #define va_end(ap) ((void)0)
 #include "NitroSDK/IPC.h"
 
-void* TryAcquireLock021142e8_020d4064();
+extern "C" void* func_020d4064();
 extern "C" int func_020c7e0c(void* queue, void* message, int flags);
 
 extern int data_021142e8;
@@ -20,7 +20,7 @@ extern "C" ARM int func_020d40bc(int id, unsigned short paramNum, ...)
     int i;
     int result;
     unsigned long* buffer;
-    buffer = (unsigned long*)TryAcquireLock021142e8_020d4064();
+    buffer = (unsigned long*)func_020d4064();
     if (buffer == NULL)
         return 8;
     *(unsigned short*)buffer = id;

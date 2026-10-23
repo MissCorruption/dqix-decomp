@@ -26,67 +26,67 @@
 struct GameResources;
 struct AllocatorUnion;
 
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int bits);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int* word, unsigned int bits);
 struct FlagWord020466f4;
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-int GetWord0x7f6c_0201201c(void* gs);
-void SetWord0x7f6c_02012010(void* gs, int value);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" int func_0201201c(void* gs);
+extern "C" void func_02012010(void* gs, int value);
 struct FieldBlock63d6_115a8;
-unsigned char GetByteField0x63d6_020115a8(FieldBlock63d6_115a8*);
+extern "C" unsigned char func_020115a8(FieldBlock63d6_115a8*);
 struct FieldBlock63d6_115c0;
-void ClearByte0x63d6_020115c0(FieldBlock63d6_115c0*);
-void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
+extern "C" void func_020115c0(FieldBlock63d6_115c0*);
+extern "C" void func_020daf9c(int a, int b, int c, int d);
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
-void SetWord0x0_0200fb84(int*, int);
+extern "C" void func_0200fb84(int*, int);
 extern "C" char* func_02012fe4();
-void* GetField0x3f8Address_0200fd0c(GameState* gs);
-void Init0201133c(char*);
-void* GetData02109dcc_020a6084();
-void ClearBuffer020a6180(void* p);
-void RunScriptIfAvailable020a6194(void* p);
-void* GetData02105254_0203b628();
-void ClearThreeRegions0203b634(char*);
+extern "C" void* func_0200fd0c(GameState* gs);
+extern "C" void func_0201133c(char*);
+extern "C" void* func_020a6084();
+extern "C" void func_020a6180(void* p);
+extern "C" void func_020a6194(void* p);
+extern "C" void* func_0203b628();
+extern "C" void func_0203b634(char*);
 extern "C" void* func_0203bd08();
-void InitBattleContext0203bd24(char*);
-void* GetGlobalPtr021075f4_0203cf4c();
+extern "C" void func_0203bd24(char*);
+extern "C" void* func_0203cf4c();
 struct Struct_0203cf58;
-void InitWithExtendedRegion0203cf58(Struct_0203cf58*);
+extern "C" void func_0203cf58(Struct_0203cf58*);
 extern "C" void* func_0202ae18();
 extern "C" void func_0202aec0(void* p);
-void* GetData02100044_0202ae24();
+extern "C" void* func_0202ae24();
 extern "C" void func_0205e22c(void* p);
-void* GetPtrField0x468_02011584(void* gs);
-void ClearFirstThreeWords_02099898(unsigned int*);
-void Init021b2f64(unsigned char*);
+extern "C" void* func_02011584(void* gs);
+extern "C" void func_02099898(unsigned int*);
+extern "C" void func_ov017_021b2f64(unsigned char*);
 extern "C" void* func_0208e0a8();
-void Reset0208e4bc(char*);
-void* GetData02153637_020e2ff8();
+extern "C" void func_0208e4bc(char*);
+extern "C" void* func_020e2ff8();
 struct SlotTable020e3004;
-void InitSlotTable020e3004(SlotTable020e3004*);
-void* GetData02153660_020e3808();
+extern "C" void func_020e3004(SlotTable020e3004*);
+extern "C" void* func_020e3808();
 struct Entry020e3840;
-void ResetEntryArray020e3814(Entry020e3840*);
-void* GetData02153634_020e3580();
+extern "C" void func_020e3814(Entry020e3840*);
+extern "C" void* func_020e3580();
 struct Bytes020e358c;
-void ClearThreeBytes020e358c(Bytes020e358c*);
+extern "C" void func_020e358c(Bytes020e358c*);
 extern "C" char* func_0205ec34();
-char* GetGlobal02109418_02094d6c();
-unsigned char GetByte0x4_0200fb9c(char*);
-void SetByte0x4_0200fb94(char*, unsigned char);
-void ResetState0205facc(void* p);
-void Init02095518(char*);
-void ClearBattleRegion0x7ac4_020ac0dc();
+extern "C" char* func_02094d6c();
+extern "C" unsigned char func_0200fb9c(char*);
+extern "C" void func_0200fb94(char*, unsigned char);
+extern "C" void func_0205facc(void* p);
+extern "C" void func_02095518(char*);
+extern "C" void func_020ac0dc();
 extern "C" void func_02096524(void* p);
 extern "C" void* func_020704fc();
 struct State02070508;
-void ClearState02070508(State02070508*);
+extern "C" void func_02070508(State02070508*);
 extern "C" void func_0209c2e0(void* p, int a, int b);
 extern "C" void func_0205e944(void* p, int a);
-void* GetGlobalResetObj020d7a50();
+extern "C" void* func_020d7a50();
 struct ResetObj020d7a5c;
-void ResetAndClearFlags020d7a5c(ResetObj020d7a5c*);
+extern "C" void func_020d7a5c(ResetObj020d7a5c*);
 void LockStagedTextureVRAMCopying();
 void UnlockStagedTextureVRAMCopying();
 void UpdateVRAMStagingVRAMBanks();
@@ -97,219 +97,219 @@ extern "C" unsigned int DisableMainBGVRAMBanks();
 extern "C" unsigned int DisableSubBGVRAMBanks();
 extern "C" unsigned int DisableMainObjVRAMBanks();
 extern "C" unsigned int DisableSubObjVRAMBanks();
-void ConfigureModeByByte_0218d274_0218d274(void* controller);
+extern "C" void func_ov017_0218d274(void* controller);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
 extern "C" void MapVRAMBanksToSubObj(int value);
-void SetDispcntModeAndFlags020c391c(int mode, int a, int b);
-void SetSubBgMode_020c3984(unsigned int mode);
+extern "C" void func_020c391c(int mode, int a, int b);
+extern "C" void func_020c3984(unsigned int mode);
 extern "C" void func_020c51dc();
-void ResetMatrixStacks020c537c();
-void InitPaletteTables0202ac74();
-void SetStructFieldsFromCode02028d68(int code);
-void ConfigurePairMode020bb48c(unsigned int a, int b);
-void InitGlobalStateAndInstallHandlers020bb780(void* stack, int flag);
+extern "C" void func_020c537c();
+extern "C" void func_0202ac74();
+extern "C" void func_02028d68(int code);
+extern "C" void func_020bb48c(unsigned int a, int b);
+extern "C" void func_020bb780(void* stack, int flag);
 extern "C" void func_0202c288(void* p);
-int CheckField0NonZero_0202b7d8(int*);
-void SetField0x3acValue_020100a0(GameState* gs, int value);
-unsigned char GetField0x3acValue_020100a8(GameState* gs);
+extern "C" int func_0202b7d8(int*);
+extern "C" void func_020100a0(GameState* gs, int value);
+extern "C" unsigned char func_020100a8(GameState* gs);
 struct SearchStruct0202c1a4;
-int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
-void CallWithAddr4000330_020c555c(int);
+extern "C" int func_0202c1a4(SearchStruct0202c1a4*);
+extern "C" void func_020c555c(int);
 extern "C" void func_ov017_021a02f0(void* self);
-void ClearFourRegions02079870(char*);
-void ClearFourRegions020798b8(char*);
+extern "C" void func_02079870(char*);
+extern "C" void func_020798b8(char*);
 struct Obj020995c0;
-void RunBufferedScript020998c4(Obj020995c0*);
-void* GetGlobalWordList_0209cb68();
+extern "C" void func_020998c4(Obj020995c0*);
+extern "C" void* func_0209cb68();
 struct WordList0209cbb8;
-void ResetWordList0209cbb8(WordList0209cbb8*);
-void RunScriptIfAvailable0209cbcc(void* p);
-void* GetGlobal02109a54_02099f60();
-void PrepareAndRunBufferedScript02099f6c(char*);
-void ResetAllocatorSlots020e5058();
-void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
-void CreateAndResetAllocator020e50ec(void* buf, unsigned int size);
-void ResetAndLoadAllocatorSlots020e5114();
+extern "C" void func_0209cbb8(WordList0209cbb8*);
+extern "C" void func_0209cbcc(void* p);
+extern "C" void* func_02099f60();
+extern "C" void func_02099f6c(char*);
+extern "C" void func_020e5058();
+extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void func_020e50ec(void* buf, unsigned int size);
+extern "C" void func_020e5114();
 extern "C" void func_0207de48(void* p, int a, int b);
-void InitStruct02013718(char* p, int a, int b);
+extern "C" void func_02013718(char* p, int a, int b);
 extern "C" void func_0202df68(void* p);
 struct Struct020A2CF0;
-void ResetState020a2cf0(Struct020A2CF0*);
-void InitCombatController020a2010(void* p);
-void SetField0x3b0Value_020100c4(GameState* gs, int value);
+extern "C" void func_020a2cf0(Struct020A2CF0*);
+extern "C" void func_020a2010(void* p);
+extern "C" void func_020100c4(GameState* gs, int value);
 struct List02046958;
-void ClearListHeadTail(List02046958*);
+extern "C" void func_02046958(List02046958*);
 extern "C" void func_ov017_021a124c(void* p);
 extern "C" void func_ov017_0218f064(void* self, int id, int mask, int b, int extra);
-int GetLowNibbleAt0x56b_02011ff0(void* gs, int id);
-void* GetCombatantWithFlag0x1000_0200ff58(GameState* gs, int id);
-void SetField0x2d0_020546a0(void* p, int value);
-char* GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" int func_02011ff0(void* gs, int id);
+extern "C" void* func_0200ff58(GameState* gs, int id);
+extern "C" void func_020546a0(void* p, int value);
+extern "C" char* func_02053c6c(unsigned char*);
 extern "C" int func_020aaf84(void* buf, int a, int b, int c);
-int VerifyAndApplySaveBuffer_020ac864(int flag);
-int CheckSaveBufferStatus_020ab9c0(int flag);
-int AllocateAndProcessScratchBuffer020abca8();
+extern "C" int func_020ac864(int flag);
+extern "C" int func_020ab9c0(int flag);
+extern "C" int func_020abca8();
 struct StateBits5ccc_11544;
-void SetFlag0x5cccBit0_02011544(StateBits5ccc_11544*);
+extern "C" void func_02011544(StateBits5ccc_11544*);
 struct StateBits5ccc_11570;
-int GetFlag0x5cccBit0_02011570(StateBits5ccc_11570*);
-void* GetData02109020_0208e9e8();
+extern "C" int func_02011570(StateBits5ccc_11570*);
+extern "C" void* func_0208e9e8();
 extern "C" void func_0208ea10(void* p, int a);
 unsigned long long GetCurrentTimestamp();
-int CopyOutRegion0x5718_02011494(char*, void*);
+extern "C" int func_02011494(char*, void*);
 extern "C" int func_020dcd40();
 extern "C" void func_ov017_02191108(void* self, int a, int b, int c, int d);
 extern "C" void func_020897b4(int a, int b, int c, int d, int e, int f, int g, int h, int i);
 extern "C" void func_0201099c(void* gs);
-void InitStruct02070378(char*);
-void SetField5cb0AndRecordByte0_02010774(char*, int);
-void SetField5cb4AndRecordByte1_020107a8(char*, int);
-void SetSlotByte020107dc(char*, int);
+extern "C" void func_02070378(char*);
+extern "C" void func_02010774(char*, int);
+extern "C" void func_020107a8(char*, int);
+extern "C" void func_020107dc(char*, int);
 extern "C" void func_0206df6c(void* p, unsigned char* arr, int bit, int set);
 extern "C" void func_020120f0(void* gs);
 extern "C" int func_02032370(int n);
-void CopyToBattleField02039768(GameObject* obj, void* dst);
-short GetField0x397cValue_020100b0(GameState* gs);
-void SetField0x21c_020a2770(void* p, short v);
+extern "C" void func_02039768(GameObject* obj, void* dst);
+extern "C" short func_020100b0(GameState* gs);
+extern "C" void func_020a2770(void* p, short v);
 extern "C" int rand();
-void SetWord0x71f8_0201206c(void* gs, int v);
+extern "C" void func_0201206c(void* gs, int v);
 extern "C" void func_0206dfe8(void* p, int a, int b);
 extern "C" void* func_02057924();
 struct Foo02057930;
-void InitStruct02057930(Foo02057930*);
-void ClearCombatantsAndInitStruct02057978(Foo02057930*);
-void* GetEntryTableBase_02027ca4();
+extern "C" void func_02057930(Foo02057930*);
+extern "C" void func_02057978(Foo02057930*);
+extern "C" void* func_02027ca4();
 #if defined(jpn)
-extern "C" void _Z19InitEntries02028894P11Big02028894PcS1_(void* p, void* a);
+extern "C" void func_02028894(void* p, void* a);
 #else
-extern "C" void _Z19InitEntries02028894P11Big02028894PcS1_(void* p, void* a, void* b);
+extern "C" void func_02028894(void* p, void* a, void* b);
 #endif
 extern "C" void func_020287b4(void* p);
-void* GetData02104b6c_02039e70();
-void ResetBattleArrays02039e7c(void* p);
+extern "C" void* func_02039e70();
+extern "C" void func_02039e7c(void* p);
 struct Container0203a54c;
-void ProcessAllSubObjects0203a54c(Container0203a54c*);
-void* GetGlobalField0x1c020421a0();
+extern "C" void func_0203a54c(Container0203a54c*);
+extern "C" void* func_020421a0();
 extern "C" void func_02042c68(void* c);
 extern "C" void func_02043124(void* c);
-void SetField0x1e28_02042b30(void* c, void* p);
+extern "C" void func_02042b30(void* c, void* p);
 extern "C" void func_ov017_0219b624(void* self);
 extern "C" void func_ov017_0219ba0c(void* self, int a);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
 extern "C" void func_020432c4(void* c);
-void BackupPairTables0207dfac(char*);
+extern "C" void func_0207dfac(char*);
 extern "C" void func_02020554(void* p);
-void* GetGlobal02109030_020936f8();
+extern "C" void* func_020936f8();
 extern "C" void func_020938f0(void* p);
-void ReleaseHandleField340_020939ac(void* p);
-void ClearTwoRegions0206ebf4(char*);
-void* GetData02108ea8_0207d78c();
+extern "C" void func_020939ac(void* p);
+extern "C" void func_0206ebf4(char*);
+extern "C" void* func_0207d78c();
 struct Init0207d7c0;
-void InitStructArray0207d798(Init0207d7c0*);
-int TestBitInByteArray_0206dfb0(int p, unsigned char* arr, int bit);
+extern "C" void func_0207d798(Init0207d7c0*);
+extern "C" int func_0206dfb0(int p, unsigned char* arr, int bit);
 extern "C" void func_ov017_0219bfb4(int a, int b);
-void InitAndResetHeader_0219e310(unsigned char*, int);
+extern "C" void func_ov017_0219e310(unsigned char*, int);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
 struct Ctx021a3498;
-void ClearIfMatchAndFinalize_021a3498(Ctx021a3498*);
+extern "C" void func_ov017_021a3498(Ctx021a3498*);
 extern "C" void func_ov017_021baedc(void* p, int a);
-void InitObjState_021b2174(unsigned char*);
+extern "C" void func_ov017_021b2174(unsigned char*);
 struct S021b2ba0;
-void SetNameChecked_021b2ba0(S021b2ba0*, char*);
-void SetFields30And34_021b2bd0(void* p, int a, int b);
+extern "C" void func_ov017_021b2ba0(S021b2ba0*, char*);
+extern "C" void func_ov017_021b2bd0(void* p, int a, int b);
 extern "C" int GetMainBGAssignedVRAMSize();
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
-void DelayThenSyncBit0_020c9820();
-void RestoreDisplayMode_020c38d4();
+extern "C" void func_020c9820();
+extern "C" void func_020c38d4();
 struct S_02010124;
-void InitFields02010124(S_02010124*);
-void SetActiveDmaChannel020c3a0c(int ch);
+extern "C" void func_02010124(S_02010124*);
+extern "C" void func_020c3a0c(int ch);
 struct HeadNode02046b24;
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
+extern "C" int func_02046b24(HeadNode02046b24**);
 extern "C" void func_0206e424(void* p, int a);
-void InitObj021bdbf0(unsigned char*);
-void ClearBuffer0202ad30();
-void FlushAndClearBuffer0202adf0();
-void InitCombatSubsystems02012efc();
+extern "C" void func_ov017_021bdbf0(unsigned char*);
+extern "C" void func_0202ad30();
+extern "C" void func_0202adf0();
+extern "C" void func_02012efc();
 int IsBrightnessTransitionActive(GameResources*);
-int IsField0Null_02046b08(void**);
+extern "C" int func_02046b08(void**);
 struct Vector3i;
 struct FieldBlock63d8_115d0;
-int IsHalfword0x63d8Set_020115d0(FieldBlock63d8_115d0*);
-int GetHalfword0x63d8_020115e8(void* gs);
-void ClearHalfword0x63d8_02011600(void* gs);
+extern "C" int func_020115d0(FieldBlock63d8_115d0*);
+extern "C" int func_020115e8(void* gs);
+extern "C" void func_02011600(void* gs);
 struct Obj02071488;
-int RunScriptByValueRange02071574(unsigned int, Obj02071488*);
-int CheckField0x63daNonZero_02011610(void* gs);
-int GetHalfword0x63da_02011628(void* gs);
-void ClearHalfword0x63da_02011634(void* gs);
-void DispatchToActiveEntries020bc028(int a);
-void BlankFunction020d84e0();
-void Forward0202aff4(void* p);
+extern "C" int func_02071574(unsigned int, Obj02071488*);
+extern "C" int func_02011610(void* gs);
+extern "C" int func_02011628(void* gs);
+extern "C" void func_02011634(void* gs);
+extern "C" void func_020bc028(int a);
+extern "C" void func_020d84e0();
+extern "C" void func_0202aff4(void* p);
 extern "C" void func_02043368(void* c);
 extern "C" void func_ov017_0218cbd4(void* self);
 extern "C" void func_ov017_02191cc0(void* self);
 extern "C" void func_ov017_02195a20(void* self);
-void DispatchByFlag020d9834(int flag);
+extern "C" void func_020d9834(int flag);
 extern "C" void func_0209c840(void* p);
-void ResetXYField0203aa08(void* p);
+extern "C" void func_0203aa08(void* p);
 extern "C" void func_020bbd9c();
-void CleanInvalidateOamBuffers0203bd88(void* oam);
-void Forward0204359c(void* c, int a);
-void NotifyAllEntries0203dd94(char*);
-void NoOp_0219a188(void* self);
-void NoOp_021a63cc(void* self);
-void WriteControlAndToggle020d86d0(int a, int b);
-void ForwardObjAndField0_021a4358(int p);
+extern "C" void func_0203bd88(void* oam);
+extern "C" void func_0204359c(void* c, int a);
+extern "C" void func_0203dd94(char*);
+extern "C" void func_ov017_0219a188(void* self);
+extern "C" void func_ov017_021a63cc(void* self);
+extern "C" void func_020d86d0(int a, int b);
+extern "C" void func_ov017_021a4358(int p);
 struct Obj0203bdb0;
-void SyncMainSubOam0203bdb0(Obj0203bdb0*);
-int* GetField1c_021a193c(int*);
+extern "C" void func_0203bdb0(Obj0203bdb0*);
+extern "C" int* func_ov017_021a193c(int*);
 extern "C" void func_020439b0(void* c, int a);
 struct Node020579ec;
-void ForEachNode020579ec(Node020579ec**);
+extern "C" void func_020579ec(Node020579ec**);
 extern "C" void func_ov017_021a63d0(void* self);
 extern "C" void func_ov017_0219a18c(void* self);
 extern "C" void func_0203ba74(void* p);
 extern "C" void func_02027438(void* p);
 struct Obj020275e4;
-void UpdateTimedBufferState020275e4(Obj020275e4*);
+extern "C" void func_020275e4(Obj020275e4*);
 struct ShortField0xb4_0205eac8;
-int GetShortAt0xb4(ShortField0xb4_0205eac8*);
-void SetupContextForMode0205ea20(void* p, int mode);
+extern "C" int func_0205eac8(ShortField0xb4_0205eac8*);
+extern "C" void func_0205ea20(void* p, int mode);
 struct Actor0209c20c;
-void InitActorContext0209c20c(Actor0209c20c*);
+extern "C" void func_0209c20c(Actor0209c20c*);
 struct Obj_0205e8ec;
-void RefreshDisplayState0205e8ec(Obj_0205e8ec*);
+extern "C" void func_0205e8ec(Obj_0205e8ec*);
 extern "C" void func_ov017_021a3ef0(void* p);
 struct Struct_0203cfb4;
-void Init0203cfb4(Struct_0203cfb4*);
+extern "C" void func_0203cfb4(Struct_0203cfb4*);
 extern "C" void func_ov017_021a316c(void* self);
-void InitControllerObject_02043000(char*);
-void CallHelperFourTimes_02190238(void* self);
-void ResetBigStruct02013750(void* p, int a);
-void ForwardFirstWord020998ac(int*);
-void FreeWordListBuffer0209cd24(WordList0209cbb8*);
+extern "C" void func_02043000(char*);
+extern "C" void func_ov017_02190238(void* self);
+extern "C" void func_02013750(void* p, int a);
+extern "C" void func_020998ac(int*);
+extern "C" void func_0209cd24(WordList0209cbb8*);
 extern "C" void func_ov017_0219b938(void* self);
-void ResetOverlayState_0219bc50(unsigned char*);
-void TailForward02012da4(AllocatorUnion*, void*);
-void DestroyAllocatorsFromTable_021a0790(char*);
-void DestroyAllocatorsFromTable_021a0964(char*);
-void DestroyAllocatorsFromTable_021a0ba8(char*);
-void DestroyAllocatorsFromTable_021a0f40(char*);
-void DestroyAllocatorsFromTable_021a1114(char*);
-void DestroyAllocatorsFromTable_021a0d6c(char*);
+extern "C" void func_ov017_0219bc50(unsigned char*);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void func_ov017_021a0790(char*);
+extern "C" void func_ov017_021a0964(char*);
+extern "C" void func_ov017_021a0ba8(char*);
+extern "C" void func_ov017_021a0f40(char*);
+extern "C" void func_ov017_021a1114(char*);
+extern "C" void func_ov017_021a0d6c(char*);
 extern "C" void func_ov017_021a0470(void* self);
-void ClearCombatantList_0200fd58(GameState* gs);
-void ResetInputLogB_020a1edc();
-void ResetInputLogA_020a1de4();
-void ResetSlotsAndDestroySafeAllocator020e5094();
+extern "C" void func_0200fd58(GameState* gs);
+extern "C" void func_020a1edc();
+extern "C" void func_020a1de4();
+extern "C" void func_020e5094();
 extern "C" void func_ov004_0216e9cc();
 extern "C" void func_ov004_0216f854();
 
@@ -439,64 +439,64 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     unsigned char ids[4];
 
     SafeAllocator::GetLiveCount();
-    unsigned int* flagWord = GetDataPtr02114e04_020d6c00();
-    OrBitsIntoField0_020466e4(flagWord, 0x100);
+    unsigned int* flagWord = func_020d6c00();
+    func_020466e4(flagWord, 0x100);
     GameState* gs = GameState::GetInstance();
-    int mode = GetWord0x7f6c_0201201c(gs);
-    unsigned char field = GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs);
+    int mode = func_0201201c(gs);
+    unsigned char field = func_020115a8((FieldBlock63d6_115a8*)gs);
     if (mode != 5 && field != 4 && field != 8 && field != 0xc) {
-        DispatchWithGlobalContext020daf9c(1, 0, 1, 0);
+        func_020daf9c(1, 0, 1, 0);
     }
     SetMainBrightness((GameResources*)self, -16, 0);
     SetSubBrightness((GameResources*)self, -16, 0);
-    SetWord0x0_0200fb84((int*)gs, (int)self);
+    func_0200fb84((int*)gs, (int)self);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     char* bigStruct = func_02012fe4();
-    Request3f8* request = (Request3f8*)GetField0x3f8Address_0200fd0c(gs);
+    Request3f8* request = (Request3f8*)func_0200fd0c(gs);
     loader->MaybeReset();
-    Init0201133c((char*)gs);
-    void* scriptBuf = GetData02109dcc_020a6084();
-    ClearBuffer020a6180(scriptBuf);
-    RunScriptIfAvailable020a6194(scriptBuf);
-    void* regions3 = GetData02105254_0203b628();
-    ClearThreeRegions0203b634((char*)regions3);
+    func_0201133c((char*)gs);
+    void* scriptBuf = func_020a6084();
+    func_020a6180(scriptBuf);
+    func_020a6194(scriptBuf);
+    void* regions3 = func_0203b628();
+    func_0203b634((char*)regions3);
     void* oam = func_0203bd08();
-    InitBattleContext0203bd24((char*)oam);
-    void* extRegion = GetGlobalPtr021075f4_0203cf4c();
-    InitWithExtendedRegion0203cf58((Struct_0203cf58*)extRegion);
+    func_0203bd24((char*)oam);
+    void* extRegion = func_0203cf4c();
+    func_0203cf58((Struct_0203cf58*)extRegion);
     void* search = func_0202ae18();
     func_0202aec0(search);
     SetFlags00((GameResources*)self, 2);
-    func_0205e22c(GetData02100044_0202ae24());
-    void* buffered = GetPtrField0x468_02011584(gs);
-    ClearFirstThreeWords_02099898((unsigned int*)buffered);
+    func_0205e22c(func_0202ae24());
+    void* buffered = func_02011584(gs);
+    func_02099898((unsigned int*)buffered);
     for (int i = 0; i < 4; i++) {
-        Init021b2f64((unsigned char*)&self->slots[i]);
+        func_ov017_021b2f64((unsigned char*)&self->slots[i]);
     }
     LootableContainerManager::GetMainInstance()->Reset();
-    Reset0208e4bc((char*)func_0208e0a8());
-    InitSlotTable020e3004((SlotTable020e3004*)GetData02153637_020e2ff8());
-    ResetEntryArray020e3814((Entry020e3840*)GetData02153660_020e3808());
-    ClearThreeBytes020e358c((Bytes020e358c*)GetData02153634_020e3580());
+    func_0208e4bc((char*)func_0208e0a8());
+    func_020e3004((SlotTable020e3004*)func_020e2ff8());
+    func_020e3814((Entry020e3840*)func_020e3808());
+    func_020e358c((Bytes020e358c*)func_020e3580());
     char* bits = func_0205ec34();
-    char* global418 = GetGlobal02109418_02094d6c();
-    if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) == 0) {
-        if (GetWord0x7f6c_0201201c(gs) == 5 || GetByte0x4_0200fb9c((char*)gs) == 4) {
-            ResetState0205facc(bits);
-            Init02095518((char*)global418);
-            ClearBattleRegion0x7ac4_020ac0dc();
+    char* global418 = func_02094d6c();
+    if (func_020115a8((FieldBlock63d6_115a8*)gs) == 0) {
+        if (func_0201201c(gs) == 5 || func_0200fb9c((char*)gs) == 4) {
+            func_0205facc(bits);
+            func_02095518((char*)global418);
+            func_020ac0dc();
         }
         func_02096524(global418);
     }
     *(int*)(bits + 0x480) = 0;
     *(int*)(bits + 0x47c) = 0;
-    ClearState02070508((State02070508*)func_020704fc());
+    func_02070508((State02070508*)func_020704fc());
     func_0209c2e0(&data_02109bf4, 0x7f, 0);
     func_0205e944(&data_02108760, 0x7f);
     data_02109bf4.flagsC8 &= ~4;
-    ResetAndClearFlags020d7a5c((ResetObj020d7a5c*)GetGlobalResetObj020d7a50());
-    if (GetWord0x7f6c_0201201c(gs) == 5 && GetByte0x4_0200fb9c((char*)gs) != 9) {
-        SetByte0x4_0200fb94((char*)gs, 6);
+    func_020d7a5c((ResetObj020d7a5c*)func_020d7a50());
+    if (func_0201201c(gs) == 5 && func_0200fb9c((char*)gs) != 9) {
+        func_0200fb94((char*)gs, 6);
     }
 
     LockStagedTextureVRAMCopying();
@@ -506,15 +506,15 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     DisableSubBGVRAMBanks();
     DisableMainObjVRAMBanks();
     DisableSubObjVRAMBanks();
-    ConfigureModeByByte_0218d274_0218d274(self);
+    func_ov017_0218d274(self);
     MapVRAMBanksToTexturePalette(0x40);
     MapVRAMBanksToMainBG(0x10);
     *(volatile unsigned int*)0x4000000 &= ~0x7000000;
     *(volatile unsigned int*)0x4000000 &= ~0x38000000;
     *(volatile unsigned short*)0x400000a = (*(volatile unsigned short*)0x400000a & 0x43) | 4;
     *(volatile unsigned int*)0x4000000 = (*(volatile unsigned int*)0x4000000 & ~0x1f00) | 0x1300;
-    SetDispcntModeAndFlags020c391c(1, 0, 1);
-    SetSubBgMode_020c3984(0);
+    func_020c391c(1, 0, 1);
+    func_020c3984(0);
     *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1300;
     MapVRAMBanksToSubBG(0x80);
     unsigned short* subBgcnt = (unsigned short*)0x4001008;
@@ -529,59 +529,59 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     *(unsigned short*)0x4000304 &= ~0x8000;
     Finish3DRendering();
     func_020c51dc();
-    ResetMatrixStacks020c537c();
+    func_020c537c();
     unsigned short* subPrio = (unsigned short*)0x4001008;
     *(unsigned short*)0x400000a &= ~3;
     *(unsigned short*)0x4000008 = (*(unsigned short*)0x4000008 & ~3) | 1;
     subPrio[0] = (subPrio[0] & ~3) | 1;
     subPrio[1] = (subPrio[1] & ~3) | 2;
     subPrio[2] = (subPrio[2] & ~3);
-    InitPaletteTables0202ac74();
-    SetStructFieldsFromCode02028d68(3);
-    ConfigurePairMode020bb48c(4, 1);
-    InitGlobalStateAndInstallHandlers020bb780((void*)0x4000, 1);
+    func_0202ac74();
+    func_02028d68(3);
+    func_020bb48c(4, 1);
+    func_020bb780((void*)0x4000, 1);
 
     func_0202c288(search);
-    if (CheckField0NonZero_0202b7d8((int*)search) == 0) {
-        SetField0x3acValue_020100a0(GameState::GetInstance(), 0);
+    if (func_0202b7d8((int*)search) == 0) {
+        func_020100a0(GameState::GetInstance(), 0);
     } else {
         GameState* inst = GameState::GetInstance();
-        SetField0x3acValue_020100a0(inst, GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search));
+        func_020100a0(inst, func_0202c1a4((SearchStruct0202c1a4*)search));
     }
-    CallWithAddr4000330_020c555c((int)&data_ov017_021d615c);
+    func_020c555c((int)&data_ov017_021d615c);
     func_ov017_021a02f0(self);
-    ClearFlags020466f4((FlagWord020466f4*)flagWord, 0x100);
-    ActionDataTables* regions4 = GetData02108e10_020797dc();
-    ClearFourRegions02079870((char*)regions4);
+    func_020466f4((FlagWord020466f4*)flagWord, 0x100);
+    ActionDataTables* regions4 = func_020797dc();
+    func_02079870((char*)regions4);
     func_02079900(regions4, (SafeAllocator*)self->data150);
-    RunBufferedScript020998c4((Obj020995c0*)buffered);
-    void* wordList = GetGlobalWordList_0209cb68();
-    ResetWordList0209cbb8((WordList0209cbb8*)wordList);
-    RunScriptIfAvailable0209cbcc(wordList);
-    PrepareAndRunBufferedScript02099f6c((char*)GetGlobal02109a54_02099f60());
+    func_020998c4((Obj020995c0*)buffered);
+    void* wordList = func_0209cb68();
+    func_0209cbb8((WordList0209cbb8*)wordList);
+    func_0209cbcc(wordList);
+    func_02099f6c((char*)func_02099f60());
     func_0204719c(&self->entries[11]);
     int ownAllocator = 0;
 #if !defined(jpn)
-    ResetAllocatorSlots020e5058();
-    void* slotBuf = AllocateAligned4_02012d88((AllocatorUnion*)&data_02114e20, 0x1866);
+    func_020e5058();
+    void* slotBuf = func_02012d88((AllocatorUnion*)&data_02114e20, 0x1866);
     if (slotBuf != 0) {
-        CreateAndResetAllocator020e50ec(slotBuf, 0x1866);
+        func_020e50ec(slotBuf, 0x1866);
     }
-    ResetAndLoadAllocatorSlots020e5114();
+    func_020e5114();
 #endif
-    if (GetByte0x4_0200fb9c((char*)gs) == 9) {
+    if (func_0200fb9c((char*)gs) == 9) {
         ownAllocator = 1;
-        self->allocator.CreateTypeA(AllocateAligned4_02012d88((AllocatorUnion*)&data_02114e20, 0x30000), 0x30000);
+        self->allocator.CreateTypeA(func_02012d88((AllocatorUnion*)&data_02114e20, 0x30000), 0x30000);
         func_0207de48(self->dataF0c, 0x10, 0x10);
     }
-    InitStruct02013718(bigStruct, (int)self->data38, (int)self->data2cc);
+    func_02013718(bigStruct, (int)self->data38, (int)self->data2cc);
     func_0202df68(combatCtrl);
-    ResetState020a2cf0((Struct020A2CF0*)combatCtrl);
-    InitCombatController020a2010(combatCtrl);
-    SetField0x3b0Value_020100c4(gs, (int)combatCtrl);
-    ClearListHeadTail((List02046958*)self->nodeList);
-    ClearListHeadTail((List02046958*)self->list700);
-    ClearListHeadTail((List02046958*)self->list704);
+    func_020a2cf0((Struct020A2CF0*)combatCtrl);
+    func_020a2010(combatCtrl);
+    func_020100c4(gs, (int)combatCtrl);
+    func_02046958((List02046958*)self->nodeList);
+    func_02046958((List02046958*)self->list700);
+    func_02046958((List02046958*)self->list704);
     func_ov017_021a124c(self->list708);
     int loaded;
     int ok;
@@ -594,26 +594,26 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     int newGame = fresh;
     int showIntro = fresh;
 
-    if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetByte0x4_0200fb9c((char*)gs) != 9) {
-        if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+    if (func_0200fb9c((char*)gs) != 6 && func_0200fb9c((char*)gs) != 9) {
+        if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
             loaded = 1;
         } else {
-            if (GetByte0x4_0200fb9c((char*)gs) == 0 || GetByte0x4_0200fb9c((char*)gs) == 5) {
-                int isFive = GetByte0x4_0200fb9c((char*)gs) == 5;
+            if (func_0200fb9c((char*)gs) == 0 || func_0200fb9c((char*)gs) == 5) {
+                int isFive = func_0200fb9c((char*)gs) == 5;
                 loaded = fresh = 1;
                 newGame = !isFive;
-                if (GetWord0x7f6c_0201201c(gs) == 6) {
+                if (func_0201201c(gs) == 6) {
                     ok = 0;
                     if (func_020aaf84(saveInfo, 0, isFive, 0) != 0) {
-                        if (VerifyAndApplySaveBuffer_020ac864(newGame == 0) != 0) {
+                        if (func_020ac864(newGame == 0) != 0) {
                             ok = 1;
-                            if (isFive != 0 && CheckSaveBufferStatus_020ab9c0(0) == 0 &&
-                                AllocateAndProcessScratchBuffer020abca8() == 0) {
-                                SetFlag0x5cccBit0_02011544((StateBits5ccc_11544*)gs);
+                            if (isFive != 0 && func_020ab9c0(0) == 0 &&
+                                func_020abca8() == 0) {
+                                func_02011544((StateBits5ccc_11544*)gs);
                                 ok = 0;
                             }
                         } else {
-                            SetFlag0x5cccBit0_02011544((StateBits5ccc_11544*)gs);
+                            func_02011544((StateBits5ccc_11544*)gs);
                         }
                     }
                     if (ok == 0) {
@@ -623,18 +623,18 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
                     }
                 }
             }
-            if (GetByte0x4_0200fb9c((char*)gs) != 5) {
-                func_0208ea10(GetData02109020_0208e9e8(), 1);
+            if (func_0200fb9c((char*)gs) != 5) {
+                func_0208ea10(func_0208e9e8(), 1);
             }
             gs->mainTimestamp_ = GetCurrentTimestamp();
             gs->altTimestamp_ = GetCurrentTimestamp();
         }
 
         if (loaded != 0) {
-            char* save = (char*)GetPtrField0x2a04_02010828(gs);
-            int count = CopyOutRegion0x5718_02011494((char*)gs, ids);
+            char* save = (char*)func_02010828(gs);
+            int count = func_02011494((char*)gs, ids);
             unsigned char* id;
-            if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+            if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
                 id = ids;
             } else {
                 id = (unsigned char*)(save + 0xf78);
@@ -642,22 +642,22 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
             }
             for (int i = 0; i < count; i++, id++) {
                 int cur = *id;
-                if (cur == GetField0x3acValue_020100a8(gs)) {
+                if (cur == func_020100a8(gs)) {
                     func_ov017_0218f064(self, cur, 0x200, 1, 0);
                 } else {
-                    if (GetLowNibbleAt0x56b_02011ff0(gs, cur) > 0) {
-                        func_ov017_0218f064(self, cur, 4, 1, GetLowNibbleAt0x56b_02011ff0(gs, cur));
+                    if (func_02011ff0(gs, cur) > 0) {
+                        func_ov017_0218f064(self, cur, 4, 1, func_02011ff0(gs, cur));
                     } else {
                         func_ov017_0218f064(self, cur, 0x1000, 1, 0);
                     }
-                    void* combatant = GetCombatantWithFlag0x1000_0200ff58(gs, cur);
+                    void* combatant = func_0200ff58(gs, cur);
                     if (combatant != 0) {
-                        SetField0x2d0_020546a0(combatant, GetField0x3acValue_020100a8(gs));
+                        func_020546a0(combatant, func_020100a8(gs));
                     }
                 }
-                char* member = (char*)GetCombatantWithFlag0x100_0200ff1c(gs, cur);
+                char* member = (char*)func_0200ff1c(gs, cur);
                 if (member != 0) {
-                    char* info = GetFieldAt0x150_02053c6c((unsigned char*)member);
+                    char* info = func_02053c6c((unsigned char*)member);
                     if (info != 0 && (*(int*)(info + 0x18) & 1)) {
                         *(int*)(member + RegionMemberFlags) |= 1;
                     }
@@ -672,17 +672,17 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
                 func_020897b4(0, 1, 6, 1, 1, 0, 0, 0, 0);
                 func_0201099c(gs);
                 g_keyManager.RefreshKeys();
-                if (GetByte0x4_0200fb9c((char*)gs) == 0) {
-                    InitStruct02070378((char*)request);
+                if (func_0200fb9c((char*)gs) == 0) {
+                    func_02070378((char*)request);
                     request->id = 100;
-                    SetField5cb0AndRecordByte0_02010774((char*)gs, 3);
-                    SetField5cb4AndRecordByte1_020107a8((char*)gs, 1);
-                    SetSlotByte020107dc((char*)gs, 1);
+                    func_02010774((char*)gs, 3);
+                    func_020107a8((char*)gs, 1);
+                    func_020107dc((char*)gs, 1);
                     func_0206df6c(bits, (unsigned char*)(bits + 0x8c), 0xaed, 1);
                     func_020120f0(gs);
                     GameObject* hero = gs->GetProtagonist();
                     if (hero != 0) {
-                        Party150* party = (Party150*)GetFieldAt0x150_02053c6c((unsigned char*)hero);
+                        Party150* party = (Party150*)func_02053c6c((unsigned char*)hero);
                         if (party != 0) {
                             if (g_keyManager.TestKeysHeld(0x100)) {
                                 party->active = 0;
@@ -693,75 +693,75 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
                             }
                         }
                     }
-                } else if (GetByte0x4_0200fb9c((char*)gs) == 2) {
-                    InitStruct02070378((char*)request);
+                } else if (func_0200fb9c((char*)gs) == 2) {
+                    func_02070378((char*)request);
                     request->id = 0x1905;
                     request->value20 = 0x53fc;
-                    SetField5cb0AndRecordByte0_02010774((char*)gs, 1);
-                    SetField5cb4AndRecordByte1_020107a8((char*)gs, 1);
-                    SetSlotByte020107dc((char*)gs, 1);
+                    func_02010774((char*)gs, 1);
+                    func_020107a8((char*)gs, 1);
+                    func_020107dc((char*)gs, 1);
                     func_020120f0(gs);
-                    char* member = (char*)GetCombatantWithFlag0x100_0200ff1c(gs, 0);
+                    char* member = (char*)func_0200ff1c(gs, 0);
                     if (member != 0) {
-                        char* info = GetFieldAt0x150_02053c6c((unsigned char*)member);
+                        char* info = func_02053c6c((unsigned char*)member);
                         if (info != 0) {
                             *(unsigned short*)(info + 0x496) = 0x4e24;
                         }
                     }
                     showIntro = 1;
                 } else {
-                    InitStruct02070378((char*)request);
+                    func_02070378((char*)request);
                     request->id = 1;
                     request->flag7 = 1;
                     request->dir = 0;
                     request->pos[0] = 0;
                     request->pos[1] = 0;
                     request->pos[2] = 0;
-                    SetField5cb0AndRecordByte0_02010774((char*)gs, 1);
-                    SetField5cb4AndRecordByte1_020107a8((char*)gs, 1);
-                    SetSlotByte020107dc((char*)gs, 1);
+                    func_02010774((char*)gs, 1);
+                    func_020107a8((char*)gs, 1);
+                    func_020107dc((char*)gs, 1);
                     func_020120f0(gs);
                 }
             }
             if (fresh != 0) {
-                char* save = (char*)GetPtrField0x2a04_02010828(gs);
+                char* save = (char*)func_02010828(gs);
                 GameObject* hero = gs->GetProtagonist();
                 if (hero != 0) {
-                    CopyToBattleField02039768(hero, save + 0x2c8d);
+                    func_02039768(hero, save + 0x2c8d);
                 }
             }
         }
         func_ov017_02191108(self, 1, 1, 1, 1);
     }
 
-    SetField0x21c_020a2770(combatCtrl, GetField0x397cValue_020100b0(gs));
-    if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) == 0) {
-        SetWord0x71f8_0201206c(gs, rand());
-        if (GetByte0x4_0200fb9c((char*)gs) != 5) {
+    func_020a2770(combatCtrl, func_020100b0(gs));
+    if (func_020115a8((FieldBlock63d6_115a8*)gs) == 0) {
+        func_0201206c(gs, rand());
+        if (func_0200fb9c((char*)gs) != 5) {
             func_0206dfe8(bits, 0x79e, 0x2bc);
         }
     }
     void* combatants = func_02057924();
-    InitStruct02057930((Foo02057930*)combatants);
-    void* entryTable = GetEntryTableBase_02027ca4();
+    func_02057930((Foo02057930*)combatants);
+    void* entryTable = func_02027ca4();
 #if defined(jpn)
-    _Z19InitEntries02028894P11Big02028894PcS1_(entryTable, self->dataD8);
+    func_02028894(entryTable, self->dataD8);
 #else
-    _Z19InitEntries02028894P11Big02028894PcS1_(entryTable, self->dataD8, self->data27c);
+    func_02028894(entryTable, self->dataD8, self->data27c);
 #endif
-    void* battleArrays = GetData02104b6c_02039e70();
-    ResetBattleArrays02039e7c(battleArrays);
-    void* controller = GetGlobalField0x1c020421a0();
+    void* battleArrays = func_02039e70();
+    func_02039e7c(battleArrays);
+    void* controller = func_020421a0();
     func_02042c68(controller);
     func_02043124(controller);
-    SetField0x1e28_02042b30(controller, self->pairTables);
+    func_02042b30(controller, self->pairTables);
     func_ov017_0219b624(self);
     func_ov017_0219ba0c(self, 0);
-    CopyInternalFields0207df50((Foo0207df50*)self->pairTables);
-    RestorePairTables0207df90((char*)self->pairTables);
+    func_0207df50((Foo0207df50*)self->pairTables);
+    func_0207df90((char*)self->pairTables);
     func_020432c4(controller);
-    BackupPairTables0207dfac((char*)self->pairTables);
-    if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetByte0x4_0200fb9c((char*)gs) != 9) {
+    func_0207dfac((char*)self->pairTables);
+    if (func_0200fb9c((char*)gs) != 6 && func_0200fb9c((char*)gs) != 9) {
         self->colorA[0] = 0xd4;
         self->colorB[0] = 8;
         self->colorC[0] = 0;
@@ -771,91 +771,91 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     }
     func_02020554(self->timedBuffer);
     *(int*)(self->timedBuffer + 0x5a4) |= 1;
-    void* handle = GetGlobal02109030_020936f8();
+    void* handle = func_020936f8();
     func_020938f0(handle);
-    ClearTwoRegions0206ebf4((char*)self->regions);
-    void* structArray = GetData02108ea8_0207d78c();
-    InitStructArray0207d798((Init0207d7c0*)structArray);
+    func_0206ebf4((char*)self->regions);
+    void* structArray = func_0207d78c();
+    func_0207d798((Init0207d7c0*)structArray);
     char* lighting = (char*)LightingManager::GetInstance();
     *(float*)(lighting + 0x94) = gs->GetDayTimer();
     *(int*)(lighting + 0x98) = gs->GetTimeOfDay();
-    if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetByte0x4_0200fb9c((char*)gs) != 9) {
+    if (func_0200fb9c((char*)gs) != 6 && func_0200fb9c((char*)gs) != 9) {
         char* flagBits = func_0205ec34();
-        if (TestBitInByteArray_0206dfb0((int)flagBits, (unsigned char*)(flagBits + 0x8c), 0x1142) != 0) {
+        if (func_0206dfb0((int)flagBits, (unsigned char*)(flagBits + 0x8c), 0x1142) != 0) {
             newGame = 0;
         }
         if (newGame == 1) {
             func_ov017_0219bfb4(1, 0);
         } else {
-            InitAndResetHeader_0219e310((unsigned char*)self->header70c, 0);
-            AppendNodeToTail((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->header70c);
-            ClearIfMatchAndFinalize_021a3498((Ctx021a3498*)self->nodeList);
-            if (TestBitInByteArray_0206dfb0((int)flagBits, (unsigned char*)(flagBits + 0x8c), 0x1142) != 0) {
+            func_ov017_0219e310((unsigned char*)self->header70c, 0);
+            func_020469b4((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->header70c);
+            func_ov017_021a3498((Ctx021a3498*)self->nodeList);
+            if (func_0206dfb0((int)flagBits, (unsigned char*)(flagBits + 0x8c), 0x1142) != 0) {
                 func_ov017_021baedc(self->node734, 1);
                 *(unsigned short*)(self->node734 + 8) = 0x730a;
-                AppendNodeToTail((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->node734);
+                func_020469b4((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->node734);
             }
         }
     }
-    if (GetByte0x4_0200fb9c((char*)gs) == 6 || GetByte0x4_0200fb9c((char*)gs) == 9) {
+    if (func_0200fb9c((char*)gs) == 6 || func_0200fb9c((char*)gs) == 9) {
         void* node = self->node3b4c;
-        InitObjState_021b2174((unsigned char*)node);
-        if (GetByte0x4_0200fb9c((char*)gs) == 6) {
-            SetNameChecked_021b2ba0((S021b2ba0*)node, (char*)&data_ov017_021d736c);
-            SetFields30And34_021b2bd0(node, (int)func_ov004_0216e9cc, OVERLAY_ID(4));
-        } else if (GetByte0x4_0200fb9c((char*)gs) == 9) {
-            SetNameChecked_021b2ba0((S021b2ba0*)node, (char*)&data_ov017_021d7378);
-            SetFields30And34_021b2bd0(node, (int)func_ov004_0216f854, OVERLAY_ID(4));
+        func_ov017_021b2174((unsigned char*)node);
+        if (func_0200fb9c((char*)gs) == 6) {
+            func_ov017_021b2ba0((S021b2ba0*)node, (char*)&data_ov017_021d736c);
+            func_ov017_021b2bd0(node, (int)func_ov004_0216e9cc, OVERLAY_ID(4));
+        } else if (func_0200fb9c((char*)gs) == 9) {
+            func_ov017_021b2ba0((S021b2ba0*)node, (char*)&data_ov017_021d7378);
+            func_ov017_021b2bd0(node, (int)func_ov004_0216f854, OVERLAY_ID(4));
         }
-        AppendNodeToTail((TailList020469b4*)self->nodeList, (TailNode020469b4*)node);
+        func_020469b4((TailList020469b4*)self->nodeList, (TailNode020469b4*)node);
     }
     func_020ca458(0, (void*)0x6000000, GetMainBGAssignedVRAMSize());
-    DelayThenSyncBit0_020c9820();
-    RestoreDisplayMode_020c38d4();
+    func_020c9820();
+    func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
-    InitFields02010124((S_02010124*)gs);
-    SetActiveDmaChannel020c3a0c(0);
+    func_02010124((S_02010124*)gs);
+    func_020c3a0c(0);
     unsigned long long last = GetCurrentTimestamp();
     void* list = self->list700;
-    while (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)list) == 0x13) {
+    while (func_02046b24((HeadNode02046b24**)list) == 0x13) {
         loader->RemoveAllLocks();
-        ClearIfMatchAndFinalize_021a3498((Ctx021a3498*)list);
+        func_ov017_021a3498((Ctx021a3498*)list);
     }
     func_0206e424(bits, 0);
     if (showIntro != 0) {
-        InitObj021bdbf0((unsigned char*)self->node3b60);
+        func_ov017_021bdbf0((unsigned char*)self->node3b60);
         self->node3b60[0x11] = 2;
-        AppendNodeToTail((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->node3b60);
+        func_020469b4((TailList020469b4*)self->nodeList, (TailNode020469b4*)self->node3b60);
     }
-    if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
-        ClearByte0x63d6_020115c0((FieldBlock63d6_115c0*)gs);
+    if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+        func_020115c0((FieldBlock63d6_115c0*)gs);
     }
-    FontBankLoader* global400 = GetGlobal02109400_02094a00();
-    ClearBuffer0202ad30();
-    FlushAndClearBuffer0202adf0();
+    FontBankLoader* global400 = func_02094a00();
+    func_0202ad30();
+    func_0202adf0();
 
     for (;;) {
         int flag4000 = 0;
         if (TestFlags00((GameResources*)self, 0x4000) != 0) {
             flag4000 = 1;
         }
-        InitCombatSubsystems02012efc();
+        func_02012efc();
         GameState::GetInstance();
         func_0205ec34();
-        AlwaysTrue02094b4c(global400);
+        func_02094b4c(global400);
         int quit = 0;
         if (self->exitRequest == 1) {
             self->exitRequest = 0;
             quit = 1;
         }
-        if (GetFlag0x5cccBit0_02011570((StateBits5ccc_11570*)gs) != 0) {
+        if (func_02011570((StateBits5ccc_11570*)gs) != 0) {
             if (IsBrightnessTransitionActive((GameResources*)self) == 0) {
                 quit = 1;
             }
         }
-        if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0 && IsField0Null_02046b08((void**)self->nodeList) != 0) {
+        if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0 && func_02046b08((void**)self->nodeList) != 0) {
             quit = 1;
-            InitStruct02070378((char*)request);
+            func_02070378((char*)request);
             request->id = *(unsigned short*)bigStruct;
             request->flag7 = quit;
             GameObject* obj = gs->GetUnknownGameObject();
@@ -863,28 +863,28 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
                 *(Vector3i*)request->pos = *(Vector3i const*)((char*)obj + 0x44);
                 request->dir = obj->obj3D_.rotation_.y;
             }
-            if (IsHalfword0x63d8Set_020115d0((FieldBlock63d8_115d0*)gs) != 0) {
-                request->value20 = GetHalfword0x63d8_020115e8(gs);
-                ClearHalfword0x63d8_02011600(gs);
-                if (RunScriptByValueRange02071574((unsigned short)request->value20, (Obj02071488*)scriptOut) != 0) {
+            if (func_020115d0((FieldBlock63d8_115d0*)gs) != 0) {
+                request->value20 = func_020115e8(gs);
+                func_02011600(gs);
+                if (func_02071574((unsigned short)request->value20, (Obj02071488*)scriptOut) != 0) {
                     request->id = *(unsigned short*)(scriptOut + 0xe);
                     request->flag7 = 0;
                 }
             }
-            if (CheckField0x63daNonZero_02011610(gs) != 0) {
-                request->value28 = GetHalfword0x63da_02011628(gs);
-                ClearHalfword0x63da_02011634(gs);
+            if (func_02011610(gs) != 0) {
+                request->value28 = func_02011628(gs);
+                func_02011634(gs);
             }
         }
         if (quit != 0) {
-            if (GetByte0x4_0200fb9c((char*)gs) != 2) {
-                DispatchToActiveEntries020bc028(0);
+            if (func_0200fb9c((char*)gs) != 2) {
+                func_020bc028(0);
             }
-            BlankFunction020d84e0();
-            Forward0202aff4(search);
+            func_020d84e0();
+            func_0202aff4(search);
             SetMainBrightness((GameResources*)self, -16, 0);
             SetSubBrightness((GameResources*)self, -16, 0);
-            if (GetByte0x4_0200fb9c((char*)gs) == 8) {
+            if (func_0200fb9c((char*)gs) == 8) {
                 SetMainBrightness((GameResources*)self, 16, 0);
                 SetSubBrightness((GameResources*)self, 16, 0);
             }
@@ -897,30 +897,30 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
             func_ov017_02195a20(self);
         }
         if (flag4000 != 0) {
-            DispatchByFlag020d9834(1);
+            func_020d9834(1);
         }
         func_0209c840(&data_02109bf4);
-        ResetXYField0203aa08(&data_02108760);
+        func_0203aa08(&data_02108760);
         func_020bbd9c();
-        CleanInvalidateOamBuffers0203bd88(oam);
-        Forward0204359c(controller, RegionControllerMode);
+        func_0203bd88(oam);
+        func_0204359c(controller, RegionControllerMode);
         if (flag4000 != 0) {
-            DispatchByFlag020d9834(1);
+            func_020d9834(1);
         } else {
-            DispatchByFlag020d9834(0);
+            func_020d9834(0);
         }
         loader->RemoveAllLocks();
-        NotifyAllEntries0203dd94((char*)extRegion);
-        NoOp_0219a188(self);
-        NoOp_021a63cc(self);
+        func_0203dd94((char*)extRegion);
+        func_ov017_0219a188(self);
+        func_ov017_021a63cc(self);
         if (data_ov017_021d82e0.paused == 0) {
             int speed = gs->currentNumTicks_;
             for (int f = 1; f < 2 - speed; f++) {
-                DelayThenSyncBit0_020c9820();
+                func_020c9820();
             }
-            WriteControlAndToggle020d86d0(1, 0);
+            func_020d86d0(1, 0);
             self->running = 1;
-            DelayThenSyncBit0_020c9820();
+            func_020c9820();
         }
         if (data_ov017_021d82e0.paused != 0) {
             gs->CalculateDeltaTime(0);
@@ -930,96 +930,96 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
         }
         last = GetCurrentTimestamp();
         data_02114e50++;
-        ForwardObjAndField0_021a4358((int)self->nodeList);
-        SyncMainSubOam0203bdb0((Obj0203bdb0*)oam);
+        func_ov017_021a4358((int)self->nodeList);
+        func_0203bdb0((Obj0203bdb0*)oam);
         int allow = 1;
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)self->nodeList) == 2) {
-            Holder021a193c* holder = (Holder021a193c*)GetField1c_021a193c((int*)self->list708);
+        if (func_02046b24((HeadNode02046b24**)self->nodeList) == 2) {
+            Holder021a193c* holder = (Holder021a193c*)func_ov017_021a193c((int*)self->list708);
             if (holder != 0 && IS_OBJ_FLAG2_SET(holder)) {
                 allow = 0;
             }
         }
         func_020439b0(controller, allow);
-        ForEachNode020579ec((Node020579ec**)combatants);
+        func_020579ec((Node020579ec**)combatants);
         func_ov017_021a63d0(self);
         func_ov017_0219a18c(self);
         func_0203ba74(regions3);
         func_02027438(self->timedBuffer);
 #if !defined(jpn)
-        UpdateTimedBufferState020275e4((Obj020275e4*)self->timedBuffer);
+        func_020275e4((Obj020275e4*)self->timedBuffer);
 #endif
         if (flag4000 != 0) {
-            DispatchByFlag020d9834(1);
+            func_020d9834(1);
         }
     }
 
-    if (GetFlag0x5cccBit0_02011570((StateBits5ccc_11570*)gs) != 0) {
+    if (func_02011570((StateBits5ccc_11570*)gs) != 0) {
         SetMainBrightness((GameResources*)self, -16, 0);
         SetSubBrightness((GameResources*)self, -16, 0);
     }
-    if (GetByte0x4_0200fb9c((char*)gs) != 2) {
-        if (GetShortAt0xb4((ShortField0xb4_0205eac8*)&data_02108760) != 100) {
-            SetupContextForMode0205ea20(&data_02108760, 100);
+    if (func_0200fb9c((char*)gs) != 2) {
+        if (func_0205eac8((ShortField0xb4_0205eac8*)&data_02108760) != 100) {
+            func_0205ea20(&data_02108760, 100);
         }
-        InitActorContext0209c20c((Actor0209c20c*)&data_02109bf4);
-        RefreshDisplayState0205e8ec((Obj_0205e8ec*)&data_02108760);
+        func_0209c20c((Actor0209c20c*)&data_02109bf4);
+        func_0205e8ec((Obj_0205e8ec*)&data_02108760);
         func_020bbd9c();
     }
     data_02109bf4.flagsC8 &= ~4;
     func_ov017_021a3ef0(self->nodeList);
-    Init0203cfb4((Struct_0203cfb4*)extRegion);
+    func_0203cfb4((Struct_0203cfb4*)extRegion);
     func_ov017_021a316c(self);
     for (int i = 0; i < 0x12; i++) {
-        MaybeInvoke0204719c_02047230(&self->entries[i]);
+        func_02047230(&self->entries[i]);
     }
-    ClearFourRegions020798b8((char*)regions4);
-    InitControllerObject_02043000((char*)controller);
-    ReleaseHandleField340_020939ac(handle);
-    ProcessAllSubObjects0203a54c((Container0203a54c*)battleArrays);
-    ClearCombatantsAndInitStruct02057978((Foo02057930*)combatants);
+    func_020798b8((char*)regions4);
+    func_02043000((char*)controller);
+    func_020939ac(handle);
+    func_0203a54c((Container0203a54c*)battleArrays);
+    func_02057978((Foo02057930*)combatants);
     func_020287b4(entryTable);
-    CallHelperFourTimes_02190238(self);
-    ResetBigStruct02013750(bigStruct, 1);
-    ForwardFirstWord020998ac((int*)buffered);
-    FreeWordListBuffer0209cd24((WordList0209cbb8*)wordList);
-    InitStructArray0207d798((Init0207d7c0*)structArray);
+    func_ov017_02190238(self);
+    func_02013750(bigStruct, 1);
+    func_020998ac((int*)buffered);
+    func_0209cd24((WordList0209cbb8*)wordList);
+    func_0207d798((Init0207d7c0*)structArray);
     func_ov017_0219b938(self);
-    ResetOverlayState_0219bc50((unsigned char*)self);
-    if (GetByte0x4_0200fb9c((char*)gs) == 9 && ownAllocator == 1) {
+    func_ov017_0219bc50((unsigned char*)self);
+    if (func_0200fb9c((char*)gs) == 9 && ownAllocator == 1) {
         void* signedAlloc = self->allocator.GetSignedAllocator();
         if (signedAlloc != 0) {
             self->allocator.Destroy();
-            TailForward02012da4((AllocatorUnion*)&data_02114e20, signedAlloc);
+            func_02012da4((AllocatorUnion*)&data_02114e20, signedAlloc);
         }
-        SetByte0x4_0200fb94((char*)gs, 6);
-        SetWord0x7f6c_02012010(gs, 2);
+        func_0200fb94((char*)gs, 6);
+        func_02012010(gs, 2);
     }
     int tableMode = self->tableMode;
     if (tableMode == 0) {
-        DestroyAllocatorsFromTable_021a0790((char*)self);
+        func_ov017_021a0790((char*)self);
     } else if (tableMode == 1) {
-        DestroyAllocatorsFromTable_021a0964((char*)self);
+        func_ov017_021a0964((char*)self);
     } else if (tableMode == 2) {
-        DestroyAllocatorsFromTable_021a0ba8((char*)self);
+        func_ov017_021a0ba8((char*)self);
     } else if (tableMode == 3) {
-        DestroyAllocatorsFromTable_021a0f40((char*)self);
+        func_ov017_021a0f40((char*)self);
     } else if (tableMode == 4) {
-        DestroyAllocatorsFromTable_021a1114((char*)self);
+        func_ov017_021a1114((char*)self);
     } else if (tableMode == 5) {
-        DestroyAllocatorsFromTable_021a0d6c((char*)self);
+        func_ov017_021a0d6c((char*)self);
     }
     func_ov017_021a0470(self);
-    ClearCombatantList_0200fd58(gs);
-    ResetInputLogB_020a1edc();
-    ResetInputLogA_020a1de4();
+    func_0200fd58(gs);
+    func_020a1edc();
+    func_020a1de4();
     *(volatile unsigned int*)0x4000000 &= ~0xe000;
     data_ov017_021d82e0.word4 = 0;
 #if !defined(jpn)
-    ResetSlotsAndDestroySafeAllocator020e5094();
+    func_020e5094();
 #endif
     SafeAllocator::GetLiveCount();
-    SetWord0x0_0200fb84((int*)gs, 0);
-    InitCombatController020a2010(combatCtrl);
-    ResetState020a2cf0((Struct020A2CF0*)combatCtrl);
+    func_0200fb84((int*)gs, 0);
+    func_020a2010(combatCtrl);
+    func_020a2cf0((Struct020A2CF0*)combatCtrl);
     func_0202df68(combatCtrl);
 }

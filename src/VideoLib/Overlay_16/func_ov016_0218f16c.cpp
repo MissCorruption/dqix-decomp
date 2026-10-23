@@ -42,8 +42,8 @@ struct FilterJob_0218f16c {
     void* poolBlock;
     int mode;
 };
-void* SafeAllocatorAllocate_0218bc8c(unsigned int);
-void* GetOrStreamPoolBlockC_0218fe30();
+extern "C" void* func_ov016_0218bc8c(unsigned int);
+extern "C" void* func_ov016_0218fe30();
 extern "C" void func_ov016_0219c514_unk(FilterJob_0218f16c*);
 extern "C" void func_ov016_0218f6b8(BlitTarget_0218f16c*);
 
@@ -52,11 +52,11 @@ extern "C" ARM int func_ov016_0218f16c(VideoState_0218f16c* state, unsigned shor
     if (state->consumed >= state->available) return 0;
     if (mode) {
         if (!state->scratchY) {
-            state->scratchY = (unsigned char*)SafeAllocatorAllocate_0218bc8c(state->height << 8);
+            state->scratchY = (unsigned char*)func_ov016_0218bc8c(state->height << 8);
             if (!state->scratchY) return 0;
         }
         if (!state->scratchC) {
-            state->scratchC = (unsigned char*)SafeAllocatorAllocate_0218bc8c((state->height >> 1) << 8);
+            state->scratchC = (unsigned char*)func_ov016_0218bc8c((state->height >> 1) << 8);
             if (!state->scratchC) return 0;
         }
         FilterJob_0218f16c job;
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov016_0218f16c(VideoState_0218f16c* state, unsigned shor
         job.width = state->width;
         job.height = state->height;
         job.qp = state->qpTable[state->frame];
-        job.poolBlock = GetOrStreamPoolBlockC_0218fe30();
+        job.poolBlock = func_ov016_0218fe30();
         if (mode == 2) job.mode = 0;
         else job.mode = 1;
         func_ov016_0219c514_unk(&job);

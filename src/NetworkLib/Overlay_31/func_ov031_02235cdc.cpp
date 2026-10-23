@@ -9,14 +9,14 @@ struct WirelessKeySettings {
     unsigned char textFormat : 6;
 };
 extern WirelessKeySettings* data_ov031_02290cfc;
-int FindFirstZeroByte_0223dd34(unsigned char*, int);
-unsigned int HexCharToValue_02236760(unsigned int);
+extern "C" int func_ov031_0223dd34(unsigned char*, int);
+extern "C" unsigned int func_ov031_02236760(unsigned int);
 
 // USA: func_ov031_02235cdc
 extern "C" ARM void func_ov031_02235cdc(unsigned char* text) {
     int i;
     VectorizedMemset(data_ov031_02290cfc->key, 0, 16);
-    int length = FindFirstZeroByte_0223dd34(text, 32);
+    int length = func_ov031_0223dd34(text, 32);
     switch (length) {
     case 0:
     case 10:
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov031_02235cdc(unsigned char* text) {
         i = 0;
         if (i < length) do {
             unsigned char* pair = text + i;
-            unsigned int high = HexCharToValue_02236760(text[i]);
-            unsigned int low = HexCharToValue_02236760(pair[1]);
+            unsigned int high = func_ov031_02236760(text[i]);
+            unsigned int low = func_ov031_02236760(pair[1]);
             *output++ = (high << 4) + low;
             i += 2;
         } while (i < length);

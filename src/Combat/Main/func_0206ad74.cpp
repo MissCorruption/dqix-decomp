@@ -87,10 +87,10 @@ extern "C" ARM void func_0206c794(void* context) {
 #else
 
 struct Entry0204254c { int value; signed char width; signed char advance : 6; signed char field5 : 2; unsigned char field6[2]; };
-Entry0204254c* FindEntryByKey0204254c(int, int);
-int GetWordFromTable02042648(int);
+extern "C" Entry0204254c* func_0204254c(int, int);
+extern "C" int func_02042648(int);
 struct CombatSlots0206b198;
-void DecrementSlotRef0206b198(CombatSlots0206b198*, unsigned short);
+extern "C" void func_0206b198(CombatSlots0206b198*, unsigned short);
 extern char data_020f08dc[];
 extern char data_020f0979[];
 extern char data_020f097c[];
@@ -142,7 +142,7 @@ extern "C" ARM void func_0206ad74(Caption0206ad74* self) {
     char* start = strstr(text, data_020f08dc);
     char* middle = strstr(text, data_020f0979);
     char* alternate = strstr(text, data_020f097c);
-    fontWidth = GetWordFromTable02042648(self->font);
+    fontWidth = func_02042648(self->font);
     if (start) {
         for (;;) {
             if (text == start) break;
@@ -163,7 +163,7 @@ extern "C" ARM void func_0206ad74(Caption0206ad74* self) {
             for (;;) {
                 defaultWidth = fontWidth + 1;
                 if (!*cursor) break;
-                Entry0204254c* entry = FindEntryByKey0204254c((int)cursor, self->font);
+                Entry0204254c* entry = func_0204254c((int)cursor, self->font);
                 if (entry) {
                     self->count++;
                     int width = entry->width;
@@ -190,7 +190,7 @@ extern "C" ARM void func_0206ad74(Caption0206ad74* self) {
     }
     if (!self->status && length) changed = strcmp(self->caption, caption);
     if (changed) {
-        for (int i = 0; i < self->count; i++) DecrementSlotRef0206b198((CombatSlots0206b198*)self, self->slots[i]);
+        for (int i = 0; i < self->count; i++) func_0206b198((CombatSlots0206b198*)self, self->slots[i]);
         memset(self->slots, 0xff01, sizeof(self->slots));
         memset(self->caption, 0, sizeof(self->caption));
         memcpy(self->caption, caption, length);

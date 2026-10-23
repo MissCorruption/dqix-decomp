@@ -19,8 +19,8 @@ struct MenuCtx022309b4 {
 };
 extern MenuCtx022309b4 data_ov031_02290ca0;
 
-unsigned char* GetOffset400_02235c70(void);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" unsigned char* func_ov031_02235c70(void);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02236878(int);
 extern "C" void func_ov031_0222f9ec(void);
 extern "C" void func_ov031_022351f8(int);
@@ -31,7 +31,7 @@ extern "C" void func_ov031_022306d4(int);
 
 // USA: func_ov031_022309b4
 extern "C" ARM void func_ov031_022309b4(int dir) {
-    unsigned char* base = GetOffset400_02235c70();
+    unsigned char* base = func_ov031_02235c70();
     int result = 0;
     unsigned char tag = data_ov031_02290ca0.tag;
     if (tag == 8 && base[0xf5] == 0) {
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov031_022309b4(int dir) {
                 break;
             }
             func_ov031_02236878(0x13);
-            data_ov031_02290ca0.layer->task = (int)CallWithZeroExtra_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+            data_ov031_02290ca0.layer->task = (int)func_ov031_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
             return;
         } else if (dir == 3) {
             if (data_ov031_02290ca0.cursor < 3) {
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov031_022309b4(int dir) {
                 break;
             }
             func_ov031_02236878(0x13);
-            data_ov031_02290ca0.layer->task = (int)CallWithZeroExtra_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+            data_ov031_02290ca0.layer->task = (int)func_ov031_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
             return;
         }
         result = 2;

@@ -38,11 +38,11 @@ struct BattleWork {
     SafeAllocator cmdAlloc;
 };
 
-int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
-int SetByte0xbeShiftPrev(Bytes02033b88* p, int val);
-void SetField0x3b0Value_020100c4(GameState* gs, int value);
-void ClearCombatantSlot_0200fd48(GameState* gs, int id);
-void ApplyVec3Tail_0202e694(void* obj, int* vec);
+extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int func_02033b88(Bytes02033b88* p, int val);
+extern "C" void func_020100c4(GameState* gs, int value);
+extern "C" void func_0200fd48(GameState* gs, int id);
+extern "C" void func_0202e694(void* obj, int* vec);
 
 extern "C" {
 void* func_02057924();
@@ -61,24 +61,24 @@ extern "C" ARM void func_ov026_021dbba8(BattleWork* self) {
     func_02057f00(func_02057924(), 0x1e);
 
     for (int i = 0; i < 4; i++) {
-        if (TestBitAt0x34_020a35e0((unsigned char*)self->party, i)) {
-            GameObject* member = GetCombatantWithFlag0x100_0200ff1c(gs, i);
+        if (func_020a35e0((unsigned char*)self->party, i)) {
+            GameObject* member = func_0200ff1c(gs, i);
             if (member != NULL) {
                 member->obj3D_.RemoveAnimationPackageByID(3);
-                SetByte0xbeShiftPrev((Bytes02033b88*)member, 0);
+                func_02033b88((Bytes02033b88*)member, 0);
             }
         }
     }
 
-    BattleCamera* saved = (BattleCamera*)GetField0x3b0Value_020100bc(gs);
+    BattleCamera* saved = (BattleCamera*)func_020100bc(gs);
     BattleCamera* cam = func_ov000_02160f14(self);
     Vector3i offset = saved->offset;
     func_ov000_0216d370(cam, 1, 1, 1);
     cam->target = saved->target;
-    ApplyVec3Tail_0202e694(cam, &offset.x);
+    func_0202e694(cam, &offset.x);
     cam->eye = saved->eye;
-    SetField0x3b0Value_020100c4(gs, (int)func_ov000_02160f14(self));
-    ClearCombatantSlot_0200fd48(gs, 0xcf);
+    func_020100c4(gs, (int)func_ov000_02160f14(self));
+    func_0200fd48(gs, 0xcf);
 
     loader->RemoveTask(self->taskId7714);
     loader->RemoveTask(self->taskId771e);

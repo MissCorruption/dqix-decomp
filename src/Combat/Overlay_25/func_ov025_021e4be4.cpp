@@ -5,20 +5,20 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-SafeAllocator* GetArrayEntry_021e8a54_021e8a54(char* obj);
+extern "C" SafeAllocator* func_ov025_021e8a54(char* obj);
 struct RemoveList021eb084;
-void RemoveMatchingShort_021eb084(struct RemoveList021eb084* obj, int val);
+extern "C" void func_ov025_021eb084(struct RemoveList021eb084* obj, int val);
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
-void SetField0x3b0Value_020100c4(GameState* battleStruct, int value);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_020100c4(GameState* battleStruct, int value);
 
 struct Obj0204a120;
-void InitState0204a120(struct Obj0204a120* obj);
+extern "C" void func_0204a120(struct Obj0204a120* obj);
 struct Owner0204a3f0;
 struct Holder0204a3f0;
-void SetHolderAndMarkNode0204a3f0(struct Owner0204a3f0* owner, struct Holder0204a3f0* h);
-void SetName0204a440(char* obj, const char* src);
-void SetStringField0234_0204a464(char* obj, const char* src);
+extern "C" void func_0204a3f0(struct Owner0204a3f0* owner, struct Holder0204a3f0* h);
+extern "C" void func_0204a440(char* obj, const char* src);
+extern "C" void func_0204a464(char* obj, const char* src);
 
 struct Node021e8bac {
     unsigned char type;
@@ -28,7 +28,7 @@ struct Node021e8bac {
     struct Node021e8bac* next;
 };
 struct Obj021e8bac;
-void PushLogNode021e8bac(struct Obj021e8bac* obj, struct Node021e8bac* node);
+extern "C" void func_ov025_021e8bac(struct Obj021e8bac* obj, struct Node021e8bac* node);
 
 struct Global021ef988 {
 #if defined(jpn)
@@ -54,7 +54,7 @@ extern const char data_ov025_021ef7fb[];
 extern "C" ARM int func_ov025_021e4be4(struct Param021e4be4* p) {
     GameState* gs = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    SafeAllocator* allocator = GetArrayEntry_021e8a54_021e8a54(data_ov025_021ef988.battle);
+    SafeAllocator* allocator = func_ov025_021e8a54(data_ov025_021ef988.battle);
 
     char path[0x28];
     int n = 0x28;
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov025_021e4be4(struct Param021e4be4* p) {
     if (fileData == NULL) {
         if (taskId >= 0) {
             loader->RemoveTask(taskId);
-            RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+            func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
         }
         return 1;
     }
@@ -81,45 +81,45 @@ extern "C" ARM int func_ov025_021e4be4(struct Param021e4be4* p) {
     Object3D* model = (Object3D*)allocator->Allocate(sizeof(Object3D));
     if (model == NULL) {
         loader->RemoveTask(taskId);
-        RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+        func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
         return 1;
     }
 
     Node021e8bac* node = (Node021e8bac*)allocator->Allocate(sizeof(Node021e8bac));
     if (node == NULL) {
         loader->RemoveTask(taskId);
-        RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+        func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
         return 1;
     }
 
     model->Initialize();
     ObjectArchiveLoadInfo info;
-    ClearEightWords_0203dafc((struct Struct_203dafc*)&info);
+    func_0203dafc((struct Struct_203dafc*)&info);
     info.fileData = fileData;
     info.unk_8 = length;
     info.allocator = allocator;
     info.unk_10 = 1;
     if (!model->LoadFromCHRArchive(&info)) {
         loader->RemoveTask(taskId);
-        RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+        func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
         return 1;
     }
     loader->RemoveTask(taskId);
-    RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+    func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
 
     char* state = (char*)allocator->Allocate(0x268);
     if (state == NULL) {
         loader->RemoveTask(taskId);
-        RemoveMatchingShort_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
+        func_ov025_021eb084((struct RemoveList021eb084*)data_ov025_021ef988.battle, taskId);
         return 1;
     }
 
-    InitState0204a120((struct Obj0204a120*)state);
-    SetHolderAndMarkNode0204a3f0((struct Owner0204a3f0*)state, (struct Holder0204a3f0*)model);
-    SetName0204a440(state, data_ov025_021ef7f7);
-    SetStringField0234_0204a464(state, data_ov025_021ef7fb);
-    SetField0x3b0Value_020100c4(gs, (int)state);
+    func_0204a120((struct Obj0204a120*)state);
+    func_0204a3f0((struct Owner0204a3f0*)state, (struct Holder0204a3f0*)model);
+    func_0204a440(state, data_ov025_021ef7f7);
+    func_0204a464(state, data_ov025_021ef7fb);
+    func_020100c4(gs, (int)state);
     node->type = 3;
-    PushLogNode021e8bac((struct Obj021e8bac*)data_ov025_021ef988.battle, node);
+    func_ov025_021e8bac((struct Obj021e8bac*)data_ov025_021ef988.battle, node);
     return 1;
 }

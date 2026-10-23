@@ -3,11 +3,11 @@
 #include "GameState/GameState.h"
 
 struct Unit02155184;
-Unit02155184* GetCombatantWithFlag0x400_0200fea4(GameState*, int);
+extern "C" Unit02155184* func_0200fea4(GameState*, int);
 struct Container02070e60;
 struct BinarySearchByComparatorStruct;
-void* SearchWithLow15Comparator02070fd0(Container02070e60*, int);
-void* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" void* func_02070fd0(Container02070e60*, int);
+extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct*, int);
 
 struct Unit02155184 {
     char p0[2]; unsigned short key; char p1[0x138-4];
@@ -37,7 +37,7 @@ static inline int IsPartySlot02155184(int id) { return id >= 0 && id <= 3; }
 // USA: func_ov000_02155184
 extern "C" ARM void func_ov000_02155184(Root02155184* obj, int id, int flags) {
     if (IsPartySlot02155184(id)) return;
-    Unit02155184* unit = GetCombatantWithFlag0x400_0200fea4(GameState::GetInstance(), id);
+    Unit02155184* unit = func_0200fea4(GameState::GetInstance(), id);
     if (!unit) return;
     char* search = obj->info + 0x284;
     unsigned short key = unit->key;
@@ -45,9 +45,9 @@ extern "C" ARM void func_ov000_02155184(Root02155184* obj, int id, int flags) {
     char* filterSearch = obj->info + 0x678;
     int action = unit->action;
     if (unit->alternate) { key = unit->alternateKey; action = unit->alternateAction; }
-    record = (Record02155184*)SearchWithLow15Comparator02070fd0((Container02070e60*)(search + 0x400), key);
+    record = (Record02155184*)func_02070fd0((Container02070e60*)(search + 0x400), key);
     if (!record) return;
-    Filter02155184* filter = (Filter02155184*)SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)filterSearch, (short)key);
+    Filter02155184* filter = (Filter02155184*)func_0206f4f0((BinarySearchByComparatorStruct*)filterSearch, (short)key);
     if (!filter || unit->processed) return;
     int credited = 0;
     if (!(flags & 0x10) && !(flags & 0x20)) {

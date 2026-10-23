@@ -67,16 +67,16 @@ struct Action021e7890 {
 };
 
 extern "C" Res021e7890* func_ov017_021b8478(void* node);
-void* GetActiveCombatWork_ov000_02160130(void);
-Node02160094* GetNodeAtIndex02160094(List02160094* list, int index);
-int GetElementCount02070fe4(Struct02070fe4* p);
-Element02070f98* GetElementIfInBounds(List02070f98* list, int index);
-void ClearCombatantSlot_0200fd48(GameState* battleStruct, int id);
+extern "C" void* func_ov000_02160130(void);
+extern "C" Node02160094* func_ov000_02160094(List02160094* list, int index);
+extern "C" int func_02070fe4(Struct02070fe4* p);
+extern "C" Element02070f98* func_02070f98(List02070f98* list, int index);
+extern "C" void func_0200fd48(GameState* battleStruct, int id);
 extern "C" void __clear(void* buf, int n);
 extern "C" int func_ov025_021e771c(short* ids, int count, int a, int b);
 extern "C" void func_ov000_02161c0c(void* work, int id);
 extern "C" void func_ov000_021677fc(void* work);
-void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char*);
+extern "C" void func_ov000_02167e6c(unsigned char*);
 struct Vector3i;
 
 #if defined(jpn)
@@ -102,8 +102,8 @@ extern "C" ARM int func_ov025_021e7890(int self, Action021e7890* action) {
     res = (GameRes021e7890*)GetGameResources();
     state = GameState::GetInstance();
     r = func_ov017_021b8478(res->sub.ptr);
-    work = GetActiveCombatWork_ov000_02160130();
-    node = GetNodeAtIndex02160094((List02160094*)action, 0);
+    work = func_ov000_02160130();
+    node = func_ov000_02160094((List02160094*)action, 0);
     if (node == 0) return 1;
     GameObj021e7890* unit = (GameObj021e7890*)state->GetCombatantByIndex(node->id);
     if (unit == 0) return 1;
@@ -123,9 +123,9 @@ extern "C" ARM int func_ov025_021e7890(int self, Action021e7890* action) {
         return 1;
     }
     tb = &r->tableB;
-    int count = GetElementCount02070fe4(&tb->list.head);
+    int count = func_02070fe4(&tb->list.head);
     for (int i = 0; i < count; i++) {
-        Element02070f98* elem = GetElementIfInBounds(&tb->list, i);
+        Element02070f98* elem = func_02070f98(&tb->list, i);
         if (elem == 0) continue;
         int found = 1;
         short* q = ids;
@@ -146,10 +146,10 @@ extern "C" ARM int func_ov025_021e7890(int self, Action021e7890* action) {
     func_ov000_02161c0c(work, node->id);
     for (i2 = 0; i2 < 8; i2++) {
         short id = (short)(i2 + 0xc0);
-        if (node->id != id) ClearCombatantSlot_0200fd48(state, id);
+        if (node->id != id) func_0200fd48(state, id);
     }
     func_ov000_021677fc(work);
-    RunFlaglearAndSetMode02167e6c_02167e6c((unsigned char*)work);
+    func_ov000_02167e6c((unsigned char*)work);
     GameObj021e7890* unit2 = (GameObj021e7890*)state->GetCombatantByIndex(node->id);
     if (unit2 != 0) {
         Sub021e7890* obj2 = unit2->sub;

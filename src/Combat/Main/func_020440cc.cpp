@@ -8,11 +8,11 @@
 struct EntryList_203dce4;
 struct Obj0205eaa0;
 extern Obj0205eaa0 data_02108760;
-void* GetGlobalPtr021075f4_0203cf4c();
-Entry_203dce4* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
+extern "C" void* func_0203cf4c();
+extern "C" Entry_203dce4* func_0203dce4(EntryList_203dce4*, int);
 extern "C" void func_0206b104(MessageSystem*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void SetFlag0x2IfByte0xd4Not3_0208beb4(unsigned char*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0208beb4(unsigned char*);
 extern "C" void func_02043124(MessageSystem*);
 
 #if defined(jpn)
@@ -38,7 +38,7 @@ ARM int MessageSystem::func_020440cc() {
     if (g_keyManager.TestKeysPressed(mask)) triggered = 1;
     if (g_keyManager.TestKeysPressed(0xf0)) triggered = 1;
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 20) triggered = 1;
-    if (GetIndexedHalfword_020656d0() == 0xff0c) {
+    if (func_020656d0() == 0xff0c) {
         unsigned int ticks = GameState::GetInstance()->GetTickCount();
         if (inputDelay) {
             if (inputDelay <= ticks) {
@@ -51,9 +51,9 @@ ARM int MessageSystem::func_020440cc() {
     switch (mode) {
     case 0:
         if (b19be) return 0;
-        if (GetIndexedHalfword_020656d0() == 0xff02) {
-            Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)GetGlobalPtr021075f4_0203cf4c(), selectedEntry);
-            if (entry) SetValueOnActiveChild02040af0(entry, selectedValue);
+        if (func_020656d0() == 0xff02) {
+            Entry_203dce4* entry = func_0203dce4((EntryList_203dce4*)func_0203cf4c(), selectedEntry);
+            if (entry) func_02040af0(entry, selectedValue);
         }
         return 1;
     case 1:
@@ -67,18 +67,18 @@ ARM int MessageSystem::func_020440cc() {
 #if defined(jpn)
         func_0206cba0(this);
         mode = 5;
-        if (!flags17ff.flag5) DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        if (!flags17ff.flag5) func_0205eaa0(&data_02108760, 1, 0);
 #else
         mode = 5;
         func_0206b224(this);
-        if (!b19d3) DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        if (!b19d3) func_0205eaa0(&data_02108760, 1, 0);
 #endif
         break;
     case 3:
         b19bd = 0;
         break;
     case 2: {
-        unsigned short command = GetIndexedHalfword_020656d0();
+        unsigned short command = func_020656d0();
 #if defined(jpn)
         if (command == 0xff21) {
 #else
@@ -99,8 +99,8 @@ ARM int MessageSystem::func_020440cc() {
                 if (func_02069430(this, token)) {
                     int skip = func_02069444(this, token);
 #else
-                if (IsHighByteFF02044494(this, &token)) {
-                    int skip = Dispatch02044420(this, &token);
+                if (func_02044494(this, &token)) {
+                    int skip = func_02044420(this, &token);
 #endif
                     if (skip) {
                         tokenIndex = tokenIndex + skip + 1;
@@ -110,23 +110,23 @@ ARM int MessageSystem::func_020440cc() {
                     if (token == store) {
                         pendingValue = selectedValue;
                         pendingValueActive = 1;
-                        CheckAndClearFlag020656e4(1);
+                        func_020656e4(1);
                     } else if (token == childFlag && child) {
-                        SetFlag0x2IfByte0xd4Not3_0208beb4(child);
+                        func_0208beb4(child);
                     }
                 }
                 ++tokenIndex;
             }
-            ProcessPendingFlag02045688();
+            func_02045688();
             mode = 0;
-            InitCombatSlots02043040(this);
+            func_02043040(this);
             func_02043124(this);
-            ResetControllerState020430b0(this);
+            func_020430b0(this);
         } else {
 #if defined(jpn)
-            if (!flags17ff.flag5) DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            if (!flags17ff.flag5) func_0205eaa0(&data_02108760, 1, 0);
 #else
-            if (!b19d3) DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            if (!b19d3) func_0205eaa0(&data_02108760, 1, 0);
 #endif
             mode = 5;
             ++tokenIndex;

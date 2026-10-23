@@ -9,10 +9,10 @@ enum {regionalOffset0=0x29c, regionalOffset1=0x2a0, regionalOffset2=0xe90, regio
 
 extern "C" int func_ov000_0215e9fc(void* party, short* buf, int max, int start);
 extern "C" int func_ov000_0215ec1c(void* party, short* buf, int max, int start);
-void SetSubstructWord0x68_0204a00c(unsigned char* obj, int value);
-void SetOrInitField_02182498(void* obj, int flag);
-void SetFlag320_02195530(unsigned char* obj);
-unsigned char* GetGlobalField0x1c020421a0();
+extern "C" void func_0204a00c(unsigned char* obj, int value);
+extern "C" void func_ov000_02182498(void* obj, int flag);
+extern "C" void func_ov017_02195530(unsigned char* obj);
+extern "C" unsigned char* func_020421a0();
 
 struct StatusNibbles_021db7f8 {
     unsigned char lo : 4;
@@ -45,12 +45,12 @@ extern "C" ARM void func_ov025_021db7f8(BattleCtrl_021db7f8* obj) {
             if (s->hi == 1 || s->hi == 6) {
                 s->hi = 0;
             }
-            SetSubstructWord0x68_0204a00c((unsigned char*)c, 0);
+            func_0204a00c((unsigned char*)c, 0);
         }
     }
-    SetOrInitField_02182498(obj->field6ffc, 1);
-    SetFlag320_02195530((unsigned char*)GetGameResources());
-    GetGlobalField0x1c020421a0()[regionalOffset5] = 0;
+    func_ov000_02182498(obj->field6ffc, 1);
+    func_ov017_02195530((unsigned char*)GetGameResources());
+    func_020421a0()[regionalOffset5] = 0;
     obj->fieldE90 = 0;
     obj->fieldE94 = 0;
 }

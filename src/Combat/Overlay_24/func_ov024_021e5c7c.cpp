@@ -28,13 +28,13 @@ struct GoldCombatant : GameObject {
     unsigned char pad_13c[0xc];
     MonsterGold* monster;
 };
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int, int);
+extern "C" GameObject* func_ov000_021536f8(int, int);
 extern "C" void* func_ov000_0215e958(void*);
 extern "C" int func_ov000_0215ffa0(void*);
-int IsIdOrEffectMatchTarget0215fd24(int, int);
-void AddEntryAndIncrementCount0215a88c(void*, void*, int);
+extern "C" int func_ov000_0215fd24(int, int);
+extern "C" void func_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
-void AppendToChainAndIncCount0215fe84(void*, void*, int);
+extern "C" void func_ov000_0215fe84(void*, void*, int);
 static inline int IsPartyMember(int id) { return id >= 0 && id <= 3; }
 
 // USA: func_ov024_021e5c7c
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov024_021e5c7c(GoldAction* action, int id, int unused, 
     if ((int)(float)NextRandomMax((Random*)action->battle, 2) <= 0) return;
     void* entry = func_ov000_0215e958(action->battle);
     if (!entry) return;
-    GoldInventory* inventory = (GoldInventory*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    GoldInventory* inventory = (GoldInventory*)func_02010828(GameState::GetInstance());
     int other;
     int amount;
     GoldActionEntry* source = action->source;
@@ -54,32 +54,32 @@ extern "C" ARM void func_ov024_021e5c7c(GoldAction* action, int id, int unused, 
     if (IsPartyMember(other)) return;
     amount = 0;
     if (IsPartyMember(id)) {
-        GoldCombatant* monster = (GoldCombatant*)GetCombatantWithFlag0x400ByID_ov000_021536f8((int)action->battle, other);
+        GoldCombatant* monster = (GoldCombatant*)func_ov000_021536f8((int)action->battle, other);
         if (monster) {
             amount = (int)(0.1f * (float)(unsigned int)monster->monster->gold);
             if (amount > 100) amount = 100;
             if (amount > 0) {
-                if (IsIdOrEffectMatchTarget0215fd24((int)action->battle, id)) {
+                if (func_ov000_0215fd24((int)action->battle, id)) {
                     unsigned int total = inventory->gold + amount;
                     if (total > 9999999) inventory->gold = 9999999;
                     else inventory->gold = total;
                 }
                 source->amount = amount;
-                AddEntryAndIncrementCount0215a88c(action->battle, entry, 0x172);
+                func_ov000_0215a88c(action->battle, entry, 0x172);
             }
         }
     } else {
         amount = (int)(0.1f * (float)inventory->gold);
         if (amount > 100) amount = 100;
         if (amount > 0) {
-            if (IsIdOrEffectMatchTarget0215fd24((int)action->battle, other)) inventory->gold -= amount;
+            if (func_ov000_0215fd24((int)action->battle, other)) inventory->gold -= amount;
             source->amount = amount;
-            AddEntryAndIncrementCount0215a88c(action->battle, entry, 0x172);
+            func_ov000_0215a88c(action->battle, entry, 0x172);
         }
     }
     if (amount > 0) {
         func_ov000_0215cd44(action->battle, entry, combatant, (short)amount, 0, 0, 0);
-        AppendToChainAndIncCount0215fe84(action->chain, entry, 2);
+        func_ov000_0215fe84(action->chain, entry, 2);
         action->battle->entryCount++;
     }
 }

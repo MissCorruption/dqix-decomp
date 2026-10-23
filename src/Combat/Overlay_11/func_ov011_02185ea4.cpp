@@ -22,7 +22,7 @@ struct TaggedInput02185ea4 {
     TaggedNumber02184c30 c;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov023_021fb534(void* obj, void* ctx, int arg2, int arg3,
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern char data_ov023_021fee68;
 
@@ -46,16 +46,16 @@ struct Buf02185ea4 {
     char pad1[0xb4 - 0x20 - 0x5c];
 };
 
-// USA: func_ov011_02185ea4  (semantic: AllocateAndInitBitAllocEntry_02185ea4)
+// USA: func_ov011_02185ea4
 extern "C" ARM int func_ov011_02185ea4(struct TaggedInput02185ea4* obj) {
-    int tag0 = GetTaggedValueAsInt_02184c30(&obj->a);
-    int tag8 = GetTaggedValueAsInt_02184c30(&obj->b);
+    int tag0 = func_ov011_02184c30(&obj->a);
+    int tag8 = func_ov011_02184c30(&obj->b);
     int sb;
     if (obj->mode == 2) sb = obj->extra;
     else sb = 0;
     if (sb == 0) return 0;
 
-    int tag18 = GetTaggedValueAsInt_02184c30(&obj->c);
+    int tag18 = func_ov011_02184c30(&obj->c);
 
     void* ctx = func_ov017_021b2164();
     void* node = func_ov011_021845f8(ctx, tag8);
@@ -68,16 +68,16 @@ extern "C" ARM int func_ov011_02185ea4(struct TaggedInput02185ea4* obj) {
     struct Buf02185ea4 local;
     struct Header02185ea4* header = &local.header;
     local.magic = &data_ov023_021fee68;
-    ClearNameTable((struct NameTable02048080*)((char*)header + 0x54));
+    func_02048080((struct NameTable02048080*)((char*)header + 0x54));
     memcpy(block, &local, sizeof(Buf02185ea4));
 
     if (func_ov023_021fb534(block, ctx, tag0, tag8, sb, tag18) == 0) {
-        ClearNameTable(&local.header.table);
+        func_02048080(&local.header.table);
         return 0;
     }
 
     void* list = func_ov011_021849c8(ctx);
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)list, (struct ListNode_021f67ac*)block);
-    ClearNameTable(&local.header.table);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)list, (struct ListNode_021f67ac*)block);
+    func_02048080(&local.header.table);
     return 1;
 }

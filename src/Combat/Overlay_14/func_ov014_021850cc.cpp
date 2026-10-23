@@ -126,26 +126,26 @@ extern char data_ov014_0218968c[];
 
 extern "C" bool func_ov014_02188bfc(HabitatTable* habitats, SafeAllocator* allocator, short monsterID);
 extern "C" bool func_ov014_02188c34(HabitatTable* habitats);
-void ResetFields_021845d4(ResetFieldsStruct021845d4* best);
-void Clear0x10Bytes02096fb0(void* table);
+extern "C" void func_ov014_021845d4(ResetFieldsStruct021845d4* best);
+extern "C" void func_02096fb0(void* table);
 extern "C" void func_02097054(MonsterInfoTable* table, SafeAllocator* allocator, void* file, unsigned int size, short monsterID);
-MonsterRecordCount* GetHandleField8(HandleField8_02097238* table);
-MonsterInfo* BinarySearchByField4_02097224(BinarySearch020971a8Container* table, int monsterID);
-void Zero4Bytes_020e526c(void* reader);
-void TryInvoke020e53bc_020e56fc(void* reader, int file, int size);
-const char** CallFunc020e52a0_020e5294(void* reader, int id);
+extern "C" MonsterRecordCount* func_02097238(HandleField8_02097238* table);
+extern "C" MonsterInfo* func_02097224(BinarySearch020971a8Container* table, int monsterID);
+extern "C" void func_020e526c(void* reader);
+extern "C" void func_020e56fc(void* reader, int file, int size);
+extern "C" const char** func_020e5294(void* reader, int id);
 extern "C" void func_020e4864(const char* input, char* output, int, int, int, int);
-void* ResetAndReturnSelf020dfc2c(void* text);
-void ResetStruct020dfc40(Struct020dfc40* text);
+extern "C" void* func_020dfc2c(void* text);
+extern "C" void func_020dfc40(Struct020dfc40* text);
 extern "C" void func_020e046c(char* output, void* file, unsigned int size, short infoID);
-void CopyInternalFields0207df50(Foo0207df50* p);
-void RestorePairTables0207df90(char* p);
-void BackupPairTables0207dfac(char* p);
-void ClearEightWords_0203dafc(Struct_203dafc* info);
-void ComputeAndStoreVecs02184c08(unsigned char* screen);
+extern "C" void func_0207df50(Foo0207df50* p);
+extern "C" void func_0207df90(char* p);
+extern "C" void func_0207dfac(char* p);
+extern "C" void func_0203dafc(Struct_203dafc* info);
+extern "C" void func_ov014_02184c08(unsigned char* screen);
 
 #if defined(jpn)
-int ApplyNodeUpdater020e038c(void* reader, void* file, int size);
+extern "C" int func_020e038c(void* reader, void* file, int size);
 extern "C" char* func_020e207c(void* reader, char* output, int itemID);
 #endif
 
@@ -189,14 +189,14 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
                 loader->GetLoadedFileByID(self->taskIDs_[0], &file, &size);
                 if (file != NULL) {
                     short* variant = self->variants_;
-                    ResetFields_021845d4((ResetFieldsStruct021845d4*)&self->best_);
+                    func_ov014_021845d4((ResetFieldsStruct021845d4*)&self->best_);
                     SafeAllocator* allocator = &self->allocators_[0];
                     for (; *variant != 0; variant++) {
                         allocator->Reset();
                         short monsterID = *variant;
-                        Clear0x10Bytes02096fb0(&self->infos_);
+                        func_02096fb0(&self->infos_);
                         func_02097054(&self->infos_, allocator, file, size, monsterID);
-                        MonsterRecordCount* count = GetHandleField8((HandleField8_02097238*)&self->infos_);
+                        MonsterRecordCount* count = func_02097238((HandleField8_02097238*)&self->infos_);
                         if (self->best_.monsterID_ < 0
                             || (count != NULL && (count->value_ > self->best_.value_ || count->count_ > self->best_.count_))) {
                             self->best_.monsterID_ = monsterID;
@@ -206,9 +206,9 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
                     }
                     allocator->Reset();
                     short monsterID = self->monster_->monsterID_;
-                    Clear0x10Bytes02096fb0(&self->infos_);
+                    func_02096fb0(&self->infos_);
                     func_02097054(&self->infos_, allocator, file, size, monsterID);
-                    GetHandleField8((HandleField8_02097238*)&self->infos_);
+                    func_02097238((HandleField8_02097238*)&self->infos_);
                 }
                 loader->RemoveTask(self->taskIDs_[0]);
                 self->taskIDs_[0] = -1;
@@ -229,25 +229,25 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
         unsigned int size;
         loader->GetLoadedFileByID(self->taskIDs_[1], &file, &size);
         if (file != NULL) {
-            MonsterInfo* info = BinarySearchByField4_02097224((BinarySearch020971a8Container*)&self->infos_, self->monster_->monsterID_);
+            MonsterInfo* info = func_02097224((BinarySearch020971a8Container*)&self->infos_, self->monster_->monsterID_);
             if (info != NULL) {
 #if defined(jpn)
                 char reader[0x18];
-                ResetAndReturnSelf020dfc2c(reader);
-                ResetStruct020dfc40((Struct020dfc40*)reader);
-                ApplyNodeUpdater020e038c(reader, file, size);
+                func_020dfc2c(reader);
+                func_020dfc40((Struct020dfc40*)reader);
+                func_020e038c(reader, file, size);
                 func_020e207c(reader, self->dropNames_[0], info->dropItemIDs_[0]);
                 func_020e207c(reader, self->dropNames_[1], info->dropItemIDs_[1]);
 #else
                 char reader[0xc];
-                Zero4Bytes_020e526c(reader);
-                TryInvoke020e53bc_020e56fc(reader, (int)file, size);
-                const char** name = CallFunc020e52a0_020e5294(reader, info->dropItemIDs_[0]);
+                func_020e526c(reader);
+                func_020e56fc(reader, (int)file, size);
+                const char** name = func_020e5294(reader, info->dropItemIDs_[0]);
                 if (name != NULL) {
                     memset(self->dropNames_[0], 0, 0x48);
                     func_020e4864(*name, self->dropNames_[0], 1, 0, 0, 0);
                 }
-                name = CallFunc020e52a0_020e5294(reader, info->dropItemIDs_[1]);
+                name = func_020e5294(reader, info->dropItemIDs_[1]);
                 if (name != NULL) {
                     memset(self->dropNames_[1], 0, 0x48);
                     func_020e4864(*name, self->dropNames_[1], 1, 0, 0, 0);
@@ -266,8 +266,8 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
         loader->GetLoadedFileByID(self->taskIDs_[2], &file, &size);
         if (file != NULL) {
             char text[0x18];
-            ResetAndReturnSelf020dfc2c(text);
-            ResetStruct020dfc40((Struct020dfc40*)text);
+            func_020dfc2c(text);
+            func_020dfc40((Struct020dfc40*)text);
             func_020e046c(self->description_, file, size, self->monster_->number_);
         }
         loader->RemoveTask(self->taskIDs_[2]);
@@ -315,23 +315,23 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
                             self->model_->Initialize();
                             self->model_->unknown_2_ = self->monster_->monsterID_;
                             self->model_->EnableFlag(4);
-                            CopyInternalFields0207df50((Foo0207df50*)resources->unknown_2cc);
-                            RestorePairTables0207df90(resources->unknown_2cc);
+                            func_0207df50((Foo0207df50*)resources->unknown_2cc);
+                            func_0207df90(resources->unknown_2cc);
                             ObjectArchiveLoadInfo loadInfo;
-                            ClearEightWords_0203dafc((Struct_203dafc*)&loadInfo);
+                            func_0203dafc((Struct_203dafc*)&loadInfo);
                             loadInfo.fileData = character;
                             loadInfo.allocator = allocator;
                             loadInfo.unk_8 = characterSize;
                             self->model_->LoadFromCCHROrCMOTArchive(&loadInfo, NULL);
-                            BackupPairTables0207dfac(resources->unknown_2cc);
-                            ClearEightWords_0203dafc((Struct_203dafc*)&loadInfo);
+                            func_0207dfac(resources->unknown_2cc);
+                            func_0203dafc((Struct_203dafc*)&loadInfo);
                             loadInfo.allocator = allocator;
                             loadInfo.fileData = motion;
                             loadInfo.unk_8 = motionSize;
                             self->model_->LoadFromCCHROrCMOTArchive(&loadInfo, NULL);
-                            ComputeAndStoreVecs02184c08((unsigned char*)self);
+                            func_ov014_02184c08((unsigned char*)self);
                             self->animationIndex_ = 0;
-                            MonsterInfo* info = BinarySearchByField4_02097224((BinarySearch020971a8Container*)&self->infos_, self->monster_->monsterID_);
+                            MonsterInfo* info = func_02097224((BinarySearch020971a8Container*)&self->infos_, self->monster_->monsterID_);
                             if (info != NULL)
                                 self->model_->MaybeSetRegularAnimation(info->animations_[0], 0);
                             self->flags_ |= 4;

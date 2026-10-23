@@ -1,7 +1,7 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-int LoadBattleBlock020ac4c0(void* dst);
+extern "C" int func_020ac4c0(void* dst);
 
 extern "C" BattleRecordPlayClock func_ov023_021e8fe8(BattleRecordPlayClock v, int kind);
 struct BattleCommandArgument {
@@ -19,7 +19,7 @@ extern "C" void func_ov017_021d6134(BattleCommandArgument* output, int val);
 extern "C" ARM int func_ov023_021ea044(void* obj) {
     BattleCommandArgument* outputs = (BattleCommandArgument*)obj;
     BattleRecordSnapshot record;
-    LoadBattleBlock020ac4c0(&record);
+    func_020ac4c0(&record);
 
     BattleRecordPlayClock result = func_ov023_021e8fe8(record.secondaryClocks.committed, 1);
 

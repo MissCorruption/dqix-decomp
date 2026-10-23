@@ -114,14 +114,14 @@ struct BackgroundGraphics {
 };
 
 extern "C" void func_ov023_021dcd90(ItemInfoWindow* window, unsigned char inMenu);
-int CountActiveEntries(ActiveEntry02046900* pac);
-void ResetList0204af64(List0204af64* background);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* background, int a);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
+extern "C" void func_0204af64(List0204af64* background);
+extern "C" void func_0204b11c(unsigned char* background, int a);
 extern "C" void func_0204b5b4(void* background, int a);
-void DispatchViaTable0204b5e8(Obj0204b5e8* background, int a, int b);
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** name, int* size);
-void DispatchByTag0204b2e0(void* background, char* file);
-void DispatchByTagLookup0204b3a0(SelfTag0204b3a0* background, char* file);
+extern "C" void func_0204b5e8(Obj0204b5e8* background, int a, int b);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** name, int* size);
+extern "C" void func_0204b2e0(void* background, char* file);
+extern "C" void func_0204b3a0(SelfTag0204b3a0* background, char* file);
 
 extern char data_ov006_021601b6[];
 extern char data_ov006_021601cc[];
@@ -144,20 +144,20 @@ extern "C" ARM void func_ov006_02156bd8(AlchemyPot* self) {
             void* pac;
             unsigned int pacSize;
             loader->GetLoadedFileByID(self->backgroundTask_, &pac, &pacSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)pac);
+            int count = func_02046900((ActiveEntry02046900*)pac);
             BackgroundGraphics background;
-            ResetList0204af64((List0204af64*)&background);
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&background, 0);
+            func_0204af64((List0204af64*)&background);
+            func_0204b11c((unsigned char*)&background, 0);
             background.unk_1c_0_ = 0;
             background.unk_1c_4_ = 3;
             func_0204b5b4(&background, 3);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)&background, 0, 0);
+            func_0204b5e8((Obj0204b5e8*)&background, 0, 0);
             for (int i = 0; i < count; i++) {
                 int size;
-                void* file = FindRecordByIndex((Rec020467f0*)pac, i, &name, &size);
+                void* file = func_020467f0((Rec020467f0*)pac, i, &name, &size);
                 if (file != 0) {
-                    DispatchByTag0204b2e0(&background, (char*)file);
-                    DispatchByTagLookup0204b3a0((SelfTag0204b3a0*)&background, (char*)file);
+                    func_0204b2e0(&background, (char*)file);
+                    func_0204b3a0((SelfTag0204b3a0*)&background, (char*)file);
                 }
             }
             loader->RemoveTask(self->backgroundTask_);

@@ -4,13 +4,13 @@ extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be40(void* base);
 extern "C" void* func_0203be4c(void* base);
 extern "C" unsigned int func_020937f0(int engine);
-int GetDisplayModeCode0209378c(int engine);
+extern "C" int func_0209378c(int engine);
 
 struct Pack020e197c {
     unsigned int w;
     unsigned short h;
 };
-void PackControlWord020e197c(struct Pack020e197c* d, int a2, int a3, int a4,
+extern "C" void func_020e197c(struct Pack020e197c* d, int a2, int a3, int a4,
         int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12);
 
 struct SpriteRect_020e1780 {
@@ -74,7 +74,7 @@ extern "C" ARM void func_020e1780(struct Obj020e1780* obj) {
     x = obj->panel->x;
     y = obj->panel->y;
     func_020937f0(display);
-    shift = GetDisplayModeCode0209378c(display);
+    shift = func_0209378c(display);
     pack = (struct Pack020e197c*)func_0203be40(base);
     if (display != 0) {
         pack = (struct Pack020e197c*)func_0203be4c(base);
@@ -87,7 +87,7 @@ extern "C" ARM void func_020e1780(struct Obj020e1780* obj) {
         struct SpriteRect_020e1780* r = &rects[i];
         unsigned int t = vram + r->offset;
         t >>= shift;
-        PackControlWord020e197c(pack, x + r->x, y + r->y, 0, 0, 0, 0, r->attr, 0,
+        func_020e197c(pack, x + r->x, y + r->y, 0, 0, 0, 0, r->attr, 0,
                 t, 0xe, 0);
         pack++;
     }
@@ -101,7 +101,7 @@ extern "C" ARM void func_020e1780(struct Obj020e1780* obj) {
         if (h < j + p->stepY) j = h - p->stepY;
         for (; i < w; i += p->stepX) {
             if (w < i + p->stepX) i = w - p->stepX;
-            PackControlWord020e197c(pack, x + i + 2, y + j + 2, 0, 1, 0, 0, p->field24, 0, tile, 0xe, 0);
+            func_020e197c(pack, x + i + 2, y + j + 2, 0, 1, 0, 0, p->field24, 0, tile, 0xe, 0);
             pack++;
         }
         i = 0;

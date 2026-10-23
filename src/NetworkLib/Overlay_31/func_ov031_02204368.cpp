@@ -33,9 +33,9 @@ struct DhcpState02204368 {
 extern DhcpState02204368 data_ov031_0224c980;
 extern unsigned short data_ov031_0224ce68[3];
 extern "C" int func_ov031_02203b1c();
-void DispatchContext02200264();
+extern "C" void func_ov031_02200264();
 extern "C" int func_ov031_0220357c(unsigned int *);
-int CompareThreeU16sDiffer02200824(unsigned short *, unsigned short *);
+extern "C" int func_ov031_02200824(unsigned short *, unsigned short *);
 extern "C" void func_ov031_02203670(int);
 #define READ_NETWORK32_02204368(p) (((unsigned int)(unsigned short)(((p)[0] << 8) | (p)[1]) << 16) | (unsigned short)(((p)[2] << 8) | (p)[3]))
 #define SWAP_NETWORK16_02204368(v) ((unsigned short)(((v) >> 8) | ((v) << 8)))
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov031_02204368(int transaction, int retry) {
     int result = 0;
     while (data_ov031_0224c980.progress() != 0 && result == 0 && (int)(GetCurrentTimestamp() >> 16) - start < timeout) {
         if (!func_ov031_02203b1c()) {
-            DispatchContext02200264();
+            func_ov031_02200264();
             continue;
         }
         unsigned int length;
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov031_02204368(int transaction, int retry) {
         if (length > 0xf0 && packet->type == 2 &&
             transaction == ((unsigned int)SWAP_NETWORK16_02204368(packet->transactionHigh) << 16 |
                              SWAP_NETWORK16_02204368(packet->transactionLow)) &&
-            !CompareThreeU16sDiffer02200824(packet->hardwareAddress, data_ov031_0224ce68)) {
+            !func_ov031_02200824(packet->hardwareAddress, data_ov031_0224ce68)) {
             unsigned char* end;
             unsigned int address = READ_NETWORK32_02204368(packet->assignedAddress);
             end = buffer + length;

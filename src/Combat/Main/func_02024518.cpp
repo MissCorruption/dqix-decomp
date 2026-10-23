@@ -60,19 +60,19 @@ extern short data_020e7076[][2];
 extern signed char data_020e7056[][2];
 extern signed char data_020e7057[][2];
 
-void *GetData02105254_0203b628();
+extern "C" void *func_0203b628();
 extern "C" Zone3D *func_02012fe4();
-int IsInRange0201b5b0(int id);
+extern "C" int func_0201b5b0(int id);
 extern "C" void func_02027974(void *object, const unsigned char* adjacencyData, int state);
 extern "C" void func_0203b8bc(void *data, int mode, int index, int x, int y, int state, int width, int height,
                               unsigned short palette);
-void SetArraySlotFlag0203b718(void *owner, int mode, int index, int value);
-Entry_02027878 *GetEntryFromList(List_02027878 *list, int index);
-void ForwardParamsToB8bc_0203bcb8(Bcb8Params *params, int a, int b);
-void AccumulateBattleTimer0202441c(BattleTimer0202441c *receiver);
-int CheckCombatantReadyForAction020243b8(void *receiver, int combatantId);
-int CheckActionAllowed(CombatActionPosition* entry, int state);
-void SetElementFields0202756c(void *receiver, int x, int y, int index, unsigned char type, unsigned char flags,
+extern "C" void func_0203b718(void *owner, int mode, int index, int value);
+extern "C" Entry_02027878 *func_02027878(List_02027878 *list, int index);
+extern "C" void func_0203bcb8(Bcb8Params *params, int a, int b);
+extern "C" void func_0202441c(BattleTimer0202441c *receiver);
+extern "C" int func_020243b8(void *receiver, int combatantId);
+extern "C" int func_02024d48(CombatActionPosition* entry, int state);
+extern "C" void func_0202756c(void *receiver, int x, int y, int index, unsigned char type, unsigned char flags,
                               unsigned short palette, unsigned char opacity, int scaleX, int scaleY);
 
 // USA: func_02024518
@@ -82,7 +82,7 @@ extern "C" ARM void func_02024518(MapReceiver02024518 *self) {
     int px;
     GameState *gameState  = GameState::GetInstance();
     GameObject *object    = gameState->GetUnknownGameObject();
-    void *displayState    = GetData02105254_0203b628();
+    void *displayState    = func_0203b628();
     Zone3D *zone          = func_02012fe4();
     int count;
     int zoneId            = zone->currentZoneID_;
@@ -121,7 +121,7 @@ extern "C" ARM void func_02024518(MapReceiver02024518 *self) {
 
     int markX;
     int markZ;
-    if (IsInRange0201b5b0(zoneId)) {
+    if (func_0201b5b0(zoneId)) {
         if (self->mapState == 0) return;
         if (zone->unknown_424_ == 0) {
             unsigned char *visitedTiles =
@@ -160,27 +160,27 @@ extern "C" ARM void func_02024518(MapReceiver02024518 *self) {
             func_02027974(self, grotto->floorMap_.pMapAdjacencyData, self->mapState);
         }
         self->forwardingPending = 0;
-        SetArraySlotFlag0203b718(displayState, 1, 0, self->forwardingFill);
+        func_0203b718(displayState, 1, 0, self->forwardingFill);
         int mapX        = self->forwardingX - tileX;
         int mapY        = self->forwardingY - tileZ + 16;
-        void *mapLayer  = GetData02105254_0203b628();
+        void *mapLayer  = func_0203b628();
         func_0203b8bc(mapLayer, 1, 0, mapX + 32, mapY, self->mapState, 32, 32, self->mapPalette);
     } else {
         self->forwardingPending = 0;
-        SetArraySlotFlag0203b718(displayState, 1, 0, self->forwardingFill);
+        func_0203b718(displayState, 1, 0, self->forwardingFill);
         for (int i = 0; i < self->forwardingCount; i++) {
-            Entry_02027878 *entry = GetEntryFromList((List_02027878*)self, self->forwarding[i].entryIndex);
+            Entry_02027878 *entry = func_02027878((List_02027878*)self, self->forwarding[i].entryIndex);
             if (entry) {
-                ForwardParamsToB8bc_0203bcb8((Bcb8Params*)((char*)entry + 8),
+                func_0203bcb8((Bcb8Params*)((char*)entry + 8),
                                     self->forwardingX + self->forwarding[i].x - tileX + 32,
                                     self->forwardingY + self->forwarding[i].y - tileZ + 16);
             }
         }
     }
-    AccumulateBattleTimer0202441c((BattleTimer0202441c*)self);
+    func_0202441c((BattleTimer0202441c*)self);
     for (int i = 0; i < count; i++) {
         CombatActionPosition *entry = &entries[i];
-        if (!CheckCombatantReadyForAction020243b8(self, entry->combatantId)) continue;
+        if (!func_020243b8(self, entry->combatantId)) continue;
         fix32_t entryScale = self->scale;
         int x = (int) ((float) FIX32_MULTIPLY(entry->position.x, entryScale) / 4096.0f) - self->screenX;
         int z = (int) ((float) FIX32_MULTIPLY(entry->position.z, entryScale) / 4096.0f) - self->screenY;
@@ -192,8 +192,8 @@ extern "C" ARM void func_02024518(MapReceiver02024518 *self) {
         if (self->flags & 1) {
             if (IsNonCombatantAction(entry->type)) continue;
         }
-        if (!CheckActionAllowed(entry, self->actionState)) continue;
-        SetElementFields0202756c(self, (x + 0x7c) << 12, (z + 0x5c) << 12, entry->elementId, entry->type, 0,
+        if (!func_02024d48(entry, self->actionState)) continue;
+        func_0202756c(self, (x + 0x7c) << 12, (z + 0x5c) << 12, entry->elementId, entry->type, 0,
                                  entry->palette, 0xff, 0x1000, 0x1000);
     }
     func_02023b5c(self, self->screenX, self->screenY, 0x7c, 0x5c, 0);

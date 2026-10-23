@@ -13,15 +13,15 @@
 extern "C" void* __clear(void* dst, int count);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 
 struct Obj02055718;
-int InitAllocatedObject02055718(struct Obj02055718* p, int a, int b);
+extern "C" int func_02055718(struct Obj02055718* p, int a, int b);
 
 extern "C" void func_02054f80(void* obj);
 extern "C" int func_02055180(void* a, void* b, void* c, void* d);
@@ -64,8 +64,8 @@ extern "C" ARM int func_ov015_0218e02c(void* self, int* desc) {
 
     int ok = 1;
     struct Foo0207df50* palette = *(struct Foo0207df50**)*(void**)((char*)self + 4);
-    CopyInternalFields0207df50(palette);
-    RestorePairTables0207df90((char*)palette);
+    func_0207df50(palette);
+    func_0207df90((char*)palette);
 
     sprintf(path, data_ov015_0219413f, desc[1]);
 
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov015_0218e02c(void* self, int* desc) {
         narc.Destroy();
 
         Params02036804 info;
-        ClearEightWords_0203dafc((struct Struct_203dafc*)&info);
+        func_0203dafc((struct Struct_203dafc*)&info);
         void* allocPtr = *(void**)((char*)self + 8);
         void* dataPtr = &data_0211e33c;
         unsigned int sz = length;
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov015_0218e02c(void* self, int* desc) {
         info.one = onePtr;
         (*(Object3D**)((char*)self + 0x24))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&info);
 
-        InitAllocatedObject02055718(*(struct Obj02055718**)((char*)self + 0x28),
+        func_02055718(*(struct Obj02055718**)((char*)self + 0x28),
                                     *(int*)((char*)self + 0x24), *(int*)((char*)self + 8));
 
         Vector3i v = data_ov015_02193d08;
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov015_0218e02c(void* self, int* desc) {
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    BackupPairTables0207dfac((char*)palette);
+    func_0207dfac((char*)palette);
 
     if (ok == 0) {
         return 0;

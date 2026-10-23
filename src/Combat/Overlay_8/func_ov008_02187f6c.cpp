@@ -28,17 +28,17 @@ struct TextWindow;
 extern "C" void func_0205d304(TextWindow* window, char* text, int, int, int, int, int);
 extern "C" void func_020e2168(char*, const char*, unsigned int, unsigned char, int);
 extern "C" void func_02041f50(char*, char*);
-int StringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern char data_ov008_0218c0d5[];
 #else
 extern "C" void func_0205d304(TextWindow* window, char* text, int, int, int, int, int, int);
 #endif
 
-MessageSystem* GetGlobalField0x1c020421a0();
-void AppendXYTag_02041a90(char* text, int x, int y);
-void AppendString02042058(char* text, const char* append);
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
+extern "C" MessageSystem* func_020421a0();
+extern "C" void func_02041a90(char* text, int x, int y);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
 
 extern char data_ov008_0218b465[];
 extern char data_ov008_0218b47c[];
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
         char* text = self->text_;
         if (text != NULL)
         {
-            GetGlobalField0x1c020421a0();
+            func_020421a0();
             if (records != NULL)
             {
     #if defined(jpn)
@@ -135,13 +135,13 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
             char plainName[0x80];
             __clear(plainName, sizeof(plainName));
             func_02041f50(name, plainName);
-            int length = StringLength_020d2ff0(plainName);
+            int length = func_020d2ff0(plainName);
             int y;
             int x = (0x80 - (length / 2) * 12) / 2;
             y = 6;
-            if (length != StringLength_020d2ff0(name)) y = 8;
-            AppendXYTag_02041a90(text, x, y);
-            AppendString02042058(text, name);
+            if (length != func_020d2ff0(name)) y = 8;
+            func_02041a90(text, x, y);
+            func_02042058(text, name);
 #else
             Hero* hero = (Hero*)GameState::GetInstance()->GetProtagonist();
                 char* name = self->text_ + 0x8e0;
@@ -160,9 +160,9 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
                 int x = (0xa0 - func_020420e8(name, 1)) / 2;
                 if (x < 0)
                     x = 0;
-                AppendXYTag_02041a90(text, x, 6);
+                func_02041a90(text, x, 6);
                 if (name != NULL)
-                    AppendString02042058(text, name);
+                    func_02042058(text, name);
 #endif
             }
             else
@@ -170,12 +170,12 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
                 int i;
                 int count = 3;
                 char* store = func_0205ec34();
-                if (TestBitInByteArray_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
+                if (func_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
                     count = 4;
                 for (i = 0; i < count; i++)
                 {
-                    AppendXYTag_02041a90(text, 4, i * 15 + 4);
-                    AppendString02042058(text, GetFieldByKey020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
+                    func_02041a90(text, 4, i * 15 + 4);
+                    func_02042058(text, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
                 }
             }
         }
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
     char* labels = self->text_;
     if (labels != NULL)
     {
-        GetGlobalField0x1c020421a0();
+        func_020421a0();
         if (records != NULL)
         {
 #if defined(jpn)
@@ -212,13 +212,13 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
             char plainName[0x80];
             __clear(plainName, sizeof(plainName));
             func_02041f50(name, plainName);
-            int length = StringLength_020d2ff0(plainName);
+            int length = func_020d2ff0(plainName);
             int y;
             int x = (0x80 - (length / 2) * 12) / 2;
             y = 6;
-            if (length != StringLength_020d2ff0(name)) y = 8;
-            AppendXYTag_02041a90(labels, x, y);
-            AppendString02042058(labels, name);
+            if (length != func_020d2ff0(name)) y = 8;
+            func_02041a90(labels, x, y);
+            func_02042058(labels, name);
 #else
             Hero* hero = (Hero*)GameState::GetInstance()->GetProtagonist();
             char* name = self->text_ + 0x8e0;
@@ -237,9 +237,9 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
             int x = (0xa0 - func_020420e8(name, 1)) / 2;
             if (x < 0)
                 x = 0;
-            AppendXYTag_02041a90(labels, x, 6);
+            func_02041a90(labels, x, 6);
             if (name != NULL)
-                AppendString02042058(labels, name);
+                func_02042058(labels, name);
 #endif
         }
         else
@@ -247,12 +247,12 @@ extern "C" ARM void func_ov008_02187f6c(BattleRecords* self, ClearRecords* recor
             int i;
             int count = 3;
             char* store = func_0205ec34();
-            if (TestBitInByteArray_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
+            if (func_0206dfb0((int)store, (unsigned char*)store + 0x8c, 0x1198))
                 count = 4;
             for (i = 0; i < count; i++)
             {
-                AppendXYTag_02041a90(labels, 4, i * 15 + 4);
-                AppendString02042058(labels, GetFieldByKey020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
+                func_02041a90(labels, 4, i * 15 + 4);
+                func_02042058(labels, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x82)));
             }
         }
     }

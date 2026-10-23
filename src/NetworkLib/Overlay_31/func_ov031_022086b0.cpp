@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-int LengthUntilDotOrEnd_0220868c(const char*);
+extern "C" int func_ov031_0220868c(const char*);
 
 // USA: func_ov031_022086b0
 extern "C" ARM int func_ov031_022086b0(const char* text, const char* pattern) {
@@ -12,8 +12,8 @@ extern "C" ARM int func_ov031_022086b0(const char* text, const char* pattern) {
         }
         if (patternCharacter != '*') return 1;
         text--;
-        int textLength = LengthUntilDotOrEnd_0220868c(text);
-        int patternLength = LengthUntilDotOrEnd_0220868c(pattern);
+        int textLength = func_ov031_0220868c(text);
+        int patternLength = func_ov031_0220868c(pattern);
         if (patternLength > textLength) return 1;
         text += textLength - patternLength;
     }

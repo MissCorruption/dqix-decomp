@@ -59,10 +59,10 @@ struct Obj02033874;
 struct Obj02040b2c;
 struct Node02040774;
 
-void *FindEntryPointerByKey0203df78(void *receiver, int key);
-void SetVecYFromValue02033874(struct Obj02033874 *obj, int value);
-void PropagateValueToActiveSlot02040b2c(struct Obj02040b2c *obj, int value);
-void SetActiveChildFields02040774(struct Node02040774 *node, int x, int y, int z);
+extern "C" void *func_0203df78(void *receiver, int key);
+extern "C" void func_02033874(struct Obj02033874 *obj, int value);
+extern "C" void func_02040b2c(struct Obj02040b2c *obj, int value);
+extern "C" void func_02040774(struct Node02040774 *node, int x, int y, int z);
 
 // USA: func_0203e2c4
 extern "C" ARM void func_0203e2c4(void *receiver, unsigned short id) {
@@ -73,8 +73,8 @@ extern "C" ARM void func_0203e2c4(void *receiver, unsigned short id) {
             Entry_203dce4 **slot = self->entries;
             for (unsigned int slotIndex = 0; slotIndex < self->count; ++slot, ++slotIndex) {
                 Entry_203dce4 *entry = *slot;
-                unsigned short *key = (unsigned short *) GetField0x8_02040528(&entry->flags);
-                void *info = GetField0xc02040538((S02040538 *) entry);
+                unsigned short *key = (unsigned short *) func_02040528(&entry->flags);
+                void *info = func_02040538((S02040538 *) entry);
                 if (key == NULL || info == NULL) {
                     continue;
                 }
@@ -92,14 +92,14 @@ extern "C" ARM void func_0203e2c4(void *receiver, unsigned short id) {
                     *(Vector3i *) ((char*)entry->child18 + 0x44) = position;
                 } else if (entry->child1c != NULL) {
                     *(Vector3i *) ((char*)entry->child1c + 0x44) = position;
-                    SetVecYFromValue02033874((struct Obj02033874 *) entry->child1c, value);
+                    func_02033874((struct Obj02033874 *) entry->child1c, value);
                 }
-                PropagateValueToActiveSlot02040b2c((struct Obj02040b2c *) entry, value);
-                SetValueOnActiveChild02040af0(entry, value);
+                func_02040b2c((struct Obj02040b2c *) entry, value);
+                func_02040af0(entry, value);
                 if (snapshot->disabled) {
                     entry->flags |= 0x8000;
                 }
-                SnapshotInfoView *nodes = (SnapshotInfoView *) GetField0xc02040538((S02040538 *) entry);
+                SnapshotInfoView *nodes = (SnapshotInfoView *) func_02040538((S02040538 *) entry);
                 if (nodes != NULL) {
                     SnapshotNodeView *node = nodes->first;
                     while (node != NULL) {
@@ -130,9 +130,9 @@ extern "C" ARM void func_0203e2c4(void *receiver, unsigned short id) {
     GameState *gameState = GameState::GetInstance();
     PendingPosition *pending = (PendingPosition *) ((char *) gameState + PendingPositionOffset);
     if (pending->key != 0xff) {
-        struct Node02040774 *node = (struct Node02040774 *) FindEntryPointerByKey0203df78(self, pending->key);
+        struct Node02040774 *node = (struct Node02040774 *) func_0203df78(self, pending->key);
         if (node != NULL) {
-            SetActiveChildFields02040774(node, pending->x << 4, pending->y << 4, pending->z << 4);
+            func_02040774(node, pending->x << 4, pending->y << 4, pending->z << 4);
         }
         pending->key = 0xff;
     }

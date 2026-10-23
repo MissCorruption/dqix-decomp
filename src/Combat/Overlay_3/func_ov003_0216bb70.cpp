@@ -35,9 +35,9 @@ struct Obj0216bb70 {
     unsigned char flags;
 };
 
-GlobalField0x1c* GetGlobalField0x1c020421a0();
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" GlobalField0x1c* func_020421a0();
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern AllocatorUnion data_02114e20;
 
 extern "C" void func_ov003_0215c650(void* loader);
@@ -56,8 +56,8 @@ extern "C" ARM void func_ov003_0216bb70(Obj0216bb70* self)
     GameState* gameState = GameState::GetInstance();
 
     if (self->step == 0) {
-        memset(GetGlobalField0x1c020421a0()->field_0x5c, 0, REGION_LAYOUT(0x800, 0x960));
-        void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0x10000);
+        memset(func_020421a0()->field_0x5c, 0, REGION_LAYOUT(0x800, 0x960));
+        void* buffer = func_02012d88(&data_02114e20, 0x10000);
         VectorizedMemset(buffer, 0, 0x10000);
         self->allocator.CreateTypeA(buffer, 0x10000);
         self->allocator.Reset();
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov003_0216bb70(Obj0216bb70* self)
         SignedAllocatorHeader* header = self->allocator.GetSignedAllocator();
         if (header != NULL) {
             self->allocator.Destroy();
-            TailForward02012da4(&data_02114e20, header);
+            func_02012da4(&data_02114e20, header);
         }
         if (succeeded == 0) {
             self->mode = 7;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_0216bb70(Obj0216bb70* self)
         }
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         self->field_0xa = 3;
-        GetGlobalField0x1c020421a0()->field_0x998 = 1;
+        func_020421a0()->field_0x998 = 1;
 #if defined(jpn)
         func_ov003_0216d8d4(self, 0x29);
 #else

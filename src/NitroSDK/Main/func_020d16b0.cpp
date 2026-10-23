@@ -52,13 +52,13 @@ extern GBACartridgeHeader020d16b0 data_02112180 __attribute__((aligned(32)));
 extern unsigned char data_02112184[0x9c];
 
 unsigned int SetSpecificInterruptsEnabled(unsigned int mask);
-void SaveAndConfigureExmemcnt_020d1468(int* cycle);
-void RestoreExmemcnt_020d14b0(int* cycle);
+extern "C" void func_020d1468(int* cycle);
+extern "C" void func_020d14b0(int* cycle);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int channel, unsigned int src, unsigned int dst, unsigned int size);
 void CleanInvalidateDataCache();
-void WaitWhileChannelBusy_020d1564(int data);
-unsigned int UnlockAndRestoreInterrupts(int lockID, Lock020d1540* lock);
+extern "C" void func_020d1564(int data);
+extern "C" unsigned int func_020d1540(int lockID, Lock020d1540* lock);
 
 extern "C" {
     void func_020d14e4(unsigned short lockID, Lock020d1540* lock);
@@ -91,16 +91,16 @@ extern "C" ARM void func_020d16b0() {
         int priority = (*(volatile unsigned short*)0x04000204 & 0x8000) >> 15;
         int cycle[2];
 
-        SaveAndConfigureExmemcnt_020d1468(cycle);
+        func_020d1468(cycle);
         *(volatile unsigned short*)0x04000204 &= ~0x8000;
         InvalidateDataCacheRange(&((unsigned char*)&data_02112180)[0x80], sizeof(data_02112180) - 0x80);
         DMAMemcpySynchronous16Bit(1, 0x08000000 + 0x80, (unsigned int)&((unsigned char*)&data_02112180)[0x80],
             sizeof(data_02112180) - 0x80);
         *(volatile unsigned short*)0x04000204 =
             (unsigned short)((*(volatile unsigned short*)0x04000204 & ~0x8000) | (priority << 15));
-        RestoreExmemcnt_020d14b0(cycle);
+        func_020d14b0(cycle);
     }
-    UnlockAndRestoreInterrupts(data_0211214c.lockID, &lock);
+    func_020d1540(data_0211214c.lockID, &lock);
 
     if (*(unsigned char*)0x027fff9b || !*(unsigned char*)0x027fff9a) {
         int i;
@@ -119,7 +119,7 @@ extern "C" ARM void func_020d16b0() {
 
     func_020ca408((const void*)0xffff0020, data_02112184, sizeof(data_02112184));
     CleanInvalidateDataCache();
-    WaitWhileChannelBusy_020d1564(1 | ((((unsigned long)&data_02112180 - 0x02000000) >> 5) << 6));
+    func_020d1564(1 | ((((unsigned long)&data_02112180 - 0x02000000) >> 5) << 6));
 
     while (data_0211214c.subProcessorInitialized != true) {
         WaitByLoop(1);

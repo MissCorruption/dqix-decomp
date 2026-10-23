@@ -31,12 +31,12 @@ struct Combatant02161020 {
 
 extern "C" void* func_02057924(void);
 extern "C" RenderCtx02161020* func_02012fe4(void);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* gameState, int combatantId);
+extern "C" GameObject* func_0200fea4(GameState* gameState, int combatantId);
 extern "C" int func_02032fdc(GameObject* obj, int a1, int a2);
 extern "C" void func_02057ab8(void* g, int id);
-void SyncBattleState0208f87c(const void* pos, int color, int scale, int alpha, int polygonId);
-void SetRemappedBitAt0xa26_020d76b8(RemapFlagOwner* obj, int index);
-void ClearFlagBit_020d76d8(unsigned char* base, int bit);
+extern "C" void func_0208f87c(const void* pos, int color, int scale, int alpha, int polygonId);
+extern "C" void func_020d76b8(RemapFlagOwner* obj, int index);
+extern "C" void func_020d76d8(unsigned char* base, int bit);
 
 // USA: func_ov000_02161020
 extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
     RemapFlagOwner* owner = work->remapOwner;
     unsigned short color = ctx->color;
     for (int i = 0; i < 8; i++) {
-        GameObject* c = GetCombatantWithFlag0x400_0200fea4(bs, i + 0xc0);
+        GameObject* c = func_0200fea4(bs, i + 0xc0);
         if (c == NULL) {
             continue;
         }
@@ -69,13 +69,13 @@ extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
                 polygonId = NSBXX_Model_GetMaterialPolygonID(model->rawInternalModel_, 0);
             }
             const Vector3fix& pos = c->obj3D_.MaybeGetShadowSource();
-            SyncBattleState0208f87c(&pos, color, ((Combatant02161020*)c)->shadowScale, alpha, polygonId);
+            func_0208f87c(&pos, color, ((Combatant02161020*)c)->shadowScale, alpha, polygonId);
             if (owner != NULL) {
-                SetRemappedBitAt0xa26_020d76b8(owner, i + 0xc0);
+                func_020d76b8(owner, i + 0xc0);
             }
         } else {
             if (owner != NULL) {
-                ClearFlagBit_020d76d8((unsigned char*)owner, i + 0xc0);
+                func_020d76d8((unsigned char*)owner, i + 0xc0);
             }
         }
     }

@@ -3,47 +3,47 @@
 #include "Resource/GameResources.h"
 
 extern "C" void __clear(void* buf, int size);
-int CollectCombatantsWithFlag0x1000_02010038(GameState* battleStruct, unsigned char* out);
+extern "C" int func_02010038(GameState* battleStruct, unsigned char* out);
 struct Obj02053f7c;
-void SetField0x1b2IfMatchOrFlag02053f7c(Obj02053f7c*, unsigned short, int);
+extern "C" void func_02053f7c(Obj02053f7c*, unsigned short, int);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* search);
-void EnqueueEventTag147_021cdaa0(void);
-int CheckByteAtIndex_021c5bf8(int index, int key);
-void MaybeResetEntry_021c5e28(int, int);
+extern "C" void func_ov017_021cdaa0(void);
+extern "C" int func_ov017_021c5bf8(int index, int key);
+extern "C" void func_ov017_021c5e28(int, int);
 extern "C" void func_ov017_021c5a8c(int a, int key);
-int IsValidCombatantValue_021c5a1c(int val);
-void* GetData02108ea8_0207d78c(void);
+extern "C" int func_ov017_021c5a1c(int val);
+extern "C" void* func_0207d78c(void);
 extern "C" int func_0207d7f4(void* entries, unsigned short id, int charId, int flag,
                              signed char field4, unsigned short field2, unsigned char field5);
 extern "C" int func_ov017_021c5c5c(int index, int id, int arg);
 extern "C" void func_ov017_021c5b44(unsigned char arg0, int combatantId, unsigned int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_0207dcf0(unsigned short id);
-GameObject* FindCombatantByField16a_021a278c(void* base, int val);
-void TrySetMode02076ccc(void* obj, int mode);
+extern "C" GameObject* func_ov017_021a278c(void* base, int val);
+extern "C" void func_02076ccc(void* obj, int mode);
 struct Event021c530c;
 extern "C" Event021c530c* func_ov017_021b8478(void* node);
-int IsField0Null_02046b08(void** list);
+extern "C" int func_02046b08(void** list);
 struct Src021c5f00 { unsigned short w0; unsigned short w2; unsigned char b4; unsigned char b5; unsigned char b6; };
-void EnqueueEventTag63_021c5f00(Src021c5f00* src);
+extern "C" void func_ov017_021c5f00(Src021c5f00* src);
 struct ListHead02046b38;
 struct ListNode02046b38;
-int ListContainsNode(struct ListHead02046b38* list, struct ListNode02046b38* target);
+extern "C" int func_02046b38(struct ListHead02046b38* list, struct ListNode02046b38* target);
 extern "C" void func_ov017_021b6f18(void* node);
-void InitStruct_02196c08(unsigned char* obj);
+extern "C" void func_ov017_02196c08(unsigned char* obj);
 extern "C" bool func_ov017_021b6e70(void* obj, int combatantId);
 extern "C" void func_ov017_021b7104(void* node, void* src);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 extern "C" void func_ov017_021a7a74(void* unused, void* src);
-int HasMatchingHalfword_0219735c(unsigned char* obj, unsigned short key);
-void EnqueueHalfword_021972f8(void* obj, unsigned short val);
+extern "C" int func_ov017_0219735c(unsigned char* obj, unsigned short key);
+extern "C" void func_ov017_021972f8(void* obj, unsigned short val);
 struct ListHead02046b60;
-int ListContainsId(struct ListHead02046b60* list, int id);
-unsigned short GetFieldA_021bb9f4(void* obj);
-short GetField14e_021bb9fc(void* obj);
-void SetFieldA_021bb9ec(void* obj, unsigned short v);
+extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
+extern "C" unsigned short func_ov017_021bb9f4(void* obj);
+extern "C" short func_ov017_021bb9fc(void* obj);
+extern "C" void func_ov017_021bb9ec(void* obj, unsigned short v);
 extern "C" void* func_02012fe4(void);
 
 struct Cmd021c530c {
@@ -181,30 +181,30 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
     members[0] = index;
     count = 1;
     if (index == 0) {
-        count = CollectCombatantsWithFlag0x1000_02010038(gs, members);
+        count = func_02010038(gs, members);
     }
     for (i = 0; i < count; i++) {
         member = gs->GetPartyMemberByIndex(members[i]);
         if (member != NULL) {
-            SetField0x1b2IfMatchOrFlag02053f7c((Obj02053f7c*)member, cmd->id, 1);
+            func_02053f7c((Obj02053f7c*)member, cmd->id, 1);
         }
     }
 
     if (func_0202c508(search)) {
-        EnqueueEventTag147_021cdaa0();
+        func_ov017_021cdaa0();
         if (!IsSpecialId(cmd->id)) {
             if (cmd->field9 != 0) {
-                if (CheckByteAtIndex_021c5bf8(index, cmd->id) == 0) {
-                    MaybeResetEntry_021c5e28(index, cmd->id);
+                if (func_ov017_021c5bf8(index, cmd->id) == 0) {
+                    func_ov017_021c5e28(index, cmd->id);
                 } else {
                     func_ov017_021c5a8c(index, cmd->id);
                 }
-            } else if (IsValidCombatantValue_021c5a1c(cmd->id)) {
-                if (CheckByteAtIndex_021c5bf8(index, cmd->id) == 0) {
+            } else if (func_ov017_021c5a1c(cmd->id)) {
+                if (func_ov017_021c5bf8(index, cmd->id) == 0) {
                     if (!func_0202c508(func_0202ae18())) {
                         ok = false;
                     } else {
-                        entries = GetData02108ea8_0207d78c();
+                        entries = func_0207d78c();
                         func_0207d7f4(entries, cmd->id, index, 1, index, cmd->field6, cmd->fieldc);
                         ok = func_ov017_021c5c5c(index, cmd->id, index) != 0;
                         func_0207d7f4(entries, cmd->id, 0, ok, index, cmd->field6, cmd->fieldc);
@@ -213,15 +213,15 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                         func_ov017_021c5b44(cmd->field8, cmd->id, -1, cmd->fieldc, cmd->field10);
                     }
                     func_0207dcf0(cmd->id);
-                    resetTarget = FindCombatantByField16a_021a278c(work, cmd->id);
+                    resetTarget = func_ov017_021a278c(work, cmd->id);
                     if (resetTarget != NULL) {
-                        TrySetMode02076ccc(resetTarget, 9);
+                        func_02076ccc(resetTarget, 9);
                     }
                 } else {
                     func_ov017_021c5a8c(index, cmd->id);
                 }
             } else {
-                MaybeResetEntry_021c5e28(index, cmd->id);
+                func_ov017_021c5e28(index, cmd->id);
             }
         } else {
             func_ov017_021c5a8c(index, cmd->id);
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                         state = 0;
                     } else if ((int)leader->fieldC3 > 0) {
                         state = 0;
-                    } else if (IsField0Null_02046b08((void**)list1) == 0) {
+                    } else if (func_02046b08((void**)list1) == 0) {
                         state = 2;
                     } else {
                         state = 1;
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
             } else {
                 src.b4 = 0;
             }
-            EnqueueEventTag63_021c5f00(&src);
+            func_ov017_021c5f00(&src);
 
             if (state == 1) {
                 field10 = cmd->field10;
@@ -282,10 +282,10 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                 ctx2 = (Ctx021c530c*)GetGameResources();
                 list2 = ctx2->list6fc;
                 node2 = ctx2->node718;
-                if (!ListContainsNode((ListHead02046b38*)list2, (ListNode02046b38*)node2)) {
+                if (!func_02046b38((ListHead02046b38*)list2, (ListNode02046b38*)node2)) {
                     func_ov017_021b6f18(node2);
                     Desc021c530c desc;
-                    InitStruct_02196c08((unsigned char*)&desc);
+                    func_ov017_02196c08((unsigned char*)&desc);
                     desc.field0 = 0;
                     desc.field1 = field8;
                     desc.field4 = cid;
@@ -297,14 +297,14 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                     func_ov017_021b6e70(&desc, desc.field2);
                     desc.field12 = field10;
                     func_ov017_021b7104(node2, &desc);
-                    AppendNodeToTail((TailList020469b4*)list2, (TailNode020469b4*)node2);
+                    func_020469b4((TailList020469b4*)list2, (TailNode020469b4*)node2);
                 }
                 leader2 = (Leader021c530c*)gs->GetUnknownGameObject();
                 if (leader2 != NULL) {
                     leader2->fieldB2 = 0;
                 }
             } else if (state == 2 || state == 0) {
-                InitStruct_02196c08((unsigned char*)&event);
+                func_ov017_02196c08((unsigned char*)&event);
                 event.field0 = 1;
                 event.field1 = cmd->field8;
                 event.field4 = cmd->id;
@@ -317,9 +317,9 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                     func_ov017_021a7a74(work, &event);
                 }
             }
-        } else if (IsValidCombatantValue_021c5a1c(id)) {
-            if (!HasMatchingHalfword_0219735c(work, cmd->id)) {
-                EnqueueHalfword_021972f8(work, cmd->id);
+        } else if (func_ov017_021c5a1c(id)) {
+            if (!func_ov017_0219735c(work, cmd->id)) {
+                func_ov017_021972f8(work, cmd->id);
                 queued = func_ov017_021c5c5c(index, cmd->id, cmd->field8);
                 Src021c5f00 src;
                 src.w0 = cmd->id;
@@ -327,20 +327,20 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                 src.b4 = queued;
                 src.b5 = 0;
                 src.b6 = 0;
-                EnqueueEventTag63_021c5f00(&src);
+                func_ov017_021c5f00(&src);
                 if (queued) {
                     func_ov017_021c5b44(cmd->field8, cmd->id, -1, cmd->fieldc, cmd->field10);
                 } else {
-                    modeTarget = FindCombatantByField16a_021a278c(work, cmd->id);
+                    modeTarget = func_ov017_021a278c(work, cmd->id);
                     if (modeTarget != NULL) {
-                        TrySetMode02076ccc(modeTarget, 9);
+                        func_02076ccc(modeTarget, 9);
                     }
                 }
             }
         } else {
 #if !defined(jpn)
-            if (!HasMatchingHalfword_0219735c(work, cmd->id)) {
-                EnqueueHalfword_021972f8(work, cmd->id);
+            if (!func_ov017_0219735c(work, cmd->id)) {
+                func_ov017_021972f8(work, cmd->id);
             }
 #endif
             plainId = cmd->id;
@@ -357,7 +357,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                 src.w2 = cmd->field6;
                 src.b4 = 0;
                 src.b5 = 0;
-                EnqueueEventTag63_021c5f00(&src);
+                func_ov017_021c5f00(&src);
             }
         }
         return;
@@ -367,27 +367,27 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
     list3 = ctx3->list6fc;
     fieldObj = ctx3->obj734;
     found = 0;
-    if (ListContainsId((ListHead02046b60*)list3, 4)) {
-        if (GetFieldA_021bb9f4(fieldObj) == 5 && cmd->id == GetField14e_021bb9fc(fieldObj) + 0x8005) {
-            SetFieldA_021bb9ec(fieldObj, 6);
-            func_ov017_021c5b44(cmd->field8, cmd->id, GetField14e_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
+    if (func_02046b60((ListHead02046b60*)list3, 4)) {
+        if (func_ov017_021bb9f4(fieldObj) == 5 && cmd->id == func_ov017_021bb9fc(fieldObj) + 0x8005) {
+            func_ov017_021bb9ec(fieldObj, 6);
+            func_ov017_021c5b44(cmd->field8, cmd->id, func_ov017_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
             found = 1;
         }
     } else {
-        combatant = GetCombatantWithFlag0x100_0200ff1c(gs, cmd->field8);
+        combatant = func_0200ff1c(gs, cmd->field8);
         zoneInfo = (Zone021c530c*)func_02012fe4();
         if (index != 0) {
             return;
         }
         if (combatant != NULL) {
-            if (IsField0Null_02046b08((void**)list3) && combatant->obj3D_.GetField06() == GetZoneId(zoneInfo)) {
-                func_ov017_021c5b44(cmd->field8, cmd->id, GetField14e_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
+            if (func_02046b08((void**)list3) && combatant->obj3D_.GetField06() == GetZoneId(zoneInfo)) {
+                func_ov017_021c5b44(cmd->field8, cmd->id, func_ov017_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
                 found = 1;
             } else if (combatant->obj3D_.GetField06() == GetZoneId(zoneInfo)) {
                 list1 = ctx3->nodeB14;
                 void* nodeB90 = ctx3->nodeB90;
-                inB14 = ListContainsNode((ListHead02046b38*)list3, (ListNode02046b38*)list1);
-                inB90 = ListContainsNode((ListHead02046b38*)list3, (ListNode02046b38*)nodeB90);
+                inB14 = func_02046b38((ListHead02046b38*)list3, (ListNode02046b38*)list1);
+                inB90 = func_02046b38((ListHead02046b38*)list3, (ListNode02046b38*)nodeB90);
                 if (!(inB14 | inB90)) {
                     pending = &ctx3->pending;
                     pending->id = cmd->id;
@@ -401,5 +401,5 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
     src.w2 = cmd->field6;
     src.b4 = found;
     src.b5 = 1;
-    EnqueueEventTag63_021c5f00(&src);
+    func_ov017_021c5f00(&src);
 }

@@ -84,28 +84,28 @@ struct ProfileEditor02188cd0
     unsigned char checker_[0x14bc - 0x1480];
 };
 
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
 extern "C" void func_02042764(const void* codes, char* text, int a);
-void ResetStruct_0215e6d8(ResetLayout_0215e6d8* layout);
+extern "C" void func_ov003_0215e6d8(ResetLayout_0215e6d8* layout);
 extern "C" void func_ov003_0215e6f8(void* layout, SafeAllocator* allocator, void* file, unsigned int size);
-void InitStruct0215efb8(Struct0215efb8* keyboard);
+extern "C" void func_ov003_0215efb8(Struct0215efb8* keyboard);
 extern "C" int func_ov012_0218ae74(ProfileEditor02188cd0* self, Profile02188cd0* profile);
-void FindAndLinkMatchingEntry0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
+extern "C" void func_0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
 extern "C" void func_ov023_021e6e60(ProfileEditor02188cd0* self);
-void SetupBattleTag0218aabc(char* self);
+extern "C" void func_ov012_0218aabc(char* self);
 extern "C" void func_ov003_0215f41c(void* keyboard, const char* text);
 extern "C" void func_ov012_0218ab34(ProfileEditor02188cd0* self, char* text, int hidden);
 extern "C" int func_0205d97c(void* window);
 extern "C" int func_ov003_0215f000(void* keyboard, int input);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
 extern "C" void func_ov023_021e8270(void* card);
 extern "C" void func_ov012_021845f8(void* checker);
 extern "C" int func_ov012_02184d80(void* checker, char* text);
-void SetElementFlag0x20ByKey0205def8(Struct_0205def8* window, int a, int b);
+extern "C" void func_0205def8(Struct_0205def8* window, int a, int b);
 extern "C" void func_020426bc(const char* text, char* codes, int a);
 extern "C" void func_ov012_0218943c(ProfileEditor02188cd0* self);
-Messages02188cd0* GetGlobalField0x1c020421a0();
-const char* FindEntryByKey_02072a68(TableA68* texts, int id);
+extern "C" Messages02188cd0* func_020421a0();
+extern "C" const char* func_02072a68(TableA68* texts, int id);
 extern "C" void func_0204500c(Messages02188cd0* messages, const char* text, int a, int b);
 
 extern "C" const char data_ov012_0218b2ea[];
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
 {
     if (self->step_ == 0)
     {
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         Profile02188cd0* profile = GetProfile02188cd0(GameState::GetInstance());
         memset(self->message_, 0, 0x400);
         self->cardMessage_ = self->message_;
@@ -147,9 +147,9 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
             if (file != 0 && size != 0)
             {
                 ((SafeAllocator*)self->allocators_[4])->Reset();
-                ResetStruct_0215e6d8((ResetLayout_0215e6d8*)self->unk_4);
+                func_ov003_0215e6d8((ResetLayout_0215e6d8*)self->unk_4);
                 func_ov003_0215e6f8(self->unk_4, (SafeAllocator*)self->allocators_[4], file, size);
-                InitStruct0215efb8((Struct0215efb8*)self->unk_0);
+                func_ov003_0215efb8((Struct0215efb8*)self->unk_0);
                 ((Keyboard02188cd0*)self->unk_0)->layout_ = self->unk_4;
                 ((Keyboard02188cd0*)self->unk_0)->key_ = 0;
             }
@@ -169,9 +169,9 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
     else if (self->step_ == 3)
     {
         self->unk_13a0 = 0;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->window_, 0, 2);
+        func_0205de24((Struct0205de24*)self->window_, 0, 2);
         func_ov023_021e6e60(self);
-        SetupBattleTag0218aabc((char*)self);
+        func_ov012_0218aabc((char*)self);
         memcpy(self->unk_13ac, GetProfile02188cd0(GameState::GetInstance())->unk_8, 0x72);
         Keyboard02188cd0* keyboard = (Keyboard02188cd0*)self->unk_0;
         keyboard->text_ = self->message_;
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
     {
         if ((g_keyManager.TestKeysPressed(2) || func_0205d97c(self->window_) == 2) && *self->message_ == 0)
         {
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
             self->step_++;
         }
         Keyboard02188cd0* keyboard = (Keyboard02188cd0*)self->unk_0;
@@ -199,13 +199,13 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
         switch (func_ov003_0215f000(keyboard, self->unk_13a4))
         {
             case 1:
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
                 return;
 
             case 2:
             case 3:
             case 8:
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 if (page != ((Keyboard02188cd0*)self->unk_0)->unk_20)
                     func_ov012_0218ab34(self, 0, 0);
                 func_ov023_021e8270(self->card_);
@@ -216,16 +216,16 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
             case 6:
             case 7:
             case 11:
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 func_ov012_0218ab34(self, 0, 0);
                 return;
 
             case 9:
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 return;
 
             case 10:
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 if (*self->message_ != 0)
                 {
                     GameState::GetInstance();
@@ -236,12 +236,12 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
                     BackgroundLoader::RemoveLockGlobal();
                     if (forbidden)
                     {
-                        SetElementFlag0x20ByKey0205def8((Struct_0205def8*)self->window_, 0, 14);
+                        func_0205def8((Struct_0205def8*)self->window_, 0, 14);
                         self->step_ = 10;
                         return;
                     }
                 }
-                ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+                func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
                 self->step_++;
                 return;
         }
@@ -270,17 +270,17 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
     }
     else if (self->step_ == 10)
     {
-        Messages02188cd0* messages = GetGlobalField0x1c020421a0();
-        func_0204500c(messages, FindEntryByKey_02072a68((TableA68*)self->strings_, 501), 0, 0xe3);
+        Messages02188cd0* messages = func_020421a0();
+        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 501), 0, 0xe3);
         messages->busy_ = 1;
         self->step_++;
         return;
     }
     else if (self->step_ == 11)
     {
-        if (GetGlobalField0x1c020421a0()->busy_ == 0)
+        if (func_020421a0()->busy_ == 0)
         {
-            SetElementFlag0x20ByKey0205def8((Struct_0205def8*)self->window_, 1, 14);
+            func_0205def8((Struct_0205def8*)self->window_, 1, 14);
             self->step_ = 4;
             ((Keyboard02188cd0*)self->unk_0)->unk_18 = 0;
             ((Keyboard02188cd0*)self->unk_0)->unk_1c = 0;

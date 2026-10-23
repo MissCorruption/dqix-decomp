@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov031_02214520(int mode);
-int CheckReadyOrAdvance_02215150(char* obj);
+extern "C" int func_ov031_02215150(char* obj);
 extern "C" int func_ov031_02214d38(char* obj);
 extern "C" void func_ov031_02214b64(int kind);
 
@@ -14,7 +14,7 @@ extern "C" ARM int func_ov031_02214fc8(char* obj, int mode) {
 			if (func_ov031_02214520(1) != 0) {
 				mode = 4;
 			} else {
-				mode = CheckReadyOrAdvance_02215150(obj);
+				mode = func_ov031_02215150(obj);
 			}
 		} else {
 			unsigned int nibble = ((unsigned int)(unsigned char)obj[0xd0b] << 24) >> 28;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov031_02214fc8(char* obj, int mode) {
 		break;
 	}
 	case 4:
-		mode = CheckReadyOrAdvance_02215150(obj);
+		mode = func_ov031_02215150(obj);
 		break;
 	case 5: {
 		unsigned int nibble = ((unsigned int)(unsigned char)obj[0xd0b] << 24) >> 28;

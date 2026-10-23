@@ -1,0 +1,13 @@
+#include <globaldefs.h>
+
+#if defined(jpn)
+#define func_020c9bf0 func_020cb6bc
+#endif
+
+// USA: func_020c9bf0
+extern "C" ARM void func_020c9bf0(void) {
+    asm {
+        mov r0, 0
+        mcr p15, 0, r0, c7, c0, 4
+    }
+}

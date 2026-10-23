@@ -29,21 +29,21 @@ struct Record021e509c {
 };
 
 extern "C" void* func_02057924(void);
-Record021e509c* GetInlineRecordByBattleId_02058658(void* obj, int id);
-int* GetSlotPtr_021e8cf0_021e8cf0(char* base, int idx);
+extern "C" Record021e509c* func_02058658(void* obj, int id);
+extern "C" int* func_ov025_021e8cf0(char* base, int idx);
 extern Holder021e509c data_ov025_021ef988;
 
 // USA: func_ov025_021e509c
 extern "C" ARM int func_ov025_021e509c(Param021e509c* p) {
     void* obj = func_02057924();
-    int* slotA = GetSlotPtr_021e8cf0_021e8cf0(data_ov025_021ef988.slots, p->slotA);
-    int* slotB = GetSlotPtr_021e8cf0_021e8cf0(data_ov025_021ef988.slots, p->slotB);
+    int* slotA = func_ov025_021e8cf0(data_ov025_021ef988.slots, p->slotA);
+    int* slotB = func_ov025_021e8cf0(data_ov025_021ef988.slots, p->slotB);
     if (slotA == 0 || slotB == 0) {
         return 1;
     }
     int idB = *slotB;
-    Record021e509c* recA = GetInlineRecordByBattleId_02058658(obj, *slotA);
-    Record021e509c* recB = GetInlineRecordByBattleId_02058658(obj, idB);
+    Record021e509c* recA = func_02058658(obj, *slotA);
+    Record021e509c* recB = func_02058658(obj, idB);
     if (recA == 0 || recB == 0) {
         return 1;
     }

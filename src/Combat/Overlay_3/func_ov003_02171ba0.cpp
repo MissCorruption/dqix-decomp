@@ -13,17 +13,17 @@ enum { kRegionValue724_620 = 0x724 };
 
 struct SearchStruct;
 extern "C" void* func_0202ae18(void);
-void* GetData02100044_0202ae24(void);
-int TestFlagBitAt0xe_0202c578(struct SearchStruct*, int);
-void RemoveSearchEntry0202c21c(struct SearchStruct*, int);
+extern "C" void* func_0202ae24(void);
+extern "C" int func_0202c578(struct SearchStruct*, int);
+extern "C" void func_0202c21c(struct SearchStruct*, int);
 extern "C" void func_0202b0f4(void*);
 
 struct Element0202bad4;
 struct ElementArray0202bad4;
-Element0202bad4* GetElementAt0x10Stride0xc0(struct ElementArray0202bad4*, int);
+extern "C" Element0202bad4* func_0202bad4(struct ElementArray0202bad4*, int);
 
 extern "C" void func_ov003_02171e1c(void*, void*);
-int CheckSlotsAllFree0205e488(void*);
+extern "C" int func_0205e488(void*);
 
 struct Obj02171ba0 {
     unsigned char field0;
@@ -40,10 +40,10 @@ struct Obj02171ba0 {
 extern "C" ARM void func_ov003_02171ba0(struct Obj02171ba0* obj) {
     GameState* battle = GameState::GetInstance();
     struct SearchStruct* searchPtr = (struct SearchStruct*)func_0202ae18();
-    void* ptr2 = GetData02100044_0202ae24();
+    void* ptr2 = func_0202ae24();
 
-    if (TestFlagBitAt0xe_0202c578(searchPtr, obj->field199)) {
-        RemoveSearchEntry0202c21c(searchPtr, obj->field199);
+    if (func_0202c578(searchPtr, obj->field199)) {
+        func_0202c21c(searchPtr, obj->field199);
     }
     obj->field72c += battle->GetEffectiveDeltaTime();
     if (obj->field72c > 0xbb8) {
@@ -51,19 +51,19 @@ extern "C" ARM void func_ov003_02171ba0(struct Obj02171ba0* obj) {
         obj->field0 = 0;
         return;
     }
-    if (TestFlagBitAt0xe_0202c578(searchPtr, 0) && obj->field71c == 0) {
-        GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)searchPtr, obj->field199);
+    if (func_0202c578(searchPtr, 0) && obj->field71c == 0) {
+        func_0202bad4((struct ElementArray0202bad4*)searchPtr, obj->field199);
         func_0202b0f4(searchPtr);
         obj->field0 = 0;
         return;
     }
     if (obj->field720 != 0 && obj->field71c != 0) {
-        struct Element0202bad4* elem = GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)searchPtr, obj->field199);
+        struct Element0202bad4* elem = func_0202bad4((struct ElementArray0202bad4*)searchPtr, obj->field199);
         func_ov003_02171e1c(obj, (char*)elem + 0x68);
         func_0202b0f4(searchPtr);
         obj->field0 = 0;
     }
-    if (CheckSlotsAllFree0205e488(ptr2) != 0) {
+    if (func_0205e488(ptr2) != 0) {
         obj->field720 = 1;
     }
 }

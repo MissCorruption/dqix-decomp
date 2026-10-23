@@ -22,16 +22,16 @@ struct Struct020dfc40;
 struct Obj02157c78;
 
 extern "C" void* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-void ResetList0204af64(List0204af64*);
-void InitStruct_021536e0(StructInit36e0*);
-void InitWithSub02081ee4(Obj02081ee4*, Sub02081ee4*);
-void InitStruct0205a444(char*);
-void ClearFields_021e20c0(void*);
-void ClearListHeader(Struct02071be8*);
-void ResetStruct020dfc40(Struct020dfc40*);
-void InitObj_02157c78(Obj02157c78*);
+extern "C" void func_0204af64(List0204af64*);
+extern "C" void func_ov006_021536e0(StructInit36e0*);
+extern "C" void func_02081ee4(Obj02081ee4*, Sub02081ee4*);
+extern "C" void func_0205a444(char*);
+extern "C" void func_ov023_021e20c0(void*);
+extern "C" void func_02071be8(Struct02071be8*);
+extern "C" void func_020dfc40(Struct020dfc40*);
+extern "C" void func_ov006_02157c78(Obj02157c78*);
 
 struct PartyMemberData {
     char unk_0[0x49c];
@@ -154,7 +154,7 @@ struct AlchemyMenu {
 extern "C" ARM void func_ov006_02157a60(AlchemyMenu* self)
 {
     char* flags = (char*)func_0205ec34();
-    if (!TestBitInByteArray_0206dfb0((int)flags, (unsigned char*)(flags + 0x8c), 0x777))
+    if (!func_0206dfb0((int)flags, (unsigned char*)(flags + 0x8c), 0x777))
         func_0206df6c(flags, (unsigned char*)(flags + 0x8c), 0x777, 1);
 #if !defined(jpn)
     self->textPosition_ = 0;
@@ -180,15 +180,15 @@ extern "C" ARM void func_ov006_02157a60(AlchemyMenu* self)
     self->items_ = 0;
     self->counts_ = 0;
     self->sizes_ = 0;
-    ResetList0204af64((List0204af64*)&self->subBackground_);
-    InitStruct_021536e0((StructInit36e0*)self->ingredients_);
-    InitWithSub02081ee4((Obj02081ee4*)self->repeat_, (Sub02081ee4*)&self->buttons_);
-    InitStruct0205a444((char*)self->renderer_);
-    ClearFields_021e20c0(self->layout_);
-    ClearListHeader((Struct02071be8*)self->table_);
-    ResetStruct020dfc40((Struct020dfc40*)self->menuTexts_);
+    func_0204af64((List0204af64*)&self->subBackground_);
+    func_ov006_021536e0((StructInit36e0*)self->ingredients_);
+    func_02081ee4((Obj02081ee4*)self->repeat_, (Sub02081ee4*)&self->buttons_);
+    func_0205a444((char*)self->renderer_);
+    func_ov023_021e20c0(self->layout_);
+    func_02071be8((Struct02071be8*)self->table_);
+    func_020dfc40((Struct020dfc40*)self->menuTexts_);
     for (unsigned char i = 0; i < 4; i++)
-        InitObj_02157c78((Obj02157c78*)&self->results_[i]);
+        func_ov006_02157c78((Obj02157c78*)&self->results_[i]);
     self->menuResult_ = 0;
     self->task_ = -1;
     self->unk_358 = -1;

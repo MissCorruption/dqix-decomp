@@ -30,7 +30,7 @@ struct WirelessScanNode {
     WirelessScanDescriptor descriptor;
 };
 
-WirelessScanDescriptor* GetOffset10FromResult_0220ec04(int index);
+extern "C" WirelessScanDescriptor* func_ov031_0220ec04(int index);
 extern "C" WirelessScanNode* func_ov031_0220ee50(int index);
 
 #endif

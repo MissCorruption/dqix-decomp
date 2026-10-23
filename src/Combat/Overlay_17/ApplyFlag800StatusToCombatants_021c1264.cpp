@@ -4,7 +4,7 @@
 
 extern "C" int func_ov017_02191fec(int a, int combatantId);
 
-// USA: func_ov017_021c1264  (semantic: ApplyFlag800StatusToCombatants_021c1264)
+// USA: func_ov017_021c1264
 extern "C" ARM void func_ov017_021c1264(void) {
     GameState* battleStruct = GameState::GetInstance();
     int a = ((int)GetGameResources());

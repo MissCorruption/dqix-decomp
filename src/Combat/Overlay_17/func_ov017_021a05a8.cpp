@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 
 extern AllocatorUnion data_02114e20;
 
@@ -23,14 +23,14 @@ extern "C" ARM void func_ov017_021a05a8(char* self) {
     void* p = topAlloc->GetSignedAllocator();
     if (p) {
         topAlloc->Destroy();
-        TailForward02012da4(&data_02114e20, p);
+        func_02012da4(&data_02114e20, p);
     }
 
     self = self + 0x38;
     int i = 0;
     for (; data_ov017_021d6878[i].size != 0; i++) {
         int size = data_ov017_021d6878[i].size;
-        void* buf = AllocateAligned4_02012d88(&data_02114e20, size);
+        void* buf = func_02012d88(&data_02114e20, size);
         int idx = data_ov017_021d6874[i].index;
         SafeAllocator* alloc = (SafeAllocator*)(self + idx * 0x14);
         alloc->CreateTypeA(buf, size);

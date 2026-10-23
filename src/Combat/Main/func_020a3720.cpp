@@ -11,7 +11,7 @@
 #endif
 
 extern "C" void func_020a395c(void);
-int AllocateIndexedSlot020a36cc(void** out, unsigned int idx);
+extern "C" int func_020a36cc(void** out, unsigned int idx);
 extern "C" void func_020c9be0(void);
 
 #if defined(jpn)
@@ -20,7 +20,7 @@ extern const char data_020f1bf4[];
 extern const char data_020f1a9c[];
 extern const char data_020f1ab0[];
 
-// USA: func_020a3720  (semantic: AllocateAndReloadTreasureMapLanguageBuffers_020a3720)
+// USA: func_020a3720
 extern "C" ARM int func_020a3720(void) {
     GameState* battleStruct = GameState::GetInstance();
     int base = ((int)GetGameResources());
@@ -35,8 +35,8 @@ extern "C" ARM int func_020a3720(void) {
         func_020a395c();
     }
 
-    if (!AllocateIndexedSlot020a36cc((void**)&buf, 0x2000)) return 0;
-    if (!AllocateIndexedSlot020a36cc((void**)(base + 0x4000 + (
+    if (!func_020a36cc((void**)&buf, 0x2000)) return 0;
+    if (!func_020a36cc((void**)(base + 0x4000 + (
 #if defined(jpn)
 0x1dc
 #else

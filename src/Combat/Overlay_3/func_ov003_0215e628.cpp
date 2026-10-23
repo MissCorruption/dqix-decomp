@@ -14,7 +14,7 @@ struct Obj0215e4c8 {
     signed char count;
     short* values;
 };
-void ClearStruct_0215e4c8(struct Obj0215e4c8* obj);
+extern "C" void func_ov003_0215e4c8(struct Obj0215e4c8* obj);
 
 struct Self0215e898;
 extern "C" void func_ov003_0215e898(struct Self0215e898* o, struct Obj0215e4c8* e);
@@ -28,7 +28,7 @@ extern struct Globals02180cb8 data_ov003_02180cb8;
 // USA: func_ov003_0215e628
 extern "C" ARM int func_ov003_0215e628(struct Variant02030b0c* params) {
     struct Obj0215e4c8 local;
-    ClearStruct_0215e4c8(&local);
+    func_ov003_0215e4c8(&local);
     local.kind = ((Script::Parameter*)&params[0])->ToInt();
     local.width = ((Script::Parameter*)&params[1])->ToInt();
     struct Variant02030b0c* heightParam = &params[2];

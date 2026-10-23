@@ -3,29 +3,29 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-int IsField0Null_02046b08(void** obj);
-void CancelActionIfHeadIdMatches_02199e98(void* obj);
-void* GetPtrField0x2a04_02010828(GameState* gs);
-int GetIntField0x260_02039750(void* obj);
-int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
-unsigned char GetByteField0x252_02039820(void* obj);
-int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
-void* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
+extern "C" int func_02046b08(void** obj);
+extern "C" void func_ov017_02199e98(void* obj);
+extern "C" void* func_02010828(GameState* gs);
+extern "C" int func_02039750(void* obj);
+extern "C" int func_0203402c(struct BitField0203402c* p);
+extern "C" unsigned char func_02039820(void* obj);
+extern "C" int func_020535c8(signed char* obj);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
 extern "C" void func_ov017_021a5bac(unsigned char* base);
-void InitFieldArenaListsAndCounters_021996fc(unsigned char* base);
-int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" void func_ov017_021996fc(unsigned char* base);
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
 extern "C" void func_ov017_021999fc(unsigned char* self);
 
 struct Entry_02199684 { unsigned char pad[0x14]; int val; unsigned char pad2[0x20 - 0x18]; };
-void FillEntriesEncoded_02199684(Entry_02199684* arr, int count, int value);
-void ClearAndEncodeEntries_021996bc(Entry_02199684* arr, int count);
+extern "C" void func_ov017_02199684(Entry_02199684* arr, int count, int value);
+extern "C" void func_ov017_021996bc(Entry_02199684* arr, int count);
 
 struct TileMap0204bc74;
 extern "C" void func_0204bc74(TileMap0204bc74* obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8* obj, void* buf);
+extern "C" void func_0204b0e8(List0204b0e8* obj, void* buf);
 
 struct BackgroundControlFields {
     unsigned short priority : 2;
@@ -46,28 +46,28 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
 #endif
 
     struct HeadNode02046b24;
-    if (IsField0Null_02046b08((void**)*(struct HeadNode02046b24***)(self + 0x3000 + regionalOffset6)) == 0) {
-        CancelActionIfHeadIdMatches_02199e98(self);
+    if (func_02046b08((void**)*(struct HeadNode02046b24***)(self + 0x3000 + regionalOffset6)) == 0) {
+        func_ov017_02199e98(self);
         return;
     }
 
     GameState* gs = GameState::GetInstance();
     gs->GetProtagonist();
     GameObject* actor = gs->GetUnknownGameObject();
-    unsigned char* party = (unsigned char*)GetPtrField0x2a04_02010828(gs);
-    int mode = GetIntField0x260_02039750(actor);
+    unsigned char* party = (unsigned char*)func_02010828(gs);
+    int mode = func_02039750(actor);
 
     if (mode == -1) {
-        if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor) == 0 &&
+        if (func_0203402c((BitField0203402c*)actor) == 0 &&
             *(int*)(self + regionalOffset0) == 0) {
             if (g_keyManager.TestKeysPressed(2) &&
-                GetByteField0x252_02039820(actor) &&
+                func_02039820(actor) &&
                 (*(int*)((char*)actor + regionalOffset7) & 1) == 0 &&
-                CheckSubstructByte0x7cPositive_020535c8((signed char*)actor) == 0 &&
+                func_020535c8((signed char*)actor) == 0 &&
                 *(short*)((char*)actor + 0xac) == 0) {
-                CancelPendingAction020397cc((Obj020397cc*)actor, 1);
+                func_020397cc((Obj020397cc*)actor, 1);
                 *(unsigned short*)((char*)actor + 0xb2) = 0;
-                OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x400);
+                func_020466e4((unsigned int*)func_020d6c00(), 0x400);
                 func_ov017_021a5bac(self);
 
                 volatile unsigned short* reg = (volatile unsigned short*)0x400000a;
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
                     *(volatile unsigned short*)(*(BackgroundControlFields**)(self + 0x3000 + regionalOffset9)) = raw;
                     v2;
                 }
-                InitFieldArenaListsAndCounters_021996fc(self);
+                func_ov017_021996fc(self);
                 *(int*)(self + regionalOffset0) = 1;
             }
             return;
@@ -94,8 +94,8 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
 
     if (g_keyManager.TestKeysReleased(2) != 0 ||
         *(short*)((char*)actor + 0xac) != 0 ||
-        CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor) != 0) {
-        CancelActionIfHeadIdMatches_02199e98(self);
+        func_0203402c((BitField0203402c*)actor) != 0) {
+        func_ov017_02199e98(self);
         return;
     }
 
@@ -109,8 +109,8 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
         }
     }
 
-    if (TestFlags02046708((FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 4) != 0) {
-        CancelActionIfHeadIdMatches_02199e98(self);
+    if (func_02046708((FlagWord02046708*)func_020d6c00(), 4) != 0) {
+        func_ov017_02199e98(self);
         return;
     }
 
@@ -119,12 +119,12 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
     Entry_02199684* e;
     int i;
     if (g_keyManager.TestKeysHeld(2) != 0 && mode != -1) {
-        FillEntriesEncoded_02199684((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2, 0x800);
+        func_ov017_02199684((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2, 0x800);
         for (i = 0; i < 2; i++) {
             e = (Entry_02199684*)(self + regionalOffset3 + regionalOffset4) + i;
             func_0204bc74((TileMap0204bc74*)e, 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)e, 0);
+            func_0204b0e8((List0204b0e8*)e, 0);
         }
-        ClearAndEncodeEntries_021996bc((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2);
+        func_ov017_021996bc((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2);
     }
 }

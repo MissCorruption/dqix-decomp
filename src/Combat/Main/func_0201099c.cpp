@@ -168,32 +168,32 @@ struct Ctx0209a810 {
     int handle;
 };
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void ResetAndReturnSelf020dfc2c(void* p);
-void ResetStruct020dfc40(Struct020dfc40* p);
-void ResetAndDetach020dfc6c(Struct020dfc40* p);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_020dfc2c(void* p);
+extern "C" void func_020dfc40(Struct020dfc40* p);
+extern "C" void func_020dfc6c(Struct020dfc40* p);
 extern "C" void func_020dfec0(Struct020dfc40* table, SafeAllocator* alloc, void* data, unsigned int size);
-void ResetStructFields_02089db4(ResetFieldsStruct* s);
-void ForwardResetStructFields02089ddc(ResetFieldsStruct* s);
-void SetupHeaderAndRunBufferedScript02089de8(void* param0, void* param1, const char* param2);
-void* GetElementStride0x40_0208a018(unsigned char* obj, int index);
+extern "C" void func_02089db4(ResetFieldsStruct* s);
+extern "C" void func_02089ddc(ResetFieldsStruct* s);
+extern "C" void func_02089de8(void* param0, void* param1, const char* param2);
+extern "C" void* func_0208a018(unsigned char* obj, int index);
 extern "C" void func_02086404(CombatSelection* selection);
-void SetFlagBitAndIndex_02086598(SetFlagBitStruct* s, int n);
-char* GetFieldByKey020e0434(Container020e0310* c, int key);
+extern "C" void func_02086598(SetFlagBitStruct* s, int n);
+extern "C" char* func_020e0434(Container020e0310* c, int key);
 extern "C" void __clear(void* dst, unsigned int size);
 extern "C" int func_020426bc(void* a, void* b, int flag);
-void ClearField00209a804(int* p);
-void SetupAndRunBufferedScript0209a810(Ctx0209a810* ctx, void* value);
-int GetFieldAt0x50(Struct020865b0* p);
-void SetBitInArray020865b8(SetBitArrayStruct020865b8* s, int n);
-void ZeroInitReturn020de824(void* p);
-void ZeroInit020de848(void* p);
+extern "C" void func_0209a804(int* p);
+extern "C" void func_0209a810(Ctx0209a810* ctx, void* value);
+extern "C" int func_020865b0(Struct020865b0* p);
+extern "C" void func_020865b8(SetBitArrayStruct020865b8* s, int n);
+extern "C" void func_020de824(void* p);
+extern "C" void func_020de848(void* p);
 extern "C" int func_020dea64(void* a, void* b, void* c, unsigned int d, const void* e, short f);
-void* Clear0x54Bytes0208247c(void* obj);
+extern "C" void* func_0208247c(void* obj);
 extern "C" void func_02082828(CharacterRecord0201099c* record);
 extern "C" void func_02083cbc(void* dst, void* src, void* tail);
-Element020de650* FindElementByKey020dedd0(Container020dedd0* c, int key);
+extern "C" Element020de650* func_020dedd0(Container020dedd0* c, int key);
 extern "C" void func_02083e28(void* a, int arg2);
 
 extern AllocatorUnion data_02114e20;
@@ -213,7 +213,7 @@ extern const SlotMap0201099c data_020e7618[];
 extern unsigned char data_020e7610[];
 extern const char data_020eeff3[];
 extern "C" int func_020e052c(void*, void*, const char*, void*, short, unsigned char);
-int StringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 #endif
 
 static inline const ShortPair0201099c* GetBodySize0201099c(int index) {
@@ -265,10 +265,10 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
     SafeAllocator nameAlloc;
     nameAlloc.ResetAllocatorPointer();
     nameAlloc.ResetAllocatorPointer();
-    nameAlloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x5000), 0x5000);
+    nameAlloc.CreateTypeA(func_02012d88(&data_02114e20, 0x5000), 0x5000);
     Struct020dfc40 names;
-    ResetAndReturnSelf020dfc2c(&names);
-    ResetStruct020dfc40(&names);
+    func_020dfc2c(&names);
+    func_020dfc40(&names);
     BackgroundLoader::AddLockGlobal();
     unsigned int nameSize = 0;
     void* nameData = ExtractFileFromGP2(data_020ef08c, data_020ef0a5, &nameSize);
@@ -283,17 +283,17 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
     SafeAllocator scriptAlloc;
     scriptAlloc.ResetAllocatorPointer();
 #if defined(jpn)
-    scriptAlloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x1400), 0x1400);
+    scriptAlloc.CreateTypeA(func_02012d88(&data_02114e20, 0x1400), 0x1400);
 #else
     scriptAlloc.ResetAllocatorPointer();
-    scriptAlloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x800), 0x800);
+    scriptAlloc.CreateTypeA(func_02012d88(&data_02114e20, 0x800), 0x800);
 #endif
-    ResetStructFields_02089db4(&templates);
-    SetupHeaderAndRunBufferedScript02089de8(&templates, &scriptAlloc, NULL);
+    func_02089db4(&templates);
+    func_02089de8(&templates, &scriptAlloc, NULL);
     int templateCount = templates.count;
 
     for (i = 0; i < 3; i++) {
-        t = (RecruitTemplate0201099c*)GetElementStride0x40_0208a018((unsigned char*)&templates, vocations[i]);
+        t = (RecruitTemplate0201099c*)func_0208a018((unsigned char*)&templates, vocations[i]);
         if (t == NULL) {
             break;
         }
@@ -325,13 +325,13 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
         int size = look->gender * 5 + NextRandomMax(rng, 5);
         look->height = GetBodySize0201099c(size)->a;
         look->width = GetBodySize0201099c(size)->b;
-        SetFlagBitAndIndex_02086598((SetFlagBitStruct*)m, t->vocation);
+        func_02086598((SetFlagBitStruct*)m, t->vocation);
         for (int j = 0; j < 13; j++) {
             m->levels[j] = t->levels[j];
         }
 #if defined(jpn)
         const char** name = look->gender == 0 ? templates.maleNames : templates.femaleNames;
-        unsigned char vocation = GetFieldAt0x50((Struct020865b0*)m);
+        unsigned char vocation = func_020865b0((Struct020865b0*)m);
         if (vocation == 1) {
             name += NextRandomMax(rng, 5);
         } else if (vocation == 4) {
@@ -343,7 +343,7 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
         } else {
             name += NextRandomMax(rng, 5);
         }
-        memcpy(m->name, *name, StringLength_020d2ff0(*name));
+        memcpy(m->name, *name, func_020d2ff0(*name));
 #else
         short nameBase = 20000;
         if (look->gender == 1) {
@@ -361,7 +361,7 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
             }
         } while (found);
         used.ids[i] = nameId;
-        char* nameStr = GetFieldByKey020e0434((Container020e0310*)&names, nameId);
+        char* nameStr = func_020e0434((Container020e0310*)&names, nameId);
         unsigned char nameBuf[12];
         __clear(nameBuf, sizeof(nameBuf));
         func_020426bc(nameStr, nameBuf, 1);
@@ -380,16 +380,16 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
         gs->memberCount++;
     }
 
-    ForwardResetStructFields02089ddc(&templates);
+    func_02089ddc(&templates);
     SignedAllocatorHeader* scriptHeader = scriptAlloc.GetSignedAllocator();
     scriptAlloc.Destroy();
-    TailForward02012da4(&data_02114e20, scriptHeader);
+    func_02012da4(&data_02114e20, scriptHeader);
 #if !defined(jpn)
-    ResetAndDetach020dfc6c(&names);
+    func_020dfc6c(&names);
     SignedAllocatorHeader* nameHeader = nameAlloc.GetSignedAllocator();
     if (nameHeader != NULL) {
         nameAlloc.Destroy();
-        TailForward02012da4(&data_02114e20, nameHeader);
+        func_02012da4(&data_02114e20, nameHeader);
     }
 
 #endif
@@ -397,16 +397,16 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
     if (templateCount > 0) {
         CharacterRecord0201099c record;
         Ctx0209a810 ctx;
-        ClearField00209a804(&ctx.handle);
-        SetupAndRunBufferedScript0209a810(&ctx, &skills);
+        func_0209a804(&ctx.handle);
+        func_0209a810(&ctx, &skills);
         for (int j = 0; j < gs->memberCount; j++) {
             m = &gs->members[j];
-            unsigned char vocation = GetFieldAt0x50((Struct020865b0*)m);
+            unsigned char vocation = func_020865b0((Struct020865b0*)m);
             unsigned char level = m->levels[vocation];
             SkillUnlock0201099c* row = skills.rows[vocation];
             for (int k = 0; k < 20; k++) {
                 if (level >= row[k].level && row[k].level != 0) {
-                    SetBitInArray020865b8((SetBitArrayStruct020865b8*)m, row[k].skill);
+                    func_020865b8((SetBitArrayStruct020865b8*)m, row[k].skill);
                 }
             }
         }
@@ -415,14 +415,14 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
         itemAlloc.ResetAllocatorPointer();
         itemAlloc.ResetAllocatorPointer();
 #if defined(jpn)
-        itemAlloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x12c00), 0x12c00);
+        itemAlloc.CreateTypeA(func_02012d88(&data_02114e20, 0x12c00), 0x12c00);
 #else
-        itemAlloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x13800), 0x13800);
+        itemAlloc.CreateTypeA(func_02012d88(&data_02114e20, 0x13800), 0x13800);
 #endif
         itemAlloc.Reset();
         Container020dedd0 items;
-        ZeroInitReturn020de824(&items);
-        ZeroInit020de848(&items);
+        func_020de824(&items);
+        func_020de848(&items);
 #if defined(jpn)
         func_020e052c(&items, &itemAlloc, data_020f2a38, data_020e7610, 8, 1);
 #else
@@ -448,18 +448,18 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
                 ResourceScriptEntry* res = &entry;
                 for (int j = 0; j < gs->memberCount; j++) {
                     m = &gs->members[j];
-                    Clear0x54Bytes0208247c(res);
+                    func_0208247c(res);
                     func_02082490(res, data_0211e33c, size, m->levels[v], 0);
                     m->experience[v] = res->initial.value0;
                     m->skillPoints += res->initial.value4High;
-                    if (v == GetFieldAt0x50((Struct020865b0*)m)) {
+                    if (v == func_020865b0((Struct020865b0*)m)) {
                         rec = &record;
                         CharacterProfile0201099c* profile = &rec->profile;
                         func_02082828(rec);
                         func_02083cbc(rec, &entry, entry.variants);
                         short* equipment = m->appearance.equipment;
                         for (int k = 0; k < 8; k++) {
-                            Element020de650* item = FindElementByKey020dedd0(&items, equipment[GetSlotMap0201099c(k)->appearanceIndex]);
+                            Element020de650* item = func_020dedd0(&items, equipment[GetSlotMap0201099c(k)->appearanceIndex]);
                             if (item != NULL) {
                                 memcpy(&record.equipment[GetSlotMap0201099c(k)->recordIndex], item, sizeof(Element020de650));
                             }
@@ -487,6 +487,6 @@ extern "C" ARM void func_0201099c(GameState0201099c* gs) {
         BackgroundLoader::RemoveLockGlobal();
         SignedAllocatorHeader* itemHeader = itemAlloc.GetSignedAllocator();
         itemAlloc.Destroy();
-        TailForward02012da4(&data_02114e20, itemHeader);
+        func_02012da4(&data_02114e20, itemHeader);
     }
 }

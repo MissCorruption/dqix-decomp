@@ -15,7 +15,7 @@ struct DstVec02157570 {
     int y;
     int z;
 };
-void CopyVector3_02157570(struct SrcVec02157570* src, struct DstVec02157570* dst);
+extern "C" void func_ov001_02157570(struct SrcVec02157570* src, struct DstVec02157570* dst);
 
 extern "C" ARM int fix32_Divide(unsigned int numerHi, unsigned int denomLo);
 
@@ -28,7 +28,7 @@ struct Ring021579ac {
     int count;
 };
 
-// USA: func_ov001_021579ac  (semantic: AdvanceRingAndComputePace_021579ac)
+// USA: func_ov001_021579ac
 extern "C" ARM int func_ov001_021579ac(struct Ring021579ac* self) {
     if (self->count <= 0) {
         return 1;
@@ -56,11 +56,11 @@ extern "C" ARM int func_ov001_021579ac(struct Ring021579ac* self) {
 
     total = 0;
     do {
-        CopyVector3_02157570((struct SrcVec02157570*)((char*)self + 0xc8), (struct DstVec02157570*)&vecB);
+        func_ov001_02157570((struct SrcVec02157570*)((char*)self + 0xc8), (struct DstVec02157570*)&vecB);
         if (func_ov001_021573c0((char*)self + 0xc8) != 0) {
             break;
         }
-        CopyVector3_02157570((struct SrcVec02157570*)((char*)self + 0xc8), (struct DstVec02157570*)&vecA);
+        func_ov001_02157570((struct SrcVec02157570*)((char*)self + 0xc8), (struct DstVec02157570*)&vecA);
         total += Vector3fix_Distance(&vecB, &vecA);
     } while (1);
 

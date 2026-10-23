@@ -22,46 +22,46 @@ extern char data_02109bf4[];
 extern char data_ov017_021d83e7[];
 #endif
 
-void GetGlobalField0x1c020421a0(void);
-int GetField0x3acValue_020100a8(GameState* gs);
-GameObject* GetCombatantChecked_0200ff94(GameState* battleStruct, int combatantId);
+extern "C" void func_020421a0(void);
+extern "C" int func_020100a8(GameState* gs);
+extern "C" GameObject* func_0200ff94(GameState* battleStruct, int combatantId);
 extern "C" EffectParam020708c8* func_020704fc(void);
-FlagWord02046708* GetDataPtr02114e04_020d6c00(void);
+extern "C" FlagWord02046708* func_020d6c00(void);
 extern "C" void* func_02012fe4(void);
-void* GetGlobalResetObj020d7a50(void);
-int CallFunc020e0434With02153694_020e51cc(int value);
-void* GetOffsetPtr02160f08(void* obj);
+extern "C" void* func_020d7a50(void);
+extern "C" int func_020e51cc(int value);
+extern "C" void* func_ov000_02160f08(void* obj);
 extern "C" void func_ov000_02172850(void* obj);
-float GetIntAt0xc_020709ac(unsigned char* obj);
-void SetScaledEffectParam020708c8(EffectParam020708c8* obj, unsigned int value);
+extern "C" float func_020709ac(unsigned char* obj);
+extern "C" void func_020708c8(EffectParam020708c8* obj, unsigned int value);
 extern "C" int abs(int x);
 void SetMainBrightness(GameResources* res, int level, int b);
-int TestFlags02046708(FlagWord02046708* word, unsigned int mask);
+extern "C" int func_02046708(FlagWord02046708* word, unsigned int mask);
 struct FlagWord020466f4;
-void ClearFlags020466f4(FlagWord020466f4* word, unsigned int bits);
-void SetCombatModeFromCase020dc2d0(int mode);
-int GetState0209ca68(char* p);
+extern "C" void func_020466f4(FlagWord020466f4* word, unsigned int bits);
+extern "C" void func_020dc2d0(int mode);
+extern "C" int func_0209ca68(char* p);
 extern "C" void func_0209c530(void* p);
 extern "C" void func_ov017_021c9c64(unsigned short a, int b);
-void SetFieldForMatchingCombatant_021c98f4(int target, int flag);
+extern "C" void func_ov017_021c98f4(int target, int flag);
 
 // USA: func_ov017_021b86f8
 extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatantId, int showMessage, int arg3) {
     if (self->field_0x6ac == NULL) return;
     if (combatantId != self->activeCombatantId || self->state != 2) return;
     GameState* gs = GameState::GetInstance();
-    GetGlobalField0x1c020421a0();
-    GameObject* combatant = GetCombatantChecked_0200ff94(gs, GetField0x3acValue_020100a8(gs));
+    func_020421a0();
+    GameObject* combatant = func_0200ff94(gs, func_020100a8(gs));
     GameResources* res = GetGameResources();
     EffectParam020708c8* effect = func_020704fc();
-    FlagWord02046708* flagWord = GetDataPtr02114e04_020d6c00();
+    FlagWord02046708* flagWord = func_020d6c00();
     func_02012fe4();
     if (combatant != NULL) {
         if (showMessage) {
 #if defined(jpn)
-            func_020d7e10(GetGlobalResetObj020d7a50(), data_ov017_021d83e7, 0, 0, 1);
+            func_020d7e10(func_020d7a50(), data_ov017_021d83e7, 0, 0, 1);
 #else
-            func_020d7e10(GetGlobalResetObj020d7a50(), (void*)CallFunc020e0434With02153694_020e51cc(0x23), 0, 0, 1
+            func_020d7e10(func_020d7a50(), (void*)func_020e51cc(0x23), 0, 0, 1
 #if !defined(jpn)
                 , 1
 #endif
@@ -69,22 +69,22 @@ extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatant
 #endif
 
         }
-        func_ov000_02172850(GetOffsetPtr02160f08(self->field_0x6ac));
+        func_ov000_02172850(func_ov000_02160f08(self->field_0x6ac));
     }
-    if ((int)GetIntAt0xc_020709ac((unsigned char*)effect) > 0x1e) {
-        SetScaledEffectParam020708c8(effect, 0x1e);
+    if ((int)func_020709ac((unsigned char*)effect) > 0x1e) {
+        func_020708c8(effect, 0x1e);
     }
     if (abs(GetBrightness((GameResources*)res, false)) == 0x10) {
         SetMainBrightness(res, 0, 0x1e);
     }
-    if (TestFlags02046708(flagWord, 1)) {
-        ClearFlags020466f4((FlagWord020466f4*)flagWord, 1);
-        SetCombatModeFromCase020dc2d0(0);
+    if (func_02046708(flagWord, 1)) {
+        func_020466f4((FlagWord020466f4*)flagWord, 1);
+        func_020dc2d0(0);
     }
-    if (GetState0209ca68(data_02109bf4) == 2) {
+    if (func_0209ca68(data_02109bf4) == 2) {
         func_0209c530(data_02109bf4);
     }
-    ClearFlags020466f4((FlagWord020466f4*)flagWord, 0x200);
+    func_020466f4((FlagWord020466f4*)flagWord, 0x200);
     ClearFlags04(res, 0x40);
     ClearFlags04(res, 4);
     ClearFlags04(res, 0x10);
@@ -93,5 +93,5 @@ extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatant
     self->flags |= 0x2000;
     self->state = 3;
     func_ov017_021c9c64(combatantId, arg3);
-    SetFieldForMatchingCombatant_021c98f4(combatantId, 1);
+    func_ov017_021c98f4(combatantId, 1);
 }

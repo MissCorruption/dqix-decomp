@@ -7,8 +7,8 @@
 
 struct FlagWord02046708;
 
-void* GetDataPtr02114e04_020d6c00();
-int TestFlags02046708(FlagWord02046708* flags, unsigned int mask);
+extern "C" void* func_020d6c00();
+extern "C" int func_02046708(FlagWord02046708* flags, unsigned int mask);
 
 struct StateObj0201fa2c {
     unsigned char state;
@@ -55,9 +55,9 @@ struct Member02026f34 {
 extern StateObj0201fa2c data_020fdc60[4];
 extern Entry02026f34 data_020fdcb0[4];
 
-void UpdateStopwatchState0201fbac(struct Stopwatch0201fbac* t);
-void ResetStateTimer0201fc40(struct StateObj0201fc40* p, int arg);
-void UpdateStateTimer0201fa2c(StateObj0201fa2c* obj, unsigned int arg);
+extern "C" void func_0201fbac(struct Stopwatch0201fbac* t);
+extern "C" void func_0201fc40(struct StateObj0201fc40* p, int arg);
+extern "C" void func_0201fa2c(StateObj0201fa2c* obj, unsigned int arg);
 extern "C" void func_020200c0(int index, void* obj);
 
 typedef void (*UpdateStateTimer0201fa2cFn)(StateObj0201fa2c* obj, unsigned int arg, unsigned char id);
@@ -71,7 +71,7 @@ enum { kIdsOffset = 0x758, kCountOffset = 0x75c };
 // USA: func_02026f34
 extern "C" ARM void func_02026f34(void* objv) {
     unsigned char* obj = (unsigned char*)objv;
-    if (TestFlags02046708((FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 0x41)) return;
+    if (func_02046708((FlagWord02046708*)func_020d6c00(), 0x41)) return;
 
     GameState* gs = GameState::GetInstance();
     unsigned int dt = gs->GetEffectiveDeltaTime();
@@ -99,19 +99,19 @@ extern "C" ARM void func_02026f34(void* objv) {
         }
 
         if (data_020fdc60[0].flags & 2) {
-            UpdateStopwatchState0201fbac((struct Stopwatch0201fbac*)sw);
+            func_0201fbac((struct Stopwatch0201fbac*)sw);
         } else {
             if ((sw->flags & 1) && ((Member02026f34*)member)->hp == 0) {
                 sw->flags &= ~1;
                 sw->timer = 0x7d0;
             } else if (((Member02026f34*)member)->hp != 0) {
-                UpdateStopwatchState0201fbac((struct Stopwatch0201fbac*)sw);
+                func_0201fbac((struct Stopwatch0201fbac*)sw);
                 sw->flags |= 1;
             } else if (timer > 0 && (obj + id)[0x558]) {
-                ResetStateTimer0201fc40((struct StateObj0201fc40*)sw, timer);
+                func_0201fc40((struct StateObj0201fc40*)sw, timer);
             }
         }
-        ((UpdateStateTimer0201fa2cFn)UpdateStateTimer0201fa2c)(sw, dt, id);
+        ((UpdateStateTimer0201fa2cFn)func_0201fa2c)(sw, dt, id);
 
         if (ent->flag1c) {
             (obj + id)[0x558] = 1;

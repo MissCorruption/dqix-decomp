@@ -59,32 +59,32 @@ struct ListMenu0217dd60 {
 };
 #endif
 
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24*, unsigned char, unsigned char);
-void SetChannelBFlag0205cf04(void*);
-void SetChannelAFlag0205cef8(void*);
-int GetGlobalField0x1c020421a0();
+extern "C" void func_0205de24(struct Struct0205de24*, unsigned char, unsigned char);
+extern "C" void func_0205cf04(void*);
+extern "C" void func_0205cef8(void*);
+extern "C" int func_020421a0();
 extern "C" void func_02012fe4();
 extern "C" void __clear(void* buf, int n);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void AppendNameTag_02041b70(char* dst, int n, const char* name);
-void AppendString02042058(char* dst, const char* src);
-unsigned char* GetElementByB4IfAbsent_0205e00c(struct Struct_0205d81c* s, int key);
-void SetField0xd8State_02050400(unsigned char* elem, int state);
-void SetByte0xd9AndFlag0x2_0205042c(unsigned char* elem, unsigned char value);
-void SetByte0xdaAndFlag0x2_02050440(unsigned char* elem, int value);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_02041b70(char* dst, int n, const char* name);
+extern "C" void func_02042058(char* dst, const char* src);
+extern "C" unsigned char* func_0205e00c(struct Struct_0205d81c* s, int key);
+extern "C" void func_02050400(unsigned char* elem, int state);
+extern "C" void func_0205042c(unsigned char* elem, unsigned char value);
+extern "C" void func_02050440(unsigned char* elem, int value);
 #if defined(jpn)
 struct StoreStruct;
 extern "C" void func_0205d304(void* window, char* buf, int a, int b, int c, int d, int e);
 extern "C" void func_02046380(void* w);
-void StoreInArray0x8b0_020465c0(struct StoreStruct*, int, int);
-void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
-void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
+extern "C" void func_020465c0(struct StoreStruct*, int, int);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char* dst, int size);
 #else
 extern "C" void func_0205d304(void* window, char* buf, int a, int b, int c, int d, int e, int f);
 #endif
-void SetupPointerTable0205ba68(struct Struct_0205ba68* t, int a, int b, int c);
-void SetField0AndPropagate0205bacc(struct Node0205bacc* n, int value);
+extern "C" void func_0205ba68(struct Struct_0205ba68* t, int a, int b, int c);
+extern "C" void func_0205bacc(struct Node0205bacc* n, int value);
 
 extern const char data_ov003_02180c7f[];
 
@@ -93,8 +93,8 @@ extern const char data_ov003_02180c7f[];
 extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
     char buf[0x400];
     func_02012fe4();
-    struct StoreStruct* g = (struct StoreStruct*)GetGlobalField0x1c020421a0();
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)menu->window, 0, 1);
+    struct StoreStruct* g = (struct StoreStruct*)func_020421a0();
+    func_0205de24((struct Struct0205de24*)menu->window, 0, 1);
     menu->window->fieldb1 = 0;
     {
         struct ListWindow0217dd60* w = menu->window;
@@ -117,8 +117,8 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
         w->ae = 13;
     }
     menu->window->fieldb5 = 1;
-    SetChannelBFlag0205cf04(menu->window);
-    SetChannelAFlag0205cef8(menu->window);
+    func_0205cf04(menu->window);
+    func_0205cef8(menu->window);
     int end;
     int i;
     int page = menu->window->page;
@@ -128,22 +128,22 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
         end = menu->itemCount;
     }
     for (i = page * 6; i < end; i++) {
-        const char* name = (const char*)GetFieldByKey020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
-        AppendNameTag_02041b70(buf, i % 6, name);
+        const char* name = (const char*)func_020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
+        func_02041b70(buf, i % 6, name);
         if (i != end - 1) {
-            AppendString02042058(buf, data_ov003_02180c7f);
+            func_02042058(buf, data_ov003_02180c7f);
         }
     }
     if (menu->field32 > 1) {
         func_02046380(g);
-        StoreInArray0x8b0_020465c0(g, 0, page + 1);
-        StoreInArray0x8b0_020465c0(g, 1, menu->field32);
-        SetByteInRange_020465f0((unsigned char*)g, 0, 2);
-        SetByteInRange_020465f0((unsigned char*)g, 1, 2);
-        SetByteAtIndex_020465d8((unsigned char*)g, 0, 1);
-        SetByteAtIndex_020465d8((unsigned char*)g, 1, 0);
+        func_020465c0(g, 0, page + 1);
+        func_020465c0(g, 1, menu->field32);
+        func_020465f0((unsigned char*)g, 0, 2);
+        func_020465f0((unsigned char*)g, 1, 2);
+        func_020465d8((unsigned char*)g, 0, 1);
+        func_020465d8((unsigned char*)g, 1, 0);
         func_02042428(buf, 8);
-        AppendString02042058(buf, (const char*)GetFieldByKey020e0434((struct Container020e0310*)menu->names, 200));
+        func_02042058(buf, (const char*)func_020e0434((struct Container020e0310*)menu->names, 200));
     }
     if (menu->field32 > 1) {
         func_0205d304(menu->window, buf, 0, 0, 1, 1, 0);
@@ -154,11 +154,11 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
     struct ListWindow0217dd60* window = menu->window;
     window->field8 = field32;
     window->field58 = field32;
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
     unsigned char itemCount = menu->itemCount;
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
+    func_0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
+    func_0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
     window->field94 = 1;
     window->field95 = 1;
 }
@@ -166,8 +166,8 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
 extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
     char buf[0x400];
     func_02012fe4();
-    GetGlobalField0x1c020421a0();
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)menu->window, 0, 1);
+    func_020421a0();
+    func_0205de24((struct Struct0205de24*)menu->window, 0, 1);
     int field10Value = menu->field10;
     menu->window->fieldb1 = 0;
     short scaled = (short)(field10Value >> 3);
@@ -197,8 +197,8 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
         w->a2 = 12;
     }
     menu->window->fieldb5 = 1;
-    SetChannelBFlag0205cf04(menu->window);
-    SetChannelAFlag0205cef8(menu->window);
+    func_0205cf04(menu->window);
+    func_0205cef8(menu->window);
     int end;
     int i;
     int page = menu->window->page;
@@ -208,18 +208,18 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
         end = menu->itemCount;
     }
     for (i = page * 6; i < end; i++) {
-        const char* name = (const char*)GetFieldByKey020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
-        AppendNameTag_02041b70(buf, i % 6, name);
+        const char* name = (const char*)func_020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
+        func_02041b70(buf, i % 6, name);
         if (i != end - 1) {
-            AppendString02042058(buf, data_ov003_02180c7f);
+            func_02042058(buf, data_ov003_02180c7f);
         }
     }
     if (menu->field32 > 1) {
-        unsigned char* elem = GetElementByB4IfAbsent_0205e00c((struct Struct_0205d81c*)menu->window, 0);
+        unsigned char* elem = func_0205e00c((struct Struct_0205d81c*)menu->window, 0);
         if (elem != NULL) {
-            SetField0xd8State_02050400(elem, 1);
-            SetByte0xd9AndFlag0x2_0205042c(elem, page);
-            SetByte0xdaAndFlag0x2_02050440(elem, menu->field32);
+            func_02050400(elem, 1);
+            func_0205042c(elem, page);
+            func_02050440(elem, menu->field32);
         }
     }
     if (menu->field32 > 1) {
@@ -231,11 +231,11 @@ extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
     struct ListWindow0217dd60* window = menu->window;
     window->field8 = field32;
     window->field58 = field32;
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
-    SetupPointerTable0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
     unsigned char itemCount = menu->itemCount;
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
-    SetField0AndPropagate0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
+    func_0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
+    func_0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
     window->field94 = 1;
     window->field95 = 1;
 }

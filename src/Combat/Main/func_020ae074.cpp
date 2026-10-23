@@ -13,8 +13,8 @@ struct HeightShiftedObject : Object3D {
 };
 struct Fields020407b4;
 extern "C" void func_02032fdc(HeightShiftedObject*, int, int);
-void StoreVec3AtField0x50_0203db34(unsigned char*, int, int, int);
-void SetupObjFieldsAndResetRenderFlags020ae20c(void*, Fields020407b4*, int*, int);
+extern "C" void func_0203db34(unsigned char*, int, int, int);
+extern "C" void func_020ae20c(void*, Fields020407b4*, int*, int);
 
 // USA: func_020ae074
 extern "C" ARM void func_020ae074(HeightShiftedObject* self) {
@@ -27,21 +27,21 @@ extern "C" ARM void func_020ae074(HeightShiftedObject* self) {
     if (object) {
         self->firstPosition_.y += self->heightOffset_;
         object->obj3D_.position_ = self->firstPosition_;
-        StoreVec3AtField0x50_0203db34((unsigned char*)object, 0, self->firstHeading_, 0);
+        func_0203db34((unsigned char*)object, 0, self->firstHeading_, 0);
         object->obj3D_.Draw(true);
         self->firstPosition_.y -= self->heightOffset_;
         self->secondPosition_.y += self->heightOffset_;
         object->obj3D_.position_ = self->secondPosition_;
-        StoreVec3AtField0x50_0203db34((unsigned char*)object, 0, self->secondHeading_, 0);
+        func_0203db34((unsigned char*)object, 0, self->secondHeading_, 0);
         object->obj3D_.Draw(true);
         self->secondPosition_.y -= self->heightOffset_;
     }
     GameObject* shadow = game->GetGameObjectByIndex(0xcc);
     Vector3fix shadowPosition = self->position_;
-    SetupObjFieldsAndResetRenderFlags020ae20c(self, (Fields020407b4*)shadow, &shadowPosition.x, self->heading_);
+    func_020ae20c(self, (Fields020407b4*)shadow, &shadowPosition.x, self->heading_);
     GameObject* secondary = game->GetGameObjectByIndex(0xcd);
-    SetupObjFieldsAndResetRenderFlags020ae20c(self, (Fields020407b4*)secondary, &self->firstPosition_.x, self->firstHeading_);
-    SetupObjFieldsAndResetRenderFlags020ae20c(self, (Fields020407b4*)secondary, &self->secondPosition_.x, self->secondHeading_);
+    func_020ae20c(self, (Fields020407b4*)secondary, &self->firstPosition_.x, self->firstHeading_);
+    func_020ae20c(self, (Fields020407b4*)secondary, &self->secondPosition_.x, self->secondHeading_);
     position = self->position_;
     position.y -= self->heightOffset_;
     self->position_ = position;

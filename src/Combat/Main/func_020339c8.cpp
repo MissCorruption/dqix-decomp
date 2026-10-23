@@ -22,20 +22,20 @@ struct RoutedObject : Object3D {
     char padAC[0xb8 - 0xac]; unsigned short routeIndex_;
     char padBA[8]; unsigned char fieldC2_ : 6; unsigned char routeEnabled_ : 1;
 };
-Entry_02028bd0* GetEntryTableBase_02027ca4();
-Entry_02028bd0* FindInlineEntryById(Entry_02028bd0*, int);
-ListEntry_02028430* GetListEntryChecked(List_02028430*, int);
-int FindListIndexById(List_020283fc*, int);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0*, int);
+extern "C" ListEntry_02028430* func_02028430(List_02028430*, int);
+extern "C" int func_020283fc(List_020283fc*, int);
 extern "C" Vector3fix func_02034104(void*);
 extern "C" int func_02028524(List_02028430*, const Vector3fix&);
 
 // USA: func_020339c8
 extern "C" ARM void func_020339c8(RoutedObject* self) {
     if (!self->routeEnabled_) return;
-    Entry_02028bd0* table = GetEntryTableBase_02027ca4();
-    Entry_02028bd0* entry = FindInlineEntryById(table, self->GetField06());
+    Entry_02028bd0* table = func_02027ca4();
+    Entry_02028bd0* entry = func_02028bd0(table, self->GetField06());
     if (!entry || !entry->active_) return;
-    ListEntry_02028430* node = GetListEntryChecked(&entry->list_, self->routeIndex_);
+    ListEntry_02028430* node = func_02028430(&entry->list_, self->routeIndex_);
     if (!node) return;
     if (self->unknown_0_ & 0x1200) {
         int index = func_02028524(&entry->list_, func_02034104(self));
@@ -56,7 +56,7 @@ extern "C" ARM void func_020339c8(RoutedObject* self) {
             if (Vector3fix_Distance(&adjacentPosition, &position) < distance) selected = node->adjacent_[i]->id_;
         }
         if (selected >= 0) {
-            int index = FindListIndexById((List_020283fc*)&entry->list_, selected);
+            int index = func_020283fc((List_020283fc*)&entry->list_, selected);
             if (index > -1) self->routeIndex_ = index;
         }
     }

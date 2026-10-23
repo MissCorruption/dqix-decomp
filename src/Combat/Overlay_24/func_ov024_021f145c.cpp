@@ -3,12 +3,12 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
 struct S_bf3c_021f1440;
-int IsBitfield2Set_021f1440(struct S_bf3c_021f1440* obj);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021f1440(struct S_bf3c_021f1440* obj);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Buf8_021f145c { short v[8]; };
 extern struct Buf8_021f145c data_ov024_021fef4c;
@@ -26,9 +26,9 @@ struct BuffWord_021f145c {
 
 // USA: func_ov024_021f145c
 extern "C" ARM int func_ov024_021f145c(int* a0, int a1, int a2, int* outCount, short* outArray) {
-	GameObject* gate = GetCombatantWithFlag0x400ByID_ov000_021536f8(*a0, a1);
+	GameObject* gate = func_ov000_021536f8(*a0, a1);
 	if (!gate) return 0;
-	if (!IsBitfield2Set_021f1440((struct S_bf3c_021f1440*)gate)) return 0;
+	if (!func_ov024_021f1440((struct S_bf3c_021f1440*)gate)) return 0;
 
 	struct Buf8_021f145c buf = data_ov024_021fef4c;
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov024_021f145c(int* a0, int a1, int a2, int* outCount, s
 	for (int i = 0; i < count; i++) {
 		GameObject* member = GetCombatantByID(*a0, buf.v[i]);
 		if (!member) continue;
-		if (IsCombatantFlagMask512_021eda60(member)) continue;
+		if (func_ov024_021eda60(member)) continue;
 		struct BuffWord_021f145c* bw = (struct BuffWord_021f145c*)((char*)member->currentStats_ + 0x58);
 		if (bw->unkBuff21 >= 2) continue;
 		int idx = *outCount;
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov024_021f145c(int* a0, int a1, int a2, int* outCount, s
 		outArray[idx] = buf.v[i];
 	}
 	if (*outCount > 0) {
-		PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+		func_ov024_021ed890((struct Random**)a0, outCount, outArray);
 		return 1;
 	}
 	return 0;

@@ -64,58 +64,58 @@ struct NodeList0218b5c4 {
 
 extern "C" int func_020c39a0(short* out, int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
-void SetDispcntModeAndFlags020c391c(int mode, int flagsA, int valB);
+extern "C" void func_020c391c(int mode, int flagsA, int valB);
 extern "C" void func_020a0cc4(unsigned int);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void SetStructFieldsFromCode02028d68(int code);
-void SetBuffer02028ddc(void* ptr);
-void UploadPendingPalette02028dec(int);
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
-void ComputeAndLoadMatrix020c5770(int a0, int a1, int a2, int a3, int b0, int b1, int b2, int gate, void* outBuf);
-int SetPowCnt1Bit15_0218bc70(int enable);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02028d68(int code);
+extern "C" void func_02028ddc(void* ptr);
+extern "C" void func_02028dec(int);
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+extern "C" void func_020c5770(int a0, int a1, int a2, int a3, int b0, int b1, int b2, int gate, void* outBuf);
+extern "C" int func_ov016_0218bc70(int enable);
 extern "C" void func_ov016_0218e00c(NodeList0218b5c4* list);
 struct Obj0218e098;
-void RegisterObjectAndRunScript0218e098(Obj0218e098*, int);
+extern "C" void func_ov016_0218e098(Obj0218e098*, int);
 extern "C" void func_02029568(Menu0218b5c4* menu);
 extern "C" void func_020294cc(void* self, const char* src);
-int GetField4_0218e174(int*);
-void Init0202949c(char*);
+extern "C" int func_ov016_0218e174(int*);
+extern "C" void func_0202949c(char*);
 struct Node0218e14c;
-ScriptNode0218b5c4* GetNthNode_0218e14c(Node0218e14c**, int);
+extern "C" ScriptNode0218b5c4* func_ov016_0218e14c(Node0218e14c**, int);
 struct ListHead0202a944;
 struct ListNode0202a944;
-void AppendNodeToList0202a944(ListHead0202a944*, ListNode0202a944*);
+extern "C" void func_0202a944(ListHead0202a944*, ListNode0202a944*);
 extern "C" void func_0202a6c4(Menu0218b5c4* menu);
-void Deactivate0202a8cc(char*, int);
-void DelayThenSyncBit0_020c9820();
-void RestoreDisplayMode_020c38d4();
-int GetByteField0x63d6_020115a8(FieldBlock63d6_115a8* gs);
-void InitCombatSubsystems02012efc();
-void ResetGxEngineState020c52e8();
+extern "C" void func_0202a8cc(char*, int);
+extern "C" void func_020c9820();
+extern "C" void func_020c38d4();
+extern "C" int func_020115a8(FieldBlock63d6_115a8* gs);
+extern "C" void func_02012efc();
+extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
-void ClearBuffer02029060();
+extern "C" void func_02029060();
 extern "C" void func_02029988(void* p, int flag);
-void FlushBuffer02029088();
-void WriteControlAndToggle020d86d0(int a, int b);
-void ProcessRingJobs020bbcb4();
-void FlushOrClearBuffer020290ac(int flag);
-void ClearThreeWords020e57e0(Struct020e57e0* p);
+extern "C" void func_02029088();
+extern "C" void func_020d86d0(int a, int b);
+extern "C" void func_020bbcb4();
+extern "C" void func_020290ac(int flag);
+extern "C" void func_020e57e0(Struct020e57e0* p);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-void InitAndRunBufferedScript020e57f4(int, int, StreamHeader*, int);
-int GetWord0x7f6c_0201201c(void* gs);
+extern "C" void func_020e57f4(int, int, StreamHeader*, int);
+extern "C" int func_0201201c(void* gs);
 struct Node0218e124;
-ScriptNode0218b5c4* FindNodeByID_0218e124(Node0218e124**, int);
-void DispatchContextByState0209c678(Actor0209c678* actor, int arg);
-void ScaleAndNotify0203ad88(void* a, void* b, int c);
+extern "C" ScriptNode0218b5c4* func_ov016_0218e124(Node0218e124**, int);
+extern "C" void func_0209c678(Actor0209c678* actor, int arg);
+extern "C" void func_0203ad88(void* a, void* b, int c);
 extern "C" void func_020bbd9c();
-void ResetObjectState0205e8d4(void* p);
-void FreeAndReinit0203a950(void* p);
-void InitDisplayState0205e88c(Obj_0205e88c* p);
-void ResetActor0209c174(Actor0209c174* p);
-void Dispatch0203a974With0xA2000_0209c2b8(void* p);
-void SetupContextForMode0205ea20(void* p, int mode);
-void Dispatch0203a974With0x57000_0209c290(void* p);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_0205e8d4(void* p);
+extern "C" void func_0203a950(void* p);
+extern "C" void func_0205e88c(Obj_0205e88c* p);
+extern "C" void func_0209c174(Actor0209c174* p);
+extern "C" void func_0209c2b8(void* p);
+extern "C" void func_0205ea20(void* p, int mode);
+extern "C" void func_0209c290(void* p);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_020a0c0c();
 #if defined(jpn)
 extern "C" void func_ov016_0218d2f4(char* mainName, char* subName, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode);
@@ -161,41 +161,41 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     MapVRAMBanksToMainBG(1);
     GX_SetBGCharOffset(0);
     GX_SetBGScrOffset(0);
-    SetDispcntModeAndFlags020c391c(1, 0, 1);
+    func_020c391c(1, 0, 1);
     volatile unsigned short* bgcnt = (volatile unsigned short*)0x4000008;
     bgcnt[0] = (bgcnt[0] & ~0x3) | 0x1;
     bgcnt[1] = bgcnt[1] & ~0x3;
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG0, BLEND_TARGET_BACKDROP, 0x1f, 0x1f);
     ColorEffect_ConfigureAlphaBlend(0x4000050, BLEND_TARGET_BG1, BLEND_TARGET_BG0, 0x1f, 0);
     func_020a0cc4(0x100000);
-    self->allocator.CreateTypeB(AllocateAligned4_02012d88(&data_02114e20, 0x100000), 0x100000, 4);
+    self->allocator.CreateTypeB(func_02012d88(&data_02114e20, 0x100000), 0x100000, 4);
     void* buffer = self->allocator.Allocate(0x6000);
-    SetStructFieldsFromCode02028d68(3);
-    SetBuffer02028ddc(buffer);
-    UploadPendingPalette02028dec(0);
-    Set3DClearColor_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
-    ComputeAndLoadMatrix020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
+    func_02028d68(3);
+    func_02028ddc(buffer);
+    func_02028dec(0);
+    func_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
+    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, 0);
     *(volatile unsigned int*)0x400044c = 0;
-    SetPowCnt1Bit15_0218bc70(0);
+    func_ov016_0218bc70(0);
 
     func_ov016_0218e00c(&nodes);
-    RegisterObjectAndRunScript0218e098((Obj0218e098*)&nodes, (int)self);
+    func_ov016_0218e098((Obj0218e098*)&nodes, (int)self);
     func_02029568(&self->menu);
     func_020294cc(&self->menu, data_ov016_0219cfc0);
-    MenuItem0218b5c4* items = (MenuItem0218b5c4*)self->allocator.Allocate(GetField4_0218e174((int*)&nodes) * sizeof(MenuItem0218b5c4));
+    MenuItem0218b5c4* items = (MenuItem0218b5c4*)self->allocator.Allocate(func_ov016_0218e174((int*)&nodes) * sizeof(MenuItem0218b5c4));
     if (items != 0) {
-        for (unsigned int i = 0; i < GetField4_0218e174((int*)&nodes); i++) {
-            Init0202949c((char*)&items[i]);
-            ScriptNode0218b5c4* node = GetNthNode_0218e14c((Node0218e14c**)&nodes, i);
+        for (unsigned int i = 0; i < func_ov016_0218e174((int*)&nodes); i++) {
+            func_0202949c((char*)&items[i]);
+            ScriptNode0218b5c4* node = func_ov016_0218e14c((Node0218e14c**)&nodes, i);
             if (node != 0) {
                 sprintf(label, data_ov016_0219cfc6, node->id, node->value);
                 func_020294cc(&items[i], label);
-                AppendNodeToList0202a944((ListHead0202a944*)&self->menu, (ListNode0202a944*)&items[i]);
+                func_0202a944((ListHead0202a944*)&self->menu, (ListNode0202a944*)&items[i]);
             }
         }
     }
     func_0202a6c4(&self->menu);
-    int count = GetField4_0218e174((int*)&nodes);
+    int count = func_ov016_0218e174((int*)&nodes);
     self->menu.top = 0;
     self->menu.cursor = 0;
     self->menu.last = count - 1;
@@ -203,27 +203,27 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     self->menu.f72 = 1;
     self->menu.f70 = 1;
     self->menu.mode = 8;
-    Deactivate0202a8cc((char*)&self->menu, 1);
-    DelayThenSyncBit0_020c9820();
-    RestoreDisplayMode_020c38d4();
+    func_0202a8cc((char*)&self->menu, 1);
+    func_020c9820();
+    func_020c38d4();
     DISPCNTSUB |= 0x10000;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
 
     int id = -1;
-    if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
-        id = GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs);
+    if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+        id = func_020115a8((FieldBlock63d6_115a8*)gs);
         self->f94 = 0;
     }
-    InitCombatSubsystems02012efc();
+    func_02012efc();
     while (id < 0) {
-        InitCombatSubsystems02012efc();
-        ResetGxEngineState020c52e8();
+        func_02012efc();
+        func_020c52e8();
         func_020c5414();
         DISP3DCNT &= (unsigned short)~0x3020;
         if (g_keyManager.TestKeysPressed(1)) {
-            ScriptNode0218b5c4* node = GetNthNode_0218e14c((Node0218e14c**)&nodes, self->menu.cursor);
+            ScriptNode0218b5c4* node = func_ov016_0218e14c((Node0218e14c**)&nodes, self->menu.cursor);
             if (node != 0) {
                 id = node->id;
             }
@@ -231,19 +231,19 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
             self->f94 = 0;
             break;
         }
-        ClearBuffer02029060();
+        func_02029060();
         func_02029988(&self->menu, 1);
-        FlushBuffer02029088();
-        WriteControlAndToggle020d86d0(0, 1);
-        DelayThenSyncBit0_020c9820();
-        ProcessRingJobs020bbcb4();
-        FlushOrClearBuffer020290ac(0);
+        func_02029088();
+        func_020d86d0(0, 1);
+        func_020c9820();
+        func_020bbcb4();
+        func_020290ac(0);
         func_020c39a0((short*)0x400006c, 0);
         func_020c39a0((short*)0x400106c, -16);
     }
 
 #if !defined(jpn)
-    ClearThreeWords020e57e0(&script);
+    func_020e57e0(&script);
     BackgroundLoader::GetInstance();
     if (id > 0) {
         BackgroundLoader::AddLockGlobal();
@@ -258,61 +258,61 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
             break;
         }
         if (file != 0) {
-            InitAndRunBufferedScript020e57f4((int)&script, (int)self, (StreamHeader*)file, size);
+            func_020e57f4((int)&script, (int)self, (StreamHeader*)file, size);
         }
         BackgroundLoader::RemoveLockGlobal();
     }
 #endif
-    ClearBuffer02029060();
-    FlushBuffer02029088();
-    WriteControlAndToggle020d86d0(0, 1);
+    func_02029060();
+    func_02029088();
+    func_020d86d0(0, 1);
 
     int mode = 2;
-    if (GetWord0x7f6c_0201201c(gs) == 5) {
+    if (func_0201201c(gs) == 5) {
         mode = 1;
-    } else if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+    } else if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
         mode = 0;
     }
 
     if (id >= 0) {
         func_020c39a0((short*)0x400006c, -16);
         func_020c39a0((short*)0x400106c, -16);
-        ScriptNode0218b5c4* node = FindNodeByID_0218e124((Node0218e124**)&nodes, id);
+        ScriptNode0218b5c4* node = func_ov016_0218e124((Node0218e124**)&nodes, id);
         if (node != 0) {
 #if !defined(jpn)
             if (node->fade != 0) {
-                DispatchContextByState0209c678((Actor0209c678*)&data_02109bf4, 0);
-                ScaleAndNotify0203ad88(&data_02109bf4, 0, 0);
+                func_0209c678((Actor0209c678*)&data_02109bf4, 0);
+                func_0203ad88(&data_02109bf4, 0, 0);
                 func_020bbd9c();
-                ResetObjectState0205e8d4(&data_02108760);
-                FreeAndReinit0203a950(&data_02109bf4);
-                InitDisplayState0205e88c((Obj_0205e88c*)&data_02108760);
-                ResetActor0209c174((Actor0209c174*)&data_02109bf4);
-                Dispatch0203a974With0xA2000_0209c2b8(&data_02109bf4);
+                func_0205e8d4(&data_02108760);
+                func_0203a950(&data_02109bf4);
+                func_0205e88c((Obj_0205e88c*)&data_02108760);
+                func_0209c174((Actor0209c174*)&data_02109bf4);
+                func_0209c2b8(&data_02109bf4);
             }
 #endif
             if (node->mainName != 0 && node->subName != 0) {
-                SetPowCnt1Bit15_0218bc70(1);
+                func_ov016_0218bc70(1);
                 sprintf(mainName, data_ov016_0219d022, node->mainName);
                 sprintf(subName, data_ov016_0219d022, node->subName);
                 func_ov016_0218d2f4(mainName, subName, self, node, mode SCRIPT_ARG_0218b5c4);
             } else if (node->mainName != 0 && node->subName == 0) {
-                SetPowCnt1Bit15_0218bc70(1);
+                func_ov016_0218bc70(1);
                 sprintf(mainOnly, data_ov016_0219d022, node->mainName);
                 func_ov016_0218caa8(mainOnly, self, node, mode SCRIPT_ARG_0218b5c4);
             } else if (node->mainName == 0 && node->subName != 0) {
-                SetPowCnt1Bit15_0218bc70(0);
+                func_ov016_0218bc70(0);
                 sprintf(subOnly, data_ov016_0219d022, node->subName);
                 func_ov016_0218caa8(subOnly, self, node, mode SCRIPT_ARG_0218b5c4);
             }
 #if !defined(jpn)
             if (node->fade != 0) {
-                ResetObjectState0205e8d4(&data_02108760);
-                FreeAndReinit0203a950(&data_02109bf4);
-                InitDisplayState0205e88c((Obj_0205e88c*)&data_02108760);
-                ResetActor0209c174((Actor0209c174*)&data_02109bf4);
-                SetupContextForMode0205ea20(&data_02108760, 100);
-                Dispatch0203a974With0x57000_0209c290(&data_02109bf4);
+                func_0205e8d4(&data_02108760);
+                func_0203a950(&data_02109bf4);
+                func_0205e88c((Obj_0205e88c*)&data_02108760);
+                func_0209c174((Actor0209c174*)&data_02109bf4);
+                func_0205ea20(&data_02108760, 100);
+                func_0209c290(&data_02109bf4);
             }
 #endif
         }
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     func_020c39a0((short*)0x400106c, -16);
     SignedAllocatorHeader* signedAlloc = self->allocator.GetSignedAllocator();
     self->allocator.Destroy();
-    TailForward02012da4(&data_02114e20, signedAlloc);
+    func_02012da4(&data_02114e20, signedAlloc);
     func_020a0c0c();
-    SetBuffer02028ddc(0);
+    func_02028ddc(0);
 }

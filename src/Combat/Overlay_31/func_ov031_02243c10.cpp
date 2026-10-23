@@ -3,11 +3,11 @@
 #include "std_library_functions.h"
 
 struct Struct_02245528;
-void SetField34AndClear35_37_02245528(struct Struct_02245528* p, int v);
-int ProcessAndClassify_02212cbc(void* p);
+extern "C" void func_ov031_02245528(struct Struct_02245528* p, int v);
+extern "C" int func_ov031_02212cbc(void* p);
 extern "C" void func_ov031_022434b4(void);
-void FreeIfNonNull_022434e8(void* a, void* b);
-void SetGlobalFields_02211b40(void* a, void* b);
+extern "C" void func_ov031_022434e8(void* a, void* b);
+extern "C" void func_ov031_02211b40(void* a, void* b);
 extern int data_0211e33c;
 
 struct S02243c10 {
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov031_02243c10(S02243c10* obj) {
 		if (obj->ptr37c == 0) {
 			BackgroundLoader* loader = BackgroundLoader::GetInstance();
 			if (loader->GetNumQueuedTasks() > 0) {
-				SetField34AndClear35_37_02245528((struct Struct_02245528*)obj, 0);
+				func_ov031_02245528((struct Struct_02245528*)obj, 0);
 				return;
 			}
 			obj->ptr37c = &data_0211e33c;
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov031_02243c10(S02243c10* obj) {
 		obj->field48 = obj->ptr37c;
 	skip374:
 		{
-			int v = ProcessAndClassify_02212cbc(obj->field4c);
+			int v = func_ov031_02212cbc(obj->field4c);
 			obj->field439 = 1;
 			if (v == 3) {
 				obj->state35 = 8;
@@ -55,14 +55,14 @@ extern "C" ARM void func_ov031_02243c10(S02243c10* obj) {
 		}
 		break;
 	case 6:
-		SetGlobalFields_02211b40((void*)func_ov031_022434b4, (void*)FreeIfNonNull_022434e8);
-		SetField34AndClear35_37_02245528((struct Struct_02245528*)obj, 2);
+		func_ov031_02211b40((void*)func_ov031_022434b4, (void*)func_ov031_022434e8);
+		func_ov031_02245528((struct Struct_02245528*)obj, 2);
 		break;
 	case 7:
-		SetField34AndClear35_37_02245528((struct Struct_02245528*)obj, 0);
+		func_ov031_02245528((struct Struct_02245528*)obj, 0);
 		break;
 	case 8:
-		SetField34AndClear35_37_02245528((struct Struct_02245528*)obj, 0);
+		func_ov031_02245528((struct Struct_02245528*)obj, 0);
 		break;
 	default:
 		break;

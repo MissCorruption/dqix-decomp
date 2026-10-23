@@ -54,14 +54,14 @@ extern "C" void func_020d4770(int a, int b, int c);
 extern "C" void func_020c976c(unsigned int cycles);
 extern "C" void func_020c9be0(void);
 
-void IssueIdleBattleCommand_021db490(void);
-int IssueBattleCommandSlot7(int a, Ctx020d507c* ctx);
-int IssueBattleCommandSlot25_020d6a84(int a, int mode);
-int IssueBattleCommandSlot8_020d51a8(int a, int b);
-int IssueBattleCommandSlot2_020d503c(int a);
-int DispatchEvent1e03_020d57f4(int a, int b, int c, int d, unsigned short e, unsigned short f,
+extern "C" void func_ov027_021db490(void);
+extern "C" int func_020d507c(int a, Ctx020d507c* ctx);
+extern "C" int func_020d6a84(int a, int mode);
+extern "C" int func_020d51a8(int a, int b);
+extern "C" int func_020d503c(int a);
+extern "C" int func_020d57f4(int a, int b, int c, int d, unsigned short e, unsigned short f,
                       unsigned short g, int h, int i, int j, int k);
-int SetBattleContextField0xc8IfIdle_020d472c(void* p);
+extern "C" int func_020d472c(void* p);
 
 #pragma optimize_for_size off
 
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
             Fn021db524 fn = *(Fn021db524*)(data_ov027_021e33e0.ptr + 0x51c);
             fn(0x100, msg);
         } else {
-            IssueIdleBattleCommand_021db490();
+            func_ov027_021db490();
         }
         break;
 
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
             Fn021db524 fn = *(Fn021db524*)(data_ov027_021e33e0.ptr + 0x51c);
             fn(0x100, msg);
         } else {
-            func_ov027_021dd0cc(7, IssueBattleCommandSlot7((int)func_ov027_021db524,
+            func_ov027_021dd0cc(7, func_020d507c((int)func_ov027_021db524,
                 (Ctx020d507c*)data_ov027_021e33e0.ptr));
         }
         break;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
     case 7: {
         Fn021db524 fn = *(Fn021db524*)(data_ov027_021e33e0.ptr + 0x51c);
         fn(0x15, msg);
-        func_ov027_021dd0cc(0x19, IssueBattleCommandSlot25_020d6a84((int)func_ov027_021db524, 1));
+        func_ov027_021dd0cc(0x19, func_020d6a84((int)func_ov027_021db524, 1));
         break;
     }
 
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
                 Fn021db524 fn = *(Fn021db524*)(data_ov027_021e33e0.ptr + 0x51c);
                 fn(0x100, msg);
             } else {
-                func_ov027_021dd0cc(8, IssueBattleCommandSlot8_020d51a8((int)func_ov027_021db524,
+                func_ov027_021dd0cc(8, func_020d51a8((int)func_ov027_021db524,
                     data_ov027_021dd8ec.fC));
             }
         } else {
@@ -141,7 +141,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
                         int flag = 1;
                         *(int*)(stage + 0x31c) = flag;
                         if (*(unsigned short*)(data_ov027_021e33e0.ptr + 0x52c) != 0) flag = 0;
-                        func_ov027_021dd0cc(0xe, DispatchEvent1e03_020d57f4((int)func_ov027_021db524,
+                        func_ov027_021dd0cc(0xe, func_020d57f4((int)func_ov027_021db524,
                             *(int*)(data_ov027_021e33e0.ptr + 0x504),
                             *(unsigned short*)(data_ov027_021e33e0.ptr + 0x51a),
                             (int)(data_ov027_021e33e0.ptr + 0x40),
@@ -262,11 +262,11 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
             } else {
                 *(unsigned short*)(data_ov027_021e33e0.ptr + 0x52a) = 0;
                 *(unsigned short*)(data_ov027_021e33e0.ptr + 0x528) = 0;
-                func_ov027_021dd0cc(2, IssueBattleCommandSlot2_020d503c((int)func_ov027_021db524));
+                func_ov027_021dd0cc(2, func_020d503c((int)func_ov027_021db524));
             }
         } else {
             func_020d4770(1, 0, 0);
-            SetBattleContextField0xc8IfIdle_020d472c(0);
+            func_020d472c(0);
             if (msg->f2 != 0) {
                 *(unsigned short*)(data_ov027_021e33e0.ptr + 0x526) = 0;
                 {
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov027_021db524(Msg021db524* msg) {
                     fn(0x100, msg);
                 }
             } else {
-                func_ov027_021dd0cc(0x19, IssueBattleCommandSlot25_020d6a84((int)func_ov027_021db524, 0));
+                func_ov027_021dd0cc(0x19, func_020d6a84((int)func_ov027_021db524, 0));
             }
         }
         break;

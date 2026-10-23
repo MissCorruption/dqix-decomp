@@ -11,17 +11,17 @@ struct Struct_0205bf3c;
 struct Obj5d594;
 struct ScaledElementList0204aa28;
 
-void* FindElementByC40205d81c(struct Struct_0205d81c*, int);
-void CopyOrClearField0204c770(char*, void*);
-void GetNibbles_0205d594(struct Obj5d594*, unsigned char*, unsigned char*);
+extern "C" void* func_0205d81c(struct Struct_0205d81c*, int);
+extern "C" void func_0204c770(char*, void*);
+extern "C" void func_0205d594(struct Obj5d594*, unsigned char*, unsigned char*);
 #if defined(jpn)
 extern "C" void func_0204d790(void* self, const char* text, unsigned int destination, int mode, unsigned char border, unsigned char fullWidth);
 #else
 extern "C" void func_0204c980(void* self, const char* text, unsigned int destination, int mode, unsigned char border, unsigned char fullWidth, unsigned char font);
 #endif
-unsigned int GetScaledElementPtr(struct ScaledElementList0204aa28*);
-void ResetState0205bf3c(struct Struct_0205bf3c*);
-void ApplyElemFields0205d904(unsigned char*);
+extern "C" unsigned int func_0204aa28(struct ScaledElementList0204aa28*);
+extern "C" void func_0205bf3c(struct Struct_0205bf3c*);
+extern "C" void func_0205d904(unsigned char*);
 
 struct Elem0205d304 {
     char pad0[0x4];
@@ -72,7 +72,7 @@ extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text
 
     if (text == 0 || renderer->styles == NULL || renderer->windows == NULL) return;
     if (renderer->windowCapacity <= renderer->windowCount) return;
-    if (FindElementByC40205d81c((struct Struct_0205d81c*)renderer, renderer->nextWindowId) != 0) return;
+    if (func_0205d81c((struct Struct_0205d81c*)renderer, renderer->nextWindowId) != 0) return;
 
     elem = &renderer->windows[renderer->windowCount];
     elem->layout[0].Set(renderer->layout[0].x, renderer->layout[0].y);
@@ -96,14 +96,14 @@ extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text
         elem->flags &= ~0x10;
     }
     elem->fontHeight = renderer->fontHeight;
-    CopyOrClearField0204c770((char*)elem, extraStyle);
+    func_0204c770((char*)elem, extraStyle);
 
     if (renderer->windowCount != 0) {
         matched = 0;
-        GetNibbles_0205d594((struct Obj5d594*)elem->style, &lowA, &highA);
+        func_0205d594((struct Obj5d594*)elem->style, &lowA, &highA);
         for (j = renderer->windowCount - 1; j >= 0; j--) {
             e = &renderer->windows[j];
-            GetNibbles_0205d594((struct Obj5d594*)e->style, &lowB, &highB);
+            func_0205d594((struct Obj5d594*)e->style, &lowB, &highB);
             if (lowA == lowB && highA == highB) {
                 e = &renderer->windows[j];
                 value = e->destination + e->pixelBytes;
@@ -117,7 +117,7 @@ extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text
             }
         }
         if (!matched) {
-            value = GetScaledElementPtr((struct ScaledElementList0204aa28*)elem->style);
+            value = func_0204aa28((struct ScaledElementList0204aa28*)elem->style);
 #if defined(jpn)
             func_0204d790(elem, text, value, mode, border, fullWidth);
 #else
@@ -130,7 +130,7 @@ extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text
             e->c2 = 1;
         }
     } else {
-        value = GetScaledElementPtr((struct ScaledElementList0204aa28*)elem->style);
+        value = func_0204aa28((struct ScaledElementList0204aa28*)elem->style);
 #if defined(jpn)
         func_0204d790(elem, text, value, mode, border, fullWidth);
 #else
@@ -140,7 +140,7 @@ extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text
     }
 
     renderer->windowCount++;
-    ResetState0205bf3c((struct Struct_0205bf3c*)renderer->resetState);
+    func_0205bf3c((struct Struct_0205bf3c*)renderer->resetState);
     renderer->activeWindowId = renderer->nextWindowId;
-    ApplyElemFields0205d904((unsigned char*)renderer);
+    func_0205d904((unsigned char*)renderer);
 }

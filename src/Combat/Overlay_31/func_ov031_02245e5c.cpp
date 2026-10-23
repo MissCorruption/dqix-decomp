@@ -4,7 +4,7 @@ struct BlockedContextList;
 void UnblockContexts(struct BlockedContextList* list);
 extern "C" void func_020c7e0c(void* data, int a, int b);
 extern "C" void func_020c7f44(void* data, int a, int b);
-int PopQueueEntryOrWait020c7fe0(void* obj, unsigned int* out, int canWait);
+extern "C" int func_020c7fe0(void* obj, unsigned int* out, int canWait);
 
 struct Cache0224c954 { short lastValue; short lastType; };
 struct Msg02245e5c { short type; short value; };
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_02245e5c(struct Msg02245e5c* msg) {
 	case 7:
 		if (msg->value == 0) {
 			unsigned int tmp;
-			if (PopQueueEntryOrWait020c7fe0(&data_ov031_02291f60, &tmp, 0) != 0) return;
+			if (func_020c7fe0(&data_ov031_02291f60, &tmp, 0) != 0) return;
 			func_020c7e0c(&data_ov031_02291f60, 1, 0);
 		} else {
 			func_020c7f44(&data_ov031_02291f60, 3, 0);

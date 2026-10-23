@@ -3,15 +3,15 @@
 #include "GameState/GameState.h"
 
 struct Combatant_20885b4;
-int CheckFlag0x2AndKind1_020885b4(struct Combatant_20885b4* obj);
+extern "C" int func_020885b4(struct Combatant_20885b4* obj);
 struct S88514;
-int CheckFlag0x2AndState2_02088514(struct S88514* obj);
+extern "C" int func_02088514(struct S88514* obj);
 struct Combatant_2088644;
-void ClearFlag0x2AndKind_02088644(struct Combatant_2088644* obj);
+extern "C" void func_02088644(struct Combatant_2088644* obj);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, unsigned long long ef, int g);
 
 struct PackedPair_021dbc64 {
@@ -41,18 +41,18 @@ extern "C" ARM void* func_ov024_021dbc64(struct Obj_021dbc64* obj, int unused, i
 	local.lo = 0;
 	local.hi = 0;
 	int sel;
-	if ((CheckFlag0x2AndKind1_020885b4((struct Combatant_20885b4*)c->currentStats_) || CheckFlag0x2AndState2_02088514((struct S88514*)c->currentStats_)) && flagArg != 0) {
+	if ((func_020885b4((struct Combatant_20885b4*)c->currentStats_) || func_02088514((struct S88514*)c->currentStats_)) && flagArg != 0) {
 		sel = 0x54;
-		ClearFlag0x2AndKind_02088644((struct Combatant_2088644*)c->currentStats_);
+		func_02088644((struct Combatant_2088644*)c->currentStats_);
 		func_ov000_02159eac(obj->field0x10, &local, 0x11);
 		obj->count0x14++;
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
 		obj->field0x75 = 0;
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, local.v, obj->field0xc->flags.flag != 0);
 	return entry;
 }

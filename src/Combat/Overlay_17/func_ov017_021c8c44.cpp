@@ -31,19 +31,18 @@ struct IndexList021c8c44 {
 
 extern const IndexList021c8c44 data_ov017_021d6d18;
 
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* gameState, int combatantId);
-int GetSignedByte0x2d0_020546a8(void* obj);
+extern "C" GameObject* func_0200ff58(GameState* gameState, int combatantId);
+extern "C" int func_020546a8(void* obj);
 extern "C" void func_0202738c(void* a, int b, int c, int d);
 extern "C" void func_02027304(void* obj, int id);
 extern "C" void func_ov017_021b86f8(void* obj, int key, int a, int flag);
 extern "C" int func_0202c508(void* search);
-Entry0207d9bc* GetData02108ea8_0207d78c(void);
-void ResetEntryByKey0207da7c(Entry0207d9bc* arr, unsigned short key);
-void EnqueueEventForFlaggedCombatants_021a33e0(void* ctx, int key);
-void SetField0x1b2IfMatchOrFlag02053f7c(Obj02053f7c* obj, unsigned short a, int b);
-#define SetField0x1b2IfMatchOrFlag02053f7c SetField0x1b2IfMatchOrFlag02053f7c
-void CallHelperWithBuf_021907dc(int a, int b, int c, int d, int e);
-void ClearMatchingHalfword_02197324(unsigned char* obj, unsigned short key);
+extern "C" Entry0207d9bc* func_0207d78c(void);
+extern "C" void func_0207da7c(Entry0207d9bc* arr, unsigned short key);
+extern "C" void func_ov017_021a33e0(void* ctx, int key);
+extern "C" void func_02053f7c(Obj02053f7c* obj, unsigned short a, int b);
+extern "C" void func_ov017_021907dc(int a, int b, int c, int d, int e);
+extern "C" void func_ov017_02197324(unsigned char* obj, unsigned short key);
 
 // USA: func_ov017_021c8c44
 extern "C" ARM void func_ov017_021c8c44(int id, Evt021c8c44* evt, GameState* gs, unsigned char* ctx, void* search) {
@@ -60,8 +59,8 @@ extern "C" ARM void func_ov017_021c8c44(int id, Evt021c8c44* evt, GameState* gs,
         if (i == id) {
             match = 1;
         } else {
-            GameObject* c = GetCombatantWithFlag0x1000_0200ff58(inst, i);
-            if (c != NULL && id == GetSignedByte0x2d0_020546a8(c)) {
+            GameObject* c = func_0200ff58(inst, i);
+            if (c != NULL && id == func_020546a8(c)) {
                 match = 1;
             }
         }
@@ -78,7 +77,7 @@ extern "C" ARM void func_ov017_021c8c44(int id, Evt021c8c44* evt, GameState* gs,
 #endif
 
     if (func_0202c508(search)) {
-        ResetEntryByKey0207da7c(GetData02108ea8_0207d78c(), key);
+        func_0207da7c(func_0207d78c(), key);
         if (target != -1) {
             IndexList021c8c44 list = data_ov017_021d6d18;
             int n = 0;
@@ -92,25 +91,25 @@ extern "C" ARM void func_ov017_021c8c44(int id, Evt021c8c44* evt, GameState* gs,
                 }
             }
             if (n == 1 && list.idx[0] != 0) {
-                EnqueueEventForFlaggedCombatants_021a33e0(ctx, target);
+                func_ov017_021a33e0(ctx, target);
             }
         }
     }
 
     for (int j = 0; j < 4; j++) {
-        Combatant021c8c44* c = (Combatant021c8c44*)GetCombatantWithFlag0x100_0200ff1c(gs, j);
+        Combatant021c8c44* c = (Combatant021c8c44*)func_0200ff1c(gs, j);
         if (c != NULL) {
             if (id == c->obj3D.unknown_4_) {
-                SetField0x1b2IfMatchOrFlag02053f7c((Obj02053f7c*)c, 0, 1);
+                func_02053f7c((Obj02053f7c*)c, 0, 1);
             } else if (c->obj3D.unknown_0_ & 0x1000) {
-                Combatant021c8c44* leader = (Combatant021c8c44*)GetCombatantWithFlag0x100_0200ff1c(gs, 0);
+                Combatant021c8c44* leader = (Combatant021c8c44*)func_0200ff1c(gs, 0);
                 if (leader != NULL) {
-                    SetField0x1b2IfMatchOrFlag02053f7c((Obj02053f7c*)c, leader->field_1b2, 1);
+                    func_02053f7c((Obj02053f7c*)c, leader->field_1b2, 1);
                 }
             }
         }
     }
 
-    CallHelperWithBuf_021907dc((int)ctx, id, 1, 1, 1);
-    ClearMatchingHalfword_02197324(ctx, key);
+    func_ov017_021907dc((int)ctx, id, 1, 1, 1);
+    func_ov017_02197324(ctx, key);
 }

@@ -110,15 +110,15 @@ struct Obj0204b010;
 struct List0204afb4;
 struct FlagWord020466f4;
 
-void EmptyDestructor0205a494(void* renderer);
-MessageSystem* GetGlobalField0x1c020421a0();
-void InitCombatSlots02045cac(CombatSlots02045cac* messages);
-void ReinitController02043204(char* messages);
-void ClearBuffer0204b010(Obj0204b010* background, void* value);
-void ResetRecordList0204afb4(List0204afb4* background);
-void SetFlagBytes02017d68(void* unused);
-void* GetDataPtr02114e04_020d6c00();
-void ClearFlags020466f4(FlagWord020466f4* field, unsigned int bits);
+extern "C" void func_0205a494(void* renderer);
+extern "C" MessageSystem* func_020421a0();
+extern "C" void func_02045cac(CombatSlots02045cac* messages);
+extern "C" void func_02043204(char* messages);
+extern "C" void func_0204b010(Obj0204b010* background, void* value);
+extern "C" void func_0204afb4(List0204afb4* background);
+extern "C" void func_02017d68(void* unused);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466f4(FlagWord020466f4* field, unsigned int bits);
 
 extern "C" {
 void func_ov023_021eb26c(void* guide);
@@ -141,14 +141,14 @@ extern "C" ARM void func_ov008_021845ac(BattleRecords* self)
         self->task_ = -1;
     }
     if (self->renderer_ != NULL)
-        EmptyDestructor0205a494(self->renderer_);
+        func_0205a494(self->renderer_);
     if (self->iconRenderer_ != NULL)
-        EmptyDestructor0205a494(self->iconRenderer_);
+        func_0205a494(self->iconRenderer_);
     if (self->guide_ != NULL)
         func_ov023_021eb26c(self->guide_);
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
-    InitCombatSlots02045cac((CombatSlots02045cac*)messages);
-    ReinitController02043204((char*)messages);
+    MessageSystem* messages = func_020421a0();
+    func_02045cac((CombatSlots02045cac*)messages);
+    func_02043204((char*)messages);
     func_02043124(messages);
     messages->unk_2d8 = NULL;
     messages->unk_2dc = NULL;
@@ -157,10 +157,10 @@ extern "C" ARM void func_ov008_021845ac(BattleRecords* self)
     for (int i = 0; i < 3; i++)
     {
         BackgroundGraphics* background = backgrounds[i];
-        ClearBuffer0204b010((Obj0204b010*)background, 0);
+        func_0204b010((Obj0204b010*)background, 0);
         func_0204b04c(background, 0);
         func_0204b088(background, 0);
-        ResetRecordList0204afb4((List0204afb4*)background);
+        func_0204afb4((List0204afb4*)background);
     }
     func_020ca458(0, (void*)0x06000000, GetMainBGAssignedVRAMSize());
     func_0205d048(&self->window_);
@@ -176,8 +176,8 @@ extern "C" ARM void func_ov008_021845ac(BattleRecords* self)
     {
         if (self->mode_ == 0)
         {
-            SetFlagBytes02017d68(func_02012fe4());
+            func_02017d68(func_02012fe4());
         }
-        ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xf);
+        func_020466f4((FlagWord020466f4*)func_020d6c00(), 0xf);
     }
 }

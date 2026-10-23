@@ -46,7 +46,7 @@ struct Obj0204459c {
 
 extern "C" void func_0204455c(void* obj, short* a, short* b);
 extern "C" void func_0204f914(void* obj, int mode, short a, short b, short c, short d);
-void Forward020e23c0(struct Level1_020e23c0*, int, int, int, short, short);
+extern "C" void func_020e23c0(struct Level1_020e23c0*, int, int, int, short, short);
 
 // USA: func_0204459c
 extern "C" ARM void func_0204459c(struct Obj0204459c* obj, int flag) {
@@ -81,7 +81,7 @@ extern "C" ARM void func_0204459c(struct Obj0204459c* obj, int flag) {
         if (obj->s19ae <= 15) return;
         int base = x - 8;
         for (short i = 0; i < 4; i++) {
-            Forward020e23c0(obj->field38, 15, (short)((z >> 1) - (3 - i)), (short)(base + i), (4 - i) + (z >> 1), base + i + 1);
+            func_020e23c0(obj->field38, 15, (short)((z >> 1) - (3 - i)), (short)(base + i), (4 - i) + (z >> 1), base + i + 1);
         }
         return;
     }

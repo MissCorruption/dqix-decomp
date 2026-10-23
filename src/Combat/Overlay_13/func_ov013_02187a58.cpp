@@ -18,15 +18,15 @@ struct SkillSortEntry02187a58 {
 };
 struct List0208e024;
 struct Node0208e024;
-Node0208e024* FindNthNodeByKind0208e024(List0208e024* list, int kind, int index);
-#define func_0208e934(list, kind, index) ((SkillEntry02187a58*)FindNthNodeByKind0208e024((List0208e024*)(list), (kind), (index)))
+extern "C" Node0208e024* func_0208e024(List0208e024* list, int kind, int index);
+#define func_0208e934(list, kind, index) ((SkillEntry02187a58*)func_0208e024((List0208e024*)(list), (kind), (index)))
 struct List0208e06c;
-SkillEntry02187a58* FindNodeById0208e06c(List0208e06c* list, int id);
-int GetTableByte020dd11c(unsigned int, unsigned int);
-int GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" SkillEntry02187a58* func_0208e06c(List0208e06c* list, int id);
+extern "C" int func_020dd11c(unsigned int, unsigned int);
+extern "C" int func_02053c6c(unsigned char*);
 struct TableA68;
-void* FindEntryByKey_02072a68(TableA68*, int);
-int StringLength_020d2ff0(const char*);
+extern "C" void* func_02072a68(TableA68*, int);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void __clear(void*, int);
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
 extern "C" void func_020749ac(void*, int, int, int);
@@ -39,22 +39,22 @@ extern char data_ov013_02188e64[];
 extern "C" ARM void func_ov013_02187a58(void* self, void* canvas) {
     unsigned char* menu = (unsigned char*)self;
     if (!canvas) return;
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), *(signed char*)(menu + 0x53));
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), *(signed char*)(menu + 0x53));
     if (!combatant) return;
     int palette;
-    unsigned char* stats = (unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    unsigned char* stats = (unsigned char*)func_02053c6c((unsigned char*)combatant);
     if (!stats) return;
-    int kind = GetTableByte020dd11c(*(unsigned int*)(stats + 0x8b8) & 0xff, menu[0x54]);
+    int kind = func_020dd11c(*(unsigned int*)(stats + 0x8b8) & 0xff, menu[0x54]);
     int availablePoints = (stats + kind)[0x464];
     int y = 30;
-    const char* title = (const char*)FindEntryByKey_02072a68((TableA68*)(menu + 4), kind);
+    const char* title = (const char*)func_02072a68((TableA68*)(menu + 4), kind);
     short width, height;
     SkillSortEntry02187a58 entries[10];
     char nameText[256];
     char pointsText[32];
     char suffix[16];
 
-    func_02050678(canvas, (short)(128 - (StringLength_020d2ff0(title) >> 2) * 10), 12, title, 10, 15, &width, &height);
+    func_02050678(canvas, (short)(128 - (func_020d2ff0(title) >> 2) * 10), 12, title, 10, 15, &width, &height);
     memset(entries, 0, sizeof(entries));
     for (unsigned char i = 0; i < 10; i++) {
         SkillSortEntry02187a58* sorted = &entries[i];
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* canvas) {
     func_020749ac(entries, 0, 9, 0);
     for (unsigned char i = 0; i < 10; i++) {
         palette = 3;
-        SkillEntry02187a58* skill = FindNodeById0208e06c((List0208e06c*)(menu + 0xc), (short)entries[i].id);
+        SkillEntry02187a58* skill = func_0208e06c((List0208e06c*)(menu + 0xc), (short)entries[i].id);
         if (skill) {
             int points = skill->points;
             if (availablePoints >= points) palette = 15;
@@ -110,12 +110,12 @@ struct List0208e024;
 struct List0208e06c;
 struct TableA68;
 
-ARM struct Node02187a58* FindNthNodeByKind0208e024(struct List0208e024* list, int kind, int index);
-ARM struct Node02187a58* FindNodeById0208e06c(struct List0208e06c* list, int id);
-ARM void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-ARM int GetTableByte020dd11c(unsigned int a, unsigned int b);
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" ARM struct Node02187a58* func_0208e024(struct List0208e024* list, int kind, int index);
+extern "C" ARM struct Node02187a58* func_0208e06c(struct List0208e06c* list, int id);
+extern "C" ARM void* func_02072a68(struct TableA68* table, int key);
+extern "C" ARM int func_020dd11c(unsigned int a, unsigned int b);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" void* func_020421a0(void);
 
 extern "C" void __clear(void* buf, int n);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
@@ -143,21 +143,21 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
     }
 
     GameObject* combatant =
-        GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), *(signed char*)(obj + 0x67));
+        func_0200ff1c(GameState::GetInstance(), *(signed char*)(obj + 0x67));
     if (combatant == 0) {
         return;
     }
 
     int palette;
-    unsigned char* field = (unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    unsigned char* field = (unsigned char*)func_02053c6c((unsigned char*)combatant);
     if (field == 0) {
         return;
     }
 
-    int kind = GetTableByte020dd11c(*(unsigned int*)(field + 0x950) & 0xff, obj[0x68]);
+    int kind = func_020dd11c(*(unsigned int*)(field + 0x950) & 0xff, obj[0x68]);
     int cap = (field + kind)[0x464];
     int y = 0x1e;
-    void* label = FindEntryByKey_02072a68((struct TableA68*)(obj + 4), kind);
+    void* label = func_02072a68((struct TableA68*)(obj + 4), kind);
 
     short outA;
     short outB;
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
     memset((void*)entries, (int)(0), (unsigned int)(0x50));
     for (unsigned char i = 0; i < 10; i++) {
         struct Entry02187a58* e = &entries[i];
-        struct Node02187a58* n = FindNthNodeByKind0208e024((struct List0208e024*)(obj + 0xc), kind, i);
+        struct Node02187a58* n = func_0208e024((struct List0208e024*)(obj + 0xc), kind, i);
         if (n != 0) {
             e->id = n->id;
             e->weight = _ffltu(n->level);
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
     func_020749ac(entries, 0, 9, 0);
 
     struct Node02187a58* first =
-        FindNodeById0208e06c((struct List0208e06c*)(obj + 0xc), (short)entries[0].id);
+        func_0208e06c((struct List0208e06c*)(obj + 0xc), (short)entries[0].id);
     int k = 0;
     while (data_ov013_02187dc8[k] >= 0) {
         if (data_ov013_02187dc8[k] == first->kind) {
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
     for (unsigned char j = 0; j < 10; j++) {
         palette = 3;
         struct Node02187a58* n =
-            FindNodeById0208e06c((struct List0208e06c*)(obj + 0xc), (short)entries[j].id);
+            func_0208e06c((struct List0208e06c*)(obj + 0xc), (short)entries[j].id);
         if (n != 0) {
             int level = n->level;
             if (cap >= level) {
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* ctx) {
 
             __clear(rawBuf, 0x100);
             __clear(nameBuf, 0x100);
-            func_02046608(GetGlobalField0x1c020421a0(), 0xa, n->field4, rawBuf, 0x100, 0, 0);
+            func_02046608(func_020421a0(), 0xa, n->field4, rawBuf, 0x100, 0, 0);
             func_020e4864(rawBuf, nameBuf, 1, 0, 0, 0);
 
             if (n->high != 0 && *(signed char*)(obj + 0x6a) >= 0) {

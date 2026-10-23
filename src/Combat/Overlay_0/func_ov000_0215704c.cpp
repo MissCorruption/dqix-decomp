@@ -45,9 +45,9 @@ extern "C" int func_ov000_0215e9fc(struct Random* battle, short* buf, int max, i
 extern "C" int func_ov000_02155f9c(struct Random* battle, int combatantId, int checkSubFlag);
 extern "C" float func_ov000_0215641c(struct Random* battle, int id);
 int NextRandomMax(struct Random* random, int maximum);
-int IsValidTargetCombatant(struct TargetObj02088418* c, int index, int actionId);
-int CheckField0x14FlagsClear0208824c(unsigned char* obj);
-int CheckField0x14FlagsClear_020883ac(unsigned char* obj);
+extern "C" int func_02088418(struct TargetObj02088418* c, int index, int actionId);
+extern "C" int func_0208824c(unsigned char* obj);
+extern "C" int func_020883ac(unsigned char* obj);
 
 static inline int IsPartyIndex(int index) {
     return index >= 0 && index <= 3;
@@ -74,18 +74,18 @@ extern "C" ARM int func_ov000_0215704c(struct Random* battle, int index) {
     }
     gs = GameState::GetInstance();
     for (int i = 0; i < count; i++) {
-        if (GetCombatantWithFlag0x100_0200ff1c(gs, targets.ids[i]) == NULL) {
+        if (func_0200ff1c(gs, targets.ids[i]) == NULL) {
             continue;
         }
         float chance = func_ov000_0215641c(battle, targets.ids[i]);
         chance *= self->action->rate / 100.0f;
         if (chance > NextRandomMax(battle, 100)) {
             struct TargetChoices0215704c table = data_ov000_02182aa0;
-            table.choices[0].valid = IsValidTargetCombatant((struct TargetObj02088418*)self->action, 10, 0);
+            table.choices[0].valid = func_02088418((struct TargetObj02088418*)self->action, 10, 0);
             table.choices[1].enabled = self->action->field4E;
-            table.choices[1].valid = CheckField0x14FlagsClear0208824c((unsigned char*)self->action);
+            table.choices[1].valid = func_0208824c((unsigned char*)self->action);
             table.choices[2].enabled = self->action->field4A;
-            table.choices[2].valid = CheckField0x14FlagsClear_020883ac((unsigned char*)self->action);
+            table.choices[2].valid = func_020883ac((unsigned char*)self->action);
             int roll = NextRandomMax(battle, 100);
             for (int j = 0; j < 3; j++) {
                 if (table.choices[j].weight > roll) {

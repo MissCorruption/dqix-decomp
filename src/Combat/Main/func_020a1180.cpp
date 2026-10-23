@@ -12,13 +12,13 @@ struct BitfieldRecord020a1380 {
     int next;
     int prev;
 };
-void ResetBitfieldRecord(struct BitfieldRecord020a1380* rec);
+extern "C" void func_020a1380(struct BitfieldRecord020a1380* rec);
 
-int StringLength_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* s);
 
 struct Elem020a1568;
 struct Array020a1568;
-void AppendElement020a1568(struct Array020a1568* arr, struct Elem020a1568* src);
+extern "C" void func_020a1568(struct Array020a1568* arr, struct Elem020a1568* src);
 
 unsigned char data_02109d94;
 unsigned short data_02109d96;
@@ -31,8 +31,8 @@ extern const char data_020f1914[];
 // USA: func_020a1180
 extern "C" ARM int func_020a1180(Script::Parameter* params, int numParams) {
     struct BitfieldRecord020a1380 rec;
-    ResetBitfieldRecord(&rec);
-    ResetBitfieldRecord(&rec);
+    func_020a1380(&rec);
+    func_020a1380(&rec);
 
     rec.f0 = params[0].ToInt();
 
@@ -69,11 +69,11 @@ extern "C" ARM int func_020a1180(Script::Parameter* params, int numParams) {
     rec.f4 = params[4].ToInt();
 
     const char* src = params[5].ToString();
-    int len = StringLength_020d2ff0(src);
+    int len = func_020d2ff0(src);
     rec.next = (int)data_02109d9c->Allocate(len + 1);
     sprintf((char*)rec.next, data_020f1914, src);
     ((char*)rec.next)[len] = 0;
-    AppendElement020a1568(data_02109d98, (struct Elem020a1568*)&rec);
+    func_020a1568(data_02109d98, (struct Elem020a1568*)&rec);
 
     return 1;
 }

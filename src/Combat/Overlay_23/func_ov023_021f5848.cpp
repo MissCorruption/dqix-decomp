@@ -12,7 +12,7 @@ struct TaggedValue02030b44 {
 
 struct Element020de650;
 struct Container020dedd0;
-Element020de650* FindElementByKey020dedd0(struct Container020dedd0*, int);
+extern "C" Element020de650* func_020dedd0(struct Container020dedd0*, int);
 
 struct Bits10c_021f5848 {
     unsigned short low13 : 13;
@@ -51,13 +51,13 @@ extern "C" ARM int func_ov023_021f5848(struct Variant02030b0c* obj) {
             ptr->bits.low13 |= 2;
             return 0;
         }
-        struct ElementHalf1a_021f5848* found = (struct ElementHalf1a_021f5848*)FindElementByKey020dedd0(data_ov023_021fff08.container, (short)v);
+        struct ElementHalf1a_021f5848* found = (struct ElementHalf1a_021f5848*)func_020dedd0(data_ov023_021fff08.container, (short)v);
         if (found == 0) {
             data_ov023_021fff08.flag = 1;
             data_ov023_021fff08.ptr->bits.low13 |= 2;
             return 0;
         }
-        GetPtrField0x2a04_02010828(GameState::GetInstance());
+        func_02010828(GameState::GetInstance());
         float a = ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)obj + 8)))->ToFloat();
         float b = ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)obj + 0x10)))->ToFloat();
         struct Random* rng = GetBTRandom();

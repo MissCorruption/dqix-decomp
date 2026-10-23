@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-char *GetGlobalField0x1c020421a0(void);
+extern "C" char *func_020421a0(void);
 extern "C" char *func_02012fe4(void);
 extern "C" void func_ov003_0216fc58(void *self, int a, int b);
 extern "C" void func_ov003_0216ff90(void *self);
@@ -9,7 +9,7 @@ extern "C" void func_ov003_0216fe74(void *self, int a, int b, int c);
 extern "C" void func_ov003_02170960(void *self, int a, void *item);
 #if defined(jpn)
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574 *, int, char *);
+extern "C" void func_02046574(Obj02046574 *, int, char *);
 extern "C" void func_ov003_021701e4(void *self, int a);
 #define REGION_NOTIFY(self, a, item) func_ov003_021701e4(self, a)
 #else
@@ -27,12 +27,12 @@ struct Pool02098970;
 struct Entry02098970;
 struct NibbleElem02098e70;
 struct NibbleElem02098eac;
-Entry0216f474 *FindEntryByShortId_0216f414(Obj_0216f414 *list, int id);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *obj, int a, int b);
-int ReleaseEntryIfInPool(Pool02098970 *pool, Entry02098970 *entry);
-void ResetFieldsB68AndB74_0216fb6c(char *pool);
-int CountNibble0xcEquals9(NibbleElem02098e70 *p);
-int CountNibble0xcEqualsA(NibbleElem02098eac *p);
+extern "C" Entry0216f474 *func_ov003_0216f414(Obj_0216f414 *list, int id);
+extern "C" void func_0205eaa0(Obj0205eaa0 *obj, int a, int b);
+extern "C" int func_02098970(Pool02098970 *pool, Entry02098970 *entry);
+extern "C" void func_ov003_0216fb6c(char *pool);
+extern "C" int func_02098e70(NibbleElem02098e70 *p);
+extern "C" int func_02098eac(NibbleElem02098eac *p);
 
 extern int data_02108760;
 
@@ -95,21 +95,21 @@ enum { regionalOffset0 = 0x840 };
 extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
     char *base;
     Global0216f474 *global;
-    global    = (Global0216f474 *) GetGlobalField0x1c020421a0();
+    global    = (Global0216f474 *) func_020421a0();
     base      = func_02012fe4();
     int state = self->state_;
     if (state == 0) {
         if (self->unk_d4 != 0) {
-            Entry0216f474 *e = FindEntryByShortId_0216f414(self->unk_d4, 0x19);
+            Entry0216f474 *e = func_ov003_0216f414(self->unk_d4, 0x19);
             if (e != 0) {
                 e->flags &= ~2;
             }
-            e = FindEntryByShortId_0216f414(self->unk_d4, 0x1a);
+            e = func_ov003_0216f414(self->unk_d4, 0x1a);
             if (e != 0) {
                 e->flags |= 2;
             }
         }
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+        func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
         Item0216f474 *item = self->items_[(self->unk_0 - 1) * 8 + self->unk_6];
         if (item->kind_ == 9 || item->kind_ == 0xa) {
             func_ov003_0216fc58(self, 1, 0);
@@ -147,17 +147,17 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
             if (g_keyManager.TestKeysPressed(0x401) != 0 || sel == self->unk_9) {
                 switch (self->unk_8) {
                     case 0:
-                        DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+                        func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
                         func_ov003_0216ff90(self);
                         self->state_ = 2;
                         break;
                     case 1:
-                        DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+                        func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
                         func_ov003_0216ff90(self);
                         self->state_ = 3;
                         break;
                     case 2:
-                        DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+                        func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
                         func_ov003_0216ff90(self);
                         self->unk_7  = -1;
                         self->unk_1  = 2;
@@ -180,26 +180,26 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
     } else if (state == 2) {
         Item0216f474 *item = self->items_[(self->unk_0 - 1) * 8 + self->unk_6];
 #if defined(jpn)
-        SetIndexedName02046574((Obj02046574 *) global, 0, (char *) item);
+        func_02046574((Obj02046574 *) global, 0, (char *) item);
 #endif
         if (item->kind_ == 9 || item->kind_ == 0xa) {
             REGION_NOTIFY(self, 0x25, item);
             global->unk_998   = 1;
             Item0216f474 copy = *item;
-            ReleaseEntryIfInPool((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item);
+            func_02098970((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item);
             func_ov003_02170898(self);
             func_ov003_02170688(self);
-            ResetFieldsB68AndB74_0216fb6c(base + regionalOffset0);
+            func_ov003_0216fb6c(base + regionalOffset0);
             func_02098630(base + regionalOffset0, &copy, 0, 0);
-            ResetFieldsB68AndB74_0216fb6c(base + regionalOffset0);
+            func_ov003_0216fb6c(base + regionalOffset0);
             func_ov003_02170898(self);
             func_ov003_02170688(self);
             self->unk_16c = 1;
             self->unk_20 |= 8;
             self->state_ = 0x64;
         } else {
-            int n9 = CountNibble0xcEquals9((NibbleElem02098e70 *) (base + regionalOffset0));
-            int nA = CountNibble0xcEqualsA((NibbleElem02098eac *) (base + regionalOffset0));
+            int n9 = func_02098e70((NibbleElem02098e70 *) (base + regionalOffset0));
+            int nA = func_02098eac((NibbleElem02098eac *) (base + regionalOffset0));
             if (n9 + nA >= 6) {
                 REGION_NOTIFY(self, 0x21, item);
                 global->unk_998 = 1;
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
         }
     } else if (state == 3) {
 #if defined(jpn)
-        SetIndexedName02046574((Obj02046574 *) global, 0, (char *) self->items_[(self->unk_0 - 1) * 8 + self->unk_6]);
+        func_02046574((Obj02046574 *) global, 0, (char *) self->items_[(self->unk_0 - 1) * 8 + self->unk_6]);
         func_ov003_021701e4(self, 0x26);
 #else
         func_ov003_02170960(self, 0x26, self->items_[(self->unk_0 - 1) * 8 + self->unk_6]);
@@ -236,15 +236,15 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
     } else if (state == 5) {
         Item0216f474 *item = self->items_[(self->unk_0 - 1) * 8 + self->unk_6];
         if (self->unk_d4 != 0) {
-            Entry0216f474 *e = FindEntryByShortId_0216f414(self->unk_d4, 0x19);
+            Entry0216f474 *e = func_ov003_0216f414(self->unk_d4, 0x19);
             if (e != 0) {
                 e->flags &= ~2;
             }
-            e = FindEntryByShortId_0216f414(self->unk_d4, 0x1a);
+            e = func_ov003_0216f414(self->unk_d4, 0x1a);
             if (e != 0) {
                 e->flags &= ~2;
             }
-            e = FindEntryByShortId_0216f414(self->unk_d4, 0x1b);
+            e = func_ov003_0216f414(self->unk_d4, 0x1b);
             if (e != 0) {
                 e->flags |= 2;
             }
@@ -252,7 +252,7 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
         if ((self->unk_20 & 0x10) == 0) {
             if (self->unk_a != 0) {
                 REGION_NOTIFY(self, 0x27, item);
-                if (ReleaseEntryIfInPool((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item) != 0) {
+                if (func_02098970((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item) != 0) {
                     func_ov003_02170898(self);
                     func_ov003_02170688(self);
                 }
@@ -283,7 +283,7 @@ extern "C" ARM void func_ov003_0216f474(Menu0216f474 *self) {
         {
             Item0216f474 *item = self->items_[(self->unk_0 - 1) * 8 + self->unk_6];
             if (func_020457e0(global) == 0) {
-                if (ReleaseEntryIfInPool((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item) != 0) {
+                if (func_02098970((Pool02098970 *) (base + regionalOffset0), (Entry02098970 *) item) != 0) {
                     func_ov003_02170898(self);
                     func_ov003_02170688(self);
                 }

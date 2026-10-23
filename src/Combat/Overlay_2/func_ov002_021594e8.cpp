@@ -10,15 +10,15 @@
 
 struct Obj0205eaa0;
 struct Obj02048350;
-void *SearchBothTables02079e2c(char *p, int key);
-GameObject *GetCombatantChecked_0200ff94(GameState *gs, int id);
+extern "C" void *func_02079e2c(char *p, int key);
+extern "C" GameObject *func_0200ff94(GameState *gs, int id);
 extern "C" int *func_0202ae18(void);
 extern "C" void *__clear(void *dst, int count);
-int CopyOutRegion0x571d_020114ec(char *dst, void *src);
-void ConsumeCounter02048350(struct Obj02048350 *p, int a);
-int CheckField0NonZero_0202b7d8(int *p);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *p, int a, int b);
-void InitStateArray02157ce0(char *p);
+extern "C" int func_020114ec(char *dst, void *src);
+extern "C" void func_02048350(struct Obj02048350 *p, int a);
+extern "C" int func_0202b7d8(int *p);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *p, int a, int b);
+extern "C" void func_ov002_02157ce0(char *p);
 extern "C" void func_ov002_021536e0(void *p);
 extern "C" int func_ov002_021536ec(void *a, void *b, int c);
 extern "C" void func_ov016_0218b5c0(int a, int b);
@@ -74,9 +74,9 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
 
     p->command                        = cmd;
     GameState *gs                     = GameState::GetInstance();
-    ActionDataTables* tbl                         = GetData02108e10_020797dc();
-    struct TableEntry021594e8 *entryA = (struct TableEntry021594e8 *) SearchBothTables02079e2c((char*)tbl, p->command);
-    GameObject *comb                  = GetCombatantChecked_0200ff94(gs, actor);
+    ActionDataTables* tbl                         = func_020797dc();
+    struct TableEntry021594e8 *entryA = (struct TableEntry021594e8 *) func_02079e2c((char*)tbl, p->command);
+    GameObject *comb                  = func_0200ff94(gs, actor);
     int *checkPtr                     = func_0202ae18();
     int flagA                         = 0;
     if (p->state == RG(0x17, 0x18)) {
@@ -84,12 +84,12 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
         p->msgId2 = 0x232b;
         int res   = 0;
         if (p->command == 0x22) {
-            InitStateArray02157ce0((char *) &st);
-            InitStateArray02157ce0((char *) &st);
-            struct TableEntry021594e8 *entry = (struct TableEntry021594e8 *) SearchBothTables02079e2c((char*)tbl, p->command);
+            func_ov002_02157ce0((char *) &st);
+            func_ov002_02157ce0((char *) &st);
+            struct TableEntry021594e8 *entry = (struct TableEntry021594e8 *) func_02079e2c((char*)tbl, p->command);
             if (entry != NULL) {
                 __clear(buf, 4);
-                int n = CopyOutRegion0x571d_020114ec((char *) gs, buf);
+                int n = func_020114ec((char *) gs, buf);
                 if (entry->b10 & 1) {
                     st.id    = p->command;
                     st.actor = actor;
@@ -103,11 +103,11 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
                 }
             }
         } else {
-            struct TableEntry021594e8 *entry = (struct TableEntry021594e8 *) SearchBothTables02079e2c((char*)tbl, p->command);
+            struct TableEntry021594e8 *entry = (struct TableEntry021594e8 *) func_02079e2c((char*)tbl, p->command);
             if (entry != NULL && (entry->b10 & 1)) {
                 func_ov016_0218b5c0(res, -1);
-                InitStateArray02157ce0((char *) &st2);
-                InitStateArray02157ce0((char *) &st2);
+                func_ov002_02157ce0((char *) &st2);
+                func_ov002_02157ce0((char *) &st2);
                 st2.id     = p->command;
                 st2.actor  = actor;
                 st2.count  = 1;
@@ -129,13 +129,13 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
                 flagA     = 1;
             }
         }
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 0x64, 0);
+        func_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 0x64, 0);
         p->state     = RG(0x26, 0x29);
         p->nextState = RG(0x17, 0x18);
     }
     if (flagA != 0) {
-        ConsumeCounter02048350((struct Obj02048350 *) comb, entryA->lo8);
-        if (CheckField0NonZero_0202b7d8(checkPtr) != 0) {
+        func_02048350((struct Obj02048350 *) comb, entryA->lo8);
+        if (func_0202b7d8(checkPtr) != 0) {
             func_ov017_021c9e00(actor, 0, 0, 1);
         }
     }

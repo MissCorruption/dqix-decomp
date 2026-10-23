@@ -4,16 +4,16 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-int GetIndexedEntryField0x178_02053604(signed char* obj);
-void ForwardToTargetOrDefault0205eabc(void* target, void* param, int arg);
-int GetByte0x26c_02039d7c(char* obj);
-int GetField0x397cValue_020100b0(GameState* battleStruct);
-int GetFieldIfFlag4_020100f8(char* obj);
-void SetByte0x2c4To2IfByte0x2c5Set_020a2c8c(unsigned char* p);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" int func_02053604(signed char* obj);
+extern "C" void func_0205eabc(void* target, void* param, int arg);
+extern "C" int func_02039d7c(char* obj);
+extern "C" int func_020100b0(GameState* battleStruct);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a2c8c(unsigned char* p);
+extern "C" void* func_020421a0(void);
 
 struct Bytes02033b88;
-void SetByte0xbeShiftPrev(struct Bytes02033b88* obj, int value);
+extern "C" void func_02033b88(struct Bytes02033b88* obj, int value);
 
 extern "C" void func_ov017_021cc1f8(int id, const char* src, int len, int extra);
 
@@ -68,8 +68,8 @@ extern "C" ARM void func_020531f0(struct Obj020531f0* obj) {
         obj->taskId = -1;
     }
 
-    if (GetIndexedEntryField0x178_02053604((signed char*)obj) == 0x19) {
-        ForwardToTargetOrDefault0205eabc((void*)&data_02108760, (char*)obj + targetOffset, 0);
+    if (func_02053604((signed char*)obj) == 0x19) {
+        func_0205eabc((void*)&data_02108760, (char*)obj + targetOffset, 0);
     }
 
     memset(obj->animEntries, 0, 4);
@@ -91,7 +91,7 @@ extern "C" ARM void func_020531f0(struct Obj020531f0* obj) {
     obj->pendingAdvance = 0;
 
     if ((obj->object.unknown_0_ & 0x200) != 0) {
-        if (GetByte0x26c_02039d7c((char*)obj) != 0) {
+        if (func_02039d7c((char*)obj) != 0) {
             return;
         }
     }
@@ -99,17 +99,17 @@ extern "C" ARM void func_020531f0(struct Obj020531f0* obj) {
     obj->entryFlags.mode &= ~2;
     obj->object.RemoveAnimationPackageByID(2);
     obj->fieldB2 = 0;
-    SetByte0xbeShiftPrev((struct Bytes02033b88*)obj, 0);
+    func_02033b88((struct Bytes02033b88*)obj, 0);
 
     battleStruct = GameState::GetInstance();
     cid = obj->object.unknown_4_;
-    int activeId = GetField0x397cValue_020100b0(battleStruct);
+    int activeId = func_020100b0(battleStruct);
     if (activeId == cid) {
-        target = GetFieldIfFlag4_020100f8((char*)battleStruct);
+        target = func_020100f8((char*)battleStruct);
         if (target != 0) {
             if (g_keyManager.TestKeysHeld(2) == 0
-                || ((unsigned char*)GetGlobalField0x1c020421a0())[globalByteOffset] != 0) {
-                SetByte0x2c4To2IfByte0x2c5Set_020a2c8c((unsigned char*)target);
+                || ((unsigned char*)func_020421a0())[globalByteOffset] != 0) {
+                func_020a2c8c((unsigned char*)target);
             }
         }
     }

@@ -37,9 +37,9 @@ struct TagContext02069234 {
     signed char combatantId;
 };
 
-char* FindUnescapedAngleBracket_020424ac(char* str);
-int IsPrefixMatch020d857c(signed char* a, signed char* b);
-int StringLength_020d2ff0(const char* s);
+extern "C" char* func_020424ac(char* str);
+extern "C" int func_020d857c(signed char* a, signed char* b);
+extern "C" int func_020d2ff0(const char* s);
 extern "C" int func_02005a94(void* p);
 extern "C" int func_02001aec(void* a, void* b, int n);
 extern "C" char* func_020e4958(char** dst, void* val, int a2, int a3, int a4, int a5);
@@ -82,7 +82,7 @@ extern "C" ARM void func_02069234(TagContext02069234* sb, char* str, char* dst) 
             break;
         }
         if (c == '<') {
-            char* gt = FindUnescapedAngleBracket_020424ac(str);
+            char* gt = func_020424ac(str);
             if (gt == 0) {
                 goto copy_char;
             }
@@ -90,12 +90,12 @@ extern "C" ARM void func_02069234(TagContext02069234* sb, char* str, char* dst) 
             char* tag = str + 1;
             struct PrefixEntry02069234* rec = data_020e7e8c;
             for (; rec->prefix != 0; rec++) {
-                if (!IsPrefixMatch020d857c((signed char*)tag, (signed char*)rec->prefix)) {
+                if (!func_020d857c((signed char*)tag, (signed char*)rec->prefix)) {
                     continue;
                 }
                 if (rec->handler != 0) {
                     int index = 0;
-                    int len = StringLength_020d2ff0(rec->prefix);
+                    int len = func_020d2ff0(rec->prefix);
                     signed char d = tag[len];
                     if (d >= '1' && d <= '9') {
                         index = func_02005a94(tag + len) - 1;
@@ -126,7 +126,7 @@ extern "C" ARM void func_02069234(TagContext02069234* sb, char* str, char* dst) 
                 if (key == 0) {
                     break;
                 }
-                int len = StringLength_020d2ff0(key);
+                int len = func_020d2ff0(key);
                 if (func_02001aec(tag, key, len) == 0) {
                     handled = 1;
                     tag += len;
@@ -166,7 +166,7 @@ extern "C" ARM void func_02069234(TagContext02069234* sb, char* str, char* dst) 
             if (func_02001aec(str, data_020f0904, 4) == 0) {
                 str += 4;
                 GameState* gameState = GameState::GetInstance();
-                Combatant02069234* combatant = (Combatant02069234*)GetCombatantWithFlag0x100_0200ff1c(gameState, sb->combatantId);
+                Combatant02069234* combatant = (Combatant02069234*)func_0200ff1c(gameState, sb->combatantId);
                 if (combatant != 0) {
                     StatusEffectEntry02069234* eff = combatant->statusTable->GetEffect();
                     if (eff != 0) {

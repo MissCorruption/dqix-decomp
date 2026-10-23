@@ -12,18 +12,18 @@ struct Container02028170;
 struct List_020283c0;
 struct AppendPairList;
 struct TimeStamp020105a8;
-void InitializeStruct020280f8(InitStruct*);
-void InitializeStruct_020280b0(InitStruct*);
-void AllocateAndClearHeaderArray020286fc(Array020286fc*, SafeAllocator*, int);
-void AllocateClearArray02028754(Array02028754*, SafeAllocator*, int);
-void AllocateArray0202834c(Array0202834c*, SafeAllocator*, int);
-void AppendHalfwordPairCapped_02028378(BoundedHalfwordPairList*, HalfwordPair*);
+extern "C" void func_020280f8(InitStruct*);
+extern "C" void func_020280b0(InitStruct*);
+extern "C" void func_020286fc(Array020286fc*, SafeAllocator*, int);
+extern "C" void func_02028754(Array02028754*, SafeAllocator*, int);
+extern "C" void func_0202834c(Array0202834c*, SafeAllocator*, int);
+extern "C" void func_02028378(BoundedHalfwordPairList*, HalfwordPair*);
 int GenerateGrottoObjectPositionOrientation(void*, int, int, int*, int*, const TileFeaturePlacementData*, bool);
-void AppendCappedElement02028170(Container02028170*, Elem02028170*);
-Elem02028170* FindListEntryById(List_020283c0*, int);
-void AppendPairToBoundedList_020281d8(AppendPairList*, AppendEntry*);
+extern "C" void func_02028170(Container02028170*, Elem02028170*);
+extern "C" Elem02028170* func_020283c0(List_020283c0*, int);
+extern "C" void func_020281d8(AppendPairList*, AppendEntry*);
 extern "C" void func_02028214(GrottoTileLists0201a300*, SafeAllocator*);
-void ComputeElapsedTime020105a8(TimeStamp020105a8*, int*);
+extern "C" void func_020105a8(TimeStamp020105a8*, int*);
 
 static inline unsigned int GrottoTileId0201a300(unsigned int x, unsigned int y) {
     SDK_ASSERT(x < 16 && y < 16);
@@ -58,15 +58,15 @@ extern "C" ARM int func_0201a300(Zone3D* zone, int floor, GrottoTileOwner0201a30
     }
     int remaining = 0x1020 - ((count << 4) + (neighbors << 3));
     if (remaining < 0) neighbors -= abs(remaining / 8) + 1;
-    InitializeStruct020280f8((InitStruct*)&owner->lists);
-    InitializeStruct_020280b0((InitStruct*)&owner->lists);
-    AllocateAndClearHeaderArray020286fc((Array020286fc*)&owner->lists, owner->allocator, count);
-    AllocateClearArray02028754((Array02028754*)&owner->lists, owner->allocator, neighbors);
-    AllocateArray0202834c((Array0202834c*)&owner->lists, owner->allocator, 1);
+    func_020280f8((InitStruct*)&owner->lists);
+    func_020280b0((InitStruct*)&owner->lists);
+    func_020286fc((Array020286fc*)&owner->lists, owner->allocator, count);
+    func_02028754((Array02028754*)&owner->lists, owner->allocator, neighbors);
+    func_0202834c((Array0202834c*)&owner->lists, owner->allocator, 1);
     HalfwordPair origin;
     origin.first = 0;
     origin.second = 0;
-    AppendHalfwordPairCapped_02028378((BoundedHalfwordPairList*)&owner->lists, &origin);
+    func_02028378((BoundedHalfwordPairList*)&owner->lists, &origin);
     for (int y = 1; y < 15; y++) {
         int previousY;
         int x = 1;
@@ -90,7 +90,7 @@ extern "C" ARM int func_0201a300(Zone3D* zone, int floor, GrottoTileOwner0201a30
             feature.z = tileZ >> 12;
             if (value == 4) feature.flags |= 2;
             feature.id = id;
-            AppendCappedElement02028170((Container02028170*)&owner->lists, &feature);
+            func_02028170((Container02028170*)&owner->lists, &feature);
             int leftId = x - 1 + (y << 4);
             int left = tiles[leftId];
             int aboveId = x + (previousY << 4);
@@ -98,22 +98,22 @@ extern "C" ARM int func_0201a300(Zone3D* zone, int floor, GrottoTileOwner0201a30
             if (left != 1 && left != 3) {
                 pair.second = 0;
                 pair.first = 0;
-                pair.first = FindListEntryById((List_020283c0*)&owner->lists, GrottoTileId0201a300(x, y));
-                pair.second = FindListEntryById((List_020283c0*)&owner->lists, leftId);
-                AppendPairToBoundedList_020281d8((AppendPairList*)&owner->lists, &pair);
+                pair.first = func_020283c0((List_020283c0*)&owner->lists, GrottoTileId0201a300(x, y));
+                pair.second = func_020283c0((List_020283c0*)&owner->lists, leftId);
+                func_020281d8((AppendPairList*)&owner->lists, &pair);
             }
             if (above != 1 && above != 3) {
                 pair.second = 0;
                 pair.first = 0;
-                pair.first = FindListEntryById((List_020283c0*)&owner->lists, id);
-                pair.second = FindListEntryById((List_020283c0*)&owner->lists, aboveId);
-                AppendPairToBoundedList_020281d8((AppendPairList*)&owner->lists, &pair);
+                pair.first = func_020283c0((List_020283c0*)&owner->lists, id);
+                pair.second = func_020283c0((List_020283c0*)&owner->lists, aboveId);
+                func_020281d8((AppendPairList*)&owner->lists, &pair);
             }
         }
     }
     func_02028214(&owner->lists, owner->allocator);
     int elapsed;
-    ComputeElapsedTime020105a8((TimeStamp020105a8*)state, &elapsed);
+    func_020105a8((TimeStamp020105a8*)state, &elapsed);
     srand(elapsed);
     return 1;
 }

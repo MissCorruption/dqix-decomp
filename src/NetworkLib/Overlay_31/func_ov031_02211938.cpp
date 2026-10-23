@@ -10,7 +10,7 @@ struct RC4Context_02211938 {
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_ov031_02211938
 extern "C" ARM
-asm void Rc4Crypt_02211938(RC4Context_02211938* ctx, const void* in, unsigned int length, void* out)
+asm void func_ov031_02211938(RC4Context_02211938* ctx, const void* in, unsigned int length, void* out)
 {
     stmdb sp!, {r4, r5, r6, r7, r8, r9, lr}
     ldrb r7, [r0, #0]

@@ -37,11 +37,11 @@ enum {
     NNS_G2D_HORIZONTALORIGIN_RIGHT = 0x20
 };
 
-NNSG2dTextRect NNSi_G2dFontGetTextRect(const NNSG2dFont* pFont, int hSpace, int vSpace, const void* txt);
+NNSG2dTextRect func_020b1020(const NNSG2dFont* pFont, int hSpace, int vSpace, const void* txt);
 void func_020b245c(const NNSG2dTextCanvas* pTxn, int x, int y, int areaWidth, int cl, unsigned int flags, const void* txt, NNSiG2dTextDirection d);
 
 static inline NNSG2dTextRect NNS_G2dFontGetTextRect(const NNSG2dFont* pFont, int hSpace, int vSpace, const NNSG2dChar* txt) {
-    NNSG2dTextRect rect = NNSi_G2dFontGetTextRect(pFont, hSpace, vSpace, txt);
+    NNSG2dTextRect rect = func_020b1020(pFont, hSpace, vSpace, txt);
     return rect;
 }
 

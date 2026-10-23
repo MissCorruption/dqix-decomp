@@ -13,30 +13,30 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset734 = 0x734, RegionOffset6d0 = 0x6d0
 #endif
 
 extern "C" void* func_02012fe4(void);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
 
 struct Obj02071488 {
     char pad0[0x46];
     short f46;
     char pad46[0x68 - 0x48];
 };
-struct Obj02071488* RunScriptByValueRange02071574(unsigned int value, struct Obj02071488* obj);
+extern "C" struct Obj02071488* func_02071574(unsigned int value, struct Obj02071488* obj);
 
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
 
 extern "C" void func_ov017_021baedc(void* self, int flag);
 
 struct SetFlagStruct;
-void SetFlag0x9c6_020213fc(struct SetFlagStruct* p, int value);
+extern "C" void func_020213fc(struct SetFlagStruct* p, int value);
 
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
-void SetField108_021bd398(void* obj);
+extern "C" void func_ov017_021bd398(void* obj);
 
-int Dispatch020649f4(void* a, void* b);
+extern "C" int func_020649f4(void* a, void* b);
 extern "C" void func_0206f81c(void* p);
 
 struct Entry021baedc {
@@ -55,7 +55,7 @@ struct DispatchLocal0219fc88 {
     char pad1[0x34 - 0x10];
 };
 
-// USA: func_ov017_0219fc88  (semantic: RunScriptAndRegisterEntryNode_0219fc88)
+// USA: func_ov017_0219fc88
 extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
     GameState* battle = GameState::GetInstance();
     unsigned short* g = (unsigned short*)func_02012fe4();
@@ -63,14 +63,14 @@ extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
     int success;
     void* self = GetGameResources();
     struct TailList020469b4* list = *(struct TailList020469b4**)((char*)self + 0x3000 + RegionOffset6fc);
-    ctx = GetField0x3f8Address_0200fd0c(battle);
+    ctx = func_0200fd0c(battle);
 
     struct Obj02071488 objBuf;
     success = 0;
 
-    if (RunScriptByValueRange02071574((unsigned short)scriptId, &objBuf) != NULL) {
+    if (func_02071574((unsigned short)scriptId, &objBuf) != NULL) {
         void* work = func_0205ec34();
-        if (TestBitInByteArray_0206dfb0((int)work, (unsigned char*)work + 0x8c, objBuf.f46 + 0x38e) == 0) {
+        if (func_0206dfb0((int)work, (unsigned char*)work + 0x8c, objBuf.f46 + 0x38e) == 0) {
             struct Entry021baedc* entry = *(struct Entry021baedc**)((char*)self + 0x3000 + RegionOffset734);
 
             if (entry->f2 != 0) {
@@ -78,11 +78,11 @@ extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
             } else if (entry->f3 == 0) {
                 func_ov017_021baedc(entry, 1);
                 entry->f8 = scriptId;
-                SetFlag0x9c6_020213fc(*(struct SetFlagStruct**)((char*)self + 0x3000 + RegionOffset6d0), 1);
-                AppendNodeToTail(list, (struct TailNode020469b4*)entry);
+                func_020213fc(*(struct SetFlagStruct**)((char*)self + 0x3000 + RegionOffset6d0), 1);
+                func_020469b4(list, (struct TailNode020469b4*)entry);
             }
 
-            SetField108_021bd398(entry);
+            func_ov017_021bd398(entry);
 
             if (*((unsigned char*)ctx + 0xd) != 0) entry->f10a = 1;
             success = 1;
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
         void* work2 = func_0205ec34();
         struct DispatchLocal0219fc88 d;
         d.f0xc = *g;
-        if (Dispatch020649f4(work2, &d)) {
+        if (func_020649f4(work2, &d)) {
             func_0206f81c(&d);
         }
     }

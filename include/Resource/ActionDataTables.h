@@ -42,7 +42,7 @@ extern "C" int func_02079bac(Header02079bac* table, SafeAllocator* allocator, vo
 #endif
 );
 
-int RelocateOffsets02079808(void* table, Obj02079808* record);
+extern "C" int func_02079808(void* table, Obj02079808* record);
 
 struct ActionDataTables {
     Struct02079a58 actions;
@@ -51,7 +51,7 @@ struct ActionDataTables {
     Header02079bac alternateDamage;
 };
 
-ActionDataTables* GetData02108e10_020797dc();
+extern "C" ActionDataTables* func_020797dc();
 
 extern "C" void func_02079900(ActionDataTables* tables, SafeAllocator* allocator);
 extern "C" void func_02079cf8(ActionDataTables* tables, SafeAllocator* allocator, SafeAllocator* dataAllocator);

@@ -11,8 +11,8 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" void func_ov004_02153b6c(void*, int, int, int, short*, short*);
 extern "C" void func_ov004_021545f0(Table02154350*, int, short, short, unsigned char, unsigned char);
-void ClearElements_021e1518(void*);
-void RefreshEntryStatusFlags_021e1474(ObjStruct_021e1474*, Container020dedd0*);
+extern "C" void func_ov023_021e1518(void*);
+extern "C" void func_ov023_021e1474(ObjStruct_021e1474*, Container020dedd0*);
 extern Table02154350* data_ov004_021707c0;
 
 class Node02154350 {
@@ -78,8 +78,8 @@ extern "C" ARM int func_ov004_02154350(void* self) {
     if (source && destination) {
         ObjStruct_021e1474* entries = destination->GetEntries();
         if (entries) {
-            ClearElements_021e1518(entries);
-            RefreshEntryStatusFlags_021e1474(entries, source->GetContainer());
+            func_ov023_021e1518(entries);
+            func_ov023_021e1474(entries, source->GetContainer());
         }
     }
     return 0;

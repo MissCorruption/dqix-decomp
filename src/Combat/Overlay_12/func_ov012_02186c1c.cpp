@@ -18,12 +18,12 @@ struct Struct_0205c570;
 struct TableA68;
 struct Obj0205eaa0;
 struct Obj021e6e20;
-void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void BuildMessageB_021898bc(char*);
-void* FindEntryByKey_02072a68(TableA68*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20*);
+extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_ov012_021898bc(char*);
+extern "C" void* func_02072a68(TableA68*, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" int func_ov023_021e6e20(Obj021e6e20*);
 extern Obj0205eaa0 data_02108760;
 extern "C" void func_ov023_021e6e60(void*);
 extern "C" int func_ov023_021e7148(void*);
@@ -46,15 +46,15 @@ extern "C" ARM void func_ov012_02186c1c(char* editor) {
         else if (title == 300) cursor = 3;
         else cursor = 0;
         *(int*)(editor + 0x1430) = cursor;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)(editor + 0x90), 0, 3);
+        func_0205de24((Struct0205de24*)(editor + 0x90), 0, 3);
         func_ov023_021e6e60(editor);
-        BuildMessageB_021898bc(editor);
+        func_ov012_021898bc(editor);
         (*(unsigned char*)(editor + 0x1340))++;
         return;
     }
     if (*(unsigned char*)(editor + 0x1340) != 1) return;
     *(unsigned char*)(editor + 0x1368) = 1;
-    *(int*)(editor + 0x1430) = GetActiveScaledSum0205d794((Struct_0205c570*)(editor + 0x90));
+    *(int*)(editor + 0x1430) = func_0205d794((Struct_0205c570*)(editor + 0x90));
     if (func_ov023_021e7148(editor)) {
         int rebuild = 1;
         switch (*(int*)(editor + 0x1430)) {
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov012_02186c1c(char* editor) {
             break;
         case 3: {
             GameState* game = GameState::GetInstance();
-            const char* text = (const char*)FindEntryByKey_02072a68((TableA68*)(editor + 0x1314), 109);
+            const char* text = (const char*)func_02072a68((TableA68*)(editor + 0x1314), 109);
             GetTitleProfile02186c1c(game)->title = 300;
             memset(editor + 0x1498, 0, 64);
             memcpy(editor + 0x1498, text, strlen(text));
@@ -84,9 +84,9 @@ extern "C" ARM void func_ov012_02186c1c(char* editor) {
         }
         }
         if (!rebuild) return;
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
     } else {
-        if (!TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)editor)) return;
+        if (!func_ov023_021e6e20((Obj021e6e20*)editor)) return;
         func_ov012_02189be8(editor, 1);
     }
 }
@@ -142,12 +142,12 @@ static inline ProfileTitle* GetTitleProfile(GameState* game) {
     ProfileRegion* region = (ProfileRegion*)game;
     return &region->profile;
 }
-void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void BuildMessageB_021898bc(char*);
-void* FindEntryByKey_02072a68(TableA68*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20*);
+extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_ov012_021898bc(char*);
+extern "C" void* func_02072a68(TableA68*, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" int func_ov023_021e6e20(Obj021e6e20*);
 extern Obj0205eaa0 data_02108760;
 extern "C" void func_ov023_021e6e60(ProfileEditor*);
 extern "C" int func_ov023_021e6de4(ProfileEditor*);
@@ -173,15 +173,15 @@ extern "C" ARM void func_ov012_02186c1c(ProfileEditor* self) {
             }
         }
         self->cursor = cursor;
-        FindAndLinkMatchingEntry0205de24(&self->entries, 0, 3);
+        func_0205de24(&self->entries, 0, 3);
         func_ov023_021e6e60(self);
-        BuildMessageB_021898bc((char*)self);
+        func_ov012_021898bc((char*)self);
         self->step++;
         return;
     }
     if (self->step != 1) return;
     self->active = 1;
-    self->cursor = GetActiveScaledSum0205d794((Struct_0205c570*)&self->entries);
+    self->cursor = func_0205d794((Struct_0205c570*)&self->entries);
     if (func_ov023_021e6de4(self)) {
         int rebuild = 1;
         switch (self->cursor) {
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov012_02186c1c(ProfileEditor* self) {
             break;
         case 3: {
             GameState* game = GameState::GetInstance();
-            const char* text = (const char*)FindEntryByKey_02072a68(&self->strings, 0x6d);
+            const char* text = (const char*)func_02072a68(&self->strings, 0x6d);
             GetTitleProfile(game)->title = 300;
             memset(self->titleText, 0, sizeof(self->titleText));
             int length = strlen(text);
@@ -212,9 +212,9 @@ extern "C" ARM void func_ov012_02186c1c(ProfileEditor* self) {
         }
         }
         if (!rebuild) return;
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
     } else {
-        if (!TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)self)) return;
+        if (!func_ov023_021e6e20((Obj021e6e20*)self)) return;
         func_ov012_0218930c(self, 1);
     }
 }

@@ -4,13 +4,13 @@
 
 extern "C" void func_0205d0e0(void* obj, int val);
 struct TimeStamp020103f0;
-void ComputeElapsedPlayTimeHMS020103f0(struct TimeStamp020103f0* obj, unsigned short* outHours, unsigned char* outMinutes, unsigned char* outSeconds);
-void AddPlayClockHours020ac614(struct BattleRecordPlayClock* clock, int amount);
-void AddPlayClockMinutes020ac644(struct BattleRecordPlayClock* clock, int amount);
+extern "C" void func_020103f0(struct TimeStamp020103f0* obj, unsigned short* outHours, unsigned char* outMinutes, unsigned char* outSeconds);
+extern "C" void func_020ac614(struct BattleRecordPlayClock* clock, int amount);
+extern "C" void func_020ac644(struct BattleRecordPlayClock* clock, int amount);
 struct ShortBytePair021e71a0;
-void ClearShortAndTwoBytes_021e71a0(struct ShortBytePair021e71a0* p);
+extern "C" void func_ov023_021e71a0(struct ShortBytePair021e71a0* p);
 class PMFObj021e7c58;
-void DispatchEntryByIndex_021e7c58(PMFObj021e7c58* obj, unsigned int selector, int idx);
+extern "C" void func_ov023_021e7c58(PMFObj021e7c58* obj, unsigned int selector, int idx);
 
 // USA: func_ov023_021e7404
 extern "C" ARM void func_ov023_021e7404(char* obj, int amount) {
@@ -47,15 +47,15 @@ extern "C" ARM void func_ov023_021e7404(char* obj, int amount) {
         }
 
         battleStruct = GameState::GetInstance();
-        ComputeElapsedPlayTimeHMS020103f0((struct TimeStamp020103f0*)battleStruct, &hoursOut, &minutesOut, &secondsOut);
+        func_020103f0((struct TimeStamp020103f0*)battleStruct, &hoursOut, &minutesOut, &secondsOut);
 
-        ClearShortAndTwoBytes_021e71a0((struct ShortBytePair021e71a0*)(obj + regionalOffset3));
+        func_ov023_021e71a0((struct ShortBytePair021e71a0*)(obj + regionalOffset3));
 
         unsigned short savedHours = *(unsigned short*)(savedClock + 0x3c);
-        AddPlayClockHours020ac614((struct BattleRecordPlayClock*)(obj + regionalOffset3), (unsigned short)(savedHours + hoursOut));
+        func_020ac614((struct BattleRecordPlayClock*)(obj + regionalOffset3), (unsigned short)(savedHours + hoursOut));
 
         unsigned char savedMinutes = *(unsigned char*)(savedClock + 0x3e);
-        AddPlayClockMinutes020ac644((struct BattleRecordPlayClock*)(obj + regionalOffset3), (unsigned char)(savedMinutes + minutesOut));
+        func_020ac644((struct BattleRecordPlayClock*)(obj + regionalOffset3), (unsigned char)(savedMinutes + minutesOut));
 
         unsigned char savedSeconds = *(unsigned char*)(savedClock + 0x3f);
         *(unsigned char*)(obj + regionalOffset4) = *(unsigned char*)(obj + regionalOffset4) + (unsigned char)(savedSeconds + secondsOut);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov023_021e7404(char* obj, int amount) {
                 }
             }
 
-            AddPlayClockMinutes020ac644((struct BattleRecordPlayClock*)(obj + regionalOffset3), carryMinutes);
+            func_020ac644((struct BattleRecordPlayClock*)(obj + regionalOffset3), carryMinutes);
             *(unsigned char*)(obj + regionalOffset4) = *(unsigned char*)(obj + regionalOffset4) % 60;
         }
 afterMinuteCarry:
@@ -85,7 +85,7 @@ afterMinuteCarry:
             cond = (prevField610 != *(unsigned char*)(obj + regionalOffset2)) ? 1 : 0;
         }
         if (cond != 0) {
-            DispatchEntryByIndex_021e7c58((PMFObj021e7c58*)obj, 0, 0);
+            func_ov023_021e7c58((PMFObj021e7c58*)obj, 0, 0);
         }
     }
 

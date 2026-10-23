@@ -9,7 +9,7 @@ struct Struct_021f6bb8 { int unk0; int field4; };
 extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* obj);
 extern "C" void func_ov023_021f6bb0(void* obj, int v);
 
-extern int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 
 extern "C" void* __clear(void* dst, int count);
 
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov023_021fa370(struct Obj021fa370* obj, void* param1) {
     zeroPad = 0;
     if (obj->kind == 1) {
         GameState* bs = GameState::GetInstance();
-        int id = GetField0x3acValue_020100a8(bs);
+        int id = func_020100a8(bs);
         struct Combatant021fa370* combatant = (struct Combatant021fa370*)bs->GetPartyMemberByIndex(id);
         if (combatant != 0) {
             zeroPad = combatant->inner->flagBit;

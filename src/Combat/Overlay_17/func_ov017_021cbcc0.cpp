@@ -9,10 +9,10 @@ enum { RegionOffset718 = 0x718 };
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
-void* GetField6b0_021b8470(void* obj);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-void SetByteFields0x77d3And0x77d4_ov000_0216872c(void* obj, int a, int b);
+extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" void func_ov000_0216872c(void* obj, int a, int b);
 extern "C" void __clear(void* buf, int len);
 extern "C" void func_ov017_021b848c(void* h, void* buf, int a, int b, int c, int d, int e, int f);
 
@@ -35,7 +35,7 @@ struct Evt021cbcc0 {
     signed short field0x12;
 };
 
-// USA: func_ov017_021cbcc0  (semantic: ApplyEventTagFlagsAndDispatch_021cbcc0)
+// USA: func_ov017_021cbcc0
 extern "C" ARM void func_ov017_021cbcc0(int unused0, Evt021cbcc0* evt, GameState* battleStruct, unsigned char* base) {
     unsigned short f4;
     unsigned short hf8;
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021cbcc0(int unused0, Evt021cbcc0* evt, GameState
     void* table = *(void**)(base + 0x3000 + RegionOffset718);
     a = (EventHdr021cbcc0*)func_ov017_021b8478(table);
     if (!a) return;
-    field6b0 = GetField6b0_021b8470(table);
+    field6b0 = func_ov017_021b8470(table);
     if (!field6b0) return;
     field6ac = func_ov017_021b8468(table);
     if (!field6ac) return;
@@ -60,12 +60,12 @@ extern "C" ARM void func_ov017_021cbcc0(int unused0, Evt021cbcc0* evt, GameState
     fF = evt->field0xf;
     if (f4 != hf8) return;
 
-    SetCombatWorkFlags0x55f4_ov000_02160fa8(field6ac, 0x80000000);
-    int idx = GetField0x3acValue_020100a8(battleStruct);
+    func_ov000_02160fa8(field6ac, 0x80000000);
+    int idx = func_020100a8(battleStruct);
     if (!(evt->field0xc & (1 << idx))) return;
 
     *(unsigned char*)((char*)field6b0 + 0x8e48) = (unsigned char)f8word;
-    SetByteFields0x77d3And0x77d4_ov000_0216872c(field6ac, fE, fF);
+    func_ov000_0216872c(field6ac, fE, fF);
 
     unsigned char buf[4];
     __clear(buf, 4);

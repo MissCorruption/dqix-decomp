@@ -45,24 +45,24 @@ struct Battle {
 };
 
 struct List02160094;
-ActionEntry* GetNodeAtIndex02160094(List02160094*, int);
-ActionNode* GetWorkArrayEntry0215e9d8(void* self);
-ActionEntry* GetTableEntry0x8e00Bound0x48_ov000_0215e918(void* self);
-TargetNode* GetTableEntry0x8e01Bound0x88_ov000_0215e938(void* self);
-void InitStruct02160030(void* obj);
-void ResetStruct02157cdc(void* obj);
+extern "C" ActionEntry* func_ov000_02160094(List02160094*, int);
+extern "C" ActionNode* func_ov000_0215e9d8(void* self);
+extern "C" ActionEntry* func_ov000_0215e918(void* self);
+extern "C" TargetNode* func_ov000_0215e938(void* self);
+extern "C" void func_ov000_02160030(void* obj);
+extern "C" void func_ov000_02157cdc(void* obj);
 extern "C" void* memset(void* dst, int c, unsigned int n);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
 struct Node02160068;
 struct Obj02160068;
-void AppendNode02160068(Obj02160068*, Node02160068*);
+extern "C" void func_ov000_02160068(Obj02160068*, Node02160068*);
 struct Node021600cc;
 struct Obj021600cc;
-void AppendNode021600cc(Obj021600cc*, Node021600cc*);
+extern "C" void func_ov000_021600cc(Obj021600cc*, Node021600cc*);
 extern "C" ResultEntry* func_ov000_0215e958(void* self);
 struct OutStruct0215ccbc;
-void PopulateEntry_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, unsigned long long, unsigned char);
-void AppendToChainAndIncCount0215ffc4(void* node, void* entry, int v);
+extern "C" void func_ov000_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, unsigned long long, unsigned char);
+extern "C" void func_ov000_0215ffc4(void* node, void* entry, int v);
 
 static inline GameObject* GetCombatant(int id) {
     GameState* gs = GameState::GetInstance();
@@ -75,7 +75,7 @@ static inline short CurrMP(GameObject* c) { SDK_NULL_ASSERT(c); return c->curren
 // USA: func_ov000_0215c2d0
 extern "C" ARM void func_ov000_0215c2d0(Battle* self, ActionNode* src) {
     for (int i = 0; i < src->entryCount; i++) {
-        ActionEntry* e = GetNodeAtIndex02160094((List02160094*)src, i);
+        ActionEntry* e = func_ov000_02160094((List02160094*)src, i);
         if (e == 0) {
             continue;
         }
@@ -87,23 +87,23 @@ extern "C" ARM void func_ov000_0215c2d0(Battle* self, ActionNode* src) {
         if (hits <= 0) {
             continue;
         }
-        ActionNode* work = GetWorkArrayEntry0215e9d8(self);
+        ActionNode* work = func_ov000_0215e9d8(self);
         if (work == 0) {
             continue;
         }
-        InitStruct02160030(work);
-        ActionEntry* entry = GetTableEntry0x8e00Bound0x48_ov000_0215e918(self);
+        func_ov000_02160030(work);
+        ActionEntry* entry = func_ov000_0215e918(self);
         if (entry == 0) {
             continue;
         }
         memset(entry, 0, 0x30);
         entry->f1c = -1;
         entry->f30 = 0;
-        TargetNode* tn = GetTableEntry0x8e01Bound0x88_ov000_0215e938(self);
+        TargetNode* tn = func_ov000_0215e938(self);
         if (tn == 0) {
             continue;
         }
-        ResetStruct02157cdc(tn);
+        func_ov000_02157cdc(tn);
         ResultEntry* out = func_ov000_0215e958(self);
         if (out == 0) {
             continue;
@@ -116,13 +116,13 @@ extern "C" ARM void func_ov000_0215c2d0(Battle* self, ActionNode* src) {
         e->hits = 0;
         e->f1c = -1;
         e->f1e = 0;
-        PopulateEntry_0215ccbc((int)self, (OutStruct0215ccbc*)out, c, 0, CurrHP(c), CurrMP(c), 0, 0);
+        func_ov000_0215ccbc((int)self, (OutStruct0215ccbc*)out, c, 0, CurrHP(c), CurrMP(c), 0, 0);
         tn->id = e->id;
         tn->active = 1;
-        AppendToChainAndIncCount0215ffc4(tn, out, 0);
+        func_ov000_0215ffc4(tn, out, 0);
         work->flags |= 4;
-        AppendNode02160068((Obj02160068*)work, (Node02160068*)entry);
-        AppendNode021600cc((Obj021600cc*)work, (Node021600cc*)tn);
+        func_ov000_02160068((Obj02160068*)work, (Node02160068*)entry);
+        func_ov000_021600cc((Obj021600cc*)work, (Node021600cc*)tn);
         self->workCount++;
         self->tableCount++;
         self->targetCount++;

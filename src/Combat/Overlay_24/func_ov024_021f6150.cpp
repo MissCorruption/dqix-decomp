@@ -7,8 +7,8 @@ struct FlagInner_021dd010 { char unk[0x14]; int flags; };
 struct FlagObj_021dd010 { char unk[0x138]; struct FlagInner_021dd010* inner; };
 
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
-int IsFlagBit8Set_021dd010(struct FlagObj_021dd010* obj);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021dd010(struct FlagObj_021dd010* obj);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 extern unsigned short data_ov024_021feae4;
 
@@ -30,13 +30,13 @@ extern "C" ARM int func_ov024_021f6150(int* a0, int a1, int a2, int* outCount, s
     for (int i = 0; i < count; i++) {
         GameObject* member = GetCombatantByID(*a0, *(short*)&buf[i]);
         if (!member) continue;
-        if (IsFlagBit8Set_021dd010((struct FlagObj_021dd010*)member)) continue;
+        if (func_ov024_021dd010((struct FlagObj_021dd010*)member)) continue;
         int idx = *outCount;
         *outCount = idx + 1;
         outArray[idx] = *((short*)buf + i);
     }
     if (*outCount > 0) {
-        PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+        func_ov024_021ed890((struct Random**)a0, outCount, outArray);
         return 1;
     }
     return 0;

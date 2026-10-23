@@ -3,7 +3,7 @@
 struct Ring022063ec { char pad[0x100]; unsigned short head; unsigned short tail; };
 struct Obj022063ec { char pad[0x68]; Ring022063ec* ring; };
 
-// USA: func_ov031_022063ec  (semantic: GetRingAvail_022063ec)
+// USA: func_ov031_022063ec
 extern "C" ARM int func_ov031_022063ec(Obj022063ec* obj) {
     Ring022063ec* ring = obj->ring;
     int capacity = *(int*)((char*)ring + 0xf8);

@@ -38,20 +38,20 @@ struct Actor_02077500 {
     unsigned short entryId;
 };
 
-extern Entry_02028bd0* GetEntryTableBase_02027ca4();
-extern Entry_02028bd0* FindInlineEntryById(Entry_02028bd0* table, int id);
-extern TableEntry_02077500* FindListEntryById(List_020283c0* list, int id);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* table, int id);
+extern "C" TableEntry_02077500* func_020283c0(List_020283c0* list, int id);
 extern "C" void func_0202ae18();
 extern "C" int func_0202c508();
 extern "C" void func_ov017_021c927c(int a, int b, int c, Vec3_02077500 pos, int d, int e, int f);
 
 // USA: func_02077500
 extern "C" ARM int func_02077500(Actor_02077500* obj) {
-    Entry_02028bd0* table = GetEntryTableBase_02027ca4();
+    Entry_02028bd0* table = func_02027ca4();
     if (table == 0) {
         return 0;
     }
-    Entry_02028bd0* entry = FindInlineEntryById(table, ((Object3D*)((U16Field0x6_020375f8*)obj))->GetField06());
+    Entry_02028bd0* entry = func_02028bd0(table, ((Object3D*)((U16Field0x6_020375f8*)obj))->GetField06());
     if (entry == 0) {
         return 0;
     }
@@ -64,7 +64,7 @@ extern "C" ARM int func_02077500(Actor_02077500* obj) {
     ((Object3D*)((unsigned char*)obj))->EnableFlag(0x80);
     func_0202ae18();
     if (func_0202c508() != 0) {
-        TableEntry_02077500* row = FindListEntryById(list, obj->entryId);
+        TableEntry_02077500* row = func_020283c0(list, obj->entryId);
         if (row == 0) {
             return 0;
         }

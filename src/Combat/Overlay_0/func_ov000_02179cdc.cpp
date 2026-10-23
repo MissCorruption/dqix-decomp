@@ -69,24 +69,24 @@ struct PartyMember {
 #endif
 extern unsigned short data_ov000_02183510[];
 
-StoreStruct* GetGlobalField0x1c020421a0(void);
+extern "C" StoreStruct* func_020421a0(void);
 extern "C" void* memset(void* dst, int c, unsigned int n);
 extern "C" SkillEntry* func_ov000_02170cf8(MenuEntry* entry, int key);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gs, int idx);
-void NotifyLocalizedResourceLoad020dd040(int id, char* buf);
+extern "C" GameObject* func_0200ff1c(GameState* gs, int idx);
+extern "C" void func_020dd040(int id, char* buf);
 extern "C" void func_02046608(StoreStruct* store, int kind, char* src, char* dst, int a, int b, int c);
 extern "C" void func_02046380(StoreStruct* store);
-int IsFlag0x18Bit0x200Set_ov000_02153a8c(GameObject* obj);
-int AdjustValueByFieldFlag_020dd290(void*, unsigned int);
-void StoreInArray0x8b0_020465c0(StoreStruct* store, int index, int value);
-const char* CallFunc020e0434With02153694_020e51cc(int key);
-void AppendString02042058(char* dst, const char* src);
+extern "C" int func_ov000_02153a8c(GameObject* obj);
+extern "C" int func_020dd290(void*, unsigned int);
+extern "C" void func_020465c0(StoreStruct* store, int index, int value);
+extern "C" const char* func_020e51cc(int key);
+extern "C" void func_02042058(char* dst, const char* src);
 struct Struct_0205d81c;
-void* FindElementByC40205d81c(Struct_0205d81c*, int);
+extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
 extern "C" void func_0205d304(ElemList* list, char* text, int a, int b, int c, int d, int e);
-void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
-void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
 extern "C" void func_0205d304(ElemList* list, char* text, int a, int b, int c, int d, int e, int f);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov000_02179cdc(BattleMenu* menu, MenuEntry* entry) {
     if (entry == 0) {
         return;
     }
-    char* buf = GetGlobalField0x1c020421a0()->textBuffer;
+    char* buf = func_020421a0()->textBuffer;
 #if defined(jpn)
     memset(buf, 0, 0x800);
 #else
@@ -115,47 +115,47 @@ extern "C" ARM void func_ov000_02179cdc(BattleMenu* menu, MenuEntry* entry) {
         return;
     }
     SkillEntry* skill = func_ov000_02170cf8(entry, data_ov000_02183510[member->stats->vocation]);
-    GameObject* flagged = GetCombatantWithFlag0x100_0200ff1c(gs, entry->combatantId);
+    GameObject* flagged = func_0200ff1c(gs, entry->combatantId);
     if (flagged == 0) {
         return;
     }
-    NotifyLocalizedResourceLoad020dd040(skill->nameId, buf);
+    func_020dd040(skill->nameId, buf);
 #if !defined(jpn)
     char text[0x800];
 #endif
 #if defined(jpn)
     msg = buf;
 #else
-    func_02046608(GetGlobalField0x1c020421a0(), 10, buf, text, 0x72, 0, 0);
+    func_02046608(func_020421a0(), 10, buf, text, 0x72, 0, 0);
     msg = text;
 #endif
-    store = GetGlobalField0x1c020421a0();
+    store = func_020421a0();
     func_02046380(store);
     int value;
-    if (IsFlag0x18Bit0x200Set_ov000_02153a8c(combatant) != 0) {
+    if (func_ov000_02153a8c(combatant) != 0) {
         value = 0;
     } else if (skill->adjustFlag >= 0xff) {
         value = entry->value;
     } else {
-        value = AdjustValueByFieldFlag_020dd290(flagged, skill->adjustFlag);
+        value = func_020dd290(flagged, skill->adjustFlag);
     }
-    StoreInArray0x8b0_020465c0(store, 0, value);
-    StoreInArray0x8b0_020465c0(store, 1, entry->value);
+    func_020465c0(store, 0, value);
+    func_020465c0(store, 1, entry->value);
 #if defined(jpn)
-    SetByteInRange_020465f0((unsigned char*)store, 0, 3);
-    SetByteInRange_020465f0((unsigned char*)store, 1, 3);
-    SetByteAtIndex_020465d8((unsigned char*)store, 0, 1);
-    SetByteAtIndex_020465d8((unsigned char*)store, 1, 1);
-    AppendString02042058(msg, data_ov000_02185169);
+    func_020465f0((unsigned char*)store, 0, 3);
+    func_020465f0((unsigned char*)store, 1, 3);
+    func_020465d8((unsigned char*)store, 0, 1);
+    func_020465d8((unsigned char*)store, 1, 1);
+    func_02042058(msg, data_ov000_02185169);
 #else
-    AppendString02042058(msg, CallFunc020e0434With02153694_020e51cc(0x3ec));
+    func_02042058(msg, func_020e51cc(0x3ec));
 #endif
     ElemList* list = &menu->elements;
-    if (FindElementByC40205d81c((Struct_0205d81c*)list, 0x16) != 0) {
+    if (func_0205d81c((Struct_0205d81c*)list, 0x16) != 0) {
 #if defined(jpn)
-        TryApplyElemFields0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1);
+        func_0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1);
 #else
-        TryApplyElemFields0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1, 0);
+        func_0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1, 0);
 #endif
         return;
     }

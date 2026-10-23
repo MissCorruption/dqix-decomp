@@ -33,8 +33,8 @@ extern State10050* data_ov031_0224e588;
 extern char data_ov031_022499f4[];
 extern int data_ov031_02249928;
 extern int data_ov031_0224992c;
-void CopyStringBounded020d2f28(char*, const char*, int);
-void ClearBit15_02211018(unsigned int);
+extern "C" void func_020d2f28(char*, const char*, int);
+extern "C" void func_ov031_02211018(unsigned int);
 extern "C" void func_ov031_02210674();
 
 static inline Pending10050* GetPending10050(State10050* state) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov031_02210050(State10050* state, int initializationArg
     ZeroInitializeMutex(&data_ov031_0224e588->mutex);
     data_ov031_0224e588->initializationArgumentA = initializationArgumentA;
     data_ov031_0224e588->initializationArgumentB = initializationArgumentB;
-    CopyStringBounded020d2f28(data_ov031_0224e588->name, data_ov031_022499f4, 5);
+    func_020d2f28(data_ov031_0224e588->name, data_ov031_022499f4, 5);
     State10050* reset = data_ov031_0224e588;
     reset->field_0x34 = 0;
     data_ov031_0224e588->field_0x40 = 0;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov031_02210050(State10050* state, int initializationArg
     data_ov031_0224e588->field_0x9d4 = data_ov031_02249928;
     data_ov031_0224e588->field_0x9e8 = &data_ov031_0224992c;
     data_ov031_0224e588->field_0x9ec = 1;
-    data_ov031_0224e588->callback = ClearBit15_02211018;
+    data_ov031_0224e588->callback = func_ov031_02211018;
     ZeroInitializeMutex(&data_ov031_0224e588->mutex_0x1bc);
     State10050* pending = data_ov031_0224e588;
     Pending10050* fields = GetPending10050(pending);

@@ -5,9 +5,9 @@
 
 extern "C" int func_ov000_0215eb1c(int battle, unsigned short* table, int count, int flag);
 struct S_bf3c_021f1440;
-int IsBitfield2Set_021f1440(struct S_bf3c_021f1440* obj);
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021f1440(struct S_bf3c_021f1440* obj);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
 
 struct Obj_021f166c { int field0; };
 
@@ -24,11 +24,11 @@ struct BuffWord_021f166c {
 
 extern unsigned short data_ov024_021fef6c;
 
-// USA: func_ov024_021f166c  (semantic: FindLowUnkBuff21Unflagged_021f166c)
+// USA: func_ov024_021f166c
 extern "C" ARM int func_ov024_021f166c(struct Obj_021f166c* obj, short id, int unused2, int* outCount, void* outArr) {
-    GameObject* c0 = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, id);
+    GameObject* c0 = func_ov000_021536f8(obj->field0, id);
     if (!c0) return 0;
-    if (!IsBitfield2Set_021f1440((struct S_bf3c_021f1440*)c0)) return 0;
+    if (!func_ov024_021f1440((struct S_bf3c_021f1440*)c0)) return 0;
 
     unsigned short buf[8];
     unsigned short* d = buf;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov024_021f166c(struct Obj_021f166c* obj, short id, int u
     for (int i = 0; i < count; i++) {
         GameObject* c = GetCombatantByID(obj->field0, *(short*)&buf[i]);
         if (!c) continue;
-        if (IsCombatantFlagMask512_021eda60(c)) continue;
+        if (func_ov024_021eda60(c)) continue;
         struct BuffWord_021f166c* bw = (struct BuffWord_021f166c*)((char*)c->currentStats_ + 0x58);
         if (bw->unkBuff21 < 2) break;
     }

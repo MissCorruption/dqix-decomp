@@ -4,11 +4,11 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-void ResetFieldWithLog_0218d5c8(unsigned char* obj);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void SetByteField0x253_020397c0(void* obj);
-int GetFieldIfFlag4_020100f8(char* obj);
-void SetField0x238True_020a2794(void* obj);
+extern "C" void func_ov017_0218d5c8(unsigned char* obj);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_020397c0(void* obj);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a2794(void* obj);
 
 extern int data_02114e20;
 
@@ -27,11 +27,11 @@ extern "C" ARM void func_ov017_021ae760(struct Obj_021ae760* self) {
     self->field1 = 1;
     unsigned char flag = self->fieldB;
     if (flag != 0 && h != NULL) {
-        ResetFieldWithLog_0218d5c8((unsigned char*)h);
+        func_ov017_0218d5c8((unsigned char*)h);
         void* p = self->allocator.GetSignedAllocator();
         if (p != NULL) {
             self->allocator.Destroy();
-            TailForward02012da4((AllocatorUnion*)&data_02114e20, p);
+            func_02012da4((AllocatorUnion*)&data_02114e20, p);
         }
         self->fieldB = 0;
     }
@@ -39,11 +39,11 @@ extern "C" ARM void func_ov017_021ae760(struct Obj_021ae760* self) {
     GameState* bs = GameState::GetInstance();
     GameObject* c = bs->GetUnknownGameObject();
     if (c != NULL) {
-        SetByteField0x253_020397c0(c);
+        func_020397c0(c);
     }
-    int flagResult = GetFieldIfFlag4_020100f8((char*)bs);
+    int flagResult = func_020100f8((char*)bs);
     if (flagResult != 0) {
-        SetField0x238True_020a2794((void*)flagResult);
+        func_020a2794((void*)flagResult);
     }
 
     if (h == NULL) return;

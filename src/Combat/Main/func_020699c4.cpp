@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020696bc(int p1, int* out, int count);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 
 struct Ctx020699c4 { void* dst; };
 
@@ -13,7 +13,7 @@ extern "C" ARM int func_020699c4(struct Ctx020699c4* ctx, int p1) {
 
     func_020696bc(p1, buf, 3);
 
-    g = (char*)GetGlobalField0x1c020421a0();
+    g = (char*)func_020421a0();
     unsigned short v = (unsigned short)buf[2];
     int b1 = (buf[1] != 0);
     int b0 = (buf[0] != 0);

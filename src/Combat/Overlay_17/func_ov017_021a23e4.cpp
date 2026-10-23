@@ -48,16 +48,16 @@ struct FieldMonster021a23e4 {
 
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* p);
-int GetBitflagForCombatantColor_021a26e8(GameResources* unused0, int combatantId);
+extern "C" int func_ov017_021a26e8(GameResources* unused0, int combatantId);
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
-Entry_02028bd0* GetEntryTableBase_02027ca4();
-AreaEntry021a23e4* FindInlineEntryById(Entry_02028bd0*, int);
-Entry0209bd94* FindMatchingEntryByMask02073ec4(int mask, void* list);
-int SelectWeightedEntry02073fdc(void* p);
-MonsterInfo021a23e4* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
-int FindCombatantWithNegativeField2_021a20c0(int unused, int mult, int limit);
-int GetField0x17dBits4To5IfFlag8_020795cc(unsigned char* obj);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" AreaEntry021a23e4* func_02028bd0(Entry_02028bd0*, int);
+extern "C" Entry0209bd94* func_02073ec4(int mask, void* list);
+extern "C" int func_02073fdc(void* p);
+extern "C" MonsterInfo021a23e4* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" int func_ov017_021a20c0(int unused, int mult, int limit);
+extern "C" int func_020795cc(unsigned char* obj);
 extern "C" int func_02032370(int upperBound);
 extern "C" void func_02076a8c(void* obj);
 extern "C" int func_ov017_021a2128(void* arena, int areaId, int monsterId, int variant, const Vector3fix* position, int y, int entryId, int flags);
@@ -66,39 +66,39 @@ extern "C" int func_ov017_021a2128(void* arena, int areaId, int monsterId, int v
 extern "C" ARM int func_ov017_021a23e4(GameResources* arena, int combatantId, int mask, int monsterId) {
     GameState* state = GameState::GetInstance();
     if (func_0202c540(func_0202ae18())) return 0;
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(state, combatantId);
+    GameObject* combatant = func_0200ff1c(state, combatantId);
     if (!combatant) return 0;
-    if (mask == 0) mask = GetBitflagForCombatantColor_021a26e8(arena, combatantId);
+    if (mask == 0) mask = func_ov017_021a26e8(arena, combatantId);
     int areaId = combatant->obj3D_.GetField06();
     void* dataBase = func_0205ec34();
-    if (TestBitInByteArray_0206dfb0((int)dataBase, (unsigned char*)dataBase + 0x8c, 0x79a) != 0 &&
+    if (func_0206dfb0((int)dataBase, (unsigned char*)dataBase + 0x8c, 0x79a) != 0 &&
         monsterId != 0x26 && monsterId != 0x27 && monsterId != 0x28 &&
         areaId >= 0x190 && areaId <= 0x199) {
         return 0;
     }
-    AreaEntry021a23e4* area = FindInlineEntryById(GetEntryTableBase_02027ca4(), areaId);
+    AreaEntry021a23e4* area = func_02028bd0(func_02027ca4(), areaId);
     if (!area) return 0;
-    Entry0209bd94* entry = FindMatchingEntryByMask02073ec4(mask, area->subentries);
+    Entry0209bd94* entry = func_02073ec4(mask, area->subentries);
     if (!entry) return 0;
     if (monsterId < 0) {
-        monsterId = SelectWeightedEntry02073fdc(entry);
+        monsterId = func_02073fdc(entry);
         if (monsterId < 0) return 0;
     }
-    MonsterInfo021a23e4* info = SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)area->monsters, (short)monsterId);
+    MonsterInfo021a23e4* info = func_0206f4f0((BinarySearchByComparatorStruct*)area->monsters, (short)monsterId);
     if (!info) return 0;
     int radius = info->radius << 2;
     int distance = combatant->obj3D_.GetRadius() / 4 + radius / 2;
     Vector3fix position = combatant->obj3D_.GetPointInFront(distance);
     Vector3fix rotation = combatant->obj3D_.rotation_;
     int angle = fix32ReduceAngle0To2Pi(rotation.y + 0x3244);
-    if (FindCombatantWithNegativeField2_021a20c0((int)arena, area->category, 12) < 0) {
+    if (func_ov017_021a20c0((int)arena, area->category, 12) < 0) {
         int count = 0;
         int slots[12];
         for (int i = 0; i < 12; i++) {
             int slot = i + (area->category * 12 + 0x70);
             FieldMonster021a23e4* monster = (FieldMonster021a23e4*)state->GetMaybeFieldMonsterByIndex(slot);
             if (monster == 0 || monster->state == 9) continue;
-            if (GetField0x17dBits4To5IfFlag8_020795cc((unsigned char*)monster) < 0) slots[count++] = slot;
+            if (func_020795cc((unsigned char*)monster) < 0) slots[count++] = slot;
         }
         GameObject* victim = state->GetMaybeFieldMonsterByIndex(slots[func_02032370(count)]);
         if (victim) {

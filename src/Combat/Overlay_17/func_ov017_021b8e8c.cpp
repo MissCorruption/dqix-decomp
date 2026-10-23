@@ -89,58 +89,58 @@ struct Self021b8e8c {
 extern "C" int func_ov017_021959b4(void);
 extern "C" void func_ov017_021b8d80(Self021b8e8c* self);
 extern "C" unsigned short* func_02012fe4(void);
-char* GetGlobalField0x1c020421a0(void);
-void* GetGlobalPtr021075f4_0203cf4c(void);
+extern "C" char* func_020421a0(void);
+extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0205ec34(void);
-int GetFieldIfFlag4_020100f8(char* obj);
-void ReinitController02043204(char* obj);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_02043124(char* obj);
-void SetField0x23cTrue_020a27ac(void* obj);
-void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void* FindEntryPointerByKey0203df78(void* base, int key);
-void SetByteField0x253_020397c0(void* obj);
-Obj020d7aa0* GetGlobalResetObj020d7a50(void);
-void TeardownAndResetState020d7aa0(struct Obj020d7aa0* obj);
-int IsIdInRange020981e4(int a, int id);
-int IsInRange1To63_02098268(int a, int x);
-extern "C" Vec3_021b8e8c _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(struct Node020406f8* n);
-void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
-int FindEntryByKey0203dfdc(void* base, int key);
-int GetFieldFromActiveChild(struct Owner02040a90* obj);
-int GetField0x8_02040528(int* obj);
-void SetCombatFlags0x5c(struct Struct0203cedc* obj, int b, int c);
-int GetField5cb0Value_0201079c(char* obj);
-int GetField5cb4Value_020107d0(char* obj);
-Entry0209854c* FindEntryByFieldC0209854c(struct Entry0209854c* list, int target);
+extern "C" void func_020a27ac(void* obj);
+extern "C" void func_020397cc(Obj020397cc* obj, int arg1);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void* func_0203df78(void* base, int key);
+extern "C" void func_020397c0(void* obj);
+extern "C" Obj020d7aa0* func_020d7a50(void);
+extern "C" void func_020d7aa0(struct Obj020d7aa0* obj);
+extern "C" int func_020981e4(int a, int id);
+extern "C" int func_02098268(int a, int x);
+extern "C" Vec3_021b8e8c func_020406f8(struct Node020406f8* n);
+extern "C" void func_02033834(struct Obj02033834* obj, int arg);
+extern "C" int func_0203dfdc(void* base, int key);
+extern "C" int func_02040a90(struct Owner02040a90* obj);
+extern "C" int func_02040528(int* obj);
+extern "C" void func_0203cedc(struct Struct0203cedc* obj, int b, int c);
+extern "C" int func_0201079c(char* obj);
+extern "C" int func_020107d0(char* obj);
+extern "C" Entry0209854c* func_0209854c(struct Entry0209854c* list, int target);
 extern "C" void func_ov017_021a967c(TailNode020469b4* node, int id);
-void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
-int GetTableEntryOrZero_0218d2c4(int id);
-void ClearIntAt0x23c_020a27b8(unsigned char* obj);
+extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+extern "C" int func_ov017_0218d2c4(int id);
+extern "C" void func_020a27b8(unsigned char* obj);
 extern "C" void func_ov008_02184754(void* obj);
-int GetNibble0206ec1c(int a, int b, unsigned char* c, unsigned int d);
-void IncrementNibble0206ec64(int a, int b, unsigned char* c, unsigned int d);
+extern "C" int func_0206ec1c(int a, int b, unsigned char* c, unsigned int d);
+extern "C" void func_0206ec64(int a, int b, unsigned char* c, unsigned int d);
 extern "C" int func_ov017_021ba810(const void* code, unsigned int length, int id, int a3, int a4, int a5, int a6);
-int AppendString02042058(char* dst, const char* src);
-unsigned char* GetData02108d18_0206f504(void);
-void Init0206f510(char* obj);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" unsigned char* func_0206f504(void);
+extern "C" void func_0206f510(char* obj);
 extern "C" int func_0206f550(unsigned char* s, char* in, char* out);
-int CommandDispatch0206f6cc(unsigned char* obj, int arg);
-int ListContainsId(ListHead02046b60* list, int id);
+extern "C" int func_0206f6cc(unsigned char* obj, int arg);
+extern "C" int func_02046b60(ListHead02046b60* list, int id);
 extern "C" void func_020a0cc4(unsigned int size);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void InitAllocatorsAndBuffers0208b8c4(struct Obj0208b8c4* obj, SafeAllocator* allocator);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_0208b8c4(struct Obj0208b8c4* obj, SafeAllocator* allocator);
 #if defined(jpn)
 extern "C" void func_0204500c(void* obj, char* buffer, int a);
 #else
 extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
 #endif
 extern "C" void func_0208bb78(void* timer, unsigned int ticks);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
-void SetByteB10AndClearB11_02184a3c(char* obj, unsigned char value);
-void SetFlag0x2IfByte0xd4Not3_0208beb4(unsigned char* obj);
-void SetFields120_138_021bd38c(void* obj, int a, int b);
+extern "C" void func_ov008_02184a3c(char* obj, unsigned char value);
+extern "C" void func_0208beb4(unsigned char* obj);
+extern "C" void func_ov017_021bd38c(void* obj, int a, int b);
 
 extern "C" void __clear(void* buf, int n);
 
@@ -161,78 +161,78 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
     GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned short* area = func_02012fe4();
-    char* msg = GetGlobalField0x1c020421a0();
-    void* table = GetGlobalPtr021075f4_0203cf4c();
+    char* msg = func_020421a0();
+    void* table = func_0203cf4c();
     GameObject* leader = gs->GetUnknownGameObject();
     void* events = func_0205ec34();
     void* hud;
     unsigned short areaId = *area;
-    hud = (void*)GetFieldIfFlag4_020100f8((char*)gs);
+    hud = (void*)func_020100f8((char*)gs);
     unsigned char* nibbles = (unsigned char*)res->unknown_ptr_44c4;
 
     if (func_ov017_021959b4() != 0) {
         func_ov017_021b8d80(self);
-        ReinitController02043204(msg);
+        func_02043204(msg);
         func_02043124(msg);
-        SetField0x23cTrue_020a27ac(hud);
+        func_020a27ac(hud);
         ClearFlags00(res, 0x2000);
         self->done = 1;
         return;
     }
 
-    CancelPendingAction020397cc((Obj020397cc*)leader, 1);
+    func_020397cc((Obj020397cc*)leader, 1);
 
     switch (self->state) {
     case 0: {
         if (self->quiet == 0) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
         }
         *(short*)((char*)leader + 0xb2) = 0;
         Vec3_021b8e8c from = *(Vec3_021b8e8c*)((char*)leader + 0x44);
-        Entry021b8e8c* entry = (Entry021b8e8c*)FindEntryPointerByKey0203df78(table, self->rec->id);
+        Entry021b8e8c* entry = (Entry021b8e8c*)func_0203df78(table, self->rec->id);
         if (entry == NULL) {
-            SetByteField0x253_020397c0(leader);
+            func_020397c0(leader);
             if (hud != NULL) {
-                SetField0x23cTrue_020a27ac(hud);
+                func_020a27ac(hud);
             }
             self->done = 1;
             break;
         }
-        TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
+        func_020d7aa0(func_020d7a50());
         self->lastId = self->rec->id;
-        if (IsIdInRange020981e4((int)((char*)area + kAreaList), areaId) &&
-            IsInRange1To63_02098268((int)((char*)area + kAreaList), self->rec->id)) {
+        if (func_020981e4((int)((char*)area + kAreaList), areaId) &&
+            func_02098268((int)((char*)area + kAreaList), self->rec->id)) {
             self->hasSub = 1;
         }
-        Vec3_021b8e8c to = _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8((Node020406f8*)entry);
-        SetVecYByMode02033834((Obj02033834*)leader, fix32ReduceAngle0To2Pi(fix32_Atan2(to.x - from.x, to.z - from.z)));
-        *(int*)(msg + kMsgEntry) = FindEntryByKey0203dfdc(table, self->rec->id);
-        *(int*)(msg + kMsgEntry + 4) = GetFieldFromActiveChild((Owner02040a90*)entry);
-        char* info = (char*)GetField0x8_02040528((int*)entry);
+        Vec3_021b8e8c to = func_020406f8((Node020406f8*)entry);
+        func_02033834((Obj02033834*)leader, fix32ReduceAngle0To2Pi(fix32_Atan2(to.x - from.x, to.z - from.z)));
+        *(int*)(msg + kMsgEntry) = func_0203dfdc(table, self->rec->id);
+        *(int*)(msg + kMsgEntry + 4) = func_02040a90((Owner02040a90*)entry);
+        char* info = (char*)func_02040528((int*)entry);
         if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
             entry->combat != NULL) {
-            SetCombatFlags0x5c(entry->combat, 1, 0);
+            func_0203cedc(entry->combat, 1, 0);
         }
-        int tableId = GetField5cb0Value_0201079c((char*)gs);
+        int tableId = func_0201079c((char*)gs);
         char prefix[0xc];
         strcpy(prefix, *(char**)((char*)area + 8) + 5);
         prefix[3] = 0;
-        CancelPendingAction020397cc((Obj020397cc*)leader, 1);
+        func_020397cc((Obj020397cc*)leader, 1);
         if (self->hasSub != 0) {
             TailList020469b4* tail;
             TailNode020469b4* node = (TailNode020469b4*)res->unknown_ptr_array_3afc[0x22];
             tail = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
-            Entry0209854c* found = FindEntryByFieldC0209854c((Entry0209854c*)((char*)area + kAreaList), *(unsigned short*)info);
+            Entry0209854c* found = func_0209854c((Entry0209854c*)((char*)area + kAreaList), *(unsigned short*)info);
             func_ov017_021a967c(node, -1);
             *(Entry0209854c**)((char*)node + 0x54) = found;
-            AppendNodeToTail(tail, node);
+            func_020469b4(tail, node);
             self->done = 1;
             break;
         }
         char path[0x50];
-        sprintf(path, &data_ov017_021d7c95, prefix, GetTableEntryOrZero_0218d2c4(tableId));
+        sprintf(path, &data_ov017_021d7c95, prefix, func_ov017_0218d2c4(tableId));
         if (hud != NULL) {
-            ClearIntAt0x23c_020a27b8((unsigned char*)hud);
+            func_020a27b8((unsigned char*)hud);
         }
 #if defined(jpn)
         self->task = loader->QueueLoadFile(path, NULL);
@@ -255,37 +255,37 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         if (loader->GetDetailedTaskStatus(self->task) != 2) {
             loader->RemoveTask(self->task);
             self->task = -1;
-            SetByteField0x253_020397c0(leader);
+            func_020397c0(leader);
             if (hud != NULL) {
-                SetField0x23cTrue_020a27ac(hud);
+                func_020a27ac(hud);
             }
             self->done = 1;
-            ReinitController02043204(msg);
+            func_02043204(msg);
             func_02043124(msg);
             break;
         }
         void* data;
         unsigned int length;
         loader->GetLoadedFileByID(self->task, &data, &length);
-        int arg = GetField5cb4Value_020107d0((char*)gs);
+        int arg = func_020107d0((char*)gs);
         unsigned short id = self->rec->id;
-        int lo = GetNibble0206ec1c((int)nibbles, id, nibbles, 0x80);
-        int hi = GetNibble0206ec1c((int)nibbles, id, nibbles + 0x80, 0x80);
+        int lo = func_0206ec1c((int)nibbles, id, nibbles, 0x80);
+        int hi = func_0206ec1c((int)nibbles, id, nibbles + 0x80, 0x80);
         char* text = (char*)func_ov017_021ba810(data, length, id, arg, self->f124, lo, hi);
         if (text == NULL) {
             loader->RemoveTask(self->task);
             self->task = -1;
-            SetByteField0x253_020397c0(leader);
+            func_020397c0(leader);
             if (hud != NULL) {
-                SetField0x23cTrue_020a27ac(hud);
+                func_020a27ac(hud);
             }
             self->done = 1;
-            ReinitController02043204(msg);
+            func_02043204(msg);
             func_02043124(msg);
             break;
         }
-        IncrementNibble0206ec64((int)nibbles, id, nibbles, 0x80);
-        IncrementNibble0206ec64((int)nibbles, id, nibbles + 0x80, 0x80);
+        func_0206ec64((int)nibbles, id, nibbles, 0x80);
+        func_0206ec64((int)nibbles, id, nibbles + 0x80, 0x80);
         *(int*)(msg + kMsgKind) = self->rec->kind;
         char* out = *(char**)(msg + kMsgOut);
         char* in = *(char**)(msg + kMsgIn);
@@ -301,26 +301,26 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             text[kTextSize - 1] = 0;
         }
 #endif
-        AppendString02042058(in, text);
+        func_02042058(in, text);
         loader->RemoveTask(self->task);
         self->task = -1;
-        unsigned char* script = GetData02108d18_0206f504();
-        Init0206f510((char*)script);
-        if (func_0206f550(script, in, out) != 0 && CommandDispatch0206f6cc(script, 0) == 0) {
+        unsigned char* script = func_0206f504();
+        func_0206f510((char*)script);
+        if (func_0206f550(script, in, out) != 0 && func_0206f6cc(script, 0) == 0) {
             self->state = 8;
-            BlankFunction02094b34(GetGlobal02109400_02094a00(), 0x6f, 0x1388, 1, 1);
+            func_02094b34(func_02094a00(), 0x6f, 0x1388, 1, 1);
             break;
         }
         self->state = 3;
         break;
     }
     case 8:
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) != 0) {
+        if (func_02094b4c(func_02094a00()) != 0) {
             if (hud != NULL) {
-                SetField0x23cTrue_020a27ac(hud);
+                func_020a27ac(hud);
             }
-            if (ListContainsId(list, 0x2b) != 0 && hud != NULL) {
-                ClearIntAt0x23c_020a27b8((unsigned char*)hud);
+            if (func_02046b60(list, 0x2b) != 0 && hud != NULL) {
+                func_020a27b8((unsigned char*)hud);
             }
             self->state = -1;
             self->done = 1;
@@ -330,12 +330,12 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         if (self->hasSub != 0) {
             func_ov008_02184754(self->sub);
         }
-        FontBankLoader* fade = GetGlobal02109400_02094a00();
+        FontBankLoader* fade = func_02094a00();
         if (self->hasSub != 0) {
-            BlankFunction02094b40(fade);
-            BlankFunction02094b34(fade, 0x6e, 0x1ff, 0, 0);
+            func_02094b40(fade);
+            func_02094b34(fade, 0x6e, 0x1ff, 0, 0);
         } else {
-            BlankFunction02094b34(fade, 0x6f, 0x1388, 1, 1);
+            func_02094b34(fade, 0x6f, 0x1388, 1, 1);
         }
         self->state = 4;
         break;
@@ -344,14 +344,14 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         if (self->hasSub != 0) {
             func_ov008_02184754(self->sub);
         }
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) != 0) {
+        if (func_02094b4c(func_02094a00()) != 0) {
             self->state = 2;
         }
         break;
     case 2: {
         func_020a0cc4(0xa000);
-        self->allocA.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0xa000), 0xa000);
-        InitAllocatorsAndBuffers0208b8c4((Obj0208b8c4*)self->timer, &self->allocA);
+        self->allocA.CreateTypeA(func_02012d88(&data_02114e20, 0xa000), 0xa000);
+        func_0208b8c4((Obj0208b8c4*)self->timer, &self->allocA);
         char* buffer = *(char**)(msg + kMsgOut);
         int scroll = 1;
         switch (areaId) {
@@ -382,21 +382,21 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         *(int*)(msg + kMsgKind) = self->rec->kind;
         self->state = 5;
         func_0208bb78(self->timer, gs->GetTickCount());
-        if (ListContainsId((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 0x17) == 0) {
+        if (func_02046b60((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 0x17) == 0) {
             break;
         }
         if (hud != NULL) {
-            SetField0x23cTrue_020a27ac(hud);
+            func_020a27ac(hud);
         }
         self->done = 1;
         func_ov017_021b8d80(self);
-        if (FindEntryPointerByKey0203df78(table, self->rec->id) == NULL) {
+        if (func_0203df78(table, self->rec->id) == NULL) {
             break;
         }
         Query021b8e8c query;
         query.id = self->rec->id;
         query.value = self->f124;
-        if (LookupAndForEachNode020649b0(events, 1, &query) != 0) {
+        if (func_020649b0(events, 1, &query) != 0) {
             func_0206f81c(&query);
         }
         break;
@@ -410,7 +410,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             func_ov008_02184754(self->sub);
         }
         if (*(int*)(msg + kMsgMode) == 3) {
-            ReinitController02043204(msg);
+            func_02043204(msg);
             func_02043124(msg);
         }
         if (*(int*)(msg + kMsgBusy) != 0) {
@@ -418,7 +418,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         }
         if (self->hasSub != 0) {
             if (self->subStep == 0) {
-                SetByteB10AndClearB11_02184a3c((char*)self->sub, 0xd);
+                func_ov008_02184a3c((char*)self->sub, 0xd);
                 self->subStep++;
                 break;
             }
@@ -427,23 +427,23 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             }
             self->subStep = 0;
         }
-        Entry021b8e8c* entry = (Entry021b8e8c*)FindEntryPointerByKey0203df78(table, self->rec->id);
+        Entry021b8e8c* entry = (Entry021b8e8c*)func_0203df78(table, self->rec->id);
         if (entry == NULL) {
             break;
         }
-        char* info = (char*)GetField0x8_02040528((int*)entry);
+        char* info = (char*)func_02040528((int*)entry);
         if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
             entry->combat != NULL) {
-            SetCombatFlags0x5c(entry->combat, 1, 1);
+            func_0203cedc(entry->combat, 1, 1);
         }
         self->state = 6;
         break;
     }
     case 6: {
         if (*(short*)(self->timer + 0xd2) < 0) {
-            SetByteField0x253_020397c0(leader);
+            func_020397c0(leader);
             if (hud != NULL) {
-                SetField0x23cTrue_020a27ac(hud);
+                func_020a27ac(hud);
             }
             self->done = 1;
             func_ov017_021b8d80(self);
@@ -459,7 +459,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         Query021b8e8c query;
         query.id = self->rec->id;
         query.value = self->f124;
-        if (LookupAndForEachNode020649b0(events, 1, &query) != 0) {
+        if (func_020649b0(events, 1, &query) != 0) {
             func_0206f81c(&query);
         }
         if (was == 0 && party[2] != 0) {
@@ -471,15 +471,15 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         func_0208bb78(self->timer, gs->GetTickCount());
         if (*(short*)(self->timer + 0xd2) >= 0) {
             if (self->changed == 0) {
-                SetFlag0x2IfByte0xd4Not3_0208beb4(self->timer);
+                func_0208beb4(self->timer);
                 break;
             }
-            SetFields120_138_021bd38c(res->unknown_ptr_array_36fc[14], (int)self->timer, (int)&self->allocA);
+            func_ov017_021bd38c(res->unknown_ptr_array_36fc[14], (int)self->timer, (int)&self->allocA);
             self->finished = 1;
         }
-        SetByteField0x253_020397c0(leader);
+        func_020397c0(leader);
         if (hud != NULL) {
-            SetField0x23cTrue_020a27ac(hud);
+            func_020a27ac(hud);
         }
         self->done = 1;
         func_ov017_021b8d80(self);

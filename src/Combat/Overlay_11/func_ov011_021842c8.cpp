@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov011_021842c8  (semantic: FindTreeNodeById_021842c8)
+// USA: func_ov011_021842c8
 extern "C" ARM void* func_ov011_021842c8(unsigned char* node, unsigned int id) {
     if (*(unsigned int*)node == id) return node;
     void* result = 0;

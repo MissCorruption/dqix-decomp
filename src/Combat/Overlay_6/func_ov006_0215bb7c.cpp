@@ -117,30 +117,30 @@ struct AlchemyMenu {
     unsigned char closeRequested_;
 };
 
-void ClearElementFlag0x20_02080c20(Obj2081* menu, int id);
-void SetEntryLowNibbleAndElement02080c68(void* menu, int group, int value);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-short FindMappedMemberId02080468(void* menu, int group);
-void SetElementFlag0x40_02081ea4(Obj2081* menu, int group, int value);
+extern "C" void func_02080c20(Obj2081* menu, int id);
+extern "C" void func_02080c68(void* menu, int group, int value);
+extern "C" void func_0207fdcc(Obj2081* menu, int group);
+extern "C" short func_02080468(void* menu, int group);
+extern "C" void func_02081ea4(Obj2081* menu, int group, int value);
 extern "C" void func_020813ec(void* menu, int group);
-void CalcField389_0215951c(Obj0215951c* self);
-void ClearSublistEntriesFlag4_020804fc(void* menu, int group);
+extern "C" void func_ov006_0215951c(Obj0215951c* self);
+extern "C" void func_020804fc(void* menu, int group);
 extern "C" void func_ov006_0215f4dc(AlchemyMenu* self);
-void ClearFlagsForIds_021573c8(void* layout);
+extern "C" void func_ov006_021573c8(void* layout);
 extern "C" void func_ov006_021553bc(AlchemyPot* pot, short* items, unsigned char* amounts);
-void ResetWithSub0208203c(Obj0208203c* repeat);
+extern "C" void func_0208203c(Obj0208203c* repeat);
 extern "C" void func_ov006_02155710(AlchemyPot* pot, short paramB, unsigned char paramC);
 extern "C" int func_ov006_021595b4(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int, int);
 extern "C" int func_ov006_02159218(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
-void CallFunc0204c804OverAllElems(Cont0207fe44* menu);
-void ClearField44IfSet_02158c28(StructC28* self);
+extern "C" void func_0207fe44(Cont0207fe44* menu);
+extern "C" void func_ov006_02158c28(StructC28* self);
 extern "C" void func_ov006_0215943c(AlchemyMenu* self);
-int Check02159564(void* self);
+extern "C" int func_ov006_02159564(void* self);
 extern "C" void func_ov006_02159274(AlchemyMenu* self, unsigned char* category, short* item, unsigned char* count);
-void UpdateEntryFlags021596f0(Struct021596f0* self);
+extern "C" void func_ov006_021596f0(Struct021596f0* self);
 extern "C" int func_ov006_02159834(AlchemyMenu* self);
 extern "C" void func_ov006_02159108(AlchemyMenu* self, unsigned char category, short item, unsigned char count);
 
@@ -155,18 +155,18 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
     Menu* menu = self->menu_;
     if (self->step_ == 0)
     {
-        ClearElementFlag0x20_02080c20((Obj2081*)menu, 0x10);
-        ClearElementFlag0x20_02080c20((Obj2081*)menu, 0x11);
-        SetEntryLowNibbleAndElement02080c68(menu, 0x11, 1);
+        func_02080c20((Obj2081*)menu, 0x10);
+        func_02080c20((Obj2081*)menu, 0x11);
+        func_02080c68(menu, 0x11, 1);
         self->pot_->potFlags_ &= ~0x10;
-        CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)menu, 0);
-        CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)menu, 1);
+        func_0207fdcc((Obj2081*)menu, 0);
+        func_0207fdcc((Obj2081*)menu, 1);
         self->group_ = 0x10;
         if (self->categoryCursor_ < 0)
-            self->categoryCursor_ = FindMappedMemberId02080468(menu, self->group_);
-        SetElementFlag0x40_02081ea4((Obj2081*)menu, self->group_, 0);
+            self->categoryCursor_ = func_02080468(menu, self->group_);
+        func_02081ea4((Obj2081*)menu, self->group_, 0);
         func_020813ec(menu, self->group_);
-        SetEntryLowNibbleAndElement02080c68(menu, self->group_, 0);
+        func_02080c68(menu, self->group_, 0);
         unsigned char i;
         self->item_ = -1;
         self->count_ = 0;
@@ -175,14 +175,14 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
             self->chosenItems_[i] = -1;
             self->chosenCounts_[i] = 0;
         }
-        CalcField389_0215951c((Obj0215951c*)self);
-        SetElementFlag0x40_02081ea4((Obj2081*)menu, 0x11, 0);
-        ClearSublistEntriesFlag4_020804fc(menu, 0x11);
+        func_ov006_0215951c((Obj0215951c*)self);
+        func_02081ea4((Obj2081*)menu, 0x11, 0);
+        func_020804fc(menu, 0x11);
         func_ov006_0215f4dc(self);
         self->flags_ |= 0x10;
-        ClearFlagsForIds_021573c8(self->layout_);
+        func_ov006_021573c8(self->layout_);
         func_ov006_021553bc(self->pot_, self->chosenItems_, self->chosenCounts_);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
         func_ov006_02155710(self->pot_, -1, 0);
         self->step_++;
@@ -194,26 +194,26 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
         self->cursor_ = &self->categoryCursor_;
         if (self->previousCursor_ != *self->cursor_)
         {
-            CalcField389_0215951c((Obj0215951c*)self);
+            func_ov006_0215951c((Obj0215951c*)self);
             func_ov006_0215f4dc(self);
         }
         if (func_ov006_02158a28(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             if (!func_ov006_02159218(self))
                 return;
-            SetEntryLowNibbleAndElement02080c68(menu, self->group_, 1);
-            SetElementFlag0x40_02081ea4((Obj2081*)menu, self->group_, 1);
-            SetEntryLowNibbleAndElement02080c68(menu, 0x11, 0);
+            func_02080c68(menu, self->group_, 1);
+            func_02081ea4((Obj2081*)menu, self->group_, 1);
+            func_02080c68(menu, 0x11, 0);
             self->step_++;
         }
         else if (func_ov006_02158b78(self))
         {
             self->resetBlend_ = 1;
-            CallFunc0204c804OverAllElems((Cont0207fe44*)menu);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0207fe44((Cont0207fe44*)menu);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->itemCursor_ = -1;
             self->state_ = 4;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
             self->message_ = 0;
             self->messageStep_ = 0;
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
     else if (self->step_ == 2)
     {
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
     }
     else if (self->step_ == 3)
     {
-        if (Check02159564(self))
+        if (func_ov006_02159564(self))
             return;
         if (func_ov006_02158a28(self) && self->previousCursor_ == *self->cursor_)
         {
@@ -249,10 +249,10 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
             func_ov006_02159274(self, &category, &item, &count);
             if (count)
             {
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-                ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0208203c((Obj0208203c*)self->repeat_);
                 self->cursor_ = 0;
-                SetElementFlag0x40_02081ea4((Obj2081*)self->menu_, 0x11, 1);
+                func_02081ea4((Obj2081*)self->menu_, 0x11, 1);
                 self->category_ = category;
                 self->item_ = item;
                 self->count_ = 1;
@@ -266,16 +266,16 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
         }
         else if (func_ov006_02158b78(self))
         {
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->itemCursor_ = -1;
             self->step_ = 0;
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
     else if (self->step_ == 4)
     {
-        UpdateEntryFlags021596f0((Struct021596f0*)self);
+        func_ov006_021596f0((Struct021596f0*)self);
         self->repeatDelay_ = 0;
         self->step_++;
     }
@@ -287,11 +287,11 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
             return;
         if (g_keyManager.TestKeysPressed(1) || result == 2)
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->flags_ &= ~8;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)menu, 6);
+            func_0207fdcc((Obj2081*)menu, 6);
             unsigned char category = GetCategory(self);
             unsigned char count = GetCount(self);
             func_ov006_02159108(self, category, self->item_, count);
@@ -307,10 +307,10 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
         }
         else if (func_ov006_02158b78(self) || result == 3)
         {
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->flags_ &= ~8;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)menu, 6);
+            func_0207fdcc((Obj2081*)menu, 6);
             self->step_ = 0;
             self->message_ = 0x24;
             self->messageStep_ = 0;

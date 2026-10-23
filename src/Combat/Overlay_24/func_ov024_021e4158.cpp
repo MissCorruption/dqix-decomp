@@ -4,12 +4,12 @@
 
 struct StatStageStruct02087b3c;
 struct StatStageStruct02087b90;
-int CanAdjustStatStageBit12(struct StatStageStruct02087b3c* p, int decrease);
-int SetStatStageBit12(struct StatStageStruct02087b90* p, int delta);
+extern "C" int func_02087b3c(struct StatStageStruct02087b3c* p, int decrease);
+extern "C" int func_02087b90(struct StatStageStruct02087b90* p, int delta);
 void UpdateCombatantMagicalMight(int unused, int combatantId);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
 struct Obj_021e8ca0;
-void* AddEntryToListAndIncCount_021e8ca0(struct Obj_021e8ca0* obj, int id);
+extern "C" void* func_ov024_021e8ca0(struct Obj_021e8ca0* obj, int id);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct Obj_021e4158 { char pad0[0xc]; void* field0xc; void* field0x10; };
@@ -26,8 +26,8 @@ extern "C" ARM unsigned long long func_ov024_021e4158(struct Obj_021e4158* obj, 
 	if (delta < 0) decrease = 1;
 	int applied = 0;
 	int stage = 0;
-	if (CanAdjustStatStageBit12((struct StatStageStruct02087b3c*)c->currentStats_, (unsigned char)decrease)) {
-		stage = SetStatStageBit12((struct StatStageStruct02087b90*)c->currentStats_, (signed char)delta);
+	if (func_02087b3c((struct StatStageStruct02087b3c*)c->currentStats_, (unsigned char)decrease)) {
+		stage = func_02087b90((struct StatStageStruct02087b90*)c->currentStats_, (signed char)delta);
 		UpdateCombatantMagicalMight((int)obj->field0x10, id);
 		applied = 1;
 	}
@@ -50,7 +50,7 @@ extern "C" ARM unsigned long long func_ov024_021e4158(struct Obj_021e4158* obj, 
 			}
 		}
 		func_ov000_02159eac(obj->field0x10, &local, 0x20);
-		void* entry = AddEntryToListAndIncCount_021e8ca0((struct Obj_021e8ca0*)obj, msg);
+		void* entry = func_ov024_021e8ca0((struct Obj_021e8ca0*)obj, msg);
 		if (entry) {
 			func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, 0);
 		}

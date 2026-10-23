@@ -12,13 +12,13 @@
 struct PackedNibbleArray0206e120;
 struct PackedNibbleArray0206e260;
 struct PackedNibbleArray0206e2dc;
-int GetPackedNibbleField(PackedNibbleArray0206e120*, int);
-int GetPackedNibbleFlag0x4(PackedNibbleArray0206e260*, int);
-int GetPackedNibbleFlag0x8(PackedNibbleArray0206e2dc*, int);
+extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
+extern "C" int func_0206e260(PackedNibbleArray0206e260*, int);
+extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc*, int);
 extern "C" PackedNibbleArray0206e120* func_0205ec34();
 static inline int NibbleIs0206cf58(PackedNibbleArray0206e120* table, int slot, int value)
 {
-    return GetPackedNibbleField(table, slot) == value;
+    return func_0206e120(table, slot) == value;
 }
 struct WorkGlobals0206cf58
 {
@@ -84,13 +84,13 @@ extern "C" ARM int func_0206cf58(Script::Parameter* params, int count)
         if (!NibbleIs0206cf58(table, slot, 2)) return 1;
         break;
     case 1:
-        if (!GetPackedNibbleFlag0x4((PackedNibbleArray0206e260*)table, slot)) return 1;
+        if (!func_0206e260((PackedNibbleArray0206e260*)table, slot)) return 1;
         break;
     case 2:
         if (!NibbleIs0206cf58(table, slot, 3)) return 1;
         break;
     case 4:
-        if (GetPackedNibbleFlag0x8((PackedNibbleArray0206e2dc*)table, slot) && NibbleIs0206cf58(table, slot, 0))
+        if (func_0206e2dc((PackedNibbleArray0206e2dc*)table, slot) && NibbleIs0206cf58(table, slot, 0))
         {
         }
         else return 1;
@@ -114,13 +114,13 @@ extern "C" ARM int func_0206cf58(Script::Parameter* params, int count)
     }
     if (expected != data_02108cec.expected)
     {
-        UnlinkNodeByByteId0206dd68(data_02108cec.receiver, id);
+        func_0206dd68(data_02108cec.receiver, id);
         return 1;
     }
     record = (Rec0206bf2c*)data_02108cec.allocator->Allocate(0x78);
     if (record == NULL)
         return 0;
-    ClearWorkRecord0206bf2c(record);
+    func_0206bf2c(record);
     record->field46 = slot;
     record->field4 = startYear;
     record->field5 = startMonth;
@@ -135,7 +135,7 @@ extern "C" ARM int func_0206cf58(Script::Parameter* params, int count)
         data_02108cec.id = id;
     if (count < 12)
     {
-        UnlinkNodeByByteId0206dd68(data_02108cec.receiver, id);
+        func_0206dd68(data_02108cec.receiver, id);
         data_02108cec.slot = slot;
         return 1;
     }

@@ -21,7 +21,7 @@ struct Record12 {
 };
 
 struct RecordList0209a4f0;
-void AppendRecord12Capped0209a4f0(struct RecordList0209a4f0* list, struct Record12* src);
+extern "C" void func_0209a4f0(struct RecordList0209a4f0* list, struct Record12* src);
 
 extern struct RecordList0209a4f0* data_02109ba4;
 
@@ -43,6 +43,6 @@ extern "C" ARM int func_0209a104(char* v) {
     _t = (unsigned int)PI(v, 0x40) << 27; rec.u.raw &= ~0x1f00000u; rec.u.raw |= _t >> 7;
     rec.u.vraw = rec.u.raw & 0x01ffffffu;
 
-    AppendRecord12Capped0209a4f0(data_02109ba4, &rec);
+    func_0209a4f0(data_02109ba4, &rec);
     return 1;
 }

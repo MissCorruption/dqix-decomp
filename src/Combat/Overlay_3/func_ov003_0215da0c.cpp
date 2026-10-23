@@ -18,10 +18,10 @@ enum { kRegionValue998_868 = 0x998 };
 struct Container020e0310;
 struct Entry_0205d6a0;
 
-char* GetGlobalField0x1c020421a0();
-void ReinitController02043204(char* ctrl);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* list, int flag);
+extern "C" char* func_020421a0();
+extern "C" void func_02043204(char* ctrl);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* list, int flag);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* obj);
 extern "C" void func_ov003_0215cab0(void* self, int msg);
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_0215da0c(struct BattleMenu_0215da0c* self) {
     int nonZero;
 
     gs = GameState::GetInstance();
-    global = GetGlobalField0x1c020421a0();
+    global = func_020421a0();
     ctx = func_0202ae18();
 
     zero = 0;
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov003_0215da0c(struct BattleMenu_0215da0c* self) {
     step = self->step;
     if (step == 0) {
         if (self->skipMessage) {
-            ReinitController02043204(global);
+            func_02043204(global);
             self->step++;
             return;
         }
@@ -80,11 +80,11 @@ extern "C" ARM void func_ov003_0215da0c(struct BattleMenu_0215da0c* self) {
                 key = 0x73;
             }
         }
-        func_ov003_0215cab0(self, GetFieldByKey020e0434((struct Container020e0310*)self->messages, key));
+        func_ov003_0215cab0(self, func_020e0434((struct Container020e0310*)self->messages, key));
         self->step++;
     }
     if (step == 1 && *(int*)(global + kRegionValue998_868) == 0) {
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->entries, 1);
+        func_0205d6a0((struct Entry_0205d6a0*)self->entries, 1);
         self->mode = 5;
         self->step = 0;
     }

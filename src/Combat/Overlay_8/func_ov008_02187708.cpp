@@ -161,17 +161,17 @@ extern char data_ov008_0218b49b[];
 extern char data_ov008_0218b4b0[];
 extern char data_ov008_0218b4c1[];
 
-MessageSystem* GetGlobalField0x1c020421a0();
-void Clear12Bytes020e46c4(void* name);
-void InitObjFromCombatant020e4c74(void* name, GameObject* object);
-void ResetListHeader020727d8(List020727d8* list);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-const char* FindEntryByKey_02072a68(TableA68* texts, int id);
-void SubmitAndRunScript02072928(void* list, StreamHeader* file, int size, int id, void* output, unsigned char female);
-void SetIndexedName02046574(Obj02046574* messages, int index, char* text);
-char* FindSubstring_020d2f88(char* text, char* search);
-void AppendYTag_02041a5c(char* text, int y);
-void AppendString02042058(char* text, const char* append);
+extern "C" MessageSystem* func_020421a0();
+extern "C" void func_020e46c4(void* name);
+extern "C" void func_020e4c74(void* name, GameObject* object);
+extern "C" void func_020727d8(List020727d8* list);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" const char* func_02072a68(TableA68* texts, int id);
+extern "C" void func_02072928(void* list, StreamHeader* file, int size, int id, void* output, unsigned char female);
+extern "C" void func_02046574(Obj02046574* messages, int index, char* text);
+extern "C" char* func_020d2f88(char* text, char* search);
+extern "C" void func_02041a5c(char* text, int y);
+extern "C" void func_02042058(char* text, const char* append);
 
 extern "C" {
 void __clear(void* buffer, unsigned long size);
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
         return;
     GameState* gameState = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
+    MessageSystem* messages = func_020421a0();
     char name[0x30];
     __clear(name, sizeof(name));
     short title = 0;
@@ -220,8 +220,8 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
                 title = vocations - 20000 + data->vocation_;
             }
             female = hero->partyData_->female_;
-            Clear12Bytes020e46c4(&heroName);
-            InitObjFromCombatant020e4c74(&heroName, hero);
+            func_020e46c4(&heroName);
+            func_020e4c74(&heroName, hero);
             messages->unk_10 = &heroName;
         }
     }
@@ -232,21 +232,21 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
             title = guest->title_;
         female = guest->female_;
         func_02042764(codes, name, 1);
-        Clear12Bytes020e46c4(&guestName);
+        func_020e46c4(&guestName);
         func_020e4b34(&guestName, name, name, 0, 0, 0, 0, female, 0, 1, 0, 1);
         messages->unk_10 = &guestName;
     }
     if (title > 0)
     {
         TextList list;
-        ResetListHeader020727d8((List020727d8*)&list);
+        func_020727d8((List020727d8*)&list);
         const char* titleText = NULL;
         unsigned int size = 0;
         if (title < 700)
         {
             if (self->guestTitles_ != NULL)
             {
-                titleText = GetFieldByKey020e0434((Container020e0310*)self->guestTitles_, title);
+                titleText = func_020e0434((Container020e0310*)self->guestTitles_, title);
             }
             else
             {
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
         {
             if (self->guestTexts_ != NULL)
             {
-                titleText = FindEntryByKey_02072a68((TableA68*)self->guestTexts_, (short)(title + 20000));
+                titleText = func_02072a68((TableA68*)self->guestTexts_, (short)(title + 20000));
             }
             else
             {
@@ -276,13 +276,13 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
                 void* file = ExtractFileFromGP2(data_ov008_0218b49b, data_ov008_0218b4b0, &size);
                 if (file != NULL)
                 {
-                    SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, (short)(title + 20000), buffer, 0);
+                    func_02072928(&list, (StreamHeader*)file, size, (short)(title + 20000), buffer, 0);
                     titleText = buffer;
                 }
                 BackgroundLoader::RemoveLockGlobal();
             }
         }
-        SetIndexedName02046574((Obj02046574*)messages, 0, (char*)titleText);
+        func_02046574((Obj02046574*)messages, 0, (char*)titleText);
     }
     char* output = self->text_;
     int format = 100;
@@ -292,9 +292,9 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
         format = 101;
         width = 0xdf;
     }
-    func_02046608(messages, 10, GetFieldByKey020e0434((Container020e0310*)&self->texts_, format), output + 0x760, width, 1, 0);
+    func_02046608(messages, 10, func_020e0434((Container020e0310*)&self->texts_, format), output + 0x760, width, 1, 0);
     int color = 7;
-    if (FindSubstring_020d2f88(output + 0x760, data_ov008_0218b4c1) != NULL)
+    if (func_020d2f88(output + 0x760, data_ov008_0218b4c1) != NULL)
         color = 2;
     if (records != NULL)
     {
@@ -302,6 +302,6 @@ extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRe
         if (color == 2)
             self->titleX_ = 0xe0000;
     }
-    AppendYTag_02041a5c(text, color);
-    AppendString02042058(text, output + 0x760);
+    func_02041a5c(text, color);
+    func_02042058(text, output + 0x760);
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-void SetGlobal02290d14_02239108(unsigned short v);
+extern "C" void func_ov031_02239108(unsigned short v);
 #if defined(jpn)
 extern "C" void func_ov027_021dcd5c(void* obj);
 #else
-void ResetBlockFields_021dcd5c(void* obj);
+extern "C" void func_ov025_021dcd5c(void* obj);
 #endif
 extern "C" int func_ov027_021d8b40(int index, int flag);
 extern unsigned short* data_ov031_02290d14;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_02238ca8(void) {
 #if defined(jpn)
 				func_ov027_021dcd5c((void*)index);
 #else
-				ResetBlockFields_021dcd5c((void*)index);
+				func_ov025_021dcd5c((void*)index);
 #endif
 			}
 		}
@@ -39,8 +39,8 @@ extern "C" ARM void func_ov031_02238ca8(void) {
 	} while (index < 0x10);
 
 	if (accumFlag == 0) {
-		SetGlobal02290d14_02239108(7);
+		func_ov031_02239108(7);
 	} else {
-		SetGlobal02290d14_02239108(4);
+		func_ov031_02239108(4);
 	}
 }

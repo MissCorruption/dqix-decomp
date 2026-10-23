@@ -22,7 +22,7 @@ extern "C" ARM int func_ov031_02208ab0(SslClientHelloState02208ab0* context, con
     int result;
     int sessionBytes;
     unsigned short cipher;
-    result = IsValueEqual3_02208aa0(data[0], data[1]);
+    result = func_ov031_02208aa0(data[0], data[1]);
     if (!result) return result;
     cipherBytes = (data[2] << 8) + data[3];
     cipher = func_ov031_02208a40(data + 8, cipherBytes / 3, 3);

@@ -12,17 +12,17 @@ struct Container02070e60;
 struct Foo0207df50;
 struct Struct_203dafc;
 
-void* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
-void* SearchWithLow15Comparator02070fd0(Container02070e60*, int);
-void ClearEightWords_0203dafc(struct Struct_203dafc*);
+extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" void* func_02070fd0(Container02070e60*, int);
+extern "C" void func_0203dafc(struct Struct_203dafc*);
 
 extern "C" void* __clear(void* dst, int count);
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void ResetObjectState02079a3c(void*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_02079a3c(void*);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
-void SetForwardAndStore0205ebc0(void*, int, int);
+extern "C" void func_0205ebc0(void*, int, int);
 
 struct Record0218dbec {
     int value;
@@ -67,7 +67,7 @@ extern int data_02108760;
 
 // USA: func_ov015_0218dbec
 extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) {
-    self->record = (Record0218dbec*)SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)(self->tables->search64), entry->key);
+    self->record = (Record0218dbec*)func_0206f4f0((BinarySearchByComparatorStruct*)(self->tables->search64), entry->key);
     if (self->record == 0) {
         return 0;
     }
@@ -78,8 +78,8 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
 
     int ok = 1;
     char* mgr = *self->pairsRoot;
-    CopyInternalFields0207df50((Foo0207df50*)mgr);
-    RestorePairTables0207df90(mgr);
+    func_0207df50((Foo0207df50*)mgr);
+    func_0207df90(mgr);
 
     if (self->tables->variant != 0) {
         sprintf(name, &data_ov015_021940f5, self->record->number);
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
     BackgroundLoader::FreeAllocationsGlobal();
 
     GPCReadPair pair;
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
     unsigned int headerSize;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine, &data_ov015_02194105,
                                                    data_0211e33c, headerSize, 0x30000, false, 0)) {
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
             }
             ObjectArchiveLoadInfo loadInfo;
             if (fileA != 0) {
-                ClearEightWords_0203dafc((Struct_203dafc*)&loadInfo);
+                func_0203dafc((Struct_203dafc*)&loadInfo);
                 loadInfo.allocator = self->allocator;
                 loadInfo.unk_8 = sizeA;
                 loadInfo.fileData = fileA;
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
                 self->object->LoadFromCCHROrCMOTArchive(&loadInfo, 0);
             }
             if (fileB != 0) {
-                ClearEightWords_0203dafc((Struct_203dafc*)&loadInfo);
+                func_0203dafc((Struct_203dafc*)&loadInfo);
                 loadInfo.allocator = self->allocator;
                 loadInfo.unk_8 = sizeB;
                 loadInfo.fileData = fileB;
@@ -139,7 +139,7 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    BackupPairTables0207dfac(mgr);
+    func_0207dfac(mgr);
 
     int result;
     if (ok == 0) {
@@ -148,11 +148,11 @@ extern "C" ARM int func_ov015_0218dbec(Obj0218dbec* self, Entry0218dbec* entry) 
         ZeroDestroyGPCPointer(&pair.pGPCFile);
         return result;
     } else {
-        Record0218dbec* rec = (Record0218dbec*)SearchWithLow15Comparator02070fd0((Container02070e60*)(self->tables->search70), (unsigned short)entry->key);
+        Record0218dbec* rec = (Record0218dbec*)func_02070fd0((Container02070e60*)(self->tables->search70), (unsigned short)entry->key);
         if (rec != 0) {
             self->object->SetField78(rec->packed & 0xffff);
             _ZN8Object3D10SetField7aEt(self->object, rec->packed >> 16);
-            SetForwardAndStore0205ebc0(&data_02108760, rec->packed & 0xffff, rec->packed >> 16);
+            func_0205ebc0(&data_02108760, rec->packed & 0xffff, rec->packed >> 16);
         }
         self->selected = self->record->value;
         result = 1;

@@ -6,18 +6,18 @@
 struct List0202fec8;
 
 struct ActiveEntry02046900;
-int CountActiveEntries(struct ActiveEntry02046900* entry);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
 
 struct Rec020467f0;
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
 
 struct List0204af64;
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void func_0204af64(struct List0204af64* obj);
 
-void DispatchByTag0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* obj, char* str);
 
 struct SelfTag0204b3a0;
-void DispatchByTagLookup0204b3a0(struct SelfTag0204b3a0* self, char* str);
+extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
 
 
 struct LocalListStruct02163144 {
@@ -54,15 +54,15 @@ extern "C" ARM int func_ov004_02163144() {
             LocalListStruct02163144 s;
 
             ((BackgroundLoader*)((struct List0202fec8*)data4))->GetLoadedFileByID((int)(data_ov004_021707e8.handle), (void**)(&recListHead), (unsigned int*)(&val2Ignored));
-            int count = CountActiveEntries((struct ActiveEntry02046900*)recListHead);
-            ResetList0204af64((struct List0204af64*)&s);
+            int count = func_02046900((struct ActiveEntry02046900*)recListHead);
+            func_0204af64((struct List0204af64*)&s);
             s.lo = 1;
             s.hi = 1;
             for (int i = 0; i < count; i++) {
-                void* rec = FindRecordByIndex((struct Rec020467f0*)recListHead, i, &dummyPtr, &dummyOut44);
+                void* rec = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &dummyOut44);
                 if (rec) {
-                    DispatchByTag0204b2e0(&s, (char*)rec);
-                    DispatchByTagLookup0204b3a0((struct SelfTag0204b3a0*)&s, (char*)rec);
+                    func_0204b2e0(&s, (char*)rec);
+                    func_0204b3a0((struct SelfTag0204b3a0*)&s, (char*)rec);
                 }
             }
             ((BackgroundLoader*)(data4))->RemoveTask((int)(data_ov004_021707e8.handle));

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* func_ov031_0223cf4c(int size, int align);
-void GetFields181c_02227520(int* a, int* b);
+extern "C" void func_ov031_02227520(int* a, int* b);
 extern "C" int func_ov031_02235984(void* ptr);
 extern "C" void func_ov031_0222b71c(void);
 extern "C" void func_ov031_022239f4(void);
@@ -10,12 +10,12 @@ extern "C" void func_ov031_02223518(int a);
 extern "C" void func_ov031_0222b870(void);
 extern "C" void func_ov031_0222b918(void);
 extern "C" void* func_ov031_0223c560(int a, int b);
-void* CallWithZeroExtra_0223e218(void* a, void* b, void* c, int d);
+extern "C" void* func_ov031_0223e218(void* a, void* b, void* c, int d);
 extern "C" void func_ov031_0222c870(void);
 extern "C" void func_ov031_0222c3b4(void);
 extern "C" void func_ov031_0222c8cc(void);
 extern "C" void func_ov031_0222ba8c(void);
-void SetField_022274c0_022274c0(int v);
+extern "C" void func_ov031_022274c0(int v);
 
 struct Inner0222b644 {
 	unsigned char pad[0xc];
@@ -37,7 +37,7 @@ extern Struct0222b644 data_ov031_02290c8c;
 extern "C" ARM void func_ov031_0222b644(void) {
 	int local;
 	data_ov031_02290c8c.field4 = (Inner0222b644*)func_ov031_0223cf4c(0x5c, 4);
-	GetFields181c_02227520(&local, NULL);
+	func_ov031_02227520(&local, NULL);
 	if (local == 0) {
 		data_ov031_02290c8c.field0 = 0;
 		data_ov031_02290c8c.field2 = 0;
@@ -53,9 +53,9 @@ extern "C" ARM void func_ov031_0222b644(void) {
 	func_ov031_0222b918();
 
 	data_ov031_02290c8c.field4->field0xc = func_ov031_0223c560(0, 0);
-	data_ov031_02290c8c.field4->field0x3c = (int)CallWithZeroExtra_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
+	data_ov031_02290c8c.field4->field0x3c = (int)func_ov031_0223e218((void*)1, (void*)func_ov031_0222c870, NULL, 0x6e);
 
 	func_ov031_0222c3b4();
 	func_ov031_0222c8cc();
-	SetField_022274c0_022274c0((int)func_ov031_0222ba8c);
+	func_ov031_022274c0((int)func_ov031_0222ba8c);
 }

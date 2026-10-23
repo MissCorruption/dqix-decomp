@@ -1,0 +1,15 @@
+#include <globaldefs.h>
+
+extern "C" void func_02026644(char* obj);
+
+// USA: func_02026678
+extern "C" ARM void func_02026678(char* obj) {
+#if defined(jpn)
+    *(unsigned char*)(obj + 0x90c) = 1;
+    *(unsigned char*)(obj + 0x90d) = 0;
+#else
+    *(unsigned char*)(obj + 0x9b8) = 1;
+    *(unsigned char*)(obj + 0x9b9) = 0;
+#endif
+    func_02026644(obj);
+}

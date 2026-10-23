@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-void BackupPairTableToBuffer_020bb700(int* out);
-void ReadGlobalPair020bb910(int* dst);
+extern "C" void func_020bb700(int* out);
+extern "C" void func_020bb910(int* dst);
 extern "C" int func_020bb588(unsigned int size, int a, int b);
 extern "C" int func_020bb7cc(unsigned int size, int a, int b);
 
@@ -18,12 +18,12 @@ struct PairBackupCtx0207de48 {
     int adjB;
 };
 
-// USA: func_0207de48  (semantic: PairBackupAndChecksum0207de48)
+// USA: func_0207de48
 extern "C" ARM void func_0207de48(void* pObj, int a, int b) {
     struct PairBackupCtx0207de48* obj = (struct PairBackupCtx0207de48*)pObj;
-    BackupPairTableToBuffer_020bb700((int*)&obj->bufA);
+    func_020bb700((int*)&obj->bufA);
     obj->bufB = obj->bufA;
-    ReadGlobalPair020bb910(obj->globalPair.v);
+    func_020bb910(obj->globalPair.v);
     int remaining = a;
     obj->globalPairCopy = obj->globalPair;
     obj->checksumA = 0;

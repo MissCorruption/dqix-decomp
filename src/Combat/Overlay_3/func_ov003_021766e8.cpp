@@ -1,0 +1,46 @@
+#include <globaldefs.h>
+#include "Input/Input.h"
+
+#if defined(jpn)
+enum { kRegionValue89C_818 = 0x818 };
+enum { kRegionValueFFE_F7A = 0xf7a };
+enum { kRegionValue8A0_81C = 0x81c };
+#else
+enum { kRegionValue89C_818 = 0x89c };
+enum { kRegionValueFFE_F7A = 0xffe };
+enum { kRegionValue8A0_81C = 0x8a0 };
+#endif
+
+struct Outer020e28dc;
+struct Obj2081;
+
+extern "C" int func_020e28dc(struct Outer020e28dc* o);
+extern "C" int func_020e2984(struct Outer020e28dc* window);
+extern "C" int func_02080d54(struct Obj2081* obj, int key, int px, int py);
+
+struct Ctx021766e8 {
+    struct Outer020e28dc* ptr0;
+    char pad0[kRegionValue89C_818 - 0x4];
+    struct Obj2081* field89c;
+    char pad1[kRegionValueFFE_F7A - kRegionValue8A0_81C];
+    short keyffe;
+};
+
+// USA: func_ov003_021766e8
+extern "C" ARM int func_ov003_021766e8(struct Ctx021766e8* self) {
+    int flag = 0;
+    if (g_keyManager.TestKeysPressed(2)) flag = 1;
+
+    if (self->ptr0 != NULL && func_020e28dc(self->ptr0)) {
+        if (func_020e2984(self->ptr0)) {
+            flag = 1;
+        }
+    } else if (g_touchInput.pressed_ != 0) {
+        int a, b;
+        g_touchInput.GetTouchPoint(&a, &b);
+        if (!func_02080d54(self->field89c, self->keyffe, (short)a, (short)b)) {
+            flag = 1;
+        }
+    }
+    return flag;
+}

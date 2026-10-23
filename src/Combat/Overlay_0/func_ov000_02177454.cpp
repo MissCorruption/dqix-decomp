@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 extern "C" void func_ov000_0217c638(void* obj, int a, int b);
 extern "C" void func_ov000_021775a4(void* obj, void* buf);
 #if defined(jpn)
@@ -11,8 +11,8 @@ extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int 
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
 #endif
 extern "C" void* func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int* obj);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_020100a8(GameState* battleStruct);
 
 struct InStruct_02177454 {
     char pad[0x44];
@@ -38,8 +38,8 @@ extern "C" ARM void func_ov000_02177454(void* objRaw, struct InStruct_02177454* 
     *(short*)(s + 0xaa) = 7;
     *(short*)(s + 0xac) = 0xa;
     *(short*)(s + 0xae) = 0xd;
-    if (CheckField0NonZero_0202b7d8((int*)func_0202ae18())) {
-        if (GetField0x3acValue_020100a8(GameState::GetInstance()) == 0) {
+    if (func_0202b7d8((int*)func_0202ae18())) {
+        if (func_020100a8(GameState::GetInstance()) == 0) {
             *(short*)(s + 0xa8) = 0xc;
             *(short*)(s + 0xaa) = 4;
             *(short*)(s + 0xac) = 0xa;
@@ -48,9 +48,9 @@ extern "C" ARM void func_ov000_02177454(void* objRaw, struct InStruct_02177454* 
     }
     *(unsigned char*)(s + 0xb1) = 2;
 #if defined(jpn)
-    void* buf = *(void**)((char*)GetGlobalField0x1c020421a0() + 0x28);
+    void* buf = *(void**)((char*)func_020421a0() + 0x28);
 #else
-    void* buf = *(void**)((char*)GetGlobalField0x1c020421a0() + 0x5c);
+    void* buf = *(void**)((char*)func_020421a0() + 0x5c);
 #endif
 #if defined(jpn)
     memset(buf, 0, 0x800);

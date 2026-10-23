@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int* obj);
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4*);
+extern "C" int func_0202b7d8(int* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4*);
 
 struct Entry020e3054 {
     unsigned char f0;
@@ -16,14 +16,14 @@ struct Ctx020e30f0 {
     int busy;
 };
 
-Entry020e3054* FindEntryByField1(Entry020e3054* list, int key);
-void Dispatch020e3428(void* a, int b);
-void Dispatch020e3328(void* a, int b);
+extern "C" Entry020e3054* func_020e3054(Entry020e3054* list, int key);
+extern "C" void func_020e3428(void* a, int b);
+extern "C" void func_020e3328(void* a, int b);
 
 // USA: func_020e30f0
 extern "C" ARM void func_020e30f0(Entry020e3054* list) {
     void* ctx = func_0202ae18();
-    if (!CheckField0NonZero_0202b7d8((int*)ctx)) return;
+    if (!func_0202b7d8((int*)ctx)) return;
 
     Entry020e3054* e = list;
     int i;
@@ -34,7 +34,7 @@ extern "C" ARM void func_020e30f0(Entry020e3054* list) {
             } else {
                 unsigned char owner = e->f0;
                 unsigned char key = e->f1;
-                Dispatch020e3428(list, key);
+                func_020e3428(list, key);
                 e->f1 = key;
                 e->f0 = owner;
                 e->f2 = 4;
@@ -47,18 +47,18 @@ extern "C" ARM void func_020e30f0(Entry020e3054* list) {
     for (j = 0; j < 8; j++, ids++) {
         int id = *ids;
         if (id == 0) continue;
-        Entry020e3054* found = FindEntryByField1(list, id);
+        Entry020e3054* found = func_020e3054(list, id);
         if (found != NULL) {
             unsigned char state = found->f2;
-            int cur = GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)ctx);
+            int cur = func_0202c1a4((struct SearchStruct0202c1a4*)ctx);
             if (found->f0 != cur && state == 1) state = 3;
             if (state == 1 || state == 4 || state == 5) {
                 *ids = 0;
             } else if (state != 2) {
-                Dispatch020e3328(list, id);
+                func_020e3328(list, id);
             }
         } else {
-            Dispatch020e3328(list, id);
+            func_020e3328(list, id);
         }
     }
 }

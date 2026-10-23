@@ -1,0 +1,42 @@
+#include <globaldefs.h>
+#include "Resource/GameResources.h"
+
+struct ClearList02046968;
+extern "C" void func_02046968(struct ClearList02046968* list);
+extern "C" void func_ov017_021a3544(void* self, void* ptr0);
+
+struct Buf72_021a3498 {
+    int words[18];
+};
+extern struct Buf72_021a3498 data_ov017_021d6a34;
+
+struct Ctx021a3498 {
+    void* field0;
+};
+
+// USA: func_ov017_021a3498
+extern "C" ARM void func_ov017_021a3498(struct Ctx021a3498* self) {
+#if defined(jpn)
+ enum {regionalOffset0=0x134};
+#else
+ enum {regionalOffset0=0x354};
+#endif
+    void* ptr = self->field0;
+    if (ptr != NULL && *((unsigned char*)ptr + 1) != 0) {
+        int obj = (int)GetGameResources();
+        if (obj != 0) {
+            struct Buf72_021a3498 local = data_ov017_021d6a34;
+            int* p = local.words;
+            while (*p != 0xffff) {
+                signed char val = *(signed char*)self->field0;
+                if (val == *p) {
+                    *((unsigned char*)(long)obj + 0x4000 + regionalOffset0) = 0xc;
+                    break;
+                }
+                p++;
+            }
+        }
+    }
+    func_02046968((struct ClearList02046968*)self);
+    func_ov017_021a3544(self, self->field0);
+}

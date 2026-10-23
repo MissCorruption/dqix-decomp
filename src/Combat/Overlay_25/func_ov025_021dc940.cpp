@@ -64,24 +64,24 @@ struct Actor0209c73c;
 extern "C" void* func_02057924(void);
 extern "C" int func_ov000_0215e9fc(void* party, short* buf, int max, int start);
 extern "C" int func_ov000_0215ec1c(void* party, short* buf, int max, int start);
-int CountValidCombatants02058618(void* mgr);
-unsigned char* GetData02104b6c_02039e70(void);
-int CheckFields6d0And6d4Equal_0203a5d0(unsigned char* data);
-int Check021ed2f4(void* obj);
-int IsByteFieldZero_021ed0fc(void* obj);
-int IsAnimationActive0209ca2c(void* obj);
+extern "C" int func_02058618(void* mgr);
+extern "C" unsigned char* func_02039e70(void);
+extern "C" int func_0203a5d0(unsigned char* data);
+extern "C" int func_ov025_021ed2f4(void* obj);
+extern "C" int func_ov025_021ed0fc(void* obj);
+extern "C" int func_0209ca2c(void* obj);
 struct Bytes02033b88;
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
+extern "C" void func_02033b88(Bytes02033b88*, int);
 extern "C" void __clear(void* dst, int size);
-Slot_021dc940* GetSlotPtr02160f20(void* obj);
-void SetFlag0x2_021754e0(int, int);
+extern "C" Slot_021dc940* func_ov000_02160f20(void* obj);
+extern "C" void func_ov000_021754e0(int, int);
 extern "C" void func_ov000_0218142c(void* list, int id);
-void SetPosAndFields0216f1e4(void* obj, int* pos, int a, int b);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" void func_ov000_0216f1e4(void* obj, int* pos, int a, int b);
+extern "C" void* func_020421a0(void);
 extern "C" void func_02043124(void* obj);
-void StopAndReset0209c7fc(void* obj);
-void DispatchActorState0209c73c(Actor0209c73c* actor);
-void ClearGlobalBuffer02107850_02048994(void);
+extern "C" void func_0209c7fc(void* obj);
+extern "C" void func_0209c73c(Actor0209c73c* actor);
+extern "C" void func_02048994(void);
 
 extern int data_02109bf4;
 
@@ -125,19 +125,19 @@ extern "C" ARM int func_ov025_021dc940(Obj_021dc940* obj) {
         }
     }
 
-    if (CountValidCombatants02058618(mgr) > 0) {
+    if (func_02058618(mgr) > 0) {
         return 0;
     }
-    if (CheckFields6d0And6d4Equal_0203a5d0(GetData02104b6c_02039e70()) == 0) {
+    if (func_0203a5d0(func_02039e70()) == 0) {
         return 0;
     }
-    if (Check021ed2f4(obj->msg890) == 0) {
+    if (func_ov025_021ed2f4(obj->msg890) == 0) {
         return 0;
     }
-    if (IsByteFieldZero_021ed0fc(obj->sub4d4) == 0) {
+    if (func_ov025_021ed0fc(obj->sub4d4) == 0) {
         return 0;
     }
-    if (IsAnimationActive0209ca2c(&data_02109bf4) != 0) {
+    if (func_0209ca2c(&data_02109bf4) != 0) {
         return 0;
     }
 
@@ -151,7 +151,7 @@ extern "C" ARM int func_ov025_021dc940(Obj_021dc940* obj) {
         if (obj->started == 0) {
             unsigned char motion = GetMotion_021dc940(c);
             if (motion != 4 && motion != 6) {
-                SetByte0xbeShiftPrev((Bytes02033b88*)c, 0);
+                func_02033b88((Bytes02033b88*)c, 0);
             }
         }
         if (c->obj3D_.IsVisible() && c->obj3D_.IsTransitioningAnimations()) {
@@ -174,24 +174,24 @@ extern "C" ARM int func_ov025_021dc940(Obj_021dc940* obj) {
     obj->f6ff8 = 0;
     obj->f6fd4 = 0;
 
-    Slot_021dc940* slot = GetSlotPtr02160f20(obj);
+    Slot_021dc940* slot = func_ov000_02160f20(obj);
     Entry_021dc940* entry;
     if (slot != NULL && (entry = slot->entry) != NULL && !slot->disabled) {
         int id = entry->id;
         if (IsPartyIndex_021dc940(id)) {
-            SetFlag0x2_021754e0((int)obj->entryList, id);
+            func_ov000_021754e0((int)obj->entryList, id);
             func_ov000_0218142c(obj->entryList, id);
         }
     }
-    SetPosAndFields0216f1e4(obj->cameraBase, obj->cameraPos, 0, 0);
-    func_02043124(GetGlobalField0x1c020421a0());
+    func_ov000_0216f1e4(obj->cameraBase, obj->cameraPos, 0, 0);
+    func_02043124(func_020421a0());
 
     Battle_021dc940* battle = obj->battle;
     if (((TurnBlock_021dc940*)((int)obj + 0x5000))->turn == battle->f8e24 - 1 && battle->f8e14 != 0) {
-        StopAndReset0209c7fc(&data_02109bf4);
+        func_0209c7fc(&data_02109bf4);
     } else {
-        DispatchActorState0209c73c((Actor0209c73c*)&data_02109bf4);
+        func_0209c73c((Actor0209c73c*)&data_02109bf4);
     }
-    ClearGlobalBuffer02107850_02048994();
+    func_02048994();
     return 1;
 }

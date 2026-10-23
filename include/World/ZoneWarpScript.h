@@ -13,9 +13,9 @@ struct Struct_020fdc20 {
 
 extern Struct_020fdc20 data_020fdc20;
 
-void ExecuteZoneWarpScript_0201e1d0(const void* data, unsigned int length, ZoneFeatures* features, SafeAllocator* allocator);
+extern "C" void func_0201e1d0(const void* data, unsigned int length, ZoneFeatures* features, SafeAllocator* allocator);
 
-bool ProcessExtraOpcode69Params_0201cb60(Script::Parameter *param, int numParams, ZoneFeatures::Opcode68Entry &entry);
-int WarpScript_Opcode_69_0201ccc8(Script::Parameter *params, int numParams);
-int WarpScript_Opcode_72_0201ce80(Script::Parameter *params, int numParams);
-int WarpScript_Opcode_67_0201c96c(Script::Parameter *params, int numParams);
+extern "C" bool func_0201cb60(Script::Parameter *param, int numParams, ZoneFeatures::Opcode68Entry &entry);
+extern "C" int func_0201ccc8(Script::Parameter *params, int numParams);
+extern "C" int func_0201ce80(Script::Parameter *params, int numParams);
+extern "C" int func_0201c96c(Script::Parameter *params, int numParams);

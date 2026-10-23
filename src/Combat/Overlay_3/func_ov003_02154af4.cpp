@@ -34,26 +34,26 @@ extern short data_ov003_0217f2a8[3];
 extern Table data_ov003_0217f340;
 extern Dispatch data_020e6d5c;
 extern "C" int func_ov017_021959b4();
-char* GetGlobalField0x1c020421a0();
-void ReinitController02043204(char*);
+extern "C" char* func_020421a0();
+extern "C" void func_02043204(char*);
 struct Outer020e28dc;
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
+extern "C" int func_020e28dc(Outer020e28dc*);
 struct Obj020e25e8;
-void ResetSelectionState020e25e8(Obj020e25e8*);
+extern "C" void func_020e25e8(Obj020e25e8*);
 extern "C" void func_ov003_021537d4(void*,unsigned int);
 extern "C" void func_ov003_021552b8(Scene*);
 struct Obj0207fc6c;
-void CallFunc0204c87cOverEntries0207fc6c(Obj0207fc6c*, int);
-unsigned int GetTableValue_0202053c(void*);
+extern "C" void func_0207fc6c(Obj0207fc6c*, int);
+extern "C" unsigned int func_0202053c(void*);
 struct Obj2081;
-int HasElementByByte0xc4_020811d0(Obj2081*, int);
+extern "C" int func_020811d0(Obj2081*, int);
 extern "C" void func_ov003_02158334(Scene*);
 extern "C" void func_02081f20(void*,unsigned int);
 extern "C" int func_020800fc(Model*,short*,int,unsigned short,unsigned char,int);
-void ClearSublistEntriesFlag4_020804fc(void*, int);
+extern "C" void func_020804fc(void*, int);
 extern "C" void func_020813ec(Model*,int);
 struct Ctx020e263c;
-void UpdateEntryStateAndPosition(Ctx020e263c*, int);
+extern "C" void func_020e263c(Ctx020e263c*, int);
 // USA: func_ov003_02154af4
 extern "C" ARM int func_ov003_02154af4(Scene* self,unsigned int scale) {
  self->scale=scale;
@@ -61,21 +61,21 @@ extern "C" ARM int func_ov003_02154af4(Scene* self,unsigned int scale) {
  if (self->reset && !self->blocked) {
   if(self->selection) *self->selection=-1;
   self->selection=0;
-  ReinitController02043204(GetGlobalField0x1c020421a0());
+  func_02043204(func_020421a0());
   self->field1ea=-1; self->pending=self->field1ea;
-  if(self->inner && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->inner)) ResetSelectionState020e25e8((Obj020e25e8*)self->inner);
+  if(self->inner && func_020e28dc((Outer020e28dc*)self->inner)) func_020e25e8((Obj020e25e8*)self->inner);
   self->state=6; self->flag=0; self->reset=0;
  }
  if(!self->skip) func_ov003_021537d4(self->controller,scale);
  if(self->pending>=0) { func_ov003_021552b8(self); return 0; }
- if(self->state) GetGlobalField0x1c020421a0()[kGlobalFlag]=0;
+ if(self->state) func_020421a0()[kGlobalFlag]=0;
  Model* model=self->model;
  if(model) {
-  if(!self->skip) CallFunc0204c87cOverEntries0207fc6c((Obj0207fc6c*)model, scale);
+  if(!self->skip) func_0207fc6c((Obj0207fc6c*)model, scale);
   int i; Cache* c; Member* member; bool changed; int id; Party* party; GameState* gs;
   changed=false;
   gs=GameState::GetInstance();
-  party=(Party*)GetPtrField0x2a04_02010828(gs);
+  party=(Party*)func_02010828(gs);
   int count=party->count;
   for(i=0;i<count;i++) {
    id=party->ids[i];
@@ -84,23 +84,23 @@ extern "C" ARM int func_ov003_02154af4(Scene* self,unsigned int scale) {
     c=&self->cache[id];
     unsigned int hp=member->HP();
     unsigned int maxhp,mp,maxmp,voc,flags;
-    if(!(c->hp==hp && ((maxhp=member->MaxHP()), c->maxHP==maxhp) && ((mp=member->MP()), c->mp==mp) && ((maxmp=member->MaxMP()), c->maxMP==maxmp) && ((voc=member->Voc()), c->vocation==voc) && c->table==GetTableValue_0202053c(member) && ((flags=member->Flags()), c->flags==flags))) {
+    if(!(c->hp==hp && ((maxhp=member->MaxHP()), c->maxHP==maxhp) && ((mp=member->MP()), c->mp==mp) && ((maxmp=member->MaxMP()), c->maxMP==maxmp) && ((voc=member->Voc()), c->vocation==voc) && c->table==func_0202053c(member) && ((flags=member->Flags()), c->flags==flags))) {
      c->hp=member->status->hp; c->maxHP=member->profile->hp; c->mp=member->status->mp; c->maxMP=member->profile->mp;
-     c->vocation=member->vocation->value; c->table=GetTableValue_0202053c(member); changed=true; c->flags=member->status->flags;
+     c->vocation=member->vocation->value; c->table=func_0202053c(member); changed=true; c->flags=member->status->flags;
     }
    }
   }
-  if(changed) for(int i=0;i<3;i++) if(HasElementByByte0xc4_020811d0((Obj2081*)model, data_ov003_0217f2a8[i])) { func_ov003_02158334(self);break; }
+  if(changed) for(int i=0;i<3;i++) if(func_020811d0((Obj2081*)model, data_ov003_0217f2a8[i])) { func_ov003_02158334(self);break; }
  }
  if(self->selection) {
   func_02081f20(self->selector,scale);
   self->previous=*self->selection;
   self->changed=func_020800fc(model,self->selection,self->previous,self->field8c,self->field8e,(self->flags&4)!=0);
   model->selected=*self->selection;
-  if(self->changed) ClearSublistEntriesFlag4_020804fc(model, self->element);
+  if(self->changed) func_020804fc(model, self->element);
   if(self->previous!=*self->selection) func_020813ec(model,self->element);
  }
- if(self->inner && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->inner)) UpdateEntryStateAndPosition((Ctx020e263c*)self->inner, self->scale);
+ if(self->inner && func_020e28dc((Outer020e28dc*)self->inner)) func_020e263c((Ctx020e263c*)self->inner, self->scale);
  Table buf; buf=data_ov003_0217f340;
  unsigned int locator=data_020e6d5c.locator;
  unsigned int fn=data_020e6d5c.fn;

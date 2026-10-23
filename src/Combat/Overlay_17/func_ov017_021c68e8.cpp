@@ -2,15 +2,15 @@
 #include "GameState/GameState.h"
 
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
-void* GetField6b0_021b8470(void* obj);
-void SetByteField0x43eOnEntry_ov000_02162b70(void* self, int index, unsigned char value);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-void SetBoundedArrayField0x4f4_ov000_02162c90(char* self, int index, int value);
+extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" void func_ov000_02162b70(void* self, int index, unsigned char value);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" void func_ov000_02162c90(char* self, int index, int value);
 
 struct StructAt3c_02162aac {
     unsigned char f0;
@@ -23,7 +23,7 @@ struct StructAt3c_02162aac {
     unsigned short f8;
 };
 
-void ProcessCombatantSlot_02162aac(void* self, int a, struct StructAt3c_02162aac* s);
+extern "C" void func_ov000_02162aac(void* self, int a, struct StructAt3c_02162aac* s);
 
 struct Hdr021c68e8 {
     unsigned char pad0[8];
@@ -58,13 +58,13 @@ extern "C" ARM void func_ov017_021c68e8(int unused0, Evt021c68e8* evt, GameState
     if (!a) return;
     void* b = func_ov017_021b8468(table);
     if (!b) return;
-    void* work = GetField6b0_021b8470(table);
+    void* work = func_ov017_021b8470(table);
     if (!work) return;
     if (a->field8 != evt->field4) return;
 
-    if (evt->field12 > -1 && evt->field12 != GetSearchStructCurrentArrEntry(search)) {
+    if (evt->field12 > -1 && evt->field12 != func_0202c1a4(search)) {
         if (evt->flag1) {
-            SetByteField0x43eOnEntry_ov000_02162b70(b, (signed char)evt->combatantId, 1);
+            func_ov000_02162b70(b, (signed char)evt->combatantId, 1);
         }
         return;
     }
@@ -80,10 +80,10 @@ extern "C" ARM void func_ov017_021c68e8(int unused0, Evt021c68e8* evt, GameState
     s.f8 = evt->fielda;
 
     if (s.f1 != 6 && s.f0 != 0xd) {
-        if (GetCombatantWithFlag0x1000_0200ff58(battleStruct, evt->combatantId) != NULL) {
-            GameObject* c = GetCombatantWithFlag0x100_0200ff1c(battleStruct, evt->combatantId);
+        if (func_0200ff58(battleStruct, evt->combatantId) != NULL) {
+            GameObject* c = func_0200ff1c(battleStruct, evt->combatantId);
             if (c != NULL) {
-                int field = GetFieldAt0x150_02053c6c((unsigned char*)c);
+                int field = func_02053c6c((unsigned char*)c);
                 if (field != 0) {
 #if defined(jpn)
                     ok = (signed char)*(int*)(field + 0x8b4) == 5;
@@ -96,10 +96,10 @@ extern "C" ARM void func_ov017_021c68e8(int unused0, Evt021c68e8* evt, GameState
     }
 
     if (ok) {
-        ProcessCombatantSlot_02162aac(b, evt->combatantId, &s);
+        func_ov000_02162aac(b, evt->combatantId, &s);
     }
-    SetBoundedArrayField0x4f4_ov000_02162c90((char*)b, (signed char)evt->index, evt->flag0 ? 1 : 0);
+    func_ov000_02162c90((char*)b, (signed char)evt->index, evt->flag0 ? 1 : 0);
     if (evt->flag1) {
-        SetByteField0x43eOnEntry_ov000_02162b70(b, (signed char)evt->combatantId, 1);
+        func_ov000_02162b70(b, (signed char)evt->combatantId, 1);
     }
 }

@@ -17,5 +17,5 @@ struct List0209998c {
     int cap;
 };
 
-void *GetPtrField0x468_02011584(void *obj);
-Elem0209998c *FindElementByName0209998c(List0209998c *list, const char *name);
+extern "C" void *func_02011584(void *obj);
+extern "C" Elem0209998c *func_0209998c(List0209998c *list, const char *name);

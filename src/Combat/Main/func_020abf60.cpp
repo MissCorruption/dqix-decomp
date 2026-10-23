@@ -16,7 +16,7 @@ enum { BattleTableOffset = 0x75f0 };
 #endif
 
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
 extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 struct Container_02097430;
 struct Node_02097430 {
@@ -45,8 +45,8 @@ extern "C" ARM int func_020abf60(void* entriesData) {
         return 0;
     }
     EventFlagState* events = static_cast<EventFlagState*>(func_0205ec34());
-    if (TestBitInByteArray_0206dfb0((int)events, events->bits, 0x796) == 0 ||
-        TestBitInByteArray_0206dfb0((int)events, events->bits, 0x1143) != 0) {
+    if (func_0206dfb0((int)events, events->bits, 0x796) == 0 ||
+        func_0206dfb0((int)events, events->bits, 0x1143) != 0) {
         return 0;
     }
     func_0206df6c(events, events->bits, 0x1143, 1);

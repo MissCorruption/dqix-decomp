@@ -24,7 +24,7 @@ struct CombatantRecovery : GameObject {
 };
 
 extern "C" void func_02048150(GameObject* object, int hp, int notify);
-void ClearFieldBit02053fe4(GameObject* object, int hp, int notify);
+extern "C" void func_02053fe4(GameObject* object, int hp, int notify);
 
 typedef char CommonGameObjectSizeCheck[sizeof(GameObject) == 0x13c ? 1 : -1];
 typedef char CombatantStatusHpCheck[offsetof(CombatantStatus, hp) == 4 ? 1 : -1];

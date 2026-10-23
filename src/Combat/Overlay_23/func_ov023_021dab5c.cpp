@@ -4,7 +4,7 @@
 #include "Resource/CharacterCreationUI.h"
 #include "Graphics/SpriteAffineTransform.h"
 
-int GetField0_0205bafc(void*);
+extern "C" int func_0205bafc(void*);
 extern "C" void func_0205ac40(SpriteContext0205ac40*, B174Outer*);
 
 extern "C" ARM void func_ov023_021dab5c(CharacterCreationUI* self, int x, int y, int width, int height) {
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov023_021dab5c(CharacterCreationUI* self, int x, int y,
         minY = fy - 0x7000;
         maxX = sumX - 0x1000;
         maxY = sumY - 0x1000;
-        if (GetField0_0205bafc(&self->navigation) == 8 && self->navigation.rows == 1) {
+        if (func_0205bafc(&self->navigation) == 8 && self->navigation.rows == 1) {
             minX = fx - 0x4000;
             minY = fy - 0x4000;
             maxX = sumX - 0x4000;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021dab5c(CharacterCreationUI* self, int x, int y,
         func_0205ac40(self->spriteContext, &self->sprites[i + 21]);
 }
 #else
-int GetField0_0205bafc(void* obj);
+extern "C" int func_0205bafc(void* obj);
 extern "C" void func_0205ac40(void* dst, void* entry);
 
 // USA: func_ov023_021dab5c
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov023_021dab5c(void* obj, int a1, int a2, int a3, int a
         minY = fy - 0x7000;
         maxX = sumX - 0x1000;
         maxY = sumY - 0x1000;
-        if (GetField0_0205bafc(o + 0xbec) == 8 && *(int*)(o + 0xbf8) == 1) {
+        if (func_0205bafc(o + 0xbec) == 8 && *(int*)(o + 0xbf8) == 1) {
             minX = fx - 0x4000;
             minY = fy - 0x4000;
             maxX = sumX - 0x4000;

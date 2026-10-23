@@ -32,13 +32,13 @@ struct CollisionFrame021a1ad0 {
 
     CollisionFrame021a1ad0(const Vector3fix& position) : origin(position) {}
 };
-Entry_02028bd0* GetEntryTableBase_02027ca4();
-Entry_02028bd0* GetElementStride0x318(Element0x318_02028bac*, int);
-Entry_02028bd0* FindInlineEntryById(Entry_02028bd0*, int);
-void TickActorAndDispatchPhase02076b58(Obj02076b58*);
-int IsValueInRange0201b5d8(int);
-int CheckField0NonZero_0202b7d8(int*);
-void EnqueueEventTag134_021c9544(int, int, int, int);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Entry_02028bd0* func_02028bac(Element0x318_02028bac*, int);
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0*, int);
+extern "C" void func_02076b58(Obj02076b58*);
+extern "C" int func_0201b5d8(int);
+extern "C" int func_0202b7d8(int*);
+extern "C" void func_ov017_021c9544(int, int, int, int);
 extern "C" int* func_0202ae18();
 extern "C" unsigned short* func_02012fe4();
 extern "C" int func_0202c508(int*);
@@ -49,7 +49,7 @@ extern "C" void func_02076a8c(FieldMonster021a1ad0*);
 // USA: func_ov017_021a1ad0
 extern "C" ARM void func_ov017_021a1ad0() {
     GameState* state = GameState::GetInstance();
-    Entry_02028bd0* table = GetEntryTableBase_02027ca4();
+    Entry_02028bd0* table = func_02027ca4();
     int* manager = func_0202ae18();
     unsigned short* currentArea = func_02012fe4();
     if (func_0202c508(manager)) {
@@ -57,16 +57,16 @@ extern "C" ARM void func_ov017_021a1ad0() {
         int group;
         Entry_02028bd0* entry;
         for (group = 0; group < 4; group++) {
-            entry = GetElementStride0x318((Element0x318_02028bac*)table, group);
+            entry = func_02028bac((Element0x318_02028bac*)table, group);
             if (!entry->active) continue;
             base = group * 12 + 0x70;
             int tag = -1;
             for (int slot = 0; slot < 12; slot++) {
                 FieldMonster021a1ad0* monster = (FieldMonster021a1ad0*)state->GetMaybeFieldMonsterByIndex(slot + base);
                 if (!monster || !monster->object.IsVisible()) continue;
-                TickActorAndDispatchPhase02076b58((Obj02076b58*)monster);
+                func_02076b58((Obj02076b58*)monster);
                 int removable = 1;
-                if ((monster->flags & 2) || (monster->flags & 4) || IsValueInRange0201b5d8(*currentArea)) removable = 0;
+                if ((monster->flags & 2) || (monster->flags & 4) || func_0201b5d8(*currentArea)) removable = 0;
                 if (monster->flags & 8) removable = 0;
                 if (!removable) continue;
                 int clear;
@@ -104,18 +104,18 @@ collisionComplete:
                 if (clear && monster->phase != 8 && monster->phase != 9) {
                     func_02076a8c(monster);
                     monster->object.MakeHidden();
-                    if (CheckField0NonZero_0202b7d8(manager) && entry) {
-                        EnqueueEventTag134_021c9544(entry->id, slot, monster->object.unknown_2_, tag);
+                    if (func_0202b7d8(manager) && entry) {
+                        func_ov017_021c9544(entry->id, slot, monster->object.unknown_2_, tag);
                     }
                 }
             }
         }
     } else {
-        Entry_02028bd0* entry = FindInlineEntryById(table, *currentArea);
+        Entry_02028bd0* entry = func_02028bd0(table, *currentArea);
         if (!entry) return;
         for (int slot = 0; slot < 12; slot++) {
             FieldMonster021a1ad0* monster = (FieldMonster021a1ad0*)state->GetMaybeFieldMonsterByIndex(entry->slotGroup * 12 + 0x70 + slot);
-            if (monster && monster->object.IsVisible()) TickActorAndDispatchPhase02076b58((Obj02076b58*)monster);
+            if (monster && monster->object.IsVisible()) func_02076b58((Obj02076b58*)monster);
         }
     }
 }

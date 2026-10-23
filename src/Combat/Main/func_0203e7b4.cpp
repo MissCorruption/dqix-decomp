@@ -2,13 +2,13 @@
 struct HeaderStruct { unsigned short* arr; unsigned short capacity, count, size, mask; };
 struct SortedU16List0203e6c8 { unsigned short* arr; unsigned short capacity, count, size, mask; };
 struct SortedU16List0203e63c { unsigned short* arr; unsigned short capacity, count, size, mask; };
-void ResetHeader_0203e624(HeaderStruct*);
-int InsertKeyInSortedU16List(SortedU16List0203e6c8*, unsigned int);
-unsigned char FindKeyInSortedU16List(SortedU16List0203e63c*, unsigned int);
+extern "C" void func_0203e624(HeaderStruct*);
+extern "C" int func_0203e6c8(SortedU16List0203e6c8*, unsigned int);
+extern "C" unsigned char func_0203e63c(SortedU16List0203e63c*, unsigned int);
 void CleanInvalidateCacheRange(const void*, unsigned int);
 // USA: func_0203e7b4
 extern "C" ARM int func_0203e7b4(HeaderStruct* header, unsigned short* list, unsigned char* output, unsigned short* input, int capacity, int width, int height, int stride) {
-    ResetHeader_0203e624(header);
+    func_0203e624(header);
     if (!list || !output || !input) return 0;
     header->arr = list;
     header->capacity = capacity;
@@ -25,7 +25,7 @@ extern "C" ARM int func_0203e7b4(HeaderStruct* header, unsigned short* list, uns
     for (y = remaining; y != 0; ) {
         unsigned short* p = row;
         for (x = width; x != 0; --x) {
-            InsertKeyInSortedU16List((SortedU16List0203e6c8*)header, *p);
+            func_0203e6c8((SortedU16List0203e6c8*)header, *p);
             p++;
         }
         --y;
@@ -37,7 +37,7 @@ extern "C" ARM int func_0203e7b4(HeaderStruct* header, unsigned short* list, uns
         unsigned char* dest = outrow;
         unsigned short* p = input;
         for (x = width; x != 0; --x) {
-            *dest = FindKeyInSortedU16List((SortedU16List0203e63c*)header, *p++);
+            *dest = func_0203e63c((SortedU16List0203e63c*)header, *p++);
             dest++;
         }
         --remaining;
@@ -45,6 +45,6 @@ extern "C" ARM int func_0203e7b4(HeaderStruct* header, unsigned short* list, uns
         input += stride;
     }
     CleanInvalidateCacheRange(output, width * height);
-    ResetHeader_0203e624(header);
+    func_0203e624(header);
     return 1;
 }

@@ -78,7 +78,7 @@ struct DstEntry2_021e20f0 {
     unsigned char field10;
 };
 
-// USA: func_ov023_021e20f0  (semantic: BuildListEntryArrays_021e20f0)
+// USA: func_ov023_021e20f0
 extern "C" ARM int func_ov023_021e20f0(struct Target021e20f0* p, SafeAllocator* alloc,
         struct ListHeader021e20f0* header, void* guard) {
     short negOne = -1;

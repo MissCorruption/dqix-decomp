@@ -35,7 +35,7 @@ struct ParseState {
     int tag;
 };
 
-// USA: func_0205ec70  (semantic: ParseVariantList_0205ec70)
+// USA: func_0205ec70
 extern "C" ARM void func_0205ec70(SafeAllocator* allocator, int count, const Script::Parameter* params, SimpleCommand** simpleHead, CompoundCommand** compoundHead) {
     SimpleCommand* prevSimple = 0;
     CompoundCommand* prevCompound = 0;

@@ -6,7 +6,7 @@ extern "C" void func_ov031_0221e51c(void* dst, const void* src, unsigned int len
 extern char data_ov031_0224b0d0;
 extern char data_ov031_0224b0dc;
 
-// USA: func_ov031_0221d310  (semantic: InitNameAndLabel_0221d310)
+// USA: func_ov031_0221d310
 extern "C" THUMB int func_ov031_0221d310(void* obj) {
     *(int*)obj = func_ov031_0221e650(&data_ov031_0224b0d0);
     func_ov031_0221e51c((char*)obj + 0x4, &data_ov031_0224b0d0, *(int*)obj);

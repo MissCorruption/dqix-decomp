@@ -30,12 +30,12 @@ struct Container02045c00 {
 typedef Container02045c00 TextEncoder;
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_0204483c(TextEncoder*, const char*, char*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-int Dispatch02044420(void*, void*);
-CharacterEntry* FindEntryByKey0204254c(int, int);
-int FindEntryIndexByKey020424e4(int, int);
-int FindMatchingEntryIndex(Container02045c00*, int);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" int func_02044420(void*, void*);
+extern "C" CharacterEntry* func_0204254c(int, int);
+extern "C" int func_020424e4(int, int);
+extern "C" int func_02045c00(Container02045c00*, int);
 extern "C" unsigned short func_020459b8(TextEncoder*, int, CharacterEntry*, int);
 
 // USA: func_02045d14
@@ -53,7 +53,7 @@ extern "C" ARM unsigned short func_02045d14(TextEncoder* self, const char* text,
     count = 0;
     offset = 0;
     outIndex = 0;
-    if (self->pairTables) RestorePairTables0207df90(self->pairTables);
+    if (self->pairTables) func_0207df90(self->pairTables);
     while (1) {
         if (outIndex > 0 && output[outIndex - 1] == 0xff01) break;
         memcpy(&work.command, work.buffer + offset, 2);
@@ -63,17 +63,17 @@ extern "C" ARM unsigned short func_02045d14(TextEncoder* self, const char* text,
             offset += 2;
             ++outIndex;
             ++count;
-            length = Dispatch02044420(self, &work.commandCopy);
+            length = func_02044420(self, &work.commandCopy);
             unsigned int bytes = length * sizeof(unsigned short);
             memcpy(output + outIndex, work.buffer + offset, bytes);
             count += length;
             offset += length * 2;
             outIndex += length;
         } else {
-            entry = FindEntryByKey0204254c((int)(work.buffer + offset), table);
-            int index = FindEntryIndexByKey020424e4((int)(work.buffer + offset), table);
+            entry = func_0204254c((int)(work.buffer + offset), table);
+            int index = func_020424e4((int)(work.buffer + offset), table);
             if (entry != 0 && index >= 0) {
-                int match = FindMatchingEntryIndex(self, (int)entry);
+                int match = func_02045c00(self, (int)entry);
                 if (match == -1) {
                     output[outIndex] = func_020459b8(self, index & 0xff, entry, table);
                     cache = self->GetCache();
@@ -93,6 +93,6 @@ extern "C" ARM unsigned short func_02045d14(TextEncoder* self, const char* text,
             ++count;
         }
     }
-    if (self->pairTables) BackupPairTables0207dfac(self->pairTables);
+    if (self->pairTables) func_0207dfac(self->pairTables);
     return count;
 }

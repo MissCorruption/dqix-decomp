@@ -8,7 +8,7 @@ struct StreamState02218710 {
 	int capacity;
 };
 
-int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
+extern "C" int func_020c7170(char* destination, unsigned long capacity, const char* format, ...);
 extern "C" int func_ov031_0221883c(void* obj, StreamState02218710* b, int len);
 extern const char data_ov031_02249ee8[];
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov031_02218710(void* obj, const char* str) {
 		avail = b->end - b->current;
 	}
 
-	int written = VariadicForward020c7170(b->current, avail, data_ov031_02249ee8, str);
+	int written = func_020c7170(b->current, avail, data_ov031_02249ee8, str);
 	if (written != len) {
 		return 1;
 	}

@@ -29,10 +29,10 @@ struct Struct020a9ea4 {
 };
 
 extern "C" void func_02074af4(struct MainBgControlBackup02074af4* obj);
-void InitStruct0205a444(char* obj);
-void InitWithSub02081ee4(struct Obj02081ee4* obj, struct Sub02081ee4* sub);
-void ResetStruct020dfc40(struct Struct020dfc40* p);
-void ClearStruct020a9ea4(struct Struct020a9ea4* p);
+extern "C" void func_0205a444(char* obj);
+extern "C" void func_02081ee4(struct Obj02081ee4* obj, struct Sub02081ee4* sub);
+extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void func_020a9ea4(struct Struct020a9ea4* p);
 
 struct BattleScreen_0215f9c0 {
     char buffer[kRegionValue226_10E];
@@ -130,10 +130,10 @@ extern "C" ARM void func_ov003_0215f9c0(struct BattleScreen_0215f9c0* self, int 
     func_02074af4(&self->bgBackup);
     self->savedBgMode = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    InitStruct0205a444(self->unk_334);
+    func_0205a444(self->unk_334);
     self->unk_388 = 0;
-    InitWithSub02081ee4(&self->unk_308, &self->unk_314);
-    ResetStruct020dfc40(&self->unk_2dc);
+    func_02081ee4(&self->unk_308, &self->unk_314);
+    func_020dfc40(&self->unk_2dc);
     self->unk_318 = 0;
     self->unk_31c = 0;
     self->unk_320 = 0;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov003_0215f9c0(struct BattleScreen_0215f9c0* self, int 
     self->unk_4a7 = 0;
     self->unk_4a8 = 0;
     self->unk_4b0 = 0;
-    ClearStruct020a9ea4(&self->unk_4b4);
+    func_020a9ea4(&self->unk_4b4);
     self->unk_4bc = 0;
     if (setFlags) {
         self->flags |= 0x30000;

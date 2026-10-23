@@ -17,7 +17,7 @@ extern "C" THUMB int func_ov031_0221f698(WirelessScanDescriptor* destination, in
         int index = 0;
         if (index < count) do {
             if (index >= capacity) break;
-            func_020ca408(GetOffset10FromResult_0220ec04((unsigned short)index), destination, sizeof(*destination));
+            func_020ca408(func_ov031_0220ec04((unsigned short)index), destination, sizeof(*destination));
             ++index;
             ++destination;
         } while (index < count);

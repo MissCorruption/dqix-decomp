@@ -25,12 +25,12 @@ struct EntryList_203dce4;
 struct Node020406f8;
 struct Obj0205eaa0;
 struct Vec3_020406f8 { int v[3]; };
-EntryList_203dce4* GetGlobalPtr021075f4_0203cf4c();
-Entry_203dce4* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
-void SelectVec3FromSources020406f8(Vec3_020406f8*, Node020406f8*);
-int IsPrefixMatch020d857c(signed char*, signed char*);
-int StringStartsWithCI020d85dc(const char*, const char*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" EntryList_203dce4* func_0203cf4c();
+extern "C" Entry_203dce4* func_0203dce4(EntryList_203dce4*, int);
+extern "C" void func_020406f8(Vec3_020406f8*, Node020406f8*);
+extern "C" int func_020d857c(signed char*, signed char*);
+extern "C" int func_020d85dc(const char*, const char*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern Obj0205eaa0 data_02108760;
 extern "C" int func_02005a94(const char*);
 extern "C" void func_02042b98(void*, int, int, int, int);
@@ -98,14 +98,14 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
     unsigned char scanning = 1;
     self->state.active = (unsigned char)scanning;
     GameObject* object = GameState::GetInstance()->GetUnknownGameObject();
-    Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4(GetGlobalPtr021075f4_0203cf4c(), self->state.entryId);
+    Entry_203dce4* entry = func_0203dce4(func_0203cf4c(), self->state.entryId);
     if (object != NULL && entry != NULL)
     {
         Vec3_020406f8 original;
         Vec3_020406f8 target;
         Vec3_020406f8 selected;
         original = *(Vec3_020406f8*)&object->obj3D_.position_;
-        SelectVec3FromSources020406f8(&selected, (Node020406f8*)entry);
+        func_020406f8(&selected, (Node020406f8*)entry);
         target = selected;
         self->state.angle = fix32ReduceAngle0To2Pi(fix32_Atan2(original.v[0] - target.v[0], original.v[2] - target.v[2]));
         self->state.active = 1;
@@ -114,29 +114,29 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
     self->state.animation = 0;
     while (scanning)
     {
-        if (IsPrefixMatch020d857c((signed char*)text, (signed char*)data_020f0934))
+        if (func_020d857c((signed char*)text, (signed char*)data_020f0934))
         {
             self->state.angle = self->state.defaultAngle;
             self->state.active = 0;
             text += 8;
         }
-        else if (IsPrefixMatch020d857c((signed char*)text, (signed char*)data_020f093d))
+        else if (func_020d857c((signed char*)text, (signed char*)data_020f093d))
         {
             self->state.wait = 60;
             self->state.animation = 1;
             self->state.variant = 0;
             text += 5;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 6, 0);
+            func_0205eaa0(&data_02108760, 6, 0);
         }
-        else if (IsPrefixMatch020d857c((signed char*)text, (signed char*)data_020f0943))
+        else if (func_020d857c((signed char*)text, (signed char*)data_020f0943))
         {
             self->state.wait = 60;
             self->state.animation = 1;
             self->state.variant = 1;
             text += 5;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 28, 0);
+            func_0205eaa0(&data_02108760, 28, 0);
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f0949))
+        else if (func_020d85dc(text, data_020f0949))
         {
             unsigned char done;
             int index = 6;
@@ -197,17 +197,17 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
             func_02042b98(self, x, y, width, height);
             text += close + 1;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f0950))
+        else if (func_020d85dc(text, data_020f0950))
         {
             self->state.flag9b1 = 0;
             text += 5;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f0956))
+        else if (func_020d85dc(text, data_020f0956))
         {
             self->state.flag9b8 = 1;
             text += 5;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f095c))
+        else if (func_020d85dc(text, data_020f095c))
         {
             int index = 6;
             int value = func_02005a94(text + 6);
@@ -220,7 +220,7 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
             self->repeat = value;
             text += index + 1;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f0963))
+        else if (func_020d85dc(text, data_020f0963))
         {
             int index = 6;
             int close = index;
@@ -246,7 +246,7 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
             self->state.height = height;
             text += close + 1;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f096a))
+        else if (func_020d85dc(text, data_020f096a))
         {
             int index = 7;
             int close = index;
@@ -305,7 +305,7 @@ extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* te
             self->state.color = (red >> 3) | ((green >> 3) << 5) | ((blue >> 3) << 10);
             text += close + 1;
         }
-        else if (StringStartsWithCI020d85dc(text, data_020f0972))
+        else if (func_020d85dc(text, data_020f0972))
         {
             self->state.flag9bb = 0;
             text += 6;

@@ -3,12 +3,12 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-void* GetField0x3f8Address_0200fd0c(GameState*);
+extern "C" void* func_0200fd0c(GameState*);
 extern "C" void func_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" float func_ov017_021d6110(void* obj);
 struct Vector3i;
-void InitStruct02070378(char*);
+extern "C" void func_02070378(char*);
 
 struct S3f8_02161f80 {
     short field0;
@@ -29,7 +29,7 @@ struct S3f8_02161f80 {
 extern "C" ARM int func_ov001_02161f80(void* target, int count) {
     int tmpArr[3];
     void* battle = GameState::GetInstance();
-    struct S3f8_02161f80* obj = (struct S3f8_02161f80*)GetField0x3f8Address_0200fd0c((GameState*)battle);
+    struct S3f8_02161f80* obj = (struct S3f8_02161f80*)func_0200fd0c((GameState*)battle);
     func_02012fe4();
     int flag2 = -1;
     int fixedD;
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_02161f80(void* target, int count) {
     if (cnt > 5) {
         flag2 = func_ov017_021d60f4((char*)target + 0x28);
     }
-    InitStruct02070378((char*)obj);
+    func_02070378((char*)obj);
     obj->field2 = 1;
     obj->field7 = 1;
     obj->field0 = (short)flag;
@@ -61,6 +61,6 @@ extern "C" ARM int func_ov001_02161f80(void* target, int count) {
             obj->field69 = 1;
         }
     }
-    CallFunc0200fbb4AtField0x3f8_0200fcfc(battle, obj);
+    func_0200fcfc(battle, obj);
     return 1;
 }

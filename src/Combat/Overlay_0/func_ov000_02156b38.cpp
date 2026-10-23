@@ -12,13 +12,13 @@ struct CombatantResistances {
     unsigned char resist[21];
 };
 
-int IsFlag0x18Bit0x8Set_ov000_02156c94(GameObject* combatant);
-int IsFlag0x18Bit0x10Set_ov000_02156cac(GameObject* combatant);
-int CheckFlag0x80AndKind1_020886b0(struct S886b0* obj);
-int CheckFlag0x80AndKind2_020886f8(struct S886f8* obj);
-int IsFlag0x80SetAndStateEquals3(struct Obj02088740* obj);
-int IsFlag0x80SetAndStateEquals4(struct Obj02088788* obj);
-int IsFlag0x80SetAndStateEquals5(struct Obj020887d0* obj);
+extern "C" int func_ov000_02156c94(GameObject* combatant);
+extern "C" int func_ov000_02156cac(GameObject* combatant);
+extern "C" int func_020886b0(struct S886b0* obj);
+extern "C" int func_020886f8(struct S886f8* obj);
+extern "C" int func_02088740(struct Obj02088740* obj);
+extern "C" int func_02088788(struct Obj02088788* obj);
+extern "C" int func_020887d0(struct Obj020887d0* obj);
 
 static inline unsigned char* GetResists(ModifiableCombatStats* stats) {
     return ((struct CombatantResistances*)stats)->resist;
@@ -34,30 +34,30 @@ extern "C" ARM float func_ov000_02156b38(void* self, int combatantIndex, int ele
     }
 
     bonus = 0.0f;
-    if (IsFlag0x18Bit0x8Set_ov000_02156c94(combatant)) {
+    if (func_ov000_02156c94(combatant)) {
         bonus = -25.0f;
-    } else if (IsFlag0x18Bit0x10Set_ov000_02156cac(combatant)) {
+    } else if (func_ov000_02156cac(combatant)) {
         bonus = 25.0f;
     }
 
     ward1 = 0.0f;
-    if (CheckFlag0x80AndKind1_020886b0((struct S886b0*)combatant->currentStats_)) {
+    if (func_020886b0((struct S886b0*)combatant->currentStats_)) {
         ward1 = -50.0f;
     }
     ward2 = 0.0f;
-    if (CheckFlag0x80AndKind2_020886f8((struct S886f8*)combatant->currentStats_)) {
+    if (func_020886f8((struct S886f8*)combatant->currentStats_)) {
         ward2 = -50.0f;
     }
     ward3 = 0.0f;
-    if (IsFlag0x80SetAndStateEquals3((struct Obj02088740*)combatant->currentStats_)) {
+    if (func_02088740((struct Obj02088740*)combatant->currentStats_)) {
         ward3 = -50.0f;
     }
     ward4 = 0.0f;
-    if (IsFlag0x80SetAndStateEquals4((struct Obj02088788*)combatant->currentStats_)) {
+    if (func_02088788((struct Obj02088788*)combatant->currentStats_)) {
         ward4 = -50.0f;
     }
     ward5 = 0.0f;
-    if (IsFlag0x80SetAndStateEquals5((struct Obj020887d0*)combatant->currentStats_)) {
+    if (func_020887d0((struct Obj020887d0*)combatant->currentStats_)) {
         ward5 = -50.0f;
     }
 

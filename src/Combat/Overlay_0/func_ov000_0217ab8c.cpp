@@ -73,22 +73,22 @@ struct Struct_0205ba68;
 extern Global data_ov000_02184294;
 
 struct S02171698;
-int CountNonZero02171698(S02171698*);
+extern "C" int func_ov000_02171698(S02171698*);
 struct S021719c0;
-int CountNonZero021719c0(S021719c0*);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
-int GetFieldAt0x150_02053c6c(unsigned char*);
-int CountPositiveSlots02083960(Slots02083960*);
-void ClearChannelAFlag0205cf10(void*);
+extern "C" int func_ov000_021719c0(S021719c0*);
+extern "C" GameObject* func_0200ff1c(GameState*, int);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" int func_02083960(Slots02083960*);
+extern "C" void func_0205cf10(void*);
 struct Struct0205cf1c;
-void ClearFlagByte0205cf1c(Struct0205cf1c*);
-void SetChannelAFlag0205cef8(void*);
-void SetChannelBFlag0205cf04(void*);
-void SetupPointerTable0205ba68(Struct_0205ba68*, int, int, int);
+extern "C" void func_0205cf1c(Struct0205cf1c*);
+extern "C" void func_0205cef8(void*);
+extern "C" void func_0205cf04(void*);
+extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
 struct Node0205bacc;
-void SetField0AndPropagate0205bacc(Node0205bacc*, int);
+extern "C" void func_0205bacc(Node0205bacc*, int);
 struct Struct_0205bcdc;
-void SetIndexIfValid0205bcdc(Struct_0205bcdc*, int);
+extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
 extern "C" void func_0205bb04(Sub*, int);
 
 // USA: func_ov000_0217ab8c
@@ -114,17 +114,17 @@ extern "C" ARM void func_ov000_0217ab8c(Menu* self, int arg1, int arg2) {
         selected = self->v1d;
         break;
     case 15:
-        if (CountNonZero02171698((S02171698*)self) >= 4) {
+        if (func_ov000_02171698((S02171698*)self) >= 4) {
             step = 1;
             visible = 4;
-            pages = (CountNonZero02171698((S02171698*)self) + 3) / 4;
+            pages = (func_ov000_02171698((S02171698*)self) + 3) / 4;
         } else {
             step = 1;
-            visible = CountNonZero02171698((S02171698*)self);
+            visible = func_ov000_02171698((S02171698*)self);
             pages = step;
         }
         self->v19 = w->b.value;
-        total = CountNonZero02171698((S02171698*)self);
+        total = func_ov000_02171698((S02171698*)self);
         selected = self->v20;
         if (selected < 0 || total <= selected) {
             selected = 0;
@@ -132,17 +132,17 @@ extern "C" ARM void func_ov000_0217ab8c(Menu* self, int arg1, int arg2) {
         }
         break;
     case 16:
-        if (CountNonZero021719c0((S021719c0*)self) >= 4) {
+        if (func_ov000_021719c0((S021719c0*)self) >= 4) {
             step = 1;
             visible = 4;
-            pages = (CountNonZero021719c0((S021719c0*)self) + 3) / 4;
+            pages = (func_ov000_021719c0((S021719c0*)self) + 3) / 4;
         } else {
             step = 1;
-            visible = CountNonZero021719c0((S021719c0*)self);
+            visible = func_ov000_021719c0((S021719c0*)self);
             pages = step;
         }
         self->v1a = w->b.value;
-        total = CountNonZero021719c0((S021719c0*)self);
+        total = func_ov000_021719c0((S021719c0*)self);
         selected = self->v1e;
         if (selected < 0 || total <= selected) {
             selected = 0;
@@ -151,10 +151,10 @@ extern "C" ARM void func_ov000_0217ab8c(Menu* self, int arg1, int arg2) {
         break;
     case 17: {
         GameState* gs = GameState::GetInstance();
-        GameObject* unit = GetCombatantWithFlag0x100_0200ff1c(gs, self->member);
-        int field = GetFieldAt0x150_02053c6c((unsigned char*)unit);
+        GameObject* unit = func_0200ff1c(gs, self->member);
+        int field = func_02053c6c((unsigned char*)unit);
         if (field != 0) {
-            int n = CountPositiveSlots02083960((Slots02083960*)field);
+            int n = func_02083960((Slots02083960*)field);
             pages = (self->total - n + 3) / 4 + (n + 3) / 4;
             self->v1b = w->b.value;
             total = pages * 4;
@@ -191,19 +191,19 @@ extern "C" ARM void func_ov000_0217ab8c(Menu* self, int arg1, int arg2) {
         selected = self->v23;
         break;
     default:
-        ClearChannelAFlag0205cf10(w);
-        ClearFlagByte0205cf1c((Struct0205cf1c*)self->window);
+        func_0205cf10(w);
+        func_0205cf1c((Struct0205cf1c*)self->window);
         return;
     }
-    SetChannelAFlag0205cef8(self->window);
-    SetChannelBFlag0205cf04(self->window);
-    SetupPointerTable0205ba68((Struct_0205ba68*)&w->a, step, visible, 0);
-    SetupPointerTable0205ba68((Struct_0205ba68*)&w->b, step, visible, 0);
-    SetField0AndPropagate0205bacc((Node0205bacc*)&w->a, total);
-    SetField0AndPropagate0205bacc((Node0205bacc*)&w->b, total);
+    func_0205cef8(self->window);
+    func_0205cf04(self->window);
+    func_0205ba68((Struct_0205ba68*)&w->a, step, visible, 0);
+    func_0205ba68((Struct_0205ba68*)&w->b, step, visible, 0);
+    func_0205bacc((Node0205bacc*)&w->a, total);
+    func_0205bacc((Node0205bacc*)&w->b, total);
     w->a.field4 = pages;
     w->b.field4 = pages;
-    SetIndexIfValid0205bcdc((Struct_0205bcdc*)&w->a, selected);
+    func_0205bcdc((Struct_0205bcdc*)&w->a, selected);
     func_0205bb04(&w->b, selected);
     data_ov000_02184294.root->flags &= ~0x100;
 }

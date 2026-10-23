@@ -3,7 +3,7 @@
 extern "C" void* func_ov031_022133f8(unsigned int flags);
 extern "C" int func_ov031_02215528(void* a0, void* a1, void* a2);
 extern "C" int func_ov031_0220764c(void* a0);
-void SetFieldCAndA_022134cc(int v);
+extern "C" void func_ov031_022134cc(int v);
 
 extern int data_ov031_0224e1c0;
 
@@ -16,6 +16,6 @@ extern "C" ARM int func_ov031_02215358(void* a0) {
     if (func_ov031_0220764c(f4) == 0) {
         return 0xc;
     }
-    SetFieldCAndA_022134cc(2);
+    func_ov031_022134cc(2);
     return 0x11;
 }

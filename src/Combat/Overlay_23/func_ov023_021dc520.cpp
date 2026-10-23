@@ -41,8 +41,8 @@ extern "C" void* func_0203bd08();
 extern "C" ObjectBuffer021dc520* func_0203be40(void*);
 extern "C" ObjectBuffer021dc520* func_0203be4c(void*);
 extern "C" void func_0205ac40(SpriteContext0205ac40*, B174Outer*);
-short LookupValueFromField8(Obj020dee58*);
-int ForwardTableValue02075db0(Struct02075db0*, int, int);
+extern "C" short func_020dee58(Obj020dee58*);
+extern "C" int func_02075db0(Struct02075db0*, int, int);
 inline int PaletteOffset021dc520(int index) { return index * 2; }
 inline int IsStandardCategory021dc520(Obj020dee58* selection) {
     return selection->lowNibble <= 7;
@@ -131,7 +131,7 @@ extern "C" ARM void func_ov023_021dc520(View021dc520* view) {
             ++index;
         }
     }
-    int lookup = LookupValueFromField8(view->selection);
+    int lookup = func_020dee58(view->selection);
     sprite = &view->sprites[lookup + 1];
     sprite->position[0] = REGION(0x18000,0x10000);
     sprite->position[1] = 0x8000;
@@ -155,12 +155,12 @@ extern "C" ARM void func_ov023_021dc520(View021dc520* view) {
         if (!(view->flags & 8)) {
             func_0203bd08();
             view->table->objects = objects->reservedObjects;
-            ForwardTableValue02075db0(view->table, 0x1c, 0x34);
+            func_02075db0(view->table, 0x1c, 0x34);
         }
     } else {
         if (!(view->flags & 8)) {
             view->table->objects = objects->reservedObjects;
-            ForwardTableValue02075db0(view->table, 0x1c, 0x34);
+            func_02075db0(view->table, 0x1c, 0x34);
         }
     }
 }

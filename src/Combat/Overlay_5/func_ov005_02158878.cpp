@@ -43,11 +43,11 @@ extern "C" char data_02108760[];
 extern "C" void func_0205d0e0(void* window);
 extern "C" void func_ov005_021589f4(EquipmentMenu* self);
 extern "C" int func_ov005_02158b3c(void* object, void* buffer);
-MenuElement* FindElementByC40205d81c(Struct_0205d81c* s, int key);
-int IsField0x9cEqual3_0204c7cc(unsigned char*);
-int CheckFlag30Or401_02157190(void* self);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int unk);
+extern "C" MenuElement* func_0205d81c(Struct_0205d81c* s, int key);
+extern "C" int func_0204c7cc(unsigned char*);
+extern "C" int func_ov005_02157190(void* self);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int unk);
 // USA: func_ov005_02158878
 extern "C" ARM void func_ov005_02158878(EquipmentMenu* self) {
     func_0205d0e0(&self->window_);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov005_02158878(EquipmentMenu* self) {
         return;
     }
     if (self->step_ == 1) {
-        if (IsField0x9cEqual3_0204c7cc((unsigned char*)(FindElementByC40205d81c((Struct_0205d81c*)&self->window_, 0)))) {
+        if (func_0204c7cc((unsigned char*)(func_0205d81c((Struct_0205d81c*)&self->window_, 0)))) {
             if (self->kind_ == 0xc || self->kind_ == 0xd)
                 self->flags_ |= 0x10000;
         }
@@ -70,18 +70,18 @@ extern "C" ARM void func_ov005_02158878(EquipmentMenu* self) {
     unsigned char touch;
     touch = g_touchInput.pressed_;
     clear = 0;
-    int flag = CheckFlag30Or401_02157190(self);
+    int flag = func_ov005_02157190(self);
     if (flag | touch) {
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, clear);
+        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, clear);
         if (self->pending_ != 0) {
             self->kind_ = self->pending_;
             self->pending_ = 0;
             memset(self->text_, clear, LOW_REGION(0x800, 0x960));
             func_ov005_02158b3c(self, self->text_);
 #if defined(jpn)
-            TryApplyElemFields0205d5d0((StructA0205d5d0*)&self->window_, clear, (int)self->text_, 1);
+            func_0205d5d0((StructA0205d5d0*)&self->window_, clear, (int)self->text_, 1);
 #else
-            TryApplyElemFields0205d5d0((StructA0205d5d0*)&self->window_, clear, (int)self->text_, 1, clear);
+            func_0205d5d0((StructA0205d5d0*)&self->window_, clear, (int)self->text_, 1, clear);
 #endif
             return;
         }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov005_02158878(EquipmentMenu* self) {
         clear = 1;
     }
     if (clear) {
-        ResetEntryList0205d6a0((Entry_0205d6a0*)&self->window_, 0);
+        func_0205d6a0((Entry_0205d6a0*)&self->window_, 0);
         self->step_ = 0;
         self->kind_ = 0;
     }

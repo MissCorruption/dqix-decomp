@@ -5,7 +5,7 @@ extern "C" extern int LoadToMainBG2ScreenData(int arg0, int arg1, unsigned int a
 
 extern int data_ov031_0224b924;
 
-// USA: func_ov031_022297ac  (semantic: FlushAndSetBgPriorities_022297ac)
+// USA: func_ov031_022297ac
 extern "C" ARM void func_ov031_022297ac(void) {
     func_ov031_022234d8((int)&data_ov031_0224b924, (void*)LoadToMainBG2ScreenData);
 

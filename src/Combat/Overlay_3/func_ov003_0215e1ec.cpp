@@ -8,7 +8,7 @@ enum { kRegionValue3C3_3DB = 0x3c3 };
 #endif
 
 extern "C" void __clear(void* buf, int len);
-unsigned char CopyOutRegion0x5718_02011494(char* obj, void* dst);
+extern "C" unsigned char func_02011494(char* obj, void* dst);
 
 struct CombatantStatus0215e1ec {
     unsigned int flags;
@@ -26,10 +26,10 @@ extern "C" ARM void func_ov003_0215e1ec(struct BattleSide0215e1ec* side) {
     GameState* gs = GameState::GetInstance();
     unsigned char ids[4];
     __clear(ids, 4);
-    int n = CopyOutRegion0x5718_02011494((char*)gs, ids);
+    int n = func_02011494((char*)gs, ids);
     side->aliveCount = 0;
     for (int i = 0; i < n; i++) {
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, ids[i]);
+        GameObject* c = func_0200ff1c(gs, ids[i]);
         if (c != NULL) {
             struct CombatantStatus0215e1ec* status = *(struct CombatantStatus0215e1ec**)((char*)c + 0x130);
             int hp = status->hp;

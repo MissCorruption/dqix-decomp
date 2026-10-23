@@ -109,10 +109,10 @@ struct TaggedValue_021d60f4 {
     Value_021d60f4 value;
 };
 extern "C" int func_ov017_021d60f4(TaggedValue_021d60f4*);
-void SetBg3ControlFields_02162678(int, int, int, int);
-void SetSubBg0Control_0215e758(int, int, int, int, int);
-void SetSubBg1Control_0215e78c(int, int, int, int, int);
-void SetSubBg3ControlFields_021628d4(int, int, int, int);
+extern "C" void func_ov001_02162678(int, int, int, int);
+extern "C" void func_ov001_0215e758(int, int, int, int, int);
+extern "C" void func_ov001_0215e78c(int, int, int, int, int);
+extern "C" void func_ov001_021628d4(int, int, int, int);
 
 // USA: func_ov001_02162a90
 extern "C" ARM int func_ov001_02162a90(TaggedValue_021d60f4* arguments) {
@@ -163,7 +163,7 @@ extern "C" ARM int func_ov001_02162a90(TaggedValue_021d60f4* arguments) {
                 | (screenBase << 8)
                 | (characterBase << 2));
         }
-        SetBg3ControlFields_02162678(main3.fields.screenSize, main3.fields.colorMode, main3.fields.screenBase, main3.fields.characterBase);
+        func_ov001_02162678(main3.fields.screenSize, main3.fields.colorMode, main3.fields.screenBase, main3.fields.characterBase);
         DISPCNT = (DISPCNT & ~0x1f00) | (data_ov001_021658b8.mainDisplay << 8);
     } else if (screen == 1) {
         ReleaseSubBGVRAMBanks();
@@ -172,8 +172,8 @@ extern "C" ARM int func_ov001_02162a90(TaggedValue_021d60f4* arguments) {
         sub1 = data_ov001_021658b8.sub[1];
         sub2 = data_ov001_021658b8.sub[2];
         sub3 = data_ov001_021658b8.sub[3];
-        SetSubBg0Control_0215e758(sub0.fields.screenSize, sub0.fields.colorMode, sub0.fields.screenBase, sub0.fields.characterBase, sub0.fields.extendedPalette);
-        SetSubBg1Control_0215e78c(sub1.fields.screenSize, sub1.fields.colorMode, sub1.fields.screenBase, sub1.fields.characterBase, sub1.fields.extendedPalette);
+        func_ov001_0215e758(sub0.fields.screenSize, sub0.fields.colorMode, sub0.fields.screenBase, sub0.fields.characterBase, sub0.fields.extendedPalette);
+        func_ov001_0215e78c(sub1.fields.screenSize, sub1.fields.colorMode, sub1.fields.screenBase, sub1.fields.characterBase, sub1.fields.extendedPalette);
         {
             GXBGCharBase characterBase = (GXBGCharBase)sub2.fields.characterBase;
             GXBGScrBase screenBase = (GXBGScrBase)sub2.fields.screenBase;
@@ -185,7 +185,7 @@ extern "C" ARM int func_ov001_02162a90(TaggedValue_021d60f4* arguments) {
                 | (screenBase << 8)
                 | (characterBase << 2));
         }
-        SetSubBg3ControlFields_021628d4(sub3.fields.screenSize, sub3.fields.colorMode, sub3.fields.screenBase, sub3.fields.characterBase);
+        func_ov001_021628d4(sub3.fields.screenSize, sub3.fields.colorMode, sub3.fields.screenBase, sub3.fields.characterBase);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (data_ov001_021658b8.subDisplay << 8);
     }
     return 1;

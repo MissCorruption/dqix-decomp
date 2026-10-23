@@ -7,22 +7,22 @@
 
 struct List0202fec8;
 struct ActiveEntry02046900;
-int CountActiveEntries(struct ActiveEntry02046900* entry);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
 struct Rec020467f0;
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
 
 extern "C" void func_0204c684(void* obj);
 extern "C" void func_ov013_02187a58(void* obj, void* buf);
 extern "C" void func_0204b174(void* list, void* payload, int a3, int a4);
 
 struct EntryList0204af14;
-void* GetEntryByIndexStride0x10(struct EntryList0204af14* list, unsigned int index);
+extern "C" void* func_0204af14(struct EntryList0204af14* list, unsigned int index);
 struct Tilemap0204ae44;
-void FillTilemapPalette0204ae44(struct Tilemap0204ae44* obj, int palette);
+extern "C" void func_0204ae44(struct Tilemap0204ae44* obj, int palette);
 struct Obj0204b988;
-void DispatchIndexedEntry0204b988(struct Obj0204b988* obj, unsigned int index, int a3, int a4, unsigned short a5);
+extern "C" void func_0204b988(struct Obj0204b988* obj, unsigned int index, int a3, int a4, unsigned short a5);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(struct List0204b0e8* obj, void* buf);
+extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
 
 extern const char data_ov013_02187eaf[];
 
@@ -59,7 +59,7 @@ struct LocalBuf021878b0 {
     char padB8[0xe0 - 0xb8];
 };
 
-// USA: func_ov013_021878b0  (semantic: HandleQueuedListEntry021878b0)
+// USA: func_ov013_021878b0
 extern "C" ARM void func_ov013_021878b0(SkillDetailWindow* window) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned char loadState = window->loadState;
@@ -83,8 +83,8 @@ extern "C" ARM void func_ov013_021878b0(SkillDetailWindow* window) {
             unsigned int fileSize;
             int field44;
             loader->GetLoadedFileByID(window->loadTask, &file, &fileSize);
-            CountActiveEntries((struct ActiveEntry02046900*)file);
-            void* end = FindRecordByIndex((struct Rec020467f0*)file, 0, &recOut, &field44);
+            func_02046900((struct ActiveEntry02046900*)file);
+            void* end = func_020467f0((struct Rec020467f0*)file, 0, &recOut, &field44);
             if (end != 0) {
                 LocalBuf021878b0 buf;
                 func_0204c684(&buf);
@@ -98,12 +98,12 @@ extern "C" ARM void func_ov013_021878b0(SkillDetailWindow* window) {
             }
             loader->RemoveTask(window->loadTask);
             window->loadTask = -1;
-            void* e = GetEntryByIndexStride0x10((struct EntryList0204af14*)window->entryList, 0);
+            void* e = func_0204af14((struct EntryList0204af14*)window->entryList, 0);
             if (e != 0) {
-                FillTilemapPalette0204ae44((struct Tilemap0204ae44*)e, window->partyIndex);
+                func_0204ae44((struct Tilemap0204ae44*)e, window->partyIndex);
             }
-            DispatchIndexedEntry0204b988((struct Obj0204b988*)window->entryList, 0, 0, 0, 0xffff);
-            FlushAndDispatchList0204b0e8((struct List0204b0e8*)window->entryList, 0);
+            func_0204b988((struct Obj0204b988*)window->entryList, 0, 0, 0, 0xffff);
+            func_0204b0e8((struct List0204b0e8*)window->entryList, 0);
             window->loadState = 0;
             window->flags &= ~1;
         }

@@ -251,55 +251,55 @@ extern char data_ov008_0218c196[];
 extern "C" void func_020474a8(Window02189c70*, int, char*, char*);
 extern "C" void func_0204500c(Window02189c70*, char*, int);
 #endif
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 extern "C" int func_0202ae18();
 extern "C" void func_020728ac(void* table, SafeAllocator* alloc, void* data, unsigned int size, int a, int b, int c);
-void* GetDataPtr02114e04_020d6c00();
+extern "C" void* func_020d6c00();
 struct FlagWord020466f4;
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
 extern "C" void __clear(void* p, unsigned int size);
 extern "C" void func_ov008_0218b240(Self02189c70* self);
-Ent02189c70* GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" Ent02189c70* func_02053c6c(unsigned char*);
 extern "C" void func_02042764(void* src, void* dst, int flag);
 struct TableA68;
-char* FindEntryByKey_02072a68(TableA68*, int);
+extern "C" char* func_02072a68(TableA68*, int);
 struct Container020e0310;
-char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" char* func_020e0434(Container020e0310*, int);
 extern "C" void func_02099304(void* name, void* a1, void* a2, unsigned int a3, char* buf, int bufSize, int flag, char* p1, char* p2);
 extern "C" void func_02046380(void* w);
 extern "C" void* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-void InitObjFromCombatantId020e4bf4(void* obj, int id);
+extern "C" void func_020e4bf4(void* obj, int id);
 extern "C" void func_02046608(Window02189c70* w, int a, char* str, char* buf, int b, int c, int d);
 #if !defined(jpn)
 extern "C" void func_0204500c(Window02189c70* w, char* str, int a, int b);
 #endif
 extern "C" int func_0202c508(int v);
 extern "C" int func_020457e0(Window02189c70* w);
-void AllocateFreeSlot0218b1e0(void* obj);
+extern "C" void func_ov008_0218b1e0(void* obj);
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
 extern "C" void func_020a3720();
 struct DetailedTreasureMapData;
 bool ExportDetailedTreasureMapData(TreasureMapMetadata const*, DetailedTreasureMapData*, bool, unsigned char const*);
 extern "C" void func_020a395c();
-void CopyStringToIndexedField0x2ec_020464e8(char*, int, char*);
+extern "C" void func_020464e8(char*, int, char*);
 extern "C" void func_020e4b34(void* obj, void* a, void* b, int c, int d, int e, int f, int g, int h, int i, int j, int k);
-int GetField0x397cValue_020100b0(GameState* gs);
-unsigned char ReadBattleField0x64f4Byte_02011804(GameState* gameState);
-void CopyOutBattleRegion0x64f4_020ac760(void* dst);
-void CopyToBattleRegion0x64f4_020ac734(void* src);
+extern "C" int func_020100b0(GameState* gs);
+extern "C" unsigned char func_02011804(GameState* gameState);
+extern "C" void func_020ac760(void* dst);
+extern "C" void func_020ac734(void* src);
 struct Src02011818;
-void SetNameEntries02011818(void*, Src02011818*);
-void ClearRegion0x649e_02011ab8(char*);
-void CopyStringToField0x649e_02011a74(char*, unsigned int, char const*);
+extern "C" void func_02011818(void*, Src02011818*);
+extern "C" void func_02011ab8(char*);
+extern "C" void func_02011a74(char*, unsigned int, char const*);
 extern "C" void func_ov017_021a9ff0(int v);
 extern "C" void func_020a1940(unsigned int id);
 struct Obj020397cc;
-void CancelPendingAction020397cc(Obj020397cc*, int);
+extern "C" void func_020397cc(Obj020397cc*, int);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 
 static inline EntFlags02189c70* GetEntFlags02189c70(Ent02189c70* ent, int i) {
     return (EntFlags02189c70*)&ent->blk[i];
@@ -321,7 +321,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
 
     GameState* gs = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    Window02189c70* win = (Window02189c70*)GetGlobalField0x1c020421a0();
+    Window02189c70* win = (Window02189c70*)func_020421a0();
     Res02189c70* res = (Res02189c70*)GetGameResources();
     Sub3b84* sub = res->f3b84;
     int token = func_0202ae18();
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
                 failed = 1;
             if (failed) {
                 loader->RemoveTask(self->eac);
-                ResetEntryList0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
+                func_0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
                 self->e99 = 2;
                 self->state = 0;
                 self->e9b = 2;
@@ -354,7 +354,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             }
             self->ec4 = data;
             self->ec8 = size;
-            ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2f);
+            func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             self->state = self->state + 1;
         }
@@ -370,7 +370,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             loader->GetLoadedFileByID(self->eb0, &data, &size);
             self->ec4 = data;
             self->ec8 = size;
-            ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2f);
+            func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x2f);
             ClearFlags00(GetGameResources(), 0x10);
             self->state = self->state + 1;
         }
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
                 func_ov008_0218b240(self);
                 return;
             }
-            ent = GetFieldAt0x150_02053c6c((unsigned char*)m);
+            ent = func_02053c6c((unsigned char*)m);
             base = (signed char)m->f150->f950;
 #if defined(jpn)
             name = (char*)self + 0xdf2;
@@ -423,19 +423,19 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             self->e24 = 0;
         }
         int mode = self->ebc != 0 ? 3 : 1;
-        char* title = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x280), (short)(self->e20_f9 + 10000));
+        char* title = func_02072a68((TableA68*)((char*)self + 0x280), (short)(self->e20_f9 + 10000));
         char* body;
         int v = self->e20_f19;
         if (v < 700) {
-            body = GetFieldByKey020e0434((Container020e0310*)((char*)self + 0x288), (short)v);
+            body = func_020e0434((Container020e0310*)((char*)self + 0x288), (short)v);
         } else if (v < 800) {
             int key = 20700;
 #if !defined(jpn)
             if (self->e1c_b25 == 1) key += 50;
 #endif
-            body = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x280), (short)(base + key));
+            body = func_02072a68((TableA68*)((char*)self + 0x280), (short)(base + key));
         } else {
-            body = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x280), (short)(v + 20000));
+            body = func_02072a68((TableA68*)((char*)self + 0x280), (short)(v + 20000));
         }
         func_02099304((char*)self + LOW_REGION(0xe18,0xe1c), name, self->ec4, self->ec8, buf400, 0x400, mode, title, body);
         func_02046380(win);
@@ -444,8 +444,8 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
         p += strlen(buf400);
         if (self->ebc == 0) {
             void* flags = func_0205ec34();
-            if (!TestBitInByteArray_0206dfb0((int)flags, (unsigned char*)((char*)flags + 0x8c), 0x119b)) {
-                char* str = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0x66);
+            if (!func_0206dfb0((int)flags, (unsigned char*)((char*)flags + 0x8c), 0x119b)) {
+                char* str = func_02072a68((TableA68*)((char*)self + 0x278), 0x66);
                 int len = strlen(str);
                 memcpy(p, str, len);
                 p += len;
@@ -490,12 +490,12 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             }
             memset(buf100, 0, 0x100);
             if (!found) {
-                char* str = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0x64);
+                char* str = func_02072a68((TableA68*)((char*)self + 0x278), 0x64);
 #if defined(jpn)
-                SetIndexedName02046574((Obj02046574*)win, 0, name);
+                func_02046574((Obj02046574*)win, 0, name);
                 func_020474a8(win, 0xc, str, buf100);
 #else
-                InitObjFromCombatantId020e4bf4(obj144, self->member);
+                func_020e4bf4(obj144, self->member);
                 win->f10 = obj144;
                 func_02046608(win, 0xc, str, buf100, 0xe3, 0, 1);
 #endif
@@ -534,21 +534,21 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
         if (func_020457e0(win) == 0) {
             memset(buf80, 0, 0x80);
             if (*((unsigned char*)gs + LOW_REGION(0x6000 + 0xfbc,0x7000 + 0x1fc)) >= 0x10) {
-                char* str = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0x69);
+                char* str = func_02072a68((TableA68*)((char*)self + 0x278), 0x69);
                 memcpy(buf80, str, strlen(str));
                 self->ebb = 1;
             } else {
 #if defined(jpn)
-                SetIndexedName02046574((Obj02046574*)win, 0, (char*)self + 0xdf2);
-                char* str = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0x68);
+                func_02046574((Obj02046574*)win, 0, (char*)self + 0xdf2);
+                char* str = func_02072a68((TableA68*)((char*)self + 0x278), 0x68);
                 func_020474a8(win, 0xc, str, buf80);
 #else
-                char* str = FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0x68);
-                InitObjFromCombatantId020e4bf4(obj144, self->member);
+                char* str = func_02072a68((TableA68*)((char*)self + 0x278), 0x68);
+                func_020e4bf4(obj144, self->member);
                 win->f10 = obj144;
                 func_02046608(win, 0xc, str, buf80, 0xe3, 0, 1);
 #endif
-                AllocateFreeSlot0218b1e0(self);
+                func_ov008_0218b1e0(self);
             }
             if (!self->e1c_b25) win->f99c = 0; else win->f99c = 2;
             win->f19b2 = 1;
@@ -567,7 +567,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             sub->f9 = 1;
             self->eba = 1;
         }
-        ResetEntryList0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
+        func_0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
         self->e99 = 2;
         self->state = 0;
         self->e9b = 2;
@@ -581,52 +581,52 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
 #if defined(jpn)
         if (detail3.type == 1) {
             RegularMapNames02189c70* names = &detail3.names.regular;
-            SetIndexedName02046574((Obj02046574*)win, 2, names->prefix);
-            SetIndexedName02046574((Obj02046574*)win, 3, names->suffix);
-            SetIndexedName02046574((Obj02046574*)win, 4, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
-            SetIndexedName02046574((Obj02046574*)win, 5, names->level);
+            func_02046574((Obj02046574*)win, 2, names->prefix);
+            func_02046574((Obj02046574*)win, 3, names->suffix);
+            func_02046574((Obj02046574*)win, 4, func_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
+            func_02046574((Obj02046574*)win, 5, names->level);
         } else if (detail3.type == 2) {
             LegacyMapNames02189c70* names = &detail3.names.legacy;
-            SetIndexedName02046574((Obj02046574*)win, 2, names->name);
-            SetIndexedName02046574((Obj02046574*)win, 3, names->suffix);
-            SetIndexedName02046574((Obj02046574*)win, 5, names->level);
+            func_02046574((Obj02046574*)win, 2, names->name);
+            func_02046574((Obj02046574*)win, 3, names->suffix);
+            func_02046574((Obj02046574*)win, 5, names->level);
         } else {
             self->state = 2;
             return;
         }
 #else
         if (detail3.type == 1) {
-            CopyStringToIndexedField0x2ec_020464e8((char*)win, 2, detail3.nameA);
+            func_020464e8((char*)win, 2, detail3.nameA);
         } else if (detail3.type == 2) {
-            CopyStringToIndexedField0x2ec_020464e8((char*)win, 2, detail3.nameB);
+            func_020464e8((char*)win, 2, detail3.nameB);
         } else {
             self->state = 2;
             return;
         }
 #endif
 #if defined(jpn)
-        SetIndexedName02046574((Obj02046574*)win, 0, (char*)self->ebc);
-        SetIndexedName02046574((Obj02046574*)win, 1, *(char**)((char*)gs->GetUnknownGameObject() + 0x134));
+        func_02046574((Obj02046574*)win, 0, (char*)self->ebc);
+        func_02046574((Obj02046574*)win, 1, *(char**)((char*)gs->GetUnknownGameObject() + 0x134));
 #else
         char clr3[0x30];
         __clear(clr3, 0x30);
         func_02042764(self->ebc, clr3, 1);
         func_020e4b34(obj144, clr3, clr3, 0, 0, 0, 0, self->ebc->flag2e, 0, 1, 0, 1);
-        InitObjFromCombatantId020e4bf4(obj150, GetField0x397cValue_020100b0(gs));
+        func_020e4bf4(obj150, func_020100b0(gs));
         win->f10 = obj144;
         win->f0 = obj150;
 #endif
-        if (ReadBattleField0x64f4Byte_02011804(gs) >= 0x63) {
+        if (func_02011804(gs) >= 0x63) {
 #if defined(jpn)
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xc9), 0);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xc9), 0);
 #else
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xc9), 0, 0xe3);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xc9), 0, 0xe3);
 #endif
         } else {
 #if defined(jpn)
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0);
 #else
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0, 0xe3);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0, 0xe3);
 #endif
         }
         win->busy = 1;
@@ -634,28 +634,28 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
         self->state = 4;
     } else if (self->state == 4) {
         if (win->busy != 0) return;
-        if (ReadBattleField0x64f4Byte_02011804(gs) >= 0x63) {
+        if (func_02011804(gs) >= 0x63) {
 #if defined(jpn)
             char* text = win->text;
             char* name = *(char**)((char*)gs->GetUnknownGameObject() + 0x134);
-            sprintf(text, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xcb), name);
+            sprintf(text, func_02072a68((TableA68*)((char*)self + 0x278), 0xcb), name);
             win->f2c8 = 1;
             func_0204500c(win, text, 0);
 #else
-            InitObjFromCombatantId020e4bf4(obj150, GetField0x397cValue_020100b0(gs));
+            func_020e4bf4(obj150, func_020100b0(gs));
             win->f0 = obj150;
             win->f2c8 = 1;
 #if defined(jpn)
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xcb), 0);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xcb), 0);
 #else
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xcb), 0, 0xe3);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xcb), 0, 0xe3);
 #endif
 #endif
             win->busy = 1;
             win->f19b2 = 1;
             self->state = 5;
         } else {
-            CopyOutBattleRegion0x64f4_020ac760(&region);
+            func_020ac760(&region);
             VectorizedMemset(&region.entries[region.count], 0, 0x1c);
             MapMeta02189c70* src = &self->ebc->meta;
             MapMeta02189c70* e = &region.entries[region.count];
@@ -668,7 +668,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             e->level = src->level;
             e->seed = src->seed;
             region.count++;
-            CopyToBattleRegion0x64f4_020ac734(&region);
+            func_020ac734(&region);
             self->ebc->active = 0;
             self->state = 2;
         }
@@ -700,33 +700,33 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
         names.f24 = meta5.flags;
         if (names.f0 == 2) names.f26 = meta5.seed;
         names.f20 = meta5.location;
-        SetNameEntries02011818(gs, (Src02011818*)&names);
+        func_02011818(gs, (Src02011818*)&names);
 #if defined(jpn)
         if (((TreasureMapMetadata*)&meta5)->GetMapType() == 1) {
             RegularMapNames02189c70* names = &detail5.names.regular;
-            ClearRegion0x649e_02011ab8((char*)gs);
-            CopyStringToField0x649e_02011a74((char*)gs, 0, names->prefix);
-            CopyStringToField0x649e_02011a74((char*)gs, 1, names->suffix);
-            CopyStringToField0x649e_02011a74((char*)gs, 2, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
-            CopyStringToField0x649e_02011a74((char*)gs, 3, names->level);
+            func_02011ab8((char*)gs);
+            func_02011a74((char*)gs, 0, names->prefix);
+            func_02011a74((char*)gs, 1, names->suffix);
+            func_02011a74((char*)gs, 2, func_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
+            func_02011a74((char*)gs, 3, names->level);
         } else if (((TreasureMapMetadata*)&meta5)->GetMapType() == 2) {
             LegacyMapNames02189c70* names = &detail5.names.legacy;
-            ClearRegion0x649e_02011ab8((char*)gs);
-            CopyStringToField0x649e_02011a74((char*)gs, 0, names->name);
-            CopyStringToField0x649e_02011a74((char*)gs, 1, names->suffix);
-            CopyStringToField0x649e_02011a74((char*)gs, 3, names->level);
+            func_02011ab8((char*)gs);
+            func_02011a74((char*)gs, 0, names->name);
+            func_02011a74((char*)gs, 1, names->suffix);
+            func_02011a74((char*)gs, 3, names->level);
         }
 #else
         if (((TreasureMapMetadata*)&meta5)->GetMapType() == 1) {
-            ClearRegion0x649e_02011ab8((char*)gs);
-            CopyStringToField0x649e_02011a74((char*)gs, 0, detail5.nameA);
+            func_02011ab8((char*)gs);
+            func_02011a74((char*)gs, 0, detail5.nameA);
         } else if (((TreasureMapMetadata*)&meta5)->GetMapType() == 2) {
-            CopyStringToField0x649e_02011a74((char*)gs, 0, detail5.nameB);
+            func_02011a74((char*)gs, 0, detail5.nameB);
         }
 #endif
         *(unsigned int*)((char*)gs + LOW_REGION(0x61f4,0x6474)) = self->ebc->f10 >> 2;
         func_ov017_021a9ff0(0);
-        ResetEntryList0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
+        func_0205d6a0((Entry_0205d6a0*)((char*)self + 0x18), 1);
         self->state = 2;
     } else if (self->state == 6) {
         if (res->f3b4c->f2 != 0) return;
@@ -735,7 +735,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
         self->state = 7;
     } else if (self->state == 7) {
         void* obj = gs->GetUnknownGameObject();
-        if (obj != 0) CancelPendingAction020397cc((Obj020397cc*)obj, 1);
+        if (obj != 0) func_020397cc((Obj020397cc*)obj, 1);
         if (*((unsigned char*)gs + LOW_REGION(0x6000 + 0x1ee,0x6000 + 0x46e)) != 0) {
             MapMeta02189c70 meta7 = self->ebc->meta;
             func_020a3720();
@@ -744,36 +744,36 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
     #if defined(jpn)
             if (detail7.type == 1) {
             RegularMapNames02189c70* names = &detail7.names.regular;
-                SetIndexedName02046574((Obj02046574*)win, 2, names->prefix);
-                SetIndexedName02046574((Obj02046574*)win, 3, names->suffix);
-                SetIndexedName02046574((Obj02046574*)win, 4, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
-                SetIndexedName02046574((Obj02046574*)win, 5, names->level);
+                func_02046574((Obj02046574*)win, 2, names->prefix);
+                func_02046574((Obj02046574*)win, 3, names->suffix);
+                func_02046574((Obj02046574*)win, 4, func_02072a68((TableA68*)((char*)self + 0x278), 0xc8));
+                func_02046574((Obj02046574*)win, 5, names->level);
             } else if (detail7.type == 2) {
             LegacyMapNames02189c70* names = &detail7.names.legacy;
-                SetIndexedName02046574((Obj02046574*)win, 2, names->name);
-                SetIndexedName02046574((Obj02046574*)win, 3, names->suffix);
-                SetIndexedName02046574((Obj02046574*)win, 5, names->level);
+                func_02046574((Obj02046574*)win, 2, names->name);
+                func_02046574((Obj02046574*)win, 3, names->suffix);
+                func_02046574((Obj02046574*)win, 5, names->level);
             }
 #else
         if (detail7.type == 1) {
-                CopyStringToIndexedField0x2ec_020464e8((char*)win, 2, detail7.nameA);
+                func_020464e8((char*)win, 2, detail7.nameA);
             } else if (detail7.type == 2) {
-                CopyStringToIndexedField0x2ec_020464e8((char*)win, 2, detail7.nameB);
+                func_020464e8((char*)win, 2, detail7.nameB);
             }
 #endif
 #if defined(jpn)
-            SetIndexedName02046574((Obj02046574*)win, 0, (char*)self->ebc);
+            func_02046574((Obj02046574*)win, 0, (char*)self->ebc);
 #else
             char clr7[0x30];
             __clear(clr7, 0x30);
             func_02042764(self->ebc, clr7, 1);
-            SetIndexedName02046574((Obj02046574*)win, 0, clr7);
+            func_02046574((Obj02046574*)win, 0, clr7);
 #endif
-            SetIndexedName02046574((Obj02046574*)win, 1, *(char**)((char*)gs->GetUnknownGameObject() + 0x134));
+            func_02046574((Obj02046574*)win, 1, *(char**)((char*)gs->GetUnknownGameObject() + 0x134));
 #if defined(jpn)
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0);
 #else
-            func_0204500c(win, FindEntryByKey_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0, 0xe3);
+            func_0204500c(win, func_02072a68((TableA68*)((char*)self + 0x278), 0xca), 0, 0xe3);
 #endif
             win->busy = 1;
             win->f19b2 = 0;

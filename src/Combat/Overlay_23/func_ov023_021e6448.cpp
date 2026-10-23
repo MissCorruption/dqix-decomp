@@ -49,21 +49,21 @@ struct ListMenu_021e6448 {
     int scrolled_;
 };
 
-int SelectField0x8Or0x58ByFlags_0205c6e4(unsigned char* obj);
-Element_021e6448* FindElementByC40205d81c(Struct_0205d81c* s, int key);
-void AdvanceWrappedAccumulator0205c4a8(Struct_0205c4a8* s, int delta);
-int ComputeScaledSum0205bb84(Struct_0205bb84* s);
-void SetIndexIfValid0205bcdc(Struct_0205bcdc* s, int index);
+extern "C" int func_0205c6e4(unsigned char* obj);
+extern "C" Element_021e6448* func_0205d81c(Struct_0205d81c* s, int key);
+extern "C" void func_0205c4a8(Struct_0205c4a8* s, int delta);
+extern "C" int func_0205bb84(Struct_0205bb84* s);
+extern "C" void func_0205bcdc(Struct_0205bcdc* s, int index);
 extern "C" void func_0205bb04(void* s, int index);
 
 // USA: func_ov023_021e6448
 extern "C" ARM int func_ov023_021e6448(ListMenu_021e6448* self) {
-    if (SelectField0x8Or0x58ByFlags_0205c6e4((unsigned char*)&self->list_) <= 1)
+    if (func_0205c6e4((unsigned char*)&self->list_) <= 1)
         return 0;
     if (g_touchInput.pressed_ != 0) {
         int x, y;
         g_touchInput.GetTouchPoint(&x, &y);
-        Element_021e6448* e = FindElementByC40205d81c((Struct_0205d81c*)&self->list_, self->selectedKey_);
+        Element_021e6448* e = func_0205d81c((Struct_0205d81c*)&self->list_, self->selectedKey_);
         if (e != NULL) {
             short right = e->x;
             short bottom = e->y;
@@ -75,16 +75,16 @@ extern "C" ARM int func_ov023_021e6448(ListMenu_021e6448* self) {
                 ListState_021e6448* scroll = GetState(&self->list_, 1);
                 short left = e->x << 3;
                 if (x >= left && x < left + 16) {
-                    AdvanceWrappedAccumulator0205c4a8((Struct_0205c4a8*)scroll, -1);
+                    func_0205c4a8((Struct_0205c4a8*)scroll, -1);
                     self->scrolled_ = 1;
                 }
                 right <<= 3;
                 if (right - 16 <= x && x < right) {
-                    AdvanceWrappedAccumulator0205c4a8((Struct_0205c4a8*)scroll, 1);
+                    func_0205c4a8((Struct_0205c4a8*)scroll, 1);
                     self->scrolled_ = 1;
                 }
-                int index = ComputeScaledSum0205bb84((Struct_0205bb84*)scroll);
-                SetIndexIfValid0205bcdc((Struct_0205bcdc*)&self->list_.states[0], index);
+                int index = func_0205bb84((Struct_0205bb84*)scroll);
+                func_0205bcdc((Struct_0205bcdc*)&self->list_.states[0], index);
                 func_0205bb04(&self->list_.states[1], index);
             }
             return 1;

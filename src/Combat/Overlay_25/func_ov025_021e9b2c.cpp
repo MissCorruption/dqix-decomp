@@ -30,14 +30,14 @@ struct Obj021e9b2c {
 
 extern unsigned int data_ov025_021ef9a4;
 
-void* GetActiveCombatWork_ov000_02160130(void);
-List021600f8* GetSlotPtr02160f20(void* work);
-void ResetFields_021df9b0(void* fields);
+extern "C" void* func_ov000_02160130(void);
+extern "C" List021600f8* func_ov000_02160f20(void* work);
+extern "C" void func_ov025_021df9b0(void* fields);
 struct GatherObj02163a7c;
-void ApplyField41ToGatheredCombatants02163a7c(GatherObj02163a7c*);
-void* FindNodeByKey02169b04(struct List02169b04* list, int key);
-ListNode021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
-DepthNode0215fff4* FindNodeAtDepth0215fff4(void* node, int index, int depth);
+extern "C" void func_ov000_02163a7c(GatherObj02163a7c*);
+extern "C" void* func_ov000_02169b04(struct List02169b04* list, int key);
+extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" DepthNode0215fff4* func_ov000_0215fff4(void* node, int index, int depth);
 extern "C" short func_ov000_0215ffa0(void* node);
 extern "C" void func_ov025_021eb6fc(Obj021e9b2c* self, int arg);
 extern "C" void func_ov025_021ea474(Obj021e9b2c* self);
@@ -53,31 +53,31 @@ extern "C" ARM void func_ov025_021e9b2c(Obj021e9b2c* self) {
  enum { regionalOffset = 0x5ab0 };
 #endif
     GameState::GetInstance();
-    void* work = GetActiveCombatWork_ov000_02160130();
-    List021600f8* slot = GetSlotPtr02160f20(work);
+    void* work = func_ov000_02160130();
+    List021600f8* slot = func_ov000_02160f20(work);
     if (data_ov025_021ef9a4 & 8) {
         func_ov025_021eb6fc(self, 0);
         func_ov025_021ea474(self);
         func_ov025_021eb7fc(self);
-        ResetFields_021df9b0((char*)work + regionalOffset);
-        ApplyField41ToGatheredCombatants02163a7c((GatherObj02163a7c*)work);
+        func_ov025_021df9b0((char*)work + regionalOffset);
+        func_ov000_02163a7c((GatherObj02163a7c*)work);
     }
     if (self->flags & 0x10) {
         self->flags &= ~0x10;
         if (!(data_ov025_021ef9a4 & 0x20)) {
             data_ov025_021ef9a4 |= 0x20;
-            if (!((self->keys != NULL && FindNodeByKey02169b04(self->keys, 0x69) != NULL) ||
-                  FindNodeByKey02169b04(self->keys, 0x89) != NULL)) {
+            if (!((self->keys != NULL && func_ov000_02169b04(self->keys, 0x69) != NULL) ||
+                  func_ov000_02169b04(self->keys, 0x89) != NULL)) {
                 func_ov025_021e9d14(self);
             }
             int allIdle = 1;
             for (int i = 0; i < slot->count; i++) {
-                ListNode021600f8* node = GetNodeAtIndex021600f8(slot, i);
+                ListNode021600f8* node = func_ov000_021600f8(slot, i);
                 if (node == NULL) {
                     continue;
                 }
                 for (int j = 0; j < node->depthCount; j++) {
-                    DepthNode0215fff4* d = FindNodeAtDepth0215fff4(node, j, 0);
+                    DepthNode0215fff4* d = func_ov000_0215fff4(node, j, 0);
                     if (d != NULL && d->entry != NULL) {
                         allIdle = 0;
                         break;
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov025_021e9b2c(Obj021e9b2c* self) {
             }
             if (allIdle) {
                 bool isParty = true;
-                ListNode021600f8* first = GetNodeAtIndex021600f8(slot, 0);
+                ListNode021600f8* first = func_ov000_021600f8(slot, 0);
                 if (first != NULL) {
                     int index = func_ov000_0215ffa0(first);
                     isParty = (index >= 0 && index <= 3) ? 1 : 0;

@@ -42,12 +42,12 @@ struct GrottoEntrance021cfb0c {
 
 extern "C" int func_0202c508(struct SearchStruct0202c1a4* search);
 extern "C" unsigned short* func_02012fe4(void);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24** list);
-int IsInRange0201b588(int v);
-int ListContainsId(ListHead02046b60* list, int id);
-void InitObj021be40c(struct Obj021be40c* obj);
-void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" int func_02046b24(HeadNode02046b24** list);
+extern "C" int func_0201b588(int v);
+extern "C" int func_02046b60(ListHead02046b60* list, int id);
+extern "C" void func_ov017_021be40c(struct Obj021be40c* obj);
+extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
 
 // USA: func_ov017_021cfb0c
 extern "C" ARM void func_ov017_021cfb0c(int unused0, void* unused1, GameState* battleStruct, struct Ov021cfb0c* ov, struct SearchStruct0202c1a4* search) {
@@ -69,40 +69,40 @@ extern "C" ARM void func_ov017_021cfb0c(int unused0, void* unused1, GameState* b
     grotto = (struct GrottoEntrance021cfb0c*)battleStruct->GetGrottoStruct();
     list = ov->list;
     flag = 0;
-    cur = (unsigned short*)GetField0x3f8Address_0200fd0c(battleStruct);
-    if (GetHeadNodeIdOrMinusOne(list) == 3) {
-        if (IsInRange0201b588(*cur)) {
+    cur = (unsigned short*)func_0200fd0c(battleStruct);
+    if (func_02046b24(list) == 3) {
+        if (func_0201b588(*cur)) {
             flag = 1;
         }
     }
-    if (!IsInRange0201b588(zoneId) && !flag) {
+    if (!func_0201b588(zoneId) && !flag) {
         return;
     }
 
     Vector3i pos = grotto->pos;
     pos.z += 0x2000;
-    if (ListContainsId((ListHead02046b60*)list, 3) || ListContainsId((ListHead02046b60*)list, 1)) {
-        unsigned short id = *(unsigned short*)GetField0x3f8Address_0200fd0c(battleStruct);
+    if (func_02046b60((ListHead02046b60*)list, 3) || func_02046b60((ListHead02046b60*)list, 1)) {
+        unsigned short id = *(unsigned short*)func_0200fd0c(battleStruct);
         if (id == 0xc3b5) {
             return;
         }
-        if (!IsInRange0201b588(id)) {
+        if (!func_0201b588(id)) {
             return;
         }
     }
 
-    if (GetHeadNodeIdOrMinusOne(list) == 0x1a) {
+    if (func_02046b24(list) == 0x1a) {
         if (ov->counter->count >= 6) {
             return;
         }
     }
-    if (ListContainsId((ListHead02046b60*)list, 0x4e)) {
+    if (func_02046b60((ListHead02046b60*)list, 0x4e)) {
         return;
     }
 
     node = ov->node;
-    InitObj021be40c(node);
+    func_ov017_021be40c(node);
     node->pos = pos;
     node->zoneId = grotto->zoneId;
-    AppendNodeToTail((TailList020469b4*)list, (TailNode020469b4*)node);
+    func_020469b4((TailList020469b4*)list, (TailNode020469b4*)node);
 }

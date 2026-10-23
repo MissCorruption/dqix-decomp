@@ -48,7 +48,7 @@ struct ObjectSize {
 
 extern ObjectSize data_020e91e0[4][4];
 
-GXOamShape LookupWord2D_020b11ac(u8 *pSize);
+extern "C" GXOamShape func_020b11ac(u8 *pSize);
 
 static inline u32 MATH_CountLeadingZerosInline(u32 x) {
     asm {
@@ -98,7 +98,7 @@ extern "C" ARM int func_020b20b0(GXOamAttr *oam, int areaWidth, int areaHeight, 
     int usedObjs               = 0;
 
     {
-        const GXOamShape shape = LookupWord2D_020b11ac(&pSize->widthShift);
+        const GXOamShape shape = func_020b11ac(&pSize->widthShift);
         const int xNum         = areaWidth >> objWidthShift;
         const int yNum         = areaHeight >> objHeightShift;
         const int charNameSize = ((charNameUnit << objWidthShift) << objHeightShift) >> vramMode;

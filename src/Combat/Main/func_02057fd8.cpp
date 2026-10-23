@@ -44,11 +44,11 @@ struct ReactionNode02057fd8 {
     int type;
 };
 struct ReactionManager02057fd8 { unsigned char padding_0x0[8]; ReactionSlot02057fd8 slots[16]; };
-void ClearSevenWords_0205563c(Struct205563c*);
-int MaybeInit02055660(Obj02055660*, int, int, int);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_0205563c(Struct205563c*);
+extern "C" int func_02055660(Obj02055660*, int, int, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
 ModelRenderContext* GetModel3DContext(Model3D*);
-void CallHandlerFlag1_020e2fdc(RenderCommandHandler*);
+extern "C" void func_020e2fdc(RenderCommandHandler*);
 extern const char data_020e7d90[];
 extern const Vector3i data_020e7d84;
 
@@ -92,13 +92,13 @@ extern "C" ARM int func_02057fd8(ReactionManager02057fd8* manager, ReactionNode0
         manager->slots[index].field1c = config->field1c;
         manager->slots[index].velocity = config->velocity;
         COPY_REACTION_FLAGS_02057FD8();
-        RegisterCombatantSlot_0200fd38(game, id, reinterpret_cast<GameObject*>(object));
+        func_0200fd38(game, id, reinterpret_cast<GameObject*>(object));
         if (object->pModel_) {
             ModelRenderContext* context = GetModel3DContext(object->pModel_);
             NSBXXNameList* names = context->internalModel_ ? &context->internalModel_->boneList_ : 0;
             int bone = names ? NSBXXNameList_SearchIndex(names, data_020e7d90) : -1;
             if (bone >= 0) {
-                SetModelRenderContextRenderCommandHook(context, CallHandlerFlag1_020e2fdc, 0, 7, 1);
+                SetModelRenderContextRenderCommandHook(context, func_020e2fdc, 0, 7, 1);
             }
         }
     } else {
@@ -111,9 +111,9 @@ extern "C" ARM int func_02057fd8(ReactionManager02057fd8* manager, ReactionNode0
         manager->slots[index].field1c = config->field1c;
         manager->slots[index].velocity = config->velocity;
         COPY_REACTION_FLAGS_02057FD8();
-        RegisterCombatantSlot_0200fd38(game, id, reinterpret_cast<GameObject*>(&node->model));
-        ClearSevenWords_0205563c(&manager->slots[index].payload.header);
-        MaybeInit02055660(&manager->slots[index].payload.effect, reinterpret_cast<int>(node->effectData), reinterpret_cast<int>(&node->model), node->allocator);
+        func_0200fd38(game, id, reinterpret_cast<GameObject*>(&node->model));
+        func_0205563c(&manager->slots[index].payload.header);
+        func_02055660(&manager->slots[index].payload.effect, reinterpret_cast<int>(node->effectData), reinterpret_cast<int>(&node->model), node->allocator);
         Matrix4x3 matrix __attribute__((aligned(4)));
         Mat4x3_WriteIdentity(&matrix);
         Mat4x3_ApplyTranslation(&matrix, &matrix, config->position.x, config->position.y, config->position.z);

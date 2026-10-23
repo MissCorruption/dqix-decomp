@@ -22,7 +22,7 @@ struct EntryContainerDf374 {
 };
 
 extern "C" void __clear(void*, unsigned int);
-int CopyEntryAndAllocateStrings020df618(SafeAllocator*, void*, EntryDf618*, void**, int, EntryDf618*);
+extern "C" int func_020df618(SafeAllocator*, void*, EntryDf618*, void**, int, EntryDf618*);
 
 // USA: func_020df374
 extern "C" ARM int func_020df374(SafeAllocator* allocator, EntryContainerDf374* dest,
@@ -75,7 +75,7 @@ extern "C" ARM int func_020df374(SafeAllocator* allocator, EntryContainerDf374* 
     i = 0;
     for (; i < inputCount; i++, input++) {
         if ((categoryMask & (1 << input->category)) && ((1 << (input->kind & 31)) & kindMask[0])) {
-            CopyEntryAndAllocateStrings020df618(allocator, dest, output, &names, (int)source, input);
+            func_020df618(allocator, dest, output, &names, (int)source, input);
             if (copied >= capacity) break;
             output++;
             copied++;

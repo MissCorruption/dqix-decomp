@@ -42,16 +42,16 @@ struct Obj_0201bb78;
 
 extern "C" unsigned int func_ov014_0218934c(NatTable* table);
 extern "C" bool func_ov014_02188b20(NatTable* table, bool alreadyRelocated);
-void InitEntryFromSource_02189244(S02189244* table, S02189244* file, char* alreadyRelocated, int func);
+extern "C" void func_ov014_02189244(S02189244* table, S02189244* file, char* alreadyRelocated, int func);
 extern "C" int func_ov014_02188b18(NatEntry* entry);
 extern "C" NatEntry* func_ov014_021892d4(NatTable* table, int key, int (*getKey)(NatEntry* entry));
 extern "C" char* func_ov014_02188ba0(NatTable* table, char* pointer, char* defaultValue);
 extern "C" char* func_0205ec34();
-bool TestBitInByteArray_0206dfb0(int, unsigned char*, int flag);
+extern "C" bool func_0206dfb0(int, unsigned char*, int flag);
 extern "C" void* func_02012fe4();
-char* AllocateStringCopy020da150(SafeAllocator* allocator, const char* string);
-bool IsInRange0201b588(int zoneID);
-bool LookupBitFromValueRange0201bb78(Obj_0201bb78* zoneStruct, unsigned int zoneID);
+extern "C" char* func_020da150(SafeAllocator* allocator, const char* string);
+extern "C" bool func_0201b588(int zoneID);
+extern "C" bool func_0201bb78(Obj_0201bb78* zoneStruct, unsigned int zoneID);
 
 // USA: func_ov014_02188d48
 extern "C" ARM bool func_ov014_02188d48(HabitatTable* self, SafeAllocator* allocator, void* file, unsigned int fileSize, short monsterID) {
@@ -87,7 +87,7 @@ extern "C" ARM bool func_ov014_02188d48(HabitatTable* self, SafeAllocator* alloc
         NatEntry* entry;
 
         memset(&source, 0, sizeof(source));
-        InitEntryFromSource_02189244((S02189244*)&source, (S02189244*)file, (char*)&alreadyRelocated, NULL);
+        func_ov014_02189244((S02189244*)&source, (S02189244*)file, (char*)&alreadyRelocated, NULL);
         entry = func_ov014_021892d4(&source, monsterID, func_ov014_02188b18);
         if (entry != NULL) {
             char* flags;
@@ -104,7 +104,7 @@ extern "C" ARM bool func_ov014_02188d48(HabitatTable* self, SafeAllocator* alloc
             char* buffer;
 
             flags = func_0205ec34();
-            grottosKnown = TestBitInByteArray_0206dfb0((int)flags, (unsigned char*)(flags + 0x8c), 0x79d) != false;
+            grottosKnown = func_0206dfb0((int)flags, (unsigned char*)(flags + 0x8c), 0x79d) != false;
             zoneStruct = func_02012fe4();
 
             groups = (NatGroup*)(source.entries_ + source.numEntries_);
@@ -154,12 +154,12 @@ extern "C" ARM bool func_ov014_02188d48(HabitatTable* self, SafeAllocator* alloc
                     memcpy(newPointers, pointers + group->pointerIndex_, sizeof(char*));
                     group->pointerIndex_ = pointerIndex;
                     group->firstIndex_ = indexTotal;
-                    *newPointers = AllocateStringCopy020da150(allocator, func_ov014_02188ba0(&source, *newPointers, NULL));
+                    *newPointers = func_020da150(allocator, func_ov014_02188ba0(&source, *newPointers, NULL));
 
                     known = count == 0;
                     zoneID = newIndices;
                     for (int j = 0; j < count; j++, zoneID++) {
-                        known = (IsInRange0201b588(*zoneID) && grottosKnown) || LookupBitFromValueRange0201bb78((Obj_0201bb78*)zoneStruct, *zoneID);
+                        known = (func_0201b588(*zoneID) && grottosKnown) || func_0201bb78((Obj_0201bb78*)zoneStruct, *zoneID);
                         if (known)
                             break;
                     }

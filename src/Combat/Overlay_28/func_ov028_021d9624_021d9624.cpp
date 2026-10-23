@@ -11,14 +11,14 @@ struct Obj9624 {
 };
 
 class PMFClass021d8d40;
-int DispatchHandlerTable_021d8d40(PMFClass021d8d40* obj1, unsigned short arg2);
+extern "C" int func_ov028_021d8d40(PMFClass021d8d40* obj1, unsigned short arg2);
 unsigned long long GetCurrentTimestamp(void);
 
 // USA: func_ov028_021d9624
 extern "C" ARM void func_ov028_021d9624(Obj9624* obj) {
     unsigned char f80 = obj->f80;
     if (f80 != 0) return;
-    DispatchHandlerTable_021d8d40((PMFClass021d8d40*)obj, 2);
+    func_ov028_021d8d40((PMFClass021d8d40*)obj, 2);
     if (f80 == 0 && obj->f80 == 1) {
         unsigned long long ts = GetCurrentTimestamp();
         obj->p84 = (unsigned int)ts;

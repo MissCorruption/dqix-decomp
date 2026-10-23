@@ -8,16 +8,16 @@
 #include "GameState/GameState.h"
 
 struct Container020e0310;
-char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" char* func_020e0434(struct Container020e0310* c, int key);
 
 struct Obj0203c108 {
     char pad[0x14];
     short idx;
     short pad16;
 };
-void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* fmt);
+extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
 
-void* SearchBothTables02079e2c(char* table, int key);
+extern "C" void* func_02079e2c(char* table, int key);
 extern "C" int func_ov000_02171210(void* rec, void* self);
 
 struct BattleInfo2a04 {
@@ -27,9 +27,9 @@ struct BattleInfo2a04 {
 
 extern "C" void __clear(void* buf, int n);
 extern "C" void func_020e4864(const char* src, char* dst, int a, int b, int c, int d);
-void CopyTextAndUppercaseIfFlagged0206819c(const char* src, char* dst, int flag);
+extern "C" void func_0206819c(const char* src, char* dst, int flag);
 struct MessageSystem;
-struct MessageSystem* GetGlobalField0x1c020421a0();
+extern "C" struct MessageSystem* func_020421a0();
 extern "C" void func_02046608(struct MessageSystem* messages, int a, const char* format, char* output, int size, int b, int c);
 
 struct ActionEntry {
@@ -67,15 +67,15 @@ extern "C" ARM void func_ov000_02171e60(struct CommandMenu* self) {
         self->stackTop++;
         self->stack[self->stackTop] = 0xe;
         self->result = 0;
-        SwapGlobalEntry0203c108(&self->message, GetFieldByKey020e0434(self->texts, 5));
+        func_0203c108(&self->message, func_020e0434(self->texts, 5));
         return;
     }
-    void* rec = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), entry->recordId);
+    void* rec = func_02079e2c((char*)func_020797dc(), entry->recordId);
     if (rec == NULL) {
         self->stackTop++;
         self->stack[self->stackTop] = 0xe;
         self->result = 0;
-        SwapGlobalEntry0203c108(&self->message, GetFieldByKey020e0434(self->texts, 5));
+        func_0203c108(&self->message, func_020e0434(self->texts, 5));
         return;
     }
     self->stackTop++;
@@ -83,20 +83,20 @@ extern "C" ARM void func_ov000_02171e60(struct CommandMenu* self) {
     if (self->stack[self->stackTop] == 0x13) {
         self->field_0x21 = 0;
         self->field_0x2e = self->field_0x4c;
-        if (((struct BattleInfo2a04*)GetPtrField0x2a04_02010828(GameState::GetInstance()))->mode == 1) {
+        if (((struct BattleInfo2a04*)func_02010828(GameState::GetInstance()))->mode == 1) {
             self->stack[self->stackTop] = 100;
         }
     }
 #if defined(jpn)
-    SwapGlobalEntry0203c108(&self->message, (char*)entry->name);
+    func_0203c108(&self->message, (char*)entry->name);
 #else
     char text[0x80];
     __clear(text, 0x80);
     char format[0x80];
     __clear(format, 0x80);
     func_020e4864(entry->name, text, 1, 0, 0, 0);
-    CopyTextAndUppercaseIfFlagged0206819c(text, format, 0);
-    func_02046608(GetGlobalField0x1c020421a0(), 10, format, text, 0x100, 0, 0);
-    SwapGlobalEntry0203c108(&self->message, text);
+    func_0206819c(text, format, 0);
+    func_02046608(func_020421a0(), 10, format, text, 0x100, 0, 0);
+    func_0203c108(&self->message, text);
 #endif
 }

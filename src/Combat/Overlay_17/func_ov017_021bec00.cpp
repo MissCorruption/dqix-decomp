@@ -80,14 +80,14 @@ extern "C" void func_02043270(PopupController021bec00*, int, int, int, int);
 extern "C" void func_02042b98(PopupController021bec00*, int, int, int, int);
 #endif
 extern "C" void func_ov017_021bef84(PopupState021bec00*);
-PopupController021bec00* GetGlobalField0x1c020421a0();
-void CancelPendingAction020397cc(Obj020397cc*, int);
-void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
-GrottoTransitionData* GetField0x3f8Address_0200fd0c(GameState*);
-void InitAndResetHeader_0219e310(unsigned char*, int);
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
-void ReinitController02043204(char*);
-void SetByteField0x253_020397c0(void*);
+extern "C" PopupController021bec00* func_020421a0();
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" GrottoTransitionData* func_0200fd0c(GameState*);
+extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_02043204(char*);
+extern "C" void func_020397c0(void*);
 extern AllocatorUnion data_02114e20;
 #if defined(jpn)
 extern char data_ov017_021d86ac[], data_ov017_021d86c6[];
@@ -99,20 +99,20 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
     GameState* game = GameState::GetInstance();
     func_0202ae18();
     GameResources* resources = GetGameResources();
-    PopupController021bec00* controller = GetGlobalField0x1c020421a0();
+    PopupController021bec00* controller = func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     ActiveGrottoClass* grotto = &func_02012fe4()->grotto;
     game->GetGrottoStruct();
     char text[0x100] = {};
     controller->flag19ae = 0;
     if (self->state == 0) {
-        CancelPendingAction020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
+        func_020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
         SetFlags04(resources, 0xc0);
-        FontBankLoader* music = GetGlobal02109400_02094a00();
-        BlankFunction02094b30(music, 0x203, 0);
-        if (AlwaysTrue02094b4c(music)) {
+        FontBankLoader* music = func_02094a00();
+        func_02094b30(music, 0x203, 0);
+        if (func_02094b4c(music)) {
             self->state = 1;
-            self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0xc00), 0xc00);
+            self->allocator.CreateTypeA(func_02012d88(&data_02114e20, 0xc00), 0xc00);
 #if defined(jpn)
             self->task = loader->QueueLoadFile(data_ov017_021d86ac, 0);
 #else
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
     } else if (self->state == 2) {
         if (!IsBrightnessTransitionActive(resources)) {
             if ((unsigned char&)grotto->unknown_260_[2]) {
-                GrottoTransitionData* transition = GetField0x3f8Address_0200fd0c(game);
+                GrottoTransitionData* transition = func_0200fd0c(game);
                 VectorizedMemset(transition, 0, 0x70);
                 transition->flag4 = 1;
                 transition->flag8 = 1;
@@ -156,8 +156,8 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
                 TailList020469b4* list;
                 unsigned char* node = (unsigned char*)resources->unknown_ptr_array_36fc[4];
                 list = (TailList020469b4*)resources->unknown_ptr_array_36fc[0];
-                InitAndResetHeader_0219e310(node, 0);
-                AppendNodeToTail(list, (TailNode020469b4*)node);
+                func_ov017_0219e310(node, 0);
+                func_020469b4(list, (TailNode020469b4*)node);
                 grotto->unknown_260_[2] = 0;
                 func_ov017_021bef84(self);
                 self->complete = 1;
@@ -187,10 +187,10 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
             }
         }
     } else if (self->state == 3 && controller->field9a0 == 0) {
-        ReinitController02043204((char*)controller);
-        SetByteField0x253_020397c0(game->GetUnknownGameObject());
-        FontBankLoader* music = GetGlobal02109400_02094a00();
-        BlankFunction02094b38(music, 0x1f9);
+        func_02043204((char*)controller);
+        func_020397c0(game->GetUnknownGameObject());
+        FontBankLoader* music = func_02094a00();
+        func_02094b38(music, 0x1f9);
         func_02094ab0(music);
         func_ov017_021bef84(self);
         self->complete = 1;

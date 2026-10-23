@@ -31,7 +31,7 @@ struct Element0207f5d0 {
     unsigned char field2d;
 };
 struct List0207f5d0;
-void AppendElement0207f5d0(List0207f5d0*, Element0207f5d0*);
+extern "C" void func_0207f5d0(List0207f5d0*, Element0207f5d0*);
 extern void* data_02108ee0[2];
 
 // USA: func_0207f158
@@ -101,6 +101,6 @@ extern "C" ARM int func_0207f158(Script::Parameter* parameters) {
         element.field10 = parameters[8].ToInt();
         break;
     }
-    AppendElement0207f5d0((List0207f5d0*)data_02108ee0[1], &element);
+    func_0207f5d0((List0207f5d0*)data_02108ee0[1], &element);
     return 1;
 }

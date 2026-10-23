@@ -1,0 +1,12 @@
+#include <globaldefs.h>
+
+// USA: func_ov000_02174a38
+extern "C" ARM void func_ov000_02174a38(void* obj, int cond) {
+    int v = *((unsigned char*)obj + 0x24);
+    if (cond) {
+        v |= 0x4;
+    } else {
+        v &= ~0x4;
+    }
+    *((unsigned char*)obj + 0x24) = v;
+}

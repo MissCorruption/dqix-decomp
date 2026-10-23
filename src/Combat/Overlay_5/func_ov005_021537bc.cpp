@@ -8,7 +8,7 @@
 
 extern "C" void func_02047554(void* object, int index, int mode);
 struct Struct02075db0;
-int ForwardTableValue02075db0(Struct02075db0* object, int x, int y);
+extern "C" int func_02075db0(Struct02075db0* object, int x, int y);
 
 struct View021537bc {
     unsigned char* backing;
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov005_021537bc(void* object, int mode, unsigned short v
             break;
         }
         case 1:
-            ForwardTableValue02075db0((Struct02075db0*)(self->backing + i * 0x70),
+            func_02075db0((Struct02075db0*)(self->backing + i * 0x70),
                 px >> 12, py >> 12);
             break;
         case 2: {

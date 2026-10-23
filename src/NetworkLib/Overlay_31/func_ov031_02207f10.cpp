@@ -3,9 +3,9 @@
 #include "std_library_functions.h"
 
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
-int ReadVarLenValue_02207dd4(unsigned char**);
-void AppendCsv_02207e24(char*, const char*, int);
-int ParseEncodedDate_02207e90(unsigned char*, int);
+extern "C" int func_ov031_02207dd4(unsigned char**);
+extern "C" void func_ov031_02207e24(char*, const char*, int);
+extern "C" int func_ov031_02207e90(unsigned char*, int);
 
 extern const char* data_ov031_02249704[];
 
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov031_02207f10(ParseCtx* c, unsigned char** pp, int dept
     unsigned char* s = *pp;
     unsigned char* p = s + 1;
     unsigned char tag = *s;
-    int len = ReadVarLenValue_02207dd4(&p);
+    int len = func_ov031_02207dd4(&p);
     if (len < 0 || len > 2000) {
         return 1;
     }
@@ -145,13 +145,13 @@ extern "C" ARM int func_ov031_02207f10(ParseCtx* c, unsigned char** pp, int dept
     case 22:
         if (mode != 2) {
             if (c->f5ac) {
-                AppendCsv_02207e24(c->buf6b0, (const char*)p, len);
+                func_ov031_02207e24(c->buf6b0, (const char*)p, len);
                 if (c->f5ae == 5 && len <= 0x4f) {
                     VectorizedInvertedMemcpy(p, c->buf7b0, len);
                     c->buf7b0[len] = 0;
                 }
             } else {
-                AppendCsv_02207e24(c->buf5b0, (const char*)p, len);
+                func_ov031_02207e24(c->buf5b0, (const char*)p, len);
             }
         }
         c->f5ae = 0;
@@ -160,7 +160,7 @@ extern "C" ARM int func_ov031_02207f10(ParseCtx* c, unsigned char** pp, int dept
     case 23:
     case 24:
         if (mode != 2) {
-            unsigned int d = ParseEncodedDate_02207e90(p, tag & 0x1f);
+            unsigned int d = func_ov031_02207e90(p, tag & 0x1f);
             if (flag == 0) {
                 if (c->f80c >= d) {
                     c->f5af = 1;

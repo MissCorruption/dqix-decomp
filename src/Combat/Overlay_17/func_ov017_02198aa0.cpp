@@ -15,41 +15,41 @@ struct Position02198aa0 { int x,y,z; };
 struct GrottoView02198aa0 { unsigned char padding0[8]; signed char offset; unsigned char padding9[3]; int entranceZone; Position02198aa0 position; };
 struct Event02198aa0 { unsigned char kind; unsigned char padding1[19]; };
 struct State02198aa0 { unsigned short zoneId; unsigned char padding2[5]; unsigned char field7; unsigned char padding8[4]; unsigned char fieldC; unsigned char paddingD[15]; unsigned short angle; };
-void* GetField0x3b0Value_020100bc(GameState*);
-int GetGlobalField0x1c020421a0();
+extern "C" void* func_020100bc(GameState*);
+extern "C" int func_020421a0();
 extern "C" void* func_0202ae18();
 extern "C" void* func_02012fe4();
-int CheckSubstructByte0x7cPositive_020535c8(signed char*);
-int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_020535c8(signed char*);
+extern "C" int func_0203402c(BitField0203402c*);
+extern "C" int func_0202b7d8(int*);
 extern "C" int func_0202c540(void*);
-void InitObj0219a674(unsigned char*);
+extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Event02198aa0*);
-int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-void* GetField0x3f8Address_0200fd0c(GameState*);
-void InitStruct02070378(char*);
-void InitAndResetHeader_0219e310(unsigned char*, int);
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
-void InitByteHeader_021be0a0(unsigned char*);
+extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" void* func_0200fd0c(GameState*);
+extern "C" void func_02070378(char*);
+extern "C" void func_ov017_0219e310(unsigned char*, int);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_ov017_021be0a0(unsigned char*);
 
 // USA: func_ov017_02198aa0
 extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
     GameState* game = GameState::GetInstance();
     GameObject* actor = game->GetUnknownGameObject();
-    void* camera = GetField0x3b0Value_020100bc(game);
+    void* camera = func_020100bc(game);
     GameResources* resources = GetGameResources();
-    MessageSystem* controller = (MessageSystem*)GetGlobalField0x1c020421a0();
+    MessageSystem* controller = (MessageSystem*)func_020421a0();
     void* search = func_0202ae18();
     void* zone = func_02012fe4();
     GrottoStruct* grotto = game->GetGrottoStruct();
     unsigned char discovery = grotto->activeMapData.GetDiscoveryState();
     unsigned char mapType = grotto->activeMapData.GetMapType();
     unsigned char environment = grotto->activeEnviron;
-    if (CheckSubstructByte0x7cPositive_020535c8((signed char*)actor) || !grotto->unknown_0[0]) return;
+    if (func_020535c8((signed char*)actor) || !grotto->unknown_0[0]) return;
     if (((GrottoView02198aa0*)grotto)->entranceZone != actor->obj3D_.GetField06() || controller->mode) return;
     if (IsBrightnessTransitionActive(resources)) return;
-    if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor)) return;
-    if (discovery != 2 && discovery != 3 && CheckField0NonZero_0202b7d8((int*)search) && func_0202c540(search)) return;
+    if (func_0203402c((BitField0203402c*)actor)) return;
+    if (discovery != 2 && discovery != 3 && func_0202b7d8((int*)search) && func_0202c540(search)) return;
     Position02198aa0 entrance = ((GrottoView02198aa0*)grotto)->position;
     int inside = 0;
     if (entrance.x - 0x2666 < actor->obj3D_.position_.x && actor->obj3D_.position_.x < entrance.x + 0x2666 &&
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
           entrance.y - 0x1000 < actor->obj3D_.position_.y && actor->obj3D_.position_.y < entrance.y + 0x1000) inside = 1;
     if (!inside) return;
     Event02198aa0 event;
-    InitObj0219a674((unsigned char*)&event);
+    func_ov017_0219a674((unsigned char*)&event);
     event.kind = 4;
     func_ov017_0219b33c(self, &event);
     int proceed = 0;
@@ -67,15 +67,15 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { cursorX = g_touchInput.prevX_; cursorY = g_touchInput.prevY_; }
     {
         int screenX, screenY;
-        ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
+        func_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
         if (cursorX > 0x70 && cursorX < 0x90 && cursorY > 0x28 && cursorY < 0x60) proceed = 1;
         else if (screenX - 12 < cursorX && cursorX < screenX + 12 && screenY - 12 < cursorY && cursorY < screenY + 12) proceed = 0;
     }
     if (!proceed) return;
     if ((unsigned char)(discovery + 254) <= 1) {
-        MaybeClearGrottoState0201bfd4(static_cast<Zone3D*>(zone));
-        State02198aa0* state = (State02198aa0*)GetField0x3f8Address_0200fd0c(game);
-        InitStruct02070378((char*)state);
+        func_0201bfd4(static_cast<Zone3D*>(zone));
+        State02198aa0* state = (State02198aa0*)func_0200fd0c(game);
+        func_02070378((char*)state);
         state->field7 = 1;
         state->fieldC = 1;
         if (mapType == 2) {
@@ -93,15 +93,15 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
         } else {
             state->zoneId = 0x9c41;
         }
-        CallFunc0200fbb4AtField0x3f8_0200fcfc(game, state);
+        func_0200fcfc(game, state);
         TailList020469b4* list = (TailList020469b4*)resources->unknown_ptr_array_36fc[0];
         unsigned char* node = (unsigned char*)resources->unknown_ptr_array_36fc[4];
-        InitAndResetHeader_0219e310(node, 0);
-        AppendNodeToTail(list, (TailNode020469b4*)node);
+        func_ov017_0219e310(node, 0);
+        func_020469b4(list, (TailNode020469b4*)node);
     } else {
         TailList020469b4* list = (TailList020469b4*)self->unknown_ptr_array_36fc[0];
         unsigned char* node = (unsigned char*)resources->unknown_ptr_array_3afc[26];
-        InitByteHeader_021be0a0(node);
-        AppendNodeToTail(list, (TailNode020469b4*)node);
+        func_ov017_021be0a0(node);
+        func_020469b4(list, (TailNode020469b4*)node);
     }
 }

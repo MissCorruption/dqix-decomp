@@ -12,15 +12,15 @@ enum { RegionOffset6bc = 0x6bc, RegionOffset3600 = 0x3600, RegionOffsetb6 = 0xb6
 #endif
 
 extern "C" void* func_0205ec34(void);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
-void InitObj_021adc58(unsigned char* self);
-unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
+extern "C" void func_ov017_021adc58(unsigned char* self);
+extern "C" unsigned char func_020100b0(GameState* battleStruct);
 int fix32ReduceAngle0To2Pi(int angle);
 struct Vector3i;
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 struct LocalBuf0219922c {
     char pad0[0x20];
@@ -28,7 +28,7 @@ struct LocalBuf0219922c {
     char pad1[0x34 - 0x24];
 };
 
-// USA: func_ov017_0219922c  (semantic: InitAndAppendSearchNode_0219922c)
+// USA: func_ov017_0219922c
 extern "C" ARM void func_ov017_0219922c(unsigned char* self) {
     GameState* battle = GameState::GetInstance();
     unsigned char* search = *(unsigned char**)(self + 0x3000 + RegionOffset6bc);
@@ -40,19 +40,19 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* self) {
         void* p = func_0205ec34();
         struct LocalBuf0219922c c;
         c.f0x20 = *(unsigned short*)(search + 0x1c);
-        if (LookupAndForEachNode020649b0(p, 0x12, &c)) {
+        if (func_020649b0(p, 0x12, &c)) {
             func_0206f81c(&c);
         }
         return;
     }
 
     unsigned char* node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    InitObj_021adc58(node);
+    func_ov017_021adc58(node);
 
     node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
     node[0xa] = (unsigned char)val_b6;
 
-    int fv = GetField0x397cValue_020100b0(battle);
+    int fv = func_020100b0(battle);
     node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
     node[8] = (unsigned char)fv;
 
@@ -71,5 +71,5 @@ extern "C" ARM void func_ov017_0219922c(unsigned char* self) {
     unsigned char* base3000 = self + 0x3000;
     struct TailList020469b4* list = *(struct TailList020469b4**)(base3000 + RegionOffset6fc);
     struct TailNode020469b4* tail = *(struct TailNode020469b4**)(base3000 + RegionOffsetb24);
-    AppendNodeToTail(list, tail);
+    func_020469b4(list, tail);
 }

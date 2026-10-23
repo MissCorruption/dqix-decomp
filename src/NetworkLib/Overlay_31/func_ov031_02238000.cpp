@@ -12,7 +12,7 @@ extern signed char data_ov031_022492f4[][2];
 extern signed char data_ov031_022492f5[][2];
 extern "C" void func_ov031_0223cb34(MenuPoint*, MenuPoint*, MenuRange*);
 extern "C" int func_ov031_0223d49c(MenuRange*);
-int CheckMaskAgainstField32_0223d354(int);
+extern "C" int func_ov031_0223d354(int);
 extern "C" void func_ov031_022383fc(int);
 
 // USA: func_ov031_02238000
@@ -29,8 +29,8 @@ extern "C" ARM void func_ov031_02238000() {
         }
         ++i;
     } while (i < data_ov031_02249394[data_ov031_02290d10->mode]);
-    if (CheckMaskAgainstField32_0223d354(1)) data_ov031_02290d10->selection = data_ov031_022492f4[data_ov031_02290d10->mode][0];
-    if (CheckMaskAgainstField32_0223d354(2)) data_ov031_02290d10->selection = data_ov031_022492f5[data_ov031_02290d10->mode][0];
+    if (func_ov031_0223d354(1)) data_ov031_02290d10->selection = data_ov031_022492f4[data_ov031_02290d10->mode][0];
+    if (func_ov031_0223d354(2)) data_ov031_02290d10->selection = data_ov031_022492f5[data_ov031_02290d10->mode][0];
     MenuSelectionState* state = data_ov031_02290d10;
     int selectedIndex = 0;
     int count2 = data_ov031_02249394[state->mode];

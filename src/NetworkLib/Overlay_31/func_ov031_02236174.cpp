@@ -27,7 +27,7 @@ struct Entry02236174 {
 struct Base02236174 { Entry02236174* entries; };
 extern Base02236174 data_ov031_02290cfc;
 
-// USA: func_ov031_02236174  (semantic: CopyHeaderAndProcess_02236174)
+// USA: func_ov031_02236174
 extern "C" ARM void func_ov031_02236174(void) {
 	Entry02236174* staging = &data_ov031_02290cfc.entries[4];
 	Header02236174* dst = &data_ov031_02290cfc.entries[staging->slot].header;

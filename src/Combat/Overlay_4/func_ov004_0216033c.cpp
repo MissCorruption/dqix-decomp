@@ -8,23 +8,23 @@ enum { field7=6,fieldB=8,field6=4,field8=7,extensionOffset=0x144,statsOffset=0x7
 enum { field7=7,fieldB=0xb,field6=6,field8=8,extensionOffset=0x150,statsOffset=0x850 };
 #endif
 
-extern void SetNodeFieldsAndMaybeNotify_0215f6f4(void* a, short v1, short v2, int flag);
-extern int GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" void func_ov004_0215f6f4(void* a, short v1, short v2, int flag);
+extern "C" int func_02053c6c(unsigned char* obj);
 extern "C" void* func_ov011_021849c8(void* p);
-extern int AccumulateFlaggedSlotBits02085fb4(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits02086020(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits0208608c(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits020860f8(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits02086164(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits020861d0(unsigned char* actor);
-extern int AccumulateFlaggedSlotBits0208623c(unsigned char* actor);
-extern int AccumulateSlotBitsFromTable020862a8(unsigned char* actor);
-extern int AccumulateSlotBitsFromTable02086314(unsigned char* actor);
-void SetField38IfState8_0215e49c(void*, int, int);
+extern "C" int func_02085fb4(unsigned char* actor);
+extern "C" int func_02086020(unsigned char* actor);
+extern "C" int func_0208608c(unsigned char* actor);
+extern "C" int func_020860f8(unsigned char* actor);
+extern "C" int func_02086164(unsigned char* actor);
+extern "C" int func_020861d0(unsigned char* actor);
+extern "C" int func_0208623c(unsigned char* actor);
+extern "C" int func_020862a8(unsigned char* actor);
+extern "C" int func_02086314(unsigned char* actor);
+extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" extern int func_ov023_021f6f10(void* self);
-extern int CheckAfterTwoCalls_0215e460(void);
+extern "C" int func_ov004_0215e460(void);
 extern "C" int func_ov004_0215e4e8(void* a, int key);
-extern int GetTableByte020dd11c(unsigned int a, unsigned int b);
+extern "C" int func_020dd11c(unsigned int a, unsigned int b);
 
 typedef Vector3i Vec3_0216033c;
 class Node0215e47c {
@@ -36,9 +36,9 @@ public:
 };
 extern "C" Node0215e47c* func_ov004_0215e47c(void* a, int key);
 
-extern void* CheckNodeState6_0215e4c0(void* a, int key);
+extern "C" void* func_ov004_0215e4c0(void* a, int key);
 struct ObjE2_021f8944;
-extern void SetFieldE2AndMaybeCall_021f8944(struct ObjE2_021f8944* obj, int a1, int a2, int a3);
+extern "C" void func_ov023_021f8944(struct ObjE2_021f8944* obj, int a1, int a2, int a3);
 
 extern unsigned char data_ov004_021707e8;
 extern int data_ov004_02170854[];
@@ -140,14 +140,14 @@ extern "C" ARM int func_ov004_0216033c(void* a) {
     *(unsigned char*)((char*)D0 + field7) = 0x64;
     short v1 = *(signed char*)((char*)D0 + fieldB);
     short v2 = *(signed char*)((char*)D0 + field6);
-    SetNodeFieldsAndMaybeNotify_0215f6f4(a, v1, v2, 0);
+    func_ov004_0215f6f4(a, v1, v2, 0);
 
     int combatantId = *(int*)((char*)D0 + 0x1c);
     unsigned char sb = *(unsigned char*)((char*)D0 + field8);
     GameState* bs = GameState::GetInstance();
-    combatant = (unsigned char*)GetCombatantWithFlag0x100_0200ff1c(bs, combatantId);
+    combatant = (unsigned char*)func_0200ff1c(bs, combatantId);
     if (!combatant) goto stats_done;
-    base150 = (unsigned char*)GetFieldAt0x150_02053c6c(combatant);
+    base150 = (unsigned char*)func_02053c6c(combatant);
     if (!base150) goto stats_done;
     {
 
@@ -185,23 +185,23 @@ extern "C" ARM int func_ov004_0216033c(void* a) {
             }
             node->SetState(0xf);
         } else {
-            int actorBase = GetFieldAt0x150_02053c6c(combatant) + statsOffset;
+            int actorBase = func_02053c6c(combatant) + statsOffset;
             int t3 = D1[sb];
             int entryOff = (t3 & 0xff) * 0xc;
             Packed3x10* entryBase = (Packed3x10*)(actorBase + entryOff);
 
-            st0 = (AccumulateFlaggedSlotBits02085fb4(base150) + rowBase[0].a + entryBase[0].a);
-            st1 = (AccumulateFlaggedSlotBits02086020(base150) + rowBase[0].b + entryBase[0].b);
-            st2 = (AccumulateFlaggedSlotBits0208608c(base150) + rowBase[0].c + entryBase[0].c);
-            st3 = (AccumulateFlaggedSlotBits020860f8(base150) + rowBase[1].a + entryBase[1].a);
-            st4 = (AccumulateFlaggedSlotBits02086164(base150) + rowBase[1].b + entryBase[1].b);
-            st5 = (AccumulateFlaggedSlotBits020861d0(base150) + rowBase[1].c + entryBase[1].c);
-            st6 = (AccumulateFlaggedSlotBits0208623c(base150) + rowBase[2].a + entryBase[2].a);
-            st7 = (AccumulateSlotBitsFromTable020862a8(base150) + rowBase[2].b + entryBase[2].b);
-            st8 = (AccumulateSlotBitsFromTable02086314(base150) + rowBase[2].c + entryBase[2].c);
+            st0 = (func_02085fb4(base150) + rowBase[0].a + entryBase[0].a);
+            st1 = (func_02086020(base150) + rowBase[0].b + entryBase[0].b);
+            st2 = (func_0208608c(base150) + rowBase[0].c + entryBase[0].c);
+            st3 = (func_020860f8(base150) + rowBase[1].a + entryBase[1].a);
+            st4 = (func_02086164(base150) + rowBase[1].b + entryBase[1].b);
+            st5 = (func_020861d0(base150) + rowBase[1].c + entryBase[1].c);
+            st6 = (func_0208623c(base150) + rowBase[2].a + entryBase[2].a);
+            st7 = (func_020862a8(base150) + rowBase[2].b + entryBase[2].b);
+            st8 = (func_02086314(base150) + rowBase[2].c + entryBase[2].c);
             st9 = st0;
             st10 = st2;
-            int reg11 = (short)(AccumulateFlaggedSlotBits02086164(base150) + rowBase[3].a + entryBase[1].b);
+            int reg11 = (short)(func_02086164(base150) + rowBase[3].a + entryBase[1].b);
 
             enum { CAP = 999 };
             if (st0 > CAP) st0 = CAP;
@@ -240,9 +240,9 @@ extern "C" ARM int func_ov004_0216033c(void* a) {
 
     {
         if (!(*(Flags49c**)(combatant + extensionOffset))->bit0) {
-            SetField38IfState8_0215e49c(a, 0xe, 2);
+            func_ov004_0215e49c(a, 0xe, 2);
         } else {
-            SetField38IfState8_0215e49c(a, 0xe, 3);
+            func_ov004_0215e49c(a, 0xe, 3);
         }
     }
 
@@ -325,8 +325,8 @@ stats_done:
     case 10: r4 = 0xe; break;
     case 11: r4 = 0xf; break;
     }
-    if (CheckAfterTwoCalls_0215e460() != 0) r4 = 4;
-    SetField38IfState8_0215e49c(a, 0xf, r4);
+    if (func_ov004_0215e460() != 0) r4 = 4;
+    func_ov004_0215e49c(a, 0xf, r4);
 
     int r5v = func_ov004_0215e4e8(a, 0xf);
     Node0215e47c* vnode = func_ov004_0215e47c(a, 0xf);
@@ -350,7 +350,7 @@ stats_done:
     int combatantId2 = *(int*)((char*)D0 + 0x1c);
     unsigned char sb2 = *(unsigned char*)((char*)D0 + field8);
     GameState* bs2 = GameState::GetInstance();
-    unsigned char* combatant2 = (unsigned char*)GetCombatantWithFlag0x100_0200ff1c(bs2, combatantId2);
+    unsigned char* combatant2 = (unsigned char*)func_0200ff1c(bs2, combatantId2);
     FNode0216033c* iconNode;
     int tv;
     FNode0216033c* nameNode;
@@ -363,10 +363,10 @@ stats_done:
     idx = 0;
     msgId = 0;
     hidden = 0;
-    if (CheckAfterTwoCalls_0215e460() != 0) hidden = 1;
+    if (func_ov004_0215e460() != 0) hidden = 1;
 
     for (k = 0; k < 5; k++) {
-        tv = GetTableByte020dd11c(D1[sb2] & 0xff, k & 0xff);
+        tv = func_020dd11c(D1[sb2] & 0xff, k & 0xff);
         switch (tv) {
         case 1: msgId = 0x12; break;
         case 2: msgId = 0x13; break;
@@ -395,7 +395,7 @@ stats_done:
         case 25: msgId = 0x2a; break;
         case 26: msgId = 0x2b; break;
         }
-        SetField38IfState8_0215e49c(a, idx + 0x2a, msgId);
+        func_ov004_0215e49c(a, idx + 0x2a, msgId);
 
         kNode = func_ov023_021f6880(obj118b, k + 0x5f);
         if (kNode) {
@@ -456,10 +456,10 @@ stats_done:
         r5final = 1;
         kind = 3;
     }
-    void* node6 = CheckNodeState6_0215e4c0(a, 3);
+    void* node6 = func_ov004_0215e4c0(a, 3);
     if (node6) {
         *(unsigned char*)((char*)node6 + 0x10a) = (unsigned char)kind;
-        SetFieldE2AndMaybeCall_021f8944((struct ObjE2_021f8944*)node6, (int)(long)a, r5final, 1);
+        func_ov023_021f8944((struct ObjE2_021f8944*)node6, (int)(long)a, r5final, 1);
     }
 
     return 0;

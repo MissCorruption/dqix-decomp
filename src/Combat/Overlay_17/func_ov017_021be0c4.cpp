@@ -42,31 +42,31 @@ struct Context021be0c4 {
 struct Obj020397cc;
 extern "C" Context021be0c4* func_02012fe4();
 extern "C" int* func_0202ae18();
-Obj02046574* GetGlobalField0x1c020421a0();
-void CancelPendingAction020397cc(Obj020397cc*, int);
-void SetForwardAndStore0205ebc0(void*, int, int);
-void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
-void ForwardField0xc0_0205ebec(void*);
+extern "C" Obj02046574* func_020421a0();
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_0205ebc0(void*, int, int);
+extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void func_0205ebec(void*);
 extern char data_02108760[];
 extern "C" int func_0208f748(void*, int*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_020426bc(BaseCombatStats*, char*, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_02011744(GameState*);
-const char* CallFunc020e0434With02153694_020e51cc(int);
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" const char* func_020e51cc(int);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #if defined(jpn)
 extern char data_ov017_021d8658[];
 #endif
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_0202b7d8(int*);
 extern "C" int func_0202c508(int*);
 extern "C" void func_ov017_021cf730(int, int);
-int GetField0x3acValue_020100a8(GameState*);
-void EnqueueEventTag173_021d1810(int, int, signed char);
-void ClearBitArray_02011408(void*);
-void EnqueueEventTag167_021d3ec8();
-void ReinitController02043204(char*);
-void SetByteField0x253_020397c0(void*);
+extern "C" int func_020100a8(GameState*);
+extern "C" void func_ov017_021d1810(int, int, signed char);
+extern "C" void func_02011408(void*);
+extern "C" void func_ov017_021d3ec8();
+extern "C" void func_02043204(char*);
+extern "C" void func_020397c0(void*);
 
 // USA: func_ov017_021be0c4
 // JPN: func_ov017_021be6bc
@@ -74,18 +74,18 @@ extern "C" ARM void func_ov017_021be0c4(State021be0c4* state) {
     GameState* game = GameState::GetInstance();
     func_0202ae18();
     GameResources* resources = GetGameResources();
-    Obj02046574* controller = GetGlobalField0x1c020421a0();
+    Obj02046574* controller = func_020421a0();
     func_02012fe4();
     GrottoStruct* grotto = game->GetGrottoStruct();
     if (state->step == 0) {
-        CancelPendingAction020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
-        FontBankLoader* global = GetGlobal02109400_02094a00();
-        BlankFunction02094b30(global, 0x203, 0);
-        if (AlwaysTrue02094b4c(global)) state->step = 1;
+        func_020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
+        FontBankLoader* global = func_02094a00();
+        func_02094b30(global, 0x203, 0);
+        if (func_02094b4c(global)) state->step = 1;
     } else if (state->step == 1) {
         SetMainBrightness(resources, 0x10, 0xf);
-        SetForwardAndStore0205ebc0(data_02108760, 0x83, 0x83);
-        DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 0, 0);
+        func_0205ebc0(data_02108760, 0x83, 0x83);
+        func_0205ebfc(data_02108760, 0, 0);
         state->step = 2;
     } else if (state->step == 2) {
         if (!IsMainBrightnessTransitionActive(resources)) {
@@ -117,30 +117,30 @@ extern "C" ARM void func_ov017_021be0c4(State021be0c4* state) {
             sprintf(buffer, data_ov017_021d8658, game->GetUnknownGameObject()->baseStats_->unk);
             func_0204500c((MessageSystem*)controller, buffer, 0);
 #else
-            sprintf(buffer, CallFunc020e0434With02153694_020e51cc(0x3f));
-            SetIndexedName02046574(controller, 0, (char*)game->GetUnknownGameObject()->baseStats_);
+            sprintf(buffer, func_020e51cc(0x3f));
+            func_02046574(controller, 0, (char*)game->GetUnknownGameObject()->baseStats_);
             func_0204500c((MessageSystem*)controller, buffer, 0, 0xe3);
 #endif
             controller->field_19b2 = 0;
             controller->active = 1;
             int* field = func_0202ae18();
-            if (CheckField0NonZero_0202b7d8(field) && func_0202c508(field)) {
+            if (func_0202b7d8(field) && func_0202c508(field)) {
                 func_ov017_021cf730(-1, 0);
-                EnqueueEventTag173_021d1810(0x2713, -1, GetField0x3acValue_020100a8(game));
+                func_ov017_021d1810(0x2713, -1, func_020100a8(game));
             }
-            ClearBitArray_02011408(game);
-            EnqueueEventTag167_021d3ec8();
+            func_02011408(game);
+            func_ov017_021d3ec8();
             state->step = 5;
         }
     } else if (state->step == 5) {
         controller->field_19ae = 0;
         if (!controller->busy) {
-            ReinitController02043204((char*)controller);
-            SetByteField0x253_020397c0(game->GetUnknownGameObject());
-            FontBankLoader* global = GetGlobal02109400_02094a00();
-            BlankFunction02094b38(global, 0x203);
+            func_02043204((char*)controller);
+            func_020397c0(game->GetUnknownGameObject());
+            FontBankLoader* global = func_02094a00();
+            func_02094b38(global, 0x203);
             func_02094ab0(global);
-            ForwardField0xc0_0205ebec(data_02108760);
+            func_0205ebec(data_02108760);
             state->done = 1;
         }
     }

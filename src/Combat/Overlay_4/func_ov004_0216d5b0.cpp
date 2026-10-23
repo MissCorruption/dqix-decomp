@@ -8,16 +8,16 @@ extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" unsigned int func_ov023_021f6f10(void* self);
 #define NODE_KIND_CALL func_ov023_021f6f10
 #else
-int ScaleStatsIfType12_021f6f10(void* self);
-#define NODE_KIND_CALL ScaleStatsIfType12_021f6f10
+extern "C" int func_ov024_021f6f10(void* self);
+#define NODE_KIND_CALL func_ov024_021f6f10
 #endif
 extern "C" void* func_ov023_021fa598(void* p);
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 extern "C" int func_020abb64(void);
 struct TableA68;
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-void SetByte0x4_0200fb94(char* obj, unsigned char value);
-void SetByte0x7f70_02012028(void* obj, unsigned char value);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" void func_0200fb94(char* obj, unsigned char value);
+extern "C" void func_02012028(void* obj, unsigned char value);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 
 // USA: func_ov004_0216d5b0
@@ -28,10 +28,10 @@ extern "C" ARM int func_ov004_0216d5b0(void* obj) {
 
     struct TableA68* table = (struct TableA68*)func_ov023_021fa598(node);
     GameState* battle = GameState::GetInstance();
-    MessageSystem* message = (MessageSystem*)GetGlobalField0x1c020421a0();
+    MessageSystem* message = (MessageSystem*)func_020421a0();
 
     if (func_020abb64() == 0) {
-        void* entry = FindEntryByKey_02072a68(table, 0x5dd);
+        void* entry = func_02072a68(table, 0x5dd);
 #if defined(jpn)
         func_0204500c(message, (const char*)entry, 0);
 #else
@@ -39,18 +39,18 @@ extern "C" ARM int func_ov004_0216d5b0(void* obj) {
 #endif
         message->b19ca = 0;
         message->b19af = 0;
-        SetByte0x7f70_02012028(battle, 0);
+        func_02012028(battle, 0);
         return 0;
     }
 
-    void* entry = FindEntryByKey_02072a68(table, 0x4b1);
+    void* entry = func_02072a68(table, 0x4b1);
 #if defined(jpn)
     func_0204500c(message, (const char*)entry, 0);
 #else
     func_0204500c(message, (const char*)entry, 0, 0xe3);
 #endif
-    SetByte0x4_0200fb94((char*)battle, 7);
-    SetByte0x7f70_02012028(battle, 0);
+    func_0200fb94((char*)battle, 7);
+    func_02012028(battle, 0);
     func_ov011_021848a0(obj, 0x97);
     return 0;
 }

@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int GetBit6At0xe0_02033f5c(unsigned char* p);
-void* GetFieldPtrAt0x11c_02033fc4(void* obj);
-int CheckBits5To9NonZero_0204be78(unsigned short* obj);
+extern "C" int func_02033f5c(unsigned char* p);
+extern "C" void* func_02033fc4(void* obj);
+extern "C" int func_0204be78(unsigned short* obj);
 struct BitFlag02033f44;
-void* GetField0xe4IfFlag0x40(BitFlag02033f44*);
-int PackColorChannelsToDecimal_0204bea0(unsigned short* obj);
-int GetBits10To14_0204be90(unsigned short* obj);
+extern "C" void* func_02033f44(BitFlag02033f44*);
+extern "C" int func_0204bea0(unsigned short* obj);
+extern "C" int func_0204be90(unsigned short* obj);
 
 struct F02033f44 {
     char pad0[0x24];
@@ -29,14 +29,14 @@ extern "C" ARM int func_020a7d74(struct Obj020a7d74* self, int* out1, int* out2)
     if (self->f134 == 0) {
         ok = 0;
     }
-    if (GetBit6At0xe0_02033f5c((unsigned char*)self) == 0) {
+    if (func_02033f5c((unsigned char*)self) == 0) {
         ok = 0;
     }
-    unsigned short* p = (unsigned short*)GetFieldPtrAt0x11c_02033fc4(self);
+    unsigned short* p = (unsigned short*)func_02033fc4(self);
     if (p == 0) {
         ok = 0;
     }
-    if (CheckBits5To9NonZero_0204be78(p) == 0) {
+    if (func_0204be78(p) == 0) {
         ok = 0;
     }
     if (ok == 0) {
@@ -54,7 +54,7 @@ extern "C" ARM int func_020a7d74(struct Obj020a7d74* self, int* out1, int* out2)
     dir.z = cz;
     Vector3fix_Normalize(&dir, &dir);
 
-    struct F02033f44* f = (struct F02033f44*)GetField0xe4IfFlag0x40((BitFlag02033f44*)self);
+    struct F02033f44* f = (struct F02033f44*)func_02033f44((BitFlag02033f44*)self);
     int tz = f->f24.z;
     int tx = f->f24.x;
     t.y = 0;
@@ -71,7 +71,7 @@ extern "C" ARM int func_020a7d74(struct Obj020a7d74* self, int* out1, int* out2)
     if (self->f138 < 0x28) {
         return 0;
     }
-    *out1 = PackColorChannelsToDecimal_0204bea0(p);
-    *out2 = GetBits10To14_0204be90(p);
+    *out1 = func_0204bea0(p);
+    *out2 = func_0204be90(p);
     return 1;
 }

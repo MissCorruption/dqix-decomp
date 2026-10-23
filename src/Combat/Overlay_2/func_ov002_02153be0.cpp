@@ -6,12 +6,12 @@ extern "C" float _fdiv(float a, float b);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
 
-// USA: func_ov002_02153be0  (semantic: ComputeScaledStatValue_02153be0)
+// USA: func_ov002_02153be0
 extern "C" ARM int func_ov002_02153be0(void* obj, unsigned char* req, int combatantId) {
     int result = 0;
     unsigned int kind = *(unsigned int*)(req + 0x18);
     if (((kind << 14) >> 30) == 1) {
-        GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), combatantId);
+        GameObject* combatant = func_0200ff1c(GameState::GetInstance(), combatantId);
         if (combatant == 0) {
             return 0;
         }

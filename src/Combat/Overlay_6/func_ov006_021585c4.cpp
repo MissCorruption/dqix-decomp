@@ -28,12 +28,12 @@ struct Unknown_02075cdc {
 
 struct Canvas;
 
-Canvas* FindElementByByte0xc4_02081da8(Obj2081*, int);
-int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-void GetLookAndTurnOffsets020809c4(void*, int, int, short*, short*);
-void UpdateEntryStateAndPosition(Ctx020e263c*, int);
-void SetEntryPositionFromObject(WinObj020e28f0*, short, short);
+extern "C" Canvas* func_02081da8(Obj2081*, int);
+extern "C" int func_0204c7e0(unsigned char*);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" void func_020809c4(void*, int, int, short*, short*);
+extern "C" void func_020e263c(Ctx020e263c*, int);
+extern "C" void func_020e28f0(WinObj020e28f0*, short, short);
 extern "C" void func_0205ae8c(void*);
 
 struct AlchemyMenu {
@@ -138,19 +138,19 @@ extern "C" ARM void func_ov006_021585c4(AlchemyMenu* self)
         return;
     if (self->group_ < 0)
         return;
-    Canvas* canvas = FindElementByByte0xc4_02081da8((Obj2081*)self->menu_, self->group_);
+    Canvas* canvas = func_02081da8((Obj2081*)self->menu_, self->group_);
     if (canvas == 0)
         return;
-    if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)canvas) || self->choice_ == 0)
+    if (!func_0204c7e0((unsigned char*)canvas) || self->choice_ == 0)
         return;
-    if (GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
+    if (func_020e28dc((Outer020e28dc*)self->choice_))
         return;
     short x;
     short y;
-    GetLookAndTurnOffsets020809c4(self->menu_, self->group_, *self->cursor_, &x, &y);
-    UpdateEntryStateAndPosition((Ctx020e263c*)self->choice_, self->ticks_);
+    func_020809c4(self->menu_, self->group_, *self->cursor_, &x, &y);
+    func_020e263c((Ctx020e263c*)self->choice_, self->ticks_);
     x -= 0x10;
     y -= 3;
-    SetEntryPositionFromObject((WinObj020e28f0*)self->choice_, x, y);
+    func_020e28f0((WinObj020e28f0*)self->choice_, x, y);
     func_0205ae8c(self->renderer_);
 }

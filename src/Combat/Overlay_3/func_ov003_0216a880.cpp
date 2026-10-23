@@ -3,11 +3,11 @@
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
-extern struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-extern int IsField0x9cEqual3_0204c7cc(unsigned char* obj);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" int func_0204c7cc(unsigned char* obj);
 
 struct Struct0200fb08;
-extern int NormalizeField5_0200fb08(struct Struct0200fb08*);
+extern "C" int func_0200fb08(struct Struct0200fb08*);
 
 extern "C" void func_0205ac40(void* dst, void* src);
 
@@ -23,12 +23,12 @@ extern "C" ARM void func_ov003_0216a880(unsigned char* obj) {
 #else
     enum { entriesOffset = 0xe4, baseOffset = 0x4d4, listOffset = 0x480 };
 #endif
-    struct Elem_0205d81c* e = FindElementByC40205d81c((struct Struct_0205d81c*)(obj + entriesOffset), 2);
+    struct Elem_0205d81c* e = func_0205d81c((struct Struct_0205d81c*)(obj + entriesOffset), 2);
     if (e == 0) return;
-    if (!IsField0x9cEqual3_0204c7cc((unsigned char*)e)) return;
+    if (!func_0204c7cc((unsigned char*)e)) return;
 
 #if !defined(jpn)
-    int key = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
+    int key = func_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
 #endif
 
     unsigned int lo = 0x90000;

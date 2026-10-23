@@ -91,29 +91,29 @@ struct CombatantName {
 struct Struct0200fb08;
 struct TableA68;
 
-int StringLength_020d2ff0(const char*);
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" int func_020d2ff0(const char*);
+extern "C" unsigned char* func_02053c6c(unsigned char* obj);
 extern "C" HudNode* func_ov004_0215e47c(void* a, int key);
 extern "C" void* func_ov023_021fad18(void* node);
-struct PortraitEntry* GetArrayEntry_0215e438(void* arr, int idx);
+extern "C" struct PortraitEntry* func_ov004_0215e438(void* arr, int idx);
 extern "C" int func_ov017_021bdbcc(void* obj);
-void* GetTableEntry020421b0(int idx);
-unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
+extern "C" void* func_020421b0(int idx);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
 extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" HudNode* func_ov023_021f6880(void* list, int key);
 extern "C" int func_ov023_021f6f10(HudNode* node);
-int IsValueEqual12_02042190(int x);
+extern "C" int func_02042190(int x);
 extern "C" int func_020420e8(void* p, int flag);
-int CallFunc020e0434With02153694_020e51cc(int value);
-int CheckAfterTwoCalls_0215e460(void);
-void SetField38IfState8_0215e49c(void*, int, int);
+extern "C" int func_020e51cc(int value);
+extern "C" int func_ov004_0215e460(void);
+extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" struct TableA68* func_ov023_021fa598(HudNode* node);
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
-int GetGlobalField0x1c020421a0(void);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
+extern "C" int func_020421a0(void);
 extern "C" void func_02046380(void* global);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
 extern "C" void func_02046608(int a, int b, void* fmt, void* dst, int p4, int p5, int p6);
-void* CheckNodeState6_0215e4c0(void* a, int key);
+extern "C" void* func_ov004_0215e4c0(void* a, int key);
 extern "C" void func_ov023_021f809c(void* obj, void* param2);
 
 extern struct BattleMenuState data_ov004_021707e8;
@@ -124,8 +124,8 @@ extern unsigned short data_ov004_0216fdd0[];
 // USA: func_ov004_0215f0c0
 extern "C" ARM void func_ov004_0215f0c0(void* self) {
     GameState* gs = GameState::GetInstance();
-    struct HudCombatant* combatant = (struct HudCombatant*)GetCombatantWithFlag0x100_0200ff1c(gs, data_ov004_021707e8.combatantId);
-    struct HudField150* field150 = (struct HudField150*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    struct HudCombatant* combatant = (struct HudCombatant*)func_0200ff1c(gs, data_ov004_021707e8.combatantId);
+    struct HudField150* field150 = (struct HudField150*)func_02053c6c((unsigned char*)combatant);
     int dead = 0;
     int palette = 0xf;
     if ((int)combatant->stats->hp <= 0) {
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
             if (memberIdx >= 0) {
                 struct HudMember* member = (struct HudMember*)GameState::GetInstance()->GetPartyMemberByIndex(memberIdx);
                 if (arr != 0 && member != 0) {
-                    struct PortraitEntry* entry = GetArrayEntry_0215e438(arr, 0);
+                    struct PortraitEntry* entry = func_ov004_0215e438(arr, 0);
                     struct PortraitInfo* info;
                     if (entry != 0 && (info = entry->info) != 0) {
                         bank = member->sub150->portraitBank;
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
                         unsigned char tableIdx = bank * 4 + 0x28;
                         offset = (unsigned short)(info->tile & 0x3ff) << 5;
                         for (i = 0; i < 4; i++, tableIdx++) {
-                            void* tile = GetTableEntry020421b0(tableIdx);
+                            void* tile = func_020421b0(tableIdx);
                             CleanInvalidateCacheRange(tile, 0x20);
                             LoadToMainObjVRAM(tile, offset, 0x20);
                             CleanCacheRange(tile, 0x20);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
         }
     }
 
-    unsigned char level = NormalizeField5_0200fb08((struct Struct0200fb08*)gs);
+    unsigned char level = func_0200fb08((struct Struct0200fb08*)gs);
 #endif
     void* list = func_ov011_021849c8(self);
     HudNode* node = func_ov023_021f6880(list, 0x7f);
@@ -193,10 +193,10 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
             int width = 0;
             if (baseStats != 0) {
 #if defined(jpn)
-                width = StringLength_020d2ff0((const char*)baseStats);
+                width = func_020d2ff0((const char*)baseStats);
                 width = (width * node->kind) >> 1;
 #else
-                width = func_020420e8(baseStats, IsValueEqual12_02042190(node->kind));
+                width = func_020420e8(baseStats, func_02042190(node->kind));
 #endif
             }
             Vector3i pos;
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
         }
         node = func_ov023_021f6880(list, 0x7d);
         if (node != 0) {
-            node->data = (void*)CallFunc020e0434With02153694_020e51cc(0x3f3);
+            node->data = (void*)func_020e51cc(0x3f3);
         }
 #endif
     } else {
@@ -310,15 +310,15 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
         }
         node = func_ov023_021f6880(list, 0x7d);
         if (node != 0) {
-            node->data = (void*)CallFunc020e0434With02153694_020e51cc(0x3f3);
+            node->data = (void*)func_020e51cc(0x3f3);
         }
 #endif
     }
 
-    if (CheckAfterTwoCalls_0215e460() != 0) {
-        SetField38IfState8_0215e49c(self, 0x7c, 0x201);
+    if (func_ov004_0215e460() != 0) {
+        func_ov004_0215e49c(self, 0x7c, 0x201);
     } else {
-        SetField38IfState8_0215e49c(self, 0x7c, data_ov004_021707e8.slot + 0x1e4);
+        func_ov004_0215e49c(self, 0x7c, data_ov004_021707e8.slot + 0x1e4);
     }
 
 #if !defined(jpn)
@@ -349,17 +349,17 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
             label->SetPalette(palette);
         }
 #if defined(jpn)
-        SetField38IfState8_0215e49c(self, 0x7c, 0x202);
+        func_ov004_0215e49c(self, 0x7c, 0x202);
 #else
         HudNode* msg = func_ov023_021f6880(list, 6);
         if (msg != 0 && func_ov023_021f6f10(msg) == 4) {
             struct TableA68* table = func_ov023_021fa598(msg);
             struct CombatantName name;
-            InitObjFromCombatantId020e4bf4(&name, data_ov004_021707e8.combatantId);
-            int g = GetGlobalField0x1c020421a0();
+            func_020e4bf4(&name, data_ov004_021707e8.combatantId);
+            int g = func_020421a0();
             func_02046380((void*)g);
             *(struct CombatantName**)g = &name;
-            func_02046608(g, 0, FindEntryByKey_02072a68(table, 0x202), text, 0x1e, 0, 0);
+            func_02046608(g, 0, func_02072a68(table, 0x202), text, 0x1e, 0, 0);
             label->data = text;
         }
 #endif
@@ -382,5 +382,5 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
         }
     }
 
-    func_ov023_021f809c(CheckNodeState6_0215e4c0(self, 5), self);
+    func_ov023_021f809c(func_ov004_0215e4c0(self, 5), self);
 }

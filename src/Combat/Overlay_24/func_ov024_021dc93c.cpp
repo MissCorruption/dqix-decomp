@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
-void* GetPtrField0x2a04_02010828(GameState*);
+extern "C" void* func_02010828(GameState*);
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
-void IncrementByteCounterCapped0x63_0215a8d4(unsigned char*, int);
-int CheckField0x14FiveFlagsClear020881c4(unsigned char*);
-int CheckField0x14FiveFlagsClear0208810c(unsigned char*);
-void SetFlag0x800000AndByte0x24_02088220(void*, int);
-int SetFlag0x800000AndCall02088208(void*, int);
-void ResetAndSetFlag0x1000000_02088150(void*);
-int GetCodeForCategory_021e8c48(void*, signed char);
-unsigned short SelectByIndexRange0to3_021da644(int,int,int);
+extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
+extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" int func_020881c4(unsigned char*);
+extern "C" int func_0208810c(unsigned char*);
+extern "C" void func_02088220(void*, int);
+extern "C" int func_02088208(void*, int);
+extern "C" void func_02088150(void*);
+extern "C" int func_ov024_021e8c48(void*, signed char);
+extern "C" unsigned short func_ov024_021da644(int,int,int);
 extern "C" void* func_ov000_0215e958(void*);
-void AddEntryAndIncrementCount0215a88c(void*,void*,int);
-void AppendToChainAndIncCount0215ffc4(void*,void*,int);
+extern "C" void func_ov000_0215a88c(void*,void*,int);
+extern "C" void func_ov000_0215ffc4(void*,void*,int);
 extern "C" void func_ov000_02159eac(void*,unsigned long long*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,short,unsigned long long,unsigned char);
 extern "C" void func_ov000_0215af54(void*,int,int);
@@ -38,9 +38,9 @@ extern "C" ARM void* func_ov024_021dc93c(Obj021dc93c* obj,short sourceID,int id,
  if(enabled){
   if(code==0x151 || code==0x152){
    if(code==0x151){
-    if(CheckField0x14FiveFlagsClear020881c4((unsigned char*)target->currentStats_))ok=1;
+    if(func_020881c4((unsigned char*)target->currentStats_))ok=1;
    }else if(code==0x152){
-    if(CheckField0x14FiveFlagsClear0208810c((unsigned char*)target->currentStats_))ok=1;
+    if(func_0208810c((unsigned char*)target->currentStats_))ok=1;
    }
    int stage;
    int count=params->count;
@@ -50,9 +50,9 @@ extern "C" ARM void* func_ov024_021dc93c(Obj021dc93c* obj,short sourceID,int id,
     void* entry=func_ov000_0215e958(obj->context);
     if(!entry)return 0;
     func_ov000_0215cd44(obj->context,entry,target,stage,effects,obj->action->flag!=0);
-    AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+    func_ov000_0215ffc4(obj->action,entry,0);
     ++*((unsigned char*)obj->context+0x8e02);
-    AddEntryAndIncrementCount0215a88c(obj->context,entry,0x152);
+    func_ov000_0215a88c(obj->context,entry,0x152);
     if(stage<count){
      message=0;
      while(stage<3){
@@ -63,36 +63,36 @@ extern "C" ARM void* func_ov024_021dc93c(Obj021dc93c* obj,short sourceID,int id,
       void* step=func_ov000_0215e958(obj->context);
       if(!step)return 0;
       func_ov000_0215cd44(obj->context,step,target,stage,effects,obj->action->flag!=0);
-      AppendToChainAndIncCount0215ffc4(obj->action,step,0);
+      func_ov000_0215ffc4(obj->action,step,0);
       ++*((unsigned char*)obj->context+0x8e02);
       obj->changed=1;
-      AddEntryAndIncrementCount0215a88c(obj->context,step,message);
+      func_ov000_0215a88c(obj->context,step,message);
      }
      if(count>=4){
       entry=func_ov000_0215e958(obj->context);
       if(!entry)return 0;
-      ResetAndSetFlag0x1000000_02088150(target->currentStats_);
-      AddEntryAndIncrementCount0215a88c(obj->context,entry,0x34);
+      func_02088150(target->currentStats_);
+      func_ov000_0215a88c(obj->context,entry,0x34);
       func_ov000_02159eac(obj->context,&effects,7);
       func_ov000_0215cd44(obj->context,entry,target,stage,effects,obj->action->flag!=0);
-      AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+      func_ov000_0215ffc4(obj->action,entry,0);
       ++*((unsigned char*)obj->context+0x8e02);
       obj->changed=1;
-      AddEntryAndIncrementCount0215a88c(obj->context,entry,message);
+      func_ov000_0215a88c(obj->context,entry,message);
       func_ov000_0215af54(obj->context,id,0);
      }else{
-      SetFlag0x800000AndByte0x24_02088220(target->currentStats_, count);
+      func_02088220(target->currentStats_, count);
      }
     }
    }
-  }else if(CheckField0x14FiveFlagsClear020881c4((unsigned char*)target->currentStats_)){
+  }else if(func_020881c4((unsigned char*)target->currentStats_)){
    int count=params->count;
    int total=((Stats021dc93c*)target->currentStats_)->stage+count;
    if(total>4)count-=total-4;
    for(;count>0;count--){
-    int result=SetFlag0x800000AndCall02088208(target->currentStats_, (int)GetCtx(obj));
+    int result=func_02088208(target->currentStats_, (int)GetCtx(obj));
     effects=0;
-    message=GetCodeForCategory_021e8c48(obj, result);
+    message=func_ov024_021e8c48(obj, result);
     void* entry=func_ov000_0215e958(obj->context);
     if(!entry)return 0;
     if(result>0){
@@ -100,29 +100,29 @@ extern "C" ARM void* func_ov024_021dc93c(Obj021dc93c* obj,short sourceID,int id,
      if(result==4){
       func_ov000_02159eac(obj->context,&effects,7);
       func_ov000_0215af54(obj->context,id,0);
-      void* list=GetPtrField0x2a04_02010828(GameState::GetInstance());
-      if(ArrayContainsByte_02086ef0((ArrayContainsByteStruct*)list, sourceID) && code==0xa8)
-       IncrementByteCounterCapped0x63_0215a8d4((unsigned char*)obj->context, 3);
+      void* list=func_02010828(GameState::GetInstance());
+      if(func_02086ef0((ArrayContainsByteStruct*)list, sourceID) && code==0xa8)
+       func_ov000_0215a8d4((unsigned char*)obj->context, 3);
      }
     }else{
      effects=0;
      result=0;
     }
     func_ov000_0215cd44(obj->context,entry,target,result,effects,obj->action->flag!=0);
-    AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+    func_ov000_0215ffc4(obj->action,entry,0);
     ++*((unsigned char*)obj->context+0x8e02);
     obj->changed=1;
-    AddEntryAndIncrementCount0215a88c(obj->context,entry,message);
+    func_ov000_0215a88c(obj->context,entry,message);
    }
    done=1;
   }else{
    void* entry=func_ov000_0215e958(obj->context);
    if(!entry)return 0;
    func_ov000_0215cd44(obj->context,entry,target,0,0,obj->action->flag!=0);
-   AppendToChainAndIncCount0215ffc4(obj->action,entry,0);
+   func_ov000_0215ffc4(obj->action,entry,0);
    ++*((unsigned char*)obj->context+0x8e02);
    obj->changed=1;
-   AddEntryAndIncrementCount0215a88c(obj->context,entry,SelectByIndexRange0to3_021da644(id,params->field24.b,params->field24.c));
+   func_ov000_0215a88c(obj->context,entry,func_ov024_021da644(id,params->field24.b,params->field24.c));
   }
  }
  if(IsPartyIndex(id) && done)obj->done=1;

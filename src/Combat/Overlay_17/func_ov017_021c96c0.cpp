@@ -52,10 +52,10 @@ extern "C" Player021c96c0* func_02012fe4(void);
 extern "C" int func_ov017_021d446c(void* key, Lookup021c96c0* out, int kind);
 extern "C" int func_0202c540(void* search);
 extern "C" int func_02018fbc(Player021c96c0* player, Vector3i* v);
-int* GetField0xe4IfFlag0x40(BitFlag02033f44* obj);
+extern "C" int* func_02033f44(BitFlag02033f44* obj);
 struct Obj02033834;
-void SetVecYByMode02033834(Obj02033834* obj, int arg);
-void TrySetMode02076ccc(void*, int);
+extern "C" void func_02033834(Obj02033834* obj, int arg);
+extern "C" void func_02076ccc(void*, int);
 
 // USA: func_ov017_021c96c0
 extern "C" ARM void func_ov017_021c96c0(int unused0, Evt021c96c0* evt, int unused2, int unused3, void* search) {
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021c96c0(int unused0, Evt021c96c0* evt, int unuse
 
         if (!(evt->id == player->id && found.actor->state == 1) && !(v.x == 0 && v.y == 0 && v.z == 0)) {
             if (func_0202c540(search)) {
-                if (GetField0xe4IfFlag0x40((BitFlag02033f44*)found.actor) == 0) {
+                if (func_02033f44((BitFlag02033f44*)found.actor) == 0) {
                     found.actor->pos = v;
                 } else {
                     const Vector3i& src = v;
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_021c96c0(int unused0, Evt021c96c0* evt, int unuse
 
         if (evt->id == player->id && player->field_424 == 0 && found.actor->state != 1 &&
             !(v.x == 0 && v.y == 0 && v.z == 0)) {
-            if (GetField0xe4IfFlag0x40((BitFlag02033f44*)found.actor)) {
+            if (func_02033f44((BitFlag02033f44*)found.actor)) {
                 v = found.actor->pos;
             }
             v.y = func_02018fbc(player, &v);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021c96c0(int unused0, Evt021c96c0* evt, int unuse
         }
 
         if (angle != 0) {
-            SetVecYByMode02033834((Obj02033834*)found.actor, angle);
+            func_02033834((Obj02033834*)found.actor, angle);
         }
         if (f6) {
             found.actor->field_17b = 1;
@@ -112,5 +112,5 @@ extern "C" ARM void func_ov017_021c96c0(int unused0, Evt021c96c0* evt, int unuse
         }
     }
 
-    TrySetMode02076ccc(found.actor, evt->kind);
+    func_02076ccc(found.actor, evt->kind);
 }

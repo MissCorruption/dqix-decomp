@@ -9,9 +9,9 @@ extern "C" void func_ov031_0220da1c(int);
 extern "C" void func_ov031_0220defc(void);
 
 struct BattleCtx020d5340;
-int SubmitBattleContextEntry020d5340(int a0, struct BattleCtx020d5340* ctx);
+extern "C" int func_020d5340(int a0, struct BattleCtx020d5340* ctx);
 
-// USA: func_ov031_0220cdf4  (semantic: AdvanceBattleModeAndSubmitContext_0220cdf4)
+// USA: func_ov031_0220cdf4
 extern "C" ARM int func_ov031_0220cdf4(int a, int b, int c) {
 	int state = DisableIRQInterrupts();
 	if (data_ov031_0224e53c == 0) {
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov031_0220cdf4(int a, int b, int c) {
 		func_ov031_0220d73c(a, b, c);
 		InvalidateDataCacheRange(*(void**)((char*)data_ov031_0224e53c + 0x2288), *(unsigned short*)((char*)data_ov031_0224e53c + 0x228c));
 		*(int*)((char*)data_ov031_0224e53c + 0x2284) += 1;
-		int r = SubmitBattleContextEntry020d5340((int)func_ov031_0220defc, (struct BattleCtx020d5340*)((char*)data_ov031_0224e53c + 0x2288));
+		int r = func_020d5340((int)func_ov031_0220defc, (struct BattleCtx020d5340*)((char*)data_ov031_0224e53c + 0x2288));
 		switch (r) {
 		case 2:
 			func_ov031_0220da1c(5);

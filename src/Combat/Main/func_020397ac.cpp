@@ -1,0 +1,10 @@
+#include <globaldefs.h>
+
+// USA: func_020397ac
+extern "C" ARM void func_020397ac(unsigned char* obj, unsigned int mask) {
+#if defined(jpn)
+    obj[0x1c2] &= ~mask;
+#else
+    obj[0x1ce] &= ~mask;
+#endif
+}

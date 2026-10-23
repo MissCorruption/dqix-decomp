@@ -12,24 +12,24 @@ struct Obj020e25e8;
 struct FlagWord02046708;
 struct FlagWord020466f4;
 
-int GetWord0x0_0200fb8c(int *);
-char *GetGlobalField0x1c020421a0();
-void ReinitController02043204(char *);
-int GetInnerFlagBit0020e28dc(struct Outer020e28dc *);
-void ResetSelectionState020e25e8(struct Obj020e25e8 *);
+extern "C" int func_0200fb8c(int *);
+extern "C" char *func_020421a0();
+extern "C" void func_02043204(char *);
+extern "C" int func_020e28dc(struct Outer020e28dc *);
+extern "C" void func_020e25e8(struct Obj020e25e8 *);
 void SetSubBrightness(GameResources *, int, int);
 int IsSubBrightnessTransitionActive(GameResources *);
 extern "C" void func_ov023_021dca88(char *);
-void SetCombatModeFromCase020dc2d0(int);
+extern "C" void func_020dc2d0(int);
 extern "C" void func_ov023_021e7340(char *);
-void InitFlags_021eb414(char *);
+extern "C" void func_ov023_021eb414(char *);
 extern "C" void func_ov023_021eb26c(char *);
 extern "C" void func_ov013_02186fa0(char *);
 extern "C" void func_ov013_021846a0(char *);
-void *GetDataPtr02114e04_020d6c00();
-int TestFlags02046708(struct FlagWord02046708 *, unsigned int);
-void ClearFlags020466f4(struct FlagWord020466f4 *, unsigned int);
-void PopStack1AndTrigger_020a1f4c(int);
+extern "C" void *func_020d6c00();
+extern "C" int func_02046708(struct FlagWord02046708 *, unsigned int);
+extern "C" void func_020466f4(struct FlagWord020466f4 *, unsigned int);
+extern "C" void func_020a1f4c(int);
 
 #define S32(o) (*(int *) (self + (o)))
 
@@ -43,12 +43,12 @@ enum { regionalState = 0, regionalMode = 0, regionalFlags = 0, regionalFlag2456 
 
 // USA: func_ov002_0216c654
 extern "C" ARM void func_ov002_0216c654(char *self) {
-    GameResources *res = (GameResources *) GetWord0x0_0200fb8c((int *) GameState::GetInstance());
+    GameResources *res = (GameResources *) func_0200fb8c((int *) GameState::GetInstance());
     int state          = S32(0x1bc0 + regionalState);
     if (state == 0) {
-        ReinitController02043204(GetGlobalField0x1c020421a0());
-        if (S32(4) != 0 && GetInnerFlagBit0020e28dc((struct Outer020e28dc *) S32(4))) {
-            ResetSelectionState020e25e8((struct Obj020e25e8 *) S32(4));
+        func_02043204(func_020421a0());
+        if (S32(4) != 0 && func_020e28dc((struct Outer020e28dc *) S32(4))) {
+            func_020e25e8((struct Obj020e25e8 *) S32(4));
         }
         *(short *) (self + 0x1c14 + regionalState) = 0;
         if ((S32(0x247c + regionalFlags) & 1) || *(unsigned char *) (self + 0x1cc3 + regionalMode) != 0 || *(unsigned char *) (self + 0x2472 + regionalFlags) != 0) {
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov002_0216c654(char *self) {
         }
     } else if (state == 2) {
         if (IsSubBrightnessTransitionActive(res)) return;
-        SetCombatModeFromCase020dc2d0(0);
+        func_020dc2d0(0);
         func_ov023_021e7340(self + 0xb4 + 0x800 + regionalHeap);
         *(unsigned char *) (self + 0x1cc3 + regionalMode) = 0;
         S32(0x1bc0 + regionalState)                        = 7;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov002_0216c654(char *self) {
         if (IsSubBrightnessTransitionActive(res)) return;
         S32(0x1bc0 + regionalState) = 5;
         if (S32(0x2468 + regionalFlags) == 0) return;
-        InitFlags_021eb414((char *) S32(0x2468 + regionalFlags));
+        func_ov023_021eb414((char *) S32(0x2468 + regionalFlags));
         S32(0x1bc0 + regionalState) = 4;
     } else if (state == 4) {
         if (*(unsigned short *) (S32(0x2468 + regionalFlags) + 0x400 + 0x38) & 4) {
@@ -103,15 +103,15 @@ extern "C" ARM void func_ov002_0216c654(char *self) {
         func_ov013_021846a0(self + 0xd70 + 0x1000 + regionalCombat);
         S32(0x1bc0 + regionalState) = 7;
     } else if (state == 7) {
-        void *flags = GetDataPtr02114e04_020d6c00();
-        if (TestFlags02046708((struct FlagWord02046708 *) flags, 1) ||
+        void *flags = func_020d6c00();
+        if (func_02046708((struct FlagWord02046708 *) flags, 1) ||
             !IsSubBrightnessTransitionActive(res))
         {
-            ClearFlags020466f4((struct FlagWord020466f4 *) flags, 1);
-            SetCombatModeFromCase020dc2d0(0);
+            func_020466f4((struct FlagWord020466f4 *) flags, 1);
+            func_020dc2d0(0);
         }
         if (*(unsigned char *) (self + 0x1c33 + regionalState) != 0) {
-            PopStack1AndTrigger_020a1f4c(1);
+            func_020a1f4c(1);
             *(unsigned char *) (self + 0x1c33 + regionalState) = 0;
         }
         S32(0x1bb8 + regionalState) = regionalNextScene;

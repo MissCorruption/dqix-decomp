@@ -42,9 +42,9 @@ struct AlchemyMenu {
 
 extern "C" short func_ov023_021e29d0(void* layout);
 extern "C" void func_ov006_0215f4dc(AlchemyMenu* self);
-void SetElementFlag0x40_02081ea4(Obj2081* menu, int group, int flag);
+extern "C" void func_02081ea4(Obj2081* menu, int group, int flag);
 extern "C" void func_ov006_021570fc(AlchemyPot* pot, int show);
-unsigned char DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
+extern "C" unsigned char func_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
 
 extern "C" char data_02108760[];
 
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov006_021595b4(AlchemyMenu* self) {
             self->state_ = 7;
             self->step_ = 6;
             func_ov006_0215f4dc(self);
-            SetElementFlag0x40_02081ea4(self->menu_, 0x10, 1);
+            func_02081ea4(self->menu_, 0x10, 1);
             self->flags_ &= ~0x10;
             self->flags_ |= 0x20;
             self->message_ = 0xa;
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov006_021595b4(AlchemyMenu* self) {
         if (g_keyManager.TestKeysPressed(0x300) || window) {
             AlchemyPot* pot = self->pot_;
             func_ov006_021570fc(pot, (pot->windowFlags_ & 0x800) ? 0 : 1);
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             return 1;
         }
     }

@@ -11,7 +11,7 @@ struct Elem02079bac {
     unsigned char pad[8];
 };
 
-int GetLow12BitsTimes8(struct S02079ce8* p);
+extern "C" int func_02079ce8(struct S02079ce8* p);
 
 // USA: func_02079bac
 extern "C" ARM int func_02079bac(struct Header02079bac* obj, SafeAllocator* alloc, void* src, ElemFn02079bac cb, ObjFn02079bac cb2
@@ -37,7 +37,7 @@ extern "C" ARM int func_02079bac(struct Header02079bac* obj, SafeAllocator* allo
     }
 #endif
     memcpy(obj, src, 4);
-    size1 = GetLow12BitsTimes8((struct S02079ce8*)obj);
+    size1 = func_02079ce8((struct S02079ce8*)obj);
     size2 = obj->hi;
     obj->arr = size1 ? (struct Elem02079bac*)alloc->Allocate(size1) : 0;
     obj->extra = size2 ? (unsigned char*)alloc2->Allocate(size2) : 0;
@@ -45,7 +45,7 @@ extern "C" ARM int func_02079bac(struct Header02079bac* obj, SafeAllocator* allo
         memcpy(obj->arr, (char*)src + 4, size1);
     }
     if (obj->extra != 0) {
-        memcpy(obj->extra, (char*)src + (GetLow12BitsTimes8((struct S02079ce8*)obj) + 4), size2);
+        memcpy(obj->extra, (char*)src + (func_02079ce8((struct S02079ce8*)obj) + 4), size2);
     }
     if (cb != 0) {
         if (obj->arr != 0) {

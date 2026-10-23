@@ -107,11 +107,11 @@ struct Entry_0205d6a0;
 struct Manager02187664;
 struct Struct_0205d81c;
 
-MessageSystem* GetGlobalField0x1c020421a0();
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int value);
+extern "C" MessageSystem* func_020421a0();
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int value);
 void SetMainBrightness(GameResources* resources, int screen, int brightness);
-void InitConfig02187664(Manager02187664* self, int records);
-Canvas* FindElementByC40205d81c(Struct_0205d81c* window, int canvas);
+extern "C" void func_ov008_02187664(Manager02187664* self, int records);
+extern "C" Canvas* func_0205d81c(Struct_0205d81c* window, int canvas);
 int IsBrightnessTransitionActive(GameResources* resources);
 
 extern "C" {
@@ -131,10 +131,10 @@ void func_ov008_02186cec(BattleRecords* self);
 // USA: func_ov008_02185a70
 extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
 {
-    MessageSystem* messages = GetGlobalField0x1c020421a0();
+    MessageSystem* messages = func_020421a0();
     GameResources* resources = GetGameResources();
     BackgroundLoader::GetInstance();
-    FontBankLoader* music = GetGlobal02109400_02094a00();
+    FontBankLoader* music = func_02094a00();
     unsigned char step = self->step_;
     if (step >= 2)
         messages->b19ae = 0;
@@ -188,14 +188,14 @@ extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
     }
     if (step == 5)
     {
-        ResetEntryList0205d6a0((Entry_0205d6a0*)&self->window_, 1);
-        BlankFunction02094b40(music);
-        BlankFunction02094b34(music, 0x6b, 0x1fc, 0, 0);
+        func_0205d6a0((Entry_0205d6a0*)&self->window_, 1);
+        func_02094b40(music);
+        func_02094b34(music, 0x6b, 0x1fc, 0, 0);
         self->step_++;
     }
     if (step == 6)
     {
-        if (!AlwaysTrue02094b4c(music))
+        if (!func_02094b4c(music))
             return;
         if (func_ov008_02188d74(self))
         {
@@ -207,12 +207,12 @@ extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
     {
         SetMainBrightness(resources, 0, 0xf);
         func_ov008_0218712c(self, NULL);
-        InitConfig02187664((Manager02187664*)self, 0);
+        func_ov008_02187664((Manager02187664*)self, 0);
         func_ov008_02187a70(self, NULL);
         func_ov008_02187f6c(self, NULL);
         for (int i = 0; i < 6; i++)
         {
-            Canvas* canvas = FindElementByC40205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
+            Canvas* canvas = func_0205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
             if (canvas != NULL)
                 canvas->unk_c2 = 0;
         }

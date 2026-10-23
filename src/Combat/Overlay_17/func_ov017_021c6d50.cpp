@@ -3,8 +3,8 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-void* GetData02100044_0202ae24(void);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct StatusBits {
@@ -50,14 +50,14 @@ extern "C" ARM void func_ov017_021c6d50() {
     GameState* bs = GameState::GetInstance();
     unsigned char* table = *(unsigned char**)((char*)GetGameResources() + 0x3000 + regionalOffset);
     unsigned char* search = (unsigned char*)func_ov017_021b8478(table);
-    void* data = GetData02100044_0202ae24();
+    void* data = func_0202ae24();
 
     struct StatusMsg msg;
     msg.tag = 0x6f;
     struct StatusMsgFields* fp = &msg.fields;
 
     for (int i = 0; i < 4; i++) {
-        if (!TestBitAt0x34_020a35e0(search, i)) {
+        if (!func_020a35e0(search, i)) {
             continue;
         }
         GameObject* c = bs->GetCombatantByIndex(i);

@@ -1,0 +1,26 @@
+#if defined(jpn)
+#define R(j,u) (j)
+#define func_ov024_021f6f10 func_ov023_021f6f10
+#else
+#define R(j,u) (u)
+#endif
+#include <globaldefs.h>
+
+extern "C" void* func_ov011_021849c8(void*);
+extern "C" void* func_ov023_021f6880(void*, int);
+#if defined(jpn)
+#define func_ov024_021f6f10 func_ov023_021f6f10
+extern "C" int func_ov024_021f6f10(void* self);
+#else
+extern "C" int func_ov024_021f6f10(void* self);
+#endif
+extern "C" void* func_ov023_021f9bc8(void*);
+
+// USA: func_ov004_02156e2c
+extern "C" ARM int func_ov004_02156e2c(void* a, int key) {
+    void* base = func_ov011_021849c8(a);
+    void* node = func_ov023_021f6880(base, key);
+    if (!node) return -1;
+    if (func_ov024_021f6f10(node) != 7) return -1;
+    return (int)func_ov023_021f9bc8(node);
+}

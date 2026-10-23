@@ -12,12 +12,12 @@ enum { RegionOffset4448 = 0x4448, RegionOffset4444 = 0x4444, RegionOffset4449 = 
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 extern "C" void func_0202c288(void* obj);
 extern "C" void* func_0205ec34(void);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
-void ResetFieldGroup4444_0218b664(char* base);
+extern "C" void func_ov017_0218b664(char* base);
 
 struct SearchStruct0202c1a4 {
     char pad[0x100d];
@@ -26,11 +26,11 @@ struct SearchStruct0202c1a4 {
 
 struct LocalBuf02199578 { char pad[0x34]; };
 
-// USA: func_ov017_02199578  (semantic: TrackSearchLimitAndDispatch_02199578)
+// USA: func_ov017_02199578
 #pragma opt_common_subs off
 extern "C" ARM void func_ov017_02199578(void* obj, int unused1, int matchType, int unused2, signed char flag) {
     struct SearchStruct0202c1a4* search = (struct SearchStruct0202c1a4*)func_0202ae18();
-    signed char arrEntry = GetSearchStructCurrentArrEntry(search);
+    signed char arrEntry = func_0202c1a4(search);
     if (matchType != arrEntry && matchType != 4) return;
 
     if (!*((unsigned char*)obj + RegionOffset4448)) return;
@@ -45,10 +45,10 @@ extern "C" ARM void func_ov017_02199578(void* obj, int unused1, int matchType, i
         *((unsigned char*)obj + RegionOffset4449) = 0;
         void* list = func_0205ec34();
         LocalBuf02199578 c;
-        if (LookupAndForEachNode020649b0(list, 0x1d, &c)) {
+        if (func_020649b0(list, 0x1d, &c)) {
             func_0206f81c(&c);
         }
-        ResetFieldGroup4444_0218b664((char*)obj);
+        func_ov017_0218b664((char*)obj);
         return;
     }
 
@@ -59,8 +59,8 @@ extern "C" ARM void func_ov017_02199578(void* obj, int unused1, int matchType, i
     *((unsigned char*)obj + RegionOffset4449) = 1;
     void* list2 = func_0205ec34();
     LocalBuf02199578 c2;
-    if (LookupAndForEachNode020649b0(list2, 0x1d, &c2)) {
+    if (func_020649b0(list2, 0x1d, &c2)) {
         func_0206f81c(&c2);
     }
-    ResetFieldGroup4444_0218b664((char*)obj);
+    func_ov017_0218b664((char*)obj);
 }

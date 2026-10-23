@@ -2,12 +2,12 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-int GetData0224e53c_0220d60c(void);
+extern "C" int func_ov031_0220d60c(void);
 
 // USA: func_ov031_0220eadc
 extern "C" ARM void func_ov031_0220eadc(void) {
     int state = DisableIRQInterrupts();
-    int base = GetData0224e53c_0220d60c();
+    int base = func_ov031_0220d60c();
     if (base == 0) {
         SetIRQInterruptState(state);
         return;

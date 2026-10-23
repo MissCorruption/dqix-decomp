@@ -75,7 +75,7 @@ struct Entry0203c05c {
     unsigned short pad;
 };
 
-void BuildPackedEntries0203c05c(struct Source0203c05c* p, struct Entry0203c05c* out,
+extern "C" void func_0203c05c(struct Source0203c05c* p, struct Entry0203c05c* out,
                                 int a3, int a4, int a5, int a6);
 
 struct Sub0203c4d0 {
@@ -107,7 +107,7 @@ extern "C" ARM void func_0203c4d0(void* arg0, short arg1, int arg2, int arg3, in
     t = (p->sub.f0c >> 5) + arg5;
     t = t & 0xf;
 
-    BuildPackedEntries0203c05c(
+    func_0203c05c(
         (struct Source0203c05c*)((char*)p + 4 + arg1 * 0x28),
         p->f0 + p->sub.f10,
         arg2, arg3, arg4,

@@ -8,8 +8,8 @@ struct DirectionObject {
     unsigned char field94_, fourDirections_;
 };
 struct Obj0203f1e4;
-int GetField0x70_0202e7f0(void*);
-void SelectNamedEntry0203f1e4(Obj0203f1e4*, const char*);
+extern "C" int func_0202e7f0(void*);
+extern "C" void func_0203f1e4(Obj0203f1e4*, const char*);
 extern DirectionEntry data_020e7920[4], data_020e7918[4], data_020e7938[8], data_020e7928[8];
 extern const char* data_020efd00[];
 static inline DirectionEntry* DirectionAt(DirectionEntry* table, int index) { return &table[index]; }
@@ -20,7 +20,7 @@ static inline DirectionEntry* RotatedDirection(DirectionEntry* table, int index,
 
 // USA: func_0203cbd8
 extern "C" ARM void func_0203cbd8(DirectionObject* self, void* other) {
-    int angle = self->angle_ - GetField0x70_0202e7f0(other);
+    int angle = self->angle_ - func_0202e7f0(other);
     int offset = self->flags_ & 8;
     if (offset) angle += self->angleOffset_;
     while (angle < 0) angle += 0x6488;
@@ -40,5 +40,5 @@ extern "C" ARM void func_0203cbd8(DirectionObject* self, void* other) {
     if (!entry) return;
     if (entry->mirrored_) self->flags_ |= 2;
     else self->flags_ &= ~2;
-    SelectNamedEntry0203f1e4((Obj0203f1e4*)self, data_020efd00[entry->animation_]);
+    func_0203f1e4((Obj0203f1e4*)self, data_020efd00[entry->animation_]);
 }

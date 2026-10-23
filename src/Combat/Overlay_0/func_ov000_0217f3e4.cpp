@@ -13,11 +13,11 @@
 struct Obj_0205dd08;
 extern "C" int func_0205dd08(struct Obj_0205dd08* obj);
 struct Struct_0205c4a8;
-void AdvanceWrappedAccumulator0205c4a8(struct Struct_0205c4a8* s, int delta);
+extern "C" void func_0205c4a8(struct Struct_0205c4a8* s, int delta);
 struct Struct_0205bb84;
-int ComputeScaledSum0205bb84(struct Struct_0205bb84* s);
+extern "C" int func_0205bb84(struct Struct_0205bb84* s);
 struct Struct_0205bcdc;
-void SetIndexIfValid0205bcdc(struct Struct_0205bcdc* s, int index);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
 
 struct Channel0217f3e4 {
     char data[0x50];
@@ -54,9 +54,9 @@ extern "C" ARM int func_ov000_0217f3e4(struct Menu0217f3e4* menu) {
     }
     Channel0217f3e4* accumulator = ((MenuChannels0217f3e4*)menu)->GetChannel(2);
     Channel0217f3e4* cursor = ((MenuChannels0217f3e4*)menu)->GetChannel(1);
-    AdvanceWrappedAccumulator0205c4a8((struct Struct_0205c4a8*)accumulator, delta);
-    int value = ComputeScaledSum0205bb84((struct Struct_0205bb84*)accumulator);
-    SetIndexIfValid0205bcdc((struct Struct_0205bcdc*)cursor, value);
+    func_0205c4a8((struct Struct_0205c4a8*)accumulator, delta);
+    int value = func_0205bb84((struct Struct_0205bb84*)accumulator);
+    func_0205bcdc((struct Struct_0205bcdc*)cursor, value);
     switch (menu->kinds[menu->kindIndex]) {
     case 6:
         menu->valueKind6 = value;

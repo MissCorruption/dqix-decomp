@@ -15,17 +15,17 @@ enum { kRegionValueFA_108 = 0xfa };
 enum { kRegionValue3C9_139 = 0x3c9 };
 #endif
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 
-int UpdatePlayClocks020ac4f8(int commit);
+extern "C" int func_020ac4f8(int commit);
 struct MainBgControlBackup02074af4;
 extern "C" ARM void func_02074af4(struct MainBgControlBackup02074af4* obj);
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
-int* GetGlobal02109030_020936f8(void);
-void ReleaseHandleAndClearFlags(struct Obj020941b0* p);
-void ResetAndSetFlag0x3c9Bit0_020939dc(void* obj);
-void* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+extern "C" int* func_020936f8(void);
+extern "C" void func_020941b0(struct Obj020941b0* p);
+extern "C" void func_020939dc(void* obj);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
 
 struct S021728fc {
     char pad_0[kRegionValueEC_E8];
@@ -36,14 +36,14 @@ struct S021728fc {
     int field_120;
 };
 
-// USA: func_ov003_021728fc  (semantic: SetupMainBgAndReleaseHandle_021728fc)
+// USA: func_ov003_021728fc
 extern "C" ARM void func_ov003_021728fc(S021728fc* obj) {
     GameResources* field4 = GetGameResources();
     if (obj->field_ee != 0) return;
 
-    UpdatePlayClocks020ac4f8(0);
+    func_020ac4f8(0);
 #if defined(jpn)
-    *(int*)((char*)obj + 0xf0) = *(int*)(GetGlobalField0x1c020421a0() + 0x28);
+    *(int*)((char*)obj + 0xf0) = *(int*)(func_020421a0() + 0x28);
 #endif
     func_02074af4((struct MainBgControlBackup02074af4*)((char*)obj + kRegionValueFA_108));
 
@@ -63,14 +63,14 @@ extern "C" ARM void func_ov003_021728fc(S021728fc* obj) {
     SetFlags00(field4, mask);
     SetFlags04(field4, 0x8de);
 
-    Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
+    func_020c5588(0, 0, 0x7fff, 0, 0);
 
-    int* g = GetGlobal02109030_020936f8();
-    ReleaseHandleAndClearFlags((struct Obj020941b0*)g);
+    int* g = func_020936f8();
+    func_020941b0((struct Obj020941b0*)g);
     ((unsigned char*)g)[kRegionValue3C9_139] = (((unsigned char*)g)[kRegionValue3C9_139] & ~1) | 1;
-    ResetAndSetFlag0x3c9Bit0_020939dc(g);
+    func_020939dc(g);
 
-    OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x1000);
+    func_020466e4((unsigned int*)func_020d6c00(), 0x1000);
 
     obj->field_ec = 1;
     obj->field_ee = 0;

@@ -1,0 +1,14 @@
+#include <globaldefs.h>
+#include "Resource/Script.h"
+#include "Combat/CombatScriptContext.h"
+
+#include "std_library_functions.h"
+
+struct Struct02030b7c;
+
+// USA: func_0201f634
+extern "C" ARM int func_0201f634(const Script::Parameter* s) {
+    const Script::Parameter* parameters = s;
+    strcpy(data_020fdc4c.currentObject + 0x548, parameters[0].ToString());
+    return 1;
+}

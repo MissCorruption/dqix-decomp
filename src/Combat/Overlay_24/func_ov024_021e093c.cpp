@@ -2,12 +2,12 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-int CheckField0x14Bit0Clear02088980(unsigned char* obj);
-void SetByte0x62AndFlag0x8000000_02088994(unsigned char* obj);
+extern "C" int func_02088980(unsigned char* obj);
+extern "C" void func_02088994(unsigned char* obj);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 struct Pair_021e093c { int lo; int hi; };
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, struct Pair_021e093c p, int g);
 
@@ -29,18 +29,18 @@ extern "C" ARM void* func_ov024_021e093c(struct Obj_021e093c* obj, int unused, i
 	struct Pair_021e093c result;
 	result.lo = 0;
 	result.hi = 0;
-	int active = CheckField0x14Bit0Clear02088980((unsigned char*)c->currentStats_);
+	int active = func_02088980((unsigned char*)c->currentStats_);
 	unsigned short sel;
 	if (active != 0 && flagArg != 0) {
-		SetByte0x62AndFlag0x8000000_02088994((unsigned char*)c->currentStats_);
+		func_02088994((unsigned char*)c->currentStats_);
 		func_ov000_02159eac(obj->field0x10, &result, 0x2c);
-		sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+		sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	struct Flag_021e093c* fl = (struct Flag_021e093c*)((char*)obj->field0xc + 0x1c);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, result, fl->flag != 0);
 	return entry;

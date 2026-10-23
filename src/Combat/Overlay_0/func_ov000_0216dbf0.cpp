@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_ov000_0216d370(char* obj, int flagA, int flagB, int flagC);
-void SetFlagOrState0216d530(void*, int);
-void ApplyVec3Tail_0202e694(void* obj, int* vec);
+extern "C" void func_ov000_0216d530(void*, int);
+extern "C" void func_0202e694(void* obj, int* vec);
 
 extern Vector3i data_ov000_02183280;
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0216dbf0(char* self, int* ids, int count, short f
     if (count == 1) {
         GameObject* o = gs->GetGameObjectByIndex(*ids);
         if (o != 0) {
-            SetFlagOrState0216d530(self, *ids);
+            func_ov000_0216d530(self, *ids);
             rad = o->obj3D_.GetRadius() >> 1;
             hgt = o->obj3D_.GetHeight();
         }
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov000_0216dbf0(char* self, int* ids, int count, short f
     }
 
     *(Vector3i*)(self + 0x10) = c;
-    ApplyVec3Tail_0202e694(self, (int*)&v);
+    func_0202e694(self, (int*)&v);
     *(int*)(self + 0x238) = 0x1c;
     *(int*)(self + 0x23c) = 0x14;
 }

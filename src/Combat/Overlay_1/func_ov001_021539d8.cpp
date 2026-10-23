@@ -137,20 +137,20 @@ extern char data_ov001_02164bc8[];
 extern char data_ov001_02164bcb[];
 
 extern "C" {
-struct Global021539d8* _Z29GetGlobalPtr021075f4_0203cf4cv(void);
+struct Global021539d8* func_0203cf4c(void);
 
 void* func_0202ae18(void);
 int func_0202c508(void* obj);
-unsigned char _Z28GetField0x397cValue_020100b0P9GameState(GameState* gs);
-int _Z27GetField0x3acValue_020100a8P9GameState(GameState* gs);
-void _Z26CopyInternalFields0207df50P11Foo0207df50(struct PairTables021539d8* p);
-void _Z25RestorePairTables0207df90Pc(struct PairTables021539d8* p);
-void _Z24BackupPairTables0207dfacPc(struct PairTables021539d8* p);
+unsigned char func_020100b0(GameState* gs);
+int func_020100a8(GameState* gs);
+void func_0207df50(struct PairTables021539d8* p);
+void func_0207df90(struct PairTables021539d8* p);
+void func_0207dfac(struct PairTables021539d8* p);
 void func_ov001_0215ab54(int kind, int id, int index);
-struct Emitter021539d8* _Z29FindEntryPointerByKey0203df78Pvi(void* list, int key);
-int _Z22FindEntryByKey0203dfdcPvi(void* list, int key);
-void _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(GameState* gs, int id, struct Obj021539d8* obj);
-SafeAllocator* _Z22GetGlobalValue0215aab8v(void);
+struct Emitter021539d8* func_0203df78(void* list, int key);
+int func_0203dfdc(void* list, int key);
+void func_0200fd38(GameState* gs, int id, struct Obj021539d8* obj);
+SafeAllocator* func_ov001_0215aab8(void);
 void _ZN8Object3D10InitializeEv(struct Obj021539d8* obj);
 void _ZN8Object3D11MakeVisibleEv(struct Obj021539d8* obj);
 void _ZN8Object3D10MakeHiddenEv(struct Obj021539d8* obj);
@@ -161,31 +161,31 @@ void _ZN8Object3D8SetScaleEiii(struct Obj021539d8* obj, int x, int y, int z);
 void _ZN8Object3D21MaybeSetBCFGAnimationEii(struct Obj021539d8* obj, int a, int b);
 void _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(struct Obj021539d8* obj, SafeAllocator* allocator, void* data, unsigned int size, int mode);
 void func_02012fe4(void);
-void _Z12Init020404c0Pi(struct Emitter021539d8* emitter);
-void _Z23ClearWorkRecord0206bf2cP11Rec0206bf2c(void* record);
-void _Z30InitializeRandomMotion0203c794Pv(struct Stream021539d8* stream);
+void func_020404c0(struct Emitter021539d8* emitter);
+void func_0206bf2c(void* record);
+void func_0203c794(struct Stream021539d8* stream);
 char* strstr(const char* text, const char* needle);
 void* memcpy(void* dst, const void* src, unsigned int size);
 int sprintf(char* dst, const char* format, ...);
-void _Z20SetField0xc_02040530Pii(struct Emitter021539d8* emitter, void* record);
-void _Z20SetField0x8_02040520Pii(struct Emitter021539d8* emitter, struct Label021539d8* label);
-void _Z27UpdateElementStream0203f02cP11Obj0203f02ciiPcii(struct Stream021539d8* stream, char* name, SafeAllocator* allocator, struct PairTables021539d8* pair, void* data, unsigned int size);
+void func_02040530(struct Emitter021539d8* emitter, void* record);
+void func_02040520(struct Emitter021539d8* emitter, struct Label021539d8* label);
+void func_0203f02c(struct Stream021539d8* stream, char* name, SafeAllocator* allocator, struct PairTables021539d8* pair, void* data, unsigned int size);
 void func_0203f138(struct Stream021539d8* stream, int enabled);
-void _Z28SetActiveChildShorts020408c8P12Node020408c8sss(struct Emitter021539d8* emitter, int a, int b, int c);
-int _Z18FindEmptySlotIndexP18SlotArray_0203e03c(void* list);
-void _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(void* list, int index, struct Emitter021539d8* emitter);
+void func_020408c8(struct Emitter021539d8* emitter, int a, int b, int c);
+int func_0203e03c(void* list);
+void func_0203dd10(void* list, int index, struct Emitter021539d8* emitter);
 int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* narc, const char* text, void** outFile, unsigned int* outSize, unsigned int count);
 void* _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(SafeAllocator* allocator, void* file, unsigned int* outSize);
 void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
 void __clear(unsigned char* flags, int count);
 }
 
-int EmptyStub0203d004(void* list);
+extern "C" int func_0203d004(void* list);
 
 static inline void UpdateStream021539d8(struct Emitter021539d8* emitter, char* name, SafeAllocator* allocator,
                                         struct PairTables021539d8* pair, void* data, unsigned int size) {
     if (emitter->stream != 0) {
-        _Z27UpdateElementStream0203f02cP11Obj0203f02ciiPcii(emitter->stream, name, allocator, pair, data, size);
+        func_0203f02c(emitter->stream, name, allocator, pair, data, size);
     }
 }
 
@@ -199,7 +199,7 @@ static inline void EnableStream021539d8(struct Emitter021539d8* emitter, int ena
 extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
     GameState* gs = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    struct Global021539d8* global = _Z29GetGlobalPtr021075f4_0203cf4cv();
+    struct Global021539d8* global = func_0203cf4c();
     char* base = (char*)GetGameResources();
     void* search = func_0202ae18();
     struct LoadNode021539d8* node;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
     for (node = self->loads; node != 0; node = node->next) {
         if (node->type == 1) {
             if (func_0202c508(search) == 0 || !(self->mode & 0x10)) {
-                int current = _Z28GetField0x397cValue_020100b0P9GameState(gs);
+                int current = func_020100b0(gs);
                 if (current != 0) {
                     struct LoadNode021539d8* other;
                     for (other = self->loads; other != 0; other = other->next) {
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             pair = &((struct PairTables021539d8*)(base + PAIR_TABLES_021539d8))[7];
             if (!copied) {
                 if ((self->flags & 4) || (self->flags & 1)) {
-                    _Z26CopyInternalFields0207df50P11Foo0207df50(pair);
+                    func_0207df50(pair);
                     copied = true;
                 }
             }
@@ -268,9 +268,9 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             if ((self->mode & 0x10) || !(*obj->status & 1)) {
                 func_ov001_0215ab54(4, 0, node->index);
             } else if (func_0202c508(search) != 0) {
-                func_ov001_0215ab54(5, _Z28GetField0x397cValue_020100b0P9GameState(gs), node->index);
+                func_ov001_0215ab54(5, func_020100b0(gs), node->index);
             } else {
-                int current = _Z27GetField0x3acValue_020100a8P9GameState(gs);
+                int current = func_020100a8(gs);
                 int i;
                 for (i = 3; i > 0; i--) {
                     if (current != i) {
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             break;
         }
         case 1:
-            func_ov001_0215ab54(5, _Z28GetField0x397cValue_020100b0P9GameState(gs), node->index);
+            func_ov001_0215ab54(5, func_020100b0(gs), node->index);
             break;
         case 9:
         case 11:
@@ -301,12 +301,12 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             func_ov001_0215ab54(1, node->slot, node->index);
             break;
         case 4: {
-            struct Emitter021539d8* emitter = _Z29FindEntryPointerByKey0203df78Pvi(global, node->key);
+            struct Emitter021539d8* emitter = func_0203df78(global, node->key);
             if (emitter != 0 && emitter->object != 0) {
                 emitter->object->active = 1;
-                _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(gs, node->slot, emitter->object);
+                func_0200fd38(gs, node->slot, emitter->object);
                 emitter->flags |= 0x10000;
-                func_ov001_0215ab54(6, _Z22FindEntryByKey0203dfdcPvi(global, node->key), node->index);
+                func_ov001_0215ab54(6, func_0203dfdc(global, node->key), node->index);
             }
             break;
         }
@@ -328,14 +328,14 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                     format = 1;
                 }
             }
-            allocator = _Z22GetGlobalValue0215aab8v();
+            allocator = func_ov001_0215aab8();
             loader->GetLoadedFileByID(node->task, &data, &size);
             struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
             if (obj == 0) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            _Z25RestorePairTables0207df90Pc(pair);
+            func_0207df90(pair);
             _ZN8Object3D10InitializeEv(obj);
             info.allocator = allocator;
             info.data = data;
@@ -346,10 +346,10 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             } else if (format == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(obj, &info, 0);
             }
-            _Z24BackupPairTables0207dfacPc(pair);
+            func_0207dfac(pair);
             _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(gs, node->slot, obj);
+            func_0200fd38(gs, node->slot, obj);
             if (node->flags & 1) {
                 func_02012fe4();
                 lighting = LightingManager::GetInstance();
@@ -411,10 +411,10 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             break;
         }
         case 5: {
-            struct Emitter021539d8* emitter = _Z29FindEntryPointerByKey0203df78Pvi(global, node->key);
+            struct Emitter021539d8* emitter = func_0203df78(global, node->key);
             if (emitter != 0 && emitter->stream != 0) {
                 emitter->flags |= 0x10000;
-                func_ov001_0215ab54(2, _Z22FindEntryByKey0203dfdcPvi(global, node->key), node->index);
+                func_ov001_0215ab54(2, func_0203dfdc(global, node->key), node->index);
             }
             break;
         }
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            pool = _Z22GetGlobalValue0215aab8v();
+            pool = func_ov001_0215aab8();
             loader->GetLoadedFileByID(node->task, &data, &size);
             emitter = (struct Emitter021539d8*)pool->Allocate(0x20);
             record = pool->Allocate(0x78);
@@ -438,9 +438,9 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            _Z12Init020404c0Pi(emitter);
-            _Z23ClearWorkRecord0206bf2cP11Rec0206bf2c(record);
-            _Z30InitializeRandomMotion0203c794Pv(stream);
+            func_020404c0(emitter);
+            func_0206bf2c(record);
+            func_0203c794(stream);
             label->kind = 3;
             if (strstr(node->name, data_ov001_02164bc0) != 0) {
                 length = 5;
@@ -456,18 +456,18 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 sprintf(label->text, data_ov001_02164bc8, node->name);
             }
             emitter->stream = stream;
-            _Z20SetField0xc_02040530Pii(emitter, record);
-            _Z20SetField0x8_02040520Pii(emitter, label);
-            owner = EmptyStub0203d004(global);
+            func_02040530(emitter, record);
+            func_02040520(emitter, label);
+            owner = func_0203d004(global);
             if (emitter->stream != 0) {
                 emitter->stream->owner = owner;
             }
             UpdateStream021539d8(emitter, node->name + 9, pool, pair, data, size);
             EnableStream021539d8(emitter, 1);
-            _Z28SetActiveChildShorts020408c8P12Node020408c8sss(emitter, 0x8f, 0x8f, 0x8f);
-            node->slot = _Z18FindEmptySlotIndexP18SlotArray_0203e03c(global);
+            func_020408c8(emitter, 0x8f, 0x8f, 0x8f);
+            node->slot = func_0203e03c(global);
             if (node->slot != -1) {
-                _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(global, node->slot, emitter);
+                func_0203dd10(global, node->slot, emitter);
                 emitter->flags |= 0x10000;
                 func_ov001_0215ab54(2, node->slot, node->index);
                 loader->RemoveTask(node->task);
@@ -492,7 +492,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            allocator = _Z22GetGlobalValue0215aab8v();
+            allocator = func_ov001_0215aab8();
             loader->GetLoadedFileByID(node->task, &data, &size);
             obj = (struct Obj021539d8*)allocator->Allocate(0xac);
             if (obj == 0) {
@@ -512,7 +512,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             if (unpacked == 0) {
                 break;
             }
-            _Z25RestorePairTables0207df90Pc(pair);
+            func_0207df90(pair);
             _ZN8Object3D10InitializeEv(obj);
             info.data = unpacked;
             info.allocator = allocator;
@@ -523,10 +523,10 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             } else if (format == 1) {
                 _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(obj, &info, 0);
             }
-            _Z24BackupPairTables0207dfacPc(pair);
+            func_0207dfac(pair);
             _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(gs, node->slot, obj);
+            func_0200fd38(gs, node->slot, obj);
             func_ov001_0215ab54(1, node->slot, node->index);
             loader->RemoveTask(node->task);
             node->done = 1;
@@ -542,7 +542,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            allocator = _Z22GetGlobalValue0215aab8v();
+            allocator = func_ov001_0215aab8();
             loader->GetLoadedFileByID(node->task, &data, &size);
             struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
             if (obj == 0) {
@@ -551,13 +551,13 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             }
             copy = allocator->Allocate(size);
             memcpy(copy, data, size);
-            _Z25RestorePairTables0207df90Pc(pair);
+            func_0207df90(pair);
             _ZN8Object3D10InitializeEv(obj);
             _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(obj, allocator, copy, size, 0);
-            _Z24BackupPairTables0207dfacPc(pair);
+            func_0207dfac(pair);
             _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
             _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(gs, node->slot, obj);
+            func_0200fd38(gs, node->slot, obj);
             func_ov001_0215ab54(1, node->slot, node->index);
             loader->RemoveTask(node->task);
             node->done = 1;
@@ -573,27 +573,27 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            allocator = _Z22GetGlobalValue0215aab8v();
+            allocator = func_ov001_0215aab8();
             loader->GetLoadedFileByID(node->task, &data, &size);
             struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
             if (obj == 0) {
                 loader->RemoveTask(node->task);
                 break;
             }
-            _Z25RestorePairTables0207df90Pc(pair);
+            func_0207df90(pair);
             _ZN8Object3D10InitializeEv(obj);
             info.data = data;
             info.size = size;
             info.flag = 1;
             info.allocator = allocator;
             _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(obj, &info);
-            _Z24BackupPairTables0207dfacPc(pair);
+            func_0207dfac(pair);
             NSBXX_Model_SetPolygonID(obj->holder->model, 0x3d);
             obj->posX = 0;
             obj->posY = -0xa000;
             obj->posZ = 0x1000;
             _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            _Z30RegisterCombatantSlot_0200fd38P9GameStateiP10GameObject(gs, node->slot, obj);
+            func_0200fd38(gs, node->slot, obj);
             _ZN8Object3D10MakeHiddenEv(obj);
             func_ov001_0215ab54(1, node->slot, node->index);
             loader->RemoveTask(node->task);
@@ -619,7 +619,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
                         struct ArchiveInfo021539d8 info;
                         void* data;
                         unsigned int size;
-                        SafeAllocator* allocator = _Z22GetGlobalValue0215aab8v();
+                        SafeAllocator* allocator = func_ov001_0215aab8();
                         int format;
 
                         loader->GetLoadedFileByID(motion->task, &data, &size);
@@ -685,7 +685,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             SetFlags04((GameResources*)base, 0x400);
         }
         if (self->mode & 0x20) {
-            _Z29GetGlobalPtr021075f4_0203cf4cv()->flags |= 2;
+            func_0203cf4c()->flags |= 2;
         }
     }
 }

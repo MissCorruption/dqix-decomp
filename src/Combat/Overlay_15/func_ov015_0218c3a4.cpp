@@ -56,21 +56,21 @@ struct ViewObject
     unsigned char eyeColor_;
 };
 
-PartEntry* FindElementByKey020dedd0(Container020dedd0* c, int key);
-int GetNibbleField020de2a4(Obj020de2a4* obj, int a, int b);
-CharacterColors* GetVariantShortTable02109928_02099cac();
+extern "C" PartEntry* func_020dedd0(Container020dedd0* c, int key);
+extern "C" int func_020de2a4(Obj020de2a4* obj, int a, int b);
+extern "C" CharacterColors* func_02099cac();
 extern "C" void func_02099d34(void* obj, int a, int b, int c);
 
 // USA: func_ov015_0218c3a4
 extern "C" ARM void func_ov015_0218c3a4(ViewObject* self, int part)
 {
-    PartEntry* entry = FindElementByKey020dedd0((Container020dedd0*)&self->viewer_->parts_, (short)self->parts_[part]);
+    PartEntry* entry = func_020dedd0((Container020dedd0*)&self->viewer_->parts_, (short)self->parts_[part]);
     if (entry == NULL || entry->model_ == NULL)
         return;
     VRAMManagerState* state = &self->slot_->states_[part];
     if (self->kind_ == 1)
     {
-        int count = GetNibbleField020de2a4((Obj020de2a4*)entry, 0, self->female_);
+        int count = func_020de2a4((Obj020de2a4*)entry, 0, self->female_);
         if (count == 0)
             return;
         count *= 2;
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov015_0218c3a4(ViewObject* self, int part)
         if (part == 0)
             start = 0x200;
         position -= size - start;
-        CharacterColors* colors = GetVariantShortTable02109928_02099cac();
+        CharacterColors* colors = func_02099cac();
         const void* source = NULL;
         int length = count * 2;
         switch (count)
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov015_0218c3a4(ViewObject* self, int part)
         }
         return;
     }
-    int colors = GetNibbleField020de2a4((Obj020de2a4*)entry, 1, self->female_);
+    int colors = func_020de2a4((Obj020de2a4*)entry, 1, self->female_);
     Model3D* model = self->objects_[part].pModel_;
     unsigned char color = self->eyeColor_;
     if (part == 4)

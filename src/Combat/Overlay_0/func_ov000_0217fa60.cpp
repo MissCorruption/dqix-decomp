@@ -3,9 +3,9 @@
 #include "Combat/Main/BattleList.h"
 
 struct Struct02170fd0;
-void UpdateSlotStatField_02175754(void* obj);
-int HasAnyFlags_021719f8_021719f8(int* obj);
-void CallHandlerIfF38Set02170fd0(struct Struct02170fd0* obj, int b);
+extern "C" void func_ov000_02175754(void* obj);
+extern "C" int func_ov000_021719f8(int* obj);
+extern "C" void func_ov000_02170fd0(struct Struct02170fd0* obj, int b);
 
 struct Slot_0217fa60 {
     char pad0[0x24];
@@ -48,11 +48,11 @@ static inline int IsValidSlotIndex(int index) {
 
 // USA: func_ov000_0217fa60
 extern "C" ARM void func_ov000_0217fa60(struct Owner_0217fa60* obj) {
-    UpdateSlotStatField_02175754(obj);
+    func_ov000_02175754(obj);
     for (unsigned char i = 0; i < 4; i++) {
         GetSlot(obj, obj->order[i])->active = 0;
     }
-    struct Party_0217fa60* party = (struct Party_0217fa60*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    struct Party_0217fa60* party = (struct Party_0217fa60*)func_02010828(GameState::GetInstance());
     for (unsigned char i = 0; i < party->count; i++) {
         GetSlot(obj, party->ids[i])->active = 1;
     }
@@ -62,9 +62,9 @@ extern "C" ARM void func_ov000_0217fa60(struct Owner_0217fa60* obj) {
         slot = &obj->slots[obj->order[i]];
         if (slot->field4c < 0) continue;
         if (slot->active == 0) continue;
-        if (HasAnyFlags_021719f8_021719f8((int*)slot)) continue;
+        if (func_ov000_021719f8((int*)slot)) continue;
         if (slot->field445 == 0) continue;
-        CallHandlerIfF38Set02170fd0((struct Struct02170fd0*)slot, 0);
+        func_ov000_02170fd0((struct Struct02170fd0*)slot, 0);
         slot->field24 &= ~4;
         if (first < 0) {
             first = slot->field4c;

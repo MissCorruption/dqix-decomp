@@ -8,10 +8,10 @@ struct Array02048090 {
     int count;
     void* buffer;
 };
-void AllocateArray02048090(struct Array02048090* obj, int count, SafeAllocator* alloc);
+extern "C" void func_02048090(struct Array02048090* obj, int count, SafeAllocator* alloc);
 
 struct Struct02076928;
-void UpdateSelectedCell02076928(struct Struct02076928* s, int val);
+extern "C" void func_02076928(struct Struct02076928* s, int val);
 
 extern "C" void func_02076994(void* ctx, unsigned char* data, unsigned int val, unsigned int w, unsigned int h);
 
@@ -174,7 +174,7 @@ extern "C" ARM int func_02076080(struct Struct02076080* sl, SafeAllocator* sb, u
     data += paletteSize * 2;
     memcpy(&sl->f54.count, data + 0x1e, 4);
     data += 0x22;
-    AllocateArray02048090(&sl->f54, sl->f54.count, sb);
+    func_02048090(&sl->f54, sl->f54.count, sb);
 
     int count = sl->f54.count;
     if (sl->f54.count > 0) {
@@ -206,6 +206,6 @@ extern "C" ARM int func_02076080(struct Struct02076080* sl, SafeAllocator* sb, u
     }
 
     sl->f5f = 1;
-    UpdateSelectedCell02076928((struct Struct02076928*)sl, 1);
+    func_02076928((struct Struct02076928*)sl, 1);
     return 0;
 }

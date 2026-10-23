@@ -100,17 +100,17 @@ struct Obj0204c7a8;
 struct Struct_0205cf78;
 struct Elem_0205cf78;
 
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* background, int a);
+extern "C" void func_0204b11c(unsigned char* background, int a);
 extern "C" void func_0204b5b4(Background02185f74* background, int a);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
-void DispatchViaTable0204b5e8(Obj0204b5e8* background, int a, int b);
-int CountActiveEntries(ActiveEntry02046900* archive);
-void* FindRecordByIndex(Rec020467f0* archive, int index, void** name, int* size);
+extern "C" void func_0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
+extern "C" void func_0204b5e8(Obj0204b5e8* background, int a, int b);
+extern "C" int func_02046900(ActiveEntry02046900* archive);
+extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
 extern "C" void func_0204b174(Background02185f74* background, void* file, SafeAllocator* allocator, unsigned int size);
 extern "C" void func_0204bc74(Background02185f74* background, int a, int b, int c, int d, int e, int f);
-void FlushAndDispatchList0204b0e8(List0204b0e8* background, void* a);
-void AllocateBuffer0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
+extern "C" void func_0204b0e8(List0204b0e8* background, void* a);
+extern "C" void func_0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
+extern "C" void func_0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
 
 extern "C" const unsigned char data_ov012_0218af75[3];
 extern "C" const unsigned char data_ov012_0218af78[3];
@@ -131,12 +131,12 @@ extern "C" ARM void func_ov012_02185f74(ProfileEditor02185f74* self)
     for (int i = 0; i < 3; i++)
     {
         background = &self->backgrounds[i];
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+        func_0204b11c((unsigned char*)background, 0);
         background->unk_1c_0_ = 0;
         background->unk_1c_4_ = data_ov012_0218af75[i];
         func_0204b5b4(background, data_ov012_0218af78[i]);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocators[0]);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)background, &self->allocators[0]);
+        func_0204b5e8((Obj0204b5e8*)background, 0, 0);
     }
     BG1CNT = (BG1CNT & 0x43) | 0x1d00;
     BG2CNT = (BG2CNT & 0x43) | 0x1e00;
@@ -144,10 +144,10 @@ extern "C" ARM void func_ov012_02185f74(ProfileEditor02185f74* self)
     ColorEffect_ConfigureAlphaBlend(0x4000050, 2, 1, 10, 6);
 
     loader->GetLoadedFileByID(*(int*)((char*)self + kTask), &file, &size);
-    count = CountActiveEntries((ActiveEntry02046900*)file);
+    count = func_02046900((ActiveEntry02046900*)file);
     for (int i = 0; i < count; i++)
     {
-        void* data = FindRecordByIndex((Rec020467f0*)file, i, &name, &fileSize);
+        void* data = func_020467f0((Rec020467f0*)file, i, &name, &fileSize);
         if (data != 0)
         {
             func_0204b174(&self->backgrounds[1], data, &self->allocators[0], fileSize);
@@ -158,19 +158,19 @@ extern "C" ARM void func_ov012_02185f74(ProfileEditor02185f74* self)
     {
         background = &self->backgrounds[i];
         func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-        FlushAndDispatchList0204b0e8((List0204b0e8*)background, 0);
+        func_0204b0e8((List0204b0e8*)background, 0);
     }
     char* storage = (char*)self;
     *(void**)(storage + kPixels) = self->allocators[0].Allocate(0x7800);
     for (int i = 0; i < 13; i++)
     {
         canvas = &self->canvases[i];
-        AllocateBuffer0204c7a8((Obj0204c7a8*)canvas, &self->allocators[0], (int)*(void**)(storage + kPixels), 0x800);
+        func_0204c7a8((Obj0204c7a8*)canvas, &self->allocators[0], (int)*(void**)(storage + kPixels), 0x800);
         canvas->background_ = &self->backgrounds[1];
     }
     self->window.backgrounds = self->backgrounds;
     self->window.backgroundCount = 3;
-    LinkArrayPrevPointers0205cf78((Struct_0205cf78*)&self->window, (Elem_0205cf78*)self->canvases, 13);
+    func_0205cf78((Struct_0205cf78*)&self->window, (Elem_0205cf78*)self->canvases, 13);
     loader->RemoveTask(*(int*)((char*)self + kTask));
     *(int*)((char*)self + kTask) = -1;
 }

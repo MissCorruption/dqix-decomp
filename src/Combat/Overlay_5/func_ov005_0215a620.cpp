@@ -14,10 +14,10 @@ struct Obj0204b8d0 {
     char unknown18[5];
     unsigned char count;
 };
-void DispatchEntry0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(struct List0204b0e8*, void*);
+extern "C" void func_0204b0e8(struct List0204b0e8*, void*);
 
 struct ListNode0215c530
 {
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov005_0215a620(EquipmentMenu0215a620* obj) {
 
     unsigned char state = obj->state;
     if (!(state != 0 && state != 1)) {
-        DispatchEntry0204b8d0(&obj->sub.backgrounds[0], 0, tileX, 22, tileX, 22, tileWidth, 2, 0xffff);
+        func_0204b8d0(&obj->sub.backgrounds[0], 0, tileX, 22, tileX, 22, tileWidth, 2, 0xffff);
     } else {
         unsigned char mode = obj->tab;
         unsigned char* table = obj->GetModeTable();
@@ -87,8 +87,8 @@ extern "C" ARM void func_ov005_0215a620(EquipmentMenu0215a620* obj) {
         if (kind == 1) j = 4;
         else if (kind == 2) j = 2;
         else if (kind == 3) j = 3;
-        DispatchEntry0204b8d0(&obj->sub.backgrounds[0], j, 0, 0, tileX, 22, tileWidth, 2, 0xffff);
+        func_0204b8d0(&obj->sub.backgrounds[0], j, 0, 0, tileX, 22, tileWidth, 2, 0xffff);
     }
-    FlushAndDispatchList0204b0e8((List0204b0e8*)&obj->sub.backgrounds[0], 0);
+    func_0204b0e8((List0204b0e8*)&obj->sub.backgrounds[0], 0);
     obj->dirty &= ~0x800;
 }

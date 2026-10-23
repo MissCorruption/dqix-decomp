@@ -1,0 +1,19 @@
+// KEEP-NAME
+// USA: func_ov006_02156b80
+#include <globaldefs.h>
+#include "Resource/AlchemyPot.h"
+
+extern "C" void func_ov006_021557c0(void*);
+extern "C" void func_ov023_021dc488(void*);
+
+extern "C" ARM void func_ov006_02156b80(void* object) {
+    AlchemyPot* pot = (AlchemyPot*)object;
+    if (!(pot->flags_ & 8)) {
+        pot->protagonist_.AdvanceEffects();
+        pot->pot_.AdvanceEffects();
+        pot->lid_.AdvanceEffects();
+        pot->effect_.SetNormalizedAnimationTime(pot->pot_.normalizedAnimationTime_);
+    }
+    func_ov006_021557c0(pot);
+    func_ov023_021dc488(&pot->window_);
+}

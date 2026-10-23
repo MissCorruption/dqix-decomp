@@ -8,11 +8,11 @@
 #define data_ov000_021830d8 data_ov000_02184184
 #endif
 extern "C" int func_ov000_02153e40(void* obj, short* buf, int max, int start);
-void StoreThreeFields02167b54(int* obj, int a, int b, int c);
-int GetSubstructByte0x1c_020493a4(unsigned char* obj);
-void SetSubstructByte0x1c_02049390(unsigned char* obj, unsigned char value);
-void SetSubstructFields0x10And0x18ClearFlag0x1_02049bd4(unsigned char* obj, int* src);
-void SetSubstructField0x14ClearFlag0x1_02049c60(unsigned char* obj, int* src);
+extern "C" void func_ov000_02167b54(int* obj, int a, int b, int c);
+extern "C" int func_020493a4(unsigned char* obj);
+extern "C" void func_02049390(unsigned char* obj, unsigned char value);
+extern "C" void func_02049bd4(unsigned char* obj, int* src);
+extern "C" void func_02049c60(unsigned char* obj, int* src);
 
 struct Words3_02167fb0 { int v[3]; };
 extern struct Words3_02167fb0 data_ov000_021830d8;
@@ -41,33 +41,33 @@ extern "C" ARM void func_ov000_02167fb0(struct Battle02167fb0* battle, GameObjec
     int isParty = (target->obj3D_.unknown_4_ >= 0 && target->obj3D_.unknown_4_ <= 3) ? 1 : 0;
     if (isParty) {
         cells = data_ov000_02183198;
-        StoreThreeFields02167b54(rotation, 0, 0x3244, 0);
+        func_ov000_02167b54(rotation, 0, 0x3244, 0);
     } else {
         int isGuest = (target->obj3D_.unknown_4_ >= 0xc0 && target->obj3D_.unknown_4_ <= 0xc7) ? 1 : 0;
         if (!isGuest) {
             return;
         }
         cells = data_ov000_021831d8;
-        StoreThreeFields02167b54(rotation, 0, 0, 0);
+        func_ov000_02167b54(rotation, 0, 0, 0);
     }
     for (int i = 0; i < 0x10; i++) {
         int cell = cells[i];
         int taken = 0;
         for (int j = 0; j < count; j++) {
             GameObject* c = gs->GetCombatantByIndex(ids[j]);
-            if (c != NULL && cell == GetSubstructByte0x1c_020493a4((unsigned char*)c)) {
+            if (c != NULL && cell == func_020493a4((unsigned char*)c)) {
                 taken = 1;
                 break;
             }
         }
         if (!taken) {
             struct Vec2_0216f74c pos = func_ov000_0216f74c(&cell);
-            SetSubstructByte0x1c_02049390((unsigned char*)target, cell & 0xff);
+            func_02049390((unsigned char*)target, cell & 0xff);
             struct Words3_02167fb0 position = data_ov000_021830d8;
             position.v[0] = pos.x;
             position.v[2] = pos.y;
-            SetSubstructFields0x10And0x18ClearFlag0x1_02049bd4((unsigned char*)target, position.v);
-            SetSubstructField0x14ClearFlag0x1_02049c60((unsigned char*)target, rotation);
+            func_02049bd4((unsigned char*)target, position.v);
+            func_02049c60((unsigned char*)target, rotation);
             return;
         }
     }

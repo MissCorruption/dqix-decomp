@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct ResetHalfwordPair0208977c;
-void ResetHalfwordPairAt0x2a(struct ResetHalfwordPair0208977c* p);
+extern "C" void func_0208977c(struct ResetHalfwordPair0208977c* p);
 
 struct Combatant0215d588 {
     char pad0[0x138];
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0215d588(struct Battle0215d588* self) {
         GameState* gs = GameState::GetInstance();
         Combatant0215d588* c = (Combatant0215d588*)gs->GetCombatantByIndex(id);
         if (c != NULL) {
-            ResetHalfwordPairAt0x2a(c->stats);
+            func_0208977c(c->stats);
         }
     }
 }

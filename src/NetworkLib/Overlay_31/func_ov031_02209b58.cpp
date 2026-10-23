@@ -4,9 +4,9 @@ struct RecordState02209b58 { unsigned char padding[0x454]; unsigned char handsha
 struct RecordSession02209b58 { unsigned char padding[0xc]; RecordState02209b58* state; };
 struct RecordHeader02209b58 { unsigned char type; unsigned char major; unsigned char minor; unsigned char lengthHigh; unsigned char lengthLow; };
 
-int WaitOrCycle_02203500(unsigned int*, void*);
-int CopyStreamedData_02209840(void*, int, void*);
-void InitTwoSections_022098ac(void*, int, int);
+extern "C" int func_ov031_02203500(unsigned int*, void*);
+extern "C" int func_ov031_02209840(void*, int, void*);
+extern "C" void func_ov031_022098ac(void*, int, int);
 extern "C" void func_ov031_022035e0(int, RecordSession02209b58*);
 extern "C" void func_ov031_02208ab0(RecordState02209b58*, void*);
 extern "C" void func_ov031_022098d8(RecordState02209b58*, void*);
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov031_02209b58(RecordSession02209b58* session) {
     unsigned int length;
     RecordHeader02209b58* record;
     while (1) {
-        record = (RecordHeader02209b58*)WaitOrCycle_02203500(&length, session);
+        record = (RecordHeader02209b58*)func_ov031_02203500(&length, session);
         if (length == 0) { state->status = 9; return state->status; }
         if (length >= 5) break;
     }
@@ -29,12 +29,12 @@ extern "C" ARM int func_ov031_02209b58(RecordSession02209b58* session) {
             func_ov031_022035e0(2, session);
             unsigned char* data = (unsigned char*)data_ov031_0224c994(length);
             if (!data) { state->status = 9; return state->status; }
-            if (CopyStreamedData_02209840(data, length, session) != 0 || data[0] != 1) {
+            if (func_ov031_02209840(data, length, session) != 0 || data[0] != 1) {
                 state->status = 9;
             } else {
                 func_ov031_02208ab0(state, data + 1);
             }
-            InitTwoSections_022098ac(state, (int)data, length);
+            func_ov031_022098ac(state, (int)data, length);
             data_ov031_0224c9c0(data);
         } else { state->status = 9; }
     } else {
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov031_02209b58(RecordSession02209b58* session) {
         if (length > 0x4805) { state->status = 9; return state->status; }
         void* data = data_ov031_0224c994(length);
         if (!data) { state->status = 9; return state->status; }
-        if (CopyStreamedData_02209840(data, length, session) != 0) {
+        if (func_ov031_02209840(data, length, session) != 0) {
             data_ov031_0224c9c0(data);
             state->status = 9;
             return state->status;

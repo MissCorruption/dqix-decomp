@@ -11,7 +11,7 @@ extern "C" unsigned int func_ov031_02207c98();
 extern "C" void func_ov031_02209cf8(void*,int);
 extern "C" void func_ov031_02207aa4(HandshakeState*,void*,unsigned short);
 extern "C" void func_ov031_022037a8(void*,int,int,int,HandshakeConnection*);
-void InitTwoSections_022098ac(void*,int,int);
+extern "C" void func_ov031_022098ac(void*,int,int);
 
 // USA: func_ov031_02209ff0
 extern "C" ARM void func_ov031_02209ff0(HandshakeConnection* connection) {
@@ -48,6 +48,6 @@ extern "C" ARM void func_ov031_02209ff0(HandshakeConnection* connection) {
     hello->handshakeLength[1]=payloadLength>>8;
     hello->handshakeLength[2]=payloadLength;
     func_ov031_022037a8(hello,length+5,0,0,connection);
-    InitTwoSections_022098ac(state,(int)&hello->handshakeType,length);
+    func_ov031_022098ac(state,(int)&hello->handshakeType,length);
     data_ov031_0224c9c0(hello);
 }

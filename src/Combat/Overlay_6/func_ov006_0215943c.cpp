@@ -38,34 +38,34 @@ struct AlchemyMenu {
     unsigned short flags_;
 };
 
-void ClearElementFlag0x20_02080c20(Obj2081* menu, int flag);
-void ClearFlagsForIds_021573c8(void* layout);
-unsigned short LookupByOffset_021591ec_021591ec(LookupByOffset0x362_021591ecStruct* self);
-short FindMappedMemberId02080468(void* menu, int group);
+extern "C" void func_02080c20(Obj2081* menu, int flag);
+extern "C" void func_ov006_021573c8(void* layout);
+extern "C" unsigned short func_ov006_021591ec(LookupByOffset0x362_021591ecStruct* self);
+extern "C" short func_02080468(void* menu, int group);
 extern "C" void func_ov006_0215f4dc(AlchemyMenu* self);
 extern "C" void func_ov006_0215f740(AlchemyMenu* self);
-void ResetWithSub0208203c(Obj0208203c* repeat);
-void SetElementFlag0x40_02081ea4(Obj2081* menu, int group, int flag);
+extern "C" void func_0208203c(Obj0208203c* repeat);
+extern "C" void func_02081ea4(Obj2081* menu, int group, int flag);
 
 // USA: func_ov006_0215943c
 extern "C" ARM void func_ov006_0215943c(AlchemyMenu* self) {
-    ClearElementFlag0x20_02080c20(self->menu_, 0);
+    func_02080c20(self->menu_, 0);
     self->flags_ |= 0x10;
     self->item_ = -1;
     self->count_ = 0;
-    ClearFlagsForIds_021573c8(self->layout_);
-    unsigned short size = LookupByOffset_021591ec_021591ec((LookupByOffset0x362_021591ecStruct*)self);
+    func_ov006_021573c8(self->layout_);
+    unsigned short size = func_ov006_021591ec((LookupByOffset0x362_021591ecStruct*)self);
     self->flags_ &= ~4;
     if (size > 8)
         self->flags_ |= 4;
     self->group_ = 0x11;
     self->itemCursor_ = -1;
     if (self->itemCursor_ < 0)
-        self->itemCursor_ = FindMappedMemberId02080468(self->menu_, self->group_);
+        self->itemCursor_ = func_02080468(self->menu_, self->group_);
     self->menu_->cursor_ = self->itemCursor_;
     func_ov006_0215f4dc(self);
     func_ov006_0215f740(self);
-    ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+    func_0208203c((Obj0208203c*)self->repeat_);
     self->cursor_ = 0;
-    SetElementFlag0x40_02081ea4(self->menu_, self->group_, 0);
+    func_02081ea4(self->menu_, self->group_, 0);
 }

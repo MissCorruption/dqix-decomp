@@ -7,10 +7,10 @@ extern "C" int rand();
 extern "C" void* __clear(void*, int);
 struct Actor02076ccc;
 extern "C" void* func_0202ae18();
-int CheckField0NonZero_0202b7d8(int*);
-signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
-int GetFieldAt0x150_02053c6c(unsigned char*);
-bool TrySetMode02076ccc(void*, int);
+extern "C" int func_0202b7d8(int*);
+extern "C" signed char func_0202c1a4(SearchStruct0202c1a4*);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" bool func_02076ccc(void*, int);
 struct Vec3i021c95ec { int x, y, z; };
 extern "C" void func_ov017_021c95ec(int, int, int, int, int, Vec3i021c95ec, int, unsigned char, unsigned char);
 
@@ -61,10 +61,10 @@ extern "C" ARM void func_02078998(Actor02078998* self) {
     if (self->counter <= 225) return;
     self->rising = 0;
     int* search = (int*)func_0202ae18();
-    if (CheckField0NonZero_0202b7d8(search) && GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search)) return;
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), self->combatantId);
+    if (func_0202b7d8(search) && func_0202c1a4((SearchStruct0202c1a4*)search)) return;
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), self->combatantId);
     if (combatant == NULL) return;
-    GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    func_02053c6c((unsigned char*)combatant);
     int extraAttack = 0;
     int extraDefense = 0;
     int attack = combatant->baseStats_->primaryStats.attack;
@@ -77,23 +77,23 @@ extern "C" ARM void func_02078998(Actor02078998* self) {
     if ((attack + defense > (extraAttack + extraDefense) * 3 || self->priority == -99) && self->priority != 99) {
         switch (self->selectorA) {
         case 0:
-            TrySetMode02076ccc((Actor02076ccc*)self, 12);
+            func_02076ccc((Actor02076ccc*)self, 12);
             mode = 12;
             break;
         case 1:
-            TrySetMode02076ccc((Actor02076ccc*)self, 6);
+            func_02076ccc((Actor02076ccc*)self, 6);
             mode = 6;
             break;
         case 2:
-            TrySetMode02076ccc((Actor02076ccc*)self, 7);
+            func_02076ccc((Actor02076ccc*)self, 7);
             mode = 7;
             break;
         case 3:
             if (rand() % 2) {
-                TrySetMode02076ccc((Actor02076ccc*)self, 7);
+                func_02076ccc((Actor02076ccc*)self, 7);
                 mode = 7;
             } else {
-                TrySetMode02076ccc((Actor02076ccc*)self, 6);
+                func_02076ccc((Actor02076ccc*)self, 6);
                 mode = 6;
             }
             break;
@@ -101,25 +101,25 @@ extern "C" ARM void func_02078998(Actor02078998* self) {
     } else {
         switch (self->selectorB) {
         case 0:
-            TrySetMode02076ccc((Actor02076ccc*)self, 5);
+            func_02076ccc((Actor02076ccc*)self, 5);
             mode = 5;
             break;
         case 1:
-            TrySetMode02076ccc((Actor02076ccc*)self, 4);
+            func_02076ccc((Actor02076ccc*)self, 4);
             mode = 4;
             break;
         case 2:
             if (rand() % 2) {
-                TrySetMode02076ccc((Actor02076ccc*)self, 7);
+                func_02076ccc((Actor02076ccc*)self, 7);
                 mode = 7;
             } else {
-                TrySetMode02076ccc((Actor02076ccc*)self, 6);
+                func_02076ccc((Actor02076ccc*)self, 6);
                 mode = 6;
             }
             break;
         }
     }
-    if (!CheckField0NonZero_0202b7d8(search) || GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search)) return;
+    if (!func_0202b7d8(search) || func_0202c1a4((SearchStruct0202c1a4*)search)) return;
     unsigned short id = self->obj.GetField06();
     int unused = self->obj.unknown_2_;
     int nibble = (self->obj.unknown_4_ - 112) % 12;

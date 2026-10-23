@@ -9,29 +9,29 @@ struct Run0216e714;
 extern "C" struct Run0216e714 *func_02012fe4(void);
 #endif
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900 *pac);
+extern "C" int func_02046900(ActiveEntry02046900 *pac);
 struct Rec020467f0;
-void *FindRecordByIndex(Rec020467f0 *pac, int index, void **outName, int *outSize);
+extern "C" void *func_020467f0(Rec020467f0 *pac, int index, void **outName, int *outSize);
 extern "C" void func_0204c684(void *obj);
 extern "C" void __clear(void *dst, int count);
 extern "C" void func_02042764(void *src, void *dst, int flag);
 extern "C" void func_0204f41c(void *obj, short x, short y, void *str, int d, int e, short *outA, short *outB, int zero);
 struct Container020e0310;
-int GetFieldByKey020e0434(Container020e0310 *c, int key);
+extern "C" int func_020e0434(Container020e0310 *c, int key);
 extern "C" int func_020420e8(void *p, int flag);
 extern "C" void func_0204e038(void *canvas, char *str, int a, int b, int c, int d, int e, int f);
 struct List0204af64;
-void ResetList0204af64(struct List0204af64 *obj);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char *obj, int value);
+extern "C" void func_0204af64(struct List0204af64 *obj);
+extern "C" void func_0204b11c(unsigned char *obj, int value);
 struct Obj0204b5e8;
-int DispatchViaTable0204b5e8(struct Obj0204b5e8 *obj, int a, int b);
+extern "C" int func_0204b5e8(struct Obj0204b5e8 *obj, int a, int b);
 void CleanInvalidateCacheRange(const void *addr, unsigned int size);
 extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" void func_0204b174(void *graphics, void *file, SafeAllocator *allocator, unsigned int size);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(struct List0204b0e8 *obj, void *buf);
+extern "C" void func_0204b0e8(struct List0204b0e8 *obj, void *buf);
 struct List0204afb4;
-void ResetRecordList0204afb4(struct List0204afb4 *obj);
+extern "C" void func_0204afb4(struct List0204afb4 *obj);
 
 extern char data_ov003_0218028b[];
 extern char data_ov003_0218029b[];
@@ -182,9 +182,9 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
             short outB;
             int y;
             loader->GetLoadedFileByID(self->task, &file, &size);
-            int numFiles = CountActiveEntries((ActiveEntry02046900 *) file);
+            int numFiles = func_02046900((ActiveEntry02046900 *) file);
             for (int i = 0; i < numFiles; i++) {
-                files[i] = (File0216e714 *) FindRecordByIndex((Rec020467f0 *) file, i, &entry, &sizes[i]);
+                files[i] = (File0216e714 *) func_020467f0((Rec020467f0 *) file, i, &entry, &sizes[i]);
             }
             func_0204c684(&canvas);
             canvas.text   = (char *) files[0] + 0x10;
@@ -225,14 +225,14 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
                 }
                 func_02050678(&canvas, 0x51, row * 16 + 0x2f, text, 10, 15, &outA, &outB);
                 switch (rec->category) {
-                    case 2: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 0)); break;
+                    case 2: sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, 0)); break;
                     case 3:
-                    case 4: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 1)); break;
+                    case 4: sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, 1)); break;
                     case 5:
-                    case 6: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 2)); break;
+                    case 6: sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, 2)); break;
                     case 9:
-                    case 10: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 3)); break;
-                    default: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 4)); break;
+                    case 10: sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, 3)); break;
+                    default: sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, 4)); break;
                 }
                 func_02050678(&canvas, 0x80, row * 16 + 0x2f, text, 10, 15, &outA, &outB);
                 canvas.fontW = 8;
@@ -258,11 +258,11 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
             if (self->cursor >= self->count) {
                 self->cursor = self->count - 1;
             }
-            ResetList0204af64((struct List0204af64 *) &bg);
+            func_0204af64((struct List0204af64 *) &bg);
             bg.lo = 0;
             bg.hi = 3;
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) &bg, 0);
-            DispatchViaTable0204b5e8((struct Obj0204b5e8 *) &bg, 0, 0);
+            func_0204b11c((unsigned char *) &bg, 0);
+            func_0204b5e8((struct Obj0204b5e8 *) &bg, 0, 0);
             BG3CNT = (BG3CNT & 0x43) | 0xf00;
             for (int i = 0; i < numFiles; i++) {
                 if (i == 2) {
@@ -274,8 +274,8 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
                     func_0204b174(&bg, files[i], 0, sizes[i]);
                 }
             }
-            FlushAndDispatchList0204b0e8((struct List0204b0e8 *) &bg, 0);
-            ResetRecordList0204afb4((struct List0204afb4 *) &bg);
+            func_0204b0e8((struct List0204b0e8 *) &bg, 0);
+            func_0204afb4((struct List0204afb4 *) &bg);
             loader->RemoveTask(self->task);
             self->task = -1;
             if (!(self->flags & 0x20)) {
@@ -330,9 +330,9 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
             int y;
             int slot;
             loader->GetLoadedFileByID(self->task, &file, &size);
-            int numFiles = CountActiveEntries((ActiveEntry02046900 *) file);
+            int numFiles = func_02046900((ActiveEntry02046900 *) file);
             for (int i = 0; i < numFiles; i++) {
-                files[i] = (File0216e714 *) FindRecordByIndex((Rec020467f0 *) file, i, &entry, &sizes[i]);
+                files[i] = (File0216e714 *) func_020467f0((Rec020467f0 *) file, i, &entry, &sizes[i]);
             }
             func_0204c684(&canvas);
             canvas.text   = (char *) files[0] + 0x10;
@@ -372,14 +372,14 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
                     case 9:
                     case 10: key = 3; break;
                 }
-                sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, key));
+                sprintf(text, (char *) func_020e0434((Container020e0310 *) self->texts, key));
                 func_0204f41c(&canvas, 0xb0 - func_020420e8(text, 0), y, text, 10, 15, &outA, &outB, 0);
                 canvas.fontW = 8;
                 canvas.fontH = 8;
                 sprintf(text, data_ov003_021802b6, rec->level);
                 func_0204f41c(&canvas, 0xc8 - func_020420e8(text, 0), y, text, 10, 15, &outA, &outB, 0);
                 sprintf(text, data_ov003_021802b3,
-                        (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts,
+                        (char *) func_020e0434((Container020e0310 *) self->texts,
                                                                                 (short) (rec->rank + 0xe)));
                 func_0204f41c(&canvas, 0xce, y, text, 10, 15, &outA, &outB, 0);
                 sprintf(text, data_ov003_021802b6, rec->year + 2000);
@@ -408,11 +408,11 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
             if (self->cursor >= self->count) {
                 self->cursor = self->count - 1;
             }
-            ResetList0204af64((struct List0204af64 *) &bg);
+            func_0204af64((struct List0204af64 *) &bg);
             bg.lo = 0;
             bg.hi = 3;
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) &bg, 0);
-            DispatchViaTable0204b5e8((struct Obj0204b5e8 *) &bg, 0, 0);
+            func_0204b11c((unsigned char *) &bg, 0);
+            func_0204b5e8((struct Obj0204b5e8 *) &bg, 0, 0);
             BG3CNT = (BG3CNT & 0x43) | 0xf00;
             for (int i = 0; i < numFiles; i++) {
                 if (i == 2) {
@@ -424,8 +424,8 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
                     func_0204b174(&bg, files[i], 0, sizes[i]);
                 }
             }
-            FlushAndDispatchList0204b0e8((struct List0204b0e8 *) &bg, 0);
-            ResetRecordList0204afb4((struct List0204afb4 *) &bg);
+            func_0204b0e8((struct List0204b0e8 *) &bg, 0);
+            func_0204afb4((struct List0204afb4 *) &bg);
             loader->RemoveTask(self->task);
             self->task = -1;
             if (!(self->flags & 0x20)) {

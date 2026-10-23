@@ -6,10 +6,10 @@
 struct ScriptArgument { char data[8]; };
 extern "C" const char* func_ov017_021d612c(ScriptArgument*);
 extern "C" int func_ov017_021d60f4(ScriptArgument*);
-int AbsPlus159IfNegative0215ad2c(int);
+extern "C" int func_ov001_0215ad2c(int);
 extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
-unsigned int LoadResourceIntoGlobalBuffer_0215a750(const char*, void**);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
+extern "C" unsigned int func_ov001_0215a750(const char*, void**);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165745[];
 extern const char data_ov001_0216574d[];
@@ -18,7 +18,7 @@ extern const char data_ov001_02165758[];
 extern const char data_ov001_02165762[];
 
 static inline int ReadCombatantSlot(ScriptArgument* argument) {
-    return AbsPlus159IfNegative0215ad2c(func_ov017_021d60f4(argument));
+    return func_ov001_0215ad2c(func_ov017_021d60f4(argument));
 }
 
 // USA: func_ov001_0215b72c
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov001_0215b72c(ScriptArgument* arguments, int count) {
     if (!data) {
         BackgroundLoader::AddLockGlobal();
         locked = 1;
-        if (!LoadResourceIntoGlobalBuffer_0215a750(filename, &data)) {
+        if (!func_ov001_0215a750(filename, &data)) {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
         }
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov001_0215b72c(ScriptArgument* arguments, int count) {
         return 0;
     }
     if (locked) BackgroundLoader::RemoveLockGlobal();
-    RegisterCombatantSlot_0200fd38(game, slot, (GameObject*)object);
+    func_0200fd38(game, slot, (GameObject*)object);
     object->SetScale(266, 266, 266);
     return 1;
 }

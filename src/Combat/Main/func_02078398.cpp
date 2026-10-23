@@ -11,7 +11,7 @@ struct BitFlag02033f44 {
     char pad2[3];
     int field_e4;
 };
-int* GetField0xe4IfFlag0x40(struct BitFlag02033f44* p);
+extern "C" int* func_02033f44(struct BitFlag02033f44* p);
 
 extern "C" void* func_02057924(void);
 
@@ -38,9 +38,9 @@ struct InitStruct02078484Struct {
     int f38; int f3c; int f40;
     Vector3i f44;
 };
-void InitStruct02078484(struct InitStruct02078484Struct* p);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
 
-void FindNodeAndProcess02057fb4(void* list, int id, void* config);
+extern "C" void func_02057fb4(void* list, int id, void* config);
 
 struct Actor02078398 : Object3D {
     char padac[0x6];
@@ -60,7 +60,7 @@ extern "C" ARM void func_02078398(struct Actor02078398* obj) {
     }
 
     if (obj->GetInheritedAlpha() == 0x1f) {
-        int* fp = GetField0xe4IfFlag0x40((struct BitFlag02033f44*)obj);
+        int* fp = func_02033f44((struct BitFlag02033f44*)obj);
         Vector3fix v = obj->position_;
         v.y = 0;
         if (Vector3fix_Distance(&v, &obj->f158) < 0x2000 || fp != 0) {
@@ -69,10 +69,10 @@ extern "C" ARM void func_02078398(struct Actor02078398* obj) {
             if (obj->f178 > 0) {
                 void* list = func_02057924();
                 struct InitStruct02078484Struct s;
-                InitStruct02078484(&s);
+                func_02078484(&s);
                 s.f2c = obj->position_;
                 s.f44 = obj->GetScale();
-                FindNodeAndProcess02057fb4(list, (int)obj->f178, &s);
+                func_02057fb4(list, (int)obj->f178, &s);
             }
         }
     }

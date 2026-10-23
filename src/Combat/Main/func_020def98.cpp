@@ -37,17 +37,17 @@ struct StructDE1D4;
 
 typedef int (*KeyFunc020de650)(Element020de650*);
 
-int GetField0x18Short_020de56c(void*);
-Element020de650* BinarySearchByComparator020de650(Container020de650* c, int key, KeyFunc020de650 fn);
-int CopyEntryAndAllocateStrings020df618(SafeAllocator*, void*, EntryDf618*, void**, int, EntryDf618*);
-int CopyEntryAndIncrementCounter020df6cc(void*, EntryDf6cc*, int, EntryDf6cc*);
-void CopyStruct020836e4(Record020836e4* dst, Record020836e4* src);
-void InitStruct020de1d4(StructDE1D4*);
+extern "C" int func_020de56c(void*);
+extern "C" Element020de650* func_020de650(Container020de650* c, int key, KeyFunc020de650 fn);
+extern "C" int func_020df618(SafeAllocator*, void*, EntryDf618*, void**, int, EntryDf618*);
+extern "C" int func_020df6cc(void*, EntryDf6cc*, int, EntryDf6cc*);
+extern "C" void func_020836e4(Record020836e4* dst, Record020836e4* src);
+extern "C" void func_020de1d4(StructDE1D4*);
 
 static inline void SwapRecords(Record020836e4* a, Record020836e4* b) {
     Record020836e4 tmp = *a;
-    CopyStruct020836e4(a, b);
-    CopyStruct020836e4(b, &tmp);
+    func_020836e4(a, b);
+    func_020836e4(b, &tmp);
 }
 
 // USA: func_020def98
@@ -64,7 +64,7 @@ extern "C" ARM int func_020def98(SafeAllocator* allocator, Container020de650* de
         for (int i = 0; i < n; i++, key++) {
             int value = *key;
             if (value < 0) continue;
-            Element020de650* found = BinarySearchByComparator020de650(source, value, (KeyFunc020de650)GetField0x18Short_020de56c);
+            Element020de650* found = func_020de650(source, value, (KeyFunc020de650)func_020de56c);
             if (!found) continue;
             int dup = 0;
             short* prev = keys;
@@ -93,7 +93,7 @@ extern "C" ARM int func_020def98(SafeAllocator* allocator, Container020de650* de
     for (i = 0; i < capacity; i++, key++) {
         short value = *key;
         Element020de650* found = NULL;
-        if (value >= 0) found = BinarySearchByComparator020de650(source, value, (KeyFunc020de650)GetField0x18Short_020de56c);
+        if (value >= 0) found = func_020de650(source, value, (KeyFunc020de650)func_020de56c);
         if (!found) {
             if (!allocator) { output++; copied++; }
             continue;
@@ -105,9 +105,9 @@ extern "C" ARM int func_020def98(SafeAllocator* allocator, Container020de650* de
                 if (*prev == value) { dup = 1; break; }
             }
             if (dup) continue;
-            CopyEntryAndAllocateStrings020df618(allocator, dest, (EntryDf618*)output, &names, (int)source, (EntryDf618*)found);
+            func_020df618(allocator, dest, (EntryDf618*)output, &names, (int)source, (EntryDf618*)found);
         } else {
-            CopyEntryAndIncrementCounter020df6cc(dest, (EntryDf6cc*)output, (int)source, (EntryDf6cc*)found);
+            func_020df6cc(dest, (EntryDf6cc*)output, (int)source, (EntryDf6cc*)found);
         }
         if (copied >= capacity) break;
         output++;
@@ -150,8 +150,8 @@ extern "C" ARM int func_020def98(SafeAllocator* allocator, Container020de650* de
                         if (prev->field_18 > q->field_18) {
                             first = m;
                             Record020836e4 tmp = *q;
-                            CopyStruct020836e4(q, prev);
-                            CopyStruct020836e4(prev, &tmp);
+                            func_020836e4(q, prev);
+                            func_020836e4(prev, &tmp);
                         }
                         q = prev;
                     }
@@ -163,6 +163,6 @@ extern "C" ARM int func_020def98(SafeAllocator* allocator, Container020de650* de
     }
     int end = dest->capacity;
     Record020836e4* e = dest->entries + dest->count;
-    for (i = dest->count; i < end; i++, e++) InitStruct020de1d4((StructDE1D4*)e);
+    for (i = dest->count; i < end; i++, e++) func_020de1d4((StructDE1D4*)e);
     return 1;
 }

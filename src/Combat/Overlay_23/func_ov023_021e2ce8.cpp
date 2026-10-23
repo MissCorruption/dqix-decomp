@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* obj);
-ARM void* GetTableEntry020421b0(int idx);
+extern "C" ARM void* func_020421b0(int idx);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 
 // USA: func_ov023_021e2ce8
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov023_021e2ce8(int combatantId, void* p1) {
 
                 int i;
                 for (i = 0; i < 4; i++) {
-                    void* tableEntry = GetTableEntry020421b0(tableIdx);
+                    void* tableEntry = func_020421b0(tableIdx);
                     CleanInvalidateCacheRange(tableEntry, 0x20);
                     LoadToMainObjVRAM((int)tableEntry, sizeAccum, 0x20);
                     CleanCacheRange(tableEntry, 0x20);

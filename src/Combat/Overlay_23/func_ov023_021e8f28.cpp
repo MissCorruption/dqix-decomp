@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-unsigned char CopyOutRegion0x5718_02011494(char* obj, void* dst);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" unsigned char func_02011494(char* obj, void* dst);
 extern "C" void* __clear(void* dst, int count);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
 
 // USA: func_ov023_021e8f28
 extern "C" ARM GameObject* func_ov023_021e8f28(int index) {
@@ -13,19 +13,19 @@ extern "C" ARM GameObject* func_ov023_021e8f28(int index) {
     if (index >= 0) {
         int inRange = (index >= 0) && (index <= 3);
         if (inRange) {
-            result = GetCombatantWithFlag0x100_0200ff1c(battle, index);
+            result = func_0200ff1c(battle, index);
         }
     } else {
         if (index == -1) {
-            int key = GetField0x3acValue_020100a8(battle);
-            result = GetCombatantWithFlag0x100_0200ff1c(battle, key);
+            int key = func_020100a8(battle);
+            result = func_0200ff1c(battle, key);
         } else {
             unsigned char local[4];
             __clear(local, 4);
-            unsigned char count = CopyOutRegion0x5718_02011494((char*)battle, local);
+            unsigned char count = func_02011494((char*)battle, local);
             int i = -1 - index;
             if (i < count) {
-                result = GetCombatantWithFlag0x100_0200ff1c(battle, local[i]);
+                result = func_0200ff1c(battle, local[i]);
             }
         }
     }

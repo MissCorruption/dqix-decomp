@@ -2,7 +2,7 @@
 
 extern char data_027e0060[];
 extern unsigned short data_02111304;
-void SaveDivSqrtState_020cd594(void*);
+extern "C" void func_020cd594(void*);
 extern "C" void func_020cd5d4(void*);
 
 // USA: func_01ff8068
@@ -86,7 +86,7 @@ _save:
     stmdb sp!, {r0, r1}
     add r0, r0, #0x0
     add r0, r0, #0x48
-    ldr r1, =SaveDivSqrtState_020cd594
+    ldr r1, =func_020cd594
     blx r1
     ldmia sp!, {r0, r1}
     ldmib sp!, {r2, r3}

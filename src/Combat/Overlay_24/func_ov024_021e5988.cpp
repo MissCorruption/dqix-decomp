@@ -4,15 +4,15 @@
 
 struct List021600f8;
 struct ListNode021600f8;
-struct ListNode021600f8* GetNodeAtIndex021600f8(struct List021600f8* list, int index);
-void* FindNodeAtDepth0215fff4(void* obj, int limit, int idx);
-short ApplyHPDelta0215a16c(void* unused, int id, int delta, short* outApplied);
+extern "C" struct ListNode021600f8* func_ov000_021600f8(struct List021600f8* list, int index);
+extern "C" void* func_ov000_0215fff4(void* obj, int limit, int idx);
+extern "C" short func_ov000_0215a16c(void* unused, int id, int delta, short* outApplied);
 extern "C" void* func_ov000_0215e958(void* a0);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, void* out, GameObject* combatant,
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215ccbc(void* world, void* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long word, unsigned char byteE);
-void AppendToChainAndIncCount0215fe84(void* obj, void* node, int idx);
+extern "C" void func_ov000_0215fe84(void* obj, void* node, int idx);
 
 struct Chain_021e5988 { char pad0[0x18]; unsigned char count; };
 struct Depth_021e5988 { char pad0[0xc]; short value; };
@@ -37,19 +37,19 @@ extern "C" ARM void func_ov024_021e5988(struct Obj_021e5988* obj, int id, struct
 	if (!c) return;
 	chain = obj->field0xc;
 	if (action->f4.id == 0x91) {
-		struct Chain_021e5988* first = (struct Chain_021e5988*)GetNodeAtIndex021600f8(obj->field0x4, 0);
+		struct Chain_021e5988* first = (struct Chain_021e5988*)func_ov000_021600f8(obj->field0x4, 0);
 		if (first) chain = first;
 	}
 	int sum = 0;
 	int depth = 0;
 	for (int i = 0; i < chain->count; i++) {
-		struct Depth_021e5988* d = (struct Depth_021e5988*)FindNodeAtDepth0215fff4(chain, i, depth);
+		struct Depth_021e5988* d = (struct Depth_021e5988*)func_ov000_0215fff4(chain, i, depth);
 		if (d) sum += d->value;
 	}
 	sum >>= 2;
 	if (sum <= 0) return;
 	short applied = 0;
-	short hp = ApplyHPDelta0215a16c(obj->field0x10, id, sum, &applied);
+	short hp = func_ov000_0215a16c(obj->field0x10, id, sum, &applied);
 	obj->field0x8->hp = hp;
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return;
@@ -57,9 +57,9 @@ extern "C" ARM void func_ov024_021e5988(struct Obj_021e5988* obj, int id, struct
 	local.lo = 0;
 	local.hi = 0;
 	func_ov000_02159eac(obj->field0x10, &local, 0x25);
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, 0x215);
-	_Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->field0x10, entry, c, -sum, hp,
+	func_ov000_0215a88c(obj->field0x10, entry, 0x215);
+	func_ov000_0215ccbc(obj->field0x10, entry, c, -sum, hp,
 	                       GetStatField2_021e5988(c), local.v, 0);
-	AppendToChainAndIncCount0215fe84(obj->field0x8, entry, 2);
+	func_ov000_0215fe84(obj->field0x8, entry, 2);
 	((unsigned char*)obj->field0x10)[0x8e02]++;
 }

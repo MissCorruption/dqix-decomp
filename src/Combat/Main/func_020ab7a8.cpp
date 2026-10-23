@@ -4,9 +4,9 @@
 #include "Filesystem/BackgroundLoader.h"
 
 struct StateBits5ccc_1155c;
-void ClearFlag0x5cccBit0_0201155c(struct StateBits5ccc_1155c* state);
-int IsFunc020d0840NonZero_02075ca0();
-void NotifyU16AndSetFlag02075cb8();
+extern "C" void func_0201155c(struct StateBits5ccc_1155c* state);
+extern "C" int func_02075ca0();
+extern "C" void func_02075cb8();
 
 extern "C" int func_02075910(int a, void* p, unsigned int size, int c);
 extern "C" int func_02075acc(int a, void* p, unsigned int size, int c);
@@ -17,7 +17,7 @@ struct Buf020a94f8 {
     int hdr;
     char data[0x10];
 };
-int VerifyBuffer020a94f8(struct Buf020a94f8* buf, int flag);
+extern "C" int func_020a94f8(struct Buf020a94f8* buf, int flag);
 
 struct SaveHead020ab7a8 {
     int hdr;
@@ -59,7 +59,7 @@ extern "C" ARM int func_020ab7a8(void* obj, int flag) {
     struct Buf020a94f8 buf;
 
     if (task->state == 0) {
-        ClearFlag0x5cccBit0_0201155c((struct StateBits5ccc_1155c*)GameState::GetInstance());
+        func_0201155c((struct StateBits5ccc_1155c*)GameState::GetInstance());
         if (func_02075910(0, &local0, 1, 0) == 0) {
             return 1;
         }
@@ -70,10 +70,10 @@ extern "C" ARM int func_020ab7a8(void* obj, int flag) {
         }
         task->state = 1;
     } else if (task->state == 1) {
-        if (IsFunc020d0840NonZero_02075ca0() == 0) {
+        if (func_02075ca0() == 0) {
             return 0;
         }
-        NotifyU16AndSetFlag02075cb8();
+        func_02075cb8();
         if (func_02075910(0, &local1, 1, 0) == 0) {
             return 2;
         }
@@ -98,12 +98,12 @@ extern "C" ARM int func_020ab7a8(void* obj, int flag) {
         task->state = 2;
         return 4;
     } else if (task->state == 2) {
-        if (IsFunc020d0840NonZero_02075ca0() == 0) {
+        if (func_02075ca0() == 0) {
             return 4;
         }
-        NotifyU16AndSetFlag02075cb8();
+        func_02075cb8();
         if (flag) {
-            if (VerifyBuffer020a94f8(&buf, 1) != 0) {
+            if (func_020a94f8(&buf, 1) != 0) {
                 buf.data[0] = 0;
                 buf.hdr = func_01ff85b8((char*)&buf + 4, 0x10);
                 func_02075acc(0x10, &buf, 0x14, 0);

@@ -20,8 +20,8 @@ struct MenuContext {
     int* unknown_ptr_3708;
 };
 
-void* GetField1c_021a193c(int* p);
-void SetShiftedFieldsAndCall_021e32cc(void* self, int x, int y);
+extern "C" void* func_ov017_021a193c(int* p);
+extern "C" void func_ov023_021e32cc(void* self, int x, int y);
 
 // USA: func_ov005_0215a3bc
 extern "C" ARM void func_ov005_0215a3bc(EquipmentMenu* self) {
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov005_0215a3bc(EquipmentMenu* self) {
         y++;
         self->flags_ &= ~0x80000;
     }
-    SetShiftedFieldsAndCall_021e32cc(GetField1c_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708), x, y);
+    func_ov023_021e32cc(func_ov017_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708), x, y);
 }

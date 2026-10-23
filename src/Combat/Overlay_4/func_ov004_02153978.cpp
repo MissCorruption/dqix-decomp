@@ -13,8 +13,8 @@
 #include <globaldefs.h>
 
 struct Obj021f6f08;
-void* DoThing_021f6590(void*);
-unsigned int GetShort6_021f6f08(Obj021f6f08*);
+extern "C" void* func_ov023_021f6590(void*);
+extern "C" unsigned int func_ov023_021f6f08(Obj021f6f08*);
 typedef void* (*DoThingFn_02153978)(void*, int);
 
 // USA: func_ov004_02153978
@@ -23,17 +23,17 @@ extern "C" ARM void func_ov004_02153978(void* obj, short* pA, short* pB, short* 
     short v = *pC;
     *pB = v;
     *pA = v;
-    void* node = ((DoThingFn_02153978)DoThing_021f6590)(obj, 5);
+    void* node = ((DoThingFn_02153978)func_ov023_021f6590)(obj, 5);
     if (!node) return;
-    switch (GetShort6_021f6f08((Obj021f6f08*)node)) {
+    switch (func_ov023_021f6f08((Obj021f6f08*)node)) {
         case 0x1a:
             *pA = 0;
             return;
         case 0x1b:
             *pB = 0;
-            node = ((DoThingFn_02153978)DoThing_021f6590)(obj, 0x2a);
+            node = ((DoThingFn_02153978)func_ov023_021f6590)(obj, 0x2a);
             if (!node) return;
-            switch (GetShort6_021f6f08((Obj021f6f08*)node)) {
+            switch (func_ov023_021f6f08((Obj021f6f08*)node)) {
                 case 0x1a: *pC = 0; return;
                 case 0x20: *pC = 1; return;
                 case 0x1b: *pC = 2; return;
@@ -49,9 +49,9 @@ extern "C" ARM void func_ov004_02153978(void* obj, short* pA, short* pB, short* 
             }
             break;
         case 0x1c:
-            node = ((DoThingFn_02153978)DoThing_021f6590)(obj, 0x2b);
+            node = ((DoThingFn_02153978)func_ov023_021f6590)(obj, 0x2b);
             if (!node) return;
-            switch (GetShort6_021f6f08((Obj021f6f08*)node)) {
+            switch (func_ov023_021f6f08((Obj021f6f08*)node)) {
                 case 0x1a: *pB = 1; return;
                 case 0x1b: *pB = 2; return;
                 case 0x1c: *pB = 3; return;

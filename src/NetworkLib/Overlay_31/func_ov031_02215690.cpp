@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-ARM unsigned int NormalizeIndex_022135ac(unsigned int x);
-ARM unsigned int LoadBigEndian32AsLittle_022155e8(unsigned char* p);
-ARM int StoreSwappedPair_02207538(unsigned int* a, unsigned int* b);
+extern "C" ARM unsigned int func_ov031_022135ac(unsigned int x);
+extern "C" ARM unsigned int func_ov031_022155e8(unsigned char* p);
+extern "C" ARM int func_ov031_02207538(unsigned int* a, unsigned int* b);
 
 // USA: func_ov031_02215690
 extern "C" ARM void func_ov031_02215690(unsigned char* obj) {
     if (obj[0xd0d] < 6) {
-        obj += NormalizeIndex_022135ac(obj[0xd0d]) << 8;
+        obj += func_ov031_022135ac(obj[0xd0d]) << 8;
     } else {
         return;
     }
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov031_02215690(unsigned char* obj) {
     if (sum == 0) {
         return;
     }
-    unsigned int a = LoadBigEndian32AsLittle_022155e8(obj + 0xc8);
-    unsigned int b = LoadBigEndian32AsLittle_022155e8(obj + 0xcc);
-    StoreSwappedPair_02207538(&a, &b);
+    unsigned int a = func_ov031_022155e8(obj + 0xc8);
+    unsigned int b = func_ov031_022155e8(obj + 0xcc);
+    func_ov031_02207538(&a, &b);
 }

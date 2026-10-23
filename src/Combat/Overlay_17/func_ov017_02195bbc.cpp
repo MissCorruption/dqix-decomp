@@ -14,27 +14,27 @@ struct Obj0208f410;
 
 extern "C" Zone3D* func_02012fe4();
 extern "C" Container02057a10* func_02057924();
-void* GetFieldPtrAt0x5ca4_02010768(void* obj);
-void ForwardObjAndField0_021a3dcc(int obj);
+extern "C" void* func_02010768(void* obj);
+extern "C" void func_ov017_021a3dcc(int obj);
 extern "C" void func_02016874(Zone3D* self);
-unsigned char GetByte0x4_0200fb9c(char* obj);
-int GetWord0x7f6c_0201201c(void* gs);
+extern "C" unsigned char func_0200fb9c(char* obj);
+extern "C" int func_0201201c(void* gs);
 extern "C" void func_0202343c(void* obj);
-Obj0203dde0* GetGlobalPtr021075f4_0203cf4c();
+extern "C" Obj0203dde0* func_0203cf4c();
 extern "C" void func_0203de84(void* self);
-void UpdateEntrySubObjects0203dde0(Obj0203dde0* obj);
+extern "C" void func_0203dde0(Obj0203dde0* obj);
 extern "C" void* func_0202ae18(void);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
-void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
-void UpdateEntriesWhereFlag2Clear02057a10(Container02057a10* c);
-void UpdateCombatantBitsFromField_02196398_02196398(unsigned int* obj);
+extern "C" void func_0208f87c(const void* self, int b, int c, int d, int polygonId);
+extern "C" void func_02057a10(Container02057a10* c);
+extern "C" void func_ov017_02196398(unsigned int* obj);
 extern "C" void func_020a66a4(Struct020a66a4* obj);
-void ProcessSlotEntry020aca30(Struct020aca30* obj);
-void CallField6acPtrProcessSlot_021b8420(void* obj);
-void CallHelperIfFlag_021c164c(void* obj);
-void EmptyFunc_021b65d8(void* obj);
-void MaybeNotifyGrottoState0208f820(Struct0208f820* p);
-Obj0208f410* GetData02109020_0208e9e8();
+extern "C" void func_020aca30(Struct020aca30* obj);
+extern "C" void func_ov017_021b8420(void* obj);
+extern "C" void func_ov017_021c164c(void* obj);
+extern "C" void func_ov017_021b65d8(void* obj);
+extern "C" void func_0208f820(Struct0208f820* p);
+extern "C" Obj0208f410* func_0208e9e8();
 extern "C" void func_0208f410(Obj0208f410* obj);
 
 struct Battle02195bbc {
@@ -84,15 +84,15 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
     gs = GameState::GetInstance();
     zone = func_02012fe4();
     entries = func_02057924();
-    field5ca4 = (Zone3D**)GetFieldPtrAt0x5ca4_02010768(gs);
+    field5ca4 = (Zone3D**)func_02010768(gs);
 
     if (IsBrightnessWithinValidRange((GameResources*)self, false)) {
-        ForwardObjAndField0_021a3dcc(self->nodeList);
+        func_ov017_021a3dcc(self->nodeList);
         if (TestFlags04((GameResources*)(self->flags), 2) == 0) {
             func_02016874(zone);
         }
     }
-    if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetWord0x7f6c_0201201c(gs) != 5) {
+    if (func_0200fb9c((char*)gs) != 6 && func_0201201c(gs) != 5) {
         func_0202343c(self->f36d0);
     }
     if (IsBrightnessOutsideValidRange((GameResources*)self, false) != 0) {
@@ -102,13 +102,13 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
     GXFIFO_MATRIX_MODE = 3;
     GXFIFO_MATRIX_IDENTITY = 0;
 
-    if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetWord0x7f6c_0201201c(gs) != 5 &&
+    if (func_0200fb9c((char*)gs) != 6 && func_0201201c(gs) != 5 &&
         TestFlags04((GameResources*)(self->flags), 8) == 0) {
-        g = GetGlobalPtr021075f4_0203cf4c();
+        g = func_0203cf4c();
         func_0203de84(g);
-        UpdateEntrySubObjects0203dde0(g);
+        func_0203dde0(g);
     }
-    if (GetByte0x4_0200fb9c((char*)gs) == 6 || GetWord0x7f6c_0201201c(gs) == 5) {
+    if (func_0200fb9c((char*)gs) == 6 || func_0201201c(gs) == 5) {
         return;
     }
 
@@ -132,35 +132,35 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
                 polygonId = NSBXX_Model_GetMaterialPolygonID(model->rawInternalModel_, 0);
             }
             const Vector3fix& pos = monster->obj3D_.MaybeGetShadowSource();
-            SyncBattleState0208f87c(&pos, color, 0x1000, ctx->substruct_c_.unknown_30_, polygonId);
+            func_0208f87c(&pos, color, 0x1000, ctx->substruct_c_.unknown_30_, polygonId);
         }
     }
 
     if (self->f4488 != 0 && TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
-        UpdateEntriesWhereFlag2Clear02057a10(entries);
+        func_02057a10(entries);
     }
-    UpdateCombatantBitsFromField_02196398_02196398(self->flags);
+    func_ov017_02196398(self->flags);
     if (TestFlags04((GameResources*)(self->flags), 0x20000) == 0) {
         func_020a66a4((Struct020a66a4*)self);
     }
     if (TestFlags04((GameResources*)(self->flags), 0x40000) == 0) {
-        ProcessSlotEntry020aca30((Struct020aca30*)self);
+        func_020aca30((Struct020aca30*)self);
     }
     if (self->f4488 == 0 && TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
-        UpdateEntriesWhereFlag2Clear02057a10(entries);
+        func_02057a10(entries);
     }
     if (self->f3718[3] != 0) {
-        CallField6acPtrProcessSlot_021b8420(self->f3718);
+        func_ov017_021b8420(self->f3718);
     }
     if (self->f3b50[3] != 0) {
-        CallHelperIfFlag_021c164c(self->f3b50);
+        func_ov017_021c164c(self->f3b50);
     }
     if (self->f3b5c[3] != 0) {
-        EmptyFunc_021b65d8(self->f3b5c);
+        func_ov017_021b65d8(self->f3b5c);
     }
     if (TestFlags04((GameResources*)(self->flags), 2) == 0) {
-        MaybeNotifyGrottoState0208f820((Struct0208f820*)zone->unk_2664);
+        func_0208f820((Struct0208f820*)zone->unk_2664);
     }
     LightingManager::GetInstance()->MaybeComputeHorizonPosition();
-    func_0208f410(GetData02109020_0208e9e8());
+    func_0208f410(func_0208e9e8());
 }

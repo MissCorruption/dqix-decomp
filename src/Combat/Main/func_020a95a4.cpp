@@ -138,23 +138,23 @@ struct BattleSave {
     unsigned char unk2ca3[5];
 };
 
-void* GetPtrField0x2a04_02010828(GameState* gs);
+extern "C" void* func_02010828(GameState* gs);
 extern "C" void* func_0202ae18(void);
 extern "C" FieldState* func_02012fe4(void);
-Global02109418* GetGlobal02109418_02094d6c(void);
+extern "C" Global02109418* func_02094d6c(void);
 extern "C" void func_020a93e0(char* param0);
 extern "C" void func_02082d6c(void* dst, void* src);
-int RemoveSlotValueAndCompact020838c4(struct Slots020838c4* s, int value);
-void SetFields020a093c(struct Fields020a093c* obj, int a, int b, short c);
-int DecrementKeyValue020a0a08(struct KeyMap020a0a08* map, int key, int amount);
+extern "C" int func_020838c4(struct Slots020838c4* s, int value);
+extern "C" void func_020a093c(struct Fields020a093c* obj, int a, int b, short c);
+extern "C" int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount);
 extern "C" void func_0207c258(void* p);
-unsigned short* GetPointerFromArray0xbd0_0207c5f8(unsigned char* roster, unsigned int idx);
-unsigned char* GetPointerAt0xbf0_0207c60c(void* roster, unsigned int idx);
-short GetShortFromArray0xc10_0207c620(unsigned char* roster, unsigned int idx);
-void SetByteInArray0xc28_0207c6a8(unsigned char* base, unsigned int index, unsigned char value);
-unsigned short* GetField0x74deForValidIndex_020120a0(char* gs, unsigned int idx);
-void SetModeClamped0209ca70(void* obj, int val);
-void SetStateAndDispatch0205e9f4(struct Obj0205e9f4* obj, int state);
+extern "C" unsigned short* func_0207c5f8(unsigned char* roster, unsigned int idx);
+extern "C" unsigned char* func_0207c60c(void* roster, unsigned int idx);
+extern "C" short func_0207c620(unsigned char* roster, unsigned int idx);
+extern "C" void func_0207c6a8(unsigned char* base, unsigned int index, unsigned char value);
+extern "C" unsigned short* func_020120a0(char* gs, unsigned int idx);
+extern "C" void func_0209ca70(void* obj, int val);
+extern "C" void func_0205e9f4(struct Obj0205e9f4* obj, int state);
 
 extern unsigned char data_02109bf4[];
 extern unsigned char data_02108760[];
@@ -166,11 +166,11 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records) {
 extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsigned char* inspect) {
 #endif
     GameState* gs = GameState::GetInstance();
-    BattleData* battle = static_cast<BattleData*>(GetPtrField0x2a04_02010828(gs));
+    BattleData* battle = static_cast<BattleData*>(func_02010828(gs));
     func_0202ae18();
     FieldState* field = func_02012fe4();
     GetGameResources();
-    Global02109418* global = GetGlobal02109418_02094d6c();
+    Global02109418* global = func_02094d6c();
 #if !defined(jpn)
     func_020a93e0((char*)save);
 #endif
@@ -197,7 +197,7 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsig
             func_02082d6c(found, member);
             found->id = id;
             memcpy(found->name, &save->names[i], 0x10);
-            RemoveSlotValueAndCompact020838c4((struct Slots020838c4*)found, 0x5612);
+            func_020838c4((struct Slots020838c4*)found, 0x5612);
             if (id == 0) {
                 found->state = 5;
             }
@@ -209,23 +209,23 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsig
     memcpy(battle->ids, save->ids, 4);
     battle->idCount = save->idCount;
     memcpy(battle->head, save->head, sizeof(save->head));
-    SetFields020a093c((struct Fields020a093c*)battle->head, (int)battle->headKeys, (int)battle->headValues, 0x98);
-    DecrementKeyValue020a0a08((struct KeyMap020a0a08*)battle->head, 0x5612, 0x63);
+    func_020a093c((struct Fields020a093c*)battle->head, (int)battle->headKeys, (int)battle->headValues, 0x98);
+    func_020a0a08((struct KeyMap020a0a08*)battle->head, 0x5612, 0x63);
 
     int total = 0;
     func_0207c258(battle->roster);
     for (int k = 0; k < 8; k++) {
-        unsigned short* words = GetPointerFromArray0xbd0_0207c5f8(battle->roster, k);
-        unsigned char* bytes = GetPointerAt0xbf0_0207c60c(battle->roster, k);
-        short count = GetShortFromArray0xc10_0207c620(battle->roster, k);
+        unsigned short* words = func_0207c5f8(battle->roster, k);
+        unsigned char* bytes = func_0207c60c(battle->roster, k);
+        short count = func_0207c620(battle->roster, k);
         memcpy(words, &save->rosterWords[total], count * 2);
         memcpy(bytes, &save->rosterBytes[total], count);
         total += count;
-        SetByteInArray0xc28_0207c6a8(battle->roster, k, save->rosterFlags[k]);
+        func_0207c6a8(battle->roster, k, save->rosterFlags[k]);
     }
 
     memcpy(battle->tactics, save->tactics, sizeof(save->tactics));
-    SetFields020a093c((struct Fields020a093c*)battle->tactics, (int)battle->tacticsKeys, (int)battle->tacticsValues, 0x5e);
+    func_020a093c((struct Fields020a093c*)battle->tactics, (int)battle->tacticsKeys, (int)battle->tacticsValues, 0x5e);
     battle->valueF6c = save->valueF6c;
     battle->valueF68 = save->valueF68;
     battle->valueF70 = save->valueF70;
@@ -234,9 +234,9 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsig
     GameStateLoadView* view = (GameStateLoadView*)gs;
     battle->areaId = save->areaId;
     view->value7e74 = save->areaId;
-    memcpy(GetField0x74deForValidIndex_020120a0((char*)gs, 0), save->words, sizeof(save->words));
-    SetModeClamped0209ca70(data_02109bf4, save->globalByte);
-    SetStateAndDispatch0205e9f4((struct Obj0205e9f4*)data_02108760, save->globalByte2);
+    memcpy(func_020120a0((char*)gs, 0), save->words, sizeof(save->words));
+    func_0209ca70(data_02109bf4, save->globalByte);
+    func_0205e9f4((struct Obj0205e9f4*)data_02108760, save->globalByte2);
     battle->byteF7d = save->byteF7d;
     view->byte63dc = save->byte63dc;
     field->savedDir = save->dir;

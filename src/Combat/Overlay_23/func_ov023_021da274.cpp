@@ -11,24 +11,24 @@ enum CreationSex {
     CreationFemale = 1,
     CreationSexByteMax = 0xff
 };
-void ClearBuffer0204b010(Obj0204b010*, void*);
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b010(Obj0204b010*, void*);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b04c(void*, void*);
 extern "C" void func_0204b9b8(PaletteWindow*, int, int, int, int, unsigned int);
 
 extern "C" ARM void func_ov023_021da274(CharacterCreationUI* editor) {
     if (editor->flags & 0x1000) {
-        ClearBuffer0204b010((Obj0204b010*)&editor->tileMaps[0], NULL);
+        func_0204b010((Obj0204b010*)&editor->tileMaps[0], NULL);
         int page = editor->state;
         if (page >= 1 && page <= 8) {
             short row = (short)((page - 1) * 2);
             short bottom = row + 5;
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[0], 0, 0, row, 15, bottom, 10, 2, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[0], 0, 0, row, 15, bottom, 10, 2, 0xffff);
         }
         func_0204b04c(&editor->tileMaps[0], NULL);
     }
     if (editor->flags & 0x2000) {
-        ClearBuffer0204b010((Obj0204b010*)&editor->tileMaps[3], NULL);
+        func_0204b010((Obj0204b010*)&editor->tileMaps[3], NULL);
         int page = editor->state;
         if (page == 1) {
             unsigned int id = 0;
@@ -41,25 +41,25 @@ extern "C" ARM void func_ov023_021da274(CharacterCreationUI* editor) {
                 x = 7;
                 y = 11;
             }
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], id, 0, 0, x, y, 18, 6, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], id, 0, 0, x, y, 18, 6, 0xffff);
         } else if (page == 2) {
             unsigned int slot = ((unsigned char*)((int)editor + (int)offsetof(CharacterCreationUI, bodyType)))[editor->sex];
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], slot, 0, 0, (short)(slot * 5 + 4), 5, 4, 9, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], slot, 0, 0, (short)(slot * 5 + 4), 5, 4, 9, 0xffff);
         } else if (page == 5) {
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
             int value = ((unsigned char*)((int)editor + (int)offsetof(CharacterCreationUI, faceStyle)))[editor->sex];
             func_0204b9b8((PaletteWindow*)&editor->tileMaps[3], (short)(value % 5 * 5 + 4), (short)((value / 5 + 1) * 5), 4, 4, 2);
         } else if (page == 3) {
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 0, 0, 0, 4, 5, 24, 9, 0xffff);
             CreationSex sex = (CreationSex)editor->sex;
             int value = ((unsigned char*)((int)editor + (int)offsetof(CharacterCreationUI, hairStyle)))[sex];
             func_0204b9b8((PaletteWindow*)&editor->tileMaps[3], (short)(value % 5 * 5 + 4), (short)((value / 5 + 1) * 5), 4, 4, 2);
         } else if (page == 8) {
             if (editor->flags & 0x400000) {
-                DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 3, 0, 0, 0, 14, 32, 10, 0xffff);
+                func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 3, 0, 0, 0, 14, 32, 10, 0xffff);
             } else {
                 if (editor->previousKeyboardPage != editor->keyboardPage) {
-                    DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[2], (unsigned char)editor->keyboardPage, 0, 0, 0, 0, 32, 24, 0xffff);
+                    func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[2], (unsigned char)editor->keyboardPage, 0, 0, 0, 0, 32, 24, 0xffff);
                 }
                 editor->previousKeyboardPage = editor->keyboardPage;
                 func_0204b9b8((PaletteWindow*)&editor->tileMaps[2], 2, 7, 28, 12, 1);
@@ -87,8 +87,8 @@ extern "C" ARM void func_ov023_021da274(CharacterCreationUI* editor) {
         } else if (page == 9) {
             unsigned int id = 0;
             if (editor->mode == 0) id = 1;
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], id, 0, 0, 0, 14, 32, 10, 0xffff);
-            DispatchEntry0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 2, 0, 0, 24, 9, 8, 7, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], id, 0, 0, 0, 14, 32, 10, 0xffff);
+            func_0204b8d0((Obj0204b8d0*)&editor->tileMaps[3], 2, 0, 0, 24, 9, 8, 7, 0xffff);
             func_0204b9b8((PaletteWindow*)&editor->tileMaps[2], 2, 7, 28, 12, 1);
             func_0204b04c(&editor->tileMaps[2], NULL);
         }
@@ -104,9 +104,9 @@ struct Obj0204b8d0;
 struct Struct0200fb08;
 struct PaletteWindow;
 
-void ClearBuffer0204b010(struct Obj0204b010*, void*);
-unsigned char NormalizeField5_0200fb08(struct Struct0200fb08*);
-void DispatchEntry0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b010(struct Obj0204b010*, void*);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08*);
+extern "C" void func_0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 extern "C" void func_0204b04c(void* obj, void* p);
 extern "C" void func_0204b9b8(PaletteWindow* obj, int x, int y, int width, int height, unsigned palette);
 extern "C" void func_ov003_0215ec68(int id, short* w, short* h);
@@ -159,24 +159,24 @@ struct Self021da274 {
 // USA: func_ov023_021da274
 extern "C" ARM void func_ov023_021da274(Self021da274* self) {
     if (self->flags & 0x1000) {
-        ClearBuffer0204b010((struct Obj0204b010*)&self->win158, NULL);
+        func_0204b010((struct Obj0204b010*)&self->win158, NULL);
         int page = self->page;
         if (page >= 1 && page <= 8) {
             int row = (short)((page - 1) * 2 + 1);
             short col = 0xf;
             short row2 = row + 5;
             short col2 = 0xa;
-            if (NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance()) == 4) {
+            if (func_0200fb08((struct Struct0200fb08*)GameState::GetInstance()) == 4) {
                 col = 0xe;
                 col2 = 0xd;
             }
-            DispatchEntry0204b8d0(WIN(self->win158), 0, 0, row, col, row2, col2, 2, 0xffff);
+            func_0204b8d0(WIN(self->win158), 0, 0, row, col, row2, col2, 2, 0xffff);
         }
         func_0204b04c(&self->win158, NULL);
     }
 
     if (self->flags & 0x2000) {
-        ClearBuffer0204b010((struct Obj0204b010*)&self->win1b8, NULL);
+        func_0204b010((struct Obj0204b010*)&self->win1b8, NULL);
         int page = self->page;
         if (page == 1) {
             unsigned int id = 0;
@@ -190,22 +190,22 @@ extern "C" ARM void func_ov023_021da274(Self021da274* self) {
                 x = 7;
                 y = 0xb;
             }
-            DispatchEntry0204b8d0(WIN(self->win1b8), id, 0, 0, x, y, 0x12, 6, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), id, 0, 0, x, y, 0x12, 6, 0xffff);
         } else if (page == 2) {
             unsigned int slot = ((unsigned char*)((int)self + 0xda4))[self->sel];
-            DispatchEntry0204b8d0(WIN(self->win1b8), slot, 0, 0, (short)(slot * 5 + 4), 5, 4, 9, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), slot, 0, 0, (short)(slot * 5 + 4), 5, 4, 9, 0xffff);
         } else if (page == 5) {
-            DispatchEntry0204b8d0(WIN(self->win1b8), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
             int v = ((unsigned char*)((int)self + 0xda6))[self->sel];
             func_0204b9b8((PaletteWindow*)&self->win1b8, (short)(v % 5 * 5 + 4), (short)((v / 5 + 1) * 5), 4, 4, 2);
         } else if (page == 3) {
-            DispatchEntry0204b8d0(WIN(self->win1b8), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), 0, 0, 0, 4, 5, 0x18, 9, 0xffff);
             int v = ((unsigned char*)((int)self + 0xdac))[self->sel];
             func_0204b9b8((PaletteWindow*)&self->win1b8, (short)(v % 5 * 5 + 4), (short)((v / 5 + 1) * 5), 4, 4, 2);
         } else if (page == 8) {
             int i;
             if (self->flags & 0x400000) {
-                DispatchEntry0204b8d0(WIN(self->win1b8), 3, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
+                func_0204b8d0(WIN(self->win1b8), 3, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
             } else {
                 i = 0;
                 unsigned char mask = self->info->mask;
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov023_021da274(Self021da274* self) {
                     unsigned char bit = data_ov023_021fd532[i * 3];
                     if (bit == 0) break;
                     if (mask & bit) {
-                        DispatchEntry0204b8d0(WIN(self->win198), (&data_ov023_021fd530[i * 3])[column], 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+                        func_0204b8d0(WIN(self->win198), (&data_ov023_021fd530[i * 3])[column], 0, 0, 0, 0, 0x20, 0x18, 0xffff);
                         break;
                     }
                     i++;
@@ -234,8 +234,8 @@ extern "C" ARM void func_ov023_021da274(Self021da274* self) {
         } else if (page == 9) {
             unsigned int id = 0;
             if (self->hidden == 0) id = 1;
-            DispatchEntry0204b8d0(WIN(self->win1b8), id, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
-            DispatchEntry0204b8d0(WIN(self->win1b8), 2, 0, 0, 0x18, 9, 8, 7, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), id, 0, 0, 0, 0xe, 0x20, 0xa, 0xffff);
+            func_0204b8d0(WIN(self->win1b8), 2, 0, 0, 0x18, 9, 8, 7, 0xffff);
             func_0204b9b8((PaletteWindow*)&self->win198, 2, 7, 0x1c, 0xc, 1);
             func_0204b04c(&self->win198, NULL);
         }

@@ -23,14 +23,14 @@ struct EdgeColors
     unsigned short colors_[8];
 };
 
-void ResetGxEngineState020c52e8();
+extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
-int CallWithAddr4000330_020c555c(int a);
-void* GetField0x3b0Value_020100bc(GameState* state);
+extern "C" int func_020c555c(int a);
+extern "C" void* func_020100bc(GameState* state);
 extern "C" void func_0202e0a4(void* camera);
-void SubmitGeometryJob_020c57d4(int a, int b, int c, int d, void* e);
-void ComputeAndLoadMatrix020c5770(int a, int b, int c, int d, int e, int f, int g, int h, void* i);
-void WriteControlAndToggle020d86d0(int a, int b);
+extern "C" void func_020c57d4(int a, int b, int c, int d, void* e);
+extern "C" void func_020c5770(int a, int b, int c, int d, int e, int f, int g, int h, void* i);
+extern "C" void func_020d86d0(int a, int b);
 extern "C" void func_ov015_02190348(void* self);
 extern "C" void func_ov015_02190428(void* self);
 extern "C" void func_ov015_0219050c(void* self);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov015_021901c8(void* self)
     GameState* gameState = GameState::GetInstance();
     if (gameState == NULL)
         return;
-    ResetGxEngineState020c52e8();
+    func_020c52e8();
     func_020c5414();
     RenderConfig::Reset();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
@@ -53,27 +53,27 @@ extern "C" ARM void func_ov015_021901c8(void* self)
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x20;
     {
         EdgeColors colors = data_ov015_02193d38;
-        CallWithAddr4000330_020c555c((int)colors.colors_);
+        func_020c555c((int)colors.colors_);
     }
-    void* camera = GetField0x3b0Value_020100bc(gameState);
+    void* camera = func_020100bc(gameState);
     if (camera != NULL)
         func_0202e0a4(camera);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
     func_ov015_02190348(self);
-    ResetGxEngineState020c52e8();
+    func_020c52e8();
     func_020c5414();
     GXFIFO_MATRIX_MODE = 0;
     {
         Vector3fix target = data_ov015_02193d14;
         Vector3fix eye = {0};
         Vector3fix up = data_ov015_02193d2c;
-        SubmitGeometryJob_020c57d4((int)&eye, (int)&up, (int)&target, 1, NULL);
+        func_020c57d4((int)&eye, (int)&up, (int)&target, 1, NULL);
     }
-    ComputeAndLoadMatrix020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
+    func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
     GXFIFO_MATRIX_MODE = 2;
     func_ov015_02190428(self);
     func_ov015_0219050c(self);
-    WriteControlAndToggle020d86d0(1, 0);
+    func_020d86d0(1, 0);
     UpdateAndApplyBrightness((GameResources*)self);
 }

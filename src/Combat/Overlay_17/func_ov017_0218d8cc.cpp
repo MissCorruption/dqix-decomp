@@ -4,7 +4,7 @@
 #include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 
-void GetVec3FromShorts_020968a4(unsigned char* src, int* out);
+extern "C" void func_020968a4(unsigned char* src, int* out);
 
 struct Camera0218d8cc {
     int field_0x0;
@@ -35,7 +35,7 @@ struct Battle0218d8cc {
 extern "C" ARM void func_ov017_0218d8cc(Battle0218d8cc* self) {
     GameState* gs = GameState::GetInstance();
     GameObject* player = gs->GetUnknownGameObject();
-    Camera0218d8cc* camera = (Camera0218d8cc*)GetField0x3b0Value_020100bc(gs);
+    Camera0218d8cc* camera = (Camera0218d8cc*)func_020100bc(gs);
     if (player == 0 || camera == 0) {
         return;
     }
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_0218d8cc(Battle0218d8cc* self) {
     }
 
     if (self->input->hasStick) {
-        GetVec3FromShorts_020968a4((unsigned char*)self->input, &self->moveDir.x);
+        func_020968a4((unsigned char*)self->input, &self->moveDir.x);
     }
     Vector3fix_Normalize(&self->moveDir, &self->moveDir);
 }

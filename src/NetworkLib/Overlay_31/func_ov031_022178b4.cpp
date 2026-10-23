@@ -20,7 +20,7 @@ struct IdentityReport02217604 {
     unsigned short nickname[11];
 };
 
-int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
+extern "C" int func_020c7170(char* destination, unsigned long capacity, const char* format, ...);
 extern "C" int func_ov031_02218604(void* obj, const char* key, void* val, int len);
 extern "C" int func_ov031_02218528(void* obj, const char* key, const char* val);
 extern "C" int func_02005aa8(void* s);
@@ -47,7 +47,7 @@ extern const char data_ov031_02249d74[];
 // USA: func_ov031_022178b4
 extern "C" ARM int func_ov031_022178b4(void* obj, IdentityReport02217604* report, int flag) {
     char buf[0x24];
-    VariadicForward020c7170(buf, 0x21, data_ov031_02249cd4, 0x3, 1);
+    func_020c7170(buf, 0x21, data_ov031_02249cd4, 0x3, 1);
     if (func_ov031_02218604(obj, data_ov031_02249ce0, buf, strlen(buf)) != 0) return 0;
     if (func_ov031_02218604(obj, data_ov031_02249ce8, report->identifier, strlen(report->identifier)) != 0) return 0;
     if (func_ov031_02218604(obj, data_ov031_02249cf0, report->token, strlen(report->token)) != 0) return 0;
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov031_022178b4(void* obj, IdentityReport02217604* report
     if (flag == 1) {
         if (func_ov031_02218604(obj, data_ov031_02249d48, report->ssid, strlen(report->ssid)) != 0) return 0;
     }
-    VariadicForward020c7170(buf, 0x21, data_ov031_02249d50, 0x3, 1);
+    func_020c7170(buf, 0x21, data_ov031_02249d50, 0x3, 1);
     if (func_ov031_02218528(obj, data_ov031_02249d68, buf) != 0) return 0;
     return func_ov031_02218528(obj, data_ov031_02249d74, report->gameCode) == 0;
 }

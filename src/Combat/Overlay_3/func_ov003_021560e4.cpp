@@ -12,7 +12,7 @@
 
 #if defined(jpn)
 enum { kTaskOffset = 0x1cc, kPartyResourceOffset = 0x50c, kGlobalFieldOffset = 0x868, kManagerListOffset = 0x20, kManagerStateOffset = 0x2c, kManagerFlagOffset = 0x2e };
-extern "C" void _Z22SetIndexedName02046574P11Obj02046574iPc(void*, int, char*);
+extern "C" void func_02046574(void*, int, char*);
 extern "C" void func_0204500c(void*, void*, int);
 extern "C" void func_02080654(void*, void*, const char*);
 extern const char data_ov003_0217e554[];
@@ -26,36 +26,36 @@ enum { kTaskOffset = 0x1d0, kPartyResourceOffset = 0x71c, kGlobalFieldOffset = 0
 
 extern "C" {
 void ColorEffect_ConfigureAlphaBlend(int, int, int, int, int);
-int _Z17FindRecordByIndexP11Rec020467f0iPPvPi(void*, int, void**, int*);
-int _Z18CountActiveEntriesP19ActiveEntry02046900(void*);
-int _Z27GetField0x3acValue_020100a8P9GameState(void*);
-void _Z18InitStruct0205a444Pc(void*);
-int _Z27TestBitInByteArray_0206dfb0iPhi(void*, void*, int);
-void _Z19ResetStruct020dfc40P14Struct020dfc40(void*);
-void _Z20ClearFields_021e20c0Pv(void*);
-void* _Z21GetFieldByKey020e0434P17Container020e0310i(void*, int);
-void _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(void*, void*, int, int);
-void _Z23ClearAllBuffers0207fcb8P11Obj0207fcb8(void*);
-void _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(void*, int, int);
-void _Z24SetEntryScaledXY020807fcPviii(void*, int, int, int);
-void _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(void*, int);
-void* _Z25GetGlobalResetObj020d7a50v(void);
-void* _Z26GetGlobalField0x1c020421a0v(void);
-void _Z27GetEntryFieldsAt0x602080828PviPsS0_(void*, short, short*, short*);
-void _Z27GetEntryFieldsAt0xE02080878PviPsS0_(void*, int, short*, short*);
-void _Z27SetEntryFieldsAt0x602080854Pviii(void*, short, int, int);
-void _Z27SetEntryFieldsAt0xE020808a4Pviii(void*, int, int, int);
-void _Z28CallFunc0204b04cOverList0x2cP12Cont0207fd44(void*);
-void _Z28CallFunc0204b088OverList0x2cP12Cont0207fd88(void*);
-void _Z28CallFunc0204c804OverAllElemsP12Cont0207fe44(void*);
-int _Z28CountNonZeroEntries_0215570cP11Obj0215570c(void*);
-int _Z29LookupValueByEntryKey02081010Pvi(void*, int);
-void _Z29TeardownAndResetState020d7aa0P11Obj020d7aa0(void*);
-void _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(void*, void*);
-void _Z30InitObjFromCombatantId020e4bf4Pvi(void*, int);
-void _Z32GetSublistEntryScaledXY_020807c4PviPsS0_(void*, int, short*, short*);
-void _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii(void*, void*, const char*, const char*);
-int _Z39IsCombatantFlagit2Set_02155f88_02155f88Pvi(void*, int);
+int func_020467f0(void*, int, void**, int*);
+int func_02046900(void*);
+int func_020100a8(void*);
+void func_0205a444(void*);
+int func_0206dfb0(void*, void*, int);
+void func_020dfc40(void*);
+void func_ov023_021e20c0(void*);
+void* func_020e0434(void*, int);
+void func_0204c7a8(void*, void*, int, int);
+void func_0207fcb8(void*);
+void func_0204b5e8(void*, int, int);
+void func_020807fc(void*, int, int, int);
+void func_0204b11c(void*, int);
+void* func_020d7a50(void);
+void* func_020421a0(void);
+void func_02080828(void*, short, short*, short*);
+void func_02080878(void*, int, short*, short*);
+void func_02080854(void*, short, int, int);
+void func_020808a4(void*, int, int, int);
+void func_0207fd44(void*);
+void func_0207fd88(void*);
+void func_0207fe44(void*);
+int func_ov003_0215570c(void*);
+int func_02081010(void*, int);
+void func_020d7aa0(void*);
+void func_0204b12c(void*, void*);
+void func_020e4bf4(void*, int);
+void func_020807c4(void*, int, short*, short*);
+void func_0207f914(void*, void*, const char*, const char*);
+int func_ov003_02155f88(void*, int);
 void _ZN13SafeAllocator5ResetEv(void*);
 int func_020420e8(int, int);
 #if !defined(jpn)
@@ -142,15 +142,15 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
 
     if (state == 0) {
         if (self->flags & 1) {
-            _Z29TeardownAndResetState020d7aa0P11Obj020d7aa0(_Z25GetGlobalResetObj020d7a50v());
+            func_020d7aa0(func_020d7a50());
         }
         func_ov003_02156054(self);
-        FontBankLoader* g = GetGlobal02109400_02094a00();
+        FontBankLoader* g = func_02094a00();
         func_02094ab0(g);
-        BlankFunction02094b34(g, 0x66, 0x1f5, 0, 0);
+        func_02094b34(g, 0x66, 0x1f5, 0, 0);
         self->state = self->state + 1;
     } else if (state == 1) {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00())) {
+        if (func_02094b4c(func_02094a00())) {
 #if defined(jpn)
             self->task = loader->QueueLoadFile(data_ov003_0217e554, 0);
 #else
@@ -166,11 +166,11 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             loader->GetLoadedFileByID(self->task, &file, &size);
             void* a = self->alloc;
             _ZN13SafeAllocator5ResetEv(a);
-            _Z19ResetStruct020dfc40P14Struct020dfc40(self->sube4);
+            func_020dfc40(self->sube4);
             func_020dfec0(self->sube4, a, file, size);
             loader->RemoveTask(self->task);
             self->task = -1;
-            char* g = (char*)_Z26GetGlobalField0x1c020421a0v();
+            char* g = (char*)func_020421a0();
             int key = -1;
             if (self->flags & 1) {
                 key = 0x1a;
@@ -179,20 +179,20 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
                 GameState* gs = GameState::GetInstance();
                 GameObject* pm = gs->GetPartyMemberByIndex(id);
                 if (pm == 0) {
-                    pm = gs->GetPartyMemberByIndex(_Z27GetField0x3acValue_020100a8P9GameState(gs));
+                    pm = gs->GetPartyMemberByIndex(func_020100a8(gs));
                 }
                 func_02046380(g);
 #if defined(jpn)
                 if (pm != 0) {
-                    _Z22SetIndexedName02046574P11Obj02046574iPc(g, 0, *(char**)((char*)pm + 0x134));
+                    func_02046574(g, 0, *(char**)((char*)pm + 0x134));
                 }
 #else
-                _Z30InitObjFromCombatantId020e4bf4Pvi(tmp, pm->obj3D_.unknown_4_);
+                func_020e4bf4(tmp, pm->obj3D_.unknown_4_);
                 *(void**)g = tmp;
 #endif
             } else {
                 char* x = (char*)func_0205ec34();
-                if (_Z27TestBitInByteArray_0206dfb0iPhi(x, x + 0x8c, 0x799)) {
+                if (func_0206dfb0(x, x + 0x8c, 0x799)) {
                     key = 0;
                 } else {
                     self->f1ec = 0;
@@ -200,7 +200,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
                     self->mode = 7;
                 }
             }
-            void* r = _Z21GetFieldByKey020e0434P17Container020e0310i(self->sube4, key);
+            void* r = func_020e0434(self->sube4, key);
             if (r) {
 #if defined(jpn)
                 func_0204500c(g, r, 0);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
                 *(int*)(g + kGlobalFieldOffset) = 1;
                 *(int*)(g + kGlobalFieldOffset + 4) = 1;
             }
-            _Z18InitStruct0205a444Pc(self->sub2c);
+            func_0205a444(self->sub2c);
             self->f7c = 0;
             self->f6c = self->f24;
             self->f78 = 10;
@@ -231,11 +231,11 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             unsigned int size;
             int len;
             loader->GetLoadedFileByID(self->task, &file, &size);
-            int n = _Z18CountActiveEntriesP19ActiveEntry02046900(file);
+            int n = func_02046900(file);
             a = (char*)self->alloc;
             _ZN13SafeAllocator5ResetEv(a + 0x3c);
             for (int i = 0; i < n; i++) {
-                void* rec = (void*)_Z17FindRecordByIndexP11Rec020467f0iPPvPi(file, i, &p, &len);
+                void* rec = (void*)func_020467f0(file, i, &p, &len);
                 func_0205a528(self->sub2c, rec, len, a + 0x3c);
             }
             loader->RemoveTask(self->task);
@@ -246,12 +246,12 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             BytePair B = data_ov003_0217f29c[1];
             for (unsigned char i = 0; i < 2; i++) {
                 List0204af64* e = self->f10 + i;
-                _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(e, 0);
+                func_0204b11c(e, 0);
                 e->b1c_lo = 0;
                 e->b1c_hi = A.v[i];
                 func_0204b5b4(e, B.v[i]);
-                _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(e, a + 0x14);
-                _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(e, 0, 0);
+                func_0204b12c(e, a + 0x14);
+                func_0204b5e8(e, 0, 0);
             }
             *(volatile unsigned short*)0x400000a = (*(volatile unsigned short*)0x400000a & 0x43) | 0x1e00;
             *(volatile unsigned short*)0x400000c = (*(volatile unsigned short*)0x400000c & 0x43) | 0x1f00;
@@ -266,10 +266,10 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             unsigned int size;
             int len;
             loader->GetLoadedFileByID(self->task, &file, &size);
-            int n = _Z18CountActiveEntriesP19ActiveEntry02046900(file);
+            int n = func_02046900(file);
             List0204af64* e = self->f10;
             for (int i = 0; i < n; i++) {
-                void* rec = (void*)_Z17FindRecordByIndexP11Rec020467f0iPPvPi(file, i, &p, &len);
+                void* rec = (void*)func_020467f0(file, i, &p, &len);
                 func_0204b174(e, rec, 0, len);
             }
             loader->RemoveTask(self->task);
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             char* a = (char*)self->alloc;
             for (unsigned char j = 0; j < 3; j++) {
                 Node0207f7f0* ent = self->f14 + j;
-                _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(ent, a + 0x14, self->f0c, 0x4cc);
+                func_0204c7a8(ent, a + 0x14, self->f0c, 0x4cc);
                 ent->lists = self->f10;
             }
             a = (char*)self->alloc;
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
 #if defined(jpn)
             func_02080654(self->f18, a + 0x28, data_ov003_0217e595);
 #else
-            _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii(self->f18, a + 0x28, data_ov003_0217fd46, data_ov003_0217fd60);
+            func_0207f914(self->f18, a + 0x28, data_ov003_0217fd46, data_ov003_0217fd60);
 #endif
             self->state = self->state + 1;
         }
@@ -301,11 +301,11 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
         void* p = self->f18;
 #if !defined(jpn)
         short x, y, w, h;
-        _Z32GetSublistEntryScaledXY_020807c4PviPsS0_(p, 2, &x, &y);
-        _Z27GetEntryFieldsAt0xE02080878PviPsS0_(p, 2, &w, &h);
+        func_020807c4(p, 2, &x, &y);
+        func_02080878(p, 2, &w, &h);
         int mx = 0;
         for (int k = 0; k < 2; k++) {
-            int v = func_020420e8(_Z29LookupValueByEntryKey02081010Pvi(p, data_ov003_0217f2a0[k]), 0);
+            int v = func_020420e8(func_02081010(p, data_ov003_0217f2a0[k]), 0);
             if (mx < v) mx = v;
         }
         w = (mx + 0x1b) & ~7;
@@ -313,16 +313,16 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
         if (w & 1) w = w + 1;
         x = (0x20 - w) >> 1;
         x = x << 3;
-        _Z24SetEntryScaledXY020807fcPviii(p, 2, x, y);
-        _Z27SetEntryFieldsAt0xE020808a4Pviii(p, 2, w, h);
+        func_020807fc(p, 2, x, y);
+        func_020808a4(p, 2, w, h);
 #endif
-        if (_Z28CountNonZeroEntries_0215570cP11Obj0215570c(self) >= 9) {
+        if (func_ov003_0215570c(self) >= 9) {
             for (unsigned char i = 0; i < 12; i++) {
                 for (int j = 0; j < 3; j++) {
                     int idx = i + data_ov003_0217f2ae[j];
                     short a, b;
-                    _Z27GetEntryFieldsAt0x602080828PviPsS0_(p, idx, &a, &b);
-                    _Z27SetEntryFieldsAt0x602080854Pviii(p, idx, a, (short)(b - 1));
+                    func_02080828(p, idx, &a, &b);
+                    func_02080854(p, idx, a, (short)(b - 1));
                 }
             }
         }
@@ -340,7 +340,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             if (file) {
                 char* a = (char*)self->alloc;
                 _ZN13SafeAllocator5ResetEv(a + 0x50);
-                _Z20ClearFields_021e20c0Pv(self->sub114);
+                func_ov023_021e20c0(self->sub114);
                 func_ov023_021e20f0(self->sub114, a + 0x50, file, size);
             }
             loader->RemoveTask(self->task);
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             loader->GetLoadedFileByID(self->task, &file, &size);
             if (file) {
                 void* a = self->alloc;
-                _Z19ResetStruct020dfc40P14Struct020dfc40(self->subfc);
+                func_020dfc40(self->subfc);
                 func_020dfec0(self->subfc, a, file, size);
             }
             loader->RemoveTask(self->task);
@@ -367,16 +367,16 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             self->state = self->state + 1;
         }
     } else if (state == 9) {
-        char* g = (char*)_Z26GetGlobalField0x1c020421a0v();
+        char* g = (char*)func_020421a0();
         if (*(int*)(g + kGlobalFieldOffset + 8) == 3) {
             Manager0207f7f0* p = self->f18;
             p->lists = self->f10;
             p->mode = 2;
-            InitNodeChain0207f7f0(p, self->f14, 3);
+            func_0207f7f0(p, self->f14, 3);
             p->active = 1;
-            _Z23ClearAllBuffers0207fcb8P11Obj0207fcb8(p);
-            _Z28CallFunc0204b04cOverList0x2cP12Cont0207fd44(p);
-            _Z28CallFunc0204b088OverList0x2cP12Cont0207fd88(p);
+            func_0207fcb8(p);
+            func_0207fd44(p);
+            func_0207fd88(p);
             volatile unsigned short* bg = (volatile unsigned short*)0x4000008;
             bg[0] = (bg[0] & ~3) | 2;
             bg[1] = bg[1] & ~3;
@@ -388,12 +388,12 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             if (self->flags & 1) {
                 GameState* gs = GameState::GetInstance();
                 if (self->f1fb == 0) {
-                    self->f1f7 = _Z27GetField0x3acValue_020100a8P9GameState(gs);
+                    self->f1f7 = func_020100a8(gs);
                     self->state = 0;
-                    if (_Z39IsCombatantFlagit2Set_02155f88_02155f88Pvi(self, self->f1f7)) {
+                    if (func_ov003_02155f88(self, self->f1f7)) {
                         self->f1ec = 8;
                         self->mode = 7;
-                        _Z28CallFunc0204c804OverAllElemsP12Cont0207fe44(p);
+                        func_0207fe44(p);
                     } else {
                         self->flags = self->flags | 2;
                         self->f1ec = 9;
@@ -408,7 +408,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
                 }
             } else {
                 char* x = (char*)func_0205ec34();
-                if (_Z27TestBitInByteArray_0206dfb0iPhi(x, x + 0x8c, 0x796)) {
+                if (func_0206dfb0(x, x + 0x8c, 0x796)) {
                     self->f1ec = 4;
                     self->mode = 1;
                 } else {

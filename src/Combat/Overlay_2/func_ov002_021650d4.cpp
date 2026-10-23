@@ -13,18 +13,18 @@
 struct Struct0205de24;
 struct Struct_0205def8;
 struct PMFObj021e7bc4;
-int GetWord0x0_0200fb8c(int *p);
-void *GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int *p, unsigned int mask);
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" int func_0200fb8c(int *p);
+extern "C" void *func_020d6c00();
+extern "C" void func_020466e4(unsigned int *p, unsigned int mask);
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int a, int b);
-void CreateThreeAllocators_021e71b4(void *p, SafeAllocator *alloc);
-void OrGlobalFlag0x40_020dc2bc();
-void SetCombatModeFromCase020dc2d0(int c);
-void DispatchEntryByIndex_021e7bc4(struct PMFObj021e7bc4 *o, unsigned int idx, int v);
-int GetField0x3acValue_020100a8(GameState *gs);
-int CheckFlagOrThreshold_02161b48(char *base, int a);
+extern "C" void func_0205def8(struct Struct_0205def8 *s, int a, int b);
+extern "C" void func_ov023_021e71b4(void *p, SafeAllocator *alloc);
+extern "C" void func_020dc2bc();
+extern "C" void func_020dc2d0(int c);
+extern "C" void func_ov023_021e7bc4(struct PMFObj021e7bc4 *o, unsigned int idx, int v);
+extern "C" int func_020100a8(GameState *gs);
+extern "C" int func_ov002_02161b48(char *base, int a);
 extern "C" void func_020dc7e8(int a, int b);
 extern "C" void func_ov002_02161cf0(void *base);
 extern "C" void func_ov002_0215e44c(void *base);
@@ -39,24 +39,24 @@ extern "C" unsigned char data_ov002_0216cc88[];
 // USA: func_ov002_021650d4
 extern "C" ARM void func_ov002_021650d4(char *base) {
     GameState *gs      = GameState::GetInstance();
-    GameResources *res = (GameResources *) GetWord0x0_0200fb8c((int *) gs);
+    GameResources *res = (GameResources *) func_0200fb8c((int *) gs);
     if (*(unsigned char *) (base + 0x1000 + RG(0xcc3, 0xb87)) == 0) {
         int state = *(int *) (base + 0x1000 + RG(0xbc0, 0xa88));
         if (state == 0) {
-            OrBitsIntoField0_020466e4((unsigned int *) GetDataPtr02114e04_020d6c00(), 1);
+            func_020466e4((unsigned int *) func_020d6c00(), 1);
             func_020dc7e8(1, -1);
-            FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
+            func_0205de24((struct Struct0205de24 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 3);
             func_ov002_02161cf0(base);
             func_ov002_0215e44c(base);
             for (int i = 0; i < 3; i++) {
-                SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
+                func_0205def8((struct Struct_0205def8 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0,
                                                                         data_ov002_0216cc88[i]);
             }
             SetSubBrightness(res, -16, 0xf);
             *(unsigned char *) (base + 0x1000 + RG(0xcc3, 0xb87)) = 1;
             ((SafeAllocator *) (base + RG(0x64, 0x3c8) + RG(0x800, 0x400)))->Reset();
             func_ov023_021e7220(base + RG(0xb4, 0x18) + 0x800, 0);
-            CreateThreeAllocators_021e71b4(base + RG(0xb4, 0x18) + 0x800, (SafeAllocator *) (base + RG(0x64, 0x3c8) + RG(0x800, 0x400)));
+            func_ov023_021e71b4(base + RG(0xb4, 0x18) + 0x800, (SafeAllocator *) (base + RG(0x64, 0x3c8) + RG(0x800, 0x400)));
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (state == 6) {
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = state + 1;
@@ -71,24 +71,24 @@ extern "C" ARM void func_ov002_021650d4(char *base) {
         int st = *(int *) (base + 0x1000 + RG(0xbc0, 0xa88));
         if (st == 1) {
             if (IsSubBrightnessTransitionActive(res)) return;
-            OrGlobalFlag0x40_020dc2bc();
+            func_020dc2bc();
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 2) {
             if (!func_ov023_021e76c4(base + RG(0xb4, 0x18) + 0x800)) return;
-            func_ov023_021e7b34(base + RG(0xb4, 0x18) + 0x800, GetField0x3acValue_020100a8(gs));
-            DispatchEntryByIndex_021e7bc4((struct PMFObj021e7bc4 *) (base + RG(0xb4, 0x18) + 0x800), 0,
-                                                                 GetField0x3acValue_020100a8(gs));
+            func_ov023_021e7b34(base + RG(0xb4, 0x18) + 0x800, func_020100a8(gs));
+            func_ov023_021e7bc4((struct PMFObj021e7bc4 *) (base + RG(0xb4, 0x18) + 0x800), 0,
+                                                                 func_020100a8(gs));
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 3) {
             SetSubBrightness(res, 0, 0xf);
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 4) {
-            if (!CheckFlagOrThreshold_02161b48(base, 1) && g_touchInput.pressed_ == 0) return;
+            if (!func_ov002_02161b48(base, 1) && g_touchInput.pressed_ == 0) return;
             SetSubBrightness(res, -16, 0xa);
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 5) {
             if (IsSubBrightnessTransitionActive(res)) return;
-            SetCombatModeFromCase020dc2d0(0);
+            func_020dc2d0(0);
             func_ov023_021e7340(base + RG(0xb4, 0x18) + 0x800);
             *(unsigned char *) (base + 0x1000 + RG(0xcc3, 0xb87)) = 0;
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;

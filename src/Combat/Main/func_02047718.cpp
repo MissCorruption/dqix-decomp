@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void WriteReg0400048802047888(int s, int t);
+extern "C" void func_02047888(int s, int t);
 
 struct Sprite02047718 {
     int polygonId;
@@ -58,11 +58,11 @@ extern "C" ARM void func_02047718(Sprite02047718* obj, Cell02047718* cell, int p
     *(volatile unsigned int*)0x04000480 = obj->color;
     *(volatile unsigned int*)0x04000488 = 0;
     Vertex(0, 0x1000, 0);
-    WriteReg0400048802047888(w, 0);
+    func_02047888(w, 0);
     Vertex(0x1000, 0x1000, 0);
-    WriteReg0400048802047888(w, h);
+    func_02047888(w, h);
     Vertex(0x1000, 0, 0);
-    WriteReg0400048802047888(0, h);
+    func_02047888(0, h);
     Vertex(0, 0, 0);
     *(volatile unsigned int*)0x04000504 = 0;
     *(volatile unsigned int*)0x04000448 = 1;

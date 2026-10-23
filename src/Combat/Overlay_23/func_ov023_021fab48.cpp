@@ -5,16 +5,16 @@ extern "C" void* func_ov011_021845f8(void* a, int b);
 extern "C" void* func_ov011_021849c8(void*);
 
 struct B190Outer;
-int GetBits12To15Clamped_0205af18(int unused, struct B190Outer* obj);
-void* GetEntryPtr_021fa854(char* obj, unsigned int idx);
-void SetBit_021f6e10(void* obj, int idx, unsigned int bit);
-int GetGlobalField0x1c020421a0();
+extern "C" int func_0205af18(int unused, struct B190Outer* obj);
+extern "C" void* func_ov023_021fa854(char* obj, unsigned int idx);
+extern "C" void func_ov023_021f6e10(void* obj, int idx, unsigned int bit);
+extern "C" int func_020421a0();
 
-int FindFileOrRecord_021fad20(const void* narcBuffer, const char* name, const void** outData, unsigned int* outSize);
+extern "C" int func_ov023_021fad20(const void* narcBuffer, const char* name, const void** outData, unsigned int* outSize);
 extern "C" void func_0205a528(void* a, void* ptr, int val, void* d);
 
 struct ClearTarget0205a234;
-void ClearField0And40205a234(struct ClearTarget0205a234* p);
+extern "C" void func_0205a234(struct ClearTarget0205a234* p);
 
 struct ListNode021f6d14 { unsigned int key; int pad4; void* prev; void* next; };
 struct List021f6d14;
@@ -25,7 +25,7 @@ extern const char data_ov023_021fec49[];
 extern const char data_ov023_021fec4e[];
 extern const char data_ov023_021fec53[];
 
-// USA: func_ov023_021fab48  (semantic: LoadEntryFilesAndRegister_021fab48)
+// USA: func_ov023_021fab48
 extern "C" ARM void func_ov023_021fab48(void* obj, void* ctx, const void* narcBuffer, int flag4) {
 #if defined(jpn)
  enum {regionalOffset0=0x20, regionalOffset1=0x5c, regionalOffset2=0x68, regionalOffset3=0x74, regionalOffset4=0x78, regionalOffset5=0x70, regionalOffset6=0x6e, regionalOffset7=0x228, regionalOffset8=0x60, regionalOffset9=0x22c, regionalOffset10=0x234, regionalOffset11=0x230, regionalOffset12=0x236};
@@ -39,19 +39,19 @@ extern "C" ARM void func_ov023_021fab48(void* obj, void* ctx, const void* narcBu
 
     const void* outData;
     unsigned int outSize;
-    if (FindFileOrRecord_021fad20(narcBuffer, data_ov023_021fec44, &outData, &outSize) != 0) {
+    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec44, &outData, &outSize) != 0) {
         func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
     }
-    if (FindFileOrRecord_021fad20(narcBuffer, data_ov023_021fec49, &outData, &outSize) != 0) {
+    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec49, &outData, &outSize) != 0) {
         func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
     }
-    if (FindFileOrRecord_021fad20(narcBuffer, data_ov023_021fec4e, &outData, &outSize) != 0) {
+    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec4e, &outData, &outSize) != 0) {
         func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
     }
-    if (FindFileOrRecord_021fad20(narcBuffer, data_ov023_021fec53, &outData, &outSize) != 0) {
+    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec53, &outData, &outSize) != 0) {
         void* alloc = ((SafeAllocator*)((char*)base + 4))->Allocate(8);
         if (alloc != 0) {
-            ClearField0And40205a234((struct ClearTarget0205a234*)alloc);
+            func_0205a234((struct ClearTarget0205a234*)alloc);
             *(void**)((char*)obj + regionalOffset1) = alloc;
             func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
         }
@@ -66,15 +66,15 @@ extern "C" ARM void func_ov023_021fab48(void* obj, void* ctx, const void* narcBu
     func_ov023_021f6d14((struct List021f6d14*)list, (struct ListNode021f6d14*)((char*)obj + regionalOffset3));
 
     for (unsigned int i = 0; i < *(unsigned short*)((char*)obj + regionalOffset6); i++) {
-        void* entry = GetEntryPtr_021fa854((char*)obj + regionalOffset0, (unsigned short)i);
+        void* entry = func_ov023_021fa854((char*)obj + regionalOffset0, (unsigned short)i);
         if (entry != 0) {
-            int bits = GetBits12To15Clamped_0205af18((int)((char*)obj + regionalOffset0), (struct B190Outer*)entry);
+            int bits = func_0205af18((int)((char*)obj + regionalOffset0), (struct B190Outer*)entry);
             unsigned char byteVal = *(unsigned char*)((char*)obj + regionalOffset5);
-            SetBit_021f6e10(list, byteVal, (unsigned int)bits);
+            func_ov023_021f6e10(list, byteVal, (unsigned int)bits);
         }
     }
 
-    char* global = (char*)GetGlobalField0x1c020421a0();
+    char* global = (char*)func_020421a0();
     *(void**)(global + regionalOffset7) = (char*)obj + regionalOffset0;
     *(int*)(global + regionalOffset9) = *(int*)((char*)obj + regionalOffset8);
     *(short*)(global + regionalOffset10) = 0;

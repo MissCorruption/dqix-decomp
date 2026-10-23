@@ -4,15 +4,15 @@
 #include "NitroSDK/Memory.h"
 
 struct FieldFlagBlock;
-void ResetAndEnableFieldFlag_02011b24(struct FieldFlagBlock* block);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-void EnqueueEventTag58_021cf594(unsigned short, int, int);
+extern "C" void func_02011b24(struct FieldFlagBlock* block);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" void func_ov017_021cf594(unsigned short, int, int);
 extern "C" void* func_02012fe4(void);
 
 // USA: func_ov004_02168760
 extern "C" ARM int func_ov004_02168760(void) {
     GameState* bs = GameState::GetInstance();
-    ResetAndEnableFieldFlag_02011b24((struct FieldFlagBlock*)bs);
+    func_02011b24((struct FieldFlagBlock*)bs);
 
     char buf[0x70];
     VectorizedMemset(buf, 0, 0x70);
@@ -40,16 +40,16 @@ extern "C" ARM int func_ov004_02168760(void) {
     *(int*)(buf + 0x10) = 0;
     buf[7] = one;
 
-    _Z37CallFunc0200fbb4AtField0x3f8_0200fba4Pv(bs, buf);
+    func_0200fba4(bs, buf);
 
     unsigned short zone = *(unsigned short*)func_02012fe4();
 
     for (signed char i = 1; i < 4; i++) {
         GameObject* member = bs->GetPartyMemberByIndex(i);
         if (!member) continue;
-        if (GetCombatantWithFlag0x1000_0200ff58(bs, i)) continue;
+        if (func_0200ff58(bs, i)) continue;
         if (member->obj3D_.GetField06() != zone) continue;
-        EnqueueEventTag58_021cf594(0x1130, i, 1);
+        func_ov017_021cf594(0x1130, i, 1);
     }
     return 0;
 }

@@ -20,7 +20,7 @@ struct State02067fec
     char pad_0x0[8];
     Flags02067fec flags_;
 };
-Entry0204254c* FindEntryByKey0204254c(int, int);
+extern "C" Entry0204254c* func_0204254c(int, int);
 extern "C" int func_02067f9c(State02067fec*, int, int);
 
 // USA: func_02067fec
@@ -29,7 +29,7 @@ extern "C" ARM int func_02067fec(State02067fec* state, signed char* address, int
     if (state && !state->flags_.active_)
         return state->flags_.fallback_;
     signed char* key = address;
-    Entry0204254c* entry = FindEntryByKey0204254c((int)key, table);
+    Entry0204254c* entry = func_0204254c((int)key, table);
     if (entry)
     {
         if (entry->terminal_)
@@ -38,7 +38,7 @@ extern "C" ARM int func_02067fec(State02067fec* state, signed char* address, int
         key += entry->offset_;
         if (type == 'h')
         {
-            entry = FindEntryByKey0204254c((int)key, table);
+            entry = func_0204254c((int)key, table);
             if (entry && entry->terminal_)
                 return !func_02067f9c(state, (int)(key + entry->offset_), table);
         }

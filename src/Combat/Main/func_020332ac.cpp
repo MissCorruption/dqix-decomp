@@ -23,8 +23,8 @@ struct MovingObject : Object3D {
 };
 struct AnimationNext { signed char state; char padding1[12]; };
 extern AnimationNext data_020ef9d0[];
-void AdvanceFacingAngleTowardTarget(Obj02033710*);
-void AdjustPositionTowardTarget02033e38(void*);
+extern "C" void func_02033710(Obj02033710*);
+extern "C" void func_02033e38(void*);
 extern "C" void func_0203348c(MovingObject*);
 extern "C" void func_02033ce8(MovingObject*);
 extern "C" void func_020339c8(MovingObject*);
@@ -32,7 +32,7 @@ extern "C" void func_020339c8(MovingObject*);
 // USA: func_020332ac
 extern "C" ARM void func_020332ac(MovingObject* object) {
     if (!object->paused) {
-        AdvanceFacingAngleTowardTarget((Obj02033710*)object);
+        func_02033710((Obj02033710*)object);
         func_0203348c(object);
         if (object->moving) {
             object->moving = 0;
@@ -65,7 +65,7 @@ extern "C" ARM void func_020332ac(MovingObject* object) {
                 } else object->speed = 0;
             }
         }
-        AdjustPositionTowardTarget02033e38(object);
+        func_02033e38(object);
         if (object->HasAnimationStopped() || object->HasAnimationReachedEnd()) {
             object->previousState = object->state;
             int state = data_020ef9d0[(short)object->state].state;

@@ -21,14 +21,14 @@ struct Root {
 struct GameFlags {char pad[gameFlagsOffset]; signed int bit0:1,bit1:1,rest:30;};
 struct TableEntry0217f8c0 {char p[0x10];signed char commands[8];signed char index;char q[0x24-0x19];unsigned char flags;};
 struct Struct0217f8c0;struct Obj0204b5e8;struct Struct021754fc;struct S02180b50;
-int DispatchViaTable0204b5e8(Obj0204b5e8*,int,int);
-TableEntry0217f8c0* FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
-void UpdateLastEntryField02175440(void*);
-void UpdateFieldromTable_02174fc0_02174fc0(void*);
-void NotifyEachViaLookup021754fc(Struct021754fc*,int);
-void TickCounter02180b50(S02180b50*);
-int GetField0x3acValue_020100a8(GameState*);
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_0204b5e8(Obj0204b5e8*,int,int);
+extern "C" TableEntry0217f8c0* func_ov000_0217f8c0(Struct0217f8c0*);
+extern "C" void func_ov000_02175440(void*);
+extern "C" void func_ov000_02174fc0(void*);
+extern "C" void func_ov000_021754fc(Struct021754fc*,int);
+extern "C" void func_ov000_02180b50(S02180b50*);
+extern "C" int func_020100a8(GameState*);
+extern "C" int func_0202b7d8(int*);
 extern "C" {
 int* func_0202ae18(); void func_020dc7e8(int,int); int func_0205d0e0(void*,int);
 void func_ov000_02175fc8(void*);void func_ov000_02174d08(void*);void func_ov000_02175024(void*,int);
@@ -45,40 +45,40 @@ extern int data_ov000_02183ff0;extern int data_ov000_02184288[];
 extern "C" ARM void func_ov000_021735d0(Root* self,int delta)
 {
     self->delta=delta;
-    DispatchViaTable0204b5e8((Obj0204b5e8*)self->dispatchA,-self->x,-self->y);
-    DispatchViaTable0204b5e8((Obj0204b5e8*)self->dispatchB,0,0);
-    DispatchViaTable0204b5e8((Obj0204b5e8*)self->dispatchC,0,0);
+    func_0204b5e8((Obj0204b5e8*)self->dispatchA,-self->x,-self->y);
+    func_0204b5e8((Obj0204b5e8*)self->dispatchB,0,0);
+    func_0204b5e8((Obj0204b5e8*)self->dispatchC,0,0);
     GameState* gs=GameState::GetInstance();func_0202ae18();
     if(((GameFlags*)gs)->bit1)func_020dc7e8(0,-1);
     if(!delta)delta=1;
     int update=1;
-    TableEntry0217f8c0* entry=FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self);
+    TableEntry0217f8c0* entry=func_ov000_0217f8c0((Struct0217f8c0*)self);
     if(entry&&entry->commands[entry->index]==100)update=0;
     if(update){
-        UpdateLastEntryField02175440(self);
-        entry=FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self);
+        func_ov000_02175440(self);
+        entry=func_ov000_0217f8c0((Struct0217f8c0*)self);
         int clear;bool a=self->flagA,b=self->flagB;clear=0;
         if(entry&&!(self->flags&0x200)&&self->commands[self->commandIndex]!=6&&self->commands[self->commandIndex]!=7&&!(entry->flags&1))clear=1;
         if(clear){self->flagA=false;self->flagB=false;}
         self->result=func_0205d0e0(self->updateState,delta);
         if(clear){if(a)self->flagA=true;if(b)self->flagB=true;}
     }
-    func_ov000_02175fc8(self);func_ov000_02174d08(self);UpdateFieldromTable_02174fc0_02174fc0(self);
-    func_ov000_02175024(self,delta);NotifyEachViaLookup021754fc((Struct021754fc*)self,delta);
+    func_ov000_02175fc8(self);func_ov000_02174d08(self);func_ov000_02174fc0(self);
+    func_ov000_02175024(self,delta);func_ov000_021754fc((Struct021754fc*)self,delta);
     if(self->flags&0x200){
-        void* unit=func_ov000_02161318(self,(signed char)GetField0x3acValue_020100a8(GameState::GetInstance()));
+        void* unit=func_ov000_02161318(self,(signed char)func_020100a8(GameState::GetInstance()));
         func_ov000_0217f304(self,data_ov000_02183ff0,data_ov000_02184288[1],unit);
         func_ov000_0217c908(self,data_ov000_02183ff0,data_ov000_02184288[1]);
-        TickCounter02180b50((S02180b50*)self);
+        func_ov000_02180b50((S02180b50*)self);
         int special=self->commands[self->commandIndex]==100;
-        if(special & CheckField0NonZero_0202b7d8(func_0202ae18())){
+        if(special & func_0202b7d8(func_0202ae18())){
             if(self->phase==1){
                 for(int i=0;i<2;i++)func_ov000_02176e3c(self,unit,23,data_ov000_02183ff0,data_ov000_02184288[1],0);
                 self->phase=2;
             }else if(self->phase==0)self->phase=1;
         }
     }
-    if(self->flags&0x400)TickCounter02180b50((S02180b50*)self);
+    if(self->flags&0x400)func_ov000_02180b50((S02180b50*)self);
     if(!func_ov000_0217fd60(self,-1)){
         if(self->active&&self->task>=0){BackgroundLoader* loader=BackgroundLoader::GetInstance();loader->RemoveTask(self->task);self->task=-1;}
     }else{

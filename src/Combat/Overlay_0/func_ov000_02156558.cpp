@@ -7,18 +7,18 @@ enum { extraOffset = 0x150, indexOffset = 0x950 };
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-int ClassifyField0x81fe_ov000_0215fc60(char* base);
+extern "C" int func_ov000_0215fc60(char* base);
 extern "C" int func_ov000_02155f9c(struct Random* rand, int combatantId, int checkSubFlag);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int combatantId);
-int IsFlag0x18Bit0x400Set_ov000_02156404(GameObject* combatant);
-int TestBitInArray0x8ec_02083b00(unsigned char* obj, int index);
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" int func_ov000_02156404(GameObject* combatant);
+extern "C" int func_02083b00(unsigned char* obj, int index);
 int NextRandomMax(struct Random* random, int maximum);
 
 extern unsigned char data_ov000_02182ab8[];
 
-// USA: func_ov000_02156558  (semantic: RollHitOrEvasionChance_02156558)
+// USA: func_ov000_02156558
 extern "C" ARM int func_ov000_02156558(struct Random* rand, int combatantId) {
-    if (ClassifyField0x81fe_ov000_0215fc60((char*)rand) != 0) {
+    if (func_ov000_0215fc60((char*)rand) != 0) {
         return 0;
     }
 
@@ -32,12 +32,12 @@ extern "C" ARM int func_ov000_02156558(struct Random* rand, int combatantId) {
         return 0;
     }
 
-    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, combatantId);
+    GameObject* c = func_0200ff1c(bs, combatantId);
     if (c == 0) {
         return 0;
     }
 
-    if (IsFlag0x18Bit0x400Set_ov000_02156404(c)) {
+    if (func_ov000_02156404(c)) {
         short val = *(short*)((char*)rand + 0x8e00 + 0x6e);
         if (val >= 0x32) {
             if (val < 0x4b) return 1;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov000_02156558(struct Random* rand, int combatantId) {
         return 0;
     }
 
-    if (TestBitInArray0x8ec_02083b00(*(unsigned char**)((char*)c + extraOffset), 0x36) == 0) {
+    if (func_02083b00(*(unsigned char**)((char*)c + extraOffset), 0x36) == 0) {
         return 0;
     }
 

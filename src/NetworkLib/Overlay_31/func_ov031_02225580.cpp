@@ -13,7 +13,7 @@ extern "C" void func_ov031_02224ca4(int a, int idx, struct OffWrap02225580 off, 
 extern "C" void func_ov031_0223e2b8(void* obj, int v);
 extern "C" void func_ov031_02225604(void* obj);
 
-// USA: func_ov031_02225580  (semantic: AdvanceLoadStage4_02225580)
+// USA: func_ov031_02225580
 extern "C" ARM void func_ov031_02225580(void* obj) {
     Elem8_02225580* elem = func_ov031_0223baa0(data_ov031_02250bfc->fieldFC, 0);
     int val = elem->a;

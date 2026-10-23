@@ -32,18 +32,18 @@ struct Ability {char p[0x3b];unsigned char low:3,flag:1,high:4;};
 struct Unit {char p[0x138];Ability* ability;};
 extern GlobalData data_ov000_02184294;
 extern Obj0205eaa0 data_02108760;
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*,int);
-int GetFieldAt0x150_02053c6c(unsigned char*);
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*,int,int);
-int GetFieldByKey020e0434(Container020e0310*,int);
-void SwapGlobalEntry0203c108(Obj0203c108*,char*);
-int CheckFlagsOrField_0217ab48_0217ab48(void*);
-void ResetEntryList0205d6a0(Entry_0205d6a0*,int);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
+extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_0205eaa0(Obj0205eaa0*,int,int);
+extern "C" int func_020e0434(Container020e0310*,int);
+extern "C" void func_0203c108(Obj0203c108*,char*);
+extern "C" int func_ov000_0217ab48(void*);
+extern "C" void func_0205d6a0(Entry_0205d6a0*,int);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
 extern "C" {
 void func_02012fe4();
-void* _Z31GetStoredWorkPtr_ov000_02174504v(GlobalRoot*);
+void* func_ov000_02174504(GlobalRoot*);
 int func_ov000_0217c2a0(void*);int func_ov000_0217aa78(void*,int,int);
 void func_ov000_0217c32c(void*);void func_ov000_02171c04(void*);
 }
@@ -51,33 +51,33 @@ void func_ov000_0217c32c(void*);void func_ov000_02171c04(void*);
 // USA: func_ov000_0217ae90
 extern "C" ARM int func_ov000_0217ae90(Root* self)
 {
-    Unit* unit=(Unit*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(),self->member);
+    Unit* unit=(Unit*)func_0200ff1c(GameState::GetInstance(),self->member);
     int state=0;
-    if(unit)state=GetFieldAt0x150_02053c6c((unsigned char*)unit);
+    if(unit)state=func_02053c6c((unsigned char*)unit);
     func_02012fe4();
     CommandState* command=&self->command;
-    command->mode=GetActiveScaledSum0205d794(self->active);
+    command->mode=func_0205d794(self->active);
     command->kind=0;
     data_ov000_02184294.root->flags|=0x100;
     bool flag=g_keyManager.TestKeysPressed(0x601);
-    bool active=flag | IsActiveElementFlag2Set0205da38((Obj_0205da38*)self->active,20);
+    bool active=flag | func_0205da38((Obj_0205da38*)self->active,20);
     if(active){
         self->flag=0;
-        data_ov000_02184294.work=_Z31GetStoredWorkPtr_ov000_02174504v(data_ov000_02184294.root);
+        data_ov000_02184294.work=func_ov000_02174504(data_ov000_02184294.root);
         switch(command->mode){
         case 0:
             self->saved=self->command.commands[self->command.index];
-            DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+            func_0205eaa0(&data_02108760,1,0);
             command->index++;command->commands[command->index]=14;
             command->count=0;command->value19=-1;command->value26=-1;command->kind=1;
             if(func_ov000_0217c2a0(self)){
                 command->commands[command->index]=100;
-                SwapGlobalEntry0203c108((Obj0203c108*)self->entry,(char*)GetFieldByKey020e0434(self->container,0x7534));
+                func_0203c108((Obj0203c108*)self->entry,(char*)func_020e0434(self->container,0x7534));
             }
             return command->commands[command->index];
         case 1:
             self->saved=self->command.commands[self->command.index];
-            DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+            func_0205eaa0(&data_02108760,1,0);
             if(self->selectionA){
                 command->index++;command->commands[command->index]=15;command->value18=0;
                 if(state)command->value18=func_ov000_0217aa78(self,self->selectionA,0);
@@ -89,13 +89,13 @@ extern "C" ARM int func_ov000_0217ae90(Root* self)
             }
         case 2:
             self->saved=self->command.commands[self->command.index];command->kind=3;
-            DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
-            SwapGlobalEntry0203c108((Obj0203c108*)self->entry,(char*)GetFieldByKey020e0434(self->container,0x7536));
+            func_0205eaa0(&data_02108760,1,0);
+            func_0203c108((Obj0203c108*)self->entry,(char*)func_020e0434(self->container,0x7536));
             command->index++;command->commands[command->index]=100;
             return command->commands[command->index];
         case 3:
             self->saved=self->command.commands[self->command.index];
-            DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+            func_0205eaa0(&data_02108760,1,0);
             if(self->selectionB){
                 command->index++;command->commands[command->index]=16;command->value16=0;
                 if(state)command->value16=func_ov000_0217aa78(self,self->selectionB,1);
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov000_0217ae90(Root* self)
             }
         case 4:
             self->saved=self->command.commands[self->command.index];
-            DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+            func_0205eaa0(&data_02108760,1,0);
             func_ov000_02171c04(self);
             if(self->selectionC){
                 command->index++;command->commands[command->index]=17;command->value1a=0;
@@ -121,15 +121,15 @@ extern "C" ARM int func_ov000_0217ae90(Root* self)
         case 5:
             if(unit->ability->flag){
                 self->saved=self->command.commands[self->command.index];
-                DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+                func_0205eaa0(&data_02108760,1,0);
                 command->index++;command->commands[command->index]=21;command->value1b=0;
                 return command->commands[command->index];
             }
             break;
         }
-    }else if(CheckFlagsOrField_0217ab48_0217ab48(self)){
+    }else if(func_ov000_0217ab48(self)){
         command->kind=0;data_ov000_02184294.root->flags&=~0x100;
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->active,1);
+        func_0205d6a0((Entry_0205d6a0*)self->active,1);
         return -2;
     }
     return -1;

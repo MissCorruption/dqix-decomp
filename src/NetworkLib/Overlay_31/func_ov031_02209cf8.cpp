@@ -6,9 +6,9 @@ extern RandomState09cf8 data_ov031_0224c9e8;
 extern unsigned char data_ov031_0224e3b0;
 extern unsigned char data_ov031_0224e528[20];
 extern "C" void func_ov031_02209e28(void*, int);
-void InitSha1State_0220b8a0(unsigned int*);
+extern "C" void func_ov031_0220b8a0(unsigned int*);
 extern "C" void func_ov031_0220b8f4(void*, void*, int);
-void InitTwoBuffers_0220ba14(void*, void*);
+extern "C" void func_ov031_0220ba14(void*, void*);
 
 // USA: func_ov031_02209cf8
 extern "C" ARM void func_ov031_02209cf8(unsigned char* destination, int length) {
@@ -25,10 +25,10 @@ extern "C" ARM void func_ov031_02209cf8(unsigned char* destination, int length) 
     if (length <= 0) return;
     do {
             if (digestIndex == 20) {
-                InitSha1State_0220b8a0(context);
+                func_ov031_0220b8a0(context);
                 int interruptState = DisableIRQInterrupts();
                 func_ov031_0220b8f4(context, data_ov031_0224e528, 20);
-                InitTwoBuffers_0220ba14(context, digest);
+                func_ov031_0220ba14(context, digest);
                 unsigned char* seedByte = data_ov031_0224e528 + sizeof(data_ov031_0224e528) - 1;
                 unsigned char* digestByte;
                 int byteIndex;

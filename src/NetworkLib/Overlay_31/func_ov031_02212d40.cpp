@@ -5,8 +5,8 @@
 #endif
 
 extern "C" void func_020ca3ec(int value, void* dst, int size);
-int SetFlagAndInvoke_02213230(int mask, void* arg);
-int Check_0221add4_0221add4(int v);
+extern "C" int func_ov031_02213230(int mask, void* arg);
+extern "C" int func_ov031_0221add4(int v);
 extern "C" int func_ov031_0220c970(void* p, int size);
 extern "C" void func_ov031_022132d4(void);
 
@@ -43,10 +43,10 @@ extern "C" ARM int func_ov031_02212d40(Obj02212d40* obj) {
     *((unsigned char*)p + 0x16) = 1;
     *((unsigned char*)p + 8) = 1;
 
-    g->field10 = (void*)SetFlagAndInvoke_02213230(0x10, (void*)0xd18);
-    g->field0  = (void*)SetFlagAndInvoke_02213230(2, (void*)0x2300);
-    g->field4  = (void*)SetFlagAndInvoke_02213230(4, (void*)0x58);
-    g->field8  = (void*)SetFlagAndInvoke_02213230(8, (void*)0xc);
+    g->field10 = (void*)func_ov031_02213230(0x10, (void*)0xd18);
+    g->field0  = (void*)func_ov031_02213230(2, (void*)0x2300);
+    g->field4  = (void*)func_ov031_02213230(4, (void*)0x58);
+    g->field8  = (void*)func_ov031_02213230(8, (void*)0xc);
 
     func_020ca3ec(0, g->field10, 0xd18);
     func_020ca3ec(0, g->field0, 0x2300);
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov031_02212d40(Obj02212d40* obj) {
     big[0xd0c] = (big[0xd0c] & ~0xf) | (obj->fieldA & 0xf);
     big[0xd0c] = (big[0xd0c] & ~0x30) | ((obj->fieldB & 3) << 4);
 
-    Check_0221add4_0221add4((int)big);
+    func_ov031_0221add4((int)big);
 
     int r = func_ov031_0220c970(g->field0, 0x2300);
     if (r == 1 || r > 4) {

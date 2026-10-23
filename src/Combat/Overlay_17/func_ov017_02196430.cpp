@@ -114,35 +114,35 @@ struct Kinds02196430 {
 
 extern "C" void* func_0202ae18(void);
 extern "C" Work02196430* func_02012fe4(void);
-void* GetField0x3f8Address_0200fd0c(GameState* state);
-int IsField0Null_02046b08(void** obj);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24** obj);
-int IsField0x1b4Or0x1b8Positive_02053cdc(int* obj);
-int GetByte0x26c_02039d7c(char* obj);
-int GetIntField0x264_02039760(void* obj);
-int GetField0x8OrDefault02077a20(Outer02077a20* p);
-void InitObj0219a674(unsigned char* self);
-short GetAbsAngleDeltaBetween_021a4754(Vector3fix* p0, int baseAngle, Vector3fix* p2);
+extern "C" void* func_0200fd0c(GameState* state);
+extern "C" int func_02046b08(void** obj);
+extern "C" int func_02046b24(HeadNode02046b24** obj);
+extern "C" int func_02053cdc(int* obj);
+extern "C" int func_02039d7c(char* obj);
+extern "C" int func_02039760(void* obj);
+extern "C" int func_02077a20(Outer02077a20* p);
+extern "C" void func_ov017_0219a674(unsigned char* self);
+extern "C" short func_ov017_021a4754(Vector3fix* p0, int baseAngle, Vector3fix* p2);
 extern "C" void func_ov017_0219b33c(Ctx02196430* self, Msg02196430* msg);
-int HasMatchingHalfword_0219735c(unsigned char* obj, unsigned short key);
-int GetField0x17dBits4To5IfFlag8_020795cc(unsigned char* obj);
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* arr, int value);
-int CheckProximity_02196fc8(GameObject* self, GameObject* other, int extra);
-int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
-int GetField0x3acValue_020100a8(GameState* state);
-void TrySetMode02076ccc(void* obj, int mode);
+extern "C" int func_ov017_0219735c(unsigned char* obj, unsigned short key);
+extern "C" int func_020795cc(unsigned char* obj);
+extern "C" int func_02086ef0(ArrayContainsByteStruct* arr, int value);
+extern "C" int func_ov017_02196fc8(GameObject* self, GameObject* other, int extra);
+extern "C" int func_020535c8(signed char* obj);
+extern "C" int func_020100a8(GameState* state);
+extern "C" void func_02076ccc(void* obj, int mode);
 extern "C" unsigned short func_ov017_021971c4(Ctx02196430* self);
 extern "C" int func_0202c508(void* obj);
 extern "C" int func_0202c540(void* obj);
 struct Entry0207d9bc;
-Entry0207d9bc* GetData02108ea8_0207d78c();
-EventEntry02196430* FindEntryByHalfword(Entry0207d9bc* table, unsigned short id);
+extern "C" Entry0207d9bc* func_0207d78c();
+extern "C" EventEntry02196430* func_0207d9bc(Entry0207d9bc* table, unsigned short id);
 extern "C" void func_ov017_021b6f18(void* node);
-void InitStruct_02196c08(unsigned char* obj);
+extern "C" void func_ov017_02196c08(unsigned char* obj);
 extern "C" void func_ov017_021b6e70(Event02196430* evt, int index);
 extern "C" int func_ov017_021970a0(int mode);
 extern "C" void func_ov017_021b7104(void* node, Event02196430* evt);
-void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
+extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
 
 extern Kinds02196430 data_ov017_021d6438;
 
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
     Ctx02196430* res = (Ctx02196430*)GetGameResources();
     Work02196430* work = func_02012fe4();
     LightingManager* lighting = LightingManager::GetInstance();
-    ArrayContainsByteStruct* party = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(game);
+    ArrayContainsByteStruct* party = (ArrayContainsByteStruct*)func_02010828(game);
     unsigned short tag;
     int special;
     int facing;
@@ -176,19 +176,19 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
     if (self->busy != 0) {
         return 2;
     }
-    if (IsField0Null_02046b08((void**)self->list) == 0) {
-        return GetHeadNodeIdOrMinusOne((HeadNode02046b24**)self->list) == 0x45 ? 0 : 2;
+    if (func_02046b08((void**)self->list) == 0) {
+        return func_02046b24((HeadNode02046b24**)self->list) == 0x45 ? 0 : 2;
     }
     if (entry == NULL) {
         return 2;
     }
-    if (IsField0x1b4Or0x1b8Positive_02053cdc((int*)player)) {
+    if (func_02053cdc((int*)player)) {
         return 2;
     }
     if (player->flags18c & 1) {
         return 2;
     }
-    if (GetByte0x26c_02039d7c((char*)player) != 0) {
+    if (func_02039d7c((char*)player) != 0) {
         return 2;
     }
     if (TestFlags04((GameResources*)self, 0x10)) {
@@ -197,10 +197,10 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
     if (res->locked != 0) {
         return 2;
     }
-    if (((Zone02196430*)GetField0x3f8Address_0200fd0c(game))->busy != 0) {
+    if (((Zone02196430*)func_0200fd0c(game))->busy != 0) {
         return 2;
     }
-    if (GetIntField0x264_02039760(player) != 0 && allowRepeat == 0) {
+    if (func_02039760(player) != 0 && allowRepeat == 0) {
         return 0;
     }
 
@@ -231,7 +231,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
                     other->obj3D.position_.y + otherHeight < player->obj3D.position_.y) {
                     touching = 0;
                 } else {
-                    int reach = (player->obj3D.GetRadius() >> 1) + (GetField0x8OrDefault02077a20((Outer02077a20*)other) >> 1);
+                    int reach = (player->obj3D.GetRadius() >> 1) + (func_02077a20((Outer02077a20*)other) >> 1);
                     int dist = Vector3fix_Distance(&player->obj3D.position_, &other->obj3D.position_);
                     Vector3fix_Subtract(&player->obj3D.position_, &other->obj3D.position_, &dir);
                     Vector3fix_Normalize(&dir, &dir);
@@ -245,10 +245,10 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
                     touching = dist < reach + 0x1000;
                 }
                 if (touching && func_0202c508(session)) {
-                    InitObj0219a674((unsigned char*)&approachMsg);
+                    func_ov017_0219a674((unsigned char*)&approachMsg);
                     approachMsg.kind = 9;
                     approachMsg.field2 = other->obj3D.unknown_4_;
-                    approachMsg.angle = GetAbsAngleDeltaBetween_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_);
+                    approachMsg.angle = func_ov017_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_);
                     if (approachMsg.angle < 0x1922) {
                         func_ov017_0219b33c(self, &approachMsg);
                     }
@@ -260,33 +260,33 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
                     continue;
                 }
 #if !defined(jpn)
-                if (HasMatchingHalfword_0219735c((unsigned char*)self, other->eventId)) {
+                if (func_ov017_0219735c((unsigned char*)self, other->eventId)) {
                     continue;
                 }
 #endif
                 if (!((unsigned char)(other->flags17d & 8) &&
-                      ArrayContainsByte_02086ef0(party, GetField0x17dBits4To5IfFlag8_020795cc((unsigned char*)other)))) {
+                      func_02086ef0(party, func_020795cc((unsigned char*)other)))) {
                     if (allowRepeat != 0) {
                         continue;
                     }
-                    if (!CheckProximity_02196fc8((GameObject*)player, (GameObject*)other, 0)) {
+                    if (!func_ov017_02196fc8((GameObject*)player, (GameObject*)other, 0)) {
                         continue;
                     }
                 }
             } else {
-                if (!CheckProximity_02196fc8((GameObject*)player, (GameObject*)other, 0x1000)) {
+                if (!func_ov017_02196fc8((GameObject*)player, (GameObject*)other, 0x1000)) {
                     continue;
                 }
                 if (!other->obj3D.IsVisible()) {
                     continue;
                 }
-                InitObj0219a674((unsigned char*)&contactMsg);
+                func_ov017_0219a674((unsigned char*)&contactMsg);
                 contactMsg.kind = 0xe;
                 func_ov017_0219b33c(self, &contactMsg);
                 if (g_keyManager.TestKeysPressed(1) == 0 && self->forceEvent == 0) {
                     continue;
                 }
-                if (CheckSubstructByte0x7cPositive_020535c8((signed char*)player)) {
+                if (func_020535c8((signed char*)player)) {
                     continue;
                 }
                 direct = 1;
@@ -304,7 +304,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
                 continue;
             }
             if (direct == 0 && (other->flags17d & 8)) {
-                if (!ArrayContainsByte_02086ef0(party, GetField0x17dBits4To5IfFlag8_020795cc((unsigned char*)other))) {
+                if (!func_02086ef0(party, func_020795cc((unsigned char*)other))) {
                     continue;
                 }
             }
@@ -312,16 +312,16 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
                 continue;
             }
             if (other->mode != 8 && other->mode != 9 && other->mode != 0) {
-                other->field166 = GetField0x3acValue_020100a8(game);
-                TrySetMode02076ccc(other, 8);
+                other->field166 = func_020100a8(game);
+                func_02076ccc(other, 8);
             }
             id = other->eventId;
             doEvent = 1;
-            if (9007.6f < (float)GetAbsAngleDeltaBetween_021a4754(&other->obj3D.position_, (short)other->obj3D.rotation_.y, &player->obj3D.position_)) {
+            if (9007.6f < (float)func_ov017_021a4754(&other->obj3D.position_, (short)other->obj3D.rotation_.y, &player->obj3D.position_)) {
                 facing = 1;
                 break;
             }
-            if (9007.6f < (float)GetAbsAngleDeltaBetween_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_)) {
+            if (9007.6f < (float)func_ov017_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_)) {
                 facing = 2;
             }
             break;
@@ -330,11 +330,11 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
 
     unsigned short nearbyId = func_ov017_021971c4(self);
     if (nearbyId != 0) {
-        InitObj0219a674((unsigned char*)&nearbyMsg);
+        func_ov017_0219a674((unsigned char*)&nearbyMsg);
         nearbyMsg.kind = 0xe;
         func_ov017_0219b33c(self, &nearbyMsg);
     }
-    if (!CheckSubstructByte0x7cPositive_020535c8((signed char*)player) &&
+    if (!func_020535c8((signed char*)player) &&
         (g_keyManager.TestKeysPressed(1) != 0 || self->forceEvent != 0) && nearbyId != 0) {
         doEvent = 1;
         direct = 1;
@@ -349,12 +349,12 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
         }
     }
     if (doEvent && direct && func_0202c508(session)) {
-        EventEntry02196430* found = FindEntryByHalfword(GetData02108ea8_0207d78c(), id);
+        EventEntry02196430* found = func_0207d9bc(func_0207d78c(), id);
         if (found != NULL && found->field4 < 0) {
             doEvent = 0;
         }
     }
-    if (func_0202c540(session) && IsField0Null_02046b08((void**)self->list) && self->pendingId != 0) {
+    if (func_0202c540(session) && func_02046b08((void**)self->list) && self->pendingId != 0) {
         id = self->pendingId;
         self->pendingId = 0;
         self->pendingArg = 0;
@@ -364,12 +364,12 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
     }
     if (doEvent) {
         func_ov017_021b6f18(self->node);
-        InitStruct_02196c08((unsigned char*)&evt);
+        func_ov017_02196c08((unsigned char*)&evt);
         evt.kind = 1;
         if (special) {
             evt.field_0xe = 1;
         }
-        evt.field_0x1 = GetField0x3acValue_020100a8(game);
+        evt.field_0x1 = func_020100a8(game);
         evt.id = id;
         evt.tag = index;
         func_ov017_021b6e70(&evt, index);
@@ -392,7 +392,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* resources) {
         evt.field_0x14 = direct;
         evt.timeOfDay = lighting->timeOfDayIndex_;
         func_ov017_021b7104(self->node, &evt);
-        AppendNodeToTail((TailList020469b4*)self->list, (TailNode020469b4*)self->node);
+        func_020469b4((TailList020469b4*)self->list, (TailNode020469b4*)self->node);
         return 1;
     }
     return 0;

@@ -2,11 +2,11 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-void* GetCombatantWithFlag0x1000_0200ff58(GameState*,int);
-int GetField0x3acValue_020100a8(GameState*);
-int GetClampedArrayField0xd1c_ov000_021761c8(char*,int);
-int GetClampedArrayField0xd3c_ov000_021761ec(char*,int);
-void EnqueueEventTag67_021c6a9c(unsigned short, int, int, unsigned char, unsigned char, signed char);
+extern "C" void* func_0200ff58(GameState*,int);
+extern "C" int func_020100a8(GameState*);
+extern "C" int func_ov000_021761c8(char*,int);
+extern "C" int func_ov000_021761ec(char*,int);
+extern "C" void func_ov017_021c6a9c(unsigned short, int, int, unsigned char, unsigned char, signed char);
 struct Node02175be4 {
     char p0[0x1d]; signed char selection; char p1[8]; unsigned short key;
     char p2[6]; signed char state;
@@ -30,14 +30,14 @@ static inline short GetKey02175be4(Node02175be4* node) { return (short)node->key
 extern "C" ARM void func_ov000_02175be4(Root02175be4* obj) {
     GameState* gs = GameState::GetInstance();
     for (signed char i=0;i<4;i++) {
-        if (!GetCombatantWithFlag0x1000_0200ff58(gs,i)) func_ov000_02161318(obj,i);
+        if (!func_0200ff58(gs,i)) func_ov000_02161318(obj,i);
     }
-    if (obj->phase != GetField0x3acValue_020100a8(gs)) return;
+    if (obj->phase != func_020100a8(gs)) return;
     unsigned char count = 0;
     short keys[4] = {0};
     FourShort02175be4 selections(data_ov000_021833a8);
     for (signed char i=0;i<4;i++) {
-        if (!GetCombatantWithFlag0x1000_0200ff58(gs,i)) {
+        if (!func_0200ff58(gs,i)) {
             Node02175be4* node = func_ov000_02161318(obj,i);
             if (node) {
                 keys[count] = node->key;
@@ -114,9 +114,9 @@ extern "C" ARM void func_ov000_02175be4(Root02175be4* obj) {
     for (signed char i=0;i<4;i++) {
         Node02175be4* node=func_ov000_02161318(obj,i);
         if (node) {
-            unsigned char a=GetClampedArrayField0xd1c_ov000_021761c8((char*)obj,node->selection);
-            unsigned char b=GetClampedArrayField0xd3c_ov000_021761ec((char*)obj,node->selection);
-            EnqueueEventTag67_021c6a9c(obj->event, i, (unsigned short)GetKey02175be4(node), a, b, node->state);
+            unsigned char a=func_ov000_021761c8((char*)obj,node->selection);
+            unsigned char b=func_ov000_021761ec((char*)obj,node->selection);
+            func_ov017_021c6a9c(obj->event, i, (unsigned short)GetKey02175be4(node), a, b, node->state);
         }
     }
 }

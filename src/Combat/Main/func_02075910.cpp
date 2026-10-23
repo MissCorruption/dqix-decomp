@@ -11,12 +11,12 @@ struct Flag02108dfc {
 extern struct Flag02108dfc data_02108dfc;
 extern unsigned char data_020f0dc8;
 
-void SelectBattleContextMode2_020d0040(int mode);
-int GetBattleSysInnerField4_020d06d4();
-void PrepareAndCommit020d0050(int value);
+extern "C" void func_020d0040(int mode);
+extern "C" int func_020d06d4();
+extern "C" void func_020d0050(int value);
 int GetCardReadManagerSharedStatus();
-int ForwardWaitForField0x114Bit4ClearIsNull020d0834();
-void EmptyDestructor020758a0(void* obj);
+extern "C" int func_020d0834();
+extern "C" void func_020758a0(void* obj);
 extern "C" void func_020d05ec(int a, int b, int c, void* d, int e, int f, int g, int h, int i);
 
 // USA: func_02075910
@@ -35,19 +35,19 @@ extern "C" ARM int func_02075910(int a1, int a2, int a3, int a4) {
 
     data_02108dfc.flag = 0;
     int result = 1;
-    SelectBattleContextMode2_020d0040((int)data_02108dfc.value);
+    func_020d0040((int)data_02108dfc.value);
 
-    int b = ((GetBattleSysInnerField4_020d06d4() & 0xff) == 1);
+    int b = ((func_020d06d4() & 0xff) == 1);
     if (b) {
-        func_020d05ec(a1, a2, a3, EmptyDestructor020758a0, 0, 1, 6, 1, 0);
+        func_020d05ec(a1, a2, a3, func_020758a0, 0, 1, 6, 1, 0);
     } else {
-        b = ((GetBattleSysInnerField4_020d06d4() & 0xff) == 2);
+        b = ((func_020d06d4() & 0xff) == 2);
         if (b) {
-            func_020d05ec(a1, a2, a3, EmptyDestructor020758a0, 0, 1, 6, 1, 0);
+            func_020d05ec(a1, a2, a3, func_020758a0, 0, 1, 6, 1, 0);
         } else {
-            b = ((GetBattleSysInnerField4_020d06d4() & 0xff) == 3);
+            b = ((func_020d06d4() & 0xff) == 3);
             if (b) {
-                func_020d05ec(a1, a2, a3, EmptyDestructor020758a0, 0, 1, 6, 1, 0);
+                func_020d05ec(a1, a2, a3, func_020758a0, 0, 1, 6, 1, 0);
             }
         }
     }
@@ -57,11 +57,11 @@ extern "C" ARM int func_02075910(int a1, int a2, int a3, int a4) {
             result = 0;
         }
     } else {
-        ForwardWaitForField0x114Bit4ClearIsNull020d0834();
+        func_020d0834();
         if (GetCardReadManagerSharedStatus()) {
             result = 0;
         }
-        PrepareAndCommit020d0050((int)data_02108dfc.value);
+        func_020d0050((int)data_02108dfc.value);
         data_02108dfc.flag = 1;
     }
 

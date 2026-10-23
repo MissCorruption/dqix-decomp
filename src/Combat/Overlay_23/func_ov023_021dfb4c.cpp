@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 extern "C" void func_ov023_021dcae0(void* obj, int val);
-void ResetIfNonNeg_021db2e4(volatile int* p);
+extern "C" void func_ov023_021db2e4(volatile int* p);
 struct DispatchEntry_021fdaa8 { int handler; int offsetFlag; };
 extern DispatchEntry_021fdaa8 data_ov023_021fdaa8[];
 
-// USA: func_ov023_021dfb4c  (semantic: RunSubStateDispatch_021dfb4c)
+// USA: func_ov023_021dfb4c
 extern "C" ARM void func_ov023_021dfb4c(void* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x6ee, regionalOffset1=0x6ec, regionalOffset2=0x6f0, regionalOffset3=0x6f7, regionalOffset4=0x717, regionalOffset5=0x6b0, regionalOffset6=0x6b4, regionalOffset7=0x6d0};
@@ -25,9 +25,9 @@ extern "C" ARM void func_ov023_021dfb4c(void* obj) {
     if (*(signed char*)((char*)obj + regionalOffset3) == 1) {
         struct Flags79b_021dfb4c { unsigned char bit0 : 1; unsigned char bit1 : 1; unsigned char rest : 6; };
         if (((Flags79b_021dfb4c*)((char*)obj + regionalOffset4))->bit1 == 0) {
-            ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset5));
+            func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset5));
             for (int i = 0; i < 7; i++) {
-                ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset6 + i * 4));
+                func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset6 + i * 4));
             }
             *(unsigned short*)((char*)obj + regionalOffset2) |= 1;
             *(int*)((char*)obj + regionalOffset7) = 0;
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov023_021dfb4c(void* obj) {
         *(int*)((char*)obj + regionalOffset7) = result;
         if (result < 0) {
             *(unsigned short*)((char*)obj + regionalOffset2) &= ~1;
-            ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset5));
+            func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset5));
             for (int i = 0; i < 7; i++) {
-                ResetIfNonNeg_021db2e4((volatile int*)((char*)obj + regionalOffset6 + i * 4));
+                func_ov023_021db2e4((volatile int*)((char*)obj + regionalOffset6 + i * 4));
             }
             return;
         }

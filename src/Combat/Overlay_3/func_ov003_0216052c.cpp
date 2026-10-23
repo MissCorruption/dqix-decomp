@@ -14,10 +14,10 @@ enum { kRegion464 = 0x464 };
 struct Obj2081;
 
 extern "C" void* func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int* obj);
-int HasElementByByte0xc4_020811d0(struct Obj2081* obj, int key);
-void UpdateOffsetsFromEntry02080a6c(void* param0, int id, short param2, short* param3, short* param4, short* param5, short* param6);
-void SetEntryFields_021604f4(char* obj, int valA, int valB, short index, unsigned char flag);
+extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_020811d0(struct Obj2081* obj, int key);
+extern "C" void func_02080a6c(void* param0, int id, short param2, short* param3, short* param4, short* param5, short* param6);
+extern "C" void func_ov003_021604f4(char* obj, int valA, int valB, short index, unsigned char flag);
 
 struct ElementIds {
     short ids[3];
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov003_0216052c(struct Combatant0216052c* obj) {
     if (obj->model == NULL) {
         return;
     }
-    if (CheckField0NonZero_0202b7d8((int*)func_0202ae18()) != 0) {
+    if (func_0202b7d8((int*)func_0202ae18()) != 0) {
         return;
     }
     struct Obj2081* model = obj->model;
@@ -53,13 +53,13 @@ extern "C" ARM void func_ov003_0216052c(struct Combatant0216052c* obj) {
     struct ElementIds elements = data_ov003_0217f3ec.elements;
     for (int i = 0; i < 3; i++) {
         short id = elements.ids[i];
-        if (HasElementByByte0xc4_020811d0(model, id)) {
+        if (func_020811d0(model, id)) {
             unsigned char slot = 1;
             for (unsigned char j = 0; j < 2; j++) {
                 short part = data_ov003_0217f448[i][j];
                 if (part >= 0) {
                     short x, y, w, h;
-                    UpdateOffsetsFromEntry02080a6c(model, id, part, &x, &y, &w, &h);
+                    func_02080a6c(model, id, part, &x, &y, &w, &h);
 #if !defined(jpn)
                     h = (16 - h) >> 1;
 #endif
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov003_0216052c(struct Combatant0216052c* obj) {
 #else
                     short posY = y - h + 1;
 #endif
-                    SetEntryFields_021604f4((char*)obj, posX, posY, 0, slot++);
+                    func_ov003_021604f4((char*)obj, posX, posY, 0, slot++);
                 }
             }
             return;

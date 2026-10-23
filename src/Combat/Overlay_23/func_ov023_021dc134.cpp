@@ -3,14 +3,14 @@
 #include "Memory/SafeAllocator.h"
 
 struct Struct020dfc40;
-void ResetStruct020dfc40(struct Struct020dfc40* p);
-void* Zero16Bytes020df828(void* dst);
-void ClearFields_021e20c0(void* p);
-void InitStruct0205a444(char* obj);
+extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void* func_020df828(void* dst);
+extern "C" void func_ov023_021e20c0(void* p);
+extern "C" void func_0205a444(char* obj);
 struct Struct0205a198;
-void Init0205a198(struct Struct0205a198* p);
-void InitFields_021db0d4(void* obj, int flag);
-void ClearField784Array3_021dce88(void* obj);
+extern "C" void func_0205a198(struct Struct0205a198* p);
+extern "C" void func_ov023_021db0d4(void* obj, int flag);
+extern "C" void func_ov023_021dce88(void* obj);
 
 struct DataBlob_021dc134 {
 #if defined(jpn)
@@ -71,24 +71,24 @@ extern "C" ARM void func_ov023_021dc134(void* objRaw, short key, int flag) {
     *(int*)(obj + 0x48) = 0;
     *(int*)(obj + 0x4c) = 0;
     *(int*)(obj + 0x50) = 0;
-    ResetStruct020dfc40((struct Struct020dfc40*)(obj + 0x54));
+    func_020dfc40((struct Struct020dfc40*)(obj + 0x54));
 
-    Zero16Bytes020df828(obj + 0x6c);
-    Zero16Bytes020df828(obj + 0x7c);
+    func_020df828(obj + 0x6c);
+    func_020df828(obj + 0x7c);
 
-    ResetStruct020dfc40((struct Struct020dfc40*)(obj + 0x8c));
-    ResetStruct020dfc40((struct Struct020dfc40*)(obj + 0xa4));
+    func_020dfc40((struct Struct020dfc40*)(obj + 0x8c));
+    func_020dfc40((struct Struct020dfc40*)(obj + 0xa4));
 
     *(int*)(obj + 0xc4) = 0;
     *(int*)(obj + 0xc8) = 0;
-    ClearFields_021e20c0(obj + 0xcc);
+    func_ov023_021e20c0(obj + 0xcc);
 
     *(unsigned char*)(obj + regionalOffset0) = 0;
     *(unsigned char*)(obj + regionalOffset1) = 0;
-    InitStruct0205a444(obj + regionalOffset2);
+    func_0205a444(obj + regionalOffset2);
 
     for (unsigned char i = 0; i < 30; i++) {
-        Init0205a198((struct Struct0205a198*)(obj + regionalOffset3 + i * 0x28));
+        func_0205a198((struct Struct0205a198*)(obj + regionalOffset3 + i * 0x28));
     }
 
     memset(obj + regionalOffset4, 0, regionalOffset5);
@@ -120,7 +120,7 @@ extern "C" ARM void func_ov023_021dc134(void* objRaw, short key, int flag) {
     *(unsigned char*)(obj + regionalOffset26) = 1;
     *(int*)(obj + regionalOffset27) = -1;
 
-    ClearField784Array3_021dce88(obj);
+    func_ov023_021dce88(obj);
 
     *(int*)(obj + regionalOffset11) = 0;
     *(int*)(obj + regionalOffset12) = 0;
@@ -163,5 +163,5 @@ extern "C" ARM void func_ov023_021dc134(void* objRaw, short key, int flag) {
 
     *(unsigned short*)(obj + regionalOffset17) |= 8;
 
-    InitFields_021db0d4(&data_ov023_021ffa0c, 0);
+    func_ov023_021db0d4(&data_ov023_021ffa0c, 0);
 }

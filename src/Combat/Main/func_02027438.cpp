@@ -2,8 +2,8 @@
 
 class FlagWord02046708;
 
-FlagWord02046708* GetDataPtr02114e04_020d6c00();
-bool TestFlags02046708(FlagWord02046708* flags, unsigned int mask);
+extern "C" FlagWord02046708* func_020d6c00();
+extern "C" bool func_02046708(FlagWord02046708* flags, unsigned int mask);
 
 #define TILE_PHASE02027438(v) ((v) < 0 ? (v) % 8 + 8 : (v) % 8)
 
@@ -15,9 +15,9 @@ struct ScrollState02027438 {
     int scrollY;
 };
 
-// USA: func_02027438  (semantic: UpdateSubBG0ScrollForMode02027438)
+// USA: func_02027438
 extern "C" ARM void func_02027438(struct ScrollState02027438* state) {
-    if (TestFlags02046708(GetDataPtr02114e04_020d6c00(), 0x41)) {
+    if (func_02046708(func_020d6c00(), 0x41)) {
         return;
     }
     switch (state->mode) {

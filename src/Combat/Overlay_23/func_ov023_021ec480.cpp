@@ -92,20 +92,20 @@ extern unsigned char data_ov023_021fd844[];
 extern char data_02108760[];
 extern char data_02109bf4[];
 
-MessageSystem_021ec480* GetGlobalField0x1c020421a0();
+extern "C" MessageSystem_021ec480* func_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
-void SetForwardAndStore0205ebc0(void* sound, int a, int b);
-void DispatchIfField0xc4NonNeg_0205ebfc(void* sound, int a, int b);
-void SetElementFieldC2_0205deb4(Struct_0205d81c* window, int item, int value);
-void SetValueAndActivate0209c830(Struct0209c830* obj, int value);
-int TestBitInByteArray_0206dfb0(int a, unsigned char* b, int flag);
-int IsAnimationActive0209ca2c(void* obj);
-int DispatchIfFlagsOrByteSet_021ed014(struct GuideWindow_021ec480* window);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int value);
-void ForwardField0xc0_0205ebec(void* sound);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void AppendString02042058(char* text, const char* append);
-void ReinitController02043204(char* messages);
+extern "C" void func_0205ebc0(void* sound, int a, int b);
+extern "C" void func_0205ebfc(void* sound, int a, int b);
+extern "C" void func_0205deb4(Struct_0205d81c* window, int item, int value);
+extern "C" void func_0209c830(Struct0209c830* obj, int value);
+extern "C" int func_0206dfb0(int a, unsigned char* b, int flag);
+extern "C" int func_0209ca2c(void* obj);
+extern "C" int func_ov023_021ed014(struct GuideWindow_021ec480* window);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int value);
+extern "C" void func_0205ebec(void* sound);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" void func_02043204(char* messages);
 
 extern "C" {
 int func_ov023_021ed064(GuideWindow_021ec480* self);
@@ -124,7 +124,7 @@ void func_0204500c(MessageSystem_021ec480* messages, const char* text, int a, in
 
 static inline int WasButtonPressed(GuideWindow_021ec480* self)
 {
-    return DispatchIfFlagsOrByteSet_021ed014(self);
+    return func_ov023_021ed014(self);
 }
 
 // USA: func_ov023_021ec480
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
  enum {regionalOffset0=0x960};
 #endif
     GameResources* resources = GetGameResources();
-    MessageSystem_021ec480* messages = GetGlobalField0x1c020421a0();
+    MessageSystem_021ec480* messages = func_020421a0();
     if (self->step_ >= 1 && self->step_ <= 3 && func_ov023_021ed064(self))
     {
         self->step_ = 4;
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         int volume = 0x8c;
         if (self->type_ == 2 || (self->type_ == 7 && (self->flags_ & GUIDE_WINDOW_MAIN_SCREEN)))
             volume = 0x1b4;
-        SetForwardAndStore0205ebc0(data_02108760, volume, volume);
+        func_0205ebc0(data_02108760, volume, volume);
         func_ov023_021ecbbc(self);
         self->step_++;
     }
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
             return;
         func_ov023_021ed194(self);
         self->flags_ |= GUIDE_WINDOW_TITLE_SCROLLING;
-        DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 0, 0);
+        func_0205ebfc(data_02108760, 0, 0);
         self->step_++;
     }
     if (step == 2)
@@ -179,8 +179,8 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         unsigned char items[2];
         *(Bytes2_021ec480*)items = *(Bytes2_021ec480*)&data_ov023_021fd844[0xa];
         for (int i = 0; i < 2; i++)
-            SetElementFieldC2_0205deb4((Struct_0205d81c*)self->window_, items[i], 0);
-        SetValueAndActivate0209c830((Struct0209c830*)data_02109bf4, 0x40);
+            func_0205deb4((Struct_0205d81c*)self->window_, items[i], 0);
+        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
         self->step_++;
     }
     if (step == 3)
@@ -196,8 +196,8 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         if (self->flags_ & GUIDE_WINDOW_UNK_400)
         {
             void* unknown = func_0205ec34();
-            if (self->page_ == self->count_ - 1 && TestBitInByteArray_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a) &&
-                IsAnimationActive0209ca2c(data_02109bf4))
+            if (self->page_ == self->count_ - 1 && func_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a) &&
+                func_0209ca2c(data_02109bf4))
                 return;
         }
         if (WasButtonPressed(self))
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         int next = self->page_ + 1;
         if (next < self->count_)
         {
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
             self->page_ = next;
             self->step_ = 1;
             func_ov023_021ecbbc(self);
@@ -218,8 +218,8 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
     }
     if (step == 6)
     {
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 0);
-        ForwardField0xc0_0205ebec(data_02108760);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
+        func_0205ebec(data_02108760);
         if (!(self->flags_ & GUIDE_WINDOW_NO_DIMMING))
         {
             if (self->subBackgrounds_[1].unk_1c_0_ == 0)
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         if (self->flags_ & GUIDE_WINDOW_UNK_400)
         {
             void* unknown = func_0205ec34();
-            if (TestBitInByteArray_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a))
+            if (func_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a))
             {
                 self->step_++;
                 return;
@@ -251,8 +251,8 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         if (self->subBackgrounds_[1].unk_1c_0_ == 0)
         {
             memset(self->text_, 0, regionalOffset0);
-            AppendString02042058(self->text_, GetFieldByKey020e0434((Container020e0310*)self->texts_, 1000));
-            AppendString02042058(self->text_, GetFieldByKey020e0434((Container020e0310*)self->texts_, 1002));
+            func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1000));
+            func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1002));
             messages->busy_ = 1;
 #if defined(jpn)
             func_0204500c(messages, self->text_, 0);
@@ -269,15 +269,15 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
             unsigned char items2[2];
             *(Bytes2_021ec480*)items2 = *(Bytes2_021ec480*)&data_ov023_021fd844[4];
             for (int i = 0; i < 2; i++)
-                SetElementFieldC2_0205deb4((Struct_0205d81c*)self->window_, items2[i], 0);
+                func_0205deb4((Struct_0205d81c*)self->window_, items2[i], 0);
         }
-        SetValueAndActivate0209c830((Struct0209c830*)data_02109bf4, 0x40);
+        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
         self->step_++;
     }
     if (step == 8)
     {
         messages->unk_19ae = 0;
-        if (IsAnimationActive0209ca2c(data_02109bf4))
+        if (func_0209ca2c(data_02109bf4))
             return;
         self->step_++;
         step++;
@@ -301,8 +301,8 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
     if (step == 10)
     {
         memset(self->text_, 0, regionalOffset0);
-        AppendString02042058(self->text_, GetFieldByKey020e0434((Container020e0310*)self->texts_, 1001));
-        AppendString02042058(self->text_, GetFieldByKey020e0434((Container020e0310*)self->texts_, 1002));
+        func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1001));
+        func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1002));
         messages->busy_ = 1;
 #if defined(jpn)
         func_0204500c(messages, self->text_, 0);
@@ -312,24 +312,24 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
         messages->unk_19b2 = 0;
         messages->unk_19c8 = 0;
         messages->unk_19ae = 0;
-        SetValueAndActivate0209c830((Struct0209c830*)data_02109bf4, 0x40);
+        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
         self->step_++;
     }
     if (step == 11)
     {
         messages->unk_19ae = 0;
-        if (IsAnimationActive0209ca2c(data_02109bf4))
+        if (func_0209ca2c(data_02109bf4))
             return;
         if (!WasButtonPressed(self))
             return;
         if (self->subBackgrounds_[1].unk_1c_0_ == 0)
         {
-            ReinitController02043204((char*)messages);
+            func_02043204((char*)messages);
             self->state_ = 2;
             self->step_ = 0;
             return;
         }
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 0);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
         self->state_ = 2;
         self->step_ = 0;
     }

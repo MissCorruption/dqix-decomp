@@ -25,9 +25,9 @@ extern MessageContext0220fb28* data_ov031_0224e580;
 extern "C" void func_ov031_0220fd78(int, Msg_0220fd78*);
 extern "C" int func_ov031_0220ff34(int*);
 extern "C" int func_ov031_0220fe44(int);
-int IsField0Unchanged_0220ff18(void*);
-void WaitForField2CNonZero_0220fea0();
-void ClearField28SetField2C_0220fed8();
+extern "C" int func_ov031_0220ff18(void*);
+extern "C" void func_ov031_0220fea0();
+extern "C" void func_ov031_0220fed8();
 
 // USA: func_ov031_0220fb28
 extern "C" ARM void func_ov031_0220fb28() {
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov031_0220fb28() {
     buffer->identifier = data_ov031_0224e580->config->identifier;
     if ((buffer->value = data_ov031_0224e580->value) == 0) return;
     if (func_ov031_0220fe44((int)func_ov031_0220ff34)) {
-        if (IsField0Unchanged_0220ff18(buffer)) WaitForField2CNonZero_0220fea0();
+        if (func_ov031_0220ff18(buffer)) func_ov031_0220fea0();
     }
-    ClearField28SetField2C_0220fed8();
+    func_ov031_0220fed8();
 }

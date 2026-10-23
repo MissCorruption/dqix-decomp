@@ -21,39 +21,39 @@ struct Scene02155dd0 {
     unsigned short fieldA;
 };
 
-char* GetFieldIfFlag4_020100f8(char* obj);
-void* GetFieldPtrAt0x5ca4_02010768(void* obj);
+extern "C" char* func_020100f8(char* obj);
+extern "C" void* func_02010768(void* obj);
 extern "C" void* func_02012fe4();
-char* GetGlobalField0x1c020421a0();
-void* GetGlobalPtr021075f4_0203cf4c(void);
-void* EmptyStub0203d004(void* p);
-void* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
-int* GetField0x8_02040528(int* p);
+extern "C" char* func_020421a0();
+extern "C" void* func_0203cf4c(void);
+extern "C" void* func_0203d004(void* p);
+extern "C" void* func_0203dce4(EntryList_203dce4*, int);
+extern "C" int* func_02040528(int* p);
 struct Container02040404;
-int FindEntryIndexByName02040404(Container02040404*, char const*);
-void ReleaseOrDecrementSlot0204039c(Container0204039c* c, int idx);
-void Reset02040504(int* p);
-void SetSlotIfIndexBelow32(SlotArray0203dd10*, unsigned int, int);
-void ReinitController02043204(char* obj);
+extern "C" int func_02040404(Container02040404*, char const*);
+extern "C" void func_0204039c(Container0204039c* c, int idx);
+extern "C" void func_02040504(int* p);
+extern "C" void func_0203dd10(SlotArray0203dd10*, unsigned int, int);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_02043124(char* obj);
-int IsScaledFieldPositive0203adfc(void* a, void* b);
-void ScaleAndNotify0203ad88(void* a, void* b, int c);
-void SetField0x7cClearFields0x1ec0x1ee_0202e874(unsigned char*, unsigned short);
-void SetFields0x1f0And0x1f4_0202f0c4(void* obj, int a, int b);
+extern "C" int func_0203adfc(void* a, void* b);
+extern "C" void func_0203ad88(void* a, void* b, int c);
+extern "C" void func_0202e874(unsigned char*, unsigned short);
+extern "C" void func_0202f0c4(void* obj, int a, int b);
 extern "C" void* func_020704fc();
 struct EffectParam020708c8;
-void SetScaledEffectParam020708c8(EffectParam020708c8*, unsigned int);
-void ResetAndReinit0209c278(void* obj);
-void Dispatch0203a974With0x57000_0209c290(void* obj);
-void SetupContextForMode0205ea20(void* obj, int mode);
+extern "C" void func_020708c8(EffectParam020708c8*, unsigned int);
+extern "C" void func_0209c278(void* obj);
+extern "C" void func_0209c290(void* obj);
+extern "C" void func_0205ea20(void* obj, int mode);
 extern "C" void func_ov028_021d9714();
-void PopStack1AndTrigger_020a1f4c(int v);
+extern "C" void func_020a1f4c(int v);
 extern "C" void* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int p, unsigned char* arr, int bit);
+extern "C" int func_0206dfb0(int p, unsigned char* arr, int bit);
 struct Bytes02033b88;
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void ClearCombatantSlot_0200fd48(GameState* gs, int id);
-void SetField0x3b0Value_020100c4(GameState* gs, int val);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_0200fd48(GameState* gs, int id);
+extern "C" void func_020100c4(GameState* gs, int val);
 
 extern char data_ov001_02164c4a[];
 extern char data_02108760[];
@@ -81,12 +81,12 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
         GameState* gs;
 
     gs = GameState::GetInstance();
-    hud = GetFieldIfFlag4_020100f8((char*)gs);
+    hud = func_020100f8((char*)gs);
     res2 = GetGameResources();
     area = (Zone3D*)func_02012fe4();
-    globalA = GetGlobalField0x1c020421a0();
+    globalA = func_020421a0();
     loader = BackgroundLoader::GetInstance();
-    ptr6 = (int*)GetFieldPtrAt0x5ca4_02010768(gs);
+    ptr6 = (int*)func_02010768(gs);
 
     for (i = 0; i < 4; i++) {
         obj = gs->GetMaybeWanderingMonsterByIndex(i);
@@ -96,7 +96,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
             if (af == obj->obj3D_.GetField06()) {
                 obj->obj3D_.MakeVisible();
             }
-            SetByte0xbeShiftPrev((Bytes02033b88*)obj, 0);
+            func_02033b88((Bytes02033b88*)obj, 0);
         }
     }
 
@@ -104,18 +104,18 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
         obj = gs->GetGameObjectByIndex(j + 0xa0);
         if (obj != 0) {
             obj->obj3D_.Destroy();
-            ClearCombatantSlot_0200fd48(gs, j + 0xa0);
+            func_0200fd48(gs, j + 0xa0);
         }
     }
 
     if (ptr6[1] != 0) {
-        if (GetFieldIfFlag4_020100f8((char*)gs) == 0) {
-            SetField0x3b0Value_020100c4(gs, ptr6[1]);
-            hud = GetFieldIfFlag4_020100f8((char*)gs);
+        if (func_020100f8((char*)gs) == 0) {
+            func_020100c4(gs, ptr6[1]);
+            hud = func_020100f8((char*)gs);
         }
     }
 
-    void* list = GetGlobalPtr021075f4_0203cf4c();
+    void* list = func_0203cf4c();
     char buf[16];
     const char* fmt;
     char* nameBuf;
@@ -124,58 +124,58 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
     nameBuf = buf;
     fmt = data_ov001_02164c4a;
     for (; k < 0x20; k++) {
-        int* entry = (int*)GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)list, k);
+        int* entry = (int*)func_0203dce4((EntryList_203dce4*)list, k);
         if (entry != 0) {
-            unsigned char* p = (unsigned char*)GetField0x8_02040528(entry);
+            unsigned char* p = (unsigned char*)func_02040528(entry);
             if (p[2] == 3) {
-                Container0204039c* cont = (Container0204039c*)EmptyStub0203d004(list);
+                Container0204039c* cont = (Container0204039c*)func_0203d004(list);
 #if defined(jpn)
                 sprintf(nameBuf, fmt, p + 0x10);
 #else
                 sprintf(nameBuf, fmt, p + 4);
 #endif
-                int idx = FindEntryIndexByName02040404((Container02040404*)cont, nameBuf);
-                ReleaseOrDecrementSlot0204039c(cont, idx);
-                Reset02040504(entry);
-                SetSlotIfIndexBelow32((SlotArray0203dd10*)list, k, 0);
+                int idx = func_02040404((Container02040404*)cont, nameBuf);
+                func_0204039c(cont, idx);
+                func_02040504(entry);
+                func_0203dd10((SlotArray0203dd10*)list, k, 0);
             }
         }
     }
 
-    ReinitController02043204(globalA);
+    func_02043204(globalA);
     func_02043124(globalA);
     ClearFlags04(res2, 8);
-    if (IsScaledFieldPositive0203adfc(data_02108760, 0) != 0) {
-        ScaleAndNotify0203ad88(data_02109bf4, 0, 0);
+    if (func_0203adfc(data_02108760, 0) != 0) {
+        func_0203ad88(data_02109bf4, 0, 0);
     }
     ClearFlags04(res2, 0x2000);
-    SetField0x7cClearFields0x1ec0x1ee_0202e874((unsigned char*)hud, 0);
-    SetFields0x1f0And0x1f4_0202f0c4(hud, 0xf000, 0);
-    SetScaledEffectParam020708c8((EffectParam020708c8*)func_020704fc(), 0);
+    func_0202e874((unsigned char*)hud, 0);
+    func_0202f0c4(hud, 0xf000, 0);
+    func_020708c8((EffectParam020708c8*)func_020704fc(), 0);
     loader->MaybeReset();
 
     REG_DISPSTAT_304 &= ~0x8000;
     if (TestFlags00(res2, 0x1000) != 0) {
 #if !defined(jpn)
-        ResetAndReinit0209c278(data_02109bf4);
-        Dispatch0203a974With0x57000_0209c290(data_02109bf4);
-        SetupContextForMode0205ea20(data_02108760, 0x64);
+        func_0209c278(data_02109bf4);
+        func_0209c290(data_02109bf4);
+        func_0205ea20(data_02108760, 0x64);
 #endif
         ClearFlags00((GameResources*)res2, 0x1000);
         func_ov028_021d9714();
-        PopStack1AndTrigger_020a1f4c(1);
+        func_020a1f4c(1);
     }
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
     void* events = func_0205ec34();
-    BmdjScriptNode* node = GetNodeAtDepth020196fc((Zone3D*)func_02012fe4(), 0);
+    BmdjScriptNode* node = func_020196fc((Zone3D*)func_02012fe4(), 0);
     BmdjSceneElement* e;
     int count = node->scriptState.elementCount;
     if (node != 0) {
         for (int n = 0; n < count; n++) {
             e = &node->elements[n];
-            if (TestBitInByteArray_0206dfb0((int)events, (unsigned char*)((char*)events + 0x45b), n & 0xff) != 0) {
+            if (func_0206dfb0((int)events, (unsigned char*)((char*)events + 0x45b), n & 0xff) != 0) {
                 if (e != 0) {
                     e->flags &= ~4;
                 }

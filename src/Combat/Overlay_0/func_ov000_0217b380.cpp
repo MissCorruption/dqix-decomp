@@ -25,14 +25,14 @@ struct Data0217b380 {
 extern struct Data0217b380 data_ov000_02184294;
 
 struct Struct_0205c570;
-int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
+extern "C" int func_0205d794(struct Struct_0205c570* s);
 struct Obj_0205da38;
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-int GetClampedArrayField0xd1c_ov000_021761c8(char* base, int index);
-int CountMatchingValues02175348(void* obj, int value);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" int func_ov000_021761c8(char* base, int index);
+extern "C" int func_ov000_02175348(void* obj, int value);
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-int CheckFlagsOrField_0217ab48_0217ab48(void* obj);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" int func_ov000_0217ab48(void* obj);
 extern "C" void func_ov000_02170db0(void* obj);
 extern "C" void func_ov000_0217629c(void* obj);
 extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
@@ -53,21 +53,21 @@ struct MenuState0217b380 {
 // USA: func_ov000_0217b380
 extern "C" ARM int func_ov000_0217b380(struct MenuState0217b380* self, int arg1, int arg2) {
     data_ov000_02184294.menu->flags |= 0x100;
-    int base = GetActiveScaledSum0205d794(self->window);
+    int base = func_0205d794(self->window);
     self->selection = base;
     int pressed = g_keyManager.TestKeysPressed(0x601);
-    int confirm = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->window, 0x14)) != 0;
+    int confirm = (pressed | func_0205da38((struct Obj_0205da38*)self->window, 0x14)) != 0;
     if (confirm) {
-        if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->window, 0x14)) {
-            int value = GetClampedArrayField0xd1c_ov000_021761c8((char*)data_ov000_02184294.menu, base);
-            int matches = CountMatchingValues02175348(data_ov000_02184294.menu, value);
+        if (func_0205da38((struct Obj_0205da38*)self->window, 0x14)) {
+            int value = func_ov000_021761c8((char*)data_ov000_02184294.menu, base);
+            int matches = func_ov000_02175348(data_ov000_02184294.menu, value);
             self->selection = NextRandomMax(GetBTRandom(), matches * 100) / 100 + (signed char)base;
         }
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
         self->stackTop++;
         self->stack[self->stackTop] = 100;
         func_ov000_02170db0(self);
-    } else if (CheckFlagsOrField_0217ab48_0217ab48(self)) {
+    } else if (func_ov000_0217ab48(self)) {
         func_ov000_0217629c(self);
         self->stack[self->stackTop] = 0;
         self->stackTop--;

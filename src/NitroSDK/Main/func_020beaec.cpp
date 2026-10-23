@@ -3,9 +3,9 @@
 struct Obj020bda58;
 struct Ctx020bf484;
 typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
-void* GetOffsetEntry0x20_020bd6ac(int index);
-void* AllocateAndLinkEntry020bda58(struct Obj020bda58* heap, unsigned int size, NNSSndHeapDisposeCallback callback, int data1, int data2);
-void DetachAndReleaseRefs020bf484(int expected, void* unused1, struct Ctx020bf484* obj);
+extern "C" void* func_020bd6ac(int index);
+extern "C" void* func_020bda58(struct Obj020bda58* heap, unsigned int size, NNSSndHeapDisposeCallback callback, int data1, int data2);
+extern "C" void func_020bf484(int expected, void* unused1, struct Ctx020bf484* obj);
 extern "C" void func_020bf1a0(void* player);
 
 struct StrmPlayerInfo020beaec {
@@ -39,7 +39,7 @@ extern "C" ARM int func_020beaec(struct Obj020bda58* heap)
     for (playerNo = 0; playerNo < 4; ++playerNo) {
         player = &data_02110a4c[playerNo];
 
-        playerInfo = (const struct StrmPlayerInfo020beaec*)GetOffsetEntry0x20_020bd6ac(playerNo);
+        playerInfo = (const struct StrmPlayerInfo020beaec*)func_020bd6ac(playerNo);
         if (playerInfo == NULL)
             continue;
 
@@ -50,7 +50,7 @@ extern "C" ARM int func_020beaec(struct Obj020bda58* heap)
 
         if (heap != NULL) {
             bufSize = 512 * 4 * player->numChannels;
-            buffer = AllocateAndLinkEntry020bda58(heap, bufSize, (NNSSndHeapDisposeCallback)DetachAndReleaseRefs020bf484, (int)player, 0);
+            buffer = func_020bda58(heap, bufSize, (NNSSndHeapDisposeCallback)func_020bf484, (int)player, 0);
             if (buffer == NULL)
                 return 0;
 

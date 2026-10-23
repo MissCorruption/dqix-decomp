@@ -12,7 +12,7 @@
 
 extern "C" void func_ov023_021dfad8(char* obj);
 struct Cont0207fd88;
-void CallFunc0204b088OverList0x2c(Cont0207fd88* obj);
+extern "C" void func_0207fd88(Cont0207fd88* obj);
 
 struct Flags27f {
     unsigned char bit0 : 1;
@@ -33,5 +33,5 @@ extern "C" ARM void func_ov006_02154fe4(void* obj) {
     if (((Flags27f*)(o + 0x1000 + R(0x7b, 0x27f)))->bit1) return;
     Cont0207fd88* p = *(Cont0207fd88**)(o + R(0x54, 0x1d4));
     if (p == 0) return;
-    CallFunc0204b088OverList0x2c(p);
+    func_0207fd88(p);
 }

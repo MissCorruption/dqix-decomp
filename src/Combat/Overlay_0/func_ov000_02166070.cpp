@@ -62,15 +62,15 @@ struct Scene02166070 {
     Object3D* models[4];
 };
 
-ModelEntry* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
-void SetFlag0x400Reset020484d0(void*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void ClearEightWords_0203dafc(struct Struct_203dafc*);
-ModelNames* SearchWithLow15Comparator02070fd0(struct Container02070e60*, int);
-void RunOverlayScript0216d1c4(int, struct StreamHeader*, int, int*);
-void InitObjectFields020484f8(Object3D*, Input020484f8*);
-void CopyInternalFields0207df50(struct Foo0207df50*);
+extern "C" ModelEntry* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" void func_020484d0(void*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_0203dafc(struct Struct_203dafc*);
+extern "C" ModelNames* func_02070fd0(struct Container02070e60*, int);
+extern "C" void func_ov000_0216d1c4(int, struct StreamHeader*, int, int*);
+extern "C" void func_020484f8(Object3D*, Input020484f8*);
+extern "C" void func_0207df50(struct Foo0207df50*);
 extern "C" void _ZN8Object3D10SetField78Et(Object3D*, unsigned int);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void func_0207de48(char*, int, int);
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_02166070(Scene02166070* self, GPCReadPair* pair, 
     unsigned int animLength;
     const void* scriptPtr;
     unsigned int scriptSize;
-    ModelEntry* entry = SearchWithComparator0206f4f0(search, (short)id);
+    ModelEntry* entry = func_0206f4f0(search, (short)id);
     if (entry == 0) return;
     sprintf(path, data_ov000_02183a47, entry->name);
     if (!DecompressFileFromGPCByName(pair->pGPCFile, pair->machine, data_0211e33c + offset, length, 0x30000 - offset, path)) {
@@ -121,37 +121,37 @@ extern "C" ARM void func_ov000_02166070(Scene02166070* self, GPCReadPair* pair, 
         if (flag) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    SetFlag0x400Reset020484d0(obj);
+    func_020484d0(obj);
     obj->unknown_2_ = id;
-    RestorePairTables0207df90(self->tables1bc);
-    ClearEightWords_0203dafc(&params);
+    func_0207df90(self->tables1bc);
+    func_0203dafc(&params);
     params.fieldTable = (int)model;
     params.fieldLength = modelLength;
     params.allocator = alloc;
     obj->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-    BackupPairTables0207dfac(self->tables1bc);
-    ClearEightWords_0203dafc(&params);
+    func_0207dfac(self->tables1bc);
+    func_0203dafc(&params);
     params.fieldTable = (int)anim;
     params.fieldLength = animLength;
     params.allocator = alloc;
     obj->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-    input.names = SearchWithLow15Comparator02070fd0(names, id);
-    input.entry = SearchWithComparator0206f4f0(search, id << 16 >> 16);
+    input.names = func_02070fd0(names, id);
+    input.entry = func_0206f4f0(search, id << 16 >> 16);
     sprintf(input.names->name, data_020ef078, input.entry->id);
     if (scriptPtr == 0) {
         input.script = 0;
     } else {
-        RunOverlayScript0216d1c4((int)alloc, (StreamHeader*)scriptPtr, scriptSize, &input.script);
+        func_ov000_0216d1c4((int)alloc, (StreamHeader*)scriptPtr, scriptSize, &input.script);
     }
-    InitObjectFields020484f8(obj, &input);
+    func_020484f8(obj, &input);
     unsigned int low = (unsigned short)input.names->words;
     unsigned int high;
     _ZN8Object3D10SetField78Et(obj, (high = input.names->words >> 16, low));
     _ZN8Object3D10SetField7aEt(obj, high);
     self->models[slot] = obj;
     if (id == 0x13f || id == 0x13d || id == 0x321) {
-        CopyInternalFields0207df50((struct Foo0207df50*)self->tables14c);
-        RestorePairTables0207df90(self->tables14c);
+        func_0207df50((struct Foo0207df50*)self->tables14c);
+        func_0207df90(self->tables14c);
         func_0207de48(self->tables14c, 0x800, 0);
         func_0207de48(self->tables14c, 0xb800, 0x400);
     }

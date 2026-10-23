@@ -28,9 +28,9 @@ extern "C" {
 void func_020813ec(Menu*, int);
 }
 
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-int GetField0x15UnlessInactive_020e2918(signed char*);
-int RunAndCheckFlagBit02080dd4(void*, int, int, int, unsigned char*, unsigned char);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" int func_020e2918(signed char*);
+extern "C" int func_02080dd4(void*, int, int, int, unsigned char*, unsigned char);
 
 struct AlchemyMenu {
 #if !defined(jpn)
@@ -135,9 +135,9 @@ extern "C" ARM unsigned char func_ov006_02158a28(AlchemyMenu* self)
         confirmed = 1;
     if ((self->flags_ & 2) && g_keyManager.TestKeysPressed(0x400))
         confirmed = 1;
-    if (self->choice_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
+    if (self->choice_ != 0 && func_020e28dc((Outer020e28dc*)self->choice_))
     {
-        int choice = GetField0x15UnlessInactive_020e2918((signed char*)self->choice_);
+        int choice = func_020e2918((signed char*)self->choice_);
         if (choice >= 0)
         {
             confirmed = 1;
@@ -150,7 +150,7 @@ extern "C" ARM unsigned char func_ov006_02158a28(AlchemyMenu* self)
         int y;
         g_touchInput.GetTouchPoint(&x, &y);
         self->previousCursor_ = *self->cursor_;
-        int item = RunAndCheckFlagBit02080dd4(self->menu_, self->group_, (short)x, (short)y, &confirmed, 1);
+        int item = func_02080dd4(self->menu_, self->group_, (short)x, (short)y, &confirmed, 1);
         if (item < 0)
             return 0;
         *self->cursor_ = item;

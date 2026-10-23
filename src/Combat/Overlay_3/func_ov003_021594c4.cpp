@@ -47,28 +47,28 @@ struct Struct_0205cf78;
 struct Elem_0205cf78;
 struct QueueStruct0215917c;
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 extern "C" void func_ov017_021d243c(int a);
 extern "C" void func_020dfec0(void* container, SafeAllocator* alloc, void* data, unsigned int size);
-const char* GetFieldByKey020e0434(Container020e0310* container, int key);
+extern "C" const char* func_020e0434(Container020e0310* container, int key);
 extern "C" int func_02005a94(const char* string);
 extern "C" void func_ov003_02159250(void* self, void* text);
 extern "C" void func_ov003_02159464(void* self);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* background, int value);
+extern "C" void func_0204b11c(unsigned char* background, int value);
 extern "C" void func_0204b5b4(BackgroundGraphics* background, int screen);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
-void DispatchViaTable0204b5e8(Obj0204b5e8* background, int a, int b);
-int CountActiveEntries(ActiveEntry02046900* archive);
-void* FindRecordByIndex(Rec020467f0* archive, int index, void** name, int* size);
+extern "C" void func_0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
+extern "C" void func_0204b5e8(Obj0204b5e8* background, int a, int b);
+extern "C" int func_02046900(ActiveEntry02046900* archive);
+extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
 extern "C" void func_0204b174(BackgroundGraphics* background, void* file, SafeAllocator* allocator, unsigned int size);
 extern "C" void func_0204bc74(BackgroundGraphics* background, int a, int b, int c, int d, int e, int f);
-void FlushAndDispatchList0204b0e8(List0204b0e8* background, void* a);
-void AllocateBuffer0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int val, unsigned int len);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* s, Elem_0205cf78* arr, unsigned char count);
+extern "C" void func_0204b0e8(List0204b0e8* background, void* a);
+extern "C" void func_0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int val, unsigned int len);
+extern "C" void func_0205cf78(Struct_0205cf78* s, Elem_0205cf78* arr, unsigned char count);
 extern "C" void func_0205a528(void* table, void* file, int size, SafeAllocator* alloc);
-int CompareStrings_020d3018(const char* a, const char* b);
-void AppendFlagEvents_0215917c(QueueStruct0215917c* obj, int flags);
-unsigned char CopyOutRegion0x5718_02011494(char* obj, void* dst);
+extern "C" int func_020d3018(const char* a, const char* b);
+extern "C" void func_ov003_0215917c(QueueStruct0215917c* obj, int flags);
+extern "C" unsigned char func_02011494(char* obj, void* dst);
 
 #if defined(jpn)
 #include "Filesystem/FileIO.h"
@@ -130,11 +130,11 @@ struct BattleMessageScene {
 extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
 #if defined(jpn)
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int g = GetGlobalField0x1c020421a0();
+    int g = func_020421a0();
     unsigned char state = self->state_;
 
     if (state == 0) {
-        self->text_ = *(void**)(GetGlobalField0x1c020421a0() + 0x28);
+        self->text_ = *(void**)(func_020421a0() + 0x28);
         func_ov017_021d243c(1);
         self->allocators_[2].Reset();
         void* data = self->allocators_[2].Allocate(0x4000);
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         LoadFileIntoMemory(name, data, &size);
         self->allocators_[0].Reset();
         func_020dfec0(self->strings_, &self->allocators_[0], data, size);
-        const char* str = GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x32);
+        const char* str = func_020e0434((Container020e0310*)self->strings_, 0x32);
         if (str != NULL) {
             self->unk_5b1 = func_02005a94(str);
         }
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
                 self->unk_5b4 = 1;
                 self->state_ = 2;
                 self->task_ = loader->QueueLoadFile(data_ov003_0217fe5a, NULL);
-                *(int*)(GetGlobalField0x1c020421a0() + kRegionValue998_868) = 1;
+                *(int*)(func_020421a0() + kRegionValue998_868) = 1;
             } else {
                 self->next_ = 10;
                 self->state_ = 0;
@@ -176,12 +176,12 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         BackgroundGraphics* background;
         for (int i = 0; i < 2; i++) {
             background = &self->backgrounds_[i];
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+            func_0204b11c((unsigned char*)background, 0);
             background->unk_1c_0_ = 0;
             background->unk_1c_4_ = priority.v[i];
             func_0204b5b4(background, screen.v[i]);
-            AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocators_[1]);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+            func_0204b12c((AllocTarget0204b12c*)background, &self->allocators_[1]);
+            func_0204b5e8((Obj0204b5e8*)background, 0, 0);
         }
         BG1CNT = (BG1CNT & 0x43) | 0x1d00;
         BG2CNT = (BG2CNT & 0x43) | 0x1e00;
@@ -199,9 +199,9 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             void* files[2];
             int sizes[2];
             loader2->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             for (int i = 0; i < count; i++) {
-                files[i] = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &sizes[i]);
+                files[i] = func_020467f0((Rec020467f0*)archive, i, (void**)name, &sizes[i]);
             }
             for (int i = 0; i < count; i++) {
                 if (files[i] != NULL) {
@@ -214,18 +214,18 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             for (int i = 0; i < 2; i++) {
                 background = &self->backgrounds_[i];
                 func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-                FlushAndDispatchList0204b0e8((List0204b0e8*)background, 0);
+                func_0204b0e8((List0204b0e8*)background, 0);
             }
             self->allocators_[2].Reset();
             self->buffer_ = self->allocators_[2].Allocate(0x4000);
             for (int i = 0; i < 4; i++) {
                 BackgroundLayer* layer = &self->layers_[i];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)layer, &self->allocators_[1], (int)self->buffer_, 0x400);
+                func_0204c7a8((Obj0204c7a8*)layer, &self->allocators_[1], (int)self->buffer_, 0x400);
                 layer->graphics = &self->backgrounds_[1];
             }
             self->graphics_ = &self->backgrounds_[0];
             self->unk_1a6 = 2;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->list_, (Elem_0205cf78*)self->layers_, 4);
+            func_0205cf78((Struct_0205cf78*)self->list_, (Elem_0205cf78*)self->layers_, 4);
             self->task_ = loader2->QueueLoadFile(data_ov003_0217fe5a, NULL);
             self->state_++;
         }
@@ -242,10 +242,10 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             self->unk_e4 = 0xe;
             self->unk_d4 = self->unk_f0;
             loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             self->allocators_[3].Reset();
             for (int i = 0; i < count; i++) {
-                void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &size);
+                void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, &size);
                 func_0205a528(self->table_, file, size, &self->allocators_[3]);
             }
             loader->RemoveTask(self->task_);
@@ -271,23 +271,23 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         unsigned char flags = 0x3f;
         for (int i = 0; i < 6; i++) {
-            const char* str = GetFieldByKey020e0434((Container020e0310*)self->strings_, (short)i);
-            if (CompareStrings_020d3018(data_ov003_0217fe7e, str) == 0) {
+            const char* str = func_020e0434((Container020e0310*)self->strings_, (short)i);
+            if (func_020d3018(data_ov003_0217fe7e, str) == 0) {
                 flags &= ~(1 << i);
             }
         }
-        AppendFlagEvents_0215917c((QueueStruct0215917c*)self, flags);
-        self->memberCount_ = CopyOutRegion0x5718_02011494((char*)GameState::GetInstance(), self->members_);
+        func_ov003_0215917c((QueueStruct0215917c*)self, flags);
+        self->memberCount_ = func_02011494((char*)GameState::GetInstance(), self->members_);
         self->next_ = 1;
         self->state_ = 1;
     }
 #else
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int g = GetGlobalField0x1c020421a0();
+    int g = func_020421a0();
     unsigned char state = self->state_;
 
     if (state == 0) {
-        self->text_ = *(void**)(GetGlobalField0x1c020421a0() + 0x5c);
+        self->text_ = *(void**)(func_020421a0() + 0x5c);
         func_ov017_021d243c(1);
         char archive[0x40];
         char file[0x18];
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         func_020dfec0(self->strings_, &self->allocators_[0], data, size);
         loader->RemoveTask(self->task_);
         self->task_ = -1;
-        const char* str = GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x32);
+        const char* str = func_020e0434((Container020e0310*)self->strings_, 0x32);
         if (str != NULL) {
             self->unk_5b1 = func_02005a94(str);
         }
@@ -323,7 +323,7 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
                 self->unk_5b4 = 1;
                 self->state_ = 3;
                 self->task_ = loader->QueueLoadFile(data_ov003_0217fe5a, NULL);
-                *(int*)(GetGlobalField0x1c020421a0() + kRegionValue998_868) = 1;
+                *(int*)(func_020421a0() + kRegionValue998_868) = 1;
             } else {
                 self->next_ = 10;
                 self->state_ = 0;
@@ -338,12 +338,12 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         BackgroundGraphics* background;
         for (int i = 0; i < 2; i++) {
             background = &self->backgrounds_[i];
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+            func_0204b11c((unsigned char*)background, 0);
             background->unk_1c_0_ = 0;
             background->unk_1c_4_ = priority.v[i];
             func_0204b5b4(background, screen.v[i]);
-            AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocators_[1]);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+            func_0204b12c((AllocTarget0204b12c*)background, &self->allocators_[1]);
+            func_0204b5e8((Obj0204b5e8*)background, 0, 0);
         }
         BG1CNT = (BG1CNT & 0x43) | 0x1d00;
         BG2CNT = (BG2CNT & 0x43) | 0x1e00;
@@ -361,9 +361,9 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             void* files[2];
             int sizes[2];
             loader2->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             for (int i = 0; i < count; i++) {
-                files[i] = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &sizes[i]);
+                files[i] = func_020467f0((Rec020467f0*)archive, i, (void**)name, &sizes[i]);
             }
             for (int i = 0; i < count; i++) {
                 if (files[i] != NULL) {
@@ -376,18 +376,18 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             for (int i = 0; i < 2; i++) {
                 background = &self->backgrounds_[i];
                 func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-                FlushAndDispatchList0204b0e8((List0204b0e8*)background, 0);
+                func_0204b0e8((List0204b0e8*)background, 0);
             }
             self->allocators_[2].Reset();
             self->buffer_ = self->allocators_[2].Allocate(0x4000);
             for (int i = 0; i < 4; i++) {
                 BackgroundLayer* layer = &self->layers_[i];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)layer, &self->allocators_[1], (int)self->buffer_, 0x400);
+                func_0204c7a8((Obj0204c7a8*)layer, &self->allocators_[1], (int)self->buffer_, 0x400);
                 layer->graphics = &self->backgrounds_[1];
             }
             self->graphics_ = &self->backgrounds_[0];
             self->unk_1a6 = 2;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->list_, (Elem_0205cf78*)self->layers_, 4);
+            func_0205cf78((Struct_0205cf78*)self->list_, (Elem_0205cf78*)self->layers_, 4);
             self->task_ = loader2->QueueLoadFile(data_ov003_0217fe5a, NULL);
             self->state_++;
         }
@@ -404,10 +404,10 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
             self->unk_e4 = 0xe;
             self->unk_d4 = self->unk_f0;
             loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             self->allocators_[3].Reset();
             for (int i = 0; i < count; i++) {
-                void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &size);
+                void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, &size);
                 func_0205a528(self->table_, file, size, &self->allocators_[3]);
             }
             loader->RemoveTask(self->task_);
@@ -433,13 +433,13 @@ extern "C" ARM void func_ov003_021594c4(BattleMessageScene* self) {
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
         unsigned char flags = 0x3f;
         for (int i = 0; i < 6; i++) {
-            const char* str = GetFieldByKey020e0434((Container020e0310*)self->strings_, (short)i);
-            if (CompareStrings_020d3018(data_ov003_0217fe7e, str) == 0) {
+            const char* str = func_020e0434((Container020e0310*)self->strings_, (short)i);
+            if (func_020d3018(data_ov003_0217fe7e, str) == 0) {
                 flags &= ~(1 << i);
             }
         }
-        AppendFlagEvents_0215917c((QueueStruct0215917c*)self, flags);
-        self->memberCount_ = CopyOutRegion0x5718_02011494((char*)GameState::GetInstance(), self->members_);
+        func_ov003_0215917c((QueueStruct0215917c*)self, flags);
+        self->memberCount_ = func_02011494((char*)GameState::GetInstance(), self->members_);
         self->next_ = 1;
         self->state_ = 1;
     }

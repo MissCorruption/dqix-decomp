@@ -55,35 +55,35 @@ struct Unknown_02075cdc {
     char unk_50[0x70 - 0x50];
 };
 
-int CheckElementFlag_02158080_02158080(Obj2081*, int);
-void SetFieldsAndCall02158054(void*, SetFieldsAndCall02158054Struct*, int, int, unsigned char, unsigned char);
+extern "C" int func_ov006_02158080(Obj2081*, int);
+extern "C" void func_ov006_02158054(void*, SetFieldsAndCall02158054Struct*, int, int, unsigned char, unsigned char);
 extern "C" void func_ov006_02154a60(AlchemyPot*);
-void ClearBuffer0204b010(Obj0204b010*, void*);
-void* GetEntryByIndexStride0x10(EntryList0204af14*, unsigned int);
-void CallFunc0204b620IfField0x14_0204b938(void*, void*, int, int, unsigned short);
-int NormalizeField5_0200fb08(Struct0200fb08*);
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-void ClearAllBuffers0207fcb8(Obj0207fcb8*);
-void CallFunc0204c8f0OverEntries0207fd00(Obj0207fd00*);
+extern "C" void func_0204b010(Obj0204b010*, void*);
+extern "C" void* func_0204af14(EntryList0204af14*, unsigned int);
+extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0207fcb8(Obj0207fcb8*);
+extern "C" void func_0207fd00(Obj0207fd00*);
 extern "C" void func_0207fe80(void*, int, int, int);
 extern "C" void func_0204b04c(void*, int);
-void CallFunc0204b04cOverList0x2c(Cont0207fd44*);
-void SetEntryFlag2ByKey0205a370(Container0205a3d0*, int);
-SpriteAnimation* FindEntryByHalfword0205a3d0(Container0205a3d0*, int);
-void IterateEntries0205a330(Container0205a330*, int);
+extern "C" void func_0207fd44(Cont0207fd44*);
+extern "C" void func_0205a370(Container0205a3d0*, int);
+extern "C" SpriteAnimation* func_0205a3d0(Container0205a3d0*, int);
+extern "C" void func_0205a330(Container0205a330*, int);
 extern "C" void func_0205ae8c(void*);
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-void UpdateEntryIfActive020e2794(Struct020e2794*, void*);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" void func_020e2794(Struct020e2794*, void*);
 extern "C" void func_ov006_021585c4(AlchemyMenu*);
 extern "C" void func_ov006_0215868c(AlchemyMenu*);
 extern "C" void func_ov006_021587d0(AlchemyMenu*);
 extern "C" void func_ov006_02158914(AlchemyMenu*);
-void GetSublistEntryScaledXY_020807c4(void*, int, short*, short*);
+extern "C" void func_020807c4(void*, int, short*, short*);
 extern "C" void func_0205ac40(void*, Sprite*);
 extern "C" void* func_0203bd08();
 extern "C" unsigned int func_0203be4c(void*);
-void SetFieldsAt0x28And0x2c02076988(int*, int, int);
-void ForwardTableValue02075db0(Struct02075db0*, int, int);
+extern "C" void func_02076988(int*, int, int);
+extern "C" void func_02075db0(Struct02075db0*, int, int);
 
 struct AlchemyMenu {
 #if !defined(jpn)
@@ -182,27 +182,27 @@ extern "C" ARM void func_ov006_021580b8(AlchemyMenu* self)
 {
     if (self->state_ != 0)
     {
-        if (CheckElementFlag_02158080_02158080((Obj2081*)self->menu_, 0))
-            SetFieldsAndCall02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[26], 2, 0x61, 0x64, 1);
-        if (CheckElementFlag_02158080_02158080((Obj2081*)self->menu_, 1))
+        if (func_ov006_02158080((Obj2081*)self->menu_, 0))
+            func_ov006_02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[26], 2, 0x61, 0x64, 1);
+        if (func_ov006_02158080((Obj2081*)self->menu_, 1))
         {
-            SetFieldsAndCall02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[27], 2, 0x74, 0x66, 1);
+            func_ov006_02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[27], 2, 0x74, 0x66, 1);
             if (self->arrowTimer_ > 0x1f)
-                SetFieldsAndCall02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[28], 0x78, 0xb6, 0x63, 1);
+                func_ov006_02158054(self->renderer_, (SetFieldsAndCall02158054Struct*)&self->sprites_[28], 0x78, 0xb6, 0x63, 1);
         }
         else
         {
             self->arrowTimer_ = 0;
         }
         func_ov006_02154a60(self->pot_);
-        ClearBuffer0204b010((Obj0204b010*)self->subBackground_, 0);
-        void* layer = GetEntryByIndexStride0x10((EntryList0204af14*)self->subBackground_, self->background_);
+        func_0204b010((Obj0204b010*)self->subBackground_, 0);
+        void* layer = func_0204af14((EntryList0204af14*)self->subBackground_, self->background_);
         if (layer != 0)
-            CallFunc0204b620IfField0x14_0204b938(self->subBackground_, layer, 0, 0, 0xffff);
+            func_0204b938(self->subBackground_, layer, 0, 0, 0xffff);
 #if !defined(jpn)
         if (self->background_ == 1)
         {
-            unsigned int kind = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+            unsigned int kind = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
             unsigned char tiles = 1;
             switch (kind)
             {
@@ -220,27 +220,27 @@ extern "C" ARM void func_ov006_021580b8(AlchemyMenu* self)
                 break;
             }
             if (tiles > 1)
-                DispatchEntry0204b8d0((Obj0204b8d0*)self->subBackground_, tiles, 0, 0, 0x16, 2, 9, 2, 0xffff);
+                func_0204b8d0((Obj0204b8d0*)self->subBackground_, tiles, 0, 0, 0x16, 2, 9, 2, 0xffff);
         }
 #endif
         void* menu = self->menu_;
-        ClearAllBuffers0207fcb8((Obj0207fcb8*)menu);
-        CallFunc0204c8f0OverEntries0207fd00((Obj0207fd00*)menu);
+        func_0207fcb8((Obj0207fcb8*)menu);
+        func_0207fd00((Obj0207fd00*)menu);
         func_0207fe80(menu, 2, 1, 1);
         func_0204b04c(self->subBackground_, 0);
-        CallFunc0204b04cOverList0x2c((Cont0207fd44*)menu);
+        func_0207fd44((Cont0207fd44*)menu);
         if (self->flags_ & 0x200)
         {
             self->arrowTimer_ = 0;
-            SetEntryFlag2ByKey0205a370((Container0205a3d0*)self->animations_, 1);
-            SpriteAnimation* animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->animations_, 0);
+            func_0205a370((Container0205a3d0*)self->animations_, 1);
+            SpriteAnimation* animation = func_0205a3d0((Container0205a3d0*)self->animations_, 0);
             if (animation != 0)
                 animation->flags_ &= ~8;
-            animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->animations_, 1);
+            animation = func_0205a3d0((Container0205a3d0*)self->animations_, 1);
             if (animation != 0)
                 animation->flags_ |= 8;
-            IterateEntries0205a330((Container0205a330*)self->animations_, self->ticks_);
-            animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->animations_, 1);
+            func_0205a330((Container0205a330*)self->animations_, self->ticks_);
+            animation = func_0205a3d0((Container0205a3d0*)self->animations_, 1);
             if (animation != 0)
             {
                 animation->x_ = 0xd7;
@@ -250,14 +250,14 @@ extern "C" ARM void func_ov006_021580b8(AlchemyMenu* self)
         }
         else
         {
-            SpriteAnimation* animation = FindEntryByHalfword0205a3d0((Container0205a3d0*)self->animations_, 1);
+            SpriteAnimation* animation = func_0205a3d0((Container0205a3d0*)self->animations_, 1);
             if (animation != 0)
                 animation->flags_ &= ~8;
         }
         if (self->message_ < 0)
         {
-            if (self->choice_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
-                UpdateEntryIfActive020e2794((Struct020e2794*)self->choice_, self->renderer_);
+            if (self->choice_ != 0 && func_020e28dc((Outer020e28dc*)self->choice_))
+                func_020e2794((Struct020e2794*)self->choice_, self->renderer_);
             else
                 func_ov006_021585c4(self);
         }
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov006_021580b8(AlchemyMenu* self)
             return;
         short x;
         short y;
-        GetSublistEntryScaledXY_020807c4(self->menu_, 0x12, &x, &y);
+        func_020807c4(self->menu_, 0x12, &x, &y);
         Sprite* sprite = &self->sprites_[17];
         if (sprite != 0)
         {
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov006_021580b8(AlchemyMenu* self)
         self->resultSprite_.unk_4c = 0;
         self->resultSprite_.unk_14 = vram + 0x1b8;
         self->resultSprite_.unk_44 = 0x37;
-        SetFieldsAt0x28And0x2c02076988((int*)&self->resultSprite_, 0x1000, 0x1000);
-        ForwardTableValue02075db0((Struct02075db0*)&self->resultSprite_, x + 8, y + 8);
+        func_02076988((int*)&self->resultSprite_, 0x1000, 0x1000);
+        func_02075db0((Struct02075db0*)&self->resultSprite_, x + 8, y + 8);
     }
 }

@@ -21,16 +21,16 @@ struct PartyList021bd704 {
     unsigned char count;
 };
 extern "C" void* func_0202ae18();
-unsigned char GetField0x397cValue_020100b0(GameState*);
+extern "C" unsigned char func_020100b0(GameState*);
 extern "C" int func_0202c508(void*);
-void SetFlag0x1ceBit0x4_02039d48(unsigned char*);
+extern "C" void func_02039d48(unsigned char*);
 int fix32sin(int);
 int fix32cos(int);
-unsigned char GetByte0x26c_02039d7c(char*);
-void ResetObjectState02039d84(Obj02039d84*);
-void EnqueueEventTag60Field_021d440c(int);
-void SetVecYFromValue02033874(Obj02033874*, int);
-void ClearBytesAndZeroBlock02039d24(unsigned char*);
+extern "C" unsigned char func_02039d7c(char*);
+extern "C" void func_02039d84(Obj02039d84*);
+extern "C" void func_ov017_021d440c(int);
+extern "C" void func_02033874(Obj02033874*, int);
+extern "C" void func_02039d24(unsigned char*);
 extern "C" void func_ov017_021c3e18(int);
 
 // USA: func_ov017_021bd704
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021bd704(FormationState021bd704* self) {
         position = game->GetUnknownGameObject()->obj3D_.position_;
         angle = game->GetUnknownGameObject()->obj3D_.rotation_.y;
     }
-    PartyList021bd704* party = (PartyList021bd704*)GetPtrField0x2a04_02010828(game);
+    PartyList021bd704* party = (PartyList021bd704*)func_02010828(game);
     if (party != 0) {
         for (int i = 0; i < party->count; i++) {
             int id = party->members[i];
@@ -54,9 +54,9 @@ extern "C" ARM void func_ov017_021bd704(FormationState021bd704* self) {
             if (member == 0) continue;
             if (func_0202c508(search)) {
                 int member_id = member->obj3D_.unknown_4_;
-                if (member_id != GetField0x397cValue_020100b0(game) && anchor) {
+                if (member_id != func_020100b0(game) && anchor) {
                     member->obj3D_.SetInheritedAlpha(0);
-                    SetFlag0x1ceBit0x4_02039d48((unsigned char*)member);
+                    func_02039d48((unsigned char*)member);
                 }
             } else if (self->enabled && !suppress) {
                 if (id == 1) {
@@ -80,14 +80,14 @@ extern "C" ARM void func_ov017_021bd704(FormationState021bd704* self) {
                     position.x += x;
                 }
             }
-            if (self->id != 8100 && GetByte0x26c_02039d7c((char*)member)) {
-                ResetObjectState02039d84((Obj02039d84*)member);
-                EnqueueEventTag60Field_021d440c(-1);
+            if (self->id != 8100 && func_02039d7c((char*)member)) {
+                func_02039d84((Obj02039d84*)member);
+                func_ov017_021d440c(-1);
             }
             member->obj3D_.position_ = position;
-            SetVecYFromValue02033874((Obj02033874*)member, angle);
+            func_02033874((Obj02033874*)member, angle);
             member->obj3D_.EnableFlag(0x4000000);
-            ClearBytesAndZeroBlock02039d24((unsigned char*)member);
+            func_02039d24((unsigned char*)member);
         }
     }
     if (func_0202c508(search)) func_ov017_021c3e18(0);

@@ -73,16 +73,16 @@ struct Callback_0202a91c;
 struct WrapField_0202a678;
 
 extern "C" void func_02029634(DebugMenu* menu, int ticks);
-DebugMenuItem* GetNodeAtIndex(IndexList_0202a9ac*, int);
-void SetState0x6cAndInvoke(Callback_0202a91c*);
-void Deactivate0202a8cc(char*, int);
-void FormatAndDispatch0202ad98(int a, int b, int c, const char* fmt, ...);
-void FormatAndDispatch020290e8(int a, int b, const char* fmt, ...);
-void AdjustValueWrapOrClamp(WrapField_0202a678*, int);
+extern "C" DebugMenuItem* func_0202a9ac(IndexList_0202a9ac*, int);
+extern "C" void func_0202a91c(Callback_0202a91c*);
+extern "C" void func_0202a8cc(char*, int);
+extern "C" void func_0202ad98(int a, int b, int c, const char* fmt, ...);
+extern "C" void func_020290e8(int a, int b, const char* fmt, ...);
+extern "C" void func_0202a678(WrapField_0202a678*, int);
 extern "C" void func_0202a6c4(DebugMenu* menu);
 extern "C" void* __clear(void*, int);
-int SetupViewport02029384(int, int, int, int);
-void PackRegister02029470(int, int, int, int, int, int);
+extern "C" int func_02029384(int, int, int, int);
+extern "C" void func_02029470(int, int, int, int, int, int);
 extern "C" void func_020292ec(int a0, int a1, int a2, int a3, int a4);
 
 extern Metrics020ef74c data_020ef74c;
@@ -100,7 +100,7 @@ extern const char data_020ef77d[];
 extern const char data_020ef782[];
 
 static inline DebugMenuItem* GetItem(DebugMenu* menu, int index) {
-    return GetNodeAtIndex((IndexList_0202a9ac*)menu, index);
+    return func_0202a9ac((IndexList_0202a9ac*)menu, index);
 }
 
 // USA: func_02029988
@@ -181,12 +181,12 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                             menu->selected = sel;
                             if (menu->selected < 0 || cur->type != 1) {
                                 if (menu->flags & 2) return;
-                                SetState0x6cAndInvoke((Callback_0202a91c*)menu);
+                                func_0202a91c((Callback_0202a91c*)menu);
                                 menu->activated = 1;
                                 return;
                             }
                             if (cur->type != 1) return;
-                            Deactivate0202a8cc((char*)cur, 1);
+                            func_0202a8cc((char*)cur, 1);
                             menu->state = 4;
                             return;
                         }
@@ -207,10 +207,10 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
         }
 
         if (data_020ef74c.font == 0) {
-            FormatAndDispatch0202ad98(menu->x / 8 + 1, menu->y / 8 + 1, 7, menu->text);
+            func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 1, 7, menu->text);
         } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
             data_020fe9a4.highlight = 0;
-            FormatAndDispatch020290e8(menu->x + data_020ef74c.columnWidth, menu->y + data_020ef74c.rowHeight, menu->text);
+            func_020290e8(menu->x + data_020ef74c.columnWidth, menu->y + data_020ef74c.rowHeight, menu->text);
         }
 
         {
@@ -222,11 +222,11 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                 data_020fe9a4.highlight = 0;
                 if (item->disabled) data_020fe9a4.highlight = 1;
                 if (data_020ef74c.font == 0) {
-                    FormatAndDispatch0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
+                    func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
                 } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
                     int px = menu->x + data_020ef74c.columnWidth;
                     int py = data_020ef74c.rowHeight * (row + 2);
-                    FormatAndDispatch020290e8(px, py + menu->y, buf);
+                    func_020290e8(px, py + menu->y, buf);
                 }
                 item = item->next;
             }
@@ -241,11 +241,11 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                 data_020fe9a4.highlight = 0;
                 if (item->disabled) data_020fe9a4.highlight = 1;
                 if (data_020ef74c.font == 0) {
-                    FormatAndDispatch0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
+                    func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
                 } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
                     int px = menu->x + data_020ef74c.columnWidth;
                     int py = data_020ef74c.rowHeight * (row + 2);
-                    FormatAndDispatch020290e8(px, py + menu->y, buf);
+                    func_020290e8(px, py + menu->y, buf);
                 }
                 item = item->next;
             }
@@ -300,19 +300,19 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                             int step = 1;
                             if (g_keyManager.TestKeysHeld(8)) step = 100;
                             if (g_keyManager.TestKeyRepeat(0x10)) {
-                                AdjustValueWrapOrClamp((WrapField_0202a678*)item, step);
+                                func_0202a678((WrapField_0202a678*)item, step);
                                 adjusted = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x20)) {
-                                AdjustValueWrapOrClamp((WrapField_0202a678*)item, -step);
+                                func_0202a678((WrapField_0202a678*)item, -step);
                                 adjusted = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x100)) {
-                                AdjustValueWrapOrClamp((WrapField_0202a678*)item, step * 10);
+                                func_0202a678((WrapField_0202a678*)item, step * 10);
                                 adjusted = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x200)) {
-                                AdjustValueWrapOrClamp((WrapField_0202a678*)item, step * -10);
+                                func_0202a678((WrapField_0202a678*)item, step * -10);
                                 adjusted = 1;
                             }
                             if (adjusted) {
@@ -359,11 +359,11 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                         len += strlen(number);
                     }
                     if (data_020ef74c.font == 0) {
-                        FormatAndDispatch0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + (first + (row - menu->visibleFirst)), 7, line);
+                        func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + (first + (row - menu->visibleFirst)), 7, line);
                     } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
                         int px = menu->x + data_020ef74c.columnWidth;
                         int py = data_020ef74c.rowHeight * (first + (row - menu->visibleFirst) + 2);
-                        FormatAndDispatch020290e8(px, py + menu->y, line);
+                        func_020290e8(px, py + menu->y, line);
                     }
                 }
                 item = item->next;
@@ -376,18 +376,18 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
         if (cur != NULL && cur->type == 1) {
             func_02029988(cur, ticks);
             if (cur->state == 1 ? 1 : 0) {
-                Deactivate0202a8cc((char*)menu, 0);
+                func_0202a8cc((char*)menu, 0);
             }
         }
     }
 
     switch (menu->state) {
     case 0:
-        if (SetupViewport02029384(menu->x, menu->y, menu->width, menu->height)) {
+        if (func_02029384(menu->x, menu->y, menu->width, menu->height)) {
             if (menu->visibleLast - menu->visibleFirst + 1 < menu->count) {
-                PackRegister02029470(0, 1, 3, 0, 0, 0);
+                func_02029470(0, 1, 3, 0, 0, 0);
                 func_020292ec(menu->x + menu->width - 9, menu->y + 1, 8, menu->height - 2, 0x7fff);
-                PackRegister02029470(0, 1, 3, 0, 0x1f, 0);
+                func_02029470(0, 1, 3, 0, 0x1f, 0);
                 if (barH < 0 || barH >= 0x100) {
                     barY = menu->y + 1;
                     barH = menu->height - 2;
@@ -401,12 +401,12 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
     case 2:
         menu->shownHeight = menu->height;
         menu->state = 0;
-        SetupViewport02029384(menu->x, menu->y, menu->width, menu->shownHeight);
+        func_02029384(menu->x, menu->y, menu->width, menu->shownHeight);
         break;
     case 3:
         menu->shownHeight = 0;
         menu->state = 1;
-        SetupViewport02029384(menu->x, menu->y, menu->width, menu->shownHeight);
+        func_02029384(menu->x, menu->y, menu->width, menu->shownHeight);
         break;
     }
 }

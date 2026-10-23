@@ -22,10 +22,10 @@ struct Glyph0204e3e0 {
 
 extern "C" void* __clear(void* dst, int count);
 extern "C" int func_020420e8(char* str, int id);
-int FindEntryIndexByKey020424e4(int key, int tableIdx);
-char* FindUnescapedAngleBracket_020424ac(char* str);
-Glyph0204e3e0* GetBoundedEntry020425b4(int idx, int tableIdx);
-int LookupKeyValue020425e4(int a, int b, int tableIdx);
+extern "C" int func_020424e4(int key, int tableIdx);
+extern "C" char* func_020424ac(char* str);
+extern "C" Glyph0204e3e0* func_020425b4(int idx, int tableIdx);
+extern "C" int func_020425e4(int a, int b, int tableIdx);
 extern "C" int func_0204fc40(void* unused0, char** cursor, char* tag, short* out, int max);
 extern const unsigned char data_020e7bd6[];
 extern char data_020f0248[];
@@ -92,10 +92,10 @@ extern "C" ARM short func_0204e3e0(Wnd0204e3e0* wnd, char* text, int mode, unsig
             prev = 0xff;
             continue;
         }
-        int idx = FindEntryIndexByKey020424e4((int)cursor, font);
+        int idx = func_020424e4((int)cursor, font);
         if (*cursor == '<' && idx < 0) {
             p = cursor + 1;
-            end = FindUnescapedAngleBracket_020424ac(cursor);
+            end = func_020424ac(cursor);
             if (func_0204fc40(wnd, &p, data_020f0248, out, 1)) {
             } else if (func_0204fc40(wnd, &p, data_020f024e, out, 1)) {
                 if (maxX < x) maxX = x;
@@ -159,8 +159,8 @@ extern "C" ARM short func_0204e3e0(Wnd0204e3e0* wnd, char* text, int mode, unsig
         adv = data_020e7bd6[font] + 1;
         if (idx >= 0) {
             code = idx & 0xff;
-            glyph = GetBoundedEntry020425b4(idx, font);
-            int kern = LookupKeyValue020425e4(prev, code, font);
+            glyph = func_020425b4(idx, font);
+            int kern = func_020425e4(prev, code, font);
             prev = code;
             adv = glyph->width + 1 + kern;
             cursor += glyph->skip;

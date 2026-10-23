@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-void* GetData02100044_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct CombatantStats021ce524 {
@@ -40,7 +40,7 @@ struct CombatantData021ce524 {
     CombatantEventRegion021ce524 eventRegion;
 };
 
-CombatantData021ce524* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" CombatantData021ce524* func_02053c6c(unsigned char* obj);
 
 struct Sub021ce524 {
     short combatantId;
@@ -62,15 +62,15 @@ struct LocalEvt021ce524 {
 // USA: func_ov017_021ce524
 extern "C" ARM void func_ov017_021ce524(short combatantId) {
     LocalEvt021ce524 buf;
-    void* p = GetData02100044_0202ae24();
+    void* p = func_0202ae24();
     buf.tag = 0x29;
     Sub021ce524* s = &buf.sub;
     s->combatantId = combatantId;
 
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), combatantId);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), combatantId);
     if (combatant == NULL) return;
 
-    CombatantData021ce524* data = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    CombatantData021ce524* data = func_02053c6c((unsigned char*)combatant);
     if (data == NULL) return;
 
     CombatantStats021ce524* stats = &data->eventRegion.fields.stats;

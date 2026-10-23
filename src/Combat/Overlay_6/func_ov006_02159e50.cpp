@@ -28,10 +28,10 @@ struct AlchemyMenu {
 
 extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
-unsigned char DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-void ResetWithSub0208203c(Obj0208203c* repeat);
-void ResetSelectionState020e25e8(Obj020e25e8* choice);
+extern "C" unsigned char func_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
+extern "C" void func_0207fdcc(Obj2081* menu, int group);
+extern "C" void func_0208203c(Obj0208203c* repeat);
+extern "C" void func_020e25e8(Obj020e25e8* choice);
 
 extern "C" char data_02108760[];
 
@@ -41,7 +41,7 @@ extern "C" ARM signed char func_ov006_02159e50(AlchemyMenu* self) {
     self->arrowTimer_ = 0;
     self->cursor_ = &self->choiceCursor_;
     if (func_ov006_02158a28(self) || g_keyManager.TestKeysPressed(0x200)) {
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
         result = -1;
         if (self->choiceCursor_ == 0x22)
             result = 1;
@@ -49,11 +49,11 @@ extern "C" ARM signed char func_ov006_02159e50(AlchemyMenu* self) {
         result = -1;
     }
     if (result != 0) {
-        CallFunc0204c804OnMatchingKey_0207fdcc(self->menu_, self->group_);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0207fdcc(self->menu_, self->group_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
     }
     if (self->choice_ != 0 && result != 0)
-        ResetSelectionState020e25e8(self->choice_);
+        func_020e25e8(self->choice_);
     return result;
 }

@@ -14,15 +14,15 @@ struct TailList020469b4;
 struct TailNode020469b4;
 struct SafeAllocator;
 
-void SetByteB10AndClearB11_02184a3c(char* obj, unsigned char value);
+extern "C" void func_ov008_02184a3c(char* obj, unsigned char value);
 extern "C" void func_ov008_02184754(void* obj);
 extern "C" void func_ov008_021845ac(void* obj);
-void SetCombatModeFromCase020dc2d0(int mode);
-void InitObjState_021b2174(unsigned char* obj);
-void SetNameChecked_021b2ba0(S021b2ba0* obj, char* name);
-void SetFields30And34_021b2bd0(void* obj, int handler, int overlayId);
-void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
-void AllocateAndCopyBuf76_0216aa70(SafeAllocator* allocator, void* arg);
+extern "C" void func_020dc2d0(int mode);
+extern "C" void func_ov017_021b2174(unsigned char* obj);
+extern "C" void func_ov017_021b2ba0(S021b2ba0* obj, char* name);
+extern "C" void func_ov017_021b2bd0(void* obj, int handler, int overlayId);
+extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+extern "C" void func_ov004_0216aa70(SafeAllocator* allocator, void* arg);
 extern char data_ov008_0218b594;
 
 struct Manager0218b084 {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov008_0218b084(Manager0218b084* self) {
             self->e9c = 2;
             return;
         }
-        SetByteB10AndClearB11_02184a3c(self->f2a8, 0xd);
+        func_ov008_02184a3c(self->f2a8, 0xd);
         self->e9c = self->e9c + 1;
         return;
     }
@@ -81,15 +81,15 @@ extern "C" ARM void func_ov008_0218b084(Manager0218b084* self) {
     bgcnt[0] = (bgcnt[0] & ~3) | 1;
     bgcnt[1] = (bgcnt[1] & ~3) | 2;
     bgcnt[2] = (bgcnt[2] & ~3);
-    SetCombatModeFromCase020dc2d0(0);
+    func_020dc2d0(0);
     if (self->eba != 0) {
         TailList020469b4* list;
         unsigned char* obj = *(unsigned char**)((char*)res + R(0x392c,0x3b4c));
         list = *(TailList020469b4**)((char*)res + R(0x34ec,0x36fc));
-        InitObjState_021b2174(obj);
-        SetNameChecked_021b2ba0((S021b2ba0*)obj, &data_ov008_0218b594);
-        SetFields30And34_021b2bd0(obj, (int)AllocateAndCopyBuf76_0216aa70, OVERLAY_ID(4));
-        AppendNodeToTail(list, (TailNode020469b4*)obj);
+        func_ov017_021b2174(obj);
+        func_ov017_021b2ba0((S021b2ba0*)obj, &data_ov008_0218b594);
+        func_ov017_021b2bd0(obj, (int)func_ov004_0216aa70, OVERLAY_ID(4));
+        func_020469b4(list, (TailNode020469b4*)obj);
     }
     self->eb8 = 1;
 }

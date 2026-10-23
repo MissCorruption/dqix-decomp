@@ -4,7 +4,7 @@
 #include "Combat/ScriptElementList.h"
 
 struct Init0208d51c;
-void ResetStruct0208d51c(struct Init0208d51c* p);
+extern "C" void func_0208d51c(struct Init0208d51c* p);
 
 struct Elem0208d928 {
     short id;
@@ -16,11 +16,11 @@ struct Elem0208d928 {
 };
 
 struct List0208d928;
-void AppendCappedElement0208d928(struct List0208d928* l, struct Elem0208d928* e);
+extern "C" void func_0208d928(struct List0208d928* l, struct Elem0208d928* e);
 
 extern const char data_020f1244[];
 
-int StringLength_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* s);
 
 // USA: func_0208d594
 extern "C" ARM int func_0208d594(Script::Parameter* p) {
@@ -35,7 +35,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
     Script::Parameter* q;
     char* buf;
 
-    ResetStruct0208d51c((struct Init0208d51c*)&elem);
+    func_0208d51c((struct Init0208d51c*)&elem);
     elem.id = (short)p->ToInt();
     if (data_02108fc0.header->selectedCount != 0) {
         const short* cur = data_02108fc0.header->selectedIds;
@@ -54,7 +54,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
 
     s = (p + 1)->ToString();
     if (flags & 1) {
-        len = StringLength_020d2ff0(s);
+        len = func_020d2ff0(s);
         if (len != 0) {
             elem.text4 = (char*)data_02108fc0.allocator->Allocate(len + 1);
             elem.text4[len] = 0;
@@ -66,7 +66,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
     p += 3;
     s = q->ToString();
     if (flags & 2) {
-        len = StringLength_020d2ff0(s);
+        len = func_020d2ff0(s);
         if (len != 0) {
             elem.text8 = (char*)data_02108fc0.allocator->Allocate(len + 1);
             elem.text8[len] = 0;
@@ -86,7 +86,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
         s = p->ToString();
         p++;
         if (flags & mask) {
-            len = StringLength_020d2ff0(s);
+            len = func_020d2ff0(s);
             if (len != 0) {
                 elem.texts[i] = (char*)data_02108fc0.allocator->Allocate(len + 1);
                 buf = elem.texts[i];
@@ -99,7 +99,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
 
     s = p->ToString();
     if (flags & 0x400) {
-        len = StringLength_020d2ff0(s);
+        len = func_020d2ff0(s);
         if (len != 0) {
             elem.text10 = (char*)data_02108fc0.allocator->Allocate(len + 1);
             elem.text10[len] = 0;
@@ -109,7 +109,7 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
 
     s = (p + 1)->ToString();
     if (flags & 0x800) {
-        len = StringLength_020d2ff0(s);
+        len = func_020d2ff0(s);
         if (len != 0) {
             elem.text14 = (char*)data_02108fc0.allocator->Allocate(len + 1);
             elem.text14[len] = 0;
@@ -117,6 +117,6 @@ extern "C" ARM int func_0208d594(Script::Parameter* p) {
         }
     }
 
-    AppendCappedElement0208d928((struct List0208d928*)data_02108fc0.header, &elem);
+    func_0208d928((struct List0208d928*)data_02108fc0.header, &elem);
     return 1;
 }

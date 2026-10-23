@@ -30,18 +30,18 @@ struct Ctx0205ec34 {
 struct GetTableByteOrFFData;
 struct Obj0208bf28;
 
-short GetScaledFieldValue_02166684(int a);
+extern "C" short func_ov004_02166684(int a);
 extern "C" short func_ov004_021666bc(void* a1, char* outFlag);
-struct GetTableByteOrFFData* GetGlobal02109418_02094d6c(void);
+extern "C" struct GetTableByteOrFFData* func_02094d6c(void);
 extern "C" struct Ctx0205ec34* func_0205ec34(void);
-unsigned char GetTableByteOrFF_020965ac(GetTableByteOrFFData* s, unsigned char idx);
+extern "C" unsigned char func_020965ac(GetTableByteOrFFData* s, unsigned char idx);
 extern "C" int func_02095d30(struct GetTableByteOrFFData* list, int value, int mode);
 extern "C" void func_ov004_02166198(void);
 extern "C" void func_ov004_02165f2c(void);
 extern "C" void func_ov004_02165ef4(void* a1);
 extern "C" void func_ov004_02166730(void* a1, int a2);
-void* CheckTypeAndReturnNode_02165e70_02165e70(void* a, int key);
-void SetFieldD20208bf28(struct Obj0208bf28* obj, int value, unsigned char b);
+extern "C" void* func_ov004_02165e70(void* a, int key);
+extern "C" void func_0208bf28(struct Obj0208bf28* obj, int value, unsigned char b);
 extern "C" void func_ov004_02166bd8(void* a1);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 
@@ -54,21 +54,21 @@ static inline BattleList02167434* GetBattleList02167434() {
 #endif
 }
 
-static inline unsigned char* GetNibbles_0205d594(struct Ctx0205ec34* c) { return c->nibbles; }
+extern "C" static inline unsigned char* func_0205d594(struct Ctx0205ec34* c) { return c->nibbles; }
 
 // USA: func_ov004_02167434
 extern "C" ARM int func_ov004_02167434(void* a1) {
-    short target = GetScaledFieldValue_02166684((int)a1);
+    short target = func_ov004_02166684((int)a1);
     short id;
     char flag;
     short key = func_ov004_021666bc(a1, &flag);
-    struct GetTableByteOrFFData* table = GetGlobal02109418_02094d6c();
+    struct GetTableByteOrFFData* table = func_02094d6c();
     struct Ctx0205ec34* ctx = func_0205ec34();
-    unsigned char slot = GetTableByteOrFF_020965ac(table, (unsigned char)key);
+    unsigned char slot = func_020965ac(table, (unsigned char)key);
     func_02095d30(table, slot, 1);
 
     unsigned char idx = slot >> 1;
-    unsigned char* src = GetNibbles_0205d594(ctx);
+    unsigned char* src = func_0205d594(ctx);
     unsigned char mask = (unsigned char)(slot & 1) == 0 ? 0xf0 : 0xf;
     unsigned char saved = src[idx] & ~mask;
     GetBattleList02167434()->nibbles[idx] &= mask;
@@ -92,17 +92,17 @@ extern "C" ARM int func_ov004_02167434(void* a1) {
         func_ov004_02166730(a1, node->id);
         unsigned char b = flag;
         id = node->id;
-        void* obj = CheckTypeAndReturnNode_02165e70_02165e70(a1, 7);
+        void* obj = func_ov004_02165e70(a1, 7);
         if (obj != 0) {
-            SetFieldD20208bf28((struct Obj0208bf28*)((char*)obj + 0x34), id, b);
+            func_0208bf28((struct Obj0208bf28*)((char*)obj + 0x34), id, b);
         }
         func_ov004_02166bd8(a1);
         func_ov011_021848a0(a1, 0x6c);
     } else {
         unsigned char b = flag;
-        void* obj = CheckTypeAndReturnNode_02165e70_02165e70(a1, 7);
+        void* obj = func_ov004_02165e70(a1, 7);
         if (obj != 0) {
-            SetFieldD20208bf28((struct Obj0208bf28*)((char*)obj + 0x34), 9999, b);
+            func_0208bf28((struct Obj0208bf28*)((char*)obj + 0x34), 9999, b);
         }
         func_ov004_02166bd8(a1);
         if (list->field_0x48 == 0 && list->field_0x4a == 0) {

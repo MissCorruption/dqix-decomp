@@ -3,7 +3,7 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_02012fe4(void);
-int IsIdInRange020981e4(int a, int id);
+extern "C" int func_020981e4(int a, int id);
 extern "C" void* func_ov011_021845f8(void* a, int b);
 
 struct MenuState021707e8 {
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov004_02163304(void* self) {
     int kind = 3;
     char* zone = (char*)func_02012fe4();
     char* grotto = zone + 0x840;
-    if (grotto != NULL && IsIdInRange020981e4((int)grotto, GetZoneId(zone))) {
+    if (grotto != NULL && func_020981e4((int)grotto, GetZoneId(zone))) {
         kind = 7;
     }
     char* node = (char*)func_ov011_021845f8(self, kind);

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-int CheckMaskAgainstField32_0223d354(int mask);
-void SetField16IfMinusOne_02222e20(int v);
+extern "C" int func_ov031_0223d354(int mask);
+extern "C" void func_ov031_02222e20(int v);
 
 // USA: func_ov031_02228ac0
 extern "C" ARM void func_ov031_02228ac0(void) {
-	if (CheckMaskAgainstField32_0223d354(1) == 0) return;
-	SetField16IfMinusOne_02222e20(0);
+	if (func_ov031_0223d354(1) == 0) return;
+	func_ov031_02222e20(0);
 }

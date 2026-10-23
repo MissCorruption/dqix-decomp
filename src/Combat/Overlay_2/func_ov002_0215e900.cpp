@@ -13,13 +13,13 @@ extern "C" void func_0205d304(void* ptr, int val, int a2, int a3, int s0, int s1
 extern "C" void func_ov002_0215eadc(void* obj, int val);
 
 struct Struct_0205d81c;
-void SetElementFieldC2_0205deb4(struct Struct_0205d81c* s, int key, int value);
+extern "C" void func_0205deb4(struct Struct_0205d81c* s, int key, int value);
 
 struct Obj0205dee8 {
     char pad0[0xb0];
     unsigned char fieldB0;
 };
-void SetFieldB0AndUpdate0205dee8(struct Obj0205dee8* obj, int val);
+extern "C" void func_0205dee8(struct Obj0205dee8* obj, int val);
 
 // USA: func_ov002_0215e900
 extern "C" ARM void func_ov002_0215e900(unsigned char* obj) {
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov002_0215e900(unsigned char* obj) {
 
     func_ov002_0215eadc(obj, 1);
 
-    SetElementFieldC2_0205deb4((struct Struct_0205d81c*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x11, 0x12), 1);
+    func_0205deb4((struct Struct_0205d81c*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x11, 0x12), 1);
 
-    SetFieldB0AndUpdate0205dee8((struct Obj0205dee8*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x10, 0x11));
+    func_0205dee8((struct Obj0205dee8*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x10, 0x11));
 
-    SetElementFieldC2_0205deb4((struct Struct_0205d81c*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x10, 0x11), 0);
+    func_0205deb4((struct Struct_0205d81c*)(obj + RG(0x2c8 + 0xc00, 0xe20)), RG(0x10, 0x11), 0);
 }

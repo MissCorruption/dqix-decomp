@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-void SetField1e_0223521c(void);
+extern "C" void func_ov031_0223521c(void);
 extern "C" void func_ov031_022238cc(void);
 extern "C" int FastIntModulus(int numer, int denom);
 extern "C" void func_ov031_0222c660(void);
 extern "C" void func_ov031_0222c3b4(void);
 extern "C" int FastIntDivide(int numer, unsigned int denom);
 extern "C" void func_ov031_022351f8(int a);
-void ClearField1e_02235204(void);
+extern "C" void func_ov031_02235204(void);
 extern "C" void func_ov031_0222c8cc(void);
 extern "C" void func_ov031_0223e2c0(int idx, void* obj);
 
@@ -24,7 +24,7 @@ extern Struct0222c7d8 data_ov031_02290c8c;
 
 // USA: func_ov031_0222c7d8
 extern "C" ARM void func_ov031_0222c7d8(void* obj) {
-	SetField1e_0223521c();
+	func_ov031_0223521c();
 	func_ov031_022238cc();
 	data_ov031_02290c8c.field2 += 4;
 	int rem = FastIntModulus(data_ov031_02290c8c.field2, 0x1c);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov031_0222c7d8(void* obj) {
 	func_ov031_0222c3b4();
 	int v = FastIntDivide(data_ov031_02290c8c.field2 * data_ov031_02290c8c.field4->field53, data_ov031_02290c8c.field4->field40);
 	func_ov031_022351f8(v);
-	ClearField1e_02235204();
+	func_ov031_02235204();
 	func_ov031_0222c8cc();
 	data_ov031_02290c8c.field4->field38 = 0;
 	func_ov031_0223e2c0(0, obj);

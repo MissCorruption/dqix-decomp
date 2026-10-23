@@ -12,12 +12,12 @@ struct Node021df568 {
     GameObject* obj;
 };
 
-int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
-Vector3fix GetSubTriple02049c08(struct Obj02049c08* obj);
-void SetVecYFromValue02033874(struct Obj02033874* obj, int arg);
-void ResetFields_021df554(void* obj);
-struct Node021df568* InsertSorted_021df568(struct Node021df568* head, struct Node021df568* newNode);
-struct Node021df5cc* FindLastNode021df5cc(struct Node021df5cc* node);
+extern "C" int func_ov000_021820bc(void* obj, int unused, int index, int arg);
+extern "C" Vector3fix func_02049c08(struct Obj02049c08* obj);
+extern "C" void func_02033874(struct Obj02033874* obj, int arg);
+extern "C" void func_ov025_021df554(void* obj);
+extern "C" struct Node021df568* func_ov025_021df568(struct Node021df568* head, struct Node021df568* newNode);
+extern "C" struct Node021df5cc* func_ov025_021df5cc(struct Node021df5cc* node);
 extern "C" fix32_t fix32_Divide(fix32_t a, fix32_t b);
 
 static inline int FxMul(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov025_021def64(struct Obj021def64* self, int slot, int 
     int ids[16];
     GameObject* objs[16];
     GameState* gs = GameState::GetInstance();
-    int count = DispatchByIndex021820bc(self->list, slot, index, (int)ids);
+    int count = func_ov000_021820bc(self->list, slot, index, (int)ids);
     if (count == 0) return;
 
     int n = 0;
@@ -47,8 +47,8 @@ extern "C" ARM void func_ov025_021def64(struct Obj021def64* self, int slot, int 
         objs[n] = gs->GetCombatantByIndex(ids[i]);
         if (objs[n] == NULL) continue;
         GameObject* o = objs[i];
-        o->obj3D_.position_ = GetSubTriple02049c08((struct Obj02049c08*)o);
-        SetVecYFromValue02033874((struct Obj02033874*)o, 0);
+        o->obj3D_.position_ = func_02049c08((struct Obj02049c08*)o);
+        func_02033874((struct Obj02033874*)o, 0);
         n++;
     }
     count = n;
@@ -68,16 +68,16 @@ extern "C" ARM void func_ov025_021def64(struct Obj021def64* self, int slot, int 
         int span;
         int i2;
         for (i = 0; i < count; i++) {
-            ResetFields_021df554(&nodesX[i]);
+            func_ov025_021df554(&nodesX[i]);
             GameObject* o = objs[i];
-            nodesX[i].key = GetSubTriple02049c08((struct Obj02049c08*)o).x;
+            nodesX[i].key = func_02049c08((struct Obj02049c08*)o).x;
             nodesX[i].obj = o;
         }
         head = &nodesX[0];
         for (i2 = 1; i2 < count; i2++) {
-            head = InsertSorted_021df568(head, &nodesX[i2]);
+            head = func_ov025_021df568(head, &nodesX[i2]);
         }
-        last = (struct Node021df568*)FindLastNode021df5cc((struct Node021df5cc*)head);
+        last = (struct Node021df568*)func_ov025_021df5cc((struct Node021df5cc*)head);
         span = (last->key + last->obj->obj3D_.GetRadius() / 2) - (head->key - head->obj->obj3D_.GetRadius() / 2);
         if (span > 0x4000 && n > 1) {
             int gaps[16];
@@ -143,18 +143,18 @@ extern "C" ARM void func_ov025_021def64(struct Obj021def64* self, int slot, int 
         struct Node021df568* cur;
         int i2;
         for (i = 0; i < count; i++) {
-            ResetFields_021df554(&nodesZ[i]);
+            func_ov025_021df554(&nodesZ[i]);
             GameObject* o = objs[i];
-            nodesZ[i].key = GetSubTriple02049c08((struct Obj02049c08*)o).z;
+            nodesZ[i].key = func_02049c08((struct Obj02049c08*)o).z;
             nodesZ[i].obj = o;
         }
         head = &nodesZ[0];
         for (i2 = 1; i2 < count; i2++) {
-            head = InsertSorted_021df568(head, &nodesZ[i2]);
+            head = func_ov025_021df568(head, &nodesZ[i2]);
             for (struct Node021df568* p = head; p != NULL; p = p->next) {
             }
         }
-        last = (struct Node021df568*)FindLastNode021df5cc((struct Node021df5cc*)head);
+        last = (struct Node021df568*)func_ov025_021df5cc((struct Node021df5cc*)head);
         span = (last->key + last->obj->obj3D_.GetRadius() / 2) - (head->key - head->obj->obj3D_.GetRadius() / 2);
         if (span > 0x4000 && n > 1) {
             int gaps[16];

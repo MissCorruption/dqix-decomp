@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-void UpdateObjPaletteEntry020dc70c(int, int, int, int, unsigned short, unsigned short, unsigned int);
+extern "C" void func_020dc70c(int, int, int, int, unsigned short, unsigned short, unsigned int);
 static inline int IsObjectMode020dc7e8(unsigned int mode) { return mode >= 6; }
 // USA: func_020dc7e8
 extern "C" ARM void func_020dc7e8(unsigned int mode, int id) {
@@ -24,9 +24,9 @@ extern "C" ARM void func_020dc7e8(unsigned int mode, int id) {
     if (id < 0) {
         signed char i = 0;
         while (i < 4) {
-            UpdateObjPaletteEntry020dc70c(i, source, sub, object, palette, entry, count);
+            func_020dc70c(i, source, sub, object, palette, entry, count);
             palette++;
             i++;
         }
-    } else UpdateObjPaletteEntry020dc70c(id, source, sub, object, palette, entry, count);
+    } else func_020dc70c(id, source, sub, object, palette, entry, count);
 }

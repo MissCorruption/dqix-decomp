@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-int IssueBattleCommandSlot5_020d4efc(int arg);
-int ClearBattleSaveContext020d3fdc(void);
-int SubmitBattleContextSlot4_020d4ebc(int value);
-int IssueBattleCommandSlot25_020d6a84(int arg, int mode);
-int IssueBattleCommandSlot39_020d6950(int a0, int a1, int a2, int a3);
+extern "C" int func_020d4efc(int arg);
+extern "C" int func_020d3fdc(void);
+extern "C" int func_020d4ebc(int value);
+extern "C" int func_020d6a84(int arg, int mode);
+extern "C" int func_020d6950(int a0, int a1, int a2, int a3);
 extern "C" int func_020d54d0(void* fn, void* a, void* b, int c, unsigned short flag);
 extern "C" void func_ov031_0220da1c(int);
 extern "C" void func_ov031_0220d984(int, void*, int, int);
@@ -36,10 +36,10 @@ extern "C" ARM void func_ov031_0220dc40(BattleEvent0220dc40* event) {
     case 0:
         switch (event->command) {
         case 3:
-            result = IssueBattleCommandSlot5_020d4efc((int)func_ov031_0220dc40);
+            result = func_020d4efc((int)func_ov031_0220dc40);
             break;
         case 4:
-            switch (ClearBattleSaveContext020d3fdc()) {
+            switch (func_020d3fdc()) {
             case 0:
                 func_ov031_0220da1c(1);
                 func_ov031_0220d984(0, 0, 0, 0x663);
@@ -55,14 +55,14 @@ extern "C" ARM void func_ov031_0220dc40(BattleEvent0220dc40* event) {
             func_ov031_0220d984(0, 0, 0, 0x673);
             return;
         case 6:
-            result = SubmitBattleContextSlot4_020d4ebc((int)func_ov031_0220dc40);
+            result = func_020d4ebc((int)func_ov031_0220dc40);
             break;
         case 0x1d:
-            result = IssueBattleCommandSlot25_020d6a84((int)func_ov031_0220dc40, 0);
+            result = func_020d6a84((int)func_ov031_0220dc40, 0);
             break;
         case 0x19: {
             BattleWork0220dc40* work = data_ov031_0224e53c;
-            result = IssueBattleCommandSlot39_020d6950((int)func_ov031_0220dc40, work->field2250, work->field2251, (int)work->area2200);
+            result = func_020d6950((int)func_ov031_0220dc40, work->field2250, work->field2251, (int)work->area2200);
             break;
         }
         case 0x27: {

@@ -15,8 +15,8 @@ struct Words021e60c4;
 
 extern "C" Vector3fix func_ov023_021e613c(void* character);
 int fix32ReduceAngle0To2Pi(int angle);
-void InitWordsQuad_021e60e0(void* character, unsigned int angle);
-void SetFourWordBlocks_021e6088(void* character, Words021e60c4* rotation);
+extern "C" void func_ov023_021e60e0(void* character, unsigned int angle);
+extern "C" void func_ov023_021e6088(void* character, Words021e60c4* rotation);
 
 struct CharacterCreation {
 #if defined(jpn)
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ti
             for (unsigned int i = 0; i < ticks - 1; i++)
                 angle -= (0x6488 - fix32ReduceAngle0To2Pi(self->targetAngle_ - angle)) / 12;
         }
-        InitWordsQuad_021e60e0(self->character_, fix32ReduceAngle0To2Pi(angle));
+        func_ov023_021e60e0(self->character_, fix32ReduceAngle0To2Pi(angle));
         int remaining = fix32ReduceAngle0To2Pi(self->targetAngle_ - angle);
         if ((remaining < 0 ? -remaining : remaining) < 40)
             done = 1;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ti
             done = 1;
         if (done)
         {
-            InitWordsQuad_021e60e0(self->character_, fix32ReduceAngle0To2Pi(self->targetAngle_));
+            func_ov023_021e60e0(self->character_, fix32ReduceAngle0To2Pi(self->targetAngle_));
             self->targetAngle_ = 0;
             self->flags_ &= ~8;
         }
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ti
             if (right != 0)
                 rotation.y -= (int)(4096.0f * (0.08f * ticks));
             rotation.y = fix32ReduceAngle0To2Pi(rotation.y);
-            SetFourWordBlocks_021e6088(self->character_, (Words021e60c4*)&rotation);
+            func_ov023_021e6088(self->character_, (Words021e60c4*)&rotation);
         }
     }
 }

@@ -16,18 +16,18 @@ enum { kSceneHeapCount = 4 };
 enum { kSceneHeapCount = 5 };
 #endif
 
-GameResources* GetWord0x0_0200fb8c(int* gameState);
-void ClearCombatWorkFlags0x55f4_ov000_02160fbc(void* work, int mask);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
-int GetCombatWorkFlags0x55f4_ov000_02160fd4(void* work, int mask);
-void ResetBigStruct02013750(void* obj, int flag);
+extern "C" GameResources* func_0200fb8c(int* gameState);
+extern "C" void func_ov000_02160fbc(void* work, int mask);
+extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" int func_ov000_02160fd4(void* work, int mask);
+extern "C" void func_02013750(void* obj, int flag);
 extern "C" void func_ov000_02172720(void* obj);
 
-void ClearTwoRegions02079f9c(char* obj);
+extern "C" void func_02079f9c(char* obj);
 struct Obj020d6f0c;
 struct Container020d6d18;
-void DestroyAllocatorAt0xa28(struct Obj020d6f0c* self);
-void ConstructEntryManager020d6d18(struct Container020d6d18* self);
+extern "C" void func_020d6f0c(struct Obj020d6f0c* self);
+extern "C" void func_020d6d18(struct Container020d6d18* self);
 extern "C" void* func_02057924(void);
 extern "C" void func_02057f00(void* self, int code);
 extern "C" void func_ov017_021a05a8(GameResources* res);
@@ -37,10 +37,10 @@ extern "C" void* func_0205ec34(void);
 extern "C" unsigned short* func_02012fe4(void);
 struct SearchTable;
 struct SearchEntry;
-struct SearchTable* GetPtrField0x468_02011584(void* obj);
-struct SearchEntry* FindEntryByHalfwordKey_02099950(struct SearchTable* table, int key);
+extern "C" struct SearchTable* func_02011584(void* obj);
+extern "C" struct SearchEntry* func_02099950(struct SearchTable* table, int key);
 extern "C" void func_0206461c(void* a, struct SearchEntry* b);
-void SetFieldsAndSignalData02184220_ov000_02160d80(void* p, int val);
+extern "C" void func_ov000_02160d80(void* p, int val);
 
 extern int data_ov000_0218321c[];
 
@@ -84,7 +84,7 @@ struct BattleScene0216873c {
 // USA: func_ov000_0216873c
 extern "C" ARM void func_ov000_0216873c(struct BattleScene0216873c* scene) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = GetWord0x0_0200fb8c((int*)gs);
+    GameResources* res = func_0200fb8c((int*)gs);
     if (scene->step == 0) {
         SetBrightness(res, -16, 15);
         scene->step++;
@@ -93,16 +93,16 @@ extern "C" ARM void func_ov000_0216873c(struct BattleScene0216873c* scene) {
     if (IsBrightnessTransitionActive(res)) {
         return;
     }
-    ClearCombatWorkFlags0x55f4_ov000_02160fbc(scene, 0x200);
-    ResetBigStruct02013750(scene->bigStruct, 1);
+    func_ov000_02160fbc(scene, 0x200);
+    func_02013750(scene->bigStruct, 1);
     func_ov000_02172720(scene->field_0x3760);
-    SetCombatWorkFlags0x55f4_ov000_02160fa8(scene, 0x800);
-    ClearTwoRegions02079f9c((char*)GetData02108e10_020797dc());
-    MaybeInvoke0204719c_02047230(&scene->model0);
-    MaybeInvoke0204719c_02047230(&scene->model1);
+    func_ov000_02160fa8(scene, 0x800);
+    func_02079f9c((char*)func_020797dc());
+    func_02047230(&scene->model0);
+    func_02047230(&scene->model1);
     if (scene->entryManager != 0) {
-        DestroyAllocatorAt0xa28((struct Obj020d6f0c*)scene->entryManager);
-        ConstructEntryManager020d6d18(scene->entryManager);
+        func_020d6f0c((struct Obj020d6f0c*)scene->entryManager);
+        func_020d6d18(scene->entryManager);
         scene->entryManager = 0;
     }
     void* combat = func_02057924();
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov000_0216873c(struct BattleScene0216873c* scene) {
     for (int i = 0; i < kSceneHeapCount; i++) {
         scene->heaps[i].Destroy();
     }
-    if (GetCombatWorkFlags0x55f4_ov000_02160fd4(scene, 1)) {
+    if (func_ov000_02160fd4(scene, 1)) {
         func_ov017_021a05a8(res);
     }
     func_ov017_0219b624(res);
@@ -122,9 +122,9 @@ extern "C" ARM void func_ov000_0216873c(struct BattleScene0216873c* scene) {
 #endif
     void* target = func_0205ec34();
     unsigned short* key = func_02012fe4();
-    func_0206461c(target, FindEntryByHalfwordKey_02099950(GetPtrField0x468_02011584(gs), *key));
+    func_0206461c(target, func_02099950(func_02011584(gs), *key));
     if (scene->bgLayers != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (scene->bgLayers << 8);
     }
-    SetFieldsAndSignalData02184220_ov000_02160d80(scene, 6);
+    func_ov000_02160d80(scene, 6);
 }

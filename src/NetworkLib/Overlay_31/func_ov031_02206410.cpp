@@ -35,15 +35,15 @@ struct TransferRecord02206410 {
     unsigned short tag;
     void* user_data;
 };
-void* SetLookupFields_02205134(void*, void*, int);
-int TailCall0220520cField68_0220528c(Obj0220528c*, void*);
+extern "C" void* func_ov031_02205134(void*, void*, int);
+extern "C" int func_ov031_0220528c(Obj0220528c*, void*);
 extern "C" unsigned short func_ov031_02203078();
 extern "C" void func_ov031_02206584();
 
 // USA: func_ov031_02206410
 extern "C" ARM int func_ov031_02206410(TransferContext02206410* self, const unsigned char* source, int length, int offset, unsigned short tag, void* user_data, int flags) {
     TransferBuffer02206410* buffer = self->buffer;
-    TransferRecord02206410* record = (TransferRecord02206410*)SetLookupFields_02205134((void*)func_ov031_02206584, buffer->callback, flags);
+    TransferRecord02206410* record = (TransferRecord02206410*)func_ov031_02205134((void*)func_ov031_02206584, buffer->callback, flags);
     if (!record) return -33;
     if ((flags & 1) && self->mode != 1) record->flags = 3;
     else record->flags = 0;
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov031_02206410(TransferContext02206410* self, const unsi
             record->tag = self->pending_tag;
         }
     } else record->user_data = 0;
-    if (TailCall0220520cField68_0220528c(buffer->callback, record)) {
+    if (func_ov031_0220528c(buffer->callback, record)) {
         length = 0;
         buffer->position = old_position;
     }

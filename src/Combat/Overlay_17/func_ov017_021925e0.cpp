@@ -11,7 +11,7 @@ struct F8Bits_021925e0 {
 
 extern "C" struct SearchStruct* func_0202ae18(void);
 extern "C" int func_0202c540(struct SearchStruct* obj);
-int HasFlag3orFlag2And9a_021bd3a4(struct Obj_021bd3a4* obj);
+extern "C" int func_ov017_021bd3a4(struct Obj_021bd3a4* obj);
 
 // USA: func_ov017_021925e0
 extern "C" ARM int func_ov017_021925e0(void) {
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov017_021925e0(void) {
     if (!func_0202c540(func_0202ae18())) {
         goto ret0;
     }
-    if (HasFlag3orFlag2And9a_021bd3a4((struct Obj_021bd3a4*)obj)) {
+    if (func_ov017_021bd3a4((struct Obj_021bd3a4*)obj)) {
         if (*(unsigned char*)(obj + regionalOffset1) == 0) {
             goto ret0;
         }

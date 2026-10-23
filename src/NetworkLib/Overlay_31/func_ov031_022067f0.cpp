@@ -12,15 +12,15 @@ struct Context022067f0 {
     volatile short flags;
     signed char tag;
 };
-int IsNotInList0224e22c_02207180(void*);
-void* SetLookupFields_02205134(void*, void*, int);
-int TailCall0220520cField68_0220528c(Obj0220528c*, void*);
-int MaybeCallIfState0Or4_0220689c(void*);
+extern "C" int func_ov031_02207180(void*);
+extern "C" void* func_ov031_02205134(void*, void*, int);
+extern "C" int func_ov031_0220528c(Obj0220528c*, void*);
+extern "C" int func_ov031_0220689c(void*);
 
 // USA: func_ov031_022067f0
 extern "C" ARM int func_ov031_022067f0(void* argument) {
     Context022067f0* context = (Context022067f0*)argument;
-    if (IsNotInList0224e22c_02207180(argument)) return -28;
+    if (func_ov031_02207180(argument)) return -28;
     int eligible = 0;
     if (context != NULL) eligible = (context->flags & 1) != 0;
     if (!eligible) return -39;
@@ -28,10 +28,10 @@ extern "C" ARM int func_ov031_022067f0(void* argument) {
     context->flags |= 8;
     Inner022067f0* inner = context->inner;
     if (inner != NULL && inner->callback != NULL) {
-        void* record = SetLookupFields_02205134((void*)MaybeCallIfState0Or4_0220689c,
+        void* record = func_ov031_02205134((void*)func_ov031_0220689c,
             inner->callback, context->tag);
         if (record == NULL) return -33;
-        return TailCall0220520cField68_0220528c(inner->callback, record);
+        return func_ov031_0220528c(inner->callback, record);
     }
     return 0;
 }

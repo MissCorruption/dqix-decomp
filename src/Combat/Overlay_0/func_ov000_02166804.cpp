@@ -14,7 +14,7 @@
 struct Foo0207df50 {
     char unk_0[0x68];
 };
-void CopyInternalFields0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df50(struct Foo0207df50* p);
 
 struct CombatScene02166804 {
     char unk_0[0x44 - sizeof(SafeAllocator)];
@@ -49,5 +49,5 @@ extern "C" ARM void func_ov000_02166804(struct CombatScene02166804* scene) {
     SafeAllocator* allocator = GetAllocator(scene, 1);
     struct Foo0207df50* pairTables = GetPairTables(scene, 1);
     allocator->Reset();
-    CopyInternalFields0207df50(pairTables);
+    func_0207df50(pairTables);
 }

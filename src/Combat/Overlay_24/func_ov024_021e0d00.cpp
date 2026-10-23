@@ -2,13 +2,13 @@
 #include "GameState/GameState.h"
 
 struct Obj02088f68;
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
-void* GetActiveCombatWork_ov000_02160130(void);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
+extern "C" void* func_ov000_02160130(void);
 extern "C" void func_ov000_02161e30(void* work, int id, int msg, int a3);
 extern "C" void* func_ov000_0215e958(void* a0);
-void ZeroWorkBlock0x20_ov000_0215fd7c(void* obj);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-void InitObj02088f68(struct Obj02088f68* obj);
+extern "C" void func_ov000_0215fd7c(void* obj);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_02088f68(struct Obj02088f68* obj);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct Obj_021e0d00 { char pad0[0xc]; void* field0xc; void* field0x10; };
@@ -41,26 +41,26 @@ struct Entry_021e0d00 {
 
 // USA: func_ov024_021e0d00
 extern "C" ARM void* func_ov024_021e0d00(struct Obj_021e0d00* obj, int userId, int id, struct Action_021e0d00* action) {
-	struct Combatant_021e0d00* c = (struct Combatant_021e0d00*)GetCombatantWithFlag0x400ByID_ov000_021536f8((int)obj->field0x10, id);
+	struct Combatant_021e0d00* c = (struct Combatant_021e0d00*)func_ov000_021536f8((int)obj->field0x10, id);
 	if (!c) return 0;
 	if (userId == id) {
 		int msg = -1;
 		if (action->skillId == 0x153) msg = 0xb3;
 		if (action->skillId == 0x31a) msg = 0x4b;
-		func_ov000_02161e30(GetActiveCombatWork_ov000_02160130(), id, msg, 1);
+		func_ov000_02161e30(func_ov000_02160130(), id, msg, 1);
 		struct Entry_021e0d00* entry = (struct Entry_021e0d00*)func_ov000_0215e958(obj->field0x10);
 		if (!entry) return 0;
-		ZeroWorkBlock0x20_ov000_0215fd7c(entry);
+		func_ov000_0215fd7c(entry);
 		entry->field0x20 = 0;
 		entry->field0xe = c->field0x188;
 		entry->field0x10 = c->field0x18a;
 		entry->field0x12 = c->field0x188;
 		entry->field0x14 = c->field0x18a;
-		AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, (unsigned short)action->resultMsg);
+		func_ov000_0215a88c(obj->field0x10, entry, (unsigned short)action->resultMsg);
 		return entry;
 	}
 	c->base.currentStats_->primaryStats.currHP = 0;
-	InitObj02088f68((struct Obj02088f68*)c->base.currentStats_);
+	func_02088f68((struct Obj02088f68*)c->base.currentStats_);
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, 0);

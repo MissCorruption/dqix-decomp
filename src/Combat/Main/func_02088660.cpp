@@ -1,0 +1,11 @@
+#include <globaldefs.h>
+
+struct Combatant_2088660 {
+    unsigned char pad0[0x18];
+    unsigned int flags18;
+};
+
+// USA: func_02088660
+extern "C" ARM int func_02088660(struct Combatant_2088660* obj) {
+    return (obj->flags18 & 0x80) != 0;
+}

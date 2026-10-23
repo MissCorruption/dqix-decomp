@@ -16,21 +16,21 @@ struct Spot_021c2380 {
     Vector3s pos;
 };
 
-Spot_021c2380* GetField0x74deForValidIndex_020120a0(char* base, unsigned int index);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-int GetFlag0x80At0xc2(BitField020340d4* obj);
-void ClearFlag0x80At0xc2(Flags020340c4* obj);
-void SetFlag0x80At0xc2(Flags020340b4* obj);
-int CheckField0xc4Low15BitsNonZero(BitField0203402c* obj);
-void SetField0xc4Low15Bits_02034044(unsigned char* obj, int value);
-unsigned char GetByte0x26c_02039d7c(char* obj);
-void SetByteField0x253_020397c0(void* obj);
+extern "C" Spot_021c2380* func_020120a0(char* base, unsigned int index);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020340d4(BitField020340d4* obj);
+extern "C" void func_020340c4(Flags020340c4* obj);
+extern "C" void func_020340b4(Flags020340b4* obj);
+extern "C" int func_0203402c(BitField0203402c* obj);
+extern "C" void func_02034044(unsigned char* obj, int value);
+extern "C" unsigned char func_02039d7c(char* obj);
+extern "C" void func_020397c0(void* obj);
 
 // USA: func_ov017_021c2380
 extern "C" ARM int func_ov017_021c2380(int spotIdx, int monIdx) {
     GameState* gs = GameState::GetInstance();
     void* search = func_0202ae18();
-    Spot_021c2380* spot = GetField0x74deForValidIndex_020120a0((char*)gs, spotIdx);
+    Spot_021c2380* spot = func_020120a0((char*)gs, spotIdx);
     if (spot == NULL) {
         return 0;
     }
@@ -45,14 +45,14 @@ extern "C" ARM int func_ov017_021c2380(int spotIdx, int monIdx) {
     }
 
     int wasFlagged = 0;
-    if (spotIdx == GetField0x3acValue_020100a8(gs) && GetFlag0x80At0xc2((BitField020340d4*)mon)) {
-        wasFlagged = GetFlag0x80At0xc2((BitField020340d4*)mon);
-        ClearFlag0x80At0xc2((Flags020340c4*)mon);
+    if (spotIdx == func_020100a8(gs) && func_020340d4((BitField020340d4*)mon)) {
+        wasFlagged = func_020340d4((BitField020340d4*)mon);
+        func_020340c4((Flags020340c4*)mon);
     }
-    if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)mon)) {
+    if (func_0203402c((BitField0203402c*)mon)) {
         return 0;
     }
-    if (member != NULL && GetByte0x26c_02039d7c((char*)member)) {
+    if (member != NULL && func_02039d7c((char*)member)) {
         return 0;
     }
     if (spot->id != mon->obj3D_.GetField06()) {
@@ -77,14 +77,14 @@ extern "C" ARM int func_ov017_021c2380(int spotIdx, int monIdx) {
         return 0;
     }
     if (wasFlagged) {
-        SetFlag0x80At0xc2((Flags020340b4*)mon);
+        func_020340b4((Flags020340b4*)mon);
         return 0;
     }
 
     if (func_0202c508(search)) {
-        SetField0xc4Low15Bits_02034044((unsigned char*)mon, 5000);
+        func_02034044((unsigned char*)mon, 5000);
         if (member != NULL) {
-            SetByteField0x253_020397c0(member);
+            func_020397c0(member);
         }
     }
     Vector3s zero = {0};

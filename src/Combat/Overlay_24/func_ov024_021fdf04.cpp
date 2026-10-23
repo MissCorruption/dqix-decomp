@@ -92,38 +92,38 @@ struct Bits2f4_021fdf04 { unsigned int bit0 : 1; unsigned int bit1 : 1; };
 struct Row_021fdf04 { unsigned char weight; unsigned char carry; };
 extern const Row_021fdf04 data_ov024_021fefea[];
 
-int GetFieldAt0x150_02053c6c(unsigned char*);
-void* GetData02108e10_020797dc();
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" void* func_020797dc();
 extern "C" void func_ov024_021f8bd8(Context_021fdf04*, float*, Unit_021fdf04*, Action_021fdf04*);
 extern "C" void __clear(void*, int);
 struct S_flag10000;
-int IsFlagBit65536Set_021fb460(S_flag10000*);
+extern "C" int func_ov024_021fb460(S_flag10000*);
 struct S_flag131072;
-int IsFlagBit131072Set_021fb478(S_flag131072*);
-float ComputeQuarterDecayFactor020748d0(int v);
-float ComputeQuarterDecayFactor_020748a8(int v);
-float LookupTableC0_02074938(int v);
-int IsCombatantFlag2Mask32_021e67b0(GameObject*);
+extern "C" int func_ov024_021fb478(S_flag131072*);
+extern "C" float func_020748d0(int v);
+extern "C" float func_020748a8(int v);
+extern "C" float func_02074938(int v);
+extern "C" int func_ov024_021e67b0(GameObject*);
 extern "C" float func_ov024_021f875c(Context_021fdf04*, Unit_021fdf04*, Action_021fdf04*, int);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char*);
+extern "C" int func_020882f8(unsigned char*);
 struct FlagObj_021da9b0;
-int IsFlagBit8Set_021da9b0(FlagObj_021da9b0*);
+extern "C" int func_ov024_021da9b0(FlagObj_021da9b0*);
 struct FlagObj_021dd010;
-int IsFlagBit8Set_021dd010(FlagObj_021dd010*);
+extern "C" int func_ov024_021dd010(FlagObj_021dd010*);
 struct FlagObj_021de25c;
-int IsFlagBit5Set_021de25c(FlagObj_021de25c*);
+extern "C" int func_ov024_021de25c(FlagObj_021de25c*);
 struct FlagObj_021da9c8;
-int IsFlagBit19Set_021da9c8(FlagObj_021da9c8*);
+extern "C" int func_ov024_021da9c8(FlagObj_021da9c8*);
 struct Struct_021fa76c;
-int CheckAllFlagsClear_021fa76c(Struct_021fa76c*);
-void AddEntryIfUnderLimit16_021f6a1c(AddEntryList_021f6a1c*, void*);
+extern "C" int func_ov024_021fa76c(Struct_021fa76c*);
+extern "C" void func_ov024_021f6a1c(AddEntryList_021f6a1c*, void*);
 extern "C" void func_ov024_021f9874(Context_021fdf04*, AddEntryList_021f6a1c*, int, int);
 
 // USA: func_ov024_021fdf04
 extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusType) {
     Unit_021fdf04* actor = context->actor;
-    GetFieldAt0x150_02053c6c((unsigned char*)actor);
-    GetData02108e10_020797dc();
+    func_02053c6c((unsigned char*)actor);
+    func_020797dc();
 
     Action_021fdf04* action = context->action;
     if (action->mode == 2) return;
@@ -142,20 +142,20 @@ extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusTyp
         float scale = base;
 
         if (action->flags & 1) {
-            if (IsFlagBit65536Set_021fb460((S_flag10000*)unit) && action->sub18 != 2) {
-                rate = rate * ComputeQuarterDecayFactor020748d0((signed char)unit->stats->decayA);
+            if (func_ov024_021fb460((S_flag10000*)unit) && action->sub18 != 2) {
+                rate = rate * func_020748d0((signed char)unit->stats->decayA);
             }
         }
         if (action->flags & 4) {
-            if (IsFlagBit131072Set_021fb478((S_flag131072*)unit)) {
-                rate = rate * ComputeQuarterDecayFactor_020748a8((signed char)unit->stats->decayB);
+            if (func_ov024_021fb478((S_flag131072*)unit)) {
+                rate = rate * func_020748a8((signed char)unit->stats->decayB);
             }
         }
         if (action->flags & 0x10) {
             if (unit->stats->rank21 <= 3) {
-                rate = rate * LookupTableC0_02074938((signed char)unit->stats->rank21);
-            } else if (IsCombatantFlag2Mask32_021e67b0((GameObject*)unit)) {
-                rate = rate * LookupTableC0_02074938(1);
+                rate = rate * func_02074938((signed char)unit->stats->rank21);
+            } else if (func_ov024_021e67b0((GameObject*)unit)) {
+                rate = rate * func_02074938(1);
             }
         }
         rate = rate * func_ov024_021f875c(context, unit, action, 1);
@@ -208,7 +208,7 @@ extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusTyp
             float threshold = 33.3f;
 
             if (statusType == 4) {
-                if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)unit->stats) == 0) ok = 1;
+                if (func_020882f8((unsigned char*)unit->stats) == 0) ok = 1;
                 check = 1;
                 threshold = 35.0f;
             } else if (statusType == 5) {
@@ -216,17 +216,17 @@ extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusTyp
                 check = 1;
                 threshold = 35.0f;
             } else if (statusType == 3) {
-                if (IsFlagBit8Set_021da9b0((FlagObj_021da9b0*)unit) == 0) ok = 1;
+                if (func_ov024_021da9b0((FlagObj_021da9b0*)unit) == 0) ok = 1;
                 check = 1;
             } else if (statusType == 6) {
-                if (IsFlagBit8Set_021dd010((FlagObj_021dd010*)unit) == 0) ok = 1;
+                if (func_ov024_021dd010((FlagObj_021dd010*)unit) == 0) ok = 1;
                 check = 1;
             } else if (statusType == 7) {
-                if (IsFlagBit5Set_021de25c((FlagObj_021de25c*)unit) == 0) ok = 1;
+                if (func_ov024_021de25c((FlagObj_021de25c*)unit) == 0) ok = 1;
                 check = 1;
                 threshold = 35.0f;
             } else if (statusType == 8) {
-                if (IsFlagBit19Set_021da9c8((FlagObj_021da9c8*)unit) == 0) ok = 1;
+                if (func_ov024_021da9c8((FlagObj_021da9c8*)unit) == 0) ok = 1;
                 check = 1;
                 if (action->value30 == 2) {
                     Info_021fdf04* info = unit->info;
@@ -268,7 +268,7 @@ extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusTyp
                 code = 5;
             }
 
-            if (!check || CheckAllFlagsClear_021fa76c((Struct_021fa76c*)unit)) {
+            if (!check || func_ov024_021fa76c((Struct_021fa76c*)unit)) {
                 if (rates[i] < threshold) ok = 0;
                 if (ok) {
                     entry.value = action->value30;
@@ -279,7 +279,7 @@ extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusTyp
                     entry.kind = code;
                     entry.flags9.weight = weight;
                     entry.flags9.flag = carry;
-                    AddEntryIfUnderLimit16_021f6a1c(&list, &entry);
+                    func_ov024_021f6a1c(&list, &entry);
                 }
             } else {
                 continue;

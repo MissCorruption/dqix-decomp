@@ -179,8 +179,8 @@ struct Self02172e84 {
 };
 #endif
 
-Messages02172e84 *GetGlobalField0x1c020421a0();
-const char *FindEntryByKey_02072a68(TableA68 *table, int key);
+extern "C" Messages02172e84 *func_020421a0();
+extern "C" const char *func_02072a68(TableA68 *table, int key);
 #if defined(jpn)
 extern "C" void func_0204500c(Messages02172e84 *window, const char *text, int mode);
 extern "C" void func_020e2168(char *dst, const char *tablePath, int index, int female, int flag);
@@ -197,12 +197,12 @@ extern "C" void func_02042764(Member02172e84 *member, char *buf, int flag);
 extern "C" void *ExtractFileFromGP2(const char *gp2Path, const char *innerFilePath, unsigned int *outSize);
 extern "C" char *func_020e046c(char *buf, void *data, unsigned int size, int idx);
 extern "C" void func_ov003_0217bd38(void *obj, int arg);
-unsigned char GetByteField28_021b1fa8(void *obj);
+extern "C" unsigned char func_ov017_021b1fa8(void *obj);
 extern "C" void *func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int *obj);
+extern "C" int func_0202b7d8(int *obj);
 extern "C" void func_0202b0f4(void *obj);
-int IsInRangePair_021734dc(int unused, int a, int b);
-void IterateEntries0205a330(Container0205a330 *c, int arg);
+extern "C" int func_ov003_021734dc(int unused, int a, int b);
+extern "C" void func_0205a330(Container0205a330 *c, int arg);
 extern "C" int func_020457e0(Messages02172e84 *window);
 extern "C" int func_ov003_02172570(unsigned char *obj, void *extra);
 
@@ -214,7 +214,7 @@ extern char data_ov003_02180a63[];
 #if defined(jpn)
 extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
     GameResources *res = GetGameResources();
-    Messages02172e84 *msg = GetGlobalField0x1c020421a0();
+    Messages02172e84 *msg = func_020421a0();
     Battle02172e84 *battle = (Battle02172e84 *) res->unknown_ptr_array_3afc[19];
     if (self->step_ == 0) {
         if (IsMainBrightnessTransitionActive(res) == 0) {
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             }
             save->progress_.seen_ |= 1 << i;
             save->progress_.announced_ |= 1 << i;
-            sprintf(self->text_, data_ov003_0217ebff, FindEntryByKey_02072a68(&self->texts_, (short) i));
+            sprintf(self->text_, data_ov003_0217ebff, func_02072a68(&self->texts_, (short) i));
             self->announceCount_++;
             self->step_ = 99;
         } else if (self->memberIndex_ != count && self->shownCount_ < 3) {
@@ -258,13 +258,13 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
                 func_020e2168(self->title_, data_ov003_0217ec02, (short) accolade, member->profile_.female_, 1);
             } else {
                 sprintf(self->title_, data_ov003_0217ebff,
-                        FindEntryByKey_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
+                        func_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
             }
             self->step_ = 99;
         } else if (self->pending_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
             self->field340_ = self->fieldd8_;
             func_ov003_0217bd38(self->field1e0_, self->field1c0_);
-            self->field30d_ = GetByteField28_021b1fa8(battle);
+            self->field30d_ = func_ov017_021b1fa8(battle);
             self->mode_ = 5;
             self->step_ = 0;
         } else {
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             int curX;
             int curY;
             g_touchInput.GetTouchPoint(&curX, &curY);
-            if (IsInRangePair_021734dc((int) self, x, y) && IsInRangePair_021734dc((int) self, curX, curY)) {
+            if (func_ov003_021734dc((int) self, x, y) && func_ov003_021734dc((int) self, curX, curY)) {
                 self->active_ = 1;
                 if (g_touchInput.released_ != 0) {
                     self->step_ = 2;
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
         msg->entries_ = self->entries_;
         self->active_ = 0;
         Container0205a330 *entries = msg->entries_;
-        IterateEntries0205a330(entries, state->GetTickCount() >> 2);
+        func_0205a330(entries, state->GetTickCount() >> 2);
         if (msg->state_ == 0) {
             msg->busy_ = 1;
             if (func_020457e0(msg) == 0) {
@@ -323,11 +323,11 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
 #else
 extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
     GameResources *res = GetGameResources();
-    Messages02172e84 *msg = GetGlobalField0x1c020421a0();
+    Messages02172e84 *msg = func_020421a0();
     Battle02172e84 *battle = (Battle02172e84 *) res->unknown_ptr_array_3afc[19];
     if (self->step_ == 0) {
         if (IsMainBrightnessTransitionActive(res) == 0) {
-            func_0204500c(msg, FindEntryByKey_02072a68(&self->texts_, 100), 0, 0xe3);
+            func_0204500c(msg, func_02072a68(&self->texts_, 100), 0, 0xe3);
             msg->flag19be_ = 1;
             msg->busy_ = 1;
             self->step_ = 1;
@@ -353,7 +353,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             }
             save->progress_.seen_ |= 1 << i;
             save->progress_.announced_ |= 1 << i;
-            sprintf(self->text_, data_ov003_02180a49, FindEntryByKey_02072a68(&self->texts_, (short) i));
+            sprintf(self->text_, data_ov003_02180a49, func_02072a68(&self->texts_, (short) i));
             self->bit_ = i;
             self->announceCount_++;
             self->step_ = 99;
@@ -382,16 +382,16 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
                 BackgroundLoader::RemoveLockGlobal();
             } else {
                 sprintf(self->title_, data_ov003_02180a49,
-                        FindEntryByKey_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
+                        func_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
             }
             self->step_ = 99;
         } else if (self->pending_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
             self->field340_ = self->fieldd8_;
             func_ov003_0217bd38(self->field1e0_, self->field1c0_);
-            self->field30d_ = GetByteField28_021b1fa8(battle);
+            self->field30d_ = func_ov017_021b1fa8(battle);
             self->party_->state_ = 10;
             void *save = func_0202ae18();
-            if (CheckField0NonZero_0202b7d8((int *) save)) {
+            if (func_0202b7d8((int *) save)) {
                 func_0202b0f4(save);
             }
             self->mode_ = 5;
@@ -402,7 +402,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             int curX;
             int curY;
             g_touchInput.GetTouchPoint(&curX, &curY);
-            if (IsInRangePair_021734dc((int) self, x, y) && IsInRangePair_021734dc((int) self, curX, curY)) {
+            if (func_ov003_021734dc((int) self, x, y) && func_ov003_021734dc((int) self, curX, curY)) {
                 self->active_ = 1;
                 if (g_touchInput.released_ != 0) {
                     self->step_ = 2;
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             }
         }
     } else if (self->step_ == 2) {
-        func_0204500c(msg, FindEntryByKey_02072a68(&self->texts_, 101), 0, 0xe3);
+        func_0204500c(msg, func_02072a68(&self->texts_, 101), 0, 0xe3);
         msg->busy_ = 1;
         self->step_ = 3;
     } else if (self->step_ == 3) {
@@ -425,7 +425,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
         msg->entries_ = self->entries_;
         self->active_ = 0;
         Container0205a330 *entries = msg->entries_;
-        IterateEntries0205a330(entries, state->GetTickCount() >> 2);
+        func_0205a330(entries, state->GetTickCount() >> 2);
         if (msg->state_ == 0) {
             msg->busy_ = 1;
             if (func_020457e0(msg) == 0) {

@@ -2,7 +2,7 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 
 struct S02055080;
-void* GetSubField0xC_020550d8(struct S02055080* p);
+extern "C" void* func_020550d8(struct S02055080* p);
 
 struct Point4_020578e8 {
     int x;
@@ -12,7 +12,7 @@ struct Point4_020578e8 {
 };
 
 struct Wrap020578e8;
-float ComputeSlope020578e8(Wrap020578e8* a, Wrap020578e8* b);
+extern "C" float func_020578e8(Wrap020578e8* a, Wrap020578e8* b);
 
 struct Elem02055ccc {
     Point4_020578e8* p;
@@ -40,7 +40,7 @@ struct Obj02055ccc {
 
 // USA: func_02055ccc
 extern "C" ARM void func_02055ccc(struct Obj02055ccc* self) {
-    Sub02055ccc* sub = (Sub02055ccc*)GetSubField0xC_020550d8((struct S02055080*)self->ptr30);
+    Sub02055ccc* sub = (Sub02055ccc*)func_020550d8((struct S02055080*)self->ptr30);
 
     for (int i = 0; i < 3; i++) {
         if (sub->f10[i] <= 1)
@@ -60,7 +60,7 @@ extern "C" ARM void func_02055ccc(struct Obj02055ccc* self) {
         Elem02055ccc* elem2 = (Elem02055ccc*)((SignedAllocatorList*)((char*)self->ptr30 + 0x80 + i * 12))->GetNthElement(self->fieldBC[i]);
         if (elem2 == 0)
             continue;
-        self->fieldA4[i] = ComputeSlope020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
+        self->fieldA4[i] = func_020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
     }
 
     if (sub->f13 <= 1)

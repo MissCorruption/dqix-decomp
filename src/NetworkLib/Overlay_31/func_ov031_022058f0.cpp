@@ -14,7 +14,7 @@ struct Socket022058f0 {
     signed char blocking;
     signed char status;
 };
-int IsNotInList0224e22c_02207180(void*);
+extern "C" int func_ov031_02207180(void*);
 extern "C" int func_ov031_02205a38(Socket022058f0*, int, int, int, int, int, int);
 
 enum { RECV_BLOCK = 1 };
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov031_022058f0(Socket022058f0* socket, int a, int b, int
     int closed;
     int result;
 
-    if (IsNotInList0224e22c_02207180(socket)) return -28;
+    if (func_ov031_02207180(socket)) return -28;
     if ((flags & 4) || socket->blocking == 0) {
         if (socket->status == 4) return -28;
         recvFlags = 0;

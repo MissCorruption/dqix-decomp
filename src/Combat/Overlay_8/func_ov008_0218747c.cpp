@@ -23,12 +23,12 @@ struct PlayTimeDisplay {
 struct SearchClock { char pad[0x100d]; unsigned char count; };
 struct TimeStamp020103f0;
 struct TimeStamp020104cc;
-void ComputeElapsedPlayTimeHMS020103f0(TimeStamp020103f0*, unsigned short*, unsigned char*, unsigned char*);
+extern "C" void func_020103f0(TimeStamp020103f0*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" SearchClock* func_0202ae18();
-int GetFieldAt0x0_0202ba00(int*);
-void ComputeElapsedPlayTimeHMS020104cc(TimeStamp020104cc*, unsigned short*, unsigned char*, unsigned char*);
-void AddPlayClockHours020ac614(BattleRecordPlayClock*, int);
-void AddPlayClockMinutes020ac644(BattleRecordPlayClock*, int);
+extern "C" int func_0202ba00(int*);
+extern "C" void func_020104cc(TimeStamp020104cc*, unsigned short*, unsigned char*, unsigned char*);
+extern "C" void func_020ac614(BattleRecordPlayClock*, int);
+extern "C" void func_020ac644(BattleRecordPlayClock*, int);
 static inline ClockTotals* GetTotals(GameState* game) { return &((GameClockTotals*)game)->totals; }
 
 // USA: func_ov008_0218747c
@@ -47,15 +47,15 @@ extern "C" ARM void func_ov008_0218747c(PlayTimeDisplay* display, int mode) {
     if (mode == 0) {
         output = &display->clocks[0];
         saved = singlePlayerSaved;
-        ComputeElapsedPlayTimeHMS020103f0((TimeStamp020103f0*)game, &hours, &minutes, &seconds);
+        func_020103f0((TimeStamp020103f0*)game, &hours, &minutes, &seconds);
     } else if (mode == 1) {
         output = &display->clocks[1];
         saved = multiplayerSaved;
         SearchClock* search = func_0202ae18();
-        int state = GetFieldAt0x0_0202ba00((int*)search);
+        int state = func_0202ba00((int*)search);
         int count = search->count;
         if ((state == 5 && count > 1) || state == 6) {
-            ComputeElapsedPlayTimeHMS020104cc((TimeStamp020104cc*)game, &hours, &minutes, &seconds);
+            func_020104cc((TimeStamp020104cc*)game, &hours, &minutes, &seconds);
         } else {
             hours = 0;
             minutes = 0;
@@ -64,9 +64,9 @@ extern "C" ARM void func_ov008_0218747c(PlayTimeDisplay* display, int mode) {
     }
     if (!output || !saved) return;
     unsigned char previousMinutes = output->minutes;
-    ClearShortByteByte_02184598(output);
-    AddPlayClockHours020ac614(output, (unsigned short)(saved->hours + hours));
-    AddPlayClockMinutes020ac644(output, (unsigned char)(saved->minutes + minutes));
+    func_ov008_02184598(output);
+    func_020ac614(output, (unsigned short)(saved->hours + hours));
+    func_020ac644(output, (unsigned char)(saved->minutes + minutes));
     output->seconds += (unsigned char)(saved->seconds + seconds);
     unsigned char total = output->seconds;
     if (total > 59) {
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov008_0218747c(PlayTimeDisplay* display, int mode) {
             output->minutes = 59;
             output->seconds = 59;
         } else {
-            AddPlayClockMinutes020ac644(output, carryMinutes);
+            func_020ac644(output, carryMinutes);
             output->seconds %= 60;
         }
     }

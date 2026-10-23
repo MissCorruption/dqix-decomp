@@ -23,25 +23,25 @@ struct PartyOrder021d3fa8 { signed char members[4]; };
 extern const PartyOrder021d3fa8 data_ov017_021d6cfc, data_ov017_021d6d08;
 extern const char data_ov017_021d82b1[], data_ov017_021d82bb[], data_ov017_021d82c6[];
 extern "C" void func_020dc548(signed char, PartyOrder021d3fa8*, signed char*);
-void SetFlag0x1ceBit0x4_02039d48(unsigned char*);
-void ClearBytesAndZeroBlock02039d24(unsigned char*);
+extern "C" void func_02039d48(unsigned char*);
+extern "C" void func_02039d24(unsigned char*);
 extern "C" int func_0202c540(void*);
-void CallHelperWithBuf_021907dc(int, int, int, int, int);
-void SetByteIfChanged02033b68(Obj02033b68*, int);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
+extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void func_02033b68(Obj02033b68*, int);
+extern "C" void func_02033b88(Bytes02033b88*, int);
 
 // USA: func_ov017_021d3fa8
 extern "C" ARM void func_ov017_021d3fa8(int unused, AnimationPacket021d3fa8* packet, GameState* game, void* globals, void* search) {
     GameObject* protagonist = game->GetUnknownGameObject();
     GameObject* member = game->GetPartyMemberByIndex(packet->index);
-    SubBlock02038508* state = GetFieldPtrAt0x26c_020399a8(member);
+    SubBlock02038508* state = func_020399a8(member);
     unsigned short mode = packet->mode;
     int reset = packet->reset;
     int command = packet->command;
     int time = packet->time;
     if (member != 0 && reset != 0) {
         member->obj3D_.DisableFlag(0x1010);
-        InitBlock02038508(state);
+        func_02038508(state);
         PartyOrder021d3fa8 order = data_ov017_021d6cfc;
         signed char count = 0;
         func_020dc548((signed char)packet->index, &order, &count);
@@ -53,17 +53,17 @@ extern "C" ARM void func_ov017_021d3fa8(int unused, AnimationPacket021d3fa8* pac
             if (!(flags & 2)) {
                 other->obj3D_.position_ = member->obj3D_.position_;
                 other->obj3D_.SetInheritedAlpha(31);
-                SetFlag0x1ceBit0x4_02039d48((unsigned char*)other);
+                func_02039d48((unsigned char*)other);
             }
-            ClearBytesAndZeroBlock02039d24((unsigned char*)other);
+            func_02039d24((unsigned char*)other);
         }
-        if (func_0202c540(search)) CallHelperWithBuf_021907dc((int)globals, 0, 1, 1, 1);
+        if (func_0202c540(search)) func_ov017_021907dc((int)globals, 0, 1, 1, 1);
     }
     if (member == 0) return;
     unsigned int member_id = member->obj3D_.GetField06();
     if (member_id != protagonist->obj3D_.GetField06()) return;
     if (reset != 0 || (((MemberState021d3fa8*)member)->flags & 2)) {
-        InitBlock02038508(state);
+        func_02038508(state);
         if (reset != 0) {
             PartyOrder021d3fa8 order = data_ov017_021d6d08;
             signed char count = 0;
@@ -76,12 +76,12 @@ extern "C" ARM void func_ov017_021d3fa8(int unused, AnimationPacket021d3fa8* pac
                 if (!(flags & 2)) {
                     other->obj3D_.position_ = member->obj3D_.position_;
                     other->obj3D_.SetInheritedAlpha(31);
-                    SetByteIfChanged02033b68((Obj02033b68*)other, 0);
-                    SetFlag0x1ceBit0x4_02039d48((unsigned char*)other);
+                    func_02033b68((Obj02033b68*)other, 0);
+                    func_02039d48((unsigned char*)other);
                 }
-                ClearBytesAndZeroBlock02039d24((unsigned char*)other);
+                func_02039d24((unsigned char*)other);
             }
-            if (func_0202c540(search)) CallHelperWithBuf_021907dc((int)globals, 0, 1, 1, 1);
+            if (func_0202c540(search)) func_ov017_021907dc((int)globals, 0, 1, 1, 1);
         }
     } else if (command == 0) {
         member->obj3D_.DisableFlag(0x1000);
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_021d3fa8(int unused, AnimationPacket021d3fa8* pac
         state->command = 1;
     } else if (command == 5) {
         member->obj3D_.DisableFlag(0x1010);
-        SetByte0xbeShiftPrev((Bytes02033b88*)member, 1);
+        func_02033b88((Bytes02033b88*)member, 1);
         state->active = 1;
         state->command = 5;
     } else if (command == 4) {

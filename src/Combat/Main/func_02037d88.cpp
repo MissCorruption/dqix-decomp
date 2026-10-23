@@ -17,43 +17,43 @@ struct S02037418;
 struct Struct020372b8;
 
 struct Obj02039df4;
-void ApplyStatusTickEffect(struct Obj02039df4* obj);
+extern "C" void func_02039df4(struct Obj02039df4* obj);
 
 struct Obj02052ae8;
-void StepValueTowardTarget02052ae8(struct Obj02052ae8* obj);
+extern "C" void func_02052ae8(struct Obj02052ae8* obj);
 
-int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
-int IsCountAtLeast4_0219a370(unsigned char* base);
-int IsField0Null_02046b08(void** obj);
+extern "C" int func_020535c8(signed char* obj);
+extern "C" int func_ov017_0219a370(unsigned char* base);
+extern "C" int func_02046b08(void** obj);
 
 struct BitField0203402c;
-int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
+extern "C" int func_0203402c(struct BitField0203402c* p);
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 
-unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
-int GetFieldIfFlag4_020100f8(char* obj);
+extern "C" unsigned char func_020100b0(GameState* battleStruct);
+extern "C" int func_020100f8(char* obj);
 
 struct S020a2c70;
-int MarkStateIfFlag020a2c70(struct S020a2c70* p);
+extern "C" int func_020a2c70(struct S020a2c70* p);
 
 struct Obj02052e44;
-int InitFieldsIfInRange02052e44(Obj02052e44*, signed char);
+extern "C" int func_02052e44(Obj02052e44*, signed char);
 
 struct Obj02052f44;
-int FilterBytesAndInit02052f44(struct Obj02052f44* obj, signed char* src, int len);
+extern "C" int func_02052f44(struct Obj02052f44* obj, signed char* src, int len);
 
-int LoadBattleBlock020ac4c0(void* dst);
+extern "C" int func_020ac4c0(void* dst);
 
 struct S_a06b0;
-void AddClamped10BitFieldMidAt0x28_020a06b0(struct S_a06b0* p, unsigned int amount);
+extern "C" void func_020a06b0(struct S_a06b0* p, unsigned int amount);
 
 struct S_a0140;
-void AddClamped10BitFieldAt0x14_020a0140(struct S_a0140* p, unsigned int amount);
+extern "C" void func_020a0140(struct S_a0140* p, unsigned int amount);
 
-int CopyInBattleField0x7540_020ac494(void* src);
+extern "C" int func_020ac494(void* src);
 
-void SetByte0x2c4To2IfByte0x2c5Set_020a2c8c(unsigned char* obj);
+extern "C" void func_020a2c8c(unsigned char* obj);
 
 #if defined(jpn)
 enum { ActorRegionOffset = 12, BattleRegionOffset = 0x2d4, StatusRegionOffset = 0x1d0,
@@ -110,7 +110,7 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
             ((Object3D*)((struct Struct020372b8*)obj))->TransitionInheritedAlpha(0x1f, 0x64);
         }
     }
-    ApplyStatusTickEffect((struct Obj02039df4*)obj);
+    func_02039df4((struct Obj02039df4*)obj);
 
     if (obj->combatantId == 0xce) {
         *(int*)((char*)bs + 0x7f5c - BattleRegionOffset) = obj->field54;
@@ -121,7 +121,7 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
         char* sub100 = (char*)obj + 0x100;
         signed char byte1c9 = ((signed char*)sub100)[0xc9 - ActorRegionOffset];
         if (byte1c9 != 0) {
-            StepValueTowardTarget02052ae8((struct Obj02052ae8*)obj);
+            func_02052ae8((struct Obj02052ae8*)obj);
             func_020391ac(obj);
             return;
         }
@@ -129,22 +129,22 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
 
     {
         void* bsOrig = GameState::GetInstance();
-        void* field3b0 = GetField0x3b0Value_020100bc((GameState*)bsOrig);
+        void* field3b0 = func_020100bc((GameState*)bsOrig);
         void* ctx = func_02012fe4();
         int* ptr130 = (int*)obj->field130;
 
         if ((*ptr130 & 1) != 0
-            || CheckSubstructByte0x7cPositive_020535c8((signed char*)obj) != 0
+            || func_020535c8((signed char*)obj) != 0
             || *(int*)((char*)ctx + ContextFlagOffset) != 0
             || field3b0 == 0
             || obj->flagBit0xc2) {
-            StepValueTowardTarget02052ae8((struct Obj02052ae8*)obj);
+            func_02052ae8((struct Obj02052ae8*)obj);
             return;
         }
 
         {
             short saved0xb4 = obj->field0xb4;
-            StepValueTowardTarget02052ae8((struct Obj02052ae8*)obj);
+            func_02052ae8((struct Obj02052ae8*)obj);
             obj->field0xb4 = saved0xb4;
         }
 
@@ -154,22 +154,22 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
         void* val6fc = *(void**)((char*)p3000 + OverlayPointerOffset);
 
         if (val80 != 0
-            && IsCountAtLeast4_0219a370(r6) != 0
-            && IsField0Null_02046b08((void**)val6fc) != 0
+            && func_ov017_0219a370(r6) != 0
+            && func_02046b08((void**)val6fc) != 0
             && g_keyManager.TestKeysHeld(2) != 0
-            && CheckField0xc4Low15BitsNonZero((struct BitField0203402c*)obj) == 0
-            && ((struct GlobalOuter020421a0*)GetGlobalField0x1c020421a0())->sub.flag == 0) {
+            && func_0203402c((struct BitField0203402c*)obj) == 0
+            && ((struct GlobalOuter020421a0*)func_020421a0())->sub.flag == 0) {
 
-            unsigned char* ptr2a04 = (unsigned char*)GetPtrField0x2a04_02010828((GameState*)bsOrig);
+            unsigned char* ptr2a04 = (unsigned char*)func_02010828((GameState*)bsOrig);
 
             void* bsOrig2 = GameState::GetInstance();
             short id3 = obj->combatantId;
-            unsigned char field397c_1 = GetField0x397cValue_020100b0((GameState*)bsOrig2);
+            unsigned char field397c_1 = func_020100b0((GameState*)bsOrig2);
             if (field397c_1 == id3) {
-                int p2 = GetFieldIfFlag4_020100f8((char*)bsOrig2);
+                int p2 = func_020100f8((char*)bsOrig2);
                 if (p2 != 0) {
-                    if (IsCountAtLeast4_0219a370(r6) != 0) {
-                        if (MarkStateIfFlag020a2c70((struct S020a2c70*)p2) != 0) {
+                    if (func_ov017_0219a370(r6) != 0) {
+                        if (func_020a2c70((struct S020a2c70*)p2) != 0) {
                             SetFlags04((GameResources*)r6, 0x80);
                         }
                     }
@@ -179,41 +179,41 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
             int result = 0;
             if (g_keyManager.TestKeysPressed(0x40)) {
                 signed char val = ptr2a04[0x2c8d];
-                result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
+                result = func_02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 0;
             } else if (g_keyManager.TestKeysPressed(0x10)) {
                 signed char val = ptr2a04[0x2c8f];
-                result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
+                result = func_02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 2;
             } else if (g_keyManager.TestKeysPressed(0x20)) {
                 signed char val = ptr2a04[0x2c8e];
-                result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
+                result = func_02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 1;
             } else if (g_keyManager.TestKeysPressed(0x80)) {
-                result = FilterBytesAndInit02052f44((struct Obj02052f44*)obj, (signed char*)(ptr2a04 + 0x2c90), 4);
+                result = func_02052f44((struct Obj02052f44*)obj, (signed char*)(ptr2a04 + 0x2c90), 4);
                 obj->field260 = 3;
             }
 
             if (result != 0) {
                 char buf[0xb0];
-                LoadBattleBlock020ac4c0(buf);
-                AddClamped10BitFieldMidAt0x28_020a06b0((struct S_a06b0*)buf, 1);
-                AddClamped10BitFieldAt0x14_020a0140((struct S_a0140*)(buf + 0x68), 1);
-                CopyInBattleField0x7540_020ac494(buf);
+                func_020ac4c0(buf);
+                func_020a06b0((struct S_a06b0*)buf, 1);
+                func_020a0140((struct S_a0140*)(buf + 0x68), 1);
+                func_020ac494(buf);
                 return;
             }
         } else {
             void* bs3 = GameState::GetInstance();
             short id2 = obj->combatantId;
-            unsigned char field397c_2 = GetField0x397cValue_020100b0((GameState*)bs3);
+            unsigned char field397c_2 = func_020100b0((GameState*)bs3);
             if (field397c_2 == id2) {
-                int p = GetFieldIfFlag4_020100f8((char*)bs3);
+                int p = func_020100f8((char*)bs3);
                 if (p != 0) {
                     unsigned char* state = (unsigned char*)p + 0x2c4;
                     if (state != 0) {
                         unsigned char stateByte = state[0];
                         if (stateByte == 1) {
-                            SetByte0x2c4To2IfByte0x2c5Set_020a2c8c((unsigned char*)p);
+                            func_020a2c8c((unsigned char*)p);
                         } else if (stateByte == 2) {
                             short v = *(short*)(state + 2);
                             if (v < 0x199) {

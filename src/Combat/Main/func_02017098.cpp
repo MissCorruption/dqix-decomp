@@ -7,13 +7,13 @@ struct SelfObj792c;
 struct Struct020478bc;
 struct Obj0205eaa0;
 
-struct Entry02017098* GetActorEntryByIndex_0201777c(struct ActorListManager* manager, int index);
+extern "C" struct Entry02017098* func_0201777c(struct ActorListManager* manager, int index);
 extern "C" void func_0204792c(struct SelfObj792c* self, char* name);
-void RecomputeField0x7c(struct Struct020478bc* o, int newIndex);
+extern "C" void func_020478bc(struct Struct020478bc* o, int newIndex);
 extern "C" float _fflt(int value);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float value);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 
 extern char data_020ef222[];
 extern int data_02108760;
@@ -37,12 +37,12 @@ struct Entry02017098 {
 
 // USA: func_02017098
 extern "C" ARM void func_02017098(struct ActorListManager* manager, int index) {
-    struct Entry02017098* e = GetActorEntryByIndex_0201777c(manager, index);
+    struct Entry02017098* e = func_0201777c(manager, index);
     if (e == NULL) return;
 
     e->field2 = 3;
     func_0204792c((struct SelfObj792c*)((char*)e + 8), data_020ef222);
-    RecomputeField0x7c((struct Struct020478bc*)((char*)e + 0x90), 1);
+    func_020478bc((struct Struct020478bc*)((char*)e + 0x90), 1);
 
     fix32_t angle = 0x4b5c;
     for (int i = 0; i < 4; i++) {
@@ -51,7 +51,7 @@ extern "C" ARM void func_02017098(struct ActorListManager* manager, int index) {
         int sine = FIX32_MULTIPLY(fix32sin(angle), 0x80);
         int height = _ffix(_fmul(4.0f, _fflt(0x80)));
         int cosine = FIX32_MULTIPLY(fix32cos(angle), 0x80);
-        StoreThreeWordsAt0x0020130a8(&e->offsets[i], sine, height, cosine);
+        func_020130a8(&e->offsets[i], sine, height, cosine);
         angle = fix32ReduceAngle0To2Pi(angle + 0x1922);
     }
 
@@ -59,9 +59,9 @@ extern "C" ARM void func_02017098(struct ActorListManager* manager, int index) {
         LootableContainerManager::GetMainInstance()->GetContainerByID(e->id, NULL);
     if (container != NULL) {
         if (container->containerType == 1) {
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x10, 0);
+            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x10, 0);
         } else if (container->containerType == 2) {
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x11, 0);
+            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x11, 0);
         }
     }
 

@@ -43,7 +43,7 @@ struct Combatant021b2fac {
     unsigned char* entry;
 };
 
-void ResetEntriesAndNotify_021b33d8(void* p);
+extern "C" void func_ov017_021b33d8(void* p);
 extern "C" int func_ov017_021b3444(struct Task021b2fac* t);
 extern "C" int func_ov017_021b38c8(struct Task021b2fac* t);
 extern "C" void func_02083e28(void* p, int v);
@@ -51,21 +51,21 @@ extern "C" int func_ov017_021b3560(struct Task021b2fac* t);
 extern "C" void func_ov017_021b3678(struct Task021b2fac* t);
 extern "C" int func_ov017_021b3780(struct Task021b2fac* t);
 extern "C" int func_ov017_021b3e14(struct Task021b2fac* t);
-void CallHelperIfCheckPasses_0218fcf8(int, int, int);
-void ResetStruct020d3c08(char* p);
+extern "C" void func_ov017_0218fcf8(int, int, int);
+extern "C" void func_020d3c08(char* p);
 struct HandlerSlotArray020d3c84;
 struct StreamHeader;
-void InitHandlerArrayAndRunScript020d3c84(HandlerSlotArray020d3c84*, StreamHeader*, int);
+extern "C" void func_020d3c84(HandlerSlotArray020d3c84*, StreamHeader*, int);
 struct FindEntryByKindContainer020d3d90;
-void* FindEntryByKind(FindEntryByKindContainer020d3d90*, int);
+extern "C" void* func_020d3d90(FindEntryByKindContainer020d3d90*, int);
 extern "C" void func_ov017_02191508(int id, void* e);
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(Struct_203dafc*);
-void RestorePairTables0207df90(char* p);
-void BackupPairTables0207dfac(char* p);
+extern "C" void func_0203dafc(Struct_203dafc*);
+extern "C" void func_0207df90(char* p);
+extern "C" void func_0207dfac(char* p);
 struct Bytes02033b88;
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void SetFlag0x1ceBit0x4_02039d48(unsigned char*);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_02039d48(unsigned char*);
 extern "C" void func_ov017_02191fec(void* p, int v);
 
 #if defined(jpn)
@@ -106,9 +106,9 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
     gs = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     mgr = GetGameResources();
-    c = (Combatant021b2fac*)GetCombatantWithFlag0x100_0200ff1c(gs, task->combatantId);
+    c = (Combatant021b2fac*)func_0200ff1c(gs, task->combatantId);
     if (c == 0) {
-        ResetEntriesAndNotify_021b33d8(task);
+        func_ov017_021b33d8(task);
         task->done = 1;
         return;
     }
@@ -158,10 +158,10 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
     }
     if (task->state == 3) {
         if (func_ov017_021b3e14(task) != 0) {
-            c2 = (Combatant021b2fac*)GetCombatantWithFlag0x100_0200ff1c(gs, task->combatantId);
+            c2 = (Combatant021b2fac*)func_0200ff1c(gs, task->combatantId);
             if (c2->field9c != 0) {
                 m = GetGameResources();
-                CallHelperIfCheckPasses_0218fcf8((int)m, task->combatantId, c2->field9c);
+                func_ov017_0218fcf8((int)m, task->combatantId, c2->field9c);
             }
             ((Object3D*)c2)->DisableFlag(0x200);
             if (task->flagsB & 8) {
@@ -178,10 +178,10 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
             if (loader->GetDetailedTaskStatus(task->taskId) == 2) {
                 loader->GetLoadedFileByID(task->taskId, &file4, &size4);
                 if (file4 != 0) {
-                    ResetStruct020d3c08(handlers);
-                    InitHandlerArrayAndRunScript020d3c84((HandlerSlotArray020d3c84*)handlers, (StreamHeader*)file4, size4);
+                    func_020d3c08(handlers);
+                    func_020d3c84((HandlerSlotArray020d3c84*)handlers, (StreamHeader*)file4, size4);
                     kind = c->stats != 0 ? c->stats->kind : 0;
-                    src = FindEntryByKind((FindEntryByKindContainer020d3d90*)handlers, kind);
+                    src = func_020d3d90((FindEntryByKindContainer020d3d90*)handlers, kind);
                     e = ((SafeAllocator*)((char*)c->alloc + 0x18))->Allocate(EntryRecordSize);
                     if (e != 0) {
                         memcpy(e, src, EntryRecordSize);
@@ -209,20 +209,20 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
             if (loader->GetDetailedTaskStatus(task->taskId) == 2) {
                 loader->GetLoadedFileByID(task->taskId, &file5, &size5);
                 if (file5 != 0) {
-                    ClearEightWords_0203dafc((Struct_203dafc*)&info);
+                    func_0203dafc((Struct_203dafc*)&info);
                     info.fileData = file5;
                     info.unk_8 = size5;
                     info.allocator = alloc4;
-                    RestorePairTables0207df90(a5->tables);
+                    func_0207df90(a5->tables);
                     ((Object3D*)c)->LoadFromCCHROrCMOTArchive(&info, 0);
-                    BackupPairTables0207dfac(a5->tables);
+                    func_0207dfac(a5->tables);
                 }
             }
             ((Object3D*)c)->SetScale(0x10a, 0x10a, 0x10a);
-            SetByte0xbeShiftPrev((Bytes02033b88*)c, 0);
+            func_02033b88((Bytes02033b88*)c, 0);
             ((Object3D*)c)->DisableFlag(0x200);
             ((Object3D*)c)->SetInheritedAlpha(0);
-            SetFlag0x1ceBit0x4_02039d48((unsigned char*)c);
+            func_02039d48((unsigned char*)c);
             func_ov017_02191fec(mgr, c->field4);
             loader->RemoveTask(task->taskId);
             task->taskId = -1;

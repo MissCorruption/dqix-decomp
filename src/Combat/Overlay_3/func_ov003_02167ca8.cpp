@@ -8,11 +8,11 @@ struct Wrapper02168088;
 extern "C" ARM void func_ov003_02167e28(void* self, void* stats, int flag, unsigned char index,
                                         int byteValue, int halfValue, int wordValue);
 extern "C" ARM void func_ov003_02167fa4(void* self, int flag, unsigned char* table);
-void SetEntryFieldsForRange_02168088(struct Wrapper02168088* obj, int* arr);
+extern "C" void func_ov003_02168088(struct Wrapper02168088* obj, int* arr);
 extern "C" int func_020813ec(void* list, int arg);
 extern "C" void func_02042764(unsigned char* src, char* dst, int n);
-void* FindEntryBySignedId02086e50(FindEntryContainer02086e50* p, int id);
-int GetFieldAt0x50(Struct020865b0* p);
+extern "C" void* func_02086e50(FindEntryContainer02086e50* p, int id);
+extern "C" int func_020865b0(Struct020865b0* p);
 
 struct Entry02167ca8 {
     unsigned char pad0[2];
@@ -49,16 +49,16 @@ struct Menu_02167b80 {
 };
 
 extern "C" ARM void func_ov003_02167ca8(Menu_02167b80* self) {
-    Entry02167ca8* entry = (Entry02167ca8*)FindEntryBySignedId02086e50(
-        (FindEntryContainer02086e50*)GetPtrField0x2a04_02010828(GameState::GetInstance()),
+    Entry02167ca8* entry = (Entry02167ca8*)func_02086e50(
+        (FindEntryContainer02086e50*)func_02010828(GameState::GetInstance()),
         self->combatantId);
     if (entry == 0) {
         return;
     }
-    int index = GetFieldAt0x50((Struct020865b0*)entry);
+    int index = func_020865b0((Struct020865b0*)entry);
     func_ov003_02167e28(self, (unsigned char*)entry + 0x140, entry->flag, (unsigned char)index,
                         entry->tableF[index], entry->metaValues[index], entry->wordValues[index]);
-    func_ov003_02167fa4(self, GetFieldAt0x50((Struct020865b0*)entry) & 0xff, entry->tableF6);
+    func_ov003_02167fa4(self, func_020865b0((Struct020865b0*)entry) & 0xff, entry->tableF6);
     int values[12];
     int a0 = entry->g0.v0;
     int b0 = a0;
@@ -88,23 +88,23 @@ extern "C" ARM void func_ov003_02167ca8(Menu_02167b80* self) {
     values[10] = a10;
     int a11 = entry->g4.v11;
     values[11] = a11;
-    SetEntryFieldsForRange_02168088((Wrapper02168088*)self, values);
+    func_ov003_02168088((Wrapper02168088*)self, values);
     func_020813ec(self->list, 0);
 }
 #else
 extern "C" ARM void func_ov003_02167ca8(Menu_02167ca8* self) {
-    Entry02167ca8* entry = (Entry02167ca8*)FindEntryBySignedId02086e50(
-        (FindEntryContainer02086e50*)GetPtrField0x2a04_02010828(GameState::GetInstance()),
+    Entry02167ca8* entry = (Entry02167ca8*)func_02086e50(
+        (FindEntryContainer02086e50*)func_02010828(GameState::GetInstance()),
         self->combatantId);
     if (entry == 0) {
         return;
     }
-    int index = GetFieldAt0x50((Struct020865b0*)entry);
+    int index = func_020865b0((Struct020865b0*)entry);
     memset(self->stats, 0, 0x30);
     func_02042764((unsigned char*)entry + 0x140, self->stats, 1);
     func_ov003_02167e28(self, self->stats, entry->flag, (unsigned char)index,
                         entry->tableF[index], entry->metaValues[index], entry->wordValues[index]);
-    func_ov003_02167fa4(self, GetFieldAt0x50((Struct020865b0*)entry) & 0xff, entry->tableF6);
+    func_ov003_02167fa4(self, func_020865b0((Struct020865b0*)entry) & 0xff, entry->tableF6);
     int values[12];
     int a0 = entry->g0.v0;
     int b0 = a0;
@@ -134,7 +134,7 @@ extern "C" ARM void func_ov003_02167ca8(Menu_02167ca8* self) {
     values[10] = a10;
     int a11 = entry->g4.v11;
     values[11] = a11;
-    SetEntryFieldsForRange_02168088((Wrapper02168088*)self, values);
+    func_ov003_02168088((Wrapper02168088*)self, values);
     func_020813ec(self->list, 0);
 }
 #endif

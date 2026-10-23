@@ -95,18 +95,18 @@ struct Animation02056d80 {
     float vector[3];
 };
 
-int GetField0x4Field0x0Field0x0OrNull_02055168(S02055080*);
-void* GetField0x4Field0x4OrNull_020550a8(S02055080*);
-void* GetSubField0x8_020550c0(S02055080*);
-void* GetSubField0xC_020550d8(S02055080*);
-void* GetSubField0x10_020550f0(S02055080*);
-void* GetField0x4Field0x0OrNull_02055090(S02055080*);
-float ComputeSlope020578e8(Wrap020578e8*, Wrap020578e8*);
+extern "C" int func_02055168(S02055080*);
+extern "C" void* func_020550a8(S02055080*);
+extern "C" void* func_020550c0(S02055080*);
+extern "C" void* func_020550d8(S02055080*);
+extern "C" void* func_020550f0(S02055080*);
+extern "C" void* func_02055090(S02055080*);
+extern "C" float func_020578e8(Wrap020578e8*, Wrap020578e8*);
 
 // USA: func_02056d80
 extern "C" ARM void func_02056d80(Animation02056d80* self) {
     if (!self->resource || !self->active) return;
-    Counts02056d80* counts = (Counts02056d80*)GetField0x4Field0x0Field0x0OrNull_02055168(self->resource);
+    Counts02056d80* counts = (Counts02056d80*)func_02055168(self->resource);
     Wrap020578e8* previous;
     Wrap020578e8* next;
     previous = (Wrap020578e8*)self->resource->firstChannels[0].ElementAfter(0);
@@ -114,37 +114,37 @@ extern "C" ARM void func_02056d80(Animation02056d80* self) {
     if (counts->channels[0] > 1) {
         self->channelIndices[0] = 1;
         next = (Wrap020578e8*)self->resource->nextChannels[0].GetNthElement(1);
-        if (next) self->channelSlopes[0] = ComputeSlope020578e8(previous, next);
+        if (next) self->channelSlopes[0] = func_020578e8(previous, next);
     }
     previous = (Wrap020578e8*)self->resource->firstChannels[1].ElementAfter(0);
     self->channels[1] = previous->keyframe->y;
     if (counts->channels[1] > 1) {
         self->channelIndices[1] = 1;
         next = (Wrap020578e8*)self->resource->nextChannels[1].GetNthElement(1);
-        if (next) self->channelSlopes[1] = ComputeSlope020578e8(previous, next);
+        if (next) self->channelSlopes[1] = func_020578e8(previous, next);
     }
     previous = (Wrap020578e8*)self->resource->firstChannels[2].ElementAfter(0);
     self->channels[2] = previous->keyframe->y;
     if (counts->channels[2] > 1) {
         self->channelIndices[2] = 1;
         next = (Wrap020578e8*)self->resource->nextChannels[2].GetNthElement(1);
-        if (next) self->channelSlopes[2] = ComputeSlope020578e8(previous, next);
+        if (next) self->channelSlopes[2] = func_020578e8(previous, next);
     }
     previous = (Wrap020578e8*)self->resource->firstChannels[3].ElementAfter(0);
     self->channels[3] = previous->keyframe->y;
     if (counts->channels[3] > 1) {
         self->channelIndices[3] = 1;
         next = (Wrap020578e8*)self->resource->nextChannels[3].GetNthElement(1);
-        if (next) self->channelSlopes[3] = ComputeSlope020578e8(previous, next);
+        if (next) self->channelSlopes[3] = func_020578e8(previous, next);
     }
-    TransformCounts02056d80* transforms = (TransformCounts02056d80*)GetField0x4Field0x4OrNull_020550a8(self->resource);
+    TransformCounts02056d80* transforms = (TransformCounts02056d80*)func_020550a8(self->resource);
     for (int i = 0; i < 3; i++) {
         previous = (Wrap020578e8*)self->resource->translation[i].ElementAfter(0);
         self->translation[i] = previous->keyframe->y;
         if (transforms->translation[i] > 1) {
             self->translationIndices[i] = 1;
             next = (Wrap020578e8*)self->resource->translation[i].GetNthElement(self->translationIndices[i]);
-            if (next) self->translationSlopes[i] = ComputeSlope020578e8(previous, next);
+            if (next) self->translationSlopes[i] = func_020578e8(previous, next);
         }
     }
     for (int i = 0; i < 3; i++) {
@@ -153,7 +153,7 @@ extern "C" ARM void func_02056d80(Animation02056d80* self) {
         if (transforms->rotation[i] > 1) {
             self->rotationIndices[i] = 1;
             next = (Wrap020578e8*)self->resource->rotation[i].GetNthElement(self->rotationIndices[i]);
-            if (next) self->rotationSlopes[i] = ComputeSlope020578e8(previous, next);
+            if (next) self->rotationSlopes[i] = func_020578e8(previous, next);
         }
     }
     for (int i = 0; i < 3; i++) {
@@ -162,25 +162,25 @@ extern "C" ARM void func_02056d80(Animation02056d80* self) {
         if (transforms->scale[i] > 1) {
             self->scaleIndices[i] = 1;
             next = (Wrap020578e8*)self->resource->scale[i].GetNthElement(self->scaleIndices[i]);
-            if (next) self->scaleSlopes[i] = ComputeSlope020578e8(previous, next);
+            if (next) self->scaleSlopes[i] = func_020578e8(previous, next);
         }
     }
-    DurationCounts02056d80* duration = (DurationCounts02056d80*)GetSubField0x8_020550c0(self->resource);
+    DurationCounts02056d80* duration = (DurationCounts02056d80*)func_020550c0(self->resource);
     previous = (Wrap020578e8*)self->resource->duration.ElementAfter(0);
     self->duration = (float)previous->keyframe->duration;
     if (duration->count > 1) {
         self->durationIndex = 1;
         next = (Wrap020578e8*)self->resource->duration.GetNthElement(1);
-        if (next) self->durationSlope = ComputeSlope020578e8(previous, next);
+        if (next) self->durationSlope = func_020578e8(previous, next);
     }
-    ExtraCounts02056d80* extra = (ExtraCounts02056d80*)GetSubField0xC_020550d8(self->resource);
+    ExtraCounts02056d80* extra = (ExtraCounts02056d80*)func_020550d8(self->resource);
     for (int i = 0; i < 3; i++) {
         previous = (Wrap020578e8*)self->resource->extra[i].ElementAfter(0);
         self->extra[i] = previous->keyframe->y;
         if (extra->channels[i] > 1) {
             self->extraIndices[i] = 1;
             next = (Wrap020578e8*)self->resource->extra[i].GetNthElement(self->extraIndices[i]);
-            if (next) self->extraSlopes[i] = ComputeSlope020578e8(previous, next);
+            if (next) self->extraSlopes[i] = func_020578e8(previous, next);
         }
     }
     previous = (Wrap020578e8*)self->resource->vector.ElementAfter(0);
@@ -196,14 +196,14 @@ extern "C" ARM void func_02056d80(Animation02056d80* self) {
             self->vectorSlopes[2] = (next->keyframe->w - previous->keyframe->w) / (float)(next->keyframe->x - previous->keyframe->x);
         }
     }
-    Settings02056d80* settings = (Settings02056d80*)GetSubField0x10_020550f0(self->resource);
+    Settings02056d80* settings = (Settings02056d80*)func_020550f0(self->resource);
     self->frame = 0;
     self->endFrame = settings->begin + settings->delay;
     self->repeat = settings->repeat;
     self->flags = settings->flags;
     self->delay = settings->delay;
     if (settings->repeat) self->repeat = 1;
-    if (((Header02056d80*)GetField0x4Field0x0OrNull_02055090(self->resource))->finalCount == 0) return;
+    if (((Header02056d80*)func_02055090(self->resource))->finalCount == 0) return;
     previous = (Wrap020578e8*)self->resource->final.ElementAfter(0);
     self->finalValue = previous->keyframe->x;
 }

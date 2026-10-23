@@ -51,10 +51,10 @@ struct Flags0208036c {
     unsigned int f0;
 };
 
-void* FindSlotWithValue020810b4(unsigned char* self, short val);
+extern "C" void* func_020810b4(unsigned char* self, short val);
 extern "C" int func_02080e40(void* obj, int p1, int p2, int p3);
-struct Node0208036c* FindEntryByShortId0207f6ac(struct List0207f6ac* list, int id);
-struct Node0208036c* WalkListByMode0208036c(void* unused, struct Node0208036c* start, int mode, struct Flags0208036c* flags, unsigned char setFlag);
+extern "C" struct Node0208036c* func_0207f6ac(struct List0207f6ac* list, int id);
+extern "C" struct Node0208036c* func_0208036c(void* unused, struct Node0208036c* start, int mode, struct Flags0208036c* flags, unsigned char setFlag);
 
 // USA: func_020800fc
 extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short id, int mode, unsigned char sel, unsigned char setFlag) {
@@ -69,7 +69,7 @@ extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short i
     flags.f0 = 0;
     *outId = id;
     if (g_touchInput.pressed_ != 0) {
-        slot = (struct Slot0208010c*)FindSlotWithValue020810b4((unsigned char*)self, id);
+        slot = (struct Slot0208010c*)func_020810b4((unsigned char*)self, id);
         if (slot != NULL) {
             g_touchInput.GetTouchPoint(&x, &y);
             ret = func_02080e40(self, slot->id, (short)x, (short)y);
@@ -96,7 +96,7 @@ extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short i
     if (sel == 0) {
         return flags.f0;
     }
-    e = FindEntryByShortId0207f6ac(&self->items, *outId);
+    e = func_0207f6ac(&self->items, *outId);
     if (e == NULL) {
         return flags.f0;
     }
@@ -121,14 +121,14 @@ extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short i
     }
     if (node != NULL) {
         if (node->f2a & 2) {
-            node = WalkListByMode0208036c(self, e, mode, &flags, setFlag);
+            node = func_0208036c(self, e, mode, &flags, setFlag);
         }
         if (node != NULL) {
             *outId = node->f4;
         }
     } else {
         if (sel == 1) {
-            e = WalkListByMode0208036c(self, e, mode, &flags, setFlag);
+            e = func_0208036c(self, e, mode, &flags, setFlag);
         } else if (sel == 2 && setFlag != 0) {
             switch (mode) {
             case 0x10:

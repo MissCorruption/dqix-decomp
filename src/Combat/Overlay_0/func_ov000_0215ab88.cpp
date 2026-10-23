@@ -37,18 +37,18 @@ struct Battle {
 };
 
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
-void* GetWorkArrayEntry0215e9d8(void* work);
-void InitStruct02160030(void* obj);
-ActionEntry* GetNodeAtIndex02160094(List02160094* list, int index);
-TargetEntry* GetNodeAtIndex021600f8(List021600f8* list, int index);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* battleStruct, int combatantId);
-int IsFlag10088Set_02010088(S_10088* obj);
-int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject* combatant);
-void ClearFlag0x1000AndBytes7eA1_02088e64(unsigned char* obj);
+extern "C" void* func_ov000_0215e9d8(void* work);
+extern "C" void func_ov000_02160030(void* obj);
+extern "C" ActionEntry* func_ov000_02160094(List02160094* list, int index);
+extern "C" TargetEntry* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" GameObject* func_0200fea4(GameState* battleStruct, int combatantId);
+extern "C" int func_02010088(S_10088* obj);
+extern "C" int func_ov000_02153c0c(GameObject* combatant);
+extern "C" void func_02088e64(unsigned char* obj);
 
 static inline GameObject* GetFlagged(int id) {
     GameState* gs = GameState::GetInstance();
-    return GetCombatantWithFlag0x400_0200fea4(gs, id);
+    return func_0200fea4(gs, id);
 }
 
 static inline GameObject* GetCombatant(int id) {
@@ -66,17 +66,17 @@ extern "C" ARM void func_ov000_0215ab88(Battle* battle) {
     GameObject* c;
     GameObject* t;
     for (i = battle->actionsDone; i < battle->actionCount; i++) {
-        work = GetWorkArrayEntry0215e9d8(battle);
+        work = func_ov000_0215e9d8(battle);
         if (work == 0) {
             return;
         }
-        InitStruct02160030(work);
+        func_ov000_02160030(work);
         action = &battle->actions[i];
-        entry = GetNodeAtIndex02160094(action, 0);
+        entry = func_ov000_02160094(action, 0);
         if (entry == 0) {
             continue;
         }
-        target = GetNodeAtIndex021600f8((List021600f8*)action, 0);
+        target = func_ov000_021600f8((List021600f8*)action, 0);
         if (target == 0) {
             continue;
         }
@@ -85,15 +85,15 @@ extern "C" ARM void func_ov000_0215ab88(Battle* battle) {
             continue;
         }
         ((Combatant*)c)->field_0x181 = 0;
-        if (IsFlag10088Set_02010088((S_10088*)c)) {
+        if (func_02010088((S_10088*)c)) {
             continue;
         }
-        if (IsFlag0x18Bit0x2000Set_ov000_02153c0c(c)) {
+        if (func_ov000_02153c0c(c)) {
             continue;
         }
         t = GetCombatant(target->combatantId);
-        if (t == 0 || IsFlag10088Set_02010088((S_10088*)t) || IsFlag0x18Bit0x2000Set_ov000_02153c0c(t)) {
-            ClearFlag0x1000AndBytes7eA1_02088e64(((Combatant*)c)->stats);
+        if (t == 0 || func_02010088((S_10088*)t) || func_ov000_02153c0c(t)) {
+            func_02088e64(((Combatant*)c)->stats);
             continue;
         }
         memcpy(work, action, sizeof(List02160094));

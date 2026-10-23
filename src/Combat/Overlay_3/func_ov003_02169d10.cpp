@@ -4,7 +4,7 @@
 #if defined(jpn)
 #define PANEL_SHIFT 4
 extern "C" void func_02042428(char*, int);
-#define AppendSizeTag_02041d9c func_02042428
+#define func_02041d9c func_02042428
 #define data_ov003_02180156 data_ov003_0217e8e5
 #define data_ov003_02180159 data_ov003_0217e8e8
 #else
@@ -24,16 +24,16 @@ struct DigitPanel02169d10
 };
 
 extern "C" void __clear(void* buf, int size);
-void AppendXYTag_02041a90(char* text, int x, int y);
-void AppendPaletteTag_02041e70(char* text, int palette);
-void AppendString02042058(char* text, const char* append);
-void AppendFrameTag02041c08(char* text, int a, int b, int c, int d, int e);
-void AppendUaTag_02041ed8(char* text, int a, int b, int c);
-void AppendDbTag_02041f24(char* text, int a, int b, int c);
-void AppendSizeTag_02041d9c(char* text, int size);
-void AppendNameTag_02041b70(char* text, int item, const char* itemText);
-void AppendXTag_02041a28(char* text, int x);
-const char* GetFieldByKey020e0434(Container020e0310* c, int key);
+extern "C" void func_02041a90(char* text, int x, int y);
+extern "C" void func_02041e70(char* text, int palette);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" void func_02041c08(char* text, int a, int b, int c, int d, int e);
+extern "C" void func_02041ed8(char* text, int a, int b, int c);
+extern "C" void func_02041f24(char* text, int a, int b, int c);
+extern "C" void func_02041d9c(char* text, int size);
+extern "C" void func_02041b70(char* text, int item, const char* itemText);
+extern "C" void func_02041a28(char* text, int x);
+extern "C" const char* func_020e0434(Container020e0310* c, int key);
 
 extern "C" const char data_ov003_02180137[];
 extern "C" const char data_ov003_02180145[];
@@ -50,39 +50,39 @@ extern "C" ARM void func_ov003_02169d10(DigitPanel02169d10* self, char* text, in
     __clear(buf, 2);
     int cursor = self->cursor_;
 #if !defined(jpn)
-    AppendXYTag_02041a90(text, cursor * 8 + 0x23, 5);
+    func_02041a90(text, cursor * 8 + 0x23, 5);
     if (self->upActive_)
-        AppendPaletteTag_02041e70(text, 0xd);
+        func_02041e70(text, 0xd);
     else
-        AppendPaletteTag_02041e70(text, 0xf);
-    AppendString02042058(text, data_ov003_02180137);
-    AppendXYTag_02041a90(text, cursor * 8 + 0x23, 0x1b);
+        func_02041e70(text, 0xf);
+    func_02042058(text, data_ov003_02180137);
+    func_02041a90(text, cursor * 8 + 0x23, 0x1b);
     if (self->downActive_)
-        AppendPaletteTag_02041e70(text, 0xd);
+        func_02041e70(text, 0xd);
     else
-        AppendPaletteTag_02041e70(text, 0xf);
-    AppendString02042058(text, data_ov003_02180145);
-    AppendPaletteTag_02041e70(text, 0xf);
+        func_02041e70(text, 0xf);
+    func_02042058(text, data_ov003_02180145);
+    func_02041e70(text, 0xf);
  #endif
     if (framed)
-        AppendFrameTag02041c08(text, cursor, 3, 0xb, 3, 0xa);
-    AppendUaTag_02041ed8(text, cursor, self->upActive_, 2);
-    AppendDbTag_02041f24(text, cursor, self->downActive_, 2);
-    AppendSizeTag_02041d9c(text, 0xc);
+        func_02041c08(text, cursor, 3, 0xb, 3, 0xa);
+    func_02041ed8(text, cursor, self->upActive_, 2);
+    func_02041f24(text, cursor, self->downActive_, 2);
+    func_02041d9c(text, 0xc);
     for (int i = 0; i < 7; i++)
     {
         memset(buf, 0, 2);
         sprintf(buf, data_ov003_02180156, self->digits_[i]);
 #if !defined(jpn)
-        AppendXYTag_02041a90(text, i * 8 + 0x24, 0x10);
+        func_02041a90(text, i * 8 + 0x24, 0x10);
 #endif
         if (i < 4)
-            AppendNameTag_02041b70(text, i, buf);
+            func_02041b70(text, i, buf);
         else
-            AppendString02042058(text, data_ov003_02180159);
+            func_02042058(text, data_ov003_02180159);
     }
 #if !defined(jpn)
-    AppendXTag_02041a28(text, 0x5c);
+    func_02041a28(text, 0x5c);
 #endif
-    AppendString02042058(text, GetFieldByKey020e0434((Container020e0310*)self->texts_, 0x66));
+    func_02042058(text, func_020e0434((Container020e0310*)self->texts_, 0x66));
 }

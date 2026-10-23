@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/HMRFAllocator.h"
 
-void ProcessCurrentContext020bdc60();
+extern "C" void func_020bdc60();
 extern "C" int func_020bd99c(void* obj);
 extern "C" int func_020bdc24(void* objPtr);
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_020bdb0c(struct Obj020bdb0c* obj, int arg2) {
     }
     obj->allocator->RestoreState(arg2);
     if (anyInvoked) {
-        ProcessCurrentContext020bdc60();
+        func_020bdc60();
     }
     obj->allocator->SaveCurrentState(obj->list.numElements);
     func_020bdc24(obj);

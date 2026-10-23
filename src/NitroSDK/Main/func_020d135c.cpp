@@ -39,9 +39,9 @@ struct Lock020d1540 {
 extern CartridgeWork020d135c data_02112148;
 
 extern "C" void func_020d14e4(unsigned short lockID, Lock020d1540* lock);
-void SaveAndConfigureExmemcnt_020d1468(int* cycle);
-void RestoreExmemcnt_020d14b0(int* cycle);
-unsigned int UnlockAndRestoreInterrupts(int lockID, Lock020d1540* lock);
+extern "C" void func_020d1468(int* cycle);
+extern "C" void func_020d14b0(int* cycle);
+extern "C" unsigned int func_020d1540(int lockID, Lock020d1540* lock);
 
 // USA: func_020d135c
 extern "C" ARM int func_020d135c() {
@@ -62,7 +62,7 @@ extern "C" ARM int func_020d135c() {
         int cycle[2];
         unsigned char isRomCode;
 
-        SaveAndConfigureExmemcnt_020d1468(cycle);
+        func_020d1468(cycle);
         isRomCode = header->isRomCode;
         if (isRomCode == 0x96 && info->moduleID != header->moduleID ||
             isRomCode != 0x96 && info->moduleID != *(unsigned short*)0x0801fffe ||
@@ -70,8 +70,8 @@ extern "C" ARM int func_020d135c() {
             info->detectPullOut = true;
             result = false;
         }
-        RestoreExmemcnt_020d14b0(cycle);
+        func_020d14b0(cycle);
     }
-    UnlockAndRestoreInterrupts(data_02112148.lockID, &lock);
+    func_020d1540(data_02112148.lockID, &lock);
     return result;
 }

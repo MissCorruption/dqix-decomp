@@ -3,14 +3,14 @@
 
 extern "C" void* func_ov011_021849c8(void* p);
 struct GameState;
-extern int GetFieldAt0x150_02053c6c(unsigned char* obj);
-void ClearField00209a804(int* field);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" void func_0209a804(int* field);
 struct Ctx0209a810 { void* field0; };
-void SetupAndRunBufferedScript0209a810(Ctx0209a810* ctx, void* value);
-void SetField38IfState8_0215e49c(void*, int, int);
-int CheckAfterTwoCalls_0215e460(void);
+extern "C" void func_0209a810(Ctx0209a810* ctx, void* value);
+extern "C" void func_ov004_0215e49c(void*, int, int);
+extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e574(void* a, int key, int c, int d, int e);
-void SetNodeFieldsAndMaybeNotify_0215f6f4(void* a, short v1, short v2, int flag);
+extern "C" void func_ov004_0215f6f4(void* a, short v1, short v2, int flag);
 
 struct TagNode02161514 {
     char pad0[0xc];
@@ -121,26 +121,26 @@ extern "C" ARM int func_ov004_02161514(void* a) {
 
     t = data_ov004_02170854[data_ov004_021707e8.selectedCategory];
     if (t != 1 && t != 4 && t != 7) {
-        unsigned char* combatant = (unsigned char*)GetCombatantWithFlag0x100_0200ff1c((GameState*)(void*)GameState::GetInstance(), data_ov004_021707e8.combatant);
+        unsigned char* combatant = (unsigned char*)func_0200ff1c((GameState*)(void*)GameState::GetInstance(), data_ov004_021707e8.combatant);
         if (!combatant) return 0;
-        field = (unsigned char*)GetFieldAt0x150_02053c6c(combatant);
+        field = (unsigned char*)func_02053c6c(combatant);
         if (!field) return 0;
         limit = *(unsigned short*)(field + data_ov004_02170854[data_ov004_021707e8.selectedCategory] * 2 + 0x16c);
-        ClearField00209a804((int*)&ctx);
-        SetupAndRunBufferedScript0209a810(&ctx, &buf);
+        func_0209a804((int*)&ctx);
+        func_0209a810(&ctx, &buf);
         count = buf.counts[data_ov004_02170854[data_ov004_021707e8.selectedCategory]];
         rows = buf.rows[data_ov004_02170854[data_ov004_021707e8.selectedCategory]];
         cnt = 0;
 
-        for (i = 0xc; i < 0x30; i++) SetField38IfState8_0215e49c(a, i, 0x3a);
-        SetField38IfState8_0215e49c(a, 0x31, 0x3a);
-        SetField38IfState8_0215e49c(a, 0x32, 0x3a);
-        SetField38IfState8_0215e49c(a, 0xc, 0x3b);
-        SetField38IfState8_0215e49c(a, 0xd, 1);
-        if (CheckAfterTwoCalls_0215e460()) {
-            SetField38IfState8_0215e49c(a, 0xe, 4);
+        for (i = 0xc; i < 0x30; i++) func_ov004_0215e49c(a, i, 0x3a);
+        func_ov004_0215e49c(a, 0x31, 0x3a);
+        func_ov004_0215e49c(a, 0x32, 0x3a);
+        func_ov004_0215e49c(a, 0xc, 0x3b);
+        func_ov004_0215e49c(a, 0xd, 1);
+        if (func_ov004_0215e460()) {
+            func_ov004_0215e49c(a, 0xe, 4);
         } else {
-            SetField38IfState8_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
+            func_ov004_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
         }
 
         if (data_ov004_021707e8.equippedCategory != data_ov004_02170854[data_ov004_021707e8.selectedCategory]) {
@@ -164,7 +164,7 @@ extern "C" ARM int func_ov004_02161514(void* a) {
             unsigned short level = rows[i].level;
             if (level != 0 && level <= limit) {
                 int st;
-                SetField38IfState8_0215e49c(a, cnt + 0xf, id + 0x3f);
+                func_ov004_0215e49c(a, cnt + 0xf, id + 0x3f);
                 st = 0xf;
                 if (data_ov004_021707e8.equippedCategory != data_ov004_02170854[data_ov004_021707e8.selectedCategory]) st = 3;
                 node = func_ov023_021f6880(obj, cnt + 0xf);
@@ -175,21 +175,21 @@ extern "C" ARM int func_ov004_02161514(void* a) {
 
         if (cnt == 0) {
             showAll = 1;
-            for (j = 0xc; j < 0x30; j++) SetField38IfState8_0215e49c(a, j, 0x3a);
-            SetField38IfState8_0215e49c(a, 0x31, 0x1e1);
-            SetField38IfState8_0215e49c(a, 0x32, 0x1e3);
+            for (j = 0xc; j < 0x30; j++) func_ov004_0215e49c(a, j, 0x3a);
+            func_ov004_0215e49c(a, 0x31, 0x1e1);
+            func_ov004_0215e49c(a, 0x32, 0x1e3);
 #if !defined(jpn)
             func_ov004_0215e574(a, 0x31, 0xff, 0, 0);
 #endif
 #if !defined(jpn)
             func_ov004_0215e574(a, 0x32, 0xff, 0, 0);
 #endif
-            SetField38IfState8_0215e49c(a, 0xc, 0x3b);
-            SetField38IfState8_0215e49c(a, 0xd, 1);
-            if (CheckAfterTwoCalls_0215e460()) {
-                SetField38IfState8_0215e49c(a, 0xe, 4);
+            func_ov004_0215e49c(a, 0xc, 0x3b);
+            func_ov004_0215e49c(a, 0xd, 1);
+            if (func_ov004_0215e460()) {
+                func_ov004_0215e49c(a, 0xe, 4);
             } else {
-                SetField38IfState8_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
+                func_ov004_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
             }
             same = 1;
             if (data_ov004_021707e8.equippedCategory != data_ov004_02170854[data_ov004_021707e8.selectedCategory]) same = 0;
@@ -208,21 +208,21 @@ extern "C" ARM int func_ov004_02161514(void* a) {
     } else {
         int st;
         showAll = 1;
-        for (j = 0xc; j < 0x30; j++) SetField38IfState8_0215e49c(a, j, 0x3a);
-        SetField38IfState8_0215e49c(a, 0x31, 0x1e1);
-        SetField38IfState8_0215e49c(a, 0x32, 0x1e3);
+        for (j = 0xc; j < 0x30; j++) func_ov004_0215e49c(a, j, 0x3a);
+        func_ov004_0215e49c(a, 0x31, 0x1e1);
+        func_ov004_0215e49c(a, 0x32, 0x1e3);
 #if !defined(jpn)
         func_ov004_0215e574(a, 0x31, 0xff, 0, 0);
 #endif
 #if !defined(jpn)
         func_ov004_0215e574(a, 0x32, 0xff, 0, 0);
 #endif
-        SetField38IfState8_0215e49c(a, 0xc, 0x3b);
-        SetField38IfState8_0215e49c(a, 0xd, 1);
-        if (CheckAfterTwoCalls_0215e460()) {
-            SetField38IfState8_0215e49c(a, 0xe, 4);
+        func_ov004_0215e49c(a, 0xc, 0x3b);
+        func_ov004_0215e49c(a, 0xd, 1);
+        if (func_ov004_0215e460()) {
+            func_ov004_0215e49c(a, 0xe, 4);
         } else {
-            SetField38IfState8_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
+            func_ov004_0215e49c(a, 0xe, data_ov004_02170854[data_ov004_021707e8.selectedCategory] + 4);
         }
         same = 1;
         if (data_ov004_021707e8.equippedCategory != data_ov004_02170854[data_ov004_021707e8.selectedCategory]) same = 0;
@@ -272,6 +272,6 @@ extern "C" ARM int func_ov004_02161514(void* a) {
         if (d < 0) d += data_ov004_021707e8.itemCount;
         data_ov004_021707e8.categoryDelta = d;
     }
-    SetNodeFieldsAndMaybeNotify_0215f6f4(a, data_ov004_021707e8.categoryDelta, data_ov004_021707e8.itemCount, flag);
+    func_ov004_0215f6f4(a, data_ov004_021707e8.categoryDelta, data_ov004_021707e8.itemCount, flag);
     return 0;
 }

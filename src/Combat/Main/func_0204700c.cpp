@@ -11,10 +11,10 @@ extern "C" float _fdiv(float a, float b);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
 
-extern "C" void _Z42SetField0x7cClearFields0x1ec0x1ee_0202e874Pht(unsigned char* obj, short val);
+extern "C" void func_0202e874(unsigned char* obj, short val);
 
 struct AngleTrig0202e9a4;
-void SetAngleAndTrigTable0202e9a4(struct AngleTrig0202e9a4* obj, int angle);
+extern "C" void func_0202e9a4(struct AngleTrig0202e9a4* obj, int angle);
 
 // USA: func_0204700c
 extern "C" ARM int func_0204700c(char* self) {
@@ -34,10 +34,10 @@ extern "C" ARM int func_0204700c(char* self) {
 
     *(float*)(self + 0xc) = _fsub(*(float*)(self + 0xc), 0.4333f);
 
-    void* obj = GetField0x3b0Value_020100bc(gs);
+    void* obj = func_020100bc(gs);
     short ang16 = fix32ReduceAngle0To2Pi(_ffix(_fmul(4096.0f, ang)));
-    _Z42SetField0x7cClearFields0x1ec0x1ee_0202e874Pht((unsigned char*)obj, ang16);
-    SetAngleAndTrigTable0202e9a4((struct AngleTrig0202e9a4*)obj,
+    func_0202e874((unsigned char*)obj, ang16);
+    func_0202e9a4((struct AngleTrig0202e9a4*)obj,
                                  _ffix(_fmul(4096.0f, *(float*)(self + 0xc))));
 
     Object3D* eff = *(Object3D**)(self + 0xe8);

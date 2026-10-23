@@ -38,12 +38,12 @@ struct Obj02046574 {
     unsigned char state;
 };
 struct CombatantInfo02092e0c { int fields[3]; };
-Obj02046574* GetGlobalField0x1c020421a0();
+extern "C" Obj02046574* func_020421a0();
 extern "C" void func_02046380(void*);
-int GetField0x3acValue_020100a8(GameState*);
-void SetIndexedName02046574(Obj02046574*, int, char*);
-void InitObjFromCombatantId020e4bf4(void*, int);
-int GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" int func_020100a8(GameState*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" void func_020e4bf4(void*, int);
+extern "C" int func_020e0434(Container020e0310*, int);
 #if !defined(jpn)
 extern "C" void func_0204500c(Obj02046574*, int, int, int);
 #endif
@@ -55,15 +55,15 @@ extern "C" void func_02043270(Obj02046574*, int, int, int, int);
 // USA: func_02092e0c
 extern "C" ARM void func_02092e0c(MessageController* messages) {
     if (messages->messageKey >= 0) {
-        Obj02046574* display = GetGlobalField0x1c020421a0();
+        Obj02046574* display = func_020421a0();
         func_02046380(display);
         GameState* state = GameState::GetInstance();
-        GameObject* member = state->GetPartyMemberByIndex(GetField0x3acValue_020100a8(state));
-        if (member) SetIndexedName02046574(display, 0, member->baseStats_->unk);
+        GameObject* member = state->GetPartyMemberByIndex(func_020100a8(state));
+        if (member) func_02046574(display, 0, member->baseStats_->unk);
 #if defined(jpn)
         member = state->GetPartyMemberByIndex(messages->namedPartySlot);
-        if (member) SetIndexedName02046574(display, 1, member->baseStats_->unk);
-        func_0204500c(display, GetFieldByKey020e0434(&messages->messages, messages->messageKey), 0);
+        if (member) func_02046574(display, 1, member->baseStats_->unk);
+        func_0204500c(display, func_020e0434(&messages->messages, messages->messageKey), 0);
         display->active = 1;
         if ((messages->flags & 1) && (messages->flags & 2)) {
             display->state = 0;
@@ -74,9 +74,9 @@ extern "C" ARM void func_02092e0c(MessageController* messages) {
         }
 #else
         CombatantInfo02092e0c info;
-        InitObjFromCombatantId020e4bf4(&info, messages->namedPartySlot);
+        func_020e4bf4(&info, messages->namedPartySlot);
         display->combatant = &info;
-        func_0204500c(display, GetFieldByKey020e0434(&messages->messages, messages->messageKey), 0, 0xe3);
+        func_0204500c(display, func_020e0434(&messages->messages, messages->messageKey), 0, 0xe3);
         display->active = 1;
         if ((messages->flags & 1) && (messages->flags & 2)) {
             display->state = 0;

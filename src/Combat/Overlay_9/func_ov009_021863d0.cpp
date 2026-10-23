@@ -8,7 +8,7 @@ struct CharacterModel {
     unsigned char loading_;
 };
 
-int GetWord0x0_0200fb8c(int* gameState);
+extern "C" int func_0200fb8c(int* gameState);
 extern "C" void func_ov009_02188c2c(CharacterCreationUI* self);
 extern "C" void func_ov009_02188d9c(CharacterCreationUI* self);
 extern "C" void func_ov009_02188e70(CharacterCreationUI* self, int choice);
@@ -17,16 +17,16 @@ extern "C" int func_ov009_02188ee8(CharacterCreationUI* self);
 extern "C" void func_ov023_021e6158(CharacterModel* character, int part);
 #if defined(jpn)
 extern "C" void func_ov009_021867bc(unsigned char*, int);
-#define SetStatValue021855dc func_ov009_021867bc
+#define func_ov009_021855dc func_ov009_021867bc
 #else
-void SetStatValue021855dc(unsigned char* self, int state);
+extern "C" void func_ov009_021855dc(unsigned char* self, int state);
 #endif
 
 // USA: func_ov009_021863d0
 extern "C" ARM void func_ov009_021863d0(CharacterCreationUI* self)
 {
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)gameState);
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)gameState);
     if (self->step == 0)
     {
         if (GetBrightness((GameResources*)resources, false) == -16 &&
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov009_021863d0(CharacterCreationUI* self)
         }
         if (result == -2)
         {
-            SetStatValue021855dc((unsigned char*)self, 2);
+            func_ov009_021855dc((unsigned char*)self, 2);
             return;
         }
         if (result == -3)
@@ -91,14 +91,14 @@ extern "C" ARM void func_ov009_021863d0(CharacterCreationUI* self)
 #else
                 *((unsigned char*)gameState + 0x63d4) = 0;
 #endif
-            SetStatValue021855dc((unsigned char*)self, 11);
+            func_ov009_021855dc((unsigned char*)self, 11);
             return;
         }
         if (result >= 101 && result <= 108)
         {
             int state = result - 100;
             if (state <= self->furthestState[self->sex] && state != self->state)
-                SetStatValue021855dc((unsigned char*)self, (unsigned char)state);
+                func_ov009_021855dc((unsigned char*)self, (unsigned char)state);
         }
     }
 }

@@ -90,47 +90,47 @@ extern "C" void* __clear(void* dst, int count);
 extern "C" void func_ov000_0216d370(void* obj, int a, int b, int c);
 extern "C" void func_ov000_0216df00(void* obj, int id, int b, int c, float scale);
 struct GatherObj02163a7c;
-void ApplyField41ToGatheredCombatants02163a7c(GatherObj02163a7c*);
-void* GetSlotPtr02160f20(void* obj);
-void ApplyVec3Tail_0202e694(void*, int*);
+extern "C" void func_ov000_02163a7c(GatherObj02163a7c*);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" void func_0202e694(void*, int*);
 extern "C" void func_ov000_021626a0(void* obj, int a, int b);
 struct Vector3i;
 extern "C" void func_ov000_02167f10(void* obj);
 struct Obj02033874;
-void SetVecYFromValue02033874(Obj02033874*, int);
-void ResetFields_021de110(void* obj);
+extern "C" void func_02033874(Obj02033874*, int);
+extern "C" void func_ov025_021de110(void* obj);
 struct Obj021eee48;
 struct Rec021eee48;
-void PushNodeFromFreeList_021eee48(Obj021eee48*, Rec021eee48*);
+extern "C" void func_ov025_021eee48(Obj021eee48*, Rec021eee48*);
 struct Flags02033fcc;
-void SetFlag0x4At0xe0(Flags02033fcc*);
+extern "C" void func_02033fcc(Flags02033fcc*);
 struct Flags02033fdc;
-void ClearFlag0x4At0xe0(Flags02033fdc*);
+extern "C" void func_02033fdc(Flags02033fdc*);
 struct Bytes02033b88;
-int SetByte0xbeShiftPrev(Bytes02033b88*, int);
-struct TableEntry021dcf14* SearchBothTables02079e2c(char*, int);
+extern "C" int func_02033b88(Bytes02033b88*, int);
+extern "C" struct TableEntry021dcf14* func_02079e2c(char*, int);
 struct List021600f8;
-struct Node021dcf14* GetNodeAtIndex021600f8(List021600f8*, int);
+extern "C" struct Node021dcf14* func_ov000_021600f8(List021600f8*, int);
 struct List02160094;
-struct First021dcf14* GetNodeAtIndex02160094(List02160094*, int);
+extern "C" struct First021dcf14* func_ov000_02160094(List02160094*, int);
 struct PackedFields_021d8bfc;
-void ForwardPackedFields_021d8bfc(void*, PackedFields_021d8bfc*);
+extern "C" void func_ov025_021d8bfc(void*, PackedFields_021d8bfc*);
 extern "C" int func_ov025_021ed444(void* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
-void StoreFields0x1e4And0x1e8IfNonZero_0202ea10(unsigned char*, int, int);
-void SetShortTriple0x6e44_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void* FindNodeAtDepth0215fff4(void*, int, int);
+extern "C" void func_0202ea10(unsigned char*, int, int);
+extern "C" void func_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void* func_ov000_0215fff4(void*, int, int);
 extern "C" int func_ov000_0215fd90(void* entry, int effect);
-int CheckSubstructFlag0x100_02048c68(unsigned char*);
-int GetSubstructByte0x56_02049ee8(unsigned char*);
-void SetSubstructFlag0x400_0204a0c8(unsigned char*);
+extern "C" int func_02048c68(unsigned char*);
+extern "C" int func_02049ee8(unsigned char*);
+extern "C" void func_0204a0c8(unsigned char*);
 extern "C" int func_ov000_0215ffa0(void* node);
 struct In021dce7c;
-int TryDispatch_021dce7c(unsigned char*, In021dce7c*, int);
+extern "C" int func_ov025_021dce7c(unsigned char*, In021dce7c*, int);
 extern "C" void* func_02057924(void);
-void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void*, int, void*);
-void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void func_0205ebfc(void*, int, int);
 extern "C" void func_ov025_021eabd0(void* obj, bool party);
 extern "C" void func_ov025_021ead5c(void* obj, bool party);
 
@@ -197,12 +197,12 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
     if (sl[Field6e4b] == 1) {
         func_ov000_0216d370(sl + CameraBase, 1, 1, 1);
         func_ov000_0216df00(sl + CameraBase, cur->targetId, 0, 0, 1.8f);
-        ApplyField41ToGatheredCombatants02163a7c((GatherObj02163a7c*)sl);
-        void* slot = GetSlotPtr02160f20(sl);
+        func_ov000_02163a7c((GatherObj02163a7c*)sl);
+        void* slot = func_ov000_02160f20(sl);
         if (*(unsigned short*)slot == 0x11b || *(unsigned short*)slot == 0x116) {
             Vector3fix cam = *(Vector3fix*)(sl + CameraPosition);
             cam.z = 0x847a;
-            ApplyVec3Tail_0202e694(sl + CameraBase, (int*)&cam);
+            func_0202e694(sl + CameraBase, (int*)&cam);
         }
         func_ov000_021626a0(sl, 4, 0);
         for (int i = 0; i < *(short*)(sl + Field6efa); i++) {
@@ -276,16 +276,16 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                 Vector3fix_Normalize(&dir, &dir);
                 int angle = fix32_Atan2(dir.x, dir.z);
                 objs[i]->obj3D_.position_ = look;
-                SetVecYFromValue02033874((Obj02033874*)objs[i], angle);
+                func_02033874((Obj02033874*)objs[i], angle);
                 struct Rec021dcf14 rec;
-                ResetFields_021de110(&rec);
+                func_ov025_021de110(&rec);
                 rec.f0 = 0;
                 rec.id = ((short*)(sl + Field6ef0))[i];
                 rec.val = 0x96;
                 rec.pos = dst;
-                PushNodeFromFreeList_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
+                func_ov025_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
                 objs[i]->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef460, 0);
-                SetFlag0x4At0xe0((Flags02033fcc*)objs[i]);
+                func_02033fcc((Flags02033fcc*)objs[i]);
             }
         }
 
@@ -303,7 +303,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             }
             Vector3fix cam = *(Vector3fix*)(sl + CameraPosition);
             cam.z = (int)(4096.0f * (cam.z / 4096.0f * scale));
-            ApplyVec3Tail_0202e694(sl + CameraBase, (int*)&cam);
+            func_0202e694(sl + CameraBase, (int*)&cam);
         }
         SetPhase(sl, 2, 0x9b);
     } else if (sl[Field6e4b] == 2) {
@@ -329,8 +329,8 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                     turn = -0x1922;
                 }
                 int rot = objs[j]->obj3D_.rotation_.y;
-                SetVecYFromValue02033874((Obj02033874*)objs[j], fix32ReduceAngle0To2Pi(rot + turn));
-                SetByte0xbeShiftPrev((Bytes02033b88*)objs[j], 0);
+                func_02033874((Obj02033874*)objs[j], fix32ReduceAngle0To2Pi(rot + turn));
+                func_02033b88((Bytes02033b88*)objs[j], 0);
             }
             float scale = 1.0f;
             if (maxHeight >= 0x1800) {
@@ -349,11 +349,11 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             }
         }
         if (sl[Field6e4b] == 6) {
-            void* slot = GetSlotPtr02160f20(sl);
+            void* slot = func_ov000_02160f20(sl);
             struct TableEntry021dcf14* entry =
-                SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), *(short*)slot);
+                func_02079e2c((char*)func_020797dc(), *(short*)slot);
             if (entry && entry->kind18 == 2) {
-                struct Node021dcf14* node = GetNodeAtIndex021600f8((List021600f8*)slot, cur->nodeIndex);
+                struct Node021dcf14* node = func_ov000_021600f8((List021600f8*)slot, cur->nodeIndex);
                 if (node == NULL) {
                     return 0;
                 }
@@ -379,17 +379,17 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
         } else {
             GameObject* actor = battle->GetCombatantByIndex(cur->actorId);
             if (actor) {
-                ClearFlag0x4At0xe0((Flags02033fdc*)actor);
+                func_02033fdc((Flags02033fdc*)actor);
             }
-            void* slot = GetSlotPtr02160f20(sl);
-            struct First021dcf14* first = GetNodeAtIndex02160094((List02160094*)slot, 0);
+            void* slot = func_ov000_02160f20(sl);
+            struct First021dcf14* first = func_ov000_02160094((List02160094*)slot, 0);
             if (first == NULL) {
                 return 0;
             }
             if (first == NULL) {
                 return 0;
             }
-            struct Node021dcf14* node = GetNodeAtIndex021600f8((List021600f8*)slot, cur->nodeIndex);
+            struct Node021dcf14* node = func_ov000_021600f8((List021600f8*)slot, cur->nodeIndex);
             if (node == NULL) {
                 return 0;
             }
@@ -409,7 +409,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             if (!miss && first->flags[4] != 0) {
                 sl[Field6e4e] = 6;
             }
-            ForwardPackedFields_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
+            func_ov025_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
             if (sl[Field7745] != node->ids[1] || sl[Field7746] != node->ids[0]) {
                 int msgId = 0x7f;
                 int party = 0;
@@ -424,10 +424,10 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                 sl[Field7746] = node->ids[0];
             }
             if (miss || crit) {
-                StoreFields0x1e4And0x1e8IfNonZero_0202ea10((unsigned char*)(sl + CameraBase), 0xcc, 0x1f4);
-                SetShortTriple0x6e44_ov000_02163440(sl, 0x199, 0x1f4, 0x64);
+                func_0202ea10((unsigned char*)(sl + CameraBase), 0xcc, 0x1f4);
+                func_ov000_02163440(sl, 0x199, 0x1f4, 0x64);
                 if (crit) {
-                    DispatchWithShortB4_0205eaa0(&data_02108760, 0x43, 0);
+                    func_0205eaa0(&data_02108760, 0x43, 0);
                 }
             }
             cur->mode = 1;
@@ -445,7 +445,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                         int found = 0;
                         int d;
                         for (d = 0; d < node->counts[k]; d++) {
-                            void* hit = FindNodeAtDepth0215fff4(node, d, (unsigned char)k);
+                            void* hit = func_ov000_0215fff4(node, d, (unsigned char)k);
                             if (hit && func_ov000_0215fd90(hit, 0x2a)) {
                                 found = 1;
                                 TIMER = 0;
@@ -475,15 +475,15 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
         if (dt < TIMER) {
             TIMER -= dt;
         } else {
-            void* slot = GetSlotPtr02160f20(sl);
-            struct First021dcf14* first = GetNodeAtIndex02160094((List02160094*)slot, 0);
+            void* slot = func_ov000_02160f20(sl);
+            struct First021dcf14* first = func_ov000_02160094((List02160094*)slot, 0);
             if (first == NULL) {
                 return 0;
             }
             if (first == NULL) {
                 return 0;
             }
-            struct Node021dcf14* node = GetNodeAtIndex021600f8((List021600f8*)slot, cur->nodeIndex);
+            struct Node021dcf14* node = func_ov000_021600f8((List021600f8*)slot, cur->nodeIndex);
             if (node == NULL) {
                 return 0;
             }
@@ -516,7 +516,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             if (!miss && !found && !crit) {
                 for (int i = 0; i < *(short*)(sl + Field6efa); i++) {
                     GameObject* c = battle->GetCombatantByIndex(((short*)(sl + Field6ef0))[i]);
-                    if (c && !CheckSubstructFlag0x100_02048c68((unsigned char*)c)) {
+                    if (c && !func_02048c68((unsigned char*)c)) {
                         objs[i] = c;
                         if (!any && objs[i]) {
                             objs[i]->obj3D_.MakeVisible();
@@ -529,14 +529,14 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                     if (c == NULL) {
                         continue;
                     }
-                    if (GetSubstructByte0x56_02049ee8((unsigned char*)c) == 0 || CheckSubstructFlag0x100_02048c68((unsigned char*)c) != 0) {
+                    if (func_02049ee8((unsigned char*)c) == 0 || func_02048c68((unsigned char*)c) != 0) {
                         c->obj3D_.TransitionInheritedAlpha(0, 0x12c);
                         int party = 0;
                         if (c->obj3D_.unknown_4_ >= 0 && c->obj3D_.unknown_4_ <= 3) {
                             party = 1;
                         }
-                        if (party || CheckSubstructFlag0x100_02048c68((unsigned char*)c)) {
-                            SetSubstructFlag0x400_0204a0c8((unsigned char*)c);
+                        if (party || func_02048c68((unsigned char*)c)) {
+                            func_0204a0c8((unsigned char*)c);
                         }
                     } else {
                         Vector3fix off = data_ov025_021eeee0;
@@ -548,20 +548,20 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                         Vector3fix dst;
                         Vector3fix_Add(&pos, &off, &dst);
                         struct Rec021dcf14 rec;
-                        ResetFields_021de110(&rec);
+                        func_ov025_021de110(&rec);
                         rec.f0 = 1;
                         rec.id = cur->actorId;
                         rec.val = 0x64;
                         rec.angle = fix32ReduceAngle0To2Pi(rotY + data_ov025_021eeef8[i]);
-                        PushNodeFromFreeList_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
-                        ResetFields_021de110(&rec);
+                        func_ov025_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
+                        func_ov025_021de110(&rec);
                         rec.f0 = 0;
                         rec.id = ((short*)(sl + Field6ef0))[i];
                         rec.val = 0x12c;
                         rec.pos = dst;
-                        PushNodeFromFreeList_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
+                        func_ov025_021eee48((Obj021eee48*)(sl + PendingList), (Rec021eee48*)&rec);
                         objs[i]->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef460, 0);
-                        SetFlag0x4At0xe0((Flags02033fcc*)objs[i]);
+                        func_02033fcc((Flags02033fcc*)objs[i]);
                     }
                 }
                 sl[Field6e4e] = 0;
@@ -571,7 +571,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                 GameObject* target = NULL;
                 int id = func_ov000_0215ffa0(node);
                 if (miss || crit) {
-                    if (!TryDispatch_021dce7c((unsigned char*)sl, (In021dce7c*)slot, id)) {
+                    if (!func_ov025_021dce7c((unsigned char*)sl, (In021dce7c*)slot, id)) {
                         func_ov000_0216df00(sl + CameraBase, id, 0, 0, 1.8f);
                     }
                     target = battle->GetCombatantByIndex(id);
@@ -586,19 +586,19 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                     struct Pending021dcf14 pending = GetPending(sl);
                     void* list = func_02057924();
                     struct InitStruct02078484Struct req;
-                    InitStruct02078484(&req);
+                    func_02078484(&req);
                     req.objectId = objectId;
                     if (pending.flags & 1) {
                         req.offset.y += target->obj3D_.GetHeight() / 2;
                     }
-                    FindNodeAndProcess02057fb4(list, pending.id, &req);
-                    DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
+                    func_02057fb4(list, pending.id, &req);
+                    func_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
                 }
                 if (!crit) {
                     if (miss) {
                         cur->mode = 3;
                     }
-                    ForwardPackedFields_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
+                    func_ov025_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
                     cur->mode = 1;
                     if (sl[Field6e4d] <= ++sl[Field6e4c]) {
                         sl[Field6e4e] = 0;
@@ -618,7 +618,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             TIMER -= dt;
         } else {
             struct Node021dcf14* node =
-                GetNodeAtIndex021600f8((List021600f8*)GetSlotPtr02160f20(sl), cur->nodeIndex);
+                func_ov000_021600f8((List021600f8*)func_ov000_02160f20(sl), cur->nodeIndex);
             if (node == NULL) {
                 return 0;
             }
@@ -627,7 +627,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             }
             int id = func_ov000_0215ffa0(node);
             func_ov025_021eabd0(sl + Auxiliary, IsPartyMember(id));
-            ForwardPackedFields_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
+            func_ov025_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
             func_ov025_021ead5c(sl + Auxiliary, IsPartyMember(id));
             SetPhase(sl, 5, 1000);
         }
@@ -640,7 +640,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
             for (int i = 0; i < sl[Field6e4d]; i++) {
                 GameObject* c = battle->GetCombatantByIndex(((struct Entry021dcf14*)(sl + Field6e50))[i].actorId);
                 if (c) {
-                    ClearFlag0x4At0xe0((Flags02033fdc*)c);
+                    func_02033fdc((Flags02033fdc*)c);
                 }
                 ((struct Entry021dcf14*)(sl + Field6e50))[i].actorId = -1;
                 ((struct Entry021dcf14*)(sl + Field6e50))[i].targetId = -1;
@@ -653,7 +653,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
 }
 
 // USA: func_ov025_021de110
-ARM void ResetFields_021de110(void* obj) {
+extern "C" ARM void func_ov025_021de110(void* obj) {
     *(int*)((char*)obj + 0x0) = 0;
     *(int*)((char*)obj + 0x4) = 0;
     *(int*)((char*)obj + 0x18) = 0;
@@ -687,25 +687,25 @@ struct Pending021de124 {
 extern "C" void func_ov000_0216d370(void* obj, int a, int b, int c);
 extern "C" void func_ov000_0216df00(void* obj, int id, int b, int c, float scale);
 extern "C" void func_ov000_0216dbf0(void* obj, int* id, int a, int b);
-void* GetSlotPtr02160f20(void* obj);
+extern "C" void* func_ov000_02160f20(void* obj);
 extern "C" void func_ov000_021626a0(void* obj, int a, int b);
 extern "C" void func_ov000_02167f10(void* obj);
 extern "C" int func_ov025_021ed444(void* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
 extern "C" int func_ov025_021ed564(void* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
-void SetShortTriple0x6e44_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-int GetShortAtField0xEBound3_ov000_0215ff80(char*, int);
-void* GetActiveCombatWork_ov000_02160130(void);
+extern "C" void func_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" int func_ov000_0215ff80(char*, int);
+extern "C" void* func_ov000_02160130(void);
 extern "C" int func_ov000_0215ffa0(void* node);
 extern "C" void func_ov025_021eabd0(void* obj, bool party);
 extern "C" void func_ov025_021ead5c(void* obj, bool party);
 extern "C" void func_ov025_021ed344(void* obj, int val);
-int Check021ed2f4(void* obj);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_ov025_021ed2f4(void* obj);
+extern "C" int func_020421a0(void);
 extern "C" void func_02043124(int obj);
 extern "C" void* func_02057924(void);
-void InitStruct02078484(struct InitStruct02078484Struct* p);
-short ClampScaledStat_0216352c(int id, float a, float b);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" short func_ov000_0216352c(int id, float a, float b);
 extern "C" int func_ov000_021635e4(int id, int mode);
 
 extern Vector3fix data_ov025_021eef04;
@@ -715,7 +715,7 @@ extern struct Obj0205eaa0 data_02108760;
 #define TIMER (GetTimer021ef974().timer2)
 
 static inline int IsFirstShortParty(void* node) {
-    return GetShortAtField0xEBound3_ov000_0215ff80((char*)node, 0) >= 0 && GetShortAtField0xEBound3_ov000_0215ff80((char*)node, 0) <= 3;
+    return func_ov000_0215ff80((char*)node, 0) >= 0 && func_ov000_0215ff80((char*)node, 0) <= 3;
 }
 
 static inline int IsInRange(int id) {
@@ -748,7 +748,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
 
     if (sl[Field6efe] == 1) {
         list = cur->list;
-        struct Node021dcf14* node = GetNodeAtIndex021600f8((List021600f8*)list, cur->nodeIndex);
+        struct Node021dcf14* node = func_ov000_021600f8((List021600f8*)list, cur->nodeIndex);
         int n = list->count - 1;
         if (n <= 0) {
             n = 1;
@@ -768,7 +768,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             && !(list->id == 0x30f || list->id == 0x243)) {
             func_ov000_0216d370(sl + CameraBase, 0, 1, 1);
             func_ov000_0216df00(sl + CameraBase, node->ids[0], 0, 0, 1.8f);
-            ApplyField41ToGatheredCombatants02163a7c((GatherObj02163a7c*)sl);
+            func_ov000_02163a7c((GatherObj02163a7c*)sl);
             func_ov000_021626a0(sl, 4, 0);
             GameObject* obj = battle->GetCombatantByIndex(node->ids[0]);
             if (obj) {
@@ -781,7 +781,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
         int index = cur->nodeIndex;
         int found = 0;
         TIMER = 0;
-        struct Node021dcf14* node = GetNodeAtIndex021600f8((List021600f8*)list, index);
+        struct Node021dcf14* node = func_ov000_021600f8((List021600f8*)list, index);
         for (int i = 1; i < node->count; i++) {
             if (node->codes[i] == 1 || node->codes[i] == 2) {
                 found = 1;
@@ -797,13 +797,13 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
         if (obj && !found) {
             void* fx = func_02057924();
             struct InitStruct02078484Struct req;
-            InitStruct02078484(&req);
+            func_02078484(&req);
             req.objectId = id;
             if (*(unsigned int*)(sl + Field6fa0) & 1) {
                 req.offset.y += obj->obj3D_.GetHeight() / 2;
             }
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
-            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), &req);
+            func_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
+            func_02057fb4(fx, *(short*)(sl + Field6f98), &req);
             TIMER = *(unsigned int*)(sl + Field6fc8);
         }
         sl[Field6efe] = 3;
@@ -818,7 +818,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             int flag8;
             int index = cur->nodeIndex;
             TIMER = 0;
-            node = GetNodeAtIndex021600f8((List021600f8*)list, index);
+            node = func_ov000_021600f8((List021600f8*)list, index);
             int i = 1;
             flag8 = 0;
             for (; i < node->count; i++) {
@@ -831,7 +831,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                     break;
                 }
             }
-            ForwardPackedFields_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
+            func_ov025_021d8bfc(sl, (PackedFields_021d8bfc*)cur);
             if (flag8) {
                 int msgId = 0x7f;
                 int party = 0;
@@ -851,18 +851,18 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             TIMER = *(unsigned int*)(sl + Field6fc4);
             if (hit) {
                 if (sl[ModeByte] != 2) {
-                    SetShortTriple0x6e44_ov000_02163440(sl, 0xcc, 0xc8, 0x64);
+                    func_ov000_02163440(sl, 0xcc, 0xc8, 0x64);
                 }
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x43, 0);
+                func_0205eaa0(&data_02108760, 0x43, 0);
                 TIMER = *(unsigned int*)(sl + Field6fc4) + 0x1f4;
             }
             if (list->count <= sl[Field6eff]) {
                 sl[Field6f01] = 1;
                 bool party = IsFirstShortParty(node);
-                struct List021de124* slot = (struct List021de124*)GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
+                struct List021de124* slot = (struct List021de124*)func_ov000_02160f20(func_ov000_02160130());
                 int found = -1;
                 for (int i = 0; i < slot->count; i++) {
-                    struct Node021dcf14* n = GetNodeAtIndex021600f8((List021600f8*)slot, i);
+                    struct Node021dcf14* n = func_ov000_021600f8((List021600f8*)slot, i);
                     if (n == 0) {
                         continue;
                     }
@@ -895,7 +895,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             TIMER -= dt;
         } else {
             TIMER = 0;
-            if (Check021ed2f4(sl + MessageQueue)) {
+            if (func_ov025_021ed2f4(sl + MessageQueue)) {
                 if (sl[Field6f00] > sl[Field6eff]) {
                     sl[Field6efe] = 2;
                 }
@@ -907,10 +907,10 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             }
         }
     } else if (sl[Field6efe] == 5) {
-        if (!Check021ed2f4(sl + MessageQueue)) {
+        if (!func_ov025_021ed2f4(sl + MessageQueue)) {
             return 1;
         }
-        func_02043124(GetGlobalField0x1c020421a0());
+        func_02043124(func_020421a0());
         func_ov000_021626a0(sl, 4, 0);
         GameObject* lead = battle->GetCombatantByIndex(*(short*)(sl + Field6efc));
         if (lead) {
@@ -918,7 +918,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
         }
         list = cur->list;
         struct TableEntry021dcf14* row =
-            SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), *(short*)list);
+            func_02079e2c((char*)func_020797dc(), *(short*)list);
         int kind2 = 0;
         int forceCameraDispatch = 0;
         int suppressKindCameraDispatch = 0;
@@ -935,10 +935,10 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
         }
         void* fx = func_02057924();
         struct InitStruct02078484Struct req;
-        InitStruct02078484(&req);
+        func_02078484(&req);
         if (forceCameraDispatch || (sl[ModeByte] != 3 && kind2 != 0 && suppressKindCameraDispatch == 0)) {
             func_ov000_0216d370(sl + CameraBase, 1, 1, 1);
-            if (!TryDispatch_021dce7c((unsigned char*)sl, (In021dce7c*)list, *(short*)(sl + Field6efc))) {
+            if (!func_ov025_021dce7c((unsigned char*)sl, (In021dce7c*)list, *(short*)(sl + Field6efc))) {
                 func_ov000_0216df00(sl + CameraBase, *(short*)(sl + Field6efc), 0, 0, 1.8f);
             }
             req.objectId = *(short*)(sl + Field6efc);
@@ -957,7 +957,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                     int v = 0x1000;
                     switch (p->mode) {
                     case 0:
-                        v = ClampScaledStat_0216352c(id, p->a / 4096.0f, p->b / 4096.0f);
+                        v = func_ov000_0216352c(id, p->a / 4096.0f, p->b / 4096.0f);
                         break;
                     case 1:
                         v = func_ov000_021635e4(id, (unsigned char)p->a);
@@ -973,11 +973,11 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                     req.scale = sc;
                 }
             }
-            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), &req);
+            func_02057fb4(fx, *(short*)(sl + Field6f98), &req);
             if (*(short*)(sl + Field6f9a) != -1) {
-                DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
+                func_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
             } else if (*(unsigned short*)(sl + Field6f04) != -1) {
-                DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(unsigned short*)(sl + Field6f04), 0);
+                func_0205ebfc(&data_02108760, *(unsigned short*)(sl + Field6f04), 0);
             }
             TIMER = *(unsigned int*)(sl + Field6fc8);
         } else if (sl[ModeByte] == 3 || kind2 == 0 || suppressKindCameraDispatch != 0) {
@@ -997,9 +997,9 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                 obj->obj3D_.position_ = v;
                 obj->obj3D_.MakeVisible();
             }
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(unsigned short*)(sl + Field6f04), 0);
+            func_0205ebfc(&data_02108760, *(unsigned short*)(sl + Field6f04), 0);
             req.objectId = savedId;
-            FindNodeAndProcess02057fb4(fx, *(unsigned short*)(sl + Field6f02), &req);
+            func_02057fb4(fx, *(unsigned short*)(sl + Field6f02), &req);
             TIMER = *(unsigned int*)(sl + Field6fd0);
             if (TIMER == 0) {
                 TIMER = 0x1f4;
@@ -1021,7 +1021,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             first = 1;
             for (; i < list->count; i++) {
                 int off = i * 0x1c;
-                node = GetNodeAtIndex021600f8((List021600f8*)list, *(int*)(sl + off + Field6f14));
+                node = func_ov000_021600f8((List021600f8*)list, *(int*)(sl + off + Field6f14));
                 for (int j = 1; j < node->count; j++) {
                     if (node->codes[j] == 1 || node->codes[j] == 2) {
                         *(int*)(sl + RecordsHigh + off + RecordFlag) = 1;
@@ -1033,7 +1033,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                             func_ov025_021eabd0(sl + Auxiliary, party);
                             first = 0;
                         }
-                        ForwardPackedFields_021d8bfc(sl, (PackedFields_021d8bfc*)(sl + Field6f08 + off));
+                        func_ov025_021d8bfc(sl, (PackedFields_021d8bfc*)(sl + Field6f08 + off));
                     }
                 }
             }
@@ -1051,13 +1051,13 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             for (int i = 0; i < 4; i++) {
                 GameObject* obj = battle->GetCombatantByIndex(((short*)(sl + Field6fba))[i]);
                 if (obj) {
-                    ClearFlag0x4At0xe0((Flags02033fdc*)obj);
+                    func_02033fdc((Flags02033fdc*)obj);
                 }
                 ((short*)(sl + Field6fba))[i] = -1;
             }
             GameObject* obj = battle->GetCombatantByIndex(*(short*)(sl + Field6efc));
             if (obj) {
-                ClearFlag0x4At0xe0((Flags02033fdc*)obj);
+                func_02033fdc((Flags02033fdc*)obj);
             }
             sl[Field6f01] = 0;
             sl[Field6eff] = 0;

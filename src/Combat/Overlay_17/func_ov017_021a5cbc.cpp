@@ -51,23 +51,23 @@ extern const char data_ov017_021d7b3b[];
 #else
 enum { WindowAllocationSize = 0x500 };
 #endif
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(Node0x20_021a5ad0*, unsigned char);
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void*, int, int, int, int);
-int CountActiveEntries(ActiveEntry02046900*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0204b174(Node0x20_021a5ad0*, void*, SafeAllocator*, int);
-void Init0205a198(Struct0205a198*);
-void InitStruct0205a444(char*);
+extern "C" void func_0205a198(Struct0205a198*);
+extern "C" void func_0205a444(char*);
 extern "C" int func_0205a528(MapEntryList*, void*, int, SafeAllocator*);
-void FillFieldWithEncoded_021a5ad0(Node0x20_021a5ad0*, int, int);
+extern "C" void func_ov017_021a5ad0(Node0x20_021a5ad0*, int, int);
 extern "C" void func_0204bc74(Node0x20_021a5ad0*, int, int, int, int, int, int);
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
-void ClearAndEncodeField14_021a5b08(Node0x20_021a5ad0*, int);
-void AllocateBuffer0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
-int NormalizeField5_0200fb08(Struct0200fb08*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
+extern "C" void func_ov017_021a5b08(Node0x20_021a5ad0*, int);
+extern "C" void func_0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
+extern "C" void func_0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
+extern "C" int func_0200fb08(Struct0200fb08*);
 extern "C" void func_0205d304(Config021a5cbc*, const char*, int, unsigned char, unsigned char, unsigned char, void*
 #if !defined(jpn)
     , unsigned char
@@ -95,11 +95,11 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* self) {
         Pair021a5cbc styles = *(const Pair021a5cbc*)data_ov017_021d6a8c;
         for (int i = 0; i < 2; ++i) {
             Node0x20_021a5ad0* node = &reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094)[i];
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)node, 0);
+            func_0204b11c((unsigned char*)node, 0);
             node->low = 0;
             node->high = priorities.values[i];
             func_0204b5b4(node, styles.values[i]);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)node, 0, 0);
+            func_0204b5e8((Obj0204b5e8*)node, 0, 0);
         }
         REG_DISPLAY_CONTROL = (REG_DISPLAY_CONTROL & ~0x1f00) | 0x100;
         REG_BACKGROUND_1 = (REG_BACKGROUND_1 & 0x43) | 0x1d00;
@@ -114,17 +114,17 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* self) {
         void* file;
         unsigned int length;
         loader->GetLoadedFileByID((*reinterpret_cast<int*>(self->unknown_4094 + 0x128)), &file, &length);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         void* entries[4];
         int sizes[4];
-        for (int i = 0; i < count; ++i) entries[i] = FindRecordByIndex((Rec020467f0*)file, i, &record, &sizes[i]);
+        for (int i = 0; i < count; ++i) entries[i] = func_020467f0((Rec020467f0*)file, i, &record, &sizes[i]);
         for (int i = 0; i < count; ++i) {
             if (entries[i]) func_0204b174(reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094 + sizeof(Node0x20_021a5ad0)), entries[i], &self->allocator_array_38[16], sizes[i]);
         }
         loader->RemoveTask((*reinterpret_cast<int*>(self->unknown_4094 + 0x128)));
         (*reinterpret_cast<int*>(self->unknown_4094 + 0x128)) = -1;
-        for (int i = 0; i < 7; ++i) Init0205a198(&reinterpret_cast<Struct0205a198*>(self->unknown_41c8)[i]);
-        InitStruct0205a444((char*)static_cast<MapEntryList*>(self->unknown_ptr_41c4));
+        for (int i = 0; i < 7; ++i) func_0205a198(&reinterpret_cast<Struct0205a198*>(self->unknown_41c8)[i]);
+        func_0205a444((char*)static_cast<MapEntryList*>(self->unknown_ptr_41c4));
         static_cast<MapEntryList*>(self->unknown_ptr_41c4)->active = 0;
         MapEntryList* script = static_cast<MapEntryList*>(self->unknown_ptr_41c4);
         script->records = reinterpret_cast<Struct0205a198*>(self->unknown_41c8);
@@ -142,28 +142,28 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* self) {
         void* file;
         unsigned int length;
         loader->GetLoadedFileByID((*reinterpret_cast<int*>(self->unknown_4094 + 0x128)), &file, &length);
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         int size;
         for (int i = 0; i < count; ++i) {
-            void* entry = FindRecordByIndex((Rec020467f0*)file, i, &record, &size);
+            void* entry = func_020467f0((Rec020467f0*)file, i, &record, &size);
             func_0205a528(static_cast<MapEntryList*>(self->unknown_ptr_41c4), entry, size, &self->allocator_array_38[16]);
         }
         loader->RemoveTask((*reinterpret_cast<int*>(self->unknown_4094 + 0x128)));
         (*reinterpret_cast<int*>(self->unknown_4094 + 0x128)) = -1;
-        FillFieldWithEncoded_021a5ad0(reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094), 2, 0x800);
+        func_ov017_021a5ad0(reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094), 2, 0x800);
         for (int i = 0; i < 2; ++i) {
             Node0x20_021a5ad0* node = &reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094)[i];
             func_0204bc74(node, 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)node, 0);
+            func_0204b0e8((List0204b0e8*)node, 0);
         }
-        ClearAndEncodeField14_021a5b08(reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094), 2);
+        func_ov017_021a5b08(reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094), 2);
         (*reinterpret_cast<void**>(self->unknown_4094 + 0x120)) = self->allocator_array_38[16].Allocate(WindowAllocationSize);
-        AllocateBuffer0204c7a8(&(*reinterpret_cast<Obj0204c7a8*>(self->unknown_4094 + 0x40)), &self->allocator_array_38[16], (int)(*reinterpret_cast<void**>(self->unknown_4094 + 0x120)), 0x40);
+        func_0204c7a8(&(*reinterpret_cast<Obj0204c7a8*>(self->unknown_4094 + 0x40)), &self->allocator_array_38[16], (int)(*reinterpret_cast<void**>(self->unknown_4094 + 0x120)), 0x40);
         (*reinterpret_cast<Obj0204c7a8*>(self->unknown_4094 + 0x40)).head = reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094 + sizeof(Node0x20_021a5ad0));
         Config021a5cbc* nodeConfig = static_cast<Config021a5cbc*>(self->unknown_ptr_array_4088[2]);
         nodeConfig->nodes = reinterpret_cast<Node0x20_021a5ad0*>(self->unknown_4094);
         nodeConfig->count = 2;
-        LinkArrayPrevPointers0205cf78((Struct_0205cf78*)static_cast<Config021a5cbc*>(self->unknown_ptr_array_4088[2]), (Elem_0205cf78*)&(*reinterpret_cast<Obj0204c7a8*>(self->unknown_4094 + 0x40)), 1);
+        func_0205cf78((Struct_0205cf78*)static_cast<Config021a5cbc*>(self->unknown_ptr_array_4088[2]), (Elem_0205cf78*)&(*reinterpret_cast<Obj0204c7a8*>(self->unknown_4094 + 0x40)), 1);
         REG_BACKGROUND_0 = (REG_BACKGROUND_0 & ~3) | 2;
         REG_BACKGROUND_1 = (REG_BACKGROUND_1 & ~3) | 1;
         REG_BACKGROUND_2 = REG_BACKGROUND_2 & ~3;
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov017_021a5cbc(GameResources* self) {
         int left = 9;
 #else
         Widths021a5cbc widths = *(const Widths021a5cbc*)data_ov017_021d6a94;
-        int index = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+        int index = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
         int left = widths.values[index - 1];
 #endif
         config->left = left;

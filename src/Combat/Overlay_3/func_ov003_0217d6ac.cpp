@@ -7,27 +7,27 @@ struct Run02012fe4;
 extern "C" struct Run02012fe4 *func_02012fe4(void);
 extern "C" void func_0205d7a0(void *list, int index);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int *out, unsigned char a, unsigned char b, unsigned char c, int d);
-char *GetGlobalField0x1c020421a0(void);
+extern "C" char *func_020421a0(void);
 struct Container0205a330;
-void IterateEntries0205a330(struct Container0205a330 *c, int arg);
+extern "C" void func_0205a330(struct Container0205a330 *c, int arg);
 struct Struct_0205c570;
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
 struct Obj_0205da38;
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
 extern "C" int func_0205d97c(void *p);
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(struct Entry_0205d6a0 *a, int flag);
-void ReinitController02043204(char *obj);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0 *a, int flag);
+extern "C" void func_02043204(char *obj);
 struct Obj0205eaa0;
 extern struct Obj0205eaa0 data_02108760;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *obj, int a, int b);
 extern "C" void func_ov017_021baedc(void *self, int flag);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4 *list, struct TailNode020469b4 *node);
-void InitAndResetHeader_0219e310(unsigned char *obj, int arg);
-void *GetField0x3f8Address_0200fd0c(GameState *state);
-void InitStruct02070378(char *obj);
+extern "C" void func_020469b4(struct TailList020469b4 *list, struct TailNode020469b4 *node);
+extern "C" void func_ov017_0219e310(unsigned char *obj, int arg);
+extern "C" void *func_0200fd0c(GameState *state);
+extern "C" void func_02070378(char *obj);
 
 struct State_0217d6ac;
 extern "C" void func_ov003_0217dd60(State_0217d6ac *self);
@@ -113,20 +113,20 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     if (self->busy != 1) return;
 
     gs                                = GameState::GetInstance();
-    global                            = GetGlobalField0x1c020421a0();
+    global                            = func_020421a0();
     struct Container0205a330 *entries = *(struct Container0205a330 **) (global + RG(0x2e0, 0x230));
-    IterateEntries0205a330(entries, gs->GetTickCount());
+    func_0205a330(entries, gs->GetTickCount());
     global[RG(0x19ae, 0x17de)] = 0;
-    GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
+    func_0205d794((struct Struct_0205c570 *) self->list);
     extra = 0;
     if (self->count > 1) {
         extra = func_ov003_0217e1e4(self);
     }
     sel = -1;
-    if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->list, 0x14) == 1) {
-        sel = GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
+    if (func_0205da38((struct Obj_0205da38*)self->list, 0x14) == 1) {
+        sel = func_0205d794((struct Struct_0205c570 *) self->list);
     } else if (g_keyManager.TestKeysPressed(0x601) != 0) {
-        sel = GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
+        sel = func_0205d794((struct Struct_0205c570 *) self->list);
     } else if (g_keyManager.TestKeysPressed(2) != 0) {
         sel = -2;
     } else if (func_0205d97c(self->list) == 2) {
@@ -138,17 +138,17 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     if (sel == -2) {
         self->state = 4;
         self->busy  = 0;
-        ResetEntryList0205d6a0((struct Entry_0205d6a0 *) self->list, 0);
-        ReinitController02043204(global);
+        func_0205d6a0((struct Entry_0205d6a0 *) self->list, 0);
+        func_02043204(global);
         return;
     }
     if (sel == -1) return;
 
     self->state = 4;
     self->busy  = 0;
-    DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-    ResetEntryList0205d6a0((struct Entry_0205d6a0 *) self->list, 0);
-    ReinitController02043204(global);
+    func_0205eaa0(&data_02108760, 1, 0);
+    func_0205d6a0((struct Entry_0205d6a0 *) self->list, 0);
+    func_02043204(global);
     BattleEvent_0217d6ac *event = *(BattleEvent_0217d6ac **) (res + RG(0x3734, 0x3524));
     func_ov017_021baedc(event, 1);
     event->active = 1;
@@ -165,28 +165,28 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
         case 5: event->messageId = 0xd069; break;
         case 6: event->messageId = 0xd06a; break;
     }
-    AppendNodeToTail(list, (struct TailNode020469b4 *) event);
+    func_020469b4(list, (struct TailNode020469b4 *) event);
     if (sel != 0) {
         unsigned char *header = *(unsigned char **) (res + RG(0x370c, 0x34fc));
-        InitAndResetHeader_0219e310(header, 0);
-        EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) GetField0x3f8Address_0200fd0c(gs);
-        InitStruct02070378((char *) record);
+        func_ov017_0219e310(header, 0);
+        EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) func_0200fd0c(gs);
+        func_02070378((char *) record);
         record->id         = self->ids[sel] + 0xc544;
         record->field_0x7  = 1;
         record->field_0x14 = 0x2b8;
         record->field_0x18 = -0x7b33;
         record->field_0xc  = 1;
-        AppendNodeToTail(list, (struct TailNode020469b4 *) header);
+        func_020469b4(list, (struct TailNode020469b4 *) header);
     } else {
         unsigned char *header = *(unsigned char **) (res + RG(0x370c, 0x34fc));
-        InitAndResetHeader_0219e310(header, 0);
-        EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) GetField0x3f8Address_0200fd0c(gs);
-        InitStruct02070378((char *) record);
+        func_ov017_0219e310(header, 0);
+        EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) func_0200fd0c(gs);
+        func_02070378((char *) record);
         record->id         = 0xc3bc;
         record->field_0x7  = 1;
         record->field_0x14 = 0x266;
         record->field_0x18 = -0x7b33;
         record->field_0xc  = 1;
-        AppendNodeToTail(list, (struct TailNode020469b4 *) header);
+        func_020469b4(list, (struct TailNode020469b4 *) header);
     }
 }

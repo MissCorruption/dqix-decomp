@@ -9,7 +9,7 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-char *GetGlobalField0x1c020421a0(void);
+extern "C" char *func_020421a0(void);
 extern "C" char *func_02012fe4(void);
 extern "C" void *func_0205ec34(void);
 extern "C" void func_ov003_02170960(void *self, int a, int b);
@@ -19,8 +19,8 @@ extern "C" void func_ov003_021701e4(void *self, int a);
 
 struct Obj_0216f414;
 struct Entry0216efdc;
-Entry0216efdc *FindEntryByShortId_0216f414(Obj_0216f414 *list, int id);
-int TestBitInByteArray_0206dfb0(int a, unsigned char *bits, int index);
+extern "C" Entry0216efdc *func_ov003_0216f414(Obj_0216f414 *list, int id);
+extern "C" int func_0206dfb0(int a, unsigned char *bits, int index);
 extern "C" void func_0206df6c(void *a, unsigned char *bits, int index, int set);
 
 struct Entry0216efdc {
@@ -77,7 +77,7 @@ enum { regionalOffset0 = 0x1840 };
 
 // USA: func_ov003_0216efdc
 extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
-    Global0216efdc *global     = (Global0216efdc *) GetGlobalField0x1c020421a0();
+    Global0216efdc *global     = (Global0216efdc *) func_020421a0();
     Progress0216efdc *progress = (Progress0216efdc *) (func_02012fe4() + regionalOffset0);
     int chapter                = progress->chapter;
     int state                  = self->state_;
@@ -88,17 +88,17 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
         bg[2]                       = (bg[2] & ~3) | 2;
         bg[3]                       = (bg[3] & ~3) | 3;
         if (self->unk_d4 != 0) {
-            Entry0216efdc *e = FindEntryByShortId_0216f414((Obj_0216f414 *) self->unk_d4, 0x19);
+            Entry0216efdc *e = func_ov003_0216f414((Obj_0216f414 *) self->unk_d4, 0x19);
             if (e != 0) {
                 e->flags |= 2;
             }
-            e = FindEntryByShortId_0216f414((Obj_0216f414 *) self->unk_d4, 0x1a);
+            e = func_ov003_0216f414((Obj_0216f414 *) self->unk_d4, 0x1a);
             if (e != 0) {
                 e->flags &= ~2;
             }
         }
         void *save = func_0205ec34();
-        if (TestBitInByteArray_0206dfb0((int) save, (unsigned char *) save + 0x8c, 0x783) != 0) {
+        if (func_0206dfb0((int) save, (unsigned char *) save + 0x8c, 0x783) != 0) {
             self->state_ = 1;
             return;
         }

@@ -23,7 +23,7 @@ struct EquipmentMenu {
     short dragged_;
 };
 
-void SetVec3At0x1c(Vec3Target0203a46c* obj, int x, int y, int z);
+extern "C" void func_0203a46c(Vec3Target0203a46c* obj, int x, int y, int z);
 
 // USA: func_ov005_02156e1c
 extern "C" ARM void func_ov005_02156e1c(EquipmentMenu* self, int x, int y) {
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov005_02156e1c(EquipmentMenu* self, int x, int y) {
         newX = curX;
     if (abs(curY - newY) < 3)
         newY = curY;
-    SetVec3At0x1c((Vec3Target0203a46c*)&self->dragModel_, newX << 12, newY << 12, 0x2000);
+    func_0203a46c((Vec3Target0203a46c*)&self->dragModel_, newX << 12, newY << 12, 0x2000);
 }

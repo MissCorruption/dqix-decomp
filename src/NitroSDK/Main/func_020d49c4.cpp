@@ -35,16 +35,16 @@ struct WMMpRecvHeader
     WMMpRecvData data[1];
 };
 
-int GetBattleStateCode_020d41e8();
-WMArm9Buf* GetBattleContext_020d41d8();
+extern "C" int func_020d41e8();
+extern "C" WMArm9Buf* func_020d41d8();
 
 // USA: func_020d49c4
 extern "C" ARM const WMMpRecvData* func_020d49c4(const void* header, unsigned short aid)
 {
     const WMMpRecvHeader* const recvHeader = (const WMMpRecvHeader*)header;
     WMMpRecvData* recvData[15];
-    WMArm9Buf* const w9b = GetBattleContext_020d41d8();
-    if (GetBattleStateCode_020d41e8() != 0)
+    WMArm9Buf* const w9b = func_020d41d8();
+    if (func_020d41e8() != 0)
         return NULL;
     if (aid < 1 || aid > 15)
         return NULL;

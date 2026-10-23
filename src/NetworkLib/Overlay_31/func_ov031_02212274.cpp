@@ -17,7 +17,7 @@ extern "C" int func_ov031_02211f24();
 extern "C" int func_ov031_02213024();
 extern "C" unsigned char* func_ov031_0220f040();
 extern "C" void* func_ov031_0220f084(unsigned short* out);
-int CopyMatchingTierData_02213054(void* buf);
+extern "C" int func_ov031_02213054(void* buf);
 
 static inline int IsDigit02212274(unsigned int c)
 {
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov031_02212274(ApInfo02212274* apinfo)
     }
     SetIRQInterruptState(intr);
 
-    if (CopyMatchingTierData_02213054(spotinfo))
+    if (func_ov031_02213054(spotinfo))
     {
         apinfo->area = IsDigit02212274(spotinfo[0]) ? spotinfo[0] - '0' : 0xff;
         VectorizedInvertedMemcpy(&spotinfo[1], apinfo->spotinfo, 9);

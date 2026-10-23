@@ -1,5 +1,5 @@
 #if defined(jpn)
-#define func_ov009_02184c30 _Z28GetTaggedValueAsInt_02184c30P20TaggedNumber02184c30
+#define func_ov009_02184c30 func_ov011_02184c30
 #define R(j,u) (j)
 #define data_ov005_0215cbd4 data_ov005_0215dfb4
 #define data_ov005_0215cd60 data_ov005_0215e140
@@ -48,14 +48,14 @@ extern "C" ARM struct ObjE2021869b8* func_ov023_021f6880(void* list, int v);
 extern "C" ARM int func_ov023_021fbd00(void* obj, void* ctx, int a0, int a1, int a2, int a5,
                                        unsigned char a6);
 
-void* ResetAndReturnSelf020dfc2c(void* p);
-void* ZeroInitReturn020df80c(void* p);
-void InitStruct0205a444(char* obj);
-void EmptyDestructor0205a494(void* obj);
+extern "C" void* func_020dfc2c(void* p);
+extern "C" void* func_020df80c(void* p);
+extern "C" void func_0205a444(char* obj);
+extern "C" void func_0205a494(void* obj);
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern int data_ov024_021ff17c;
 
@@ -120,19 +120,19 @@ extern "C" ARM int func_ov011_021869b8(struct TaggedInput021869b8* obj, int argc
     sub->a0.ResetAllocatorPointer();
     sub->a1.ResetAllocatorPointer();
     sub->a2.ResetAllocatorPointer();
-    ResetAndReturnSelf020dfc2c(sub->m54);
-    ZeroInitReturn020df80c(sub->m6c);
-    ZeroInitReturn020df80c(sub->m7c);
-    ResetAndReturnSelf020dfc2c(sub->m8c);
-    ResetAndReturnSelf020dfc2c(sub->ma4);
-    InitStruct0205a444(sub->m12c);
+    func_020dfc2c(sub->m54);
+    func_020df80c(sub->m6c);
+    func_020df80c(sub->m7c);
+    func_020dfc2c(sub->m8c);
+    func_020dfc2c(sub->ma4);
+    func_0205a444(sub->m12c);
     memcpy(block, &local, sizeof(Buf021869b8));
 
     if (func_ov023_021fbd00(block, ctx, tag0, tag8, tag10, extra, flag) == 0) {
-        EmptyDestructor0205a494(local.sub.m12c);
+        func_0205a494(local.sub.m12c);
         return 0;
     }
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)list, (struct ListNode_021f67ac*)block);
-    EmptyDestructor0205a494(local.sub.m12c);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)list, (struct ListNode_021f67ac*)block);
+    func_0205a494(local.sub.m12c);
     return 1;
 }

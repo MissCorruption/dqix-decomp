@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 
-void* GetActiveCombatWork_ov000_02160130(void);
-unsigned char GetByte_021dcc64_021dcc64(void* obj);
-void CallFunc020a0d6cAtField0x194AndClearFlag2_0202edb4(char* obj, int a, int b, int c, int d);
+extern "C" void* func_ov000_02160130(void);
+extern "C" unsigned char func_ov025_021dcc64(void* obj);
+extern "C" void func_0202edb4(char* obj, int a, int b, int c, int d);
 
 struct Param021e7248 {
     char pad[0x14];
@@ -20,15 +20,15 @@ extern "C" ARM int func_ov025_021e7248(struct Param021e7248* p) {
 #else
  enum {regionalOffset0=0x6000, regionalOffset1=0xfd5};
 #endif
-    void* w = GetActiveCombatWork_ov000_02160130();
+    void* w = func_ov000_02160130();
     if (w != 0) {
         *(unsigned char*)((char*)w + regionalOffset0 + regionalOffset1) = 1;
-        if (GetByte_021dcc64_021dcc64(w) != 0) {
+        if (func_ov025_021dcc64(w) != 0) {
             return 1;
         }
     }
     GameState* bs = GameState::GetInstance();
-    char* field = (char*)GetField0x3b0Value_020100bc(bs);
-    CallFunc020a0d6cAtField0x194AndClearFlag2_0202edb4(field, (int)((char*)p + 8), p->f14, p->f18, p->f1c);
+    char* field = (char*)func_020100bc(bs);
+    func_0202edb4(field, (int)((char*)p + 8), p->f14, p->f18, p->f1c);
     return 1;
 }

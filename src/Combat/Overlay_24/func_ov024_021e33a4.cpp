@@ -22,13 +22,13 @@ struct ActionChance {
 };
 union EffectFlags { struct { int low; int high; }; unsigned long long value; };
 
-int CheckField0x14Flags0x9Clear_0208830c(unsigned char*);
-int SelectMessageByFlags_021e929c(Ctx_021e929c*, int, int);
-int IsFlagAllowedMask_021eb4b0(int, int, int);
+extern "C" int func_0208830c(unsigned char*);
+extern "C" int func_ov024_021e929c(Ctx_021e929c*, int, int);
+extern "C" int func_ov024_021eb4b0(int, int, int);
 extern "C" void func_ov000_02159eac(void*, EffectFlags*, int);
-int IsFlagBit8388608Set_021da998(FlagObj_021da998*);
-void ResetStateFields02088338(unsigned char*);
-void* AddEntryToListAndIncCount_021e8ca0(Obj_021e8ca0*, int);
+extern "C" int func_ov024_021da998(FlagObj_021da998*);
+extern "C" void func_02088338(unsigned char*);
+extern "C" void* func_ov024_021e8ca0(Obj_021e8ca0*, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov024_021e8cfc(CombatAction*, GameObject*, int, int);
 
@@ -38,7 +38,7 @@ extern "C" ARM unsigned long long func_ov024_021e33a4(CombatAction* self, int ac
     GameObject* target = GetCombatantByID((int)self->context_, targetID);
     if (!target) return 0;
     if (((StatusFields*)target->currentStats_)->chance_ == 0) return 0;
-    if (!CheckField0x14Flags0x9Clear_0208830c((unsigned char*)target->currentStats_)) return 0;
+    if (!func_0208830c((unsigned char*)target->currentStats_)) return 0;
     int roll = NextRandomMax(self->context_, 100);
     float probability = 100.0f;
     if (!self->action_->forced_) {
@@ -49,16 +49,16 @@ extern "C" ARM unsigned long long func_ov024_021e33a4(CombatAction* self, int ac
         probability *= (float)((StatusFields*)target->currentStats_)->chance_ / 100.0f;
     }
     if ((float)roll >= probability) return 0;
-    int message = SelectMessageByFlags_021e929c((Ctx_021e929c*)self, targetID, 1);
+    int message = func_ov024_021e929c((Ctx_021e929c*)self, targetID, 1);
     EffectFlags effects;
     effects.low = 0;
     effects.high = 0;
-    if (IsFlagAllowedMask_021eb4b0((int)self, ((StatusFields*)target->currentStats_)->flags_, 0x10))
+    if (func_ov024_021eb4b0((int)self, ((StatusFields*)target->currentStats_)->flags_, 0x10))
         func_ov000_02159eac(self->context_, &effects, 0x2b);
-    int special = IsFlagBit8388608Set_021da998((FlagObj_021da998*)target);
-    ResetStateFields02088338((unsigned char*)target->currentStats_);
+    int special = func_ov024_021da998((FlagObj_021da998*)target);
+    func_02088338((unsigned char*)target->currentStats_);
     func_ov000_02159eac(self->context_, &effects, 0xe);
-    void* entry = AddEntryToListAndIncCount_021e8ca0((Obj_021e8ca0*)self, message);
+    void* entry = func_ov024_021e8ca0((Obj_021e8ca0*)self, message);
     if (entry) func_ov000_0215cd44(self->context_, entry, target, 0, 0, 0, 0);
     if (special) func_ov024_021e8cfc(self, target, 0, 0);
     return effects.value;

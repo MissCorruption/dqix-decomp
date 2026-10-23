@@ -7,19 +7,19 @@ struct Settings0222d524 {
 
 extern Settings0222d524* data_ov031_02290c94;
 
-void GetFields181c_02227520(int* first, int* second);
-int FindFirstZeroByte_0223dd34(unsigned char* bytes, int length);
+extern "C" void func_ov031_02227520(int* first, int* second);
+extern "C" int func_ov031_0223dd34(unsigned char* bytes, int length);
 extern "C" void func_ov031_0222336c(int, int, int);
 
 // USA: func_ov031_0222d524
 extern "C" ARM int func_ov031_0222d524() {
     int status;
     int mode;
-    GetFields181c_02227520(&status, &mode);
+    func_ov031_02227520(&status, &mode);
     if (mode == 1) {
         func_ov031_0222336c(0x35, -1, 0);
     }
-    GetFields181c_02227520(&status, &mode);
+    func_ov031_02227520(&status, &mode);
     if (status == 0) {
         return data_ov031_02290c94->key[0] != 0;
     }
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov031_0222d524() {
             return 0;
         }
     }
-    int length = FindFirstZeroByte_0223dd34(data_ov031_02290c94->key, 0x20);
+    int length = func_ov031_0223dd34(data_ov031_02290c94->key, 0x20);
     switch (length) {
     case 0:
     case 5:

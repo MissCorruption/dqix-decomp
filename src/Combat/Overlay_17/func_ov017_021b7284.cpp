@@ -135,40 +135,40 @@ struct Entry0207d9bc {
 };
 
 extern "C" Holder021b7284* func_02012fe4(void);
-BattleTable021b7284* FindEntryByCurrentId02027cb0(void);
-Combatant021b7284* FindCombatantByField16a_021a278c(void* unused, int val);
-int PickWeightedSubEntry_021b8a34(FindRowByIdRow* table, int id, int key12);
-int DecodeEntry_021b8abc(int id, Out021b8abc* out);
-void ClearSixHalfwords_021b8b34(Halfwords6_021b8b34* obj);
+extern "C" BattleTable021b7284* func_02027cb0(void);
+extern "C" Combatant021b7284* func_ov017_021a278c(void* unused, int val);
+extern "C" int func_ov017_021b8a34(FindRowByIdRow* table, int id, int key12);
+extern "C" int func_ov017_021b8abc(int id, Out021b8abc* out);
+extern "C" void func_ov017_021b8b34(Halfwords6_021b8b34* obj);
 extern "C" void func_0209b448(FindRowByIdRow* table, int group, Halfwords6_021b8b34* out, BattleTable021b7284* entry);
-ColorHolder0204bd7c* GetPtrField0x114_02033fa0(void* obj);
-unsigned short ConvertColorToDecimalOffset30000(ColorHolder0204bd7c* obj);
-SearchList02099a68* GetPtrField0x468_02011584(void* obj);
-int FindKeyGetBitflag02099a68(SearchList02099a68* list, unsigned short key);
-ActiveEntry021b7284* FindActiveEntry0209bdc8(Container0209bdc8* c, int flag, unsigned int mask);
+extern "C" ColorHolder0204bd7c* func_02033fa0(void* obj);
+extern "C" unsigned short func_0204bd7c(ColorHolder0204bd7c* obj);
+extern "C" SearchList02099a68* func_02011584(void* obj);
+extern "C" int func_02099a68(SearchList02099a68* list, unsigned short key);
+extern "C" ActiveEntry021b7284* func_0209bdc8(Container0209bdc8* c, int flag, unsigned int mask);
 extern "C" void func_0209afd4(FindRowByIdRow* table, short key, short value, short group, Halfwords6_021b8b34* out, BattleTable021b7284* entry);
 extern "C" void func_ov000_0215d414(BattleContext021b7284* context, Request021b7284* req);
 extern "C" void func_ov000_02160140(void* p);
-void ClearFlag320_02195540(unsigned char* obj);
-void SetParamsAndRandomState021605d0(unsigned char* obj, Params021605d0* params);
+extern "C" void func_ov017_02195540(unsigned char* obj);
+extern "C" void func_ov000_021605d0(unsigned char* obj, Params021605d0* params);
 extern "C" MainBlock0205859c* func_02057924(void);
-void ResetBattleEncounterState0205859c(MainBlock0205859c* p);
+extern "C" void func_0205859c(MainBlock0205859c* p);
 extern "C" SearchStruct0202c1a4* func_0202ae18(void);
 struct PointerField32c_ffc0;
-void* GetPointerAt0x32c_0200ffc0(PointerField32c_ffc0* obj);
-void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
-void SetField0x1b2IfMatchOrFlag02053f7c(Obj02053f7c* obj, unsigned short a, int b);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" void* func_0200ffc0(PointerField32c_ffc0* obj);
+extern "C" void func_020397cc(Obj020397cc* obj, int arg1);
+extern "C" void func_02053f7c(Obj02053f7c* obj, unsigned short a, int b);
+extern "C" int func_0202b7d8(int* obj);
 extern "C" void __clear(void* buf, int n);
-int GetField0x3acValue_020100a8(GameState* gs);
+extern "C" int func_020100a8(GameState* gs);
 extern "C" void func_ov017_021b848c(BattleScene021b7284* self, signed char* flags, signed char idx, int val, unsigned short color, signed char arg5, int arg6, int encounter);
-Entry0207d9bc* GetData02108ea8_0207d78c(void);
-int CheckEntryBytes0207d978(Entry0207d9bc* arr, unsigned short key);
-int HasActiveEntryForId_0207da30(unsigned char* arr, int id, int offset);
-signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* obj);
+extern "C" Entry0207d9bc* func_0207d78c(void);
+extern "C" int func_0207d978(Entry0207d9bc* arr, unsigned short key);
+extern "C" int func_0207da30(unsigned char* arr, int id, int offset);
+extern "C" signed char func_0202c1a4(SearchStruct0202c1a4* obj);
 extern "C" void func_0207d7f4(Entry0207d9bc* arr, unsigned short key, int a, int flag, signed char b, unsigned short color, unsigned char c);
-Entry0207d9bc* FindEntryByHalfword(Entry0207d9bc* arr, unsigned short key);
-void EnqueueEventTag90_021ca2a0(int a, int b);
+extern "C" Entry0207d9bc* func_0207d9bc(Entry0207d9bc* arr, unsigned short key);
+extern "C" void func_ov017_021ca2a0(int a, int b);
 
 struct Src021c5284 {
     unsigned short id;
@@ -182,7 +182,7 @@ struct Src021c5284 {
     unsigned char field_21;
 };
 
-void EnqueueEventTag61_021c5284(Src021c5284* src);
+extern "C" void func_ov017_021c5284(Src021c5284* src);
 extern "C" void func_ov017_021cff8c(int id, int a);
 
 // USA: func_ov017_021b7284
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov017_021b7284(BattleScene021b7284* self) {
     memset(&out, 0, sizeof(out));
 
     if (encounter >= 0) {
-        TryDecodeGlobalBitstreamEntry_02074114(&self->decoded, encounter);
+        func_02074114(&self->decoded, encounter);
         BufferedScriptResult* decoded = &self->decoded;
         for (i = 0; i < 3; i++) {
             out.vals[i] = decoded->values[i];
@@ -220,19 +220,19 @@ extern "C" ARM void func_ov017_021b7284(BattleScene021b7284* self) {
     } else {
         sub = -1;
         if (useAlt != 0) {
-            BattleTable021b7284* table = FindEntryByCurrentId02027cb0();
+            BattleTable021b7284* table = func_02027cb0();
             if (table == NULL) {
                 goto done;
             }
-            Combatant021b7284* comb = FindCombatantByField16a_021a278c(res, id);
+            Combatant021b7284* comb = func_ov017_021a278c(res, id);
             if (comb != NULL) {
-                sub = PickWeightedSubEntry_021b8a34((FindRowByIdRow*)table->rows, group, comb->key);
+                sub = func_ov017_021b8a34((FindRowByIdRow*)table->rows, group, comb->key);
             }
-            if (DecodeEntry_021b8abc(sub, &out) != 0) {
+            if (func_ov017_021b8abc(sub, &out) != 0) {
                 goto done;
             }
-            ClearSixHalfwords_021b8b34(&alt);
-            ClearSixHalfwords_021b8b34(&alt);
+            func_ov017_021b8b34(&alt);
+            func_ov017_021b8b34(&alt);
             func_0209b448((FindRowByIdRow*)table->rows, (short)group, &alt, table);
             for (int i = 0; i < 3; i++) {
                 out.vals[i] = alt.vals[i];
@@ -241,28 +241,28 @@ extern "C" ARM void func_ov017_021b7284(BattleScene021b7284* self) {
         } else {
             Combatant021b7284* comb;
             LightingManager* lighting = LightingManager::GetInstance();
-            BattleTable021b7284* table = FindEntryByCurrentId02027cb0();
-            comb = FindCombatantByField16a_021a278c(res, id);
+            BattleTable021b7284* table = func_02027cb0();
+            comb = func_ov017_021a278c(res, id);
             void* obj = state->GetUnknownGameObject();
             if (table == NULL || comb == NULL) {
                 goto done;
             }
             int key = comb->key;
-            unsigned short color = ConvertColorToDecimalOffset30000(GetPtrField0x114_02033fa0(obj));
-            int bit = FindKeyGetBitflag02099a68(GetPtrField0x468_02011584(state), color);
-            ActiveEntry021b7284* active = FindActiveEntry0209bdc8((Container0209bdc8*)table->active, lighting->timeOfDayIndex_, bit);
+            unsigned short color = func_0204bd7c(func_02033fa0(obj));
+            int bit = func_02099a68(func_02011584(state), color);
+            ActiveEntry021b7284* active = func_0209bdc8((Container0209bdc8*)table->active, lighting->timeOfDayIndex_, bit);
             unsigned short value;
             if (active != NULL) {
                 value = active->value;
             } else {
                 value = comb->group;
             }
-            sub = PickWeightedSubEntry_021b8a34((FindRowByIdRow*)table->rows, comb->group, key);
-            if (DecodeEntry_021b8abc(sub, &out) != 0) {
+            sub = func_ov017_021b8a34((FindRowByIdRow*)table->rows, comb->group, key);
+            if (func_ov017_021b8abc(sub, &out) != 0) {
                 goto done;
             }
-            ClearSixHalfwords_021b8b34(&alt2);
-            ClearSixHalfwords_021b8b34(&alt2);
+            func_ov017_021b8b34(&alt2);
+            func_ov017_021b8b34(&alt2);
             func_0209afd4((FindRowByIdRow*)table->rows, (short)key, (short)value, (short)comb->group, &alt2, table);
             for (int i = 0; i < 3; i++) {
                 out.vals[i] = alt2.vals[i];
@@ -287,49 +287,49 @@ done:
     self->field_6ac = self->allocator.Allocate(0x780c);
 #endif
     func_ov000_02160140(self->field_6ac);
-    ClearFlag320_02195540((unsigned char*)GetGameResources());
+    func_ov017_02195540((unsigned char*)GetGameResources());
     params.context = self->context;
     params.allocator = &self->allocator;
     params.info = &self->info;
-    SetParamsAndRandomState021605d0((unsigned char*)self->field_6ac, &params);
+    func_ov000_021605d0((unsigned char*)self->field_6ac, &params);
     holder->flags |= 1;
-    ResetBattleEncounterState0205859c(func_02057924());
+    func_0205859c(func_02057924());
     SearchStruct0202c1a4* search = func_0202ae18();
 
     if (self->hasParty != 0) {
         Obj020397cc* leader = (Obj020397cc*)gs->GetUnknownGameObject();
-        void* other = GetPointerAt0x32c_0200ffc0((PointerField32c_ffc0*)gs);
-        Party021b7284* party = (Party021b7284*)GetPtrField0x2a04_02010828(gs);
-        CancelPendingAction020397cc(leader, 1);
+        void* other = func_0200ffc0((PointerField32c_ffc0*)gs);
+        Party021b7284* party = (Party021b7284*)func_02010828(gs);
+        func_020397cc(leader, 1);
         leader->fieldB2 = 0;
         ColorHolder0204bd7c* colorHolder;
         if (self->useAlt != 0 && other != NULL) {
-            colorHolder = GetPtrField0x114_02033fa0(other);
+            colorHolder = func_02033fa0(other);
         } else {
-            colorHolder = GetPtrField0x114_02033fa0(leader);
+            colorHolder = func_02033fa0(leader);
         }
         for (int i = 0; i < party->count; i++) {
-            SetField0x1b2IfMatchOrFlag02053f7c((Obj02053f7c*)gs->GetPartyMemberByIndex(party->ids[i]), self->id, 1);
+            func_02053f7c((Obj02053f7c*)gs->GetPartyMemberByIndex(party->ids[i]), self->id, 1);
         }
-        if (CheckField0NonZero_0202b7d8(&search->active) == 0) {
+        if (func_0202b7d8(&search->active) == 0) {
             __clear(present, sizeof(present));
             for (int i = 0; i < party->count; i++) {
                 present[party->ids[i]] = 1;
             }
-            int idx = GetField0x3acValue_020100a8(gs);
-            func_ov017_021b848c(self, present, idx, 0, ConvertColorToDecimalOffset30000(colorHolder), self->field_51, 1, self->encounter);
+            int idx = func_020100a8(gs);
+            func_ov017_021b848c(self, present, idx, 0, func_0204bd7c(colorHolder), self->field_51, 1, self->encounter);
         } else {
-            Entry0207d9bc* entries = GetData02108ea8_0207d78c();
-            int found = CheckEntryBytes0207d978(entries, self->id) != 0 ? 1 : 0;
-            if (HasActiveEntryForId_0207da30((unsigned char*)entries, self->id, GetField0x3acValue_020100a8(gs))) {
+            Entry0207d9bc* entries = func_0207d78c();
+            int found = func_0207d978(entries, self->id) != 0 ? 1 : 0;
+            if (func_0207da30((unsigned char*)entries, self->id, func_020100a8(gs))) {
                 found = 0;
             }
-            if (GetSearchStructCurrentArrEntry(search) == 0) {
-                int a = GetField0x3acValue_020100a8(gs);
-                int b = GetField0x3acValue_020100a8(gs);
-                func_0207d7f4(entries, self->id, a, 1, b, ConvertColorToDecimalOffset30000(colorHolder), self->field_51);
-                if (CheckEntryBytes0207d978(entries, self->id)) {
-                    Entry0207d9bc* entry = FindEntryByHalfword(entries, self->id);
+            if (func_0202c1a4(search) == 0) {
+                int a = func_020100a8(gs);
+                int b = func_020100a8(gs);
+                func_0207d7f4(entries, self->id, a, 1, b, func_0204bd7c(colorHolder), self->field_51);
+                if (func_0207d978(entries, self->id)) {
+                    Entry0207d9bc* entry = func_0207d9bc(entries, self->id);
                     if (entry != NULL) {
                         func_ov017_021b848c(self, entry->flags, entry->a, found, entry->value, entry->b, found == 0, self->encounter);
                     }
@@ -337,21 +337,21 @@ done:
             }
             int depth = search->depth;
             if (depth > 1) {
-                if (GetSearchStructCurrentArrEntry(search) == 0 && found != 0) {
-                    EnqueueEventTag90_021ca2a0(0, self->id);
+                if (func_0202c1a4(search) == 0 && found != 0) {
+                    func_ov017_021ca2a0(0, self->id);
                     self->field_4c = 1;
                     self->state = 2;
                 } else {
                     src.field_22 = self->field_22;
                     src.id = self->id;
-                    src.color = ConvertColorToDecimalOffset30000(colorHolder);
+                    src.color = func_0204bd7c(colorHolder);
                     src.useAlt = self->useAlt;
                     src.group = self->group;
                     src.field_51 = self->field_51;
                     src.hasField48 = self->field_48 != 0;
                     src.encounter = self->encounter;
                     src.field_21 = self->field_21;
-                    EnqueueEventTag61_021c5284(&src);
+                    func_ov017_021c5284(&src);
                     if (self->field_48 != 0) {
                         self->field_4c = 1;
                         self->state = 2;
@@ -361,8 +361,8 @@ done:
         }
     }
 
-    if (CheckField0NonZero_0202b7d8(&search->active)) {
-        Party021b7284* party = (Party021b7284*)GetPtrField0x2a04_02010828(gs);
+    if (func_0202b7d8(&search->active)) {
+        Party021b7284* party = (Party021b7284*)func_02010828(gs);
         for (int i = 0; i < party->count; i++) {
             func_ov017_021cff8c(party->ids[i], 0);
         }

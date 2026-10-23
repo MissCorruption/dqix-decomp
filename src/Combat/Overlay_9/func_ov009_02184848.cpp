@@ -1,0 +1,116 @@
+#if defined(jpn)
+#define R(j,u) (j)
+#else
+#define R(j,u) (u)
+#endif
+#include <globaldefs.h>
+#include "Memory/SafeAllocator.h"
+struct CharacterCreationUI;
+
+extern "C" void* func_020d6c00(void);
+struct FlagWord020466f4;
+extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_ov023_021e4f18(void* obj);
+extern "C" int func_020421a0();
+struct CombatSlots02045cac;
+extern "C" void func_02045cac(struct CombatSlots02045cac* obj);
+extern "C" void func_02043204(char* obj);
+extern "C" void func_02043124(char* obj);
+extern "C" void func_0205a494(void* obj);
+extern "C" void* func_0203bd14();
+extern "C" void func_0203c4c4(char* obj);
+struct Obj0204b010;
+extern "C" void func_0204b010(Obj0204b010* obj, void* p);
+extern "C" void func_0204b04c(void* p, int flag);
+extern "C" void func_0204b088(void* p, int flag);
+struct List0204afb4;
+extern "C" void func_0204afb4(struct List0204afb4* obj);
+struct Obj0205d048;
+extern "C" void func_0205d048(struct Obj0205d048* obj);
+extern "C" void* __clear(void* dst, int count);
+
+// USA: func_ov009_02184848
+extern "C" ARM void func_ov009_02184848(CharacterCreationUI* arg0) {
+    char* obj = (char*)arg0;
+    if (*(unsigned char*)(obj + R(0xd59,0xd95)) == 1) {
+        func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 0xf);
+    }
+
+    func_ov023_021e4f18(*(void**)(obj + R(0x7b4,0x7f0)));
+    func_ov023_021e4f18(*(void**)(obj + R(0x7b8,0x7f4)));
+
+    void* g = (void*)func_020421a0();
+    func_02045cac((struct CombatSlots02045cac*)g);
+    func_02043204((char*)g);
+    func_02043124((char*)g);
+
+    if (*(void**)(obj + R(0x79c,0x7d8)) != 0) {
+        func_0205a494(*(void**)(obj + R(0x79c,0x7d8)));
+    }
+    if (*(void**)(obj + R(0x7a8,0x7e4)) != 0) {
+        func_0205a494(*(void**)(obj + R(0x7a8,0x7e4)));
+    }
+    func_0203c4c4((char*)func_0203bd14());
+
+    {
+        void* arr[6];
+        arr[0] = obj + R(0xfc,0x138);
+        arr[1] = obj + R(0x11c,0x158);
+        arr[2] = obj + R(0x13c,0x178);
+        arr[3] = obj + R(0x15c,0x198);
+        arr[4] = obj + R(0x17c,0x1b8);
+        arr[5] = obj + R(0x19c,0x1d8);
+        for (int i = 0; i < 6; i++) {
+            void* p = arr[i];
+            func_0204b010((Obj0204b010*)p, 0);
+            func_0204b04c(p, 0);
+            func_0204b088(p, 0);
+            func_0204afb4((struct List0204afb4*)p);
+        }
+    }
+
+    func_0205d048((struct Obj0205d048*)(obj + R(0x1bc,0x1f8)));
+    func_0205d048((struct Obj0205d048*)(obj + R(0x278,0x2b4)));
+    *(int*)(obj + R(0xd8,0xf8)) = 0;
+    *(int*)(obj + R(0x794,0x7d0)) = 0;
+    *(int*)(obj + R(0x798,0x7d4)) = 0;
+
+    if (*(void**)(obj + R(0xa4,0xb8)) != 0) {
+        ((SafeAllocator*)(*(void**)(obj + R(0xa4,0xb8))))->Destroy();
+        ((SafeAllocator*)((char*)(*(void**)(obj + R(0xa4,0xb8))) + 0x14))->Destroy();
+    }
+    if (*(void**)(obj + R(0xa0,0xb4)) != 0) {
+        ((SafeAllocator*)(*(void**)(obj + R(0xa0,0xb4))))->Destroy();
+    }
+
+    SafeAllocator* arr2[R(9,10)];
+    __clear(arr2, R(0x24,0x28));
+#if defined(jpn)
+    arr2[0] = (SafeAllocator*)(obj + 0x8c);
+    arr2[1] = (SafeAllocator*)(obj + 0x78);
+    arr2[2] = (SafeAllocator*)(obj + 0x64);
+    arr2[3] = (SafeAllocator*)(obj + 0x50);
+    arr2[4] = (SafeAllocator*)(obj + 0x3c);
+    arr2[5] = (SafeAllocator*)(obj + 0x28);
+    arr2[6] = (SafeAllocator*)(obj + 0x14);
+    arr2[7] = (SafeAllocator*)obj;
+#else
+    arr2[0] = (SafeAllocator*)(obj + 0xa0);
+    arr2[1] = (SafeAllocator*)(obj + 0x8c);
+    arr2[2] = (SafeAllocator*)(obj + 0x78);
+    arr2[3] = (SafeAllocator*)(obj + 0x64);
+    arr2[4] = (SafeAllocator*)(obj + 0x50);
+    arr2[5] = (SafeAllocator*)(obj + 0x3c);
+    arr2[6] = (SafeAllocator*)(obj + 0x28);
+    arr2[7] = (SafeAllocator*)(obj + 0x14);
+    arr2[8] = (SafeAllocator*)obj;
+#endif
+
+    int i = 0;
+    while (arr2[i] != 0) {
+        if (arr2[i]->GetSignedAllocator() != 0) {
+            arr2[i]->Destroy();
+        }
+        i++;
+    }
+}

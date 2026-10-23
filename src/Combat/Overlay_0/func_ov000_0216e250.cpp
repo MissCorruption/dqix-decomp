@@ -11,8 +11,8 @@ struct Triple0216e250 {
     int x, y, z;
 };
 struct Obj02049b54;
-struct Triple0216e250 GetSubTriple02049b54(struct Obj02049b54* obj);
-void ApplyVec3Tail_0202e694(void* obj, int* vec);
+extern "C" struct Triple0216e250 func_02049b54(struct Obj02049b54* obj);
+extern "C" void func_0202e694(void* obj, int* vec);
 
 extern int data_ov000_0218323c[];
 extern int data_ov000_02183244[];
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov000_0216e250(struct Obj0216e250* obj, int* ids, int c
     for (int i = 0; i < count; i++) {
         GameObject* c = gs->GetCombatantByIndex(ids[i]);
         if (c != NULL) {
-            struct Triple0216e250 pos = GetSubTriple02049b54((struct Obj02049b54*)c);
+            struct Triple0216e250 pos = func_02049b54((struct Obj02049b54*)c);
             Vector3fix_Add(&center, (Vector3fix*)&pos, &center);
         }
     }
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov000_0216e250(struct Obj0216e250* obj, int* ids, int c
     vec[1] = 0;
     vec[2] = 0x9000;
     obj->position = center;
-    ApplyVec3Tail_0202e694(obj, vec);
+    func_0202e694(obj, vec);
     obj->field238 = b;
 }

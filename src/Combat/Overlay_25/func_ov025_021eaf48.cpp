@@ -20,15 +20,15 @@ struct Effect021eaf48 {
     short value;
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetSlotPtr02160f20(void* obj);
-struct ListNode02160094* GetNodeAtIndex02160094(struct List02160094* list, int index);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
 extern "C" int func_ov025_021ed380(char* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
-void AddEntry_021ed5f0(char* obj, int val, int type, int val2);
+extern "C" void func_ov025_021ed5f0(char* obj, int val, int type, int val2);
 
 // USA: func_ov025_021eaf48
 extern "C" ARM void func_ov025_021eaf48(char* self, int index, int mode, struct Effect021eaf48* effect) {
-    struct ListNode02160094* node = GetNodeAtIndex02160094((struct List02160094*)GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130()), index);
+    struct ListNode02160094* node = func_ov000_02160094((struct List02160094*)func_ov000_02160f20(func_ov000_02160130()), index);
     if (node == 0) {
         return;
     }
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov025_021eaf48(char* self, int index, int mode, struct 
     while (entry != 0) {
         int queued = func_ov025_021ed380(self + 0x1e8 + 0x400, entry->id, target, 3, (int)effect, id, 0);
         if (entry->id == 0x172) {
-            AddEntry_021ed5f0(self + 0x1e8 + 0x400, effect->value, 4, queued);
+            func_ov025_021ed5f0(self + 0x1e8 + 0x400, effect->value, 4, queued);
         }
         entry = entry->next;
     }

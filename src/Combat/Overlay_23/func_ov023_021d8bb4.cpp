@@ -18,7 +18,7 @@ extern "C" void func_0205d0e0(void* obj, int scaleCount);
 extern TableBlock021d8bb4 data_ov023_021fd510;
 extern MemFn021d8bb4 data_020e6d5c;
 
-// USA: func_ov023_021d8bb4  (semantic: DispatchLocalHandlerTable_021d8bb4)
+// USA: func_ov023_021d8bb4
 extern "C" ARM int func_ov023_021d8bb4(Obj021d8bb4* obj) {
     int scaleCount = GameState::GetInstance()->GetTickCount();
     if (!scaleCount) scaleCount = 1;

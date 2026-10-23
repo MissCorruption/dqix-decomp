@@ -9,10 +9,10 @@ struct State0221ecc8 {
     int third, fourth;
 };
 extern State0221ecc8 data_ov031_0224f620;
-int DispatchOnZeroPair_0220cdd4(int, int, int);
+extern "C" int func_ov031_0220cdd4(int, int, int);
 extern "C" int func_ov031_0220d010(int, int, int);
 extern "C" int func_ov031_0220cce4();
-void ClearHandleIfStatusReady_0220ca88();
+extern "C" void func_ov031_0220ca88();
 
 // USA: func_ov031_0221ecc8
 extern "C" THUMB void func_ov031_0221ecc8(Event0221ecc8* event) {
@@ -24,7 +24,7 @@ extern "C" THUMB void func_ov031_0221ecc8(Event0221ecc8* event) {
                 data_ov031_0224f620.state = 3;
                 if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(6, 0);
             } else if (data_ov031_0224f620.state == 6) {
-                if (DispatchOnZeroPair_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
+                if (func_ov031_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
                     data_ov031_0224f620.state = 3;
                     if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(2, 0);
                 }
@@ -67,7 +67,7 @@ extern "C" THUMB void func_ov031_0221ecc8(Event0221ecc8* event) {
                 data_ov031_0224f620.state = 3;
                 if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(10, 0);
             } else if (data_ov031_0224f620.state == 6) {
-                if (DispatchOnZeroPair_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
+                if (func_ov031_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
                     data_ov031_0224f620.state = 3;
                     if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(2, 0);
                 }
@@ -93,7 +93,7 @@ extern "C" THUMB void func_ov031_0221ecc8(Event0221ecc8* event) {
                 data_ov031_0224f620.state = 3;
                 if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(14, 0);
             } else if (data_ov031_0224f620.state == 6) {
-                if (DispatchOnZeroPair_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
+                if (func_ov031_0220cdd4(data_ov031_0224f620.first, data_ov031_0224f620.second, data_ov031_0224f620.field4) != 3) {
                     data_ov031_0224f620.state = 3;
                     if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(2, 0);
                 }
@@ -116,7 +116,7 @@ extern "C" THUMB void func_ov031_0221ecc8(Event0221ecc8* event) {
     case 2:
         if (event->result == 0) {
             if (data_ov031_0224f620.state == 2) {
-                ClearHandleIfStatusReady_0220ca88();
+                func_ov031_0220ca88();
                 data_ov031_0224f620.state = 0;
                 if (data_ov031_0224f620.handler) data_ov031_0224f620.handler(20, 0);
             }

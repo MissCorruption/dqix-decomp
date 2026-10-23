@@ -27,7 +27,7 @@ extern "C" ARM void func_0203db44(void*, Entry0203db44* entry, SafeAllocator* al
     if (entry->object == NULL) return;
     GameState::GetInstance();
     Object3D* object = entry->object;
-    Tint0203db44* tint = (Tint0203db44*)GetField0xc02040538(&entry->getter);
+    Tint0203db44* tint = (Tint0203db44*)func_02040538(&entry->getter);
     if (tint == NULL) return;
     unsigned short color = tint->color;
     unsigned short red = color & 31;

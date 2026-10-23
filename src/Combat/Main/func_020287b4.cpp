@@ -4,13 +4,13 @@ struct InitStruct;
 struct ResetObject0209af34Struct;
 struct ZeroWordAndByte0206ee60Struct;
 
-ARM void InitializeStruct_020280b0(struct InitStruct* s);
-ARM void ClearHalfword0x18_0209bffc(void* obj);
-ARM void ClearBuffer0209bc84(void* obj);
-ARM void ResetObject0209af34(struct ResetObject0209af34Struct* obj);
-void* Clear12Bytes0206efc4(void* obj);
-ARM void ZeroWordAndByte0206ee60(struct ZeroWordAndByte0206ee60Struct* s);
-ARM void Clear12Bytes020a8e88(void* p);
+extern "C" ARM void func_020280b0(struct InitStruct* s);
+extern "C" ARM void func_0209bffc(void* obj);
+extern "C" ARM void func_0209bc84(void* obj);
+extern "C" ARM void func_0209af34(struct ResetObject0209af34Struct* obj);
+extern "C" void* func_0206efc4(void* obj);
+extern "C" ARM void func_0206ee60(struct ZeroWordAndByte0206ee60Struct* s);
+extern "C" ARM void func_020a8e88(void* p);
 
 struct Flags020287b4 {
     unsigned short f00 : 2;
@@ -65,13 +65,13 @@ extern "C" ARM void func_020287b4(struct Elem020287b4* obj) {
         e->flags.f04 = 0;
         e->w04 = 0;
         e->b0d = -1;
-        InitializeStruct_020280b0((struct InitStruct*)e->sub18);
-        ClearHalfword0x18_0209bffc((void*)&e->w44);
-        ClearBuffer0209bc84(e->sub60);
-        ResetObject0209af34((struct ResetObject0209af34Struct*)e->sub124);
-        Clear12Bytes0206efc4(e->sub2f8);
-        ZeroWordAndByte0206ee60((struct ZeroWordAndByte0206ee60Struct*)e->sub304);
-        Clear12Bytes020a8e88(e->sub30c);
+        func_020280b0((struct InitStruct*)e->sub18);
+        func_0209bffc((void*)&e->w44);
+        func_0209bc84(e->sub60);
+        func_0209af34((struct ResetObject0209af34Struct*)e->sub124);
+        func_0206efc4(e->sub2f8);
+        func_0206ee60((struct ZeroWordAndByte0206ee60Struct*)e->sub304);
+        func_020a8e88(e->sub30c);
         e->flags.f00 = i;
     }
 }

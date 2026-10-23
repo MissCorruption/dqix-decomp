@@ -13,10 +13,10 @@ struct Struct_0205c570;
 struct Entry_0205d6a0;
 struct Obj0205eaa0;
 
-int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
-int CheckFlagsOrField_0217c5f4_0217c5f4(void* obj);
+extern "C" int func_0205d794(struct Struct_0205c570* s);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
+extern "C" int func_ov000_0217c5f4(void* obj);
 extern "C" int func_ov000_0217c594(void* obj, int limit);
 extern "C" void func_ov000_02176e3c(void* obj, int zero, int val, int arg1, int arg2, int one);
 extern "C" void func_ov000_0217c638(void* obj, int arg1, int arg2);
@@ -44,11 +44,11 @@ struct Entry0217dcf0 {
 // USA: func_ov000_0217dcf0
 extern "C" ARM void func_ov000_0217dcf0(char* obj, int arg1, int arg2) {
     *(unsigned short*)(obj + MenuFlagsOffset0217dcf0) |= 0x100;
-    *(unsigned char*)(obj + ActiveSelectionOffset0217dcf0) = GetActiveScaledSum0205d794((struct Struct_0205c570*)(obj + 0x188));
+    *(unsigned char*)(obj + ActiveSelectionOffset0217dcf0) = func_0205d794((struct Struct_0205c570*)(obj + 0x188));
     if (func_ov000_0217c594(obj, 0)) {
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)data_02108760, 1, 0);
+        func_0205eaa0((struct Obj0205eaa0*)data_02108760, 1, 0);
         GameState* gs = GameState::GetInstance();
-        unsigned char* field2a04 = (unsigned char*)GetPtrField0x2a04_02010828(gs);
+        unsigned char* field2a04 = (unsigned char*)func_02010828(gs);
         signed char cursor = *(signed char*)(obj + ActiveSelectionOffset0217dcf0);
         if (cursor < field2a04[0xf7c]) {
             struct Entry0217dcf0* entry = &((struct Entry0217dcf0*)(obj + 0x958))[*(signed char*)(obj + cursor + 0x70)];
@@ -63,8 +63,8 @@ extern "C" ARM void func_ov000_0217dcf0(char* obj, int arg1, int arg2) {
                 func_ov017_021c847c();
             }
         }
-    } else if (CheckFlagsOrField_0217c5f4_0217c5f4(obj)) {
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 0);
+    } else if (func_ov000_0217c5f4(obj)) {
+        func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 0);
         *(unsigned char*)(obj + *(signed char*)(obj + CommandDepthOffset0217dcf0) + CommandStackOffset0217dcf0) = 0;
         *(signed char*)(obj + CommandDepthOffset0217dcf0) = *(signed char*)(obj + CommandDepthOffset0217dcf0) - 1;
         func_ov000_0217c638(obj, arg1, arg2);

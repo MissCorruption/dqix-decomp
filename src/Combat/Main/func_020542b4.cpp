@@ -2,7 +2,7 @@
 #include "NitroSDK/Memory.h"
 #include "Memory/SafeAllocator.h"
 
-ARM void InitSlotEntries020543ec(char* obj, char* p);
+extern "C" ARM void func_020543ec(char* obj, char* p);
 
 extern unsigned int data_020e7c40[];
 
@@ -26,7 +26,7 @@ extern "C" ARM void func_020542b4(struct Obj020542b4* self, SafeAllocator* alloc
         self->entries[i].CreateTypeA(buf, size);
     }
 
-    InitSlotEntries020543ec((char*)self, arg2);
+    func_020543ec((char*)self, arg2);
 
     buf = alloc->Allocate(0x2000);
     VectorizedMemset(buf, 0, 0x2000);

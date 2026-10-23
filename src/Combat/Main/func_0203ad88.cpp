@@ -1,0 +1,22 @@
+#include <globaldefs.h>
+
+extern "C" void* func_020bd42c(void*);
+extern "C" int func_020bec98(void* obj);
+extern "C" void func_020bec58(void* volatile* slot, int arg);
+
+// USA: func_0203ad88
+extern "C" ARM int func_0203ad88(void* obj, void* target, int arg2) {
+    char* p = (char*)obj;
+    int result;
+    if (*(void**)p == NULL) return 0;
+    func_020bd42c(p + 0x4);
+    if (target != NULL) {
+        result = func_020bec98(target);
+        func_020bec58((void* volatile*)target, arg2);
+    } else {
+        result = func_020bec98(p + 0x9c);
+        func_020bec58((void* volatile*)(p + 0x9c), arg2);
+    }
+    *(short*)(p + 0xa4) = -1;
+    return result;
+}

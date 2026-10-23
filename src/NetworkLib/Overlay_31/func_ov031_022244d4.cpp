@@ -7,8 +7,8 @@ extern "C" void func_ov031_0223cb34(Point16_022244d4*, Point16_022244d4*, PointP
 extern "C" int func_ov031_0223d5ac(PointPair16_022244d4*);
 extern "C" void func_ov031_02224f20(int);
 extern "C" void func_ov031_0222506c(void);
-void SetField11dThenAdvance_022247bc(void);
-void SetField11dThenAdvanceAlt_022247ec(void);
+extern "C" void func_ov031_022247bc(void);
+extern "C" void func_ov031_022247ec(void);
 
 struct EntityStruct022244d4 {
     unsigned char pad[0x11c];
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov031_022244d4(void) {
     func_ov031_0223cb34(&data_ov031_022489e4, &data_ov031_022489f4, &buf);
     if (func_ov031_0223d5ac(&buf)) {
         if (data_ov031_02250bfc->field11e != 47) return;
-        SetField11dThenAdvance_022247bc();
+        func_ov031_022247bc();
         data_ov031_02250bfc->field121 = 47;
         func_ov031_0222506c();
         return;
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov031_022244d4(void) {
     func_ov031_0223cb34(&data_ov031_022489e8, &data_ov031_022489f8, &buf);
     if (!func_ov031_0223d5ac(&buf)) return;
     if (data_ov031_02250bfc->field11e != 48) return;
-    SetField11dThenAdvanceAlt_022247ec();
+    func_ov031_022247ec();
     data_ov031_02250bfc->field121 = 48;
     func_ov031_0222506c();
 }

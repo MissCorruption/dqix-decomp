@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-void* GetBoundedEntry020425b4(int idx, int tableIdx);
+extern "C" void* func_020425b4(int idx, int tableIdx);
 extern unsigned char data_020e7a50;
 
 // USA: func_02042764
@@ -25,7 +25,7 @@ extern "C" ARM void func_02042764(unsigned char* src, char* dst, int n) {
         local[1] = b9;
         void* copySrc = local;
         int size = 1;
-        void* entry = GetBoundedEntry020425b4(ch, n);
+        void* entry = func_020425b4(ch, n);
         if (entry != NULL) {
             copySrc = *(void**)entry;
             signed char raw = *((signed char*)entry + 5);

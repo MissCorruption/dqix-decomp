@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include <Resource/UiArrayEntry.h>
 
-void GetFields181c_02227520(int*, int*);
-unsigned char GetField0_02227548(void);
+extern "C" void func_ov031_02227520(int*, int*);
+extern "C" unsigned char func_ov031_02227548(void);
 extern "C" void* func_ov031_0223c560(int, int);
-int VariadicForward020c7170(char*, unsigned long, const char*, ...);
+extern "C" int func_020c7170(char*, unsigned long, const char*, ...);
 extern "C" void func_ov031_0223dd60(void*, const void*, int);
 extern "C" void func_ov031_0223c8d4(void*, int, int, int, int, void*, int);
-int GetTableEntryByField0_022236d0(void);
+extern "C" int func_ov031_022236d0(void);
 extern "C" void func_ov031_0223c980(void*, int, int, int, int, int, int, int);
-void SetFlagIfMatchesElem0_0223caec(void*);
+extern "C" void func_ov031_0223caec(void*);
 extern int data_ov031_02290c9c;
 extern unsigned char data_ov031_02248f2c[];
 extern ArrBasePair022276b4* data_ov031_02290c4c;
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov031_0222e484(void) {
     int mode;
     char decimal[8];
     unsigned short text[8];
-    GetFields181c_02227520(0, &mode);
+    func_ov031_02227520(0, &mode);
     int value = data_ov031_02290c9c;
     int category;
     if (value >= -20099) category = 0;
@@ -60,13 +60,13 @@ extern "C" ARM void func_ov031_0222e484(void) {
     else if (value >= -52999) category = 0;
     else if (value >= -53299) category = 2;
     else category = 0;
-    void* object = func_ov031_0223c560(0, data_ov031_02248f2c[GetField0_02227548()]);
-    int lookup = LookupArrayPlusBase_022276b4(data_ov031_02290c4c, category);
-    VariadicForward020c7170(decimal, 8, data_ov031_0224bb08, -data_ov031_02290c9c);
+    void* object = func_ov031_0223c560(0, data_ov031_02248f2c[func_ov031_02227548()]);
+    int lookup = func_ov031_022276b4(data_ov031_02290c4c, category);
+    func_020c7170(decimal, 8, data_ov031_0224bb08, -data_ov031_02290c9c);
     func_ov031_0223dd60(text, decimal, 8);
-    unsigned short y = data_ov031_02248f3e[GetField0_02227548() * 2];
-    unsigned short x = data_ov031_02248f3c[GetField0_02227548() * 2];
+    unsigned short y = data_ov031_02248f3e[func_ov031_02227548() * 2];
+    unsigned short x = data_ov031_02248f3c[func_ov031_02227548() * 2];
     func_ov031_0223c8d4(object, x, y, 2, 10, text, 0);
-    if (category != 0) func_ov031_0223c980(object, 13, 60, 230, 94, 2, GetTableEntryByField0_022236d0(), lookup);
-    SetFlagIfMatchesElem0_0223caec(object);
+    if (category != 0) func_ov031_0223c980(object, 13, 60, 230, 94, 2, func_ov031_022236d0(), lookup);
+    func_ov031_0223caec(object);
 }

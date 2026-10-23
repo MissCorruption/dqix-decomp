@@ -33,7 +33,7 @@ struct VramFields0223dda8 {
 };
 extern VramFields0223dda8 data_ov031_02290d68;
 
-// USA: func_ov031_0223dda8  (semantic: InitVramBankFieldsAndClear_0223dda8)
+// USA: func_ov031_0223dda8
 extern "C" ARM void func_ov031_0223dda8(void) {
 	data_ov031_02290d68.field0 = DisableMainBGVRAMBanks();
 	data_ov031_02290d68.field4 = DisableMainObjVRAMBanks();

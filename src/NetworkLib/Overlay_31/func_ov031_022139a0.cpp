@@ -1,5 +1,5 @@
-void Configure_02213a68(int, void*, int, unsigned char*);
-void Configure_02213ab4(int, void*, int, unsigned char*);
+extern "C" void func_ov031_02213a68(int, void*, int, unsigned char*);
+extern "C" void func_ov031_02213ab4(int, void*, int, unsigned char*);
 // USA: func_ov031_022139a0
 extern "C" int func_ov031_022139a0(int id, void* record, int flags, unsigned char* state) {
  unsigned char* input=(unsigned char*)record;
@@ -20,9 +20,9 @@ extern "C" int func_ov031_022139a0(int id, void* record, int flags, unsigned cha
  } while(i<count);
  }
  if(result==-1) {
-  Configure_02213a68((unsigned char)id,record,flags,state);
+  func_ov031_02213a68((unsigned char)id,record,flags,state);
   if(state[0xd12]<10) state[0xd12]++;
   result=10;
- } else Configure_02213ab4(result,record,flags,state);
+ } else func_ov031_02213ab4(result,record,flags,state);
  return result;
 }

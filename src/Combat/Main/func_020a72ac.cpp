@@ -34,13 +34,13 @@ struct Ctx020a72ac {
 
 extern "C" void* func_0202ae18();
 extern "C" int func_0202c540(void* base);
-void SetVec3At0x0020a6aa4(Vector3i* obj, int x, int y, int z);
-void* GetPointerAt0x32c_0200ffc0(struct PointerField32c_ffc0* p);
-struct Obj0201b600* FindElemByKeys(Obj0201b600* p, int a, unsigned short b);
-void SetFlag0x40AndToggle0x4(struct Struct02013380* p, int a, int b);
-void ApplyElementFlags0201b8c8(struct Obj0201b600* p, int a, int b, int c);
-void* FindNodeByField0x2c0201b754(void* p, int v);
-void SetVecYFromValue02033874(struct Obj02033874* p, int v);
+extern "C" void func_020a6aa4(Vector3i* obj, int x, int y, int z);
+extern "C" void* func_0200ffc0(struct PointerField32c_ffc0* p);
+extern "C" struct Obj0201b600* func_0201b600(Obj0201b600* p, int a, unsigned short b);
+extern "C" void func_02013380(struct Struct02013380* p, int a, int b);
+extern "C" void func_0201b8c8(struct Obj0201b600* p, int a, int b, int c);
+extern "C" void* func_0201b754(void* p, int v);
+extern "C" void func_02033874(struct Obj02033874* p, int v);
 
 // USA: func_020a72ac
 extern "C" ARM void func_020a72ac(struct Ctx020a72ac* p) {
@@ -48,29 +48,29 @@ extern "C" ARM void func_020a72ac(struct Ctx020a72ac* p) {
     GetGameResources();
     void* base = func_0202ae18();
     LightingManager::GetInstance();
-    Object3D* obj = static_cast<Object3D*>(GetPointerAt0x32c_0200ffc0((struct PointerField32c_ffc0*)gs));
+    Object3D* obj = static_cast<Object3D*>(func_0200ffc0((struct PointerField32c_ffc0*)gs));
     GameObject* actor = gs->GetUnknownGameObject();
     gs->GetPartyMemberByIndex(0);
 
     if (p->flag2788 == 0) {
         if (p->field2786 == p->key) {
             if (p->key == 0x76c) {
-                struct Obj0201b600* e = FindElemByKeys((struct Obj0201b600*)p, 0, 4);
-                if (e) SetFlag0x40AndToggle0x4((struct Struct02013380*)e, 0, 1);
-                e = FindElemByKeys((struct Obj0201b600*)p, 0, 0x28);
-                if (e) SetFlag0x40AndToggle0x4((struct Struct02013380*)e, 0, 1);
+                struct Obj0201b600* e = func_0201b600((struct Obj0201b600*)p, 0, 4);
+                if (e) func_02013380((struct Struct02013380*)e, 0, 1);
+                e = func_0201b600((struct Obj0201b600*)p, 0, 0x28);
+                if (e) func_02013380((struct Struct02013380*)e, 0, 1);
             } else if (obj) {
                 obj->MakeVisible();
-                SavedObjectNode* node = static_cast<SavedObjectNode*>(FindNodeByField0x2c0201b754(p, p->field2784));
+                SavedObjectNode* node = static_cast<SavedObjectNode*>(func_0201b754(p, p->field2784));
                 if (node) {
                     obj->position_ = node->position;
                     reinterpret_cast<WorldObjectPositionView*>(obj)->secondaryPosition = node->position;
-                    SetVecYFromValue02033874((struct Obj02033874*)obj, node->angle);
+                    func_02033874((struct Obj02033874*)obj, node->angle);
                 }
             }
         } else {
             if (p->key == 0x170c) {
-                ApplyElementFlags0201b8c8((struct Obj0201b600*)p, 0, 1, 0);
+                func_0201b8c8((struct Obj0201b600*)p, 0, 1, 0);
             } else if (p->key == 0x2774 || p->key == 0x2710) {
                 if (obj) obj->MakeVisible();
             } else if (obj) {
@@ -81,17 +81,17 @@ extern "C" ARM void func_020a72ac(struct Ctx020a72ac* p) {
         if (p->field2786 == p->key) {
             if (obj) obj->MakeHidden();
         } else if (p->key == 0x170c) {
-            ApplyElementFlags0201b8c8((struct Obj0201b600*)p, 1, 0, 1);
+            func_0201b8c8((struct Obj0201b600*)p, 1, 0, 1);
             Vector3i local = actor->obj3D_.position_;
             if (local.z >= 0x6000 && local.x >= -0x8333 && local.x <= -0x5ccc) {
-                SetVec3At0x0020a6aa4(&local, -0x7000, 0x2e1, 0x5e66);
+                func_020a6aa4(&local, -0x7000, 0x2e1, 0x5e66);
                 actor->obj3D_.position_ = local;
             }
         } else if (p->key == 0x76c) {
-            struct Obj0201b600* e = FindElemByKeys((struct Obj0201b600*)p, 0, 4);
-            if (e) SetFlag0x40AndToggle0x4((struct Struct02013380*)e, 0, 0);
-            e = FindElemByKeys((struct Obj0201b600*)p, 0, 0x28);
-            if (e) SetFlag0x40AndToggle0x4((struct Struct02013380*)e, 0, 0);
+            struct Obj0201b600* e = func_0201b600((struct Obj0201b600*)p, 0, 4);
+            if (e) func_02013380((struct Struct02013380*)e, 0, 0);
+            e = func_0201b600((struct Obj0201b600*)p, 0, 0x28);
+            if (e) func_02013380((struct Struct02013380*)e, 0, 0);
         } else if (p->key == 0x2774) {
             if (obj) obj->MakeVisible();
         } else if (func_0202c540(base) && p->key == 0x2710) {

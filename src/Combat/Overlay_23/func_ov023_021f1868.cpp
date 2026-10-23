@@ -183,40 +183,40 @@ extern "C" void func_02073864(TableA68* list, SafeAllocator* allocator, const ch
 extern "C" void func_020e1fc4(TextTable_021f1868* texts, SafeAllocator* allocator, const char* path, short* ids, unsigned short count, int female, int mode);
 #endif
 
-MessageSystem_021f1868* GetGlobalField0x1c020421a0();
-ArrayContainsByteStruct* GetPtrField0x2a04_02010828(GameState* gameState);
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* array, int id);
+extern "C" MessageSystem_021f1868* func_020421a0();
+extern "C" ArrayContainsByteStruct* func_02010828(GameState* gameState);
+extern "C" int func_02086ef0(ArrayContainsByteStruct* array, int id);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
-void ClearFirstTwoWords0209a338(Pair0209a338* p);
-void SetupAndRunBufferedScript0209a470(Ctx0209a470* ctx, SafeAllocator* allocator, StreamHeader* file, int size);
-char* FindEntryByKey_02072a68(TableA68* table, int key);
-void ResetListHeader020727d8(List020727d8* list);
-void Zero4Bytes_020e526c(void* p);
-void Reset0209fe9c(char* titles);
-void InitManagerAndAllocateBuffers0209fee4(Obj0209fee4* titles, SafeAllocator* allocator, int file, int size);
-void SetIntAt0x60(IntField0x60_0209ff64* titles, int value);
-void PollOv017Task0209ff6c(TaskState0209ff6c* titles);
-int AreFields60And64AllOnes_021f21f4(Fields60_021f21f4* titles);
-Member_021f1868* GetCombatantWithFlag0x100_0200ff1c(GameState* gameState, int id);
-int AppendString02042058(char* dst, const char* src);
-void SetIndexedName02046574(Obj02046574* obj, int index, char* str);
-void InitObjFromCombatantId020e4bf4(void* obj, int id);
-void** CallFunc020e52a0_020e5294(void* p, int key);
-void StoreInArray0x8b0_020465c0(StoreStruct* base, int index, int value);
-void ReinitController02043204(char* messages);
-void ClearStruct020a13c4(S020a13c4* table);
-void SetupGlobalAndRunScript020a13e4(void* table, void* allocator, int ids, unsigned short count, unsigned char mode);
-void* ResetAndReturnSelf020dfc2c(void* texts);
-void ResetStruct020dfc40(Struct020dfc40* texts);
-void* FindElementByField020a15bc(Array020a15bc* table, int id);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void InitObj_021f222c(Obj_021f222c* page);
-void FormatLabelIntoBufC_021f2304(void* page, char* title);
-void SetOrClearBit10At400_38_021f2348(void* guide, int value);
-GameResources* GetWord0x0_0200fb8c(int* gameState);
+extern "C" void func_0209a338(Pair0209a338* p);
+extern "C" void func_0209a470(Ctx0209a470* ctx, SafeAllocator* allocator, StreamHeader* file, int size);
+extern "C" char* func_02072a68(TableA68* table, int key);
+extern "C" void func_020727d8(List020727d8* list);
+extern "C" void func_020e526c(void* p);
+extern "C" void func_0209fe9c(char* titles);
+extern "C" void func_0209fee4(Obj0209fee4* titles, SafeAllocator* allocator, int file, int size);
+extern "C" void func_0209ff64(IntField0x60_0209ff64* titles, int value);
+extern "C" void func_0209ff6c(TaskState0209ff6c* titles);
+extern "C" int func_ov023_021f21f4(Fields60_021f21f4* titles);
+extern "C" Member_021f1868* func_0200ff1c(GameState* gameState, int id);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" void func_02046574(Obj02046574* obj, int index, char* str);
+extern "C" void func_020e4bf4(void* obj, int id);
+extern "C" void** func_020e5294(void* p, int key);
+extern "C" void func_020465c0(StoreStruct* base, int index, int value);
+extern "C" void func_02043204(char* messages);
+extern "C" void func_020a13c4(S020a13c4* table);
+extern "C" void func_020a13e4(void* table, void* allocator, int ids, unsigned short count, unsigned char mode);
+extern "C" void* func_020dfc2c(void* texts);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
+extern "C" void* func_020a15bc(Array020a15bc* table, int id);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_ov023_021f222c(Obj_021f222c* page);
+extern "C" void func_ov023_021f2304(void* page, char* title);
+extern "C" void func_ov023_021f2348(void* guide, int value);
+extern "C" GameResources* func_0200fb8c(int* gameState);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-void ResetFields_021eefac(Reset_021eefac* end);
+extern "C" void func_ov023_021eefac(Reset_021eefac* end);
 
 extern "C" {
 void __clear(void* buffer, unsigned long size);
@@ -249,17 +249,17 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
 #if defined(jpn)
     GameState* gameState = GameState::GetInstance();
     BattleEnd_021f1868* end = _ZZ17GetGlobal021ffefcvE1s;
-    MessageSystem_021f1868* messages = GetGlobalField0x1c020421a0();
+    MessageSystem_021f1868* messages = func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     int id = end->current_;
-    int inParty = ArrayContainsByte_02086ef0(GetPtrField0x2a04_02010828(gameState), id);
+    int inParty = func_02086ef0(func_02010828(gameState), id);
     if (end->step_ == 0)
     {
         self->busy_ = 1;
         self->allocator_.Reset();
         self->skillTable_ = (TableA68*)self->allocator_.Allocate(8);
-        ResetListHeader020727d8((List020727d8*)self->skillTable_);
-        func_02073864(self->skillTable_, &self->allocator_, FindEntryByKey_02072a68(&self->texts_, 0x21), 0, 0, 0);
+        func_020727d8((List020727d8*)self->skillTable_);
+        func_02073864(self->skillTable_, &self->allocator_, func_02072a68(&self->texts_, 0x21), 0, 0, 0);
         self->titles_ = NULL;
         end->task_ = loader->QueueLoadFile(data_ov023_021fd517, NULL);
         end->step_++;
@@ -272,13 +272,13 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             void* file;
             loader->GetLoadedFileByID(end->task_, &file, &size);
             self->titles_ = (TitleScript_021f1868*)self->allocator_.Allocate(0xd0);
-            Reset0209fe9c((char*)self->titles_);
-            InitManagerAndAllocateBuffers0209fee4((Obj0209fee4*)self->titles_, &self->allocator_, (int)file, size);
-            SetIntAt0x60((IntField0x60_0209ff64*)self->titles_, 100);
+            func_0209fe9c((char*)self->titles_);
+            func_0209fee4((Obj0209fee4*)self->titles_, &self->allocator_, (int)file, size);
+            func_0209ff64((IntField0x60_0209ff64*)self->titles_, 100);
             do
             {
-                PollOv017Task0209ff6c((TaskState0209ff6c*)self->titles_);
-            } while (!AreFields60And64AllOnes_021f21f4((Fields60_021f21f4*)self->titles_));
+                func_0209ff6c((TaskState0209ff6c*)self->titles_);
+            } while (!func_ov023_021f21f4((Fields60_021f21f4*)self->titles_));
             loader->RemoveTask(end->task_);
             end->task_ = -1;
             end->step_++;
@@ -288,18 +288,18 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
     {
         while (end->newSkill_ < end->newSkillCount_)
         {
-            char* name = FindEntryByKey_02072a68(self->skillTable_, end->newSkills_[end->newSkill_]);
+            char* name = func_02072a68(self->skillTable_, end->newSkills_[end->newSkill_]);
             if (name != NULL)
             {
-                Member_021f1868* member = GetCombatantWithFlag0x100_0200ff1c(gameState, id);
+                Member_021f1868* member = func_0200ff1c(gameState, id);
                 if (member != NULL)
                 {
                     char text[0x80];
                     __clear(text, sizeof(text));
-                    AppendString02042058(text, name);
-                    AppendString02042058(text, FindEntryByKey_02072a68(&self->texts_, 0x22));
+                    func_02042058(text, name);
+                    func_02042058(text, func_02072a68(&self->texts_, 0x22));
                     func_02046380(messages);
-                    SetIndexedName02046574((Obj02046574*)messages, 0, member->name_);
+                    func_02046574((Obj02046574*)messages, 0, member->name_);
                     if (inParty)
                     {
                         func_0204500c(messages, text, 1);
@@ -337,7 +337,7 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
         int count = self->titles_->count_;
         if (count > 0)
         {
-            ReinitController02043204((char*)messages);
+            func_02043204((char*)messages);
             SafeAllocator* idAllocator = &self->menuAllocator_;
             idAllocator->Reset();
             count = self->titles_->count_;
@@ -348,26 +348,26 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             self->skillTable_ = NULL;
             self->titles_ = NULL;
             self->titleTable_ = self->allocator_.Allocate(0x14);
-            ClearStruct020a13c4((S020a13c4*)self->titleTable_);
-            SetupGlobalAndRunScript020a13e4(self->titleTable_, &self->allocator_, (int)ids, (unsigned short)count, 4);
+            func_020a13c4((S020a13c4*)self->titleTable_);
+            func_020a13e4(self->titleTable_, &self->allocator_, (int)ids, (unsigned short)count, 4);
             self->firstGuide_ = func_ov023_021ed724(self->titleTable_, ids, count) & 1 ? 1 : 0;
             GameObject_021f1868* hero = gameState->GetProtagonist();
             TextTable_021f1868 names;
-            ResetAndReturnSelf020dfc2c(&names);
-            ResetStruct020dfc40((Struct020dfc40*)&names);
+            func_020dfc2c(&names);
+            func_020dfc40((Struct020dfc40*)&names);
             func_020e1fc4(&names, &self->allocator_, data_ov023_021fd533, ids, (unsigned short)count, hero->partyData_->appearance_.female_, 1);
             self->pages_ = (GuidePage_021f1868*)self->allocator_.Allocate(count * sizeof(GuidePage_021f1868));
             for (i = 0; i < count; i++)
             {
-                void* entry = FindElementByField020a15bc((Array020a15bc*)self->titleTable_, ids[i]);
+                void* entry = func_020a15bc((Array020a15bc*)self->titleTable_, ids[i]);
                 if (entry == NULL)
                     continue;
-                const char* title = GetFieldByKey020e0434((Container020e0310*)&names, ids[i]);
+                const char* title = func_020e0434((Container020e0310*)&names, ids[i]);
                 if (title == NULL)
                     continue;
-                InitObj_021f222c((Obj_021f222c*)&self->pages_[i]);
+                func_ov023_021f222c((Obj_021f222c*)&self->pages_[i]);
                 func_ov023_021f229c(&self->pages_[i], entry);
-                FormatLabelIntoBufC_021f2304(&self->pages_[i], (char*)title);
+                func_ov023_021f2304(&self->pages_[i], (char*)title);
             }
             self->titleTable_ = NULL;
             self->pageCount_ = count;
@@ -380,19 +380,19 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             self->skillTable_ = NULL;
             self->titles_ = NULL;
             self->busy_ = 0;
-            FontBankLoader* music = GetGlobal02109400_02094a00();
-            BlankFunction02094b40(music);
-            BlankFunction02094b34(music, 0x65, 500, 0, 0);
+            FontBankLoader* music = func_02094a00();
+            func_02094b40(music);
+            func_02094b34(music, 0x65, 500, 0, 0);
             end->step_ = 8;
         }
     }
 #else
     GameState* gameState = GameState::GetInstance();
     BattleEnd_021f1868* end = _ZZ17GetGlobal021ffefcvE1s;
-    MessageSystem_021f1868* messages = GetGlobalField0x1c020421a0();
+    MessageSystem_021f1868* messages = func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     int id = end->current_;
-    int inParty = ArrayContainsByte_02086ef0(GetPtrField0x2a04_02010828(gameState), id);
+    int inParty = func_02086ef0(func_02010828(gameState), id);
     if (end->step_ == 0)
     {
         self->busy_ = 1;
@@ -401,17 +401,17 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
         self->allocator_.Reset();
         unsigned int size;
         void* file = LoadFileIntoMemory(data_ov023_021fe200, data_0211e33c, &size);
-        ClearFirstTwoWords0209a338((Pair0209a338*)self->script_);
+        func_0209a338((Pair0209a338*)self->script_);
         if (file != NULL)
-            SetupAndRunBufferedScript0209a470((Ctx0209a470*)self->script_, &self->allocator_, (StreamHeader*)file, size);
-        file = ExtractFileFromGP2(FindEntryByKey_02072a68(&self->texts_, 0x2b), FindEntryByKey_02072a68(&self->texts_, 0x21), &size);
+            func_0209a470((Ctx0209a470*)self->script_, &self->allocator_, (StreamHeader*)file, size);
+        file = ExtractFileFromGP2(func_02072a68(&self->texts_, 0x2b), func_02072a68(&self->texts_, 0x21), &size);
         self->skillTable_ = (TableA68*)self->allocator_.Allocate(8);
-        ResetListHeader020727d8((List020727d8*)self->skillTable_);
+        func_020727d8((List020727d8*)self->skillTable_);
         if (file != NULL)
             func_020728ac(self->skillTable_, &self->allocator_, file, size, 0, 0, 0);
         file = ExtractFileFromGP2(data_ov023_021fe25e, data_ov023_021fe273, &size);
         self->items_ = self->allocator_.Allocate(0xc);
-        Zero4Bytes_020e526c(self->items_);
+        func_020e526c(self->items_);
         if (file != NULL)
             func_020e5604(self->items_, &self->allocator_, file, size);
         BackgroundLoader::RemoveLockGlobal();
@@ -427,13 +427,13 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             void* file;
             loader->GetLoadedFileByID(end->task_, &file, &size);
             self->titles_ = (TitleScript_021f1868*)self->allocator_.Allocate(0xd0);
-            Reset0209fe9c((char*)self->titles_);
-            InitManagerAndAllocateBuffers0209fee4((Obj0209fee4*)self->titles_, &self->allocator_, (int)file, size);
-            SetIntAt0x60((IntField0x60_0209ff64*)self->titles_, 100);
+            func_0209fe9c((char*)self->titles_);
+            func_0209fee4((Obj0209fee4*)self->titles_, &self->allocator_, (int)file, size);
+            func_0209ff64((IntField0x60_0209ff64*)self->titles_, 100);
             do
             {
-                PollOv017Task0209ff6c((TaskState0209ff6c*)self->titles_);
-            } while (!AreFields60And64AllOnes_021f21f4((Fields60_021f21f4*)self->titles_));
+                func_0209ff6c((TaskState0209ff6c*)self->titles_);
+            } while (!func_ov023_021f21f4((Fields60_021f21f4*)self->titles_));
             loader->RemoveTask(end->task_);
             end->task_ = -1;
             end->step_++;
@@ -446,39 +446,39 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             Skill_021f1868* skill = func_0209a594(self->script_, end->newSkills_[end->newSkill_]);
             char* name = NULL;
             if (skill != NULL)
-                name = FindEntryByKey_02072a68(self->skillTable_, skill->type_);
+                name = func_02072a68(self->skillTable_, skill->type_);
             if (name != NULL)
             {
-                Member_021f1868* member = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), id);
+                Member_021f1868* member = func_0200ff1c(GameState::GetInstance(), id);
                 if (member != NULL)
                 {
                     char text[0x200];
                     char actorName[12];
                     char item[0x80];
                     __clear(text, sizeof(text));
-                    AppendString02042058(text, name);
-                    AppendString02042058(text, FindEntryByKey_02072a68(&self->texts_, 0x22));
+                    func_02042058(text, name);
+                    func_02042058(text, func_02072a68(&self->texts_, 0x22));
                     func_02046380(messages);
-                    SetIndexedName02046574((Obj02046574*)messages, 0, member->name_);
-                    InitObjFromCombatantId020e4bf4(actorName, id);
+                    func_02046574((Obj02046574*)messages, 0, member->name_);
+                    func_020e4bf4(actorName, id);
                     messages->actor_ = actorName;
                     if (skill->type_ == 1)
                     {
-                        void** entry = CallFunc020e52a0_020e5294(self->items_, skill->item_);
+                        void** entry = func_020e5294(self->items_, skill->item_);
                         messages->item_ = entry;
                         __clear(item, sizeof(item));
                         func_020e4864(*entry, item, 1, 0, 0, 0);
-                        SetIndexedName02046574((Obj02046574*)messages, 1, item);
+                        func_02046574((Obj02046574*)messages, 1, item);
                     }
                     else
                     {
-                        SetIndexedName02046574((Obj02046574*)messages, 1, FindEntryByKey_02072a68(self->skillTable_, (short)(skill->prefix_ + 100)));
+                        func_02046574((Obj02046574*)messages, 1, func_02072a68(self->skillTable_, (short)(skill->prefix_ + 100)));
                     }
                     int slot = 2;
                     if (skill->type_ == 4 || skill->type_ == 0x10)
                         slot = 1;
-                    SetIndexedName02046574((Obj02046574*)messages, slot, FindEntryByKey_02072a68(self->skillTable_, (short)(skill->suffix_ + 200)));
-                    StoreInArray0x8b0_020465c0((StoreStruct*)messages, 0, skill->value_);
+                    func_02046574((Obj02046574*)messages, slot, func_02072a68(self->skillTable_, (short)(skill->suffix_ + 200)));
+                    func_020465c0((StoreStruct*)messages, 0, skill->value_);
                     if (inParty)
                     {
                         func_0204500c(messages, text, 1, 0xe3);
@@ -514,7 +514,7 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
         int count = self->titles_->count_;
         if (count > 0)
         {
-            ReinitController02043204((char*)messages);
+            func_02043204((char*)messages);
             char* menu = self->menu_; SafeAllocator* idAllocator = (SafeAllocator*)(menu + 0x1af8);
             idAllocator->Reset();
             count = self->titles_->count_;
@@ -526,13 +526,13 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             self->items_ = NULL;
             self->titles_ = NULL;
             self->titleTable_ = self->allocator_.Allocate(0x14);
-            ClearStruct020a13c4((S020a13c4*)self->titleTable_);
-            SetupGlobalAndRunScript020a13e4(self->titleTable_, &self->allocator_, (int)ids, (unsigned short)count, 4);
+            func_020a13c4((S020a13c4*)self->titleTable_);
+            func_020a13e4(self->titleTable_, &self->allocator_, (int)ids, (unsigned short)count, 4);
             self->firstGuide_ = func_ov023_021ed724(self->titleTable_, ids, count) & 1 ? 1 : 0;
             GameObject_021f1868* hero = gameState->GetProtagonist();
             TextTable_021f1868 names;
-            ResetAndReturnSelf020dfc2c(&names);
-            ResetStruct020dfc40((Struct020dfc40*)&names);
+            func_020dfc2c(&names);
+            func_020dfc40((Struct020dfc40*)&names);
             BackgroundLoader::AddLockGlobal();
             unsigned int size = 0;
             char gp2[0x40];
@@ -549,15 +549,15 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             self->pages_ = (GuidePage_021f1868*)self->allocator_.Allocate(count * sizeof(GuidePage_021f1868));
             for (int i = 0; i < count; i++)
             {
-                void* entry = FindElementByField020a15bc((Array020a15bc*)self->titleTable_, ids[i]);
+                void* entry = func_020a15bc((Array020a15bc*)self->titleTable_, ids[i]);
                 if (entry == NULL)
                     continue;
-                const char* title = GetFieldByKey020e0434((Container020e0310*)&names, ids[i]);
+                const char* title = func_020e0434((Container020e0310*)&names, ids[i]);
                 if (title == NULL)
                     continue;
-                InitObj_021f222c((Obj_021f222c*)&self->pages_[i]);
+                func_ov023_021f222c((Obj_021f222c*)&self->pages_[i]);
                 func_ov023_021f229c(&self->pages_[i], entry);
-                FormatLabelIntoBufC_021f2304(&self->pages_[i], (char*)title);
+                func_ov023_021f2304(&self->pages_[i], (char*)title);
             }
             self->titleTable_ = NULL;
             self->pageCount_ = count;
@@ -571,9 +571,9 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             self->items_ = NULL;
             self->titles_ = NULL;
             self->busy_ = 0;
-            FontBankLoader* music = GetGlobal02109400_02094a00();
-            BlankFunction02094b40(music);
-            BlankFunction02094b34(music, 0x65, 500, 0, 0);
+            FontBankLoader* music = func_02094a00();
+            func_02094b40(music);
+            func_02094b34(music, 0x65, 500, 0, 0);
             end->step_ = 8;
         }
     }
@@ -585,7 +585,7 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
         self->guide_->flags_ |= 8;
         func_ov023_021eb080(self->guide_, &self->allocator_);
         func_ov023_021eb564(self->guide_, self->pages_, self->pageCount_);
-        SetOrClearBit10At400_38_021f2348(self->guide_, self->firstGuide_);
+        func_ov023_021f2348(self->guide_, self->firstGuide_);
         end->step_++;
     }
     else if (end->step_ == 6)
@@ -607,22 +607,22 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
         self->pageCount_ = 0;
         self->firstGuide_ = 0;
         self->busy_ = 0;
-        SetMainBrightness(GetWord0x0_0200fb8c((int*)gameState), 0, 0xf);
-        FontBankLoader* music = GetGlobal02109400_02094a00();
-        BlankFunction02094b40(music);
-        BlankFunction02094b34(music, 0x65, 500, 0, 0);
+        SetMainBrightness(func_0200fb8c((int*)gameState), 0, 0xf);
+        FontBankLoader* music = func_02094a00();
+        func_02094b40(music);
+        func_02094b34(music, 0x65, 500, 0, 0);
         end->step_++;
     }
     else if (end->step_ == 8)
     {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
+        if (func_02094b4c(func_02094a00()))
             end->step_++;
     }
     else if (end->step_ == 9)
     {
-        if (!IsBrightnessTransitionActive(GetWord0x0_0200fb8c((int*)gameState)))
+        if (!IsBrightnessTransitionActive(func_0200fb8c((int*)gameState)))
         {
-            ResetFields_021eefac((Reset_021eefac*)end);
+            func_ov023_021eefac((Reset_021eefac*)end);
             return 7;
         }
     }

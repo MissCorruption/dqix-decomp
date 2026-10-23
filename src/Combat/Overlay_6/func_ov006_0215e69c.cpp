@@ -85,7 +85,7 @@ struct Obj0215e69c {
 
 extern "C" int func_ov006_02153f24(void* table, int id);
 struct Obj0215a33c;
-void Func_0215a33c(Obj0215a33c*, int);
+extern "C" void func_ov006_0215a33c(Obj0215a33c*, int);
 extern "C" int func_ov006_0215a384(Obj0215e69c* self, int critical);
 extern "C" void func_ov006_0215fe34(Obj0215e69c* self, void* list);
 extern "C" int func_ov006_0215fecc(Obj0215e69c* self);
@@ -95,40 +95,40 @@ void* GetBTRandom(void);
 struct Random;
 unsigned int NextRandomMax(Random*, int);
 struct Obj2081;
-void SetElementFlag0x20_02080c04(Obj2081*, int);
-void ClearElementFlag0x20_02080c20(Obj2081*, int);
-extern "C" int _Z26CheckFlagOrByte55_02158c70v(Obj0215e69c* self);
+extern "C" void func_02080c04(Obj2081*, int);
+extern "C" void func_02080c20(Obj2081*, int);
+extern "C" int func_ov006_02158c70(Obj0215e69c* self);
 extern "C" void func_ov006_02153cbc(void* table, int a, int b, void* out);
 extern "C" void func_ov006_0215759c(void* list, Entry0215e69c* entry, int count);
 extern "C" void func_ov006_02158de0(Obj0215e69c* self);
-unsigned int* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int bits);
+extern "C" unsigned int* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* p, unsigned int bits);
 struct Struct020a9ea4;
-void ClearStruct020a9ea4(Struct020a9ea4*);
+extern "C" void func_020a9ea4(Struct020a9ea4*);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* p);
 extern "C" int func_020aad1c(void* loader, void* name, int a, int b);
 struct FlagWord020466f4;
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-void** CallFunc020e52a0_020e5294(void* lookup, int id);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void** func_020e5294(void* lookup, int id);
 #if defined(jpn)
 struct Container020e0310;
-int GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Container020e0310*, int);
 #endif
 extern "C" void* memset(void* dst, int c, unsigned int n);
 extern "C" void func_020e4864(void* src, void* dst, int a, int b, int c, int d);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
-void Forward0207f7acObjPlus4Size0x40_020805f4(void* elements, int key);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
+extern "C" void func_020805f4(void* elements, int key);
 extern "C" void func_020813ec(void* elements, int key);
-void InitHandleAndDispatch_021571fc(char*);
+extern "C" void func_ov006_021571fc(char*);
 struct Struct0209c830;
-void SetValueAndActivate0209c830(Struct0209c830*, int);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
-void SetByte_0215728c_0215728c(void*);
-void SetEntryLowNibbleAndElement02080c68(void* elements, int key, int value);
+extern "C" void func_0209c830(Struct0209c830*, int);
+extern "C" void func_0207fdcc(Obj2081*, int);
+extern "C" void func_ov006_0215728c(void*);
+extern "C" void func_02080c68(void* elements, int key, int value);
 struct Flags394Obj_0215e5f8;
-void ToggleElementFlagsAndByte_0215e5f8(Flags394Obj_0215e5f8*, Obj2081*, int, unsigned char*);
+extern "C" void func_ov006_0215e5f8(Flags394Obj_0215e5f8*, Obj2081*, int, unsigned char*);
 
 static inline short* ChancePtr(Obj0215e69c* self) { return (short*)((char*)self + 0x382); }
 static inline short* ChanceWords(Obj0215e69c* self) { return (short*)self; }
@@ -145,10 +145,10 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
 
     if (self->state == 0) {
         self->busy = 0;
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 0);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 1);
-            SetEntryLowNibbleAndElement02080c68(self->elements, 9, 0);
+        if (func_ov006_02158c70(self)) {
+            func_0207fdcc((Obj2081*)self->elements, 0);
+            func_0207fdcc((Obj2081*)self->elements, 1);
+            func_02080c68(self->elements, 9, 0);
             self->flags &= ~0x40;
             if (self->entry->count >= 0) {
                 self->chance = func_ov006_02153f24(self->table, self->entry->count);
@@ -159,17 +159,17 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
                 if (NextRandomMax((Random*)GetBTRandom(), 10000) / 100 < self->chance) {
                     self->flags |= 0x40;
                 }
-                Func_0215a33c((Obj0215a33c*)self, self->IsCritical());
+                func_ov006_0215a33c((Obj0215a33c*)self, self->IsCritical());
             } else {
                 ctx->flags &= ~0x40;
                 self->waitCount = 0;
                 self->nextState = 100;
                 self->state = 0x96;
-                ToggleElementFlagsAndByte_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 0, &self->shown);
+                func_ov006_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 0, &self->shown);
             }
         }
     } else if (self->state == 1) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self) && self->taskId == -1) {
+        if (func_ov006_02158c70(self) && self->taskId == -1) {
             if (func_ov006_0215a384(self, self->IsCritical())) {
                 func_ov006_0215fe34(self, self->list);
             }
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             }
         }
     } else if (self->state == 2) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             short id = 0x10;
             if (self->chance >= 3 && self->chance < 10) {
                 id = 0x11;
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             self->state++;
         }
     } else if (self->state == 3) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             short id = 0x13;
             self->state++;
             if (self->chance == 100) {
@@ -206,13 +206,13 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             self->messageTimer = 0;
         }
     } else if (self->state == 4) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             self->message = 0x14;
             self->messageTimer = 0;
             self->state++;
         }
     } else if (self->state == 5) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             self->message = 0x15;
             self->messageTimer = 0;
             self->state++;
@@ -246,8 +246,8 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             self->state = 0x5a;
         }
     } else if (self->state == 0x5a) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
-            ClearElementFlag0x20_02080c20((Obj2081*)self->elements, 0);
+        if (func_ov006_02158c70(self)) {
+            func_02080c20((Obj2081*)self->elements, 0);
             self->message = 1;
             self->messageTimer = 0;
             self->flags |= 0x20;
@@ -260,13 +260,13 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
     } else if (self->state == 9) {
         self->message = 0x36;
         self->messageTimer = 0;
-        SetElementFlag0x20_02080c04((Obj2081*)self->elements, 0);
+        func_02080c04((Obj2081*)self->elements, 0);
         self->state++;
     } else if (self->state == 0xa) {
         self->flags |= 0x200;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
-            OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0x80);
-            ClearStruct020a9ea4((Struct020a9ea4*)self->loader);
+            func_020466e4(func_020d6c00(), 0x80);
+            func_020a9ea4((Struct020a9ea4*)self->loader);
             self->state++;
         }
     } else if (self->state == 0xb) {
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             size = 0x14;
         }
         if (func_020aad1c(self->loader, &data_0211e33c, size, 0) == 1) {
-            ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x80);
+            func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x80);
             self->state++;
             self->flags &= ~0x200;
         }
@@ -288,7 +288,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         self->messageTimer = 0;
         self->state++;
     } else if (self->state == 0xd) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             self->message = 0x1a;
             self->messageTimer = 0;
             self->flags |= 0x20;
@@ -296,8 +296,8 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         }
     } else if (self->state == 0xe) {
         self->field42c = 0;
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
-            ToggleElementFlagsAndByte_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 0, &self->shown);
+        if (func_ov006_02158c70(self)) {
+            func_ov006_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 0, &self->shown);
             ctx->flags &= ~0x40;
             self->waitCount = 0;
             self->nextState = 0xf;
@@ -314,16 +314,16 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         int sound;
         self->busy = 1;
 #if defined(jpn)
-        SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f,
-            GetFieldByKey020e0434((Container020e0310*)self->lookup, self->lookupId));
+        func_02080f8c((Container02080f8c*)self->elements, 0x7f,
+            func_020e0434((Container020e0310*)self->lookup, self->lookupId));
 #else
-        res = CallFunc020e52a0_020e5294(self->lookup, self->lookupId);
+        res = func_020e5294(self->lookup, self->lookupId);
         if (res != 0) {
             memset(*self->buffer, 0, 0x80);
             func_020e4864(*res, *self->buffer, 1, 0, 0, 0);
-            SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
+            func_02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
         }
-        Forward0207f7acObjPlus4Size0x40_020805f4(self->elements, 0x7f);
+        func_020805f4(self->elements, 0x7f);
 #endif
         func_020813ec(self->elements, 0x12);
         ctx->flags |= 0x400;
@@ -331,26 +331,26 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         sound = 0x3e;
         if (self->IsCritical()) {
             sound = 0x3f;
-            InitHandleAndDispatch_021571fc((char*)self->ctx);
+            func_ov006_021571fc((char*)self->ctx);
         }
-        SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, sound);
-        SetElementFlag0x20_02080c04((Obj2081*)self->elements, 0);
+        func_0209c830((Struct0209c830*)&data_02109bf4, sound);
+        func_02080c04((Obj2081*)self->elements, 0);
         self->message = 0xc;
         self->messageTimer = 0;
         self->state++;
     } else if (self->state == 0x12) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             if (self->IsCritical()) {
-                SetByte_0215728c_0215728c(ctx);
+                func_ov006_0215728c(ctx);
             }
             self->message = 0x38;
             self->messageTimer = 0;
             self->state++;
         }
     } else if (self->state == 0x13) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             short id;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 0x12);
+            func_0207fdcc((Obj2081*)self->elements, 0x12);
             self->busy = 0;
             ctx->flags &= ~0x800;
             id = 0x1f;
@@ -363,7 +363,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             self->state++;
         }
     } else if (self->state == 0x14) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             short id = 0x20;
             if (self->IsCritical()) {
                 id = self->variant + 0x1d;
@@ -391,26 +391,26 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         self->cursorB = b;
         self->busy = 1;
 #if defined(jpn)
-        SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f,
-            GetFieldByKey020e0434((Container020e0310*)self->lookup, self->lookupId));
+        func_02080f8c((Container02080f8c*)self->elements, 0x7f,
+            func_020e0434((Container020e0310*)self->lookup, self->lookupId));
 #else
-        res = CallFunc020e52a0_020e5294(self->lookup, self->lookupId);
+        res = func_020e5294(self->lookup, self->lookupId);
         if (res != 0) {
             memset(*self->buffer, 0, 0x80);
             func_020e4864(*res, *self->buffer, 1, 0, 0, 0);
-            SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
+            func_02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
         }
-        Forward0207f7acObjPlus4Size0x40_020805f4(self->elements, 0x7f);
+        func_020805f4(self->elements, 0x7f);
 #endif
         func_020813ec(self->elements, 0x12);
         ctx->flags |= 0x400;
         self->field42f = 1;
-        SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, 0x3e);
+        func_0209c830((Struct0209c830*)&data_02109bf4, 0x3e);
         self->message = 0xc;
         self->messageTimer = 0;
         self->state++;
     } else if (self->state == 0x67) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
+        if (func_ov006_02158c70(self)) {
             self->message = 0x38;
             self->messageTimer = 0;
             self->state = 0x78;
@@ -420,8 +420,8 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             self->field42c = 0;
         } else {
             Task0215e69c* task = ctx->GetTask();
-            if (!(task != 0 && task->active != 0) && _Z26CheckFlagOrByte55_02158c70v(self)) {
-                CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 0x12);
+            if (!(task != 0 && task->active != 0) && func_ov006_02158c70(self)) {
+                func_0207fdcc((Obj2081*)self->elements, 0x12);
                 self->busy = 0;
                 ctx->flags &= ~0x800;
                 self->message = 1;
@@ -431,10 +431,10 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             }
         }
     } else if (self->state == 0x79) {
-        if (_Z26CheckFlagOrByte55_02158c70v(self)) {
-            ToggleElementFlagsAndByte_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 1, &self->shown);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 0);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->elements, 1);
+        if (func_ov006_02158c70(self)) {
+            func_ov006_0215e5f8((Flags394Obj_0215e5f8*)self, (Obj2081*)self->elements, 1, &self->shown);
+            func_0207fdcc((Obj2081*)self->elements, 0);
+            func_0207fdcc((Obj2081*)self->elements, 1);
             self->mode = 0xa;
             self->state = 0;
         }

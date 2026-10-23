@@ -16,9 +16,9 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-void* GetPtrField0x2a04_02010828(GameState* gameState);
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char* p, unsigned int list);
-signed char* GetPointerAt0xbf0_0207c60c(void* p, unsigned int list);
+extern "C" void* func_02010828(GameState* gameState);
+extern "C" short* func_0207c5f8(unsigned char* p, unsigned int list);
+extern "C" signed char* func_0207c60c(void* p, unsigned int list);
 
 extern "C" unsigned char data_ov005_0215cd60[8];
 
@@ -44,9 +44,9 @@ struct EquipmentMenu {
 
 // USA: func_ov005_021555c0
 extern "C" ARM void func_ov005_021555c0(EquipmentMenu* self) {
-    char* party = (char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
-    short* items = GetPointerFromArray0xbd0_0207c5f8((unsigned char*)(party + 0x1d4), data_ov005_0215cd60[self->kind_]);
-    signed char* counts = GetPointerAt0xbf0_0207c60c(party + 0x1d4, data_ov005_0215cd60[self->kind_]);
+    char* party = (char*)func_02010828(GameState::GetInstance());
+    short* items = func_0207c5f8((unsigned char*)(party + 0x1d4), data_ov005_0215cd60[self->kind_]);
+    signed char* counts = func_0207c60c(party + 0x1d4, data_ov005_0215cd60[self->kind_]);
     signed char page = self->page_;
     for (int i = 0; i < 16; i++) {
         EquipmentSlot* slot = &self->slots_[i + 8];

@@ -34,8 +34,8 @@ extern "C" void func_ov015_02191ea4(Struct021931b4*, int);
 extern "C" void func_ov015_02191f04(Struct021931b4*);
 extern "C" void func_ov015_02192064(Struct021931b4*, int);
 extern "C" MenuEntry* func_ov015_02193160(Struct021931b4*, int, int*);
-void PushArrayValue021931b4(Struct021931b4*, int);
-int Pop021931cc(Owner_021931cc*);
+extern "C" void func_ov015_021931b4(Struct021931b4*, int);
+extern "C" int func_ov015_021931cc(Owner_021931cc*);
 extern "C" void func_ov015_02192700(Struct021931b4*, int);
 
 // USA: func_ov015_02191668
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov015_02191668(Struct021931b4* self) {
             index += start;
             MenuEntry* entry = func_ov015_02193160(self, self->state, &index);
             if (entry->state) {
-                PushArrayValue021931b4(self, self->state);
+                func_ov015_021931b4(self, self->state);
                 self->state = entry->state;
                 func_ov015_02192700(self, 0);
             }
@@ -65,21 +65,21 @@ extern "C" ARM void func_ov015_02191668(Struct021931b4* self) {
     } else if (g_keyManager.TestKeysPressed(2)) {
         if (self->state > 0x23) {
             self->indices[self->state] = func_ov015_02191284(&self->cursor);
-            self->state = Pop021931cc(self);
+            self->state = func_ov015_021931cc(self);
             func_ov015_02192700(self, 0);
         } else {
             int previous = self->current;
             self->current = self->previous;
             self->previous = previous;
             int state;
-            do { state = Pop021931cc(self); } while (state >= 0x23);
+            do { state = func_ov015_021931cc(self); } while (state >= 0x23);
             if (self->mode >= 0) {
                 switch (self->mode) {
                 case 0: case 1:
-                    while (state >= 0xf) state = Pop021931cc(self);
+                    while (state >= 0xf) state = func_ov015_021931cc(self);
                     break;
                 case 2:
-                    while (state >= 0x21) state = Pop021931cc(self);
+                    while (state >= 0x21) state = func_ov015_021931cc(self);
                     break;
                 }
                 self->mode = -1;

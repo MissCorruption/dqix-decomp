@@ -48,26 +48,26 @@ extern char data_ov025_021ef7d9[];
 extern char data_ov025_021ef7df[];
 extern char data_ov025_021ef7e6[];
 extern Obj0205eaa0 data_02108760;
-int GetFlags_0202e09c(int);
-Object3D* GetField0x21c(S0204a438*);
-void SetAngleAndTrigTable0202e9a4(AngleTrig0202e9a4*, int);
+extern "C" int func_0202e09c(int);
+extern "C" Object3D* func_0204a438(S0204a438*);
+extern "C" void func_0202e9a4(AngleTrig0202e9a4*, int);
 extern "C" void func_0204a170(int);
-int DispatchByIndex021820bc(void*, int, int, int);
-void ResetInnerState02048c90(Obj02048c90*);
-void ClearSubstructFlag0x4_02049ae4(unsigned char*);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-AnimationWork* GetActiveCombatWork_ov000_02160130();
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" int func_ov000_021820bc(void*, int, int, int);
+extern "C" void func_02048c90(Obj02048c90*);
+extern "C" void func_02049ae4(unsigned char*);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" AnimationWork* func_ov000_02160130();
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 
 // USA: func_ov025_021e2980
 extern "C" ARM int func_ov025_021e2980(AnimationCommand* command, AnimationTargets* targets, int unused, void* context) {
     GameState* game = GameState::GetInstance();
     if (command->target == 0x19) {
-        void* camera = GetField0x3b0Value_020100bc(game);
-        if (GetFlags_0202e09c((int)camera) & 0x10) {
-            Object3D* object = GetField0x21c((S0204a438*)camera);
+        void* camera = func_020100bc(game);
+        if (func_0202e09c((int)camera) & 0x10) {
+            Object3D* object = func_0204a438((S0204a438*)camera);
             if (object) {
-                SetAngleAndTrigTable0202e9a4((AngleTrig0202e9a4*)camera, 0xf000);
+                func_0202e9a4((AngleTrig0202e9a4*)camera, 0xf000);
                 object->MaybeSetRegularAnimation(command->animation, command->animationFlags);
                 func_0204a170((int)camera);
                 data_ov025_021ef988.flags |= 8;
@@ -75,17 +75,17 @@ extern "C" ARM int func_ov025_021e2980(AnimationCommand* command, AnimationTarge
         }
     } else {
         int ids[8];
-        int count = DispatchByIndex021820bc(context, (int)targets, command->target, (int)ids);
+        int count = func_ov000_021820bc(context, (int)targets, command->target, (int)ids);
         if (!count) return 1;
         for (int i = 0; i < count; i++) {
             AnimationCombatant* combatant = (AnimationCombatant*)game->GetGameObjectByIndex(ids[i]);
             if (!combatant) continue;
             if (combatant->object.unknown_0_ & 0x80) {
-                ResetInnerState02048c90((Obj02048c90*)combatant);
-                ClearSubstructFlag0x4_02049ae4((unsigned char*)combatant);
+                func_02048c90((Obj02048c90*)combatant);
+                func_02049ae4((unsigned char*)combatant);
                 int state = combatant->state;
                 if (state != 0 && state != 4 && state != 6)
-                    SetByte0xbeShiftPrev((Bytes02033b88*)combatant, 0);
+                    func_02033b88((Bytes02033b88*)combatant, 0);
             }
             combatant->object.SetAnimationPlaybackSpeed(0x1000, 0);
             combatant->object.SkipAnimationTransition();
@@ -97,7 +97,7 @@ extern "C" ARM int func_ov025_021e2980(AnimationCommand* command, AnimationTarge
         }
         LightingManager* lighting = LightingManager::GetInstance();
         if (!(command->flags & 2) && targets->kind != 1 && targets->kind != 2 && targets->kind != 0xdb) {
-            AnimationWork* work = GetActiveCombatWork_ov000_02160130();
+            AnimationWork* work = func_ov000_02160130();
             if (!work->faded) {
                 lighting->BeginFade(0x999, 300);
                 work->faded = 1;
@@ -108,8 +108,8 @@ extern "C" ARM int func_ov025_021e2980(AnimationCommand* command, AnimationTarge
             strcmp(animation, data_ov025_021ef7d9) == 0 ||
             strcmp(animation, data_ov025_021ef7df) == 0) {
             if (!(command->flags & 1)) {
-                if (targets->flags & 1) DispatchWithShortB4_0205eaa0(&data_02108760, 0x66, 0);
-                else DispatchWithShortB4_0205eaa0(&data_02108760, 0x64, 0);
+                if (targets->flags & 1) func_0205eaa0(&data_02108760, 0x66, 0);
+                else func_0205eaa0(&data_02108760, 0x64, 0);
             }
             lighting->BeginFade(0x4cc, 1000);
             data_ov025_021ef988.flags |= 0x200;

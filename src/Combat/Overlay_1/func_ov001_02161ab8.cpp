@@ -49,8 +49,8 @@ struct Work02161ab8 {
 
 extern "C" int func_ov017_021d60f4(void* arg);
 extern "C" void func_ov017_021d6134(void* arg, int value);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-int CheckField0x56bLowNibble(Obj02061bd8* obj);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" int func_02061bd8(Obj02061bd8* obj);
 
 static inline int GetHP(CombatantStatus02161ab8* status) { return status->hp; }
 
@@ -79,14 +79,14 @@ extern "C" ARM int func_ov001_02161ab8(char* self, int count) {
         return 1;
     }
     if (e->subKind == 10) {
-        Combatant02161ab8* c = (Combatant02161ab8*)GetCombatantWithFlag0x1000_0200ff58(gs, 0xce);
+        Combatant02161ab8* c = (Combatant02161ab8*)func_0200ff58(gs, 0xce);
         if (c != NULL) {
             state = 0;
         } else {
             int i;
             for (i = 0; i < 4; i++) {
-                c = (Combatant02161ab8*)GetCombatantWithFlag0x1000_0200ff58(gs, i);
-                if (c != NULL && CheckField0x56bLowNibble((Obj02061bd8*)c)) break;
+                c = (Combatant02161ab8*)func_0200ff58(gs, i);
+                if (c != NULL && func_02061bd8((Obj02061bd8*)c)) break;
             }
             if (i == 4) {
                 func_ov017_021d6134(self + 8, kind);
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov001_02161ab8(char* self, int count) {
             state = GetHP(c->status) <= 0 ? 1 : 0;
         }
     } else {
-        Combatant02161ab8* c = (Combatant02161ab8*)GetCombatantWithFlag0x100_0200ff1c(gs, e->combatantId);
+        Combatant02161ab8* c = (Combatant02161ab8*)func_0200ff1c(gs, e->combatantId);
         if (c == NULL) return 0;
         combatantId = e->combatantId;
         CombatantParty02161ab8* party = c->party;

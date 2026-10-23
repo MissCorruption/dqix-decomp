@@ -5,7 +5,7 @@ struct CopyRecord0200fbb4;
 extern "C" CopyRecord0200fbb4* func_0200fbb4(
     CopyRecord0200fbb4* dst, const CopyRecord0200fbb4* src);
 
-extern "C" void* _Z37CallFunc0200fbb4AtField0x3f8_0200fba4Pv(
+extern "C" void* func_0200fba4(
     void* obj, const void* src);
-void* CallFunc0200fbb4AtField0x3f8_0200fcfc(
+extern "C" void* func_0200fcfc(
     void* obj, const void* src);

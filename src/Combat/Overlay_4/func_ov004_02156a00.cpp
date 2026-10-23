@@ -14,7 +14,7 @@ extern Data021707c8 data_ov004_021707c8;
 extern int data_02108760;
 
 struct FooA1698;
-void InitAndBuildList020a1698(struct FooA1698*, void*);
+extern "C" void func_020a1698(struct FooA1698*, void*);
 extern "C" void func_020a1614(void* a, int b);
 extern "C" void* func_ov011_021845f8(void* a, int b);
 extern "C" void* func_ov011_021849c8(void* obj);
@@ -25,13 +25,13 @@ extern "C" void* func_ov023_021fa598(void* obj);
 extern "C" void func_ov023_021f809c(void* obj, void* a);
 extern "C" void func_ov004_021561b0(void* a);
 extern "C" void __clear(void* dst, int len);
-ARM int LoadBattleBlock020ac460(void* dst);
+extern "C" ARM int func_020ac460(void* dst);
 struct Obj021f9bdc;
-void DivModField26_021f9bdc(struct Obj021f9bdc*, int);
+extern "C" void func_ov023_021f9bdc(struct Obj021f9bdc*, int);
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(struct Obj0205eaa0*, int, int);
 struct TableA68;
-void* FindEntryByKey_02072a68(struct TableA68*, int);
+extern "C" void* func_02072a68(struct TableA68*, int);
 
 struct Entry02156a00 { unsigned int id : 9; char pad[4]; struct Entry02156a00* next; };
 struct Head02156a00 { char pad0[8]; struct Entry02156a00* head; char pad1[4]; unsigned char kind; };
@@ -63,14 +63,14 @@ extern "C" ARM int func_ov004_02156a00(void* a1) {
 
     struct Prot02156a00* prot = (struct Prot02156a00*)GameState::GetInstance()->GetProtagonist();
     if (((struct Head02156a00*)data_ov004_021707c8.fc)->kind == 0 || ((struct Head02156a00*)data_ov004_021707c8.fc)->kind == 1) {
-        InitAndBuildList020a1698((struct FooA1698*)data_ov004_021707c8.fc, (void*)(unsigned int)prot->f150->f49c);
+        func_020a1698((struct FooA1698*)data_ov004_021707c8.fc, (void*)(unsigned int)prot->f150->f49c);
     } else if (((struct Head02156a00*)data_ov004_021707c8.fc)->kind == 2) {
         func_020a1614(data_ov004_021707c8.fc, ((struct Head02156a00*)data_ov004_021707c8.fc)->kind);
     }
 
     memset(data_ov004_021707c8.f4, 0, 0x3c0);
     __clear(bitmap, 0x3c);
-    LoadBattleBlock020ac460(bitmap);
+    func_020ac460(bitmap);
 
     int count = 0;
     for (struct Entry02156a00* e = ((struct Head02156a00*)data_ov004_021707c8.fc)->head; e != 0; e = e->next) {
@@ -91,9 +91,9 @@ extern "C" ARM int func_ov004_02156a00(void* a1) {
 
     node->f5c = (short)(sb / regionalRows);
     node->f5e = f5e;
-    DivModField26_021f9bdc((struct Obj021f9bdc*)node, (unsigned short)(sb % regionalRows));
+    func_ov023_021f9bdc((struct Obj021f9bdc*)node, (unsigned short)(sb % regionalRows));
 
-    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
+    func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
 
     void* node_a = func_ov023_021f6880(obj, 0xa);
     if (node_a == 0) {
@@ -111,7 +111,7 @@ extern "C" ARM int func_ov004_02156a00(void* a1) {
     if (func_ov023_021f6f10(node_b) != 8) {
         return 0;
     }
-    ((struct Node66_02156a00*)node_b)->f20 = FindEntryByKey_02072a68((struct TableA68*)list, (short)(((struct Head02156a00*)data_ov004_021707c8.fc)->kind + 0x3e7));
+    ((struct Node66_02156a00*)node_b)->f20 = func_02072a68((struct TableA68*)list, (short)(((struct Head02156a00*)data_ov004_021707c8.fc)->kind + 0x3e7));
 
     void* node_c = func_ov023_021f6880(obj, 0x34);
     if (node_c == 0) {

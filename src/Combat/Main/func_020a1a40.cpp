@@ -5,7 +5,7 @@
 #include "NitroSDK/Filesystem/FSInnerDefs.h"
 #include "NitroSDK/Filesystem/FileAccessor.h"
 
-void DispatchByFlag020d9834(int flag);
+extern "C" void func_020d9834(int flag);
 void NitroVM_Initialize(NitroVM* vm);
 void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay);
 extern "C" int func_020a1ccc(unsigned int id);
@@ -37,7 +37,7 @@ extern "C" ARM int func_020a1a40(unsigned int id) {
         if (cur != (int)id) {
             func_020a1ccc(cur);
             while (data_01ffd340) {
-                DispatchByFlag020d9834(0);
+                func_020d9834(0);
             }
             data_01ffd340 = 1;
             LockResourceMutex();
@@ -51,7 +51,7 @@ extern "C" ARM int func_020a1a40(unsigned int id) {
                     if (!GET_FLAG_BIT(machine.flags, NITROVM_FLAG_IN_HANDLE_QUEUE)) {
                         break;
                     }
-                    DispatchByFlag020d9834(0);
+                    func_020d9834(0);
                 }
                 LockResourceMutex();
                 NitroVM_FinishRead(&machine);

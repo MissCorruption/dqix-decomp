@@ -47,9 +47,9 @@ struct Obj02178ba8 {
     Struct_0205d81c panel;
 };
 
-GlobalField1c* GetGlobalField0x1c020421a0();
-int GetField0_0205bafc(void* obj);
-Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c* s, int key);
+extern "C" GlobalField1c* func_020421a0();
+extern "C" int func_0205bafc(void* obj);
+extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c* s, int key);
 extern "C" void func_ov000_02178d28(Obj02178ba8* obj, Entry02178ba8* entry);
 extern "C" void func_ov000_0217ab8c(Entry02178ba8* entry, int a, int b);
 extern "C" void func_ov000_02178f28(Obj02178ba8* obj, Entry02178ba8* entry, void* buf);
@@ -85,10 +85,10 @@ extern "C" ARM void func_ov000_02178ba8(Obj02178ba8* obj, Entry02178ba8* entry, 
     panel->fieldAE = 0xc;
     panel->fieldB1 = 0xf;
     int flag = 0;
-    if (GetField0_0205bafc(&panel->field54) > 4) {
+    if (func_0205bafc(&panel->field54) > 4) {
         flag = 1;
     }
-    void* buf = GetGlobalField0x1c020421a0()->buffer;
+    void* buf = func_020421a0()->buffer;
     memset(buf, 0, REGION_OFFSET_1);
     func_ov000_02178f28(obj, entry, buf);
 #if defined(jpn)
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov000_02178ba8(Obj02178ba8* obj, Entry02178ba8* entry, 
 #else
     func_0205d304(panel, buf, 0, 0, flag, 1, 0, 0);
 #endif
-    Elem_0205d81c* elem = FindElementByC40205d81c(panel, 0x22);
+    Elem_0205d81c* elem = func_0205d81c(panel, 0x22);
     if (elem != NULL) {
         elem->fieldC2 = 0;
     }

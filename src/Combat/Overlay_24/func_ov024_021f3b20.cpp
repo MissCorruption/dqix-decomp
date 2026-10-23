@@ -3,16 +3,16 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
 extern "C" float func_ov024_021db358(GameObject* obj);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 extern unsigned short data_ov024_021fee6c;
 
 // USA: func_ov024_021f3b20
 extern "C" ARM int func_ov024_021f3b20(int* a0, int id, int a2, int* outCount, short* outArray) {
-	GameObject* self = GetCombatantWithFlag0x400ByID_ov000_021536f8(*a0, id);
+	GameObject* self = func_ov000_021536f8(*a0, id);
 	if (!self) return 0;
 	if (self->currentStats_->primaryStats.currHP <= 1) return 0;
 
@@ -40,6 +40,6 @@ extern "C" ARM int func_ov024_021f3b20(int* a0, int id, int a2, int* outCount, s
 	}
 	if (*outCount <= 0) return 0;
 
-	PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+	func_ov024_021ed890((struct Random**)a0, outCount, outArray);
 	return 1;
 }

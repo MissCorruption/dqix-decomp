@@ -7,24 +7,24 @@ struct FloatModelOut_021dbc58;
 struct MainObj_021e257c;
 
 extern "C" void func_0204c684(void* buf);
-int InitBufferFromDataField4_021ddc34(void* obj, short a, short b, short c, short d);
-void UpdateEntryAndReset_021db45c(void* obj, struct StructAcAe021db45c* p1, int p2, short* p3, short* p4);
+extern "C" int func_ov023_021ddc34(void* obj, short a, short b, short c, short d);
+extern "C" void func_ov023_021db45c(void* obj, struct StructAcAe021db45c* p1, int p2, short* p3, short* p4);
 extern "C" void* func_ov023_021db4e4(void* obj, int key);
 extern "C" void __clear(void* buf, int len);
-void DecodePacked021dbb34(void* handle, struct Unpacked021dbb34* out);
-void ConvertModelDataToFloats_021dbc58(void*, FloatModelOut_021dbc58*, int);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void SetEntryFields_021e23d0(void* obj, int val, int f0xc, unsigned char lowNib, unsigned char highNib);
-void ComputeShortPair_021e2bdc(void* a, int unused, short* out1, short* out2);
+extern "C" void func_ov023_021dbb34(void* handle, struct Unpacked021dbb34* out);
+extern "C" void func_ov023_021dbc58(void*, FloatModelOut_021dbc58*, int);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_ov023_021e23d0(void* obj, int val, int f0xc, unsigned char lowNib, unsigned char highNib);
+extern "C" void func_ov023_021e2bdc(void* a, int unused, short* out1, short* out2);
 extern "C" void func_0204f41c(void* buf, short x, short y, int text, int d, int e, short* f, short* g, int h);
 #if defined(jpn)
 extern "C" void func_02050678(void*,short,short,int,int,int,short*,short*);
 #endif
-void FormatAndDispatchValue_021db3c0(void* buf, int x, short y, float v, unsigned char color);
-void SetPackedFields_021e24b0(void* obj, int val, int f0xc, unsigned char nibbleD, unsigned char p5, unsigned char p6, unsigned char p7, unsigned char p8, unsigned char p9);
+extern "C" void func_ov023_021db3c0(void* buf, int x, short y, float v, unsigned char color);
+extern "C" void func_ov023_021e24b0(void* obj, int val, int f0xc, unsigned char nibbleD, unsigned char p5, unsigned char p6, unsigned char p7, unsigned char p8, unsigned char p9);
 extern "C" void func_ov023_021e257c(void* obj);
-void* CreateAndSetFields8A_021db544(void* a, void* b, int c, int d);
-int IsValueInCombatantField150List_020dd718(int combatantId, int value);
+extern "C" void* func_ov023_021db544(void* a, void* b, int c, int d);
+extern "C" int func_020dd718(int combatantId, int value);
 extern "C" int func_020dd4c4(int id, void* node);
 extern "C" int func_ov023_021ddc98(void* buf, int val, unsigned short len, int flag);
 extern "C" long labs(long);
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
     char buf[0xe0];
     unsigned char i;
     func_0204c684(buf);
-    if (!InitBufferFromDataField4_021ddc34(buf, 0, 0, 0x14, 9)) return;
+    if (!func_ov023_021ddc34(buf, 0, 0, 0x14, 9)) return;
 
     if (obj->id < 0) {
         short k0;
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         short p1, p0;
         short o1, o0;
         short a1, a0;
-        UpdateEntryAndReset_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &a0, &a1);
+        func_ov023_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &a0, &a1);
         SetEntryOn(obj, 0xb);
         SetEntryOn(obj, 0x2d);
         SetEntryOff(obj, 0x2e);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         unsigned char idx[6];
         __clear(un, 0x30);
         __clear(idx, 6);
-        DecodePacked021dbb34(node, (struct Unpacked021dbb34*)un);
+        func_ov023_021dbb34(node, (struct Unpacked021dbb34*)un);
         n = 0;
         __clear(vals, 0x18);
         for (i = 0; i < 12; i++) {
@@ -178,9 +178,9 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         for (i = 0; i < n; i++) {
             v = vals[i];
             key = (short)(idx[i] + 12);
-            SetEntryFields_021e23d0(obj->list, data_ov023_021fd5c6[i], GetFieldByKey020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
+            func_ov023_021e23d0(obj->list, data_ov023_021fd5c6[i], func_020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
             k = data_ov023_021fd5d6[i];
-            ComputeShortPair_021e2bdc(obj->list, k, &p0, &p1);
+            func_ov023_021e2bdc(obj->list, k, &p0, &p1);
             switch (key) {
             case 14:
             case 15:
@@ -188,15 +188,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
             case 17:
                 if (data_ov023_021ff9e0.field4) {
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(buf, p0 + 1, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
+                    func_0204f41c(buf, p0 + 1, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
 #endif
 
 #endif
@@ -204,15 +204,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
 #endif
 
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
-                    FormatAndDispatchValue_021db3c0(buf, p0, p1, v, 0xf);
+                    func_ov023_021db3c0(buf, p0, p1, v, 0xf);
 #endif
 
 #endif
@@ -226,18 +226,18 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
                 if (v < 0.0f) {
                     k3 = data_ov023_021fd5ce[i];
                     SetEntryOn(obj, k3);
-                    SetEntryFields_021e23d0(obj->list, k3, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x19), 8, 0xf);
+                    func_ov023_021e23d0(obj->list, k3, func_020e0434(data_ov023_021ff9e0.field14, 0x19), 8, 0xf);
                 }
                 abs_ = labs((int)v);
-                SetPackedFields_021e24b0(obj->list, data_ov023_021fd5d6[i], abs_, 8, 0xf, 1, 3, 0, 0);
+                func_ov023_021e24b0(obj->list, data_ov023_021fd5d6[i], abs_, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(obj, data_ov023_021fd5d6[i]);
                 break;
             }
         }
         FlushList(obj, buf);
-        CreateAndSetFields8A_021db544(obj->list, (void*)0xb, a0, a1);
+        func_ov023_021db544(obj->list, (void*)0xb, a0, a1);
         SetEntryOff(obj, 0xb);
-    } else if (IsValueInCombatantField150List_020dd718(obj->id, obj->node->field18)) {
+    } else if (func_020dd718(obj->id, obj->node->field18)) {
         short k0;
         int key;
         float v;
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         short p1, p0;
         short o1, o0;
         short b1, b0;
-        UpdateEntryAndReset_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &b0, &b1);
+        func_ov023_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &b0, &b1);
         SetEntryOn(obj, 0xb);
         SetEntryOn(obj, 0x2d);
         SetEntryOff(obj, 0x2e);
@@ -262,8 +262,8 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         __clear(model, 0x30);
         __clear(un, 0x30);
         __clear(idx, 6);
-        ConvertModelDataToFloats_021dbc58((void*)id, (FloatModelOut_021dbc58*)model, (int)0);
-        DecodePacked021dbb34(node, (struct Unpacked021dbb34*)un);
+        func_ov023_021dbc58((void*)id, (FloatModelOut_021dbc58*)model, (int)0);
+        func_ov023_021dbb34(node, (struct Unpacked021dbb34*)un);
         n = 0;
         __clear(vals, 0x18);
         for (i = 0; i < 12; i++) {
@@ -293,9 +293,9 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         for (i = 0; i < n; i++) {
             v = vals[i];
             key = (short)(idx[i] + 12);
-            SetEntryFields_021e23d0(obj->list, data_ov023_021fd5e6[i], GetFieldByKey020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
+            func_ov023_021e23d0(obj->list, data_ov023_021fd5e6[i], func_020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
             k = data_ov023_021fd5f6[i];
-            ComputeShortPair_021e2bdc(obj->list, k, &p0, &p1);
+            func_ov023_021e2bdc(obj->list, k, &p0, &p1);
             switch (key) {
             case 14:
             case 15:
@@ -303,15 +303,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
             case 17:
                 if (data_ov023_021ff9e0.field4) {
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(buf, p0 + 1, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
+                    func_0204f41c(buf, p0 + 1, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
 #endif
 
 #endif
@@ -319,15 +319,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
 #endif
 
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
-                    FormatAndDispatchValue_021db3c0(buf, p0, p1, v, 0xf);
+                    func_ov023_021db3c0(buf, p0, p1, v, 0xf);
 #endif
 
 #endif
@@ -339,16 +339,16 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
                 break;
             default:
                 abs_ = labs((int)v);
-                SetPackedFields_021e24b0(obj->list, data_ov023_021fd5f6[i], abs_, 8, 0xf, 1, 3, 0, 0);
+                func_ov023_021e24b0(obj->list, data_ov023_021fd5f6[i], abs_, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(obj, data_ov023_021fd5f6[i]);
                 break;
             }
             k3 = data_ov023_021fd5ee[i];
             SetEntryOn(obj, k3);
-            SetEntryFields_021e23d0(obj->list, k3, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x22), 8, 0xf);
+            func_ov023_021e23d0(obj->list, k3, func_020e0434(data_ov023_021ff9e0.field14, 0x22), 8, 0xf);
         }
         FlushList(obj, buf);
-        CreateAndSetFields8A_021db544(obj->list, (void*)0xb, b0, b1);
+        func_ov023_021db544(obj->list, (void*)0xb, b0, b1);
         SetEntryOff(obj, 0xb);
     } else if (!func_020dd4c4(obj->id, obj->node)) {
         short k0;
@@ -366,7 +366,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         short p1, p0;
         short o1, o0;
         short c1, c0;
-        UpdateEntryAndReset_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &c0, &c1);
+        func_ov023_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &c0, &c1);
         SetEntryOn(obj, 0xb);
         SetEntryOff(obj, 0x2d);
         SetEntryOn(obj, 0x2e);
@@ -375,9 +375,9 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         float next[12];
         float cur[12];
         __clear(cur, 0x30);
-        ConvertModelDataToFloats_021dbc58((void*)id, (FloatModelOut_021dbc58*)cur, (int)0);
+        func_ov023_021dbc58((void*)id, (FloatModelOut_021dbc58*)cur, (int)0);
         __clear(next, 0x30);
-        ConvertModelDataToFloats_021dbc58((void*)id, (FloatModelOut_021dbc58*)next, (int)node);
+        func_ov023_021dbc58((void*)id, (FloatModelOut_021dbc58*)next, (int)node);
         struct Packed021ddf5c* pk = 0;
         __clear(changed, 0xc);
         if (node && node->field18 > 0) pk = node->packed;
@@ -420,9 +420,9 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         for (i = 0; i < n; i++) {
             j = idx[i];
             key = j + 12;
-            SetEntryFields_021e23d0(obj->list, data_ov023_021fd606[i], GetFieldByKey020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
+            func_ov023_021e23d0(obj->list, data_ov023_021fd606[i], func_020e0434(data_ov023_021ff9e0.field14, key), 10, 0xf);
             k = data_ov023_021fd60e[i];
-            ComputeShortPair_021e2bdc(obj->list, k, &p0, &p1);
+            func_ov023_021e2bdc(obj->list, k, &p0, &p1);
             v = cur[j];
             switch (key) {
             case 14:
@@ -431,15 +431,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
             case 17:
                 if (data_ov023_021ff9e0.field4) {
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1);
 #else
-                    func_0204f41c(buf, p0 + 1, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
+                    func_0204f41c(buf, p0 + 1, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, 0xf, &o0, &o1, 0);
 #endif
 
 #endif
@@ -447,15 +447,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
 #endif
 
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, v, 0xf);
 #else
-                    FormatAndDispatchValue_021db3c0(buf, p0, p1, v, 0xf);
+                    func_ov023_021db3c0(buf, p0, p1, v, 0xf);
 #endif
 
 #endif
@@ -467,17 +467,17 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
                 break;
             default:
                 abs_ = labs((int)v);
-                SetPackedFields_021e24b0(obj->list, data_ov023_021fd60e[i], abs_, 8, 0xf, 1, 3, 0, 0);
+                func_ov023_021e24b0(obj->list, data_ov023_021fd60e[i], abs_, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(obj, data_ov023_021fd60e[i]);
                 break;
             }
-            SetEntryFields_021e23d0(obj->list, data_ov023_021fd616[i], GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x20), 8, 0xf);
+            func_ov023_021e23d0(obj->list, data_ov023_021fd616[i], func_020e0434(data_ov023_021ff9e0.field14, 0x20), 8, 0xf);
             w = next[j];
             color = 9;
             if (v == w) color = 0xf;
             else if (v < w) color = 5;
             k5 = data_ov023_021fd61e[i];
-            ComputeShortPair_021e2bdc(obj->list, k5, &p0, &p1);
+            func_ov023_021e2bdc(obj->list, k5, &p0, &p1);
             switch (key) {
             case 14:
             case 15:
@@ -485,15 +485,15 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
             case 17:
                 if (data_ov023_021ff9e0.field4) {
 #if defined(jpn)
-                    func_02050678(buf, p0 + 16, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, color, &o0, &o1);
+                    func_02050678(buf, p0 + 16, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, color, &o0, &o1);
 #else
-                    func_0204f41c(buf, p0 + 1, p1, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, color, &o0, &o1, 0);
+                    func_0204f41c(buf, p0 + 1, p1, func_020e0434(data_ov023_021ff9e0.field14, 0x1a), 8, color, &o0, &o1, 0);
 #endif
 
 #if defined(jpn)
-                    FormatAndDispatchValue_021db3c0(buf, (short)(p0 + 8), p1, w, color);
+                    func_ov023_021db3c0(buf, (short)(p0 + 8), p1, w, color);
 #else
-                    FormatAndDispatchValue_021db3c0(buf, p0, p1, w, color);
+                    func_ov023_021db3c0(buf, p0, p1, w, color);
 #endif
 
                 }
@@ -501,17 +501,17 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
                 break;
             default:
                 abs_ = labs((int)w);
-                SetPackedFields_021e24b0(obj->list, data_ov023_021fd61e[i], abs_, 8, color, 1, 3, 0, 0);
+                func_ov023_021e24b0(obj->list, data_ov023_021fd61e[i], abs_, 8, color, 1, 3, 0, 0);
                 SetEntryOn(obj, data_ov023_021fd61e[i]);
                 break;
             }
         }
         FlushList(obj, buf);
-        CreateAndSetFields8A_021db544(obj->list, (void*)0xb, c0, c1);
+        func_ov023_021db544(obj->list, (void*)0xb, c0, c1);
         SetEntryOff(obj, 0xb);
     } else {
         short d1, d0;
-        UpdateEntryAndReset_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &d0, &d1);
+        func_ov023_021db45c(obj->list, (struct StructAcAe021db45c*)buf, 0xb, &d0, &d1);
         SetEntryOn(obj, 0xb);
         SetEntryOn(obj, 0x2c);
 #if defined(jpn)
@@ -523,7 +523,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         }
 
 #endif
-        SetEntryFields_021e23d0(obj->list, 0x2c, GetFieldByKey020e0434(data_ov023_021ff9e0.field14, 0x21), 10, 0xf);
+        func_ov023_021e23d0(obj->list, 0x2c, func_020e0434(data_ov023_021ff9e0.field14, 0x21), 10, 0xf);
         SetEntryOff(obj, 0xa);
         SetEntryOff(obj, 0xc);
         SetEntryOff(obj, 0xd);
@@ -531,7 +531,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Obj021ddf5c* obj) {
         SetEntryOff(obj, 0x2d);
         SetEntryOff(obj, 0x2e);
         FlushList(obj, buf);
-        CreateAndSetFields8A_021db544(obj->list, (void*)0xb, d0, d1);
+        func_ov023_021db544(obj->list, (void*)0xb, d0, d1);
         SetEntryOff(obj, 0xb);
     }
 

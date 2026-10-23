@@ -51,14 +51,14 @@ struct Struct_02245528;
 extern "C" void func_ov031_022125c8();
 extern "C" int func_ov031_0221268c();
 extern "C" void func_ov031_022120f8();
-void SetField34AndClear35_37_02245528(Struct_02245528*, int);
+extern "C" void func_ov031_02245528(Struct_02245528*, int);
 extern "C" int func_ov031_0221244c(void*, void*);
 extern "C" int func_ov017_021b2090(PackedField017, PackedField017);
-void CallStub022169a0_02212784();
+extern "C" void func_ov031_02212784();
 extern "C" void func_ov031_02245478(Struct_02245528*);
 
 #if defined(jpn)
-void SetDataFromIndex_02211c50(int);
+extern "C" void func_ov031_02211c50(int);
 extern unsigned char data_ov031_0224a1b4[];
 #endif
 
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov031_02243e34(void* object) {
     switch (state[0x35]) {
     case 0:
 #if defined(jpn)
-        SetDataFromIndex_02211c50(2);
+        func_ov031_02211c50(2);
 #endif
         state[0x35] = 4;
         break;
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov031_02243e34(void* object) {
         else if (result == 4) state[0x35] = 8;
         else if (result == 5 || result == 0) {
             func_ov031_022120f8();
-            SetField34AndClear35_37_02245528((Struct_02245528*)object, 0);
+            func_ov031_02245528((Struct_02245528*)object, 0);
         }
         int& timer = *(int*)(state + 0x384);
         if (timer < 0x46000) timer += 0x333;
@@ -131,13 +131,13 @@ extern "C" ARM void func_ov031_02243e34(void* object) {
         if (state[0x374] & 0x80) state[0x35] = 7;
         else if (state[0x374] & 2) {
             state[0x3d0] = 1;
-            SetField34AndClear35_37_02245528((Struct_02245528*)object, 5);
+            func_ov031_02245528((Struct_02245528*)object, 5);
         } else if (!(state[0x374] & 1)) state[0x35] = 7;
-        else SetField34AndClear35_37_02245528((Struct_02245528*)object, 4);
+        else func_ov031_02245528((Struct_02245528*)object, 4);
         break;
     }
     case 7:
-        CallStub022169a0_02212784();
+        func_ov031_02212784();
         state[0x35] = 5;
         break;
     case 8:

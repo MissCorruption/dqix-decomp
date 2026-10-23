@@ -5,12 +5,12 @@
 struct OutStruct0215ccbc;
 struct EffectWords_021ddf5c { int lo; int hi; };
 
-short ApplyMPDelta0215a1d4(void* unused, int id, int delta, short* outApplied);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" short func_ov000_0215a1d4(void* unused, int id, int delta, short* outApplied);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* ctx);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_02159eac(void* ctx, struct EffectWords_021ddf5c* words, int effect);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
+extern "C" void func_ov000_0215ccbc(
     int unused, struct OutStruct0215ccbc* out, GameObject* combatant, short valC, short valA, short valB,
     struct EffectWords_021ddf5c words, unsigned char byteE);
 
@@ -47,19 +47,19 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021ddf5c(struct Obj_021ddf5c
     unsigned short code = range->f4.code;
     if (code == 0x19b || code == 0x22e) amount = c->currentStats_->primaryStats.maxMP;
     short applied = 0;
-    short mp = ApplyMPDelta0215a1d4(obj->ctx, id, amount, &applied);
+    short mp = func_ov000_0215a1d4(obj->ctx, id, amount, &applied);
     int full = 0;
     if (!IsPartySlot(id) && c->currentStats_->primaryStats.currMP >= 0xff) full = 1;
     unsigned short sel;
     if (applied > 0 || full) {
-        sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+        sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
         obj->healCount++;
     } else {
-        sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+        sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
     }
     struct OutStruct0215ccbc* entry = func_ov000_0215e958(obj->ctx);
     if (!entry) return 0;
-    AddEntryAndIncrementCount0215a88c(obj->ctx, entry, sel);
+    func_ov000_0215a88c(obj->ctx, entry, sel);
     struct EffectWords_021ddf5c words;
     words.lo = 0;
     words.hi = 0;
@@ -67,6 +67,6 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021ddf5c(struct Obj_021ddf5c
     unsigned short hp = c->currentStats_->primaryStats.currHP;
     unsigned char flag;
     if (obj->action->flag) flag = 1; else flag = 0;
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)obj->ctx, entry, c, -applied, hp, mp, words, flag);
+    func_ov000_0215ccbc((int)obj->ctx, entry, c, -applied, hp, mp, words, flag);
     return entry;
 }

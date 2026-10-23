@@ -8,7 +8,7 @@ extern "C" unsigned short* func_02012fe4(void);
 extern "C" int func_0202c508(void* search);
 extern "C" void func_0205e330(void* a, void* b, int c);
 extern "C" void* memset(void* dst, int c, unsigned int n);
-void* GetData02100044_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 
 struct Entry_02028bd0 {
     unsigned short id;
@@ -16,14 +16,14 @@ struct Entry_02028bd0 {
     unsigned short value : 12;
     unsigned short value2;
 };
-struct Entry_02028bd0* GetEntryTableBase_02027ca4(void);
-struct Entry_02028bd0* FindInlineEntryById(struct Entry_02028bd0* base, int key);
+extern "C" struct Entry_02028bd0* func_02027ca4(void);
+extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
 
 struct Obj_021bd3a4;
-int HasFlag3orFlag2And9a_021bd3a4(Obj_021bd3a4* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-void* GetField6b0_021b8470(void* obj);
-int GetField6acThenCall_021b8b94(void* obj);
+extern "C" int func_ov017_021bd3a4(Obj_021bd3a4* obj);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" int func_ov017_021b8b94(void* obj);
 
 struct Unit_021c4fa0 {
     char pad0[8];
@@ -97,8 +97,8 @@ extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
     cur = func_02012fe4();
     res = GetGameResources();
     unit = (Unit_021c4fa0*)res->unknown_ptr_array_371c[6];
-    GetEntryTableBase_02027ca4();
-    data = GetData02100044_0202ae24();
+    func_02027ca4();
+    data = func_0202ae24();
 
     evt.tag = 0x8f;
     p = &evt.payload;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
     p->time = -1.0f;
 
     zone = (Zone_021c4fa0*)res->unknown_ptr_3718;
-    f6b0 = (char*)GetField6b0_021b8470(zone);
+    f6b0 = (char*)func_ov017_021b8470(zone);
     slot = (Slot_021c4fa0*)func_ov017_021b8478(zone);
 
     if (func_0202c508(search)) {
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
                 ok = 0;
             }
         }
-        if (HasFlag3orFlag2And9a_021bd3a4((Obj_021bd3a4*)unit) && unit->field12 != 0 && unit->field106 == 0 && ok) {
+        if (func_ov017_021bd3a4((Obj_021bd3a4*)unit) && unit->field12 != 0 && unit->field106 == 0 && ok) {
             p->mode = 1;
             if (unit->field18 == 0) {
                 p->field2 = unit->field8;
@@ -128,14 +128,14 @@ extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
                 p->field4 = unit->field52;
             }
         } else if (zone->active != 0 && !(f6b0 != NULL && f6b0[0x8e14] != 0) && slot != NULL &&
-                   !TestBitAt0x34_020a35e0((unsigned char*)slot, unitIdx & 0xff) && !GetField6acThenCall_021b8b94(zone) && slot->index >= 0) {
+                   !func_020a35e0((unsigned char*)slot, unitIdx & 0xff) && !func_ov017_021b8b94(zone) && slot->index >= 0) {
             p->mode = 2;
             p->field2 = slot->index;
             p->field4 = *cur;
         }
 
         p->time = gs->GetDayTimer();
-        entry = FindInlineEntryById(GetEntryTableBase_02027ca4(), id);
+        entry = func_02028bd0(func_02027ca4(), id);
         if (entry != NULL) {
             p->fieldC = entry->value;
             p->fieldE = entry->value2;

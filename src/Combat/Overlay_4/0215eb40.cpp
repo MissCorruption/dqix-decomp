@@ -78,15 +78,15 @@ extern unsigned char data_ov004_021707e8;
 extern unsigned char data_ov004_0216fdd0[];
 extern char data_0212633c[];
 
-void ClearFirstTwoWords0209a338(struct Pair0209a338*);
-void SetupAndRunBufferedScript0209a348(struct Ctx0209a348*, void*);
-int GetIntAt0x4(struct IntField0x4_0209a670*);
-struct ListEntry* GetEntryByIndex0209a654(struct GetList0209a654*, unsigned int);
-void SetBitInArray0x8ec_02083acc(unsigned char*, int);
-void ClearBitInArray0x8ec_02083b28(unsigned char*, int);
-int TestBitInArray0x8ec_02083b00(unsigned char*, int);
-void* GetFieldAt0x150_02053c6c(unsigned char*);
-struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0*, int);
+extern "C" void func_0209a338(struct Pair0209a338*);
+extern "C" void func_0209a348(struct Ctx0209a348*, void*);
+extern "C" int func_0209a670(struct IntField0x4_0209a670*);
+extern "C" struct ListEntry* func_0209a654(struct GetList0209a654*, unsigned int);
+extern "C" void func_02083acc(unsigned char*, int);
+extern "C" void func_02083b28(unsigned char*, int);
+extern "C" int func_02083b00(unsigned char*, int);
+extern "C" void* func_02053c6c(unsigned char*);
+extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0*, int);
 extern "C" void* func_ov004_0215e47c(void*, int);
 extern "C" void func_ov004_0215ee90(void*);
 
@@ -109,17 +109,17 @@ extern "C" ARM void func_ov004_0215eb40(void* self) {
 
     func_ov004_0215ee90(data_ov004_02170b90);
     gs = GameState::GetInstance();
-    combatant = (unsigned char*)(void*)GetCombatantWithFlag0x100_0200ff1c(gs, *(int*)((char*)&data_ov004_021707e8 + 0x1c));
-    field150 = (unsigned char*)GetFieldAt0x150_02053c6c(combatant);
+    combatant = (unsigned char*)(void*)func_0200ff1c(gs, *(int*)((char*)&data_ov004_021707e8 + 0x1c));
+    field150 = (unsigned char*)func_02053c6c(combatant);
     if (combatant == 0 || field150 == 0) {
         return;
     }
     loader = BackgroundLoader::GetInstance();
     loader->MaybeWaitIdle();
     char* script = data_0212633c;
-    ClearFirstTwoWords0209a338((struct Pair0209a338*)&ctx);
-    SetupAndRunBufferedScript0209a348(&ctx, script);
-    GetPtrField0x2a04_02010828(gs);
+    func_0209a338((struct Pair0209a338*)&ctx);
+    func_0209a348(&ctx, script);
+    func_02010828(gs);
 
     container = 0;
     {
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov004_0215eb40(void* self) {
                 break;
             }
         }
-        struct Element020de650* elem = FindElementByKey020dedd0(container, (short)k);
+        struct Element020de650* elem = func_020dedd0(container, (short)k);
         if (elem == 0) {
             continue;
         }
@@ -154,17 +154,17 @@ extern "C" ARM void func_ov004_0215eb40(void* self) {
             continue;
         }
         if (found) {
-            SetBitInArray0x8ec_02083acc(field150, elem->v5);
+            func_02083acc(field150, elem->v5);
         } else {
-            ClearBitInArray0x8ec_02083b28(field150, elem->v5);
+            func_02083b28(field150, elem->v5);
         }
     }
 
 afterSlots:
     mark[0] = data_ov004_0216fdd0[0];
     mark[1] = data_ov004_0216fdd0[1];
-    total = GetIntAt0x4((struct IntField0x4_0209a670*)&ctx);
-    entry = GetEntryByIndex0209a654((struct GetList0209a654*)&ctx, 0);
+    total = func_0209a670((struct IntField0x4_0209a670*)&ctx);
+    entry = func_0209a654((struct GetList0209a654*)&ctx, 0);
     for (count = 0; count < total; entry++, count++) {
         signed char idx = entry->category;
         int slot = (signed char)(idx - 1);
@@ -172,7 +172,7 @@ afterSlots:
             continue;
         }
         unsigned short save = entry->key;
-        bool ok = TestBitInArray0x8ec_02083b00(field150, save);
+        bool ok = func_02083b00(field150, save);
         if (!ok) {
             continue;
         }

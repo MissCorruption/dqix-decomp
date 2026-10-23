@@ -9,10 +9,10 @@ extern "C" void func_0202eab8(void* obj);
 int fix32ReduceAngle0To2Pi(int angle);
 
 struct S020a3570;
-int GetField0x218(struct S020a3570* p);
+extern "C" int func_020a3570(struct S020a3570* p);
 
 struct Obj02033874;
-void SetVecYFromValue02033874(struct Obj02033874* obj, int arg);
+extern "C" void func_02033874(struct Obj02033874* obj, int arg);
 
 extern Matrix4x3 data_02107874;
 extern Matrix4x3 data_021078ac;
@@ -56,7 +56,7 @@ extern "C" ARM void func_0204a170(struct Obj0204a170* self) {
     }
 
     func_020a2d14(self);
-    if (GetField0x218((struct S020a3570*)self) != 0) return;
+    if (func_020a3570((struct S020a3570*)self) != 0) return;
     func_0204a4ac(self);
 
     const Vector3fix& scale = ((Object3D*)self->f21c)->GetScale();
@@ -99,10 +99,10 @@ struct Obj3D0204a170* t = self->f220;
 
     self->f264++;
     if (self->f264 >= 3) {
-        SetVecYFromValue02033874((struct Obj02033874*)u,
+        func_02033874((struct Obj02033874*)u,
             FIX32_MULTIPLY(t->rot.y + angle, 0x800));
         self->f264 = 0;
     } else {
-        SetVecYFromValue02033874((struct Obj02033874*)u, t->rot.y);
+        func_02033874((struct Obj02033874*)u, t->rot.y);
     }
 }

@@ -15,7 +15,7 @@ struct Act_021e4b14 {
 typedef unsigned long long (Act_021e4b14::*Handler_021e4b14)(int a, int b, Rec_021e4b14* rec, int d);
 
 struct SlotArrayStruct_021eb4e4;
-void SetFirstEmptySlot48_021eb4e4(SlotArrayStruct_021eb4e4*, int);
+extern "C" void func_ov024_021eb4e4(SlotArrayStruct_021eb4e4*, int);
 
 extern unsigned int data_ov024_02200144[];
 extern Handler_021e4b14 data_020e6d5c;
@@ -30,6 +30,6 @@ extern "C" ARM unsigned long long func_ov024_021e4b14(Act_021e4b14* self, int a,
     }
     if (rec->effectType >= 0x17) return 0;
     if (data_ov024_021ff450[rec->effectType] == 0) return 0;
-    SetFirstEmptySlot48_021eb4e4((SlotArrayStruct_021eb4e4*)self, self->fc);
+    func_ov024_021eb4e4((SlotArrayStruct_021eb4e4*)self, self->fc);
     return (self->*data_ov024_021ff450[rec->effectType])(a, b, rec, d);
 }

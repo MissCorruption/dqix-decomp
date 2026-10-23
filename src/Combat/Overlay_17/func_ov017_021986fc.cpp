@@ -44,33 +44,33 @@ struct SearchStruct0202c1a4;
 
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" Obj0208e7d0* func_0208e0a8(void);
-int IsMatchingName0208e824(void*, char*);
-int CheckSubstructByte0x7cPositive_020535c8(signed char*);
-Cont0208f3b4* GetData02109020_0208e9e8(void);
-void* GetField0x3b0Value_020100bc(GameState*);
-void InitObj0219a674(unsigned char*);
+extern "C" int func_0208e824(void*, char*);
+extern "C" int func_020535c8(signed char*);
+extern "C" Cont0208f3b4* func_0208e9e8(void);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Event021986fc*);
-int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 extern "C" SearchStruct0202c1a4* func_0202ae18(void);
-int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
+extern "C" int func_0202c1a4(SearchStruct0202c1a4*);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-void RemoveNodeByKey0208f3b4(Cont0208f3b4*, int);
-int GetRandomTableEntry0208e7d0(Obj0208e7d0*);
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_0208f3b4(Cont0208f3b4*, int);
+extern "C" int func_0208e7d0(Obj0208e7d0*);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
 
 // USA: func_ov017_021986fc
 extern "C" ARM void func_ov017_021986fc(GameResources* self) {
     Zone3D* zone = func_02012fe4();
     Zone3D_StructPtr_8* info = zone->pUnknownStruct_8_;
     Obj0208e7d0* list = func_0208e0a8();
-    if (!IsMatchingName0208e824(list, info->mapShortName_)) return;
+    if (!func_0208e824(list, info->mapShortName_)) return;
     GameState* gs = GameState::GetInstance();
     GameObject* actor = gs->GetUnknownGameObject();
-    if (CheckSubstructByte0x7cPositive_020535c8((signed char*)actor)) return;
-    GetData02109020_0208e9e8();
+    if (func_020535c8((signed char*)actor)) return;
+    func_0208e9e8();
     Node021986fc* node = list->head;
-    void* camera = GetField0x3b0Value_020100bc(gs);
+    void* camera = func_020100bc(gs);
 
     int found = 0;
     unsigned int mask = 0;
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* self) {
                 found = 1;
                 mask = bit;
                 Event021986fc event;
-                InitObj0219a674((unsigned char*)&event);
+                func_ov017_0219a674((unsigned char*)&event);
                 event.kind = 3;
                 func_ov017_0219b33c(self, &event);
                 break;
@@ -105,23 +105,23 @@ extern "C" ARM void func_ov017_021986fc(GameResources* self) {
     int cursorY = -1;
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { cursorX = g_touchInput.prevX_; cursorY = g_touchInput.prevY_; }
     int screenX, screenY;
-    ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
+    func_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
     if (cursorX > 0x70 && cursorX < 0x90 && cursorY > 0x28 && cursorY < 0x60) proceed = 1;
     else if (screenX - 12 < cursorX && cursorX < screenX + 12 && screenY - 12 < cursorY && cursorY < screenY + 12) proceed = 1;
     if (!proceed) return;
 
-    EnqueueEventTag183_021d38f8(1, GetSearchStructCurrentArrEntry(func_0202ae18()), mask, node->id, node->entry);
+    func_ov017_021d38f8(1, func_0202c1a4(func_0202ae18()), mask, node->id, node->entry);
     node->entry->fields.flags = ~mask & node->entry->fields.flags;
     node->mask = ~mask & node->mask;
     node->entry->fields.timer = node->entry->fields.count * 30;
     void* base = func_0205ec34();
     func_0206df6c(base, (unsigned char*)base + 0x8c, node->id + 0xc12, 1);
-    RemoveNodeByKey0208f3b4(GetData02109020_0208e9e8(), key);
-    if (node->id >= 0x62) node->unk0 = GetRandomTableEntry0208e7d0(list);
-    ResetHeaderAndAllocator_021ae800(((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
+    func_0208f3b4(func_0208e9e8(), key);
+    if (node->id >= 0x62) node->unk0 = func_0208e7d0(list);
+    func_ov017_021ae800(((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
     ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->itemId = node->unk0;
     ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->position = actor->obj3D_.position_;
     ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->angle = 0;
     ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->fade = 0x1f;
-    AppendNodeToTail((TailList020469b4*)self->unknown_ptr_array_36fc[0], (TailNode020469b4*)((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
+    func_020469b4((TailList020469b4*)self->unknown_ptr_array_36fc[0], (TailNode020469b4*)((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
 }

@@ -29,5 +29,5 @@ struct SearchEntry0202c178 {
     short angle;
 };
 
-SearchEntry0202c178* GetEntryBySignedByteIndex_0202c178(SearchStruct* object, int value);
-void ShiftRecords0202c478(SearchStruct* object);
+extern "C" SearchEntry0202c178* func_0202c178(SearchStruct* object, int value);
+extern "C" void func_0202c478(SearchStruct* object);

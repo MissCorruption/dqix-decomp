@@ -7,13 +7,13 @@ extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count,
 extern "C" int func_ov024_021ede2c(int* a0);
 
 struct Combatant_20885b4;
-int CheckFlag0x2AndKind1_020885b4(struct Combatant_20885b4* obj);
+extern "C" int func_020885b4(struct Combatant_20885b4* obj);
 struct S88514;
-int CheckFlag0x2AndState2_02088514(struct S88514* obj);
+extern "C" int func_02088514(struct S88514* obj);
 
 extern unsigned short data_ov024_021fea8c;
 
-// USA: func_ov024_021f4a54  (semantic: CollectEligibleAndCopyTable_021f4a54)
+// USA: func_ov024_021f4a54
 extern "C" ARM int func_ov024_021f4a54(int* a0, int a1, int a2, int* a3, short* a4) {
 	short buf[4];
 	short* d = buf;
@@ -31,8 +31,8 @@ extern "C" ARM int func_ov024_021f4a54(int* a0, int a1, int a2, int* a3, short* 
 	*a3 = 0;
 	for (int i = 0; i < count; i++) {
 		GameObject* c = GetCombatantByID(*a0, buf[i]);
-		if (c && !CheckFlag0x2AndKind1_020885b4((struct Combatant_20885b4*)c->currentStats_) &&
-		    !CheckFlag0x2AndState2_02088514((struct S88514*)c->currentStats_)) {
+		if (c && !func_020885b4((struct Combatant_20885b4*)c->currentStats_) &&
+		    !func_02088514((struct S88514*)c->currentStats_)) {
 			int idx = *a3;
 			*a3 = idx + 1;
 			a4[idx] = buf[i];

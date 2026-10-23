@@ -32,11 +32,11 @@ struct EffectScriptData
 
 extern "C"
 {
-    void* _Z25GetPtrField0x114_02033fa0Pv(void*);
-    bool _Z28CheckBits5To9Equal2_0204be20Pt(void*);
+    void* func_02033fa0(void*);
+    bool func_0204be20(void*);
 
-    void _Z25RestorePairTables0207df90Pc(void*);
-    void _Z24BackupPairTables0207dfacPc(void*);
+    void func_0207df90(void*);
+    void func_0207dfac(void*);
 }
 
 void AtmosphericEffect::Initialize()
@@ -436,13 +436,13 @@ void AtmosphericEffectSet::ProcessArchive(AtmosphericEffectSet *target, SafeAllo
                 fileID++;
             }
             narc.Destroy();
-            _Z25RestorePairTables0207df90Pc(pZone50Thing);
+            func_0207df90(pZone50Thing);
             loadInfo.allocator = allocator;
             loadInfo.fileData = loopObject->archiveFileData_;
             loadInfo.unk_8 = loopObject->archiveFileSize_;
             loadInfo.unk_10 = 1;
             loopObject->object_.LoadFromCHRArchive(&loadInfo);
-            _Z24BackupPairTables0207dfacPc(pZone50Thing);
+            func_0207dfac(pZone50Thing);
         }
     }
 
@@ -727,7 +727,7 @@ void AtmosphericEffectSet::DetermineVisibilityFromTimeOfDay()
 
 void AtmosphericEffectSet::DetermineVisibilityFromUnknown()
 {
-    bool inputShouldHide = _Z28CheckBits5To9Equal2_0204be20Pt(_Z25GetPtrField0x114_02033fa0Pv(GameState::GetInstance()->GetUnknownGameObject()));
+    bool inputShouldHide = func_0204be20(func_02033fa0(GameState::GetInstance()->GetUnknownGameObject()));
 
     if (inputShouldHide != unknown_14_bit_2_ || visibilityDirty_)
     {

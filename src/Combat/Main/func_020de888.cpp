@@ -3,15 +3,15 @@
 #include "Memory/SafeAllocator.h"
 
 struct Coords020de7a4;
-int ComputeOffsetFromFields(Coords020de7a4* obj);
+extern "C" int func_020de7a4(Coords020de7a4* obj);
 
 struct Container020de7d0;
 struct Element020de7d0;
 typedef void (*Callback020de7d0)(Container020de7d0*, Element020de7d0*);
-int IterateEntries020de7d0(Container020de7d0* c, Callback020de7d0 cb);
+extern "C" int func_020de7d0(Container020de7d0* c, Callback020de7d0 cb);
 
 struct Container020de5b0;
-int RemapSlotIndicesToPointers020de5b0(Container020de5b0* c);
+extern "C" int func_020de5b0(Container020de5b0* c);
 
 extern "C" ARM int func_020de574(void* table, void* cursor);
 
@@ -41,7 +41,7 @@ extern "C" ARM int func_020de888(List020de888* self, SafeAllocator* allocator, v
     }
     if (allocator != 0 && file != 0) {
         memcpy(self, file, 0xc);
-        offset = ComputeOffsetFromFields((Coords020de7a4*)self);
+        offset = func_020de7a4((Coords020de7a4*)self);
         count = self->f8.bits.count;
         if (offset != 0)
             self->field_c = allocator->Allocate(offset);
@@ -52,13 +52,13 @@ extern "C" ARM int func_020de888(List020de888* self, SafeAllocator* allocator, v
             memcpy(self->field_c, (char*)file + 0xc, offset);
         }
         if (self->field_10 != 0) {
-            memcpy(self->field_10, (char*)file + (ComputeOffsetFromFields((Coords020de7a4*)self) + 0xc), count);
+            memcpy(self->field_10, (char*)file + (func_020de7a4((Coords020de7a4*)self) + 0xc), count);
         }
         cb = (Callback020de7d0)func_020de574;
         if (cb != 0) {
-            IterateEntries020de7d0((Container020de7d0*)self, cb);
+            func_020de7d0((Container020de7d0*)self, cb);
         }
         self->f8.raw = (self->f8.raw & ~0x80000000u) | 0x80000000u;
     }
-    return RemapSlotIndicesToPointers020de5b0((Container020de5b0*)self);
+    return func_020de5b0((Container020de5b0*)self);
 }

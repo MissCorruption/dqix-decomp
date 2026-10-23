@@ -14,26 +14,26 @@ enum { regionalOffsetList = 0x18, regionalOffsetMask = 0x60 };
 #endif
 
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
-int FindCombatantWithNegativeField2_021a20c0(int unused, int mult, int limit);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_ov017_021a20c0(int unused, int mult, int limit);
 extern "C" void* __clear(void* dst, int count);
 extern "C" void* func_0202ae18(void);
 extern "C" void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 
 struct SearchStruct;
-int TestBitBySignedByteIndex_0202c1c0(struct SearchStruct* obj, int value);
-int GetSignedByte0x1ca_02039888(void* obj);
+extern "C" int func_0202c1c0(struct SearchStruct* obj, int value);
+extern "C" int func_02039888(void* obj);
 
 extern "C" void func_02034104(void* out, GameObject* obj);
 
 struct ListEntry_02028430 { unsigned char id; unsigned char unk[0xF]; };
 struct List_02028430 { unsigned char unk0[2]; unsigned char count; unsigned char unk3; struct ListEntry_02028430* entries; };
-struct ListEntry_02028430* GetListEntryChecked(struct List_02028430* list, int index);
+extern "C" struct ListEntry_02028430* func_02028430(struct List_02028430* list, int index);
 
 struct ListEntry_020283c0 { unsigned char id; unsigned char unk[0xF]; };
 struct List_020283c0 { unsigned char unk0[2]; unsigned char count; unsigned char unk3; struct ListEntry_020283c0* entries; };
-struct ListEntry_020283c0* FindListEntryById(struct List_020283c0* list, int id);
+extern "C" struct ListEntry_020283c0* func_020283c0(struct List_020283c0* list, int id);
 
 struct SearchCtx_02028460 { unsigned char pad0[2]; unsigned char count; unsigned char pad1[1]; void* nodes; };
 extern "C" int func_02028460(struct SearchCtx_02028460* ctx, Vector3i* pos);
@@ -42,11 +42,11 @@ struct Bounds02031118 { Vector3i min; Vector3i max; };
 extern "C" int func_02031118(Vector3i* p, struct Bounds02031118* b);
 extern "C" int func_02031468(Vector3i* a, Vector3i* b, Vector3i* p, Vector3i* out);
 
-void SetVec3At0x002073d50(struct Vec3Target02073d50* obj, int x, int y, int z);
-int CheckAnySlotMatchesId02073d58(int a, void* b, int c);
+extern "C" void func_02073d50(struct Vec3Target02073d50* obj, int x, int y, int z);
+extern "C" int func_02073d58(int a, void* b, int c);
 extern "C" int func_02073dfc(unsigned char* self, Vector3i* pos);
-void* FindMatchingEntryByMask02073ec4(int mask, void* list);
-int SelectWeightedEntry02073fdc(void* p);
+extern "C" void* func_02073ec4(int mask, void* list);
+extern "C" int func_02073fdc(void* p);
 extern "C" int func_ov017_021a2128(void* a, int b, int c, int d, Vector3i* e, int f, int g, int h);
 
 extern "C" int rand(void);
@@ -90,7 +90,7 @@ static inline int NodeCount020733d8(unsigned char* self) {
 }
 
 #define SELF_MODE(self) (((struct ModeField020733d8*)((self) + 2))->mode)
-#define SET_VEC3(v, x, y, z) SetVec3At0x002073d50((struct Vec3Target02073d50*)(v), x, y, z)
+#define SET_VEC3(v, x, y, z) func_02073d50((struct Vec3Target02073d50*)(v), x, y, z)
 
 // USA: func_020733d8
 extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
     }
 
     void* dataBase = func_0205ec34();
-    if (TestBitInByteArray_0206dfb0((int)dataBase, (unsigned char*)dataBase + 0x8c, 0x79a) != 0 &&
+    if (func_0206dfb0((int)dataBase, (unsigned char*)dataBase + 0x8c, 0x79a) != 0 &&
         *(unsigned short*)self >= 0x190 && *(unsigned short*)self <= 0x199) {
         return;
     }
@@ -113,7 +113,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
         return;
     }
 
-    if (FindCombatantWithNegativeField2_021a20c0((int)globalB, SELF_MODE(self), 0xc) < 0) {
+    if (func_ov017_021a20c0((int)globalB, SELF_MODE(self), 0xc) < 0) {
         return;
     }
 
@@ -176,7 +176,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             VectorizedInvertedMemcpy(weights.v, localWeights, 0x10);
 
             candCount = 0;
-            if (CheckField0NonZero_0202b7d8(counter) == 0) {
+            if (func_0202b7d8(counter) == 0) {
                 unknown = gs->GetUnknownGameObject();
                 if (unknown != 0 && localWeights[0] == -1) {
                     candIds[0] = unknown->obj3D_.unknown_4_;
@@ -184,7 +184,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                 }
             } else {
                 for (j = 0; j < 4; j++) {
-                    if (!TestBitBySignedByteIndex_0202c1c0((struct SearchStruct*)counter, j)) {
+                    if (!func_0202c1c0((struct SearchStruct*)counter, j)) {
                         continue;
                     }
                     member = gs->GetPartyMemberByIndex(j);
@@ -195,10 +195,10 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                         continue;
                     }
 
-                    if (GetSignedByte0x1ca_02039888(member) < 0) {
+                    if (func_02039888(member) < 0) {
                         slot = j;
                     } else {
-                        slot = GetSignedByte0x1ca_02039888(member);
+                        slot = func_02039888(member);
                     }
 
                     found = 0;
@@ -308,7 +308,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             struct ZoneNode020733d8* zone;
             GameObject* slotObj;
 
-            slotObj = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), bestIdx);
+            slotObj = func_0200ff1c(GameState::GetInstance(), bestIdx);
             if (slotObj == 0) {
                 status = -1;
                 break;
@@ -318,7 +318,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                 break;
             }
 
-            zone = (struct ZoneNode020733d8*)GetListEntryChecked(
+            zone = (struct ZoneNode020733d8*)func_02028430(
                 (struct List_02028430*)(self + regionalOffsetList), *(unsigned short*)((char*)slotObj + 0xb8));
             if (zone == 0) {
                 func_02034104(&zoneTmp, slotObj);
@@ -327,7 +327,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                     status = -1;
                     break;
                 }
-                zone = (struct ZoneNode020733d8*)GetListEntryChecked((struct List_02028430*)(self + regionalOffsetList), closestIdx);
+                zone = (struct ZoneNode020733d8*)func_02028430((struct List_02028430*)(self + regionalOffsetList), closestIdx);
                 if (zone == 0) {
                     status = -1;
                     break;
@@ -348,7 +348,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             pick = -1;
             matchCount = 0;
             for (p = 0; p < zone->count; p++) {
-                if (CheckAnySlotMatchesId02073d58(zone->children[p]->id, self, pick) != 0) {
+                if (func_02073d58(zone->children[p]->id, self, pick) != 0) {
                     continue;
                 }
                 stored[matchCount++] = zone->children[p];
@@ -367,7 +367,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                     }
                 }
                 if (notFound) {
-                    if (CheckAnySlotMatchesId02073d58(zoneId, self, -1) == 0) {
+                    if (func_02073d58(zoneId, self, -1) == 0) {
                         stored[matchCount++] = zone;
                     }
                 }
@@ -398,7 +398,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                 pick = stored[rand() % matchCount]->id;
             }
 
-            entry = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + regionalOffsetList), pick);
+            entry = (struct ZoneNode020733d8*)func_020283c0((struct List_020283c0*)(self + regionalOffsetList), pick);
             if (entry == 0) {
                 status = -1;
                 break;
@@ -476,14 +476,14 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             continue;
         }
 
-        dest = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + regionalOffsetList), status);
+        dest = (struct ZoneNode020733d8*)func_020283c0((struct List_020283c0*)(self + regionalOffsetList), status);
         if (dest == 0) {
             continue;
         }
         if (dest != 0 && (dest->flags & 2)) {
             continue;
         }
-        matchEntry = FindMatchingEntryByMask02073ec4(dest->mask, self + regionalOffsetMask);
+        matchEntry = func_02073ec4(dest->mask, self + regionalOffsetMask);
         if (matchEntry == 0) {
             continue;
         }
@@ -499,12 +499,12 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
     if (matchEntry == 0) {
         return;
     }
-    chosen = SelectWeightedEntry02073fdc(matchEntry);
+    chosen = func_02073fdc(matchEntry);
     if (chosen == -1) {
         return;
     }
 
-    combatant = GetCombatantWithFlag0x100_0200ff1c(gameState, bestIdx);
+    combatant = func_0200ff1c(gameState, bestIdx);
     angle = 0;
     if (combatant != 0) {
         func_02034104(&slotPosTmp, combatant);

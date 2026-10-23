@@ -12,23 +12,23 @@ enum { kRegion89c = 0x89c };
 #include "GameState/GameState.h"
 
 struct Obj2081;
-void ClearElementFlag0x20_02080c20(struct Obj2081* obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void* obj, int id, int value);
-void ClearSublistEntriesFlag1_02080bac(void* obj, int id);
+extern "C" void func_02080c20(struct Obj2081* obj, int key);
+extern "C" void func_02080c68(void* obj, int id, int value);
+extern "C" void func_02080bac(void* obj, int id);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(struct Container02080f8c* obj, int id, int value);
+extern "C" void func_02080f8c(struct Container02080f8c* obj, int id, int value);
 struct Container02080cc0;
-void SetEntryHighNibble0x13(struct Container02080cc0* obj, int id, int value);
+extern "C" void func_02080cc0(struct Container02080cc0* obj, int id, int value);
 extern "C" int func_020dcc98(int combatantId);
 extern "C" void func_020813ec(void* obj, int key);
-void* GetPtrField0x2a04_02010828(GameState* battleStruct);
+extern "C" void* func_02010828(GameState* battleStruct);
 
-// USA: func_ov003_02177820  (semantic: RecomputeElementTierAndDispatchAll_02177820)
+// USA: func_ov003_02177820
 #pragma opt_common_subs off
 extern "C" ARM void func_ov003_02177820(char* self) {
     struct Obj2081* elemObj = *(struct Obj2081**)(self + kRegion89c);
     GameState* battle = GameState::GetInstance();
-    GetPtrField0x2a04_02010828(battle);
+    func_02010828(battle);
 
     int field = *(int*)(self + kRegion1030);
     int a = 0x11, b = 0x79;
@@ -38,9 +38,9 @@ extern "C" ARM void func_ov003_02177820(char* self) {
     case 4: a = 0x14; b = 0x85; break;
     }
 
-    ClearElementFlag0x20_02080c20(elemObj, a);
-    SetEntryLowNibbleAndElement02080c68(elemObj, a, 0);
-    ClearSublistEntriesFlag1_02080bac(elemObj, a);
+    func_02080c20(elemObj, a);
+    func_02080c68(elemObj, a, 0);
+    func_02080bac(elemObj, a);
 
     int hp;
     unsigned char i;
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov003_02177820(char* self) {
         if (combatant != 0) {
             hp = *(int*)((char*)combatant + 0x134);
         }
-        SetEntryFirstField02080f8c((struct Container02080f8c*)elemObj, b, hp);
+        func_02080f8c((struct Container02080f8c*)elemObj, b, hp);
 
         int tier = func_020dcc98((signed char)*(int*)(self + kRegion101c + i * 4));
-        SetEntryHighNibble0x13((struct Container02080cc0*)elemObj, b, tier);
+        func_02080cc0((struct Container02080cc0*)elemObj, b, tier);
 
         b = (short)(b + 1);
     }

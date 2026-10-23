@@ -54,26 +54,26 @@ struct List0204b0e8;
 struct Struct0200fb08;
 
 extern "C" void func_020c39a0(short*, int);
-void ClearField0x0_020bc078(int*);
-void CallField0xa00203aa44(void*);
-int TryAllocateOrAppend0203aaf8(void*, void*, int*);
-void EnsureInitAndSetFlag_0218be1c();
-void InitOverlay17ObjAndBumpBattleCounter02012bd8();
-int SetVBlankIrqEnable_020c3864(int);
-int GetWord0x7f6c_0201201c(void*);
-void SetSubBgMode_020c3984(unsigned int);
-void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
-void TailForward02012da4(AllocatorUnion*, void*);
-void ResetList0204af64(List0204af64*);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
-int CountActiveEntries(ActiveEntry02046900*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
-int NormalizeField5_0200fb08(Struct0200fb08*);
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
-void DelayThenSyncBit0_020c9820();
+extern "C" void func_020bc078(int*);
+extern "C" void func_0203aa44(void*);
+extern "C" int func_0203aaf8(void*, void*, int*);
+extern "C" void func_ov016_0218be1c();
+extern "C" void func_02012bd8();
+extern "C" int func_020c3864(int);
+extern "C" int func_0201201c(void*);
+extern "C" void func_020c3984(unsigned int);
+extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void func_0204af64(List0204af64*);
+extern "C" void func_0204b11c(unsigned char*, int);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
+extern "C" void func_020c9820();
 extern "C" void func_020ca458(unsigned int, void*, unsigned int);
 extern "C" void func_0204b5b4(BackgroundGraphics*, int);
 extern "C" void func_0204b174(BackgroundGraphics*, void*, SafeAllocator*, unsigned int);
@@ -108,8 +108,8 @@ struct DisplayContextJ0218caa8 {
 };
 
 struct SelfTag0204b3a0;
-void DispatchByTag0204b2e0(void*, char*);
-void DispatchByTagLookup0204b3a0(SelfTag0204b3a0*, char*);
+extern "C" void func_0204b2e0(void*, char*);
+extern "C" void func_0204b3a0(SelfTag0204b3a0*, char*);
 extern "C" void func_ov016_0218ca98(char*);
 extern const char data_ov016_0219cf00[];
 extern DisplayContextJ0218caa8 data_ov016_0219d0c0;
@@ -124,13 +124,13 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNodeJ0218
     data_ov016_0219d0c0.mode = mode;
     func_020c39a0((short*)0x0400006c, -16);
     func_020c39a0((short*)0x0400106c, -16);
-    SetInterruptHandler(1, (const void*)EnsureInitAndSetFlag_0218be1c);
+    SetInterruptHandler(1, (const void*)func_ov016_0218be1c);
     EnableSpecificInterrupts(0x60078);
     unsigned short previousMasterEnable = IRQ_MASTER_ENABLE;
     IRQ_MASTER_ENABLE = 1;
-    SetVBlankIrqEnable_020c3864(1);
+    func_020c3864(1);
     GameState* gameState = GameState::GetInstance();
-    if (GetWord0x7f6c_0201201c(gameState) == 5)
+    if (func_0201201c(gameState) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
         func_020ca458(0, (void*)0x06800000, 0xa4000);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNodeJ0218
         func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
-        SetSubBgMode_020c3984(0);
+        func_020c3984(0);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
         BG0CNTSUB &= ~3;
         unsigned short backgroundControl = BG0CNTSUB;
@@ -161,21 +161,21 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNodeJ0218
             if (loader->GetTaskStatus(task) != 0)
             {
                 loader->GetLoadedFileByID(task, &archive, &archiveLength);
-                int count = CountActiveEntries((ActiveEntry02046900*)archive);
+                int count = func_02046900((ActiveEntry02046900*)archive);
                 BackgroundGraphics background;
-                ResetList0204af64((List0204af64*)&background);
+                func_0204af64((List0204af64*)&background);
                 background.screen = 1;
                 background.layer = 0;
                 func_0204b5b4(&background, 0);
-                SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&background, 0);
+                func_0204b11c((unsigned char*)&background, 0);
                 for (int index = 0; index < count; index++)
                 {
                     int recordLength;
-                    char* record = (char*)FindRecordByIndex((Rec020467f0*)archive, index, &recordName, &recordLength);
+                    char* record = (char*)func_020467f0((Rec020467f0*)archive, index, &recordName, &recordLength);
                     if (record != NULL)
                     {
-                        DispatchByTag0204b2e0(&background, record);
-                        DispatchByTagLookup0204b3a0((SelfTag0204b3a0*)&background, record);
+                        func_0204b2e0(&background, record);
+                        func_0204b3a0((SelfTag0204b3a0*)&background, record);
                     }
                 }
                 loader->RemoveTask(task);
@@ -195,12 +195,12 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNodeJ0218
         func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     data_ov016_0219d0c0.owner = owner;
     func_020c39a0((short*)0x0400006c, 0);
     func_020c39a0((short*)0x0400106c, 0);
     func_ov016_0218ca98(name);
-    SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);
+    SetInterruptHandler(1, (const void*)func_02012bd8);
 }
 #else
 // USA: func_ov016_0218caa8
@@ -213,19 +213,19 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
     data_ov016_0219d0c0.displayState[1] = 0;
     data_ov016_0219d0c0.negativeScene = node->scene < 0;
     data_ov016_0219d0c0.mode = mode;
-    ClearField0x0_020bc078(&data_ov016_0219d0cc);
+    func_020bc078(&data_ov016_0219d0cc);
     if (data_ov016_0219d0c0.node->flags == 0)
     {
-        CallField0xa00203aa44(&data_02109bf4);
-        TryAllocateOrAppend0203aaf8(&data_02109bf4, (void*)(int)data_ov016_0219d0c0.node->scene, NULL);
+        func_0203aa44(&data_02109bf4);
+        func_0203aaf8(&data_02109bf4, (void*)(int)data_ov016_0219d0c0.node->scene, NULL);
     }
-    SetInterruptHandler(1, (const void*)EnsureInitAndSetFlag_0218be1c);
+    SetInterruptHandler(1, (const void*)func_ov016_0218be1c);
     EnableSpecificInterrupts(0x60078);
     unsigned short previousMasterEnable = IRQ_MASTER_ENABLE;
     IRQ_MASTER_ENABLE = 1;
-    SetVBlankIrqEnable_020c3864(1);
+    func_020c3864(1);
     GameState* gameState = GameState::GetInstance();
-    if (GetWord0x7f6c_0201201c(gameState) == 5)
+    if (func_0201201c(gameState) == 5)
     {
         MapVRAMBanksToLCDC(0x1ff);
         func_020ca458(0, (void*)0x06800000, 0xa4000);
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
         func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(3);
         MapVRAMBanksToSubBG(0x80);
-        SetSubBgMode_020c3984(0);
+        func_020c3984(0);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
         BG0CNTSUB &= ~3;
         unsigned short backgroundControl = BG0CNTSUB;
@@ -244,19 +244,19 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
         BG0CNTSUB = backgroundControl;
         SUB_BG0_SCROLL = 0;
 
-        void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0x2000);
+        void* buffer = func_02012d88(&data_02114e20, 0x2000);
         SafeAllocator allocator;
         allocator.ResetAllocatorPointer();
         allocator.ResetAllocatorPointer();
         allocator.CreateTypeA(buffer, 0x2000);
         BackgroundGraphics background;
-        ResetList0204af64((List0204af64*)&background);
+        func_0204af64((List0204af64*)&background);
         background.screen = 1;
         background.layer = 0;
         func_0204b5b4(&background, 0);
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&background, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)&background, &allocator);
-        AllocateArray0204af38((Foo0204af38*)&background, 5, &allocator);
+        func_0204b11c((unsigned char*)&background, 0);
+        func_0204b12c((AllocTarget0204b12c*)&background, &allocator);
+        func_0204af38((Foo0204af38*)&background, 5, &allocator);
         int task;
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
         loader->MaybeReset();
@@ -269,11 +269,11 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
             if (loader->GetTaskStatus(task) != 0)
             {
                 loader->GetLoadedFileByID(task, &archive, &archiveLength);
-                int count = CountActiveEntries((ActiveEntry02046900*)archive);
+                int count = func_02046900((ActiveEntry02046900*)archive);
                 for (int index = 0; index < count; index++)
                 {
                     int recordLength;
-                    void* record = FindRecordByIndex((Rec020467f0*)archive, index, &recordName, &recordLength);
+                    void* record = func_020467f0((Rec020467f0*)archive, index, &recordName, &recordLength);
                     if (record != NULL)
                     {
                         func_0204b174(&background, record, &allocator, recordLength);
@@ -281,7 +281,7 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
                 }
                 loader->RemoveTask(task);
                 int selection = 0;
-                switch (NormalizeField5_0200fb08((Struct0200fb08*)gameState))
+                switch (func_0200fb08((Struct0200fb08*)gameState))
                 {
                 case 2:
                     selection = 1;
@@ -296,12 +296,12 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
                     selection = 4;
                     break;
                 }
-                DispatchEntry0204b8d0((Obj0204b8d0*)&background, 0, 0, 0, 0, 0, 32, 25, 0xffff);
+                func_0204b8d0((Obj0204b8d0*)&background, 0, 0, 0, 0, 0, 32, 25, 0xffff);
                 if (selection > 0)
                 {
-                    DispatchEntry0204b8d0((Obj0204b8d0*)&background, (unsigned char)selection, 0, 0, 0, 17, 32, 25, 0xffff);
+                    func_0204b8d0((Obj0204b8d0*)&background, (unsigned char)selection, 0, 0, 0, 17, 32, 25, 0xffff);
                 }
-                FlushAndDispatchList0204b0e8((List0204b0e8*)&background, NULL);
+                func_0204b0e8((List0204b0e8*)&background, NULL);
                 break;
             }
             loader->RemoveAllLocks();
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
         }
         if (buffer != NULL)
         {
-            TailForward02012da4(&data_02114e20, buffer);
+            func_02012da4(&data_02114e20, buffer);
         }
     }
     else
@@ -326,11 +326,11 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
         func_020ca458(0, (void*)0x05000400, 0x400);
         MapVRAMBanksToLCDC(0x1ff);
     }
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     data_ov016_0219d0c0.owner = owner;
     func_020c39a0((short*)0x0400006c, 0);
     func_020c39a0((short*)0x0400106c, 0);
     func_ov016_0218c04c(name, script);
-    SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);
+    SetInterruptHandler(1, (const void*)func_02012bd8);
 }
 #endif

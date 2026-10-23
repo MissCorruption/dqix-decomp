@@ -22,14 +22,14 @@ struct StreamHeader0208d82c {
     unsigned int w8;
     unsigned short hc, he;
 };
-void InitStreamHeader0208d82c(struct StreamHeader0208d82c* header);
-int* GetGlobal02109418_02094d6c(void);
-int GetGlobalField0x1c020421a0(void);
-void SetFieldsAt0x4And0x8_020e2d24(int* obj, int a, int b);
+extern "C" void func_0208d82c(struct StreamHeader0208d82c* header);
+extern "C" int* func_02094d6c(void);
+extern "C" int func_020421a0(void);
+extern "C" void func_020e2d24(int* obj, int a, int b);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_02095b30(int* g, int v);
 extern "C" void* func_ov011_021845f8(void* obj, int key);
-void* CheckTypeAndReturnNode_02165e70_02165e70(void* obj, int type);
+extern "C" void* func_ov004_02165e70(void* obj, int type);
 
 extern void* data_ov004_0217101c[2];
 extern int data_ov004_0217059c;
@@ -51,7 +51,7 @@ struct State02166844 {
 extern "C" ARM int func_ov004_02166844(void* a1) {
     char* node;
     data_ov004_0217101c[MainIndex] = 0;
-    int* g = GetGlobal02109418_02094d6c();
+    int* g = func_02094d6c();
     char* c = (char*)func_0205ec34();
     node = (char*)func_ov011_021845f8(a1, 0);
     if (node == 0) {
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov004_02166844(void* a1) {
     state->field0 = 0;
     state->field4 = 0;
     state->field8 = 0;
-    InitStreamHeader0208d82c(&state->stream);
+    func_0208d82c(&state->stream);
     state->allocators[0].ResetAllocatorPointer();
     state->taskId = -1;
     state->field48 = 0;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov004_02166844(void* a1) {
     q = ((SafeAllocator*)(node + 4))->Allocate(n);
     ((State02166844*)data_ov004_0217101c[MainIndex])->allocators[1].CreateTypeA(q, n);
 
-    char* n2 = (char*)CheckTypeAndReturnNode_02165e70_02165e70(a1, 7);
+    char* n2 = (char*)func_ov004_02165e70(a1, 7);
     if (n2 != 0) {
         unsigned short* flags = (unsigned short*)(n2 + 0x34);
         flags[0x6d] |= 0x10;
@@ -113,9 +113,9 @@ extern "C" ARM int func_ov004_02166844(void* a1) {
         ((void**)data_ov004_0217101c[ListIndex])[i] = ((SafeAllocator*)(node + 4))->Allocate(0x80);
     }
 
-    char* f = (char*)GetGlobalField0x1c020421a0();
+    char* f = (char*)func_020421a0();
     *(unsigned char*)(f + 0x1000 + FlagOffset) = 1;
-    SetFieldsAt0x4And0x8_020e2d24((int*)(f + FirstWindow + WindowPrefix), 9, 1);
-    SetFieldsAt0x4And0x8_020e2d24((int*)(f + SecondWindow + WindowPrefix), 0x19, 1);
+    func_020e2d24((int*)(f + FirstWindow + WindowPrefix), 9, 1);
+    func_020e2d24((int*)(f + SecondWindow + WindowPrefix), 0x19, 1);
     return 0;
 }

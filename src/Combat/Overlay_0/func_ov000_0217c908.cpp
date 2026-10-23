@@ -2,16 +2,16 @@
 #include "Input/Input.h"
 #if defined(jpn)
 #include "std_library_functions.h"
-extern "C" void _Z32ClearBuffers0204b010OverList0x98P12Cont0205d1e0(void*);
-extern "C" void _Z28CallFunc0204b04cOverList0x98P12Cont0205d274(void*);
-extern "C" void _Z19InitEntries0205d2bcP11Obj0205d2bc(void*);
+extern "C" void func_0205d1e0(void*);
+extern "C" void func_0205d274(void*);
+extern "C" void func_0205d2bc(void*);
 #define KINDS_OFFSET 0x1f98
 #else
 #define KINDS_OFFSET 0x1d60
 #endif
 
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* list, int flag);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* list, int flag);
 
 struct Battle0217c908;
 extern "C" int func_ov000_0217f910(struct Battle0217c908* battle);
@@ -48,7 +48,7 @@ struct Battle0217c908 {
 // USA: func_ov000_0217c908
 extern "C" ARM void func_ov000_0217c908(struct Battle0217c908* battle, int arg1, int arg2) {
     if (func_ov000_0217f910(battle) == 0) {
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)battle->entryList, 1);
+        func_0205d6a0((struct Entry_0205d6a0*)battle->entryList, 1);
         return;
     }
     switch (battle->kinds[battle->kindIndex]) {
@@ -111,10 +111,10 @@ extern "C" ARM void func_ov000_0217c908(struct Battle0217c908* battle, int arg1,
         memset(battle->kinds, 0, 8);
         battle->kindIndex = 0;
         battle->kinds[battle->kindIndex] = 1;
-        _Z32ClearBuffers0204b010OverList0x98P12Cont0205d1e0(battle->entryList);
-        _Z28CallFunc0204b04cOverList0x98P12Cont0205d274(battle->entryList);
-        _Z19InitEntries0205d2bcP11Obj0205d2bc(battle->entryList);
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)battle->entryList, 1);
+        func_0205d1e0(battle->entryList);
+        func_0205d274(battle->entryList);
+        func_0205d2bc(battle->entryList);
+        func_0205d6a0((struct Entry_0205d6a0*)battle->entryList, 1);
         battle->flags |= 2;
     }
 #endif

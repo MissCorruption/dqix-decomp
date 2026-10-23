@@ -78,18 +78,18 @@ struct Statics_021df558 {
 extern "C" Statics_021df558 data_ov023_021ff9e0;
 
 extern "C" void func_0204c684(Canvas_021df558* canvas);
-int InitBufferFromDataField4_021ddc34(void* canvas, short x, short y, short width, short height);
+extern "C" int func_ov023_021ddc34(void* canvas, short x, short y, short width, short height);
 extern "C" void __clear(void* buffer, unsigned long size);
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 extern "C" void func_02046608(void* messages, int, const char* input, char* output, int, int, int);
 extern "C" LayoutElement_021df558* func_ov023_021db4e4(Layout_021df558* layout, int id);
-void SetEntryFields_021e23d0(void* layout, int id, int text, unsigned char color, unsigned char shadow);
-void UpdateEntryAndReset_021db45c(void* layout, struct StructAcAe021db45c* canvas, int id, short* x, short* y);
+extern "C" void func_ov023_021e23d0(void* layout, int id, int text, unsigned char color, unsigned char shadow);
+extern "C" void func_ov023_021db45c(void* layout, struct StructAcAe021db45c* canvas, int id, short* x, short* y);
 extern "C" void func_ov023_021e257c(Layout_021df558* layout);
-void CreateAndSetFields8A_021db544(void* layout, void* id, int x, int y);
+extern "C" void func_ov023_021db544(void* layout, void* id, int x, int y);
 extern "C" unsigned int func_ov023_021ddc98(Canvas_021df558* canvas, unsigned int offset, unsigned short palette, int bg1);
-unsigned short EvalOrDispatch020de194(void* item);
-void SetPackedFields_021e24b0(void* layout, int id, int value, unsigned char color, unsigned char shadow,
+extern "C" unsigned short func_020de194(void* item);
+extern "C" void func_ov023_021e24b0(void* layout, int id, int value, unsigned char color, unsigned char shadow,
                               unsigned char unk4, unsigned char digits, unsigned char unk5, unsigned char unk6);
 
 #define SHOW_ELEMENT(layout, id)                                           \
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov023_021df558(ItemInfoWindow_021df558* self)
 {
     Canvas_021df558 canvas;
     func_0204c684(&canvas);
-    if (InitBufferFromDataField4_021ddc34(&canvas, 0, 0, 0xe, 8))
+    if (func_ov023_021ddc34(&canvas, 0, 0, 0xe, 8))
     {
         PartEntry_021df558* item = self->item_;
         if (item != NULL)
@@ -129,17 +129,17 @@ extern "C" ARM void func_ov023_021df558(ItemInfoWindow_021df558* self)
                 text = 7;
             }
 #if defined(jpn)
-            SetEntryFields_021e23d0(&self->layout_, text, (int)self->description_, 12, 15);
+            func_ov023_021e23d0(&self->layout_, text, (int)self->description_, 12, 15);
 #else
             char formatted[0x100] = {0};
-            func_02046608(GetGlobalField0x1c020421a0(), 10, self->description_, formatted, 0x68, 0, 0);
-            SetEntryFields_021e23d0(&self->layout_, text, (int)formatted, 10, 15);
+            func_02046608(func_020421a0(), 10, self->description_, formatted, 0x68, 0, 0);
+            func_ov023_021e23d0(&self->layout_, text, (int)formatted, 10, 15);
 #endif
 
             SHOW_ELEMENT(&self->layout_, group);
             short y;
             short x;
-            UpdateEntryAndReset_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, group, &x, &y);
+            func_ov023_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, group, &x, &y);
             if (data_ov023_021ff9e0.sBuffer != NULL)
             {
                 self->layout_.canvas_ = &canvas;
@@ -152,18 +152,18 @@ extern "C" ARM void func_ov023_021df558(ItemInfoWindow_021df558* self)
 
                 func_ov023_021e257c(&self->layout_);
             }
-            CreateAndSetFields8A_021db544(&self->layout_, (void*)group, x, y);
+            func_ov023_021db544(&self->layout_, (void*)group, x, y);
             HIDE_ELEMENT(&self->layout_, group);
         }
         self->vramOffset_ += func_ov023_021ddc98(&canvas, self->vramOffset_, data_ov023_021ff9e0.sPalette3, 0);
     }
     if (IsEquipment(self->item_))
         return;
-    if (InitBufferFromDataField4_021ddc34(&canvas, 0, 0, 8, 2))
+    if (func_ov023_021ddc34(&canvas, 0, 0, 8, 2))
     {
         PartEntry_021df558* item = self->item_;
         SHOW_ELEMENT(&self->layout_, 0x10);
-        if (item->category_ == 9 || EvalOrDispatch020de194(item) == 0)
+        if (item->category_ == 9 || func_020de194(item) == 0)
         {
             HIDE_ELEMENT(&self->layout_, 5);
             HIDE_ELEMENT(&self->layout_, 0x17);
@@ -171,25 +171,25 @@ extern "C" ARM void func_ov023_021df558(ItemInfoWindow_021df558* self)
         }
         else
         {
-            SetPackedFields_021e24b0(&self->layout_, 5, EvalOrDispatch020de194(item), 8, 15, 1, 6, 0, 0);
+            func_ov023_021e24b0(&self->layout_, 5, func_020de194(item), 8, 15, 1, 6, 0, 0);
             SHOW_ELEMENT(&self->layout_, 5);
             SHOW_ELEMENT(&self->layout_, 0x17);
             HIDE_ELEMENT(&self->layout_, 0x19);
         }
         short y;
         short x;
-        UpdateEntryAndReset_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0x10, &x, &y);
+        func_ov023_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0x10, &x, &y);
         if (data_ov023_021ff9e0.sBuffer != NULL)
         {
             self->layout_.canvas_ = &canvas;
             self->layout_.unk_12 = 1;
             func_ov023_021e257c(&self->layout_);
         }
-        CreateAndSetFields8A_021db544(&self->layout_, (void*)0x10, x, y);
+        func_ov023_021db544(&self->layout_, (void*)0x10, x, y);
         HIDE_ELEMENT(&self->layout_, 0x10);
         self->vramOffset_ += func_ov023_021ddc98(&canvas, self->vramOffset_, data_ov023_021ff9e0.sPalette3, 0);
     }
-    if (InitBufferFromDataField4_021ddc34(&canvas, 0, 0, 8, 2))
+    if (func_ov023_021ddc34(&canvas, 0, 0, 8, 2))
     {
         PartEntry_021df558* item = self->item_;
         SHOW_ELEMENT(&self->layout_, 0x12);
@@ -202,21 +202,21 @@ extern "C" ARM void func_ov023_021df558(ItemInfoWindow_021df558* self)
         }
         else
         {
-            SetPackedFields_021e24b0(&self->layout_, 6, price, 8, 15, 1, 6, 0, 0);
+            func_ov023_021e24b0(&self->layout_, 6, price, 8, 15, 1, 6, 0, 0);
             SHOW_ELEMENT(&self->layout_, 6);
             SHOW_ELEMENT(&self->layout_, 0x18);
             HIDE_ELEMENT(&self->layout_, 0x1a);
         }
         short y;
         short x;
-        UpdateEntryAndReset_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0x12, &x, &y);
+        func_ov023_021db45c(&self->layout_, (StructAcAe021db45c*)&canvas, 0x12, &x, &y);
         if (data_ov023_021ff9e0.sBuffer != NULL)
         {
             self->layout_.canvas_ = &canvas;
             self->layout_.unk_12 = 1;
             func_ov023_021e257c(&self->layout_);
         }
-        CreateAndSetFields8A_021db544(&self->layout_, (void*)0x12, x, y);
+        func_ov023_021db544(&self->layout_, (void*)0x12, x, y);
         HIDE_ELEMENT(&self->layout_, 0x12);
         self->vramOffset_ += func_ov023_021ddc98(&canvas, self->vramOffset_, data_ov023_021ff9e0.sPalette3, 0);
     }

@@ -5,14 +5,14 @@ struct CallIfFlag0x800_021571ccStruct;
 struct Container020e0310;
 
 #if defined(jpn)
-int GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Container020e0310*, int);
 #else
-const char** CallFunc020e52a0_020e5294(void* names, int item);
+extern "C" const char** func_020e5294(void* names, int item);
 extern "C" void func_020e4864(const char*, char*, int, int, int, int);
 #endif
-void SetFields_021dceac(char*, int, int, unsigned char, unsigned char, unsigned char);
+extern "C" void func_ov023_021dceac(char*, int, int, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021dced4(AlchemyItemInfoWindow*, unsigned char);
-void CallIfFlag_021571cc_021571cc(CallIfFlag0x800_021571ccStruct*);
+extern "C" void func_ov006_021571cc(CallIfFlag0x800_021571ccStruct*);
 
 // USA: func_ov006_021553bc
 extern "C" ARM void func_ov006_021553bc(AlchemyPot* self, short* items, unsigned char* amounts) {
@@ -20,17 +20,17 @@ extern "C" ARM void func_ov006_021553bc(AlchemyPot* self, short* items, unsigned
     for (unsigned char i = 0; i < 3; i++) {
         if (self->itemNames_ != 0) {
 #if defined(jpn)
-            names[i] = (const char*)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, items[i]);
+            names[i] = (const char*)func_020e0434((Container020e0310*)self->itemNames_, items[i]);
 #else
-            const char** name = CallFunc020e52a0_020e5294(self->itemNames_, items[i]);
+            const char** name = func_020e5294(self->itemNames_, items[i]);
             if (name != 0) {
                 func_020e4864(*name, self->names_[i], 1, 0, 0, 0);
                 names[i] = self->names_[i];
             }
 #endif
-            SetFields_021dceac((char*)&self->window_, i, (int)names[i], amounts[i], amounts[i], 0);
+            func_ov023_021dceac((char*)&self->window_, i, (int)names[i], amounts[i], amounts[i], 0);
         }
     }
     func_ov023_021dced4(&self->window_, 1);
-    CallIfFlag_021571cc_021571cc((CallIfFlag0x800_021571ccStruct*)self);
+    func_ov006_021571cc((CallIfFlag0x800_021571ccStruct*)self);
 }

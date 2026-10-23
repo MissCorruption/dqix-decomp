@@ -49,13 +49,13 @@ struct Header0218dfd8 {
 };
 
 extern "C" ActorListManager* func_02012fe4(void);
-ActorEntry* GetActorEntryByIndex_0201777c(ActorListManager* manager, int index);
-unsigned int IsFlag0x1ceBit0x8Set_02039dcc(unsigned char* obj);
+extern "C" ActorEntry* func_0201777c(ActorListManager* manager, int index);
+extern "C" unsigned int func_02039dcc(unsigned char* obj);
 struct Vec3;
-short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
-int IsField0Null_02046b08(void** obj);
-int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
-void InitObj0219a674(unsigned char* self);
+extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
+extern "C" int func_02046b08(void** obj);
+extern "C" int func_020535c8(signed char* obj);
+extern "C" void func_ov017_0219a674(unsigned char* self);
 extern "C" void func_ov017_0219b33c(GameResources* res, Event0218dfd8* event);
 
 // USA: func_ov017_0218dfd8
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
     Vector3fix pos = self->obj3D.position_;
     int moved = 0;
     ActorListManager* manager = func_02012fe4();
-    ActorEntry* entry = GetActorEntryByIndex_0201777c(manager, 0);
+    ActorEntry* entry = func_0201777c(manager, 0);
     if (entry == NULL) {
         return 0;
     }
@@ -88,7 +88,7 @@ extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
         b.y = 0;
         int dist = Vector3fix_Distance(&a, &b);
         if (dist < pushRadius) {
-            if (!IsFlag0x1ceBit0x8Set_02039dcc((unsigned char*)self)) {
+            if (!func_02039dcc((unsigned char*)self)) {
                 Vector3fix dir;
                 Vector3fix_Subtract(&a, &b, &dir);
                 Vector3fix_Normalize(&dir, &dir);
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
             moved = 1;
         }
         if (dist < pushRadius + 0x400) {
-            int angle = GetAbsAngleDeltaBetween_021a4754(&pos, (short)self->obj3D.rotation_.y, &b);
+            int angle = func_ov017_021a4754(&pos, (short)self->obj3D.rotation_.y, &b);
             if (angle < bestAngle) {
                 bestAngle = angle;
                 bestIndex = i;
@@ -110,10 +110,10 @@ extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
         }
     }
     void** list = (void**)res->unknown_ptr_array_36fc[0];
-    if (best != NULL && IsField0Null_02046b08(list) != 0 &&
-        CheckSubstructByte0x7cPositive_020535c8((signed char*)self) == 0 && !(self->flags & 0x40) && bestAngle < 0xc91) {
+    if (best != NULL && func_02046b08(list) != 0 &&
+        func_020535c8((signed char*)self) == 0 && !(self->flags & 0x40) && bestAngle < 0xc91) {
         Event0218dfd8 event;
-        InitObj0219a674((unsigned char*)&event);
+        func_ov017_0219a674((unsigned char*)&event);
         event.tag = 5;
         event.angle = bestAngle;
         event.target = best;

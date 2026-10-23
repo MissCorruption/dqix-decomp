@@ -18,27 +18,27 @@ struct PartyStatusPanel {
     signed char selected;
 };
 
-void SetSublistEntriesFlag1_02080b54(void*, int);
-void SetSublistEntriesFlag2_02080608(void*, int);
-void SetEntryFlagById02080b40(void*, int);
-void DispatchEntryOp0x8_0208108c(void*, int);
+extern "C" void func_02080b54(void*, int);
+extern "C" void func_02080608(void*, int);
+extern "C" void func_02080b40(void*, int);
+extern "C" void func_0208108c(void*, int);
 struct Obj0215570c;
-int CountNonZeroEntries_0215570c(Obj0215570c*);
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char*);
-void ClearSublistEntryFlag2_020806c4(void*, int);
-void SetEntryHalfword0xe_0208103c(void*, int, int);
+extern "C" int func_ov003_0215570c(Obj0215570c*);
+extern "C" unsigned char* func_02053c6c(unsigned char*);
+extern "C" void func_020806c4(void*, int);
+extern "C" void func_0208103c(void*, int, int);
 struct Container02080fa8;
-void SetEntryFirstField02080fa8(Container02080fa8*, int, int);
-void GetEntryFieldsAt0x602080828(void*, int, short*, short*);
-void GetEntryOutputs020808c8(void*, int, short*, short*);
-void SetEntryFieldsAt0x602080854(void*, int, int, int);
-void ResolveEntryValueByKey02080fe0(void*, int, int);
+extern "C" void func_02080fa8(Container02080fa8*, int, int);
+extern "C" void func_02080828(void*, int, short*, short*);
+extern "C" void func_020808c8(void*, int, short*, short*);
+extern "C" void func_02080854(void*, int, int, int);
+extern "C" void func_02080fe0(void*, int, int);
 struct Container02080cc0;
-void SetEntryHighNibble0x13(Container02080cc0*, int, int);
-void GetSublistEntryScaledXY_020807c4(void*, int, short*, short*);
-void GetEntryFieldsAt0xE02080878(void*, int, short*, short*);
-void SetEntryScaledXY020807fc(void*, int, int, int);
-void SetEntryFieldsAt0xE020808a4(void*, int, int, int);
+extern "C" void func_02080cc0(Container02080cc0*, int, int);
+extern "C" void func_020807c4(void*, int, short*, short*);
+extern "C" void func_02080878(void*, int, short*, short*);
+extern "C" void func_020807fc(void*, int, int, int);
+extern "C" void func_020808a4(void*, int, int, int);
 extern "C" void func_020813ec(void*, int);
 
 // USA: func_ov003_02158480
@@ -49,14 +49,14 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
     short sub = 0x2b;
     short cell = 0x37;
 
-    SetSublistEntriesFlag1_02080b54(entries, 6);
-    SetSublistEntriesFlag2_02080608(entries, 6);
-    SetEntryFlagById02080b40(entries, 0x43);
+    func_02080b54(entries, 6);
+    func_02080608(entries, 6);
+    func_02080b40(entries, 0x43);
 #if !defined(jpn)
-    DispatchEntryOp0x8_0208108c(entries, 0x43);
+    func_0208108c(entries, 0x43);
 #endif
 
-    int count = CountNonZeroEntries_0215570c((Obj0215570c*)self);
+    int count = func_ov003_0215570c((Obj0215570c*)self);
     int r8 = -1;
     if (count <= 6) {
         r8 = 7;
@@ -69,16 +69,16 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
     GameState* gs = GameState::GetInstance();
     unsigned char* member = (unsigned char*)gs->GetPartyMemberByIndex(self->selected);
     if (member != NULL) {
-        unsigned char* base = GetFieldAt0x150_02053c6c(member);
+        unsigned char* base = func_02053c6c(member);
         for (unsigned char i = 0; i < 12; i++) {
             int slot = self->slots[i];
             if (slot != 0) {
-                ClearSublistEntryFlag2_020806c4(entries, row);
-                SetEntryFlagById02080b40(entries, row);
-                SetEntryFlagById02080b40(entries, col);
-                SetEntryFlagById02080b40(entries, sub);
-                SetEntryHalfword0xe_0208103c(entries, row, (short)(slot - 1));
-                SetEntryFirstField02080fa8((Container02080fa8*)entries, sub, *(unsigned short*)(base + 0x16c + slot * 2));
+                func_020806c4(entries, row);
+                func_02080b40(entries, row);
+                func_02080b40(entries, col);
+                func_02080b40(entries, sub);
+                func_0208103c(entries, row, (short)(slot - 1));
+                func_02080fa8((Container02080fa8*)entries, sub, *(unsigned short*)(base + 0x16c + slot * 2));
 
                 unsigned char* entry = base + slot;
                 unsigned char kind = entry[0x186];
@@ -90,16 +90,16 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
                     }
 
                     short a, b, c, d;
-                    GetEntryFieldsAt0x602080828(entries, row, &a, &b);
-                    GetEntryOutputs020808c8(entries, row, &c, &d);
+                    func_02080828(entries, row, &a, &b);
+                    func_020808c8(entries, row, &c, &d);
 #if defined(jpn)
-                    SetEntryFieldsAt0x602080854(entries, cell, (short)(a + c + 1), (short)(b + 2));
+                    func_02080854(entries, cell, (short)(a + c + 1), (short)(b + 2));
 #else
-                    SetEntryFieldsAt0x602080854(entries, cell, (short)(a + c + 1), b);
+                    func_02080854(entries, cell, (short)(a + c + 1), b);
 #endif
-                    SetEntryFlagById02080b40(entries, cell);
-                    ResolveEntryValueByKey02080fe0(entries, cell, hi);
-                    SetEntryHighNibble0x13((Container02080cc0*)entries, cell, shade);
+                    func_02080b40(entries, cell);
+                    func_02080fe0(entries, cell, hi);
+                    func_02080cc0((Container02080cc0*)entries, cell, shade);
                 }
             }
             row = (short)(row + 1);
@@ -111,12 +111,12 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
 
     if (r8 > 0) {
         short e, f, g, h;
-        GetSublistEntryScaledXY_020807c4(entries, r8, &e, &f);
-        GetEntryFieldsAt0xE02080878(entries, r8, &g, &h);
-        SetEntryScaledXY020807fc(entries, 6, e, f);
-        SetEntryFieldsAt0xE020808a4(entries, 6, g, h);
-        GetSublistEntryScaledXY_020807c4(entries, 6, &e, &f);
-        GetEntryFieldsAt0xE02080878(entries, 6, &g, &h);
+        func_020807c4(entries, r8, &e, &f);
+        func_02080878(entries, r8, &g, &h);
+        func_020807fc(entries, 6, e, f);
+        func_020808a4(entries, 6, g, h);
+        func_020807c4(entries, 6, &e, &f);
+        func_02080878(entries, 6, &g, &h);
     }
     func_020813ec(entries, 6);
 }

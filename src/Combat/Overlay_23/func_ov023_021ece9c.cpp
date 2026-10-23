@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 
-// USA: func_ov023_021ece9c  (semantic: UpdateDisplayCounterFromScale_021ece9c)
+// USA: func_ov023_021ece9c
 extern "C" ARM void func_ov023_021ece9c(char* obj) {
     unsigned short flags38 = *(unsigned short*)(obj + 0x438);
     if (!(flags38 & 0x80)) return;

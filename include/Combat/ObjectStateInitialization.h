@@ -56,5 +56,5 @@ struct ObjectStatePrefix {
 typedef char ObjectStatePrefixExtentCheck[sizeof(ObjectStatePrefix) == 0x130 ? 1 : -1];
 typedef char ObjectStatePrefixB4Check[offsetof(ObjectStatePrefix, fieldB4) == 0xb4 ? 1 : -1];
 
-void ClearFourHalfwords(Struct02032fb8 *value);
+extern "C" void func_02032fb8(Struct02032fb8 *value);
 extern "C" void func_02032e58(void *receiver);

@@ -8,7 +8,7 @@ enum {regionalOffset0=0x2e8, regionalOffset1=0x4400, regionalOffset2=0xc2};
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 
 struct Src_021b7104 {
     unsigned char f0;
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
     if (src->f0 == 0) {
         val = -1;
     } else {
-        val = GetField0x3acValue_020100a8(battle);
+        val = func_020100a8(battle);
     }
     dst->f46 = (unsigned char)val;
     dst->f28 = src->f8;

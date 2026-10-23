@@ -49,47 +49,47 @@ struct Holder {
 
 struct Res;
 extern "C" Holder *func_02012fe4();
-void DispatchWithGlobalContext020daf9c(int, int, int, int);
+extern "C" void func_020daf9c(int, int, int, int);
 void SetAndLockBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *, int);
-int GetField0x3acValue_020100a8(GameState *);
+extern "C" GameObject *func_0200ff1c(GameState *, int);
+extern "C" int func_020100a8(GameState *);
 struct Obj02033874;
-void SetVecYFromValue02033874(Obj02033874*, int);
+extern "C" void func_02033874(Obj02033874*, int);
 extern "C" void func_ov017_021af59c(Node *);
 struct HeadList020469f8;
 struct HeadNode020469f8;
-void PrependNodeToHead(HeadList020469f8*, HeadNode020469f8*);
+extern "C" void func_020469f8(HeadList020469f8*, HeadNode020469f8*);
 struct Struct021b11b0;
-void InitState39_021b11b0(Struct021b11b0*);
+extern "C" void func_ov017_021b11b0(Struct021b11b0*);
 extern "C" int *func_0202ae18();
-int CheckField0NonZero_0202b7d8(int *);
-void EnqueueEventTag173_021d1810(int, int, signed char);
-void *GetGlobal02109030_020936f8();
+extern "C" int func_0202b7d8(int *);
+extern "C" void func_ov017_021d1810(int, int, signed char);
+extern "C" void *func_020936f8();
 extern "C" void func_02094030(void *, int, int, int);
-unsigned int *GetDataPtr02114e04_020d6c00();
+extern "C" unsigned int *func_020d6c00();
 struct FlagWord020466f4;
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-int GetField0x397cValue_020100b0(GameState *);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" int func_020100b0(GameState *);
 struct Field150Holder02052e2c;
-Field150 * GetField150Ptr0x488_02052e2c(Field150Holder02052e2c*);
+extern "C" Field150 * func_02052e2c(Field150Holder02052e2c*);
 extern "C" void func_ov017_021bbae4(Node *, int, int);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
 struct ListHead02046b60;
-int ListContainsId(ListHead02046b60*, int);
+extern "C" int func_02046b60(ListHead02046b60*, int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
-int *GetField0x3f8Address_0200fd0c(GameState *);
-char *GetGlobalField0x1c020421a0();
-void ReinitController02043204(char *);
+extern "C" int *func_0200fd0c(GameState *);
+extern "C" char *func_020421a0();
+extern "C" void func_02043204(char *);
 extern "C" void func_02043124(char *);
-unsigned char *GetFieldAt0x150_02053c6c(unsigned char *);
-void ResetShortFields02086380(unsigned char *);
+extern "C" unsigned char *func_02053c6c(unsigned char *);
+extern "C" void func_02086380(unsigned char *);
 struct S021b6b8c;
-void CallIfField24ThenSetFlag_021b6b8c(S021b6b8c*);
+extern "C" void func_ov017_021b6b8c(S021b6b8c*);
 extern "C" void __clear(void *, int);
 
 #if defined(jpn)
@@ -117,20 +117,20 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
     list   = *(void **) (res + 0x3000 + RES_LIST_021638e4);
     gs     = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
-    gp     = (unsigned char *)GetPtrField0x2a04_02010828(gs);
+    gp     = (unsigned char *)func_02010828(gs);
     func_02012fe4();
     unsigned char state = self->state;
 
     if (state == 0) {
         if (!(self->flags & 0x40) || self->p4b0 != 0) {
-            DispatchWithGlobalContext020daf9c(1, 0, 1, 0);
+            func_020daf9c(1, 0, 1, 0);
             SetAndLockBrightness((GameResources*)res, 0x10, 0xf);
             self->state = self->state + 1;
         }
     } else if (state == 1) {
         if (IsBrightnessTransitionActive((GameResources*)res) == 0) {
             for (int i = 0; i < gp[0xf7c]; i++) {
-                GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, (gp + i)[0xf78]);
+                GameObject *c = func_0200ff1c(gs, (gp + i)[0xf78]);
                 if (c != 0) {
                     c->obj3D_.MakeHidden();
                 }
@@ -140,22 +140,22 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
     } else if (state == 2) {
         if (IsBrightnessTransitionActive((GameResources*)res) == 0 && loader->GetNumQueuedTasks() <= 0) {
             if (self->flags & 0x40) {
-                GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, GetField0x3acValue_020100a8(gs));
+                GameObject *c = func_0200ff1c(gs, func_020100a8(gs));
                 if (c != 0) {
                     Vector3i *v = &c->obj3D_.position_;
                     v->x        = 0x5800;
                     v->y        = 0x199;
                     v->z        = -0x785;
-                    SetVecYFromValue02033874((Obj02033874*)c, 0);
+                    func_02033874((Obj02033874*)c, 0);
                 }
                 Node *n = *(Node **) (res + 0x3000 + RES_NODE_A_021638e4);
                 func_ov017_021af59c(n);
                 n->b9 = 2;
-                PrependNodeToHead((HeadList020469f8*)list, (HeadNode020469f8*)n);
+                func_020469f8((HeadList020469f8*)list, (HeadNode020469f8*)n);
             } else {
                 Node *n = *(Node **) (res + 0x3000 + RES_NODE_B_021638e4);
-                InitState39_021b11b0((Struct021b11b0*)n);
-                PrependNodeToHead((HeadList020469f8*)list, (HeadNode020469f8*)n);
+                func_ov017_021b11b0((Struct021b11b0*)n);
+                func_020469f8((HeadList020469f8*)list, (HeadNode020469f8*)n);
             }
             self->state = self->state + 1;
         }
@@ -163,15 +163,15 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
         if (self->flags & 0x40) {
             Vector3i saved[4];
             for (int i = 0; i < 4; i++) {
-                GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, (gp + i)[0xf78]);
+                GameObject *c = func_0200ff1c(gs, (gp + i)[0xf78]);
                 if (c != 0) {
                     saved[i] = c->obj3D_.position_;
                     c->obj3D_.MakeVisible();
                 }
             }
-            if (CheckField0NonZero_0202b7d8(func_0202ae18()) != 0) {
-                EnqueueEventTag173_021d1810(0, -1, (signed char) GetField0x3acValue_020100a8(gs));
-                func_02094030(GetGlobal02109030_020936f8(), 1, -1, 0);
+            if (func_0202b7d8(func_0202ae18()) != 0) {
+                func_ov017_021d1810(0, -1, (signed char) func_020100a8(gs));
+                func_02094030(func_020936f8(), 1, -1, 0);
             }
         } else {
             if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) {
@@ -184,7 +184,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
                 tmp = *(Vector3i *) ((char *) p + 0x44);
             }
             for (int i = 0; i < 4; i++) {
-                GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, i);
+                GameObject *c = func_0200ff1c(gs, i);
                 if (c != 0) {
                     c->obj3D_.MakeVisible();
                     c->obj3D_.position_ = tmp;
@@ -194,27 +194,27 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
         self->state = self->state + 1;
     } else if (state == 4) {
         if (IsBrightnessTransitionActive((GameResources*)res) == 0) {
-            ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x80000);
+            func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x80000);
             Holder *h   = func_02012fe4();
             Node *n     = *(Node **) (res + 0x3000 + RES_NODE_C_021638e4);
-            Field150 *f = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)(gs->GetGameObjectByIndex(GetField0x397cValue_020100b0(gs))));
+            Field150 *f = func_02052e2c((Field150Holder02052e2c*)(gs->GetGameObjectByIndex(func_020100b0(gs))));
             func_ov017_021bbae4(n, h->f8, 2);
-            n->bcd = GetField0x397cValue_020100b0(gs);
+            n->bcd = func_020100b0(gs);
             n->bce = f->b14;
             if (self->flags & 0x40) {
                 self->flags &= ~0x40;
-                if (CheckField0NonZero_0202b7d8(func_0202ae18()) != 0) {
+                if (func_0202b7d8(func_0202ae18()) != 0) {
                     n->bcf = 2;
-                    AppendNodeToTail((TailList020469b4*)list, (TailNode020469b4*)n);
+                    func_020469b4((TailList020469b4*)list, (TailNode020469b4*)n);
                 }
-                if (ListContainsId((ListHead02046b60*)list, 3) == 0) {
+                if (func_02046b60((ListHead02046b60*)list, 3) == 0) {
                     SetBrightness((GameResources*)res, 0, 8);
                 }
             } else {
                 n->bcf = 3;
-                PrependNodeToHead((HeadList020469f8*)list, (HeadNode020469f8*)n);
+                func_020469f8((HeadList020469f8*)list, (HeadNode020469f8*)n);
                 func_ov017_0219bd1c(1, 0, 0, 1);
-                int *p                         = GetField0x3f8Address_0200fd0c(gs);
+                int *p                         = func_0200fd0c(gs);
                 p[4]                           = 0x48cc;
                 p[5]                           = 0x199;
                 p[6]                           = -0x733;
@@ -222,21 +222,21 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
                 *((unsigned char *) p + 0x6e)  = 0x40;
                 *((unsigned char *) p + 0xa)   = 0;
             }
-            char *ctl = GetGlobalField0x1c020421a0();
-            ReinitController02043204(ctl);
+            char *ctl = func_020421a0();
+            func_02043204(ctl);
             func_02043124(ctl);
             self->c4a3  = 0x10;
             self->state = 0;
             for (signed char i = 0; i < 4; i++) {
                 GameObject *m = gs->GetPartyMemberByIndex(i);
                 if (m != 0) {
-                    unsigned char *fld = GetFieldAt0x150_02053c6c((unsigned char *) m);
+                    unsigned char *fld = func_02053c6c((unsigned char *) m);
                     if (fld != 0) {
-                        ResetShortFields02086380(fld);
+                        func_02086380(fld);
                     }
                 }
             }
-            CallIfField24ThenSetFlag_021b6b8c((S021b6b8c*)(*(void **) (res + 0x3000 + RES_STATE_021638e4)));
+            func_ov017_021b6b8c((S021b6b8c*)(*(void **) (res + 0x3000 + RES_STATE_021638e4)));
         }
     }
 }

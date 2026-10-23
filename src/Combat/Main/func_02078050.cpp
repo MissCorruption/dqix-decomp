@@ -12,19 +12,19 @@ struct Vec3 { int x; int y; int z; };
 extern "C" void* func_0202ae18(void* self);
 
 struct BitFlag02033f44;
-int* GetField0xe4IfFlag0x40(struct BitFlag02033f44* self);
+extern "C" int* func_02033f44(struct BitFlag02033f44* self);
 
-void TrySetMode02076ccc(void* self, int mode);
+extern "C" void func_02076ccc(void* self, int mode);
 
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_0202b7d8(int*);
 
 extern "C" void func_020794f8(void* self, int a, int b);
 
 struct Obj02033b68;
-void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
+extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
 
 struct Obj02033834;
-void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
+extern "C" void func_02033834(struct Obj02033834* obj, int arg);
 
 extern "C" int func_0202c540(void* obj);
 
@@ -37,7 +37,7 @@ extern "C" int func_02018fbc(int seed, void* v);
 struct Vector3i;
 
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 
 struct Flags02078050 {
     unsigned short f00;
@@ -60,10 +60,10 @@ struct Entity02078050 {
 extern "C" ARM void func_02078050(struct Entity02078050* self) {
     void* mgr = func_0202ae18(self);
 
-    if (GetField0xe4IfFlag0x40((struct BitFlag02033f44*)self) != 0) {
-        TrySetMode02076ccc(self, 1);
+    if (func_02033f44((struct BitFlag02033f44*)self) != 0) {
+        func_02076ccc(self, 1);
         self->f154 = 0;
-        if (CheckField0NonZero_0202b7d8((int*)mgr) == 0) {
+        if (func_0202b7d8((int*)mgr) == 0) {
             return;
         }
         func_020794f8(self, 0, 0);
@@ -72,7 +72,7 @@ extern "C" ARM void func_02078050(struct Entity02078050* self) {
 
     self->fb4 = 0x1c2;
     self->fb2 = 0x1c2;
-    SetByteIfChanged02033b68((struct Obj02033b68*)self, 1);
+    func_02033b68((struct Obj02033b68*)self, 1);
 
     struct Vec3 pos44 = self->f44;
     pos44.y = 0;
@@ -84,7 +84,7 @@ extern "C" ARM void func_02078050(struct Entity02078050* self) {
     dist = Vector3fix_Distance((const Vector3fix*)&pos44, (const Vector3fix*)&pos158);
     Vector3fix_Subtract((const Vector3fix*)&pos158, (const Vector3fix*)&pos44, (Vector3fix*)&delta);
     Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
-    SetVecYByMode02033834((struct Obj02033834*)self, fix32_Atan2(delta.x, delta.z));
+    func_02033834((struct Obj02033834*)self, fix32_Atan2(delta.x, delta.z));
 
     if (func_0202c540(mgr) != 0) {
         return;
@@ -103,12 +103,12 @@ extern "C" ARM void func_02078050(struct Entity02078050* self) {
         *(Vector3i*)((int*)&self->f44) = *(Vector3i const*)((int*)&v);
     }
 
-    TrySetMode02076ccc(self, 1);
+    func_02076ccc(self, 1);
     self->f154 = 0;
-    if (CheckField0NonZero_0202b7d8((int*)mgr) == 0) {
+    if (func_0202b7d8((int*)mgr) == 0) {
         return;
     }
-    if (GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)mgr) != 0) {
+    if (func_0202c1a4((struct SearchStruct0202c1a4*)mgr) != 0) {
         return;
     }
     func_020794f8(self, 0, 0);

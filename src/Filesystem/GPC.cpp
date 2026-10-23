@@ -23,7 +23,7 @@ extern "C"
 {
     unsigned int func_01ff860c(const char*);
 
-    extern "C" int _Z19ReturnFalse02075090PKc(const char*);
+    extern "C" int func_02075090(const char*);
 
 }
 
@@ -149,7 +149,7 @@ bool LoadAndDecompressGPCHeaderAndInnerFileInfo(GPCFile **ppGPC, ExtendedNitroVM
     outDecompressedLength = 0;
 
     ResetGPCPair(ppGPC, machine);
-    int unknownPurposeButAlwaysZero = _Z19ReturnFalse02075090PKc(gpcFilePath);
+    int unknownPurposeButAlwaysZero = func_02075090(gpcFilePath);
     {
     if (!machine.Open(gpcFilePath, unknownPurposeButAlwaysZero != 0))
         goto end;

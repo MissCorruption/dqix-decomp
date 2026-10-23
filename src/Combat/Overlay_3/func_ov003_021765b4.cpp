@@ -28,9 +28,9 @@ extern "C" {
 void func_020813ec(Menu*, int);
 }
 
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-int GetField0x15UnlessInactive_020e2918(signed char*);
-int RunAndCheckFlagBit02080dd4(void*, int, int, int, unsigned char*, unsigned char);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" int func_020e2918(signed char*);
+extern "C" int func_02080dd4(void*, int, int, int, unsigned char*, unsigned char);
 
 struct Ctx021765b4 {
     Outer020e28dc* choice_;
@@ -49,9 +49,9 @@ extern "C" ARM unsigned char func_ov003_021765b4(Ctx021765b4* self)
     unsigned char confirmed = 0;
     if (g_keyManager.TestKeysPressed(0x401))
         confirmed = 1;
-    if (self->choice_ != 0 && GetInnerFlagBit0020e28dc(self->choice_))
+    if (self->choice_ != 0 && func_020e28dc(self->choice_))
     {
-        int choice = GetField0x15UnlessInactive_020e2918((signed char*)self->choice_);
+        int choice = func_020e2918((signed char*)self->choice_);
         if (choice >= 0)
         {
             confirmed = 1;
@@ -65,7 +65,7 @@ extern "C" ARM unsigned char func_ov003_021765b4(Ctx021765b4* self)
         Menu* menu = self->menu_;
         g_touchInput.GetTouchPoint(&x, &y);
         self->previousCursor_ = *self->cursor_;
-        int item = RunAndCheckFlagBit02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 1);
+        int item = func_02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 1);
         if (item < 0)
             return 0;
         *self->cursor_ = item;

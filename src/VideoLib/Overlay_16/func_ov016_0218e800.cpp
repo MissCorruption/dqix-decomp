@@ -95,11 +95,11 @@ struct VideoDecoder {
     int base;
 };
 
-void* SafeAllocatorAllocate_0218bc8c(unsigned int);
-void* GetOrStreamPoolBlockD_0218fcd4(void);
-void* GetOrStreamPoolBlockA_0218fd50(void);
-void* GetOrStreamPoolBlockB_0218fdc0(void);
-void* GetOrStreamPoolBlockC_0218fe30(void);
+extern "C" void* func_ov016_0218bc8c(unsigned int);
+extern "C" void* func_ov016_0218fcd4(void);
+extern "C" void* func_ov016_0218fd50(void);
+extern "C" void* func_ov016_0218fdc0(void);
+extern "C" void* func_ov016_0218fe30(void);
 extern "C" void func_020ca458(unsigned int value, void* dest, unsigned int size);
 extern unsigned char data_ov016_02191d78[];
 
@@ -133,15 +133,15 @@ extern "C" ARM int func_ov016_0218e800(VideoDecoder* self, VideoFile* file, unsi
         )
         return 0;
 
-    self->stream = (Stream_0218e800*)SafeAllocatorAllocate_0218bc8c(sizeof(Stream_0218e800));
+    self->stream = (Stream_0218e800*)func_ov016_0218bc8c(sizeof(Stream_0218e800));
     func_020ca458(0, self->stream, sizeof(Stream_0218e800));
-    self->advance = (int (*)(Stream_0218e800*))GetOrStreamPoolBlockD_0218fcd4();
-    self->stream->lumaTable = GetOrStreamPoolBlockA_0218fd50();
+    self->advance = (int (*)(Stream_0218e800*))func_ov016_0218fcd4();
+    self->stream->lumaTable = func_ov016_0218fd50();
     self->stream->chromaTable = data_ov016_02191d78;
-    self->stream->rangeTable = (unsigned char*)GetOrStreamPoolBlockC_0218fe30() + 0x40;
+    self->stream->rangeTable = (unsigned char*)func_ov016_0218fe30() + 0x40;
     self->target.width = self->header.width;
     self->target.height = self->header.height;
-    self->target.field_18 = (const unsigned char*)GetOrStreamPoolBlockB_0218fdc0();
+    self->target.field_18 = (const unsigned char*)func_ov016_0218fdc0();
     self->stream->width = self->header.width;
     self->stream->height = self->header.height;
 
@@ -149,22 +149,22 @@ extern "C" ARM int func_ov016_0218e800(VideoDecoder* self, VideoFile* file, unsi
     if (frameCount < 6) return 0;
 
     self->frameCount = frameCount;
-    self->framesY = (unsigned char**)SafeAllocatorAllocate_0218bc8c(frameCount * 4);
+    self->framesY = (unsigned char**)func_ov016_0218bc8c(frameCount * 4);
     if (!self->framesY) return 0;
-    self->framesC = (unsigned char**)SafeAllocatorAllocate_0218bc8c(self->frameCount * 4);
+    self->framesC = (unsigned char**)func_ov016_0218bc8c(self->frameCount * 4);
     if (!self->framesC) return 0;
 
     unsigned int i;
     for (i = 0; i < self->frameCount; i++) {
-        self->framesY[i] = (unsigned char*)SafeAllocatorAllocate_0218bc8c(self->header.height << 8);
+        self->framesY[i] = (unsigned char*)func_ov016_0218bc8c(self->header.height << 8);
         if (!self->framesY[i]) return 0;
-        self->framesC[i] = (unsigned char*)SafeAllocatorAllocate_0218bc8c((self->header.height >> 1) << 8);
+        self->framesC[i] = (unsigned char*)func_ov016_0218bc8c((self->header.height >> 1) << 8);
         if (!self->framesC[i]) return 0;
         func_020ca458(0, self->framesY[i], self->header.height << 8);
         VectorizedMemset(self->framesC[i], 0x80, (self->header.height >> 1) << 8);
     }
 
-    self->qpTable = (unsigned int*)SafeAllocatorAllocate_0218bc8c(self->frameCount * 4);
+    self->qpTable = (unsigned int*)func_ov016_0218bc8c(self->frameCount * 4);
     if (!self->qpTable) return 0;
 
     self->writeIdx = 0;
@@ -177,19 +177,19 @@ extern "C" ARM int func_ov016_0218e800(VideoDecoder* self, VideoFile* file, unsi
     self->consumed = 0;
 
     for (int b = 0; b < 2; b++) {
-        self->buffers[b] = (unsigned char*)SafeAllocatorAllocate_0218bc8c(self->header.biggestFrame + 0x400);
+        self->buffers[b] = (unsigned char*)func_ov016_0218bc8c(self->header.biggestFrame + 0x400);
         if (!self->buffers[b]) return 0;
     }
 
     if (self->header.audioCodec != 0) {
-        self->audio = (AudioDecoder*)SafeAllocatorAllocate_0218bc8c(self->header.channelCount * sizeof(AudioDecoder));
+        self->audio = (AudioDecoder*)func_ov016_0218bc8c(self->header.channelCount * sizeof(AudioDecoder));
         if (!self->audio) return 0;
         func_020ca458(0, self->audio, self->header.channelCount * sizeof(AudioDecoder));
     }
 
     int saved = self->file->Tell();
     self->file->Seek(self->header.keyframeIndexOffset + self->base);
-    self->keyframes = SafeAllocatorAllocate_0218bc8c(self->header.keyframeCount << 3);
+    self->keyframes = func_ov016_0218bc8c(self->header.keyframeCount << 3);
     if (!self->file->Read(self->keyframes, self->header.keyframeCount << 3)) return 0;
     self->file->Seek(saved);
 

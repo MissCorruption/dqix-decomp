@@ -14,9 +14,9 @@ struct Entry021db314 {
 };
 
 extern "C" int func_02005a94(signed char* s);
-int ParseCodeLetter_021db564(char* str);
+extern "C" int func_ov023_021db564(char* str);
 
-// USA: func_ov023_021db314  (semantic: ParseCodeEntriesIntoArray_021db314)
+// USA: func_ov023_021db314
 extern "C" ARM void func_ov023_021db314(void* obj, short* out, short* outCount) {
     struct List021db314* list = *(struct List021db314**)((char*)obj + 0x8);
     struct Entry021db314* entry = (struct Entry021db314*)list->head;
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov023_021db314(void* obj, short* out, short* outCount) 
                 out[count] = (short)func_02005a94(ptr + 5);
                 count++;
             } else if (*ptr >= 'A' && *ptr <= 'Z') {
-                unsigned short v = (unsigned short)ParseCodeLetter_021db564((char*)ptr);
+                unsigned short v = (unsigned short)func_ov023_021db564((char*)ptr);
                 if (v != 0) {
                     out[count] = v;
                     count++;

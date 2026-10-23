@@ -11,9 +11,9 @@ extern MenuValueTable02233524 data_ov031_0224919a[];
 extern MenuValueTable02233524 data_ov031_0224919c[];
 extern MenuValueTable02233524 data_ov031_0224919e[];
 extern MenuSelection02233524 data_ov031_02290cc8;
-int TestFieldRestBits_02227570(unsigned int);
-void SetField16IfMinusOne_02222e20(int);
-int CheckMaskAgainstField32_0223d354(int);
+extern "C" int func_ov031_02227570(unsigned int);
+extern "C" void func_ov031_02222e20(int);
+extern "C" int func_ov031_0223d354(int);
 extern "C" int func_ov031_0223d49c(MenuRange02233524*);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" int func_ov031_0223d394(int);
@@ -24,26 +24,26 @@ extern "C" ARM void func_ov031_02233524(void) {
     unsigned int rangeIndex = 0;
     unsigned int rangeOffset = 0;
     do {
-        MenuRange02233524* range = (MenuRange02233524*)&data_ov031_02249158[TestFieldRestBits_02227570(1)].rangeBytes[rangeOffset];
+        MenuRange02233524* range = (MenuRange02233524*)&data_ov031_02249158[func_ov031_02227570(1)].rangeBytes[rangeOffset];
         if (func_ov031_0223d49c(range)) {
-            SetField16IfMinusOne_02222e20(1);
+            func_ov031_02222e20(1);
             data_ov031_02290cc8.selected = rangeIndex;
             func_ov031_022237dc(
-                data_ov031_02249198[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
-                data_ov031_0224919c[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
-                data_ov031_0224919a[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
-                data_ov031_0224919e[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value);
+                data_ov031_02249198[func_ov031_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+                data_ov031_0224919c[func_ov031_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+                data_ov031_0224919a[func_ov031_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+                data_ov031_0224919e[func_ov031_02227570(1)].entries[data_ov031_02290cc8.selected].value);
             return;
         }
         ++rangeIndex;
         rangeOffset += sizeof(MenuRange02233524);
     } while (rangeIndex < 4);
-    if (CheckMaskAgainstField32_0223d354(1)) {
-        SetField16IfMinusOne_02222e20(1);
+    if (func_ov031_0223d354(1)) {
+        func_ov031_02222e20(1);
         return;
     }
-    if (CheckMaskAgainstField32_0223d354(2)) {
-        SetField16IfMinusOne_02222e20(0);
+    if (func_ov031_0223d354(2)) {
+        func_ov031_02222e20(0);
         return;
     }
     if (func_ov031_0223d394(0x40)) { func_ov031_022338b4(1); return; }

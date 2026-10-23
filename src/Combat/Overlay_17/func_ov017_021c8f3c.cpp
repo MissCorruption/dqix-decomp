@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void* GetData02100044_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Struct021c90b4 {
@@ -26,8 +26,8 @@ struct Rec_021c90f8 {
     unsigned char f;
 };
 
-void CopyStruct021c90b4(Struct021c90b4* dst, Struct021c90b4* src);
-void CopyRec_021c90f8(Rec_021c90f8* dst, Rec_021c90f8* src);
+extern "C" void func_ov017_021c90b4(Struct021c90b4* dst, Struct021c90b4* src);
+extern "C" void func_ov017_021c90f8(Rec_021c90f8* dst, Rec_021c90f8* src);
 
 struct FieldMonster {
     Object3D obj3D_;
@@ -84,14 +84,14 @@ extern "C" ARM void func_ov017_021c8f3c(int index, int mode) {
     pos.b = m->obj3D_.rotation_.y;
     pos.f = m->field130;
 
-    void* data = GetData02100044_0202ae24();
+    void* data = func_0202ae24();
     msg.tag = 0x83;
     msg.kind = 0;
-    CopyStruct021c90b4(&msg.payload.info, &info);
+    func_ov017_021c90b4(&msg.payload.info, &info);
     func_0205e330(data, &msg, 0);
 
     msg.tag = 0x83;
     msg.kind = 1;
-    CopyRec_021c90f8(&msg.payload.pos, &pos);
+    func_ov017_021c90f8(&msg.payload.pos, &pos);
     func_0205e330(data, &msg, 0);
 }

@@ -7,15 +7,15 @@
 
 struct HeadNode02046b24;
 struct EntryList0217208;
-int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
-void ForEachElement02015518(void* a, char* list);
-void SetByteField0x253_020397c0(void* obj);
+extern "C" int func_02046b24(struct HeadNode02046b24** obj);
+extern "C" void func_02015518(void* a, char* list);
+extern "C" void func_020397c0(void* obj);
 extern "C" void func_02013e18(Zone3D* self);
 extern "C" void func_02017208(struct EntryList0217208* self);
 extern "C" void func_020158cc(Zone3D* self);
 extern "C" void func_020a84e0();
-void SetBitFromValueRange0201ba68(void*);
-void DispatchField0x744FlagsAndNotify_0201bdac(unsigned char*);
+extern "C" void func_0201ba68(void*);
+extern "C" void func_0201bdac(unsigned char*);
 
 // USA: func_02015438
 extern "C" ARM void func_02015438(Zone3D* self) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_02015438(Zone3D* self) {
 
     char* p = (char*)self->firstBMDJStruct_41c_;
     while (p != 0) {
-        ForEachElement02015518(self, p);
+        func_02015518(self, p);
         p = *(char**)(p + 0x54);
     }
 
@@ -46,9 +46,9 @@ extern "C" ARM void func_02015438(Zone3D* self) {
         if ((self->unk_830[0] & 0xff) == 0) {
             void* actor = battle->GetProtagonist();
             if (actor != 0) {
-                if (GetHeadNodeIdOrMinusOne(
+                if (func_02046b24(
                         *(struct HeadNode02046b24***)((char*)GetGameResources() + 0x3000 + headOffset)) != 4) {
-                    SetByteField0x253_020397c0(actor);
+                    func_020397c0(actor);
                 }
             }
             self->unk_830[0] = 0;
@@ -59,7 +59,7 @@ extern "C" ARM void func_02015438(Zone3D* self) {
     func_020158cc(self);
     LightingManager::GetInstance()->RecomputeAdvancedLighting();
     func_020a84e0();
-    SetBitFromValueRange0201ba68(self);
-    DispatchField0x744FlagsAndNotify_0201bdac((unsigned char*)self);
-    MaybeClearGrottoState0201bfd4(self);
+    func_0201ba68(self);
+    func_0201bdac((unsigned char*)self);
+    func_0201bfd4(self);
 }

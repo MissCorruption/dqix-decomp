@@ -59,15 +59,15 @@ extern "C" void func_020794f8(Actor_020771fc* obj, int a, int b);
 extern "C" Probe_02012fe4* func_02012fe4(void);
 extern "C" int func_02018fbc(Probe_02012fe4* p, Vector3i* d);
 extern "C" void func_ov017_021c9400(int id, int slot, int heading, Vector3i pos, Vector3i vec, int last);
-int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* s);
-int CheckField0NonZero_0202b7d8(int* g);
-Entry_02028bd0* GetEntryTableBase_02027ca4(void);
-Entry_02028bd0* FindInlineEntryById(Entry_02028bd0* base, int key);
-TableEntry_020771fc* FindListEntryById(List_020283c0* list, int key);
-void SetByteIfChanged02033b68(Obj02033b68* obj, int value);
-void* GetField0xe4IfFlag0x40(BitFlag02033f44* obj);
-void TrySetMode02076ccc(void* obj, int mode);
-void SetVecYByMode02033834(Obj02033834* obj, int value);
+extern "C" int func_0202c1a4(SearchStruct0202c1a4* s);
+extern "C" int func_0202b7d8(int* g);
+extern "C" Entry_02028bd0* func_02027ca4(void);
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* base, int key);
+extern "C" TableEntry_020771fc* func_020283c0(List_020283c0* list, int key);
+extern "C" void func_02033b68(Obj02033b68* obj, int value);
+extern "C" void* func_02033f44(BitFlag02033f44* obj);
+extern "C" void func_02076ccc(void* obj, int mode);
+extern "C" void func_02033834(Obj02033834* obj, int value);
 
 // USA: func_020771fc
 extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
@@ -77,7 +77,7 @@ extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
     Vector3i b = obj->pos158;
     b.y = 0;
     int dist = Vector3fix_Distance(&a, &b);
-    SetByteIfChanged02033b68((Obj02033b68*)obj, 1);
+    func_02033b68((Obj02033b68*)obj, 1);
     switch (obj->mode) {
     case 0:
         obj->fb4 = 0;
@@ -97,7 +97,7 @@ extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
         break;
     }
     int moved = 0;
-    void* p = GetField0xe4IfFlag0x40((BitFlag02033f44*)obj);
+    void* p = func_02033f44((BitFlag02033f44*)obj);
     int found = 0;
     if (p != 0) {
         int s = obj->fae;
@@ -106,10 +106,10 @@ extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
         }
     }
     if (found != 0) {
-        TrySetMode02076ccc(obj, 1);
+        func_02076ccc(obj, 1);
         obj->f154 = 0;
         obj->f17c = 1;
-        if (CheckField0NonZero_0202b7d8((int*)g) != 0) {
+        if (func_0202b7d8((int*)g) != 0) {
             func_020794f8(obj, 0, 1);
         }
         return;
@@ -119,21 +119,21 @@ extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
         Vector3fix_Subtract(&obj->pos158, &a, &c);
         if (Vector3fix_Length(&c) < 0x1000) {
             moved = 1;
-            TrySetMode02076ccc(obj, 1);
+            func_02076ccc(obj, 1);
         }
         Vector3fix_Normalize(&c, &c);
-        SetVecYByMode02033834((Obj02033834*)obj, fix32_Atan2(c.x, c.z));
+        func_02033834((Obj02033834*)obj, fix32_Atan2(c.x, c.z));
     }
     if (dist < 0x1000) {
         Vector3i d = obj->pos44;
         if (func_0202c508(g) != 0) {
-            Entry_02028bd0* table = GetEntryTableBase_02027ca4();
+            Entry_02028bd0* table = func_02027ca4();
             int id = ((Object3D*)obj)->GetField06();
-            Entry_02028bd0* entry = FindInlineEntryById(table, id);
+            Entry_02028bd0* entry = func_02028bd0(table, id);
             if (entry != 0) {
                 List_020283c0* list = (List_020283c0*)((char*)entry + EntryListOffset);
                 if (list != 0) {
-                    TableEntry_020771fc* row = FindListEntryById(list, obj->f164);
+                    TableEntry_020771fc* row = func_020283c0(list, obj->f164);
                     if (row != 0) {
                         d.y = row->y << 0xc;
                         obj->pos44 = d;
@@ -148,15 +148,15 @@ extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
             }
         }
         moved = 1;
-        TrySetMode02076ccc(obj, 1);
+        func_02076ccc(obj, 1);
     }
     if (moved == 0) {
         return;
     }
-    if (CheckField0NonZero_0202b7d8((int*)g) == 0) {
+    if (func_0202b7d8((int*)g) == 0) {
         return;
     }
-    if (GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)g) != 0) {
+    if (func_0202c1a4((SearchStruct0202c1a4*)g) != 0) {
         return;
     }
     int id = ((Object3D*)obj)->GetField06();

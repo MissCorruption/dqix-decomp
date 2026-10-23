@@ -11,7 +11,7 @@ extern "C" ARM void func_0206f01c(List0206f170* table, SafeAllocator* allocator,
     if (allocator == NULL || source == NULL) return;
 
     memcpy(&table->table.header, &source->header, sizeof(Header0206f0f8));
-    recordBytes = GetEntryArrayByteSize(&table->table.header);
+    recordBytes = func_0206f0f8(&table->table.header);
     stringBytes = table->table.header.stringBytes;
     if (recordBytes) {
         table->table.arr = static_cast<MonsterDefinition*>(allocator->Allocate(recordBytes));
@@ -24,11 +24,11 @@ extern "C" ARM void func_0206f01c(List0206f170* table, SafeAllocator* allocator,
     }
     if (table->strings != NULL) {
         memcpy(table->strings, reinterpret_cast<char*>(source) +
-               (GetEntryArrayByteSize(&table->table.header) + sizeof(Header0206f0f8)), stringBytes);
+               (func_0206f0f8(&table->table.header) + sizeof(Header0206f0f8)), stringBytes);
     }
 
-    if (reinterpret_cast<void*>(RelocateThreeFields_0206ef48) != NULL) {
-        InvokeCallbackForEachEntry_0206f110(table, RelocateThreeFields_0206ef48);
+    if (reinterpret_cast<void*>(func_0206ef48) != NULL) {
+        func_0206f110(table, func_0206ef48);
     }
     table->table.header.relocated = 1;
 }

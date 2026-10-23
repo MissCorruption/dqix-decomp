@@ -41,16 +41,16 @@ struct Scene0217c7a0
     int cameraTail[3];
 };
 
-void ClearBuffer0204b010(Obj0204b010* obj, void* buf);
+extern "C" void func_0204b010(Obj0204b010* obj, void* buf);
 extern "C" void func_0204b04c(void* obj, int flag);
 extern "C" void func_0204b088(void* obj, int flag);
-void ResetRecordList0204afb4(List0204afb4* list);
-void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
-void ApplyVec3Tail_0202e694(void* obj, int* vec);
-void SetField0x238True_020a2794(void* obj);
-void ApplyVecFromField0x21e_020a2744(char* obj);
-int SetPowCnt1Bit15_0217c2a0(int enable);
-void ClearCombatantSlot_0200fd48(GameState* gs, int id);
+extern "C" void func_0204afb4(List0204afb4* list);
+extern "C" void func_020c5588(int a, int b, int c, int d, int e);
+extern "C" void func_0202e694(void* obj, int* vec);
+extern "C" void func_020a2794(void* obj);
+extern "C" void func_020a2744(char* obj);
+extern "C" int func_ov003_0217c2a0(int enable);
+extern "C" void func_0200fd48(GameState* gs, int id);
 
 // USA: func_ov003_0217c7a0
 extern "C" ARM void func_ov003_0217c7a0(Scene0217c7a0* self)
@@ -96,23 +96,23 @@ extern "C" ARM void func_ov003_0217c7a0(Scene0217c7a0* self)
         loader->RemoveTask(self->taskC);
         self->taskC = -1;
 
-        ClearBuffer0204b010((Obj0204b010*)&self->listA, 0);
+        func_0204b010((Obj0204b010*)&self->listA, 0);
         func_0204b04c(&self->listA, 0);
         func_0204b088(&self->listA, 0);
-        ResetRecordList0204afb4((List0204afb4*)&self->listA);
-        ClearBuffer0204b010((Obj0204b010*)&self->listB, 0);
+        func_0204afb4((List0204afb4*)&self->listA);
+        func_0204b010((Obj0204b010*)&self->listB, 0);
         func_0204b04c(&self->listB, 0);
         func_0204b088(&self->listB, 0);
-        ResetRecordList0204afb4((List0204afb4*)&self->listB);
+        func_0204afb4((List0204afb4*)&self->listB);
 
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
-        Camera0217c7a0* camera = (Camera0217c7a0*)GetField0x3b0Value_020100bc(gs);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
+        Camera0217c7a0* camera = (Camera0217c7a0*)func_020100bc(gs);
         camera->position = self->cameraPosition;
-        ApplyVec3Tail_0202e694(camera, self->cameraTail);
-        SetField0x238True_020a2794(camera);
-        ApplyVecFromField0x21e_020a2744((char*)camera);
-        SetPowCnt1Bit15_0217c2a0(0);
-        ClearCombatantSlot_0200fd48(gs, 0xa0);
+        func_0202e694(camera, self->cameraTail);
+        func_020a2794(camera);
+        func_020a2744((char*)camera);
+        func_ov003_0217c2a0(0);
+        func_0200fd48(gs, 0xa0);
         self->finished = 1;
     }
 }

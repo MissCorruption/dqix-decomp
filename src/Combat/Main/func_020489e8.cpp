@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-ARM void Forward02048144(void* p);
+extern "C" ARM void func_02048144(void* p);
 struct Vector3i;
 
 struct Bits41_37474 {
@@ -20,7 +20,7 @@ extern "C" void func_02048f64(void* obj);
 extern "C" void func_0204956c(void* obj);
 
 struct Obj0204a054;
-void ApplyCountdownOrDispatch0204a054(struct Obj0204a054* obj);
+extern "C" void func_0204a054(struct Obj0204a054* obj);
 
 struct Sub0204a054Ext_020489e8 {
     char pad0[0x10];
@@ -40,7 +40,7 @@ struct Obj020489e8 {
 
 // USA: func_020489e8
 extern "C" ARM void func_020489e8(struct Obj020489e8* obj) {
-    Forward02048144(obj);
+    func_02048144(obj);
     if (obj->field13c == NULL) return;
     if (obj->field13c->flags & 1) {
         *(Vector3i*)obj->field13c->vec = *(Vector3i const*)obj->vecSrc;
@@ -58,5 +58,5 @@ extern "C" ARM void func_020489e8(struct Obj020489e8* obj) {
     }
     func_02048f64(obj);
     func_0204956c(obj);
-    ApplyCountdownOrDispatch0204a054((struct Obj0204a054*)obj);
+    func_0204a054((struct Obj0204a054*)obj);
 }

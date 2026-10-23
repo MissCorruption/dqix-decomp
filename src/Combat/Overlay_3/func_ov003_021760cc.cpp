@@ -64,25 +64,25 @@ struct Menu021760cc {
     short field1048;
 };
 
-int AppendString02042058(char *, const char *);
-Messages021760cc *GetGlobalField0x1c020421a0();
+extern "C" int func_02042058(char *, const char *);
+extern "C" Messages021760cc *func_020421a0();
 extern "C" void __clear(void *, int);
-void Clear12Bytes020e46c4(void *);
+extern "C" void func_020e46c4(void *);
 extern "C" void func_020e5334(Loaded021760cc *, void *, unsigned int, int);
 extern "C" void func_02046380(Messages021760cc *);
-void InitObjFromCombatantId020e4bf4(void *, int);
-Element021760cc *FindElementByKey020dedd0(Container020dedd0 *, int);
-int ComputeRatio_02175898(char *, void *);
+extern "C" void func_020e4bf4(void *, int);
+extern "C" Element021760cc *func_020dedd0(Container020dedd0 *, int);
+extern "C" int func_ov003_02175898(char *, void *);
 struct StoreStruct;
-void StoreInArray0x8b0_020465c0(StoreStruct *, int, int);
-const char *GetFieldByKey020e0434(Container020e0310 *, int);
+extern "C" void func_020465c0(StoreStruct *, int, int);
+extern "C" const char *func_020e0434(Container020e0310 *, int);
 #if defined(jpn)
 extern "C" void func_0204500c(Messages021760cc *, const char *, int);
 #else
 extern "C" void func_0204500c(Messages021760cc *, const char *, int, int);
 #endif
 extern "C" void func_ov003_021749c0(char *);
-void ReinitController02043204(char *);
+extern "C" void func_02043204(char *);
 extern "C" void func_02043124(Messages021760cc *);
 
 extern const char data_ov003_02180b9f[];
@@ -115,7 +115,7 @@ struct MenuJ021760cc {
     short field1048;
 };
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574 *, int, char *);
+extern "C" void func_02046574(Obj02046574 *, int, char *);
 extern "C" char *func_020e046c(char *buf, void *data, unsigned int size, int idx);
 extern const char data_ov003_0217eddd[];
 extern const unsigned char data_ov003_0217e326[];
@@ -124,7 +124,7 @@ extern const unsigned char data_ov003_0217e320[];
 // USA: func_ov003_021760cc
 extern "C" ARM void func_ov003_021760cc(MenuJ021760cc *menu) {
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    Messages021760cc *msgs   = GetGlobalField0x1c020421a0();
+    Messages021760cc *msgs   = func_020421a0();
     if (menu->step == 0) {
         if (menu->task > 0) {
             loader->RemoveTask(menu->task);
@@ -151,36 +151,36 @@ extern "C" ARM void func_ov003_021760cc(MenuJ021760cc *menu) {
             func_02046380(msgs);
             GameObject *member = GameState::GetInstance()->GetPartyMemberByIndex(menu->character);
             if (member) {
-                SetIndexedName02046574((Obj02046574 *) msgs, 0, (char *) member->baseStats_);
+                func_02046574((Obj02046574 *) msgs, 0, (char *) member->baseStats_);
             }
-            Element021760cc *element = FindElementByKey020dedd0((Container020dedd0 *) menu->container, menu->selected);
+            Element021760cc *element = func_020dedd0((Container020dedd0 *) menu->container, menu->selected);
             if (element) {
                 int value;
                 if (menu->mode == 4) {
-                    value = ComputeRatio_02175898((char *) menu, element);
+                    value = func_ov003_02175898((char *) menu, element);
                 } else {
                     value = element->value;
                 }
                 value *= menu->count;
-                SetIndexedName02046574((Obj02046574 *) msgs, 1, title);
-                StoreInArray0x8b0_020465c0((StoreStruct *) msgs, 0, value);
-                StoreInArray0x8b0_020465c0((StoreStruct *) msgs, 1, menu->count);
+                func_02046574((Obj02046574 *) msgs, 1, title);
+                func_020465c0((StoreStruct *) msgs, 0, value);
+                func_020465c0((StoreStruct *) msgs, 1, menu->count);
             }
             unsigned char kind = menu->kind;
-            char *first  = (char *) GetFieldByKey020e0434((Container020e0310 *) menu->messages, (short) (data_ov003_0217e326[kind] + 0x25));
-            char *second = (char *) GetFieldByKey020e0434((Container020e0310 *) menu->messages, (short) (data_ov003_0217e320[kind] + 0x25));
-            SetIndexedName02046574((Obj02046574 *) msgs, 2, first);
-            SetIndexedName02046574((Obj02046574 *) msgs, 3, second);
+            char *first  = (char *) func_020e0434((Container020e0310 *) menu->messages, (short) (data_ov003_0217e326[kind] + 0x25));
+            char *second = (char *) func_020e0434((Container020e0310 *) menu->messages, (short) (data_ov003_0217e320[kind] + 0x25));
+            func_02046574((Obj02046574 *) msgs, 2, first);
+            func_02046574((Obj02046574 *) msgs, 3, second);
             if (menu->flags & 0x200) {
                 char *text = msgs->text;
-                AppendString02042058(text, GetFieldByKey020e0434((Container020e0310 *) menu->messages, cur));
+                func_02042058(text, func_020e0434((Container020e0310 *) menu->messages, cur));
                 char *buffer = msgs->buffer;
                 memset(buffer, 0, 0x800);
                 memcpy(buffer, text, 0x800);
                 func_0204500c(msgs, buffer, 0);
                 menu->flags &= ~0x200;
             } else {
-                func_0204500c(msgs, GetFieldByKey020e0434((Container020e0310 *) menu->messages, cur), 0);
+                func_0204500c(msgs, func_020e0434((Container020e0310 *) menu->messages, cur), 0);
             }
             msgs->field99c = menu->fieldff0;
             msgs->busy     = 1;
@@ -198,12 +198,12 @@ extern "C" ARM void func_ov003_021760cc(MenuJ021760cc *menu) {
                     menu->flags &= ~0x2000;
                 }
             } else if (msgs->state == 3) {
-                *(unsigned char *) ((char *) GetGlobalField0x1c020421a0() + 0x17de) = 0;
+                *(unsigned char *) ((char *) func_020421a0() + 0x17de) = 0;
                 menu->cur  = menu->next;
                 menu->next = -1;
                 if (menu->cur < 0) {
                     if (menu->flags & 0x20) {
-                        ReinitController02043204((char *) msgs);
+                        func_02043204((char *) msgs);
                         func_02043124(msgs);
                         menu->flags &= ~0x20;
                     }
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov003_021760cc(MenuJ021760cc *menu) {
 // USA: func_ov003_021760cc
 extern "C" ARM void func_ov003_021760cc(Menu021760cc *menu) {
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    Messages021760cc *msgs   = GetGlobalField0x1c020421a0();
+    Messages021760cc *msgs   = func_020421a0();
     if (menu->step == 0) {
         if (menu->task >= 0) {
             loader->RemoveTask(menu->task);
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_021760cc(Menu021760cc *menu) {
             Loaded021760cc loaded;
             __clear(first, 0x48);
             __clear(second, 0x48);
-            Clear12Bytes020e46c4(&loaded);
+            func_020e46c4(&loaded);
             loaded.a = first;
             loaded.b = second;
             char name[12];
@@ -254,21 +254,21 @@ extern "C" ARM void func_ov003_021760cc(Menu021760cc *menu) {
             menu->task = -1;
             short cur  = menu->cur;
             func_02046380(msgs);
-            InitObjFromCombatantId020e4bf4(name, menu->character);
+            func_020e4bf4(name, menu->character);
             msgs->target             = name;
-            Element021760cc *element = FindElementByKey020dedd0(
+            Element021760cc *element = func_020dedd0(
                 (Container020dedd0 *) (menu->container + 0x800), menu->selected);
             if (element) {
-                int value = (menu->mode == 4 ? ComputeRatio_02175898((char *) menu, element) : element->value);
+                int value = (menu->mode == 4 ? func_ov003_02175898((char *) menu, element) : element->value);
                 value *= menu->count;
-                StoreInArray0x8b0_020465c0((StoreStruct *) msgs, 0, value);
-                StoreInArray0x8b0_020465c0((StoreStruct *) msgs, 1, menu->count);
+                func_020465c0((StoreStruct *) msgs, 0, value);
+                func_020465c0((StoreStruct *) msgs, 1, menu->count);
             }
             msgs->loaded = &loaded;
             if (menu->flags & 0x200) {
                 char *text = msgs->text;
-                AppendString02042058(
-                    text, GetFieldByKey020e0434((Container020e0310 *) (menu->messages), cur));
+                func_02042058(
+                    text, func_020e0434((Container020e0310 *) (menu->messages), cur));
                 char *buffer = msgs->buffer;
                 memset(buffer, 0, 0x960);
                 memcpy(buffer, text, 0x960);
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov003_021760cc(Menu021760cc *menu) {
                 menu->flags &= ~0x200;
             } else {
                 func_0204500c(msgs,
-                              GetFieldByKey020e0434((Container020e0310 *) (menu->messages), cur), 0,
+                              func_020e0434((Container020e0310 *) (menu->messages), cur), 0,
                               0xe3);
             }
             msgs->field99c = menu->fieldff0;
@@ -295,12 +295,12 @@ extern "C" ARM void func_ov003_021760cc(Menu021760cc *menu) {
                     menu->flags &= ~0x2000;
                 }
             } else if (msgs->state == 3) {
-                *(unsigned char *) ((char *) GetGlobalField0x1c020421a0() + 0x19ae) = 0;
+                *(unsigned char *) ((char *) func_020421a0() + 0x19ae) = 0;
                 menu->cur                                                                = menu->next;
                 menu->next                                                               = -1;
                 if (menu->cur < 0) {
                     if (menu->flags & 0x20) {
-                        ReinitController02043204((char *) msgs);
+                        func_02043204((char *) msgs);
                         func_02043124(msgs);
                         menu->flags &= ~0x20;
                     }

@@ -7,7 +7,7 @@ struct Wnd0204ecb4 {
 };
 
 extern "C" int func_0204fd00(Wnd0204ecb4* wnd, int mask);
-void* GetTableEntry020421b0(int idx);
+extern "C" void* func_020421b0(int idx);
 extern "C" void func_0204e1c8(Wnd0204ecb4* wnd, void* entry, short x, short y, int w, int h, int color, int font);
 
 static inline short TileToPx(short t) {
@@ -38,12 +38,12 @@ extern "C" ARM void func_0204ecb4(Wnd0204ecb4* wnd, int x, int y, short w, short
     } else if (ret == 2) {
         idx = 12;
     }
-    void* entry = GetTableEntry020421b0(idx);
+    void* entry = func_020421b0(idx);
     if (entry) {
         func_0204e1c8(wnd, entry, left, top, 8, 8, 0xf0, 0xf);
     }
 
-    void* topEdge = GetTableEntry020421b0(1);
+    void* topEdge = func_020421b0(1);
     if (topEdge) {
         for (short i = 1; i < wnd->cols - 1; i++) {
             func_0204e1c8(wnd, topEdge, TileToPx(i), top, 8, 8, 0xf0, 0xf);
@@ -58,19 +58,19 @@ extern "C" ARM void func_0204ecb4(Wnd0204ecb4* wnd, int x, int y, short w, short
     } else if (ret == 2) {
         idx = 13;
     }
-    entry = GetTableEntry020421b0(idx);
+    entry = func_020421b0(idx);
     if (entry) {
         func_0204e1c8(wnd, entry, TileToPx(cols - 1) - right, top, 8, 8, 0xf0, 0xf);
     }
 
-    entry = GetTableEntry020421b0(3);
+    entry = func_020421b0(3);
     if (entry) {
         for (short i = 1; i < wnd->rows - 1; i++) {
             func_0204e1c8(wnd, entry, left, TileToPx(i), 8, 8, 0xf0, 0xf);
         }
     }
 
-    entry = GetTableEntry020421b0(4);
+    entry = func_020421b0(4);
     edge = TileToPx(wnd->cols - 1);
     if (entry) {
         for (short i = 1; i < wnd->rows - 1; i++) {
@@ -86,12 +86,12 @@ extern "C" ARM void func_0204ecb4(Wnd0204ecb4* wnd, int x, int y, short w, short
     } else if (ret == 4) {
         idx = 14;
     }
-    entry = GetTableEntry020421b0(idx);
+    entry = func_020421b0(idx);
     if (entry) {
         func_0204e1c8(wnd, entry, left, TileToPx(rows - 1) - bottom, 8, 8, 0xf0, 0xf);
     }
 
-    void* bottomEdge = GetTableEntry020421b0(6);
+    void* bottomEdge = func_020421b0(6);
     edge = TileToPx(wnd->rows - 1);
     if (bottomEdge) {
         for (short i = 1; i < wnd->cols - 1; i++) {
@@ -108,7 +108,7 @@ extern "C" ARM void func_0204ecb4(Wnd0204ecb4* wnd, int x, int y, short w, short
     } else if (ret == 4) {
         idx = 15;
     }
-    entry = GetTableEntry020421b0(idx);
+    entry = func_020421b0(idx);
     if (entry) {
         func_0204e1c8(wnd, entry, TileToPx(cols - 1) - right, TileToPx(rows - 1) - bottom, 8, 8, 0xf0, 0xf);
     }

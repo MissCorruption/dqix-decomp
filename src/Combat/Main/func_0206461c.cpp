@@ -24,10 +24,10 @@ struct Obj02064574;
 struct StreamHeader;
 extern Obj02064574 data_02108844;
 extern char data_020f05dc[] __attribute__((aligned(4)));
-int GetField5cb0Value_0201079c(char*);
-int GetField5cb4Value_020107d0(char*);
-void SomeInit02064574(Obj02064574*, int, StreamHeader*, int, int, int, int);
-void* GetGlobal02109418_02094d6c();
+extern "C" int func_0201079c(char*);
+extern "C" int func_020107d0(char*);
+extern "C" void func_02064574(Obj02064574*, int, StreamHeader*, int, int, int, int);
+extern "C" void* func_02094d6c();
 extern "C" void func_02095578(void*);
 
 static inline SafeAllocator* GetAllocator0206461c(GameResources* resources, int index) {
@@ -43,8 +43,8 @@ extern "C" ARM int func_0206461c(LoaderOwner0206461c* owner, Request0206461c* re
     unsigned int size = 0;
     char name[4];
     char path[64];
-    int first = GetField5cb0Value_0201079c((char*)state);
-    int second = GetField5cb4Value_020107d0((char*)state);
+    int first = func_0201079c((char*)state);
+    int second = func_020107d0((char*)state);
     allocator->Reset();
     owner->field_0x47c = 0;
     owner->field_0x494 = 0;
@@ -54,8 +54,8 @@ extern "C" ARM int func_0206461c(LoaderOwner0206461c* owner, Request0206461c* re
     BackgroundLoader::AddLockGlobal();
     sprintf(path, data_020f05dc, name);
     StreamHeader* file = (StreamHeader*)LoadFileIntoMemory(path, data_0211e33c, &size);
-    if (file) SomeInit02064574(object, (int)allocator, file, size, request->id, first, second);
+    if (file) func_02064574(object, (int)allocator, file, size, request->id, first, second);
     BackgroundLoader::RemoveLockGlobal();
-    func_02095578(GetGlobal02109418_02094d6c());
+    func_02095578(func_02094d6c());
     return 1;
 }

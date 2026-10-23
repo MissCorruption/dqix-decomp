@@ -34,15 +34,15 @@ struct BattleContext {
  char pad[0x3718];
 #endif
  void* table; };
-void* GetField6b0_021b8470(void*);
-int GetField0x3acValue_020100a8(GameState*);
+extern "C" void* func_ov017_021b8470(void*);
+extern "C" int func_020100a8(GameState*);
 
 // USA: func_ov017_021cb974
 extern "C" ARM void func_ov017_021cb974(int, PackedStatus* packet, GameState* game, BattleContext* context) {
-    BattleStatus* status = (BattleStatus*)GetField6b0_021b8470(context->table);
+    BattleStatus* status = (BattleStatus*)func_ov017_021b8470(context->table);
     StatusOwner* owner;
     if (!status || !(owner = status->owner)) return;
-    if (owner->owner == GetField0x3acValue_020100a8(game)) return;
+    if (owner->owner == func_020100a8(game)) return;
     if (owner->battleId != packet->battleId) return;
     int index = packet->entryId - 0xc0;
     if (index < 0 || index >= 8) return;

@@ -37,14 +37,14 @@ struct TextItem {
     short xOffset;
     unsigned char flags;
 };
-int IsValueEqual12_02042190(int);
-void* FindEntryByKey_02072a68(TableA68*, int);
+extern "C" int func_02042190(int);
+extern "C" void* func_02072a68(TableA68*, int);
 extern "C" int func_020420e8(char*, int);
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 extern "C" void func_02046380(Obj02046574*);
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 #if defined(jpn)
-int StringLength_020d2ff0(const char*);
+extern "C" int func_020d2ff0(const char*);
 extern "C" void func_020474a8(Obj02046574*, int, void*, char*);
 extern "C" void func_0204f41c(TextWindow*, short, int, char*, int, int, short*, short*);
 #else
@@ -58,18 +58,18 @@ extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, Te
     int color = item->color;
     if (item->flags & 4) color = 5;
     if (item->flags & 8) {
-        char* text = (char*)FindEntryByKey_02072a68(renderer->strings, item->stringId);
+        char* text = (char*)func_02072a68(renderer->strings, item->stringId);
         if (text) {
             short width = window->width * 8;
-            int half = StringLength_020d2ff0(text) >> 1;
+            int half = func_020d2ff0(text) >> 1;
             item->x = (short)(width - half * item->font) >> 1;
         }
     }
-    Obj02046574* formatter = (Obj02046574*)GetGlobalField0x1c020421a0();
+    Obj02046574* formatter = (Obj02046574*)func_020421a0();
     memset(renderer->buffer, 0, 0x800);
     func_02046380(formatter);
-    SetIndexedName02046574(formatter, item->nameIndex, item->name);
-    void* text = FindEntryByKey_02072a68(renderer->strings, item->stringId);
+    func_02046574(formatter, item->nameIndex, item->name);
+    void* text = func_02072a68(renderer->strings, item->stringId);
     func_020474a8(formatter, item->font, text, renderer->buffer);
     int firstFont = item->font;
     window->firstFont = firstFont;
@@ -88,19 +88,19 @@ extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, Te
 extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, TextItem* item) {
     int color = item->color;
     if (item->flags & 4) color = 5;
-    int font = IsValueEqual12_02042190(item->font);
+    int font = func_02042190(item->font);
     if (item->flags & 8) {
-        char* text = (char*)FindEntryByKey_02072a68(renderer->strings, item->stringId);
+        char* text = (char*)func_02072a68(renderer->strings, item->stringId);
         if (text) {
             short width = window->width * 8;
             item->x = (short)(width - func_020420e8(text, font)) >> 1;
         }
     }
-    Obj02046574* formatter = (Obj02046574*)GetGlobalField0x1c020421a0();
+    Obj02046574* formatter = (Obj02046574*)func_020421a0();
     memset(renderer->buffer, 0, 0x960);
     func_02046380(formatter);
-    SetIndexedName02046574(formatter, item->nameIndex, item->name);
-    void* text = FindEntryByKey_02072a68(renderer->strings, item->stringId);
+    func_02046574(formatter, item->nameIndex, item->name);
+    void* text = func_02072a68(renderer->strings, item->stringId);
     func_02046608(formatter, item->font, text, renderer->buffer, 0x100, 0, 0);
     int firstFont = item->font;
     window->firstFont = firstFont;

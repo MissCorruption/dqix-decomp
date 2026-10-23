@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" void* __clear(void*, int);
-int LoadBattleBlock020ac4c0(void*);
-int CopyInBattleField0x7540_020ac494(void*);
+extern "C" int func_020ac4c0(void*);
+extern "C" int func_020ac494(void*);
 
 struct AlchemyStatus02154138 {
     short item;
@@ -53,8 +53,8 @@ extern "C" ARM int func_ov006_02154138(void* context) {
     for (unsigned short itemIndex = 1; itemIndex < 472; itemIndex++) {
         if (marks[itemIndex] == 3) count++;
     }
-    LoadBattleBlock020ac4c0(&work);
+    func_020ac4c0(&work);
     work.count = count;
-    CopyInBattleField0x7540_020ac494(&work);
+    func_020ac494(&work);
     return (short)count;
 }

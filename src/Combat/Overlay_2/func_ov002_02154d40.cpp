@@ -11,12 +11,12 @@ struct EntryManager020e2490;
 struct PairAndByte020e1368;
 struct Setter020e1374;
 
-void InitEntryManager020e2490(EntryManager020e2490 *mgr, int a,
+extern "C" void func_020e2490(EntryManager020e2490 *mgr, int a,
                                                                                           int b, void *p, SafeAllocator *alloc,
                                                                                           int c, unsigned char d);
-void SetPairAndByte020e1368(PairAndByte020e1368 *p, unsigned int a, unsigned int b,
+extern "C" void func_020e1368(PairAndByte020e1368 *p, unsigned int a, unsigned int b,
                                                                     unsigned char c);
-void SetFields020e1374(Setter020e1374 *p, unsigned int a, unsigned int b, int c);
+extern "C" void func_020e1374(Setter020e1374 *p, unsigned int a, unsigned int b, int c);
 
 // USA: func_ov002_02154d40
 extern "C" ARM void func_ov002_02154d40(char *self, SafeAllocator *alloc) {
@@ -35,11 +35,11 @@ extern "C" ARM void func_ov002_02154d40(char *self, SafeAllocator *alloc) {
     *(void **) (self + RG(0x1bd4, 0x1a9c)) = alloc->Allocate(RG(0x960, 0x800));
     *(void **) (self + 0)      = alloc->Allocate(0x24);
     *(void **) (self + 4)      = alloc->Allocate(0x24);
-    InitEntryManager020e2490(*(EntryManager020e2490 **) (self + 0), 0, 0, 0,
+    func_020e2490(*(EntryManager020e2490 **) (self + 0), 0, 0, 0,
                                                                               alloc, 0xc, 0x40);
-    InitEntryManager020e2490(*(EntryManager020e2490 **) (self + 4), 0, 1,
+    func_020e2490(*(EntryManager020e2490 **) (self + 4), 0, 1,
                                                                               *(void **) (self + RG(0x1a6c, 0x19c4)), alloc, RG(4, 3), 0x60);
     char *e = *(char **) (*(char **) (self + 0) + 0xc);
-    SetPairAndByte020e1368((PairAndByte020e1368 *) (e + 0xc), 0, 0x3000, 5);
-    SetFields020e1374((Setter020e1374 *) (e + 0xc), 0x3800, 0x3000, 4);
+    func_020e1368((PairAndByte020e1368 *) (e + 0xc), 0, 0x3000, 5);
+    func_020e1374((Setter020e1374 *) (e + 0xc), 0x3800, 0x3000, 4);
 }

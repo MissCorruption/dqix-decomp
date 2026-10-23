@@ -13,10 +13,10 @@ struct DetailedMapFlags {
 #endif
     unsigned char field260;
 };
-void* GetField0x3f8Address_0200fd0c(GameState*);
-int IsInRange0201b588(int);
-void ClearOrFillBattleRegion02027ad8(int, int);
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" void* func_0200fd0c(GameState*);
+extern "C" int func_0201b588(int);
+extern "C" void func_02027ad8(int, int);
+extern "C" int func_0202b7d8(int*);
 extern "C" {
 int* func_0202ae18();
 ZoneState* func_02012fe4();
@@ -34,14 +34,14 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* map) {
     GameState* game = GameState::GetInstance();
     GameResources* resources = GetGameResources();
     int* session = func_0202ae18();
-    current = (ZoneState*)GetField0x3f8Address_0200fd0c(game);
+    current = (ZoneState*)func_0200fd0c(game);
     GrottoStruct* grotto = game->GetGrottoStruct();
     int currentZone;
     void* region = resources->unknown_ptr_36d0;
     ZoneState* destination = func_02012fe4();
     currentZone = current->zoneId;
     int nextZone = destination->zoneId;
-    if (IsInRange0201b588(currentZone) && !IsInRange0201b588(nextZone) &&
+    if (func_0201b588(currentZone) && !func_0201b588(nextZone) &&
         (nextZone < 30000 || nextZone > 39999)) {
         map->Clear();
         func_020a0cc4(0x2000);
@@ -52,12 +52,12 @@ extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* map) {
         if (!grotto->unknown_0[0]) ((DetailedMapFlags*)map)->field260 = 1;
         grotto->unknown_0[1] = 0;
         if (func_0202c540(session)) grotto->activeMapLevel = map->GetLevel();
-        if (region && nextZone) ClearOrFillBattleRegion02027ad8((int)region, map->discoveryState_ == 3);
-    } else if (!IsInRange0201b588(currentZone) && IsInRange0201b588(nextZone) &&
+        if (region && nextZone) func_02027ad8((int)region, map->discoveryState_ == 3);
+    } else if (!func_0201b588(currentZone) && func_0201b588(nextZone) &&
                (currentZone < 30000 || currentZone > 39999)) {
-        if (CheckField0NonZero_0202b7d8(session) && func_0202c540(session) && !grotto->unknown_0[1])
+        if (func_0202b7d8(session) && func_0202c540(session) && !grotto->unknown_0[1])
             grotto->unknown_0[1] = 0;
         else grotto->unknown_0[1] = 1;
-        if (region) ClearOrFillBattleRegion02027ad8((int)region, 0);
+        if (region) func_02027ad8((int)region, 0);
     }
 }

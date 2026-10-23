@@ -9,25 +9,25 @@ void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 struct Target02059f38;
 struct Vec3_02059f38;
-void CopyVec3ToField0x44(struct Target02059f38* dst, struct Vec3_02059f38* src);
+extern "C" void func_02059f38(struct Target02059f38* dst, struct Vec3_02059f38* src);
 
 struct BitFlags02037170;
 
-void InitStruct02059cc8(unsigned char* obj);
-void ClearCombatantSlot_0200fd48(GameState* battleStruct, int id);
+extern "C" void func_02059cc8(unsigned char* obj);
+extern "C" void func_0200fd48(GameState* battleStruct, int id);
 
 struct ListNode02057854;
-int CheckListStableAndField8LtField402057854(struct ListNode02057854* node);
+extern "C" int func_02057854(struct ListNode02057854* node);
 
-int ForwardField4To02057334_02055774(int* obj);
+extern "C" int func_02055774(int* obj);
 
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 
 struct PointerField32c_ffc0;
-unsigned char* GetPointerAt0x32c_0200ffc0(PointerField32c_ffc0*);
+extern "C" unsigned char* func_0200ffc0(PointerField32c_ffc0*);
 struct PointerField330_ffd0;
-unsigned char* GetPointerAt0x330_0200ffd0(PointerField330_ffd0*);
+extern "C" unsigned char* func_0200ffd0(PointerField330_ffd0*);
 
 extern int data_02108760;
 
@@ -84,7 +84,7 @@ extern "C" ARM void func_02059cfc(unsigned char* p, int dt, int id) {
             if (f28 <= fbc) {
                 int f24 = c->field24;
                 if (fbc < f24) {
-                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, c->field_b8, 0);
+                    func_0205eaa0((struct Obj0205eaa0*)&data_02108760, c->field_b8, 0);
                 }
             }
         }
@@ -93,12 +93,12 @@ extern "C" ARM void func_02059cfc(unsigned char* p, int dt, int id) {
 
         int r5 = 0;
         if (c->flags.bit4) {
-            unsigned char* q = GetPointerAt0x32c_0200ffc0((PointerField32c_ffc0*)bs);
+            unsigned char* q = func_0200ffc0((PointerField32c_ffc0*)bs);
             if (q != 0) {
                 r5 = *(int*)(q + 0x130);
             }
         } else if (c->flags.bit5) {
-            unsigned char* q = GetPointerAt0x330_0200ffd0((PointerField330_ffd0*)bs);
+            unsigned char* q = func_0200ffd0((PointerField330_ffd0*)bs);
             if (q != 0) {
                 r5 = *(int*)(q + 0x130);
             }
@@ -120,33 +120,33 @@ extern "C" ARM void func_02059cfc(unsigned char* p, int dt, int id) {
         struct Vec3 vel;
         Vector3fixMultiplyScalar((Vector3i const*)&c->vecC0, dt << 12, (Vector3i*)&vel);
         Vector3fix_Add((const Vector3fix*)&pos, (const Vector3fix*)&vel, (Vector3fix*)&pos);
-        CopyVec3ToField0x44((struct Target02059f38*)c, (struct Vec3_02059f38*)&pos);
+        func_02059f38((struct Target02059f38*)c, (struct Vec3_02059f38*)&pos);
 
         ((Object3D*)c)->AdvanceEffects();
 
         if (c->field19 & 1) {
             if (((Object3D*)((struct BitFlags02037170*)c))->HasAnimationStopped()) {
-                ClearCombatantSlot_0200fd48(bs, id);
-                InitStruct02059cc8(p);
+                func_0200fd48(bs, id);
+                func_02059cc8(p);
             }
         }
 
         if (c->timerB6 > 0) {
             c->timerB6 -= dt;
             if (c->timerB6 <= 0) {
-                ClearCombatantSlot_0200fd48(bs, id);
-                InitStruct02059cc8(p);
+                func_0200fd48(bs, id);
+                func_02059cc8(p);
             }
         }
     } else {
         if (bs->GetGameObjectByIndex(id) == 0) {
             return;
         }
-        if (CheckListStableAndField8LtField402057854(c->listNode) == 1) {
-            ClearCombatantSlot_0200fd48(bs, id);
-            InitStruct02059cc8(p);
+        if (func_02057854(c->listNode) == 1) {
+            func_0200fd48(bs, id);
+            func_02059cc8(p);
         } else {
-            ForwardField4To02057334_02055774((int*)p);
+            func_02055774((int*)p);
         }
     }
 }

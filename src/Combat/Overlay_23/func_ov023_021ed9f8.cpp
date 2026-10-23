@@ -4,20 +4,20 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_02195658(void);
-void* GetData02108ea8_0207d78c(void);
+extern "C" void* func_0207d78c(void);
 extern "C" void func_ov000_02174a50(void* obj, int combatantId);
-void ClearBitAt0x34_020a367c(unsigned char* obj, int index);
+extern "C" void func_020a367c(unsigned char* obj, int index);
 
 struct Entry0207da94;
-void ProcessEntries0207da94(struct Entry0207da94* list, int idx);
+extern "C" void func_0207da94(struct Entry0207da94* list, int idx);
 
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
 
 extern "C" int func_ov017_021959b4(void);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
+extern "C" void func_ov000_02160fa8(void* work, int mask);
 
-void ResetAndReinit_021f52c8(void* obj);
-void InitCombatEntry_021d8b6c(void* obj);
+extern "C" void func_ov023_021f52c8(void* obj);
+extern "C" void func_ov023_021d8b6c(void* obj);
 extern "C" void func_ov023_021d8af8(void* obj);
 extern "C" void func_ov023_021d8bb4(void* obj);
 
@@ -41,7 +41,7 @@ struct InnerReset021ed9f8 {
     int fc;
 };
 
-// USA: func_ov023_021ed9f8  (semantic: ScaleOrResetCombatants_021ed9f8)
+// USA: func_ov023_021ed9f8
 extern "C" ARM void func_ov023_021ed9f8(char* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x21c, regionalOffset1=0x371c, regionalOffset2=0xe28, regionalOffset3=0x79c1, regionalOffset4=0x5778};
@@ -54,13 +54,13 @@ extern "C" ARM void func_ov023_021ed9f8(char* obj) {
     unsigned char* p = *(unsigned char**)(obj + regionalOffset0);
     int n = func_ov017_02195658();
     if (n > 0) {
-        void* q = GetData02108ea8_0207d78c();
+        void* q = func_0207d78c();
         func_ov000_02174a50(obj + regionalOffset1, n);
-        ClearBitAt0x34_020a367c(p, n & 0xff);
-        ProcessEntries0207da94((struct Entry0207da94*)q, (int)(unsigned char)n);
+        func_020a367c(p, n & 0xff);
+        func_0207da94((struct Entry0207da94*)q, (int)(unsigned char)n);
         if (n == (signed char)p[0x2a]) {
             for (int i = 0; i < 4; i++) {
-                if (TestBitAt0x34_020a35e0(p, i & 0xff)) {
+                if (func_020a35e0(p, i & 0xff)) {
                     p[0x2a] = i;
                     break;
                 }
@@ -92,15 +92,15 @@ extern "C" ARM void func_ov023_021ed9f8(char* obj) {
     int reinit = 0;
     if (func_ov017_021959b4()) {
         if (*(unsigned char*)(obj + regionalOffset3) == 0) {
-            SetCombatWorkFlags0x55f4_ov000_02160fa8(obj, 0x2000000);
+            func_ov000_02160fa8(obj, 0x2000000);
             reinit = 1;
         }
     }
 
     if (reinit) {
-        ResetAndReinit_021f52c8((char*)_ZZ17GetGlobal021ffefcvE1s.inner + 0xf4);
+        func_ov023_021f52c8((char*)_ZZ17GetGlobal021ffefcvE1s.inner + 0xf4);
         if (*(void**)(obj + regionalOffset4) != NULL) {
-            InitCombatEntry_021d8b6c(*(void**)(obj + regionalOffset4));
+            func_ov023_021d8b6c(*(void**)(obj + regionalOffset4));
             func_ov023_021d8af8(*(void**)(obj + regionalOffset4));
             *(void**)(obj + regionalOffset4) = NULL;
         }

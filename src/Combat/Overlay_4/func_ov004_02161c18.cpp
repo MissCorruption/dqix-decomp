@@ -60,10 +60,10 @@ extern "C" void __clear(void* buf, int n);
 extern "C" void* func_ov011_021849c8(void* self);
 extern "C" Node02161c18* func_ov004_0215e47c(void* a, int key);
 extern "C" void func_ov004_0215e574(void* a, unsigned short key, int c, int d, int e);
-void SetField38IfState8_0215e49c(void*, int, int);
+extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" Node02161c18* func_ov023_021f6880(void* list, int key);
 extern "C" int func_ov023_021f6f10(Node02161c18* node);
-void SetNodeFieldsAndMaybeNotify_0215f6f4(void* a, short v1, short v2, int flag);
+extern "C" void func_ov004_0215f6f4(void* a, short v1, short v2, int flag);
 
 extern struct MenuState02161c18 data_ov004_021707e8;
 extern struct MenuPage02161c18 data_ov004_02170b90;
@@ -108,10 +108,10 @@ extern "C" ARM int func_ov004_02161c18(void* self) {
     }
 
     if (data_ov004_02170b90.count != 0) {
-        for (i = 0xd; i < 0xf; i++) SetField38IfState8_0215e49c(self, i, 0x3a);
-        for (i = 0xf; i < 0x1d; i++) SetField38IfState8_0215e49c(self, i, 0x11e);
-        SetField38IfState8_0215e49c(self, 0x31, 0x3a);
-        SetField38IfState8_0215e49c(self, 0x32, 0x3a);
+        for (i = 0xd; i < 0xf; i++) func_ov004_0215e49c(self, i, 0x3a);
+        for (i = 0xf; i < 0x1d; i++) func_ov004_0215e49c(self, i, 0x11e);
+        func_ov004_0215e49c(self, 0x31, 0x3a);
+        func_ov004_0215e49c(self, 0x32, 0x3a);
         for (j = 0; j < 3; j++) {
             node = func_ov023_021f6880(obj, j + 0x65);
             if (node != 0) node->flags &= ~8;
@@ -134,7 +134,7 @@ extern "C" ARM int func_ov004_02161c18(void* self) {
             {
                 int cid;
                 int base;
-                SetField38IfState8_0215e49c(self, side + 0xd, i + 0x19f);
+                func_ov004_0215e49c(self, side + 0xd, i + 0x19f);
 #if !defined(jpn)
                 if (side == 0) {
                     func_ov004_0215e574(self, side + 0xd, 0x80, 0, 0);
@@ -162,7 +162,7 @@ extern "C" ARM int func_ov004_02161c18(void* self) {
                     if (key < 0) break;
                     base = 0xf;
                     if (side == 1) base = 0x16;
-                    SetField38IfState8_0215e49c(self, base + k, key);
+                    func_ov004_0215e49c(self, base + k, key);
                     node = func_ov023_021f6880(obj, base + k);
                     if (node != 0 && func_ov023_021f6f10(node) == 8) node->SetState(st);
                 }
@@ -184,14 +184,14 @@ extern "C" ARM int func_ov004_02161c18(void* self) {
         }
         if (mark[0] == 0 && mark[1] == 0) dim = 1;
     } else {
-        for (i = 0xd; i < 0xf; i++) SetField38IfState8_0215e49c(self, i, 0x3a);
-        for (i = 0xf; i < 0x1d; i++) SetField38IfState8_0215e49c(self, i, 0x11e);
+        for (i = 0xd; i < 0xf; i++) func_ov004_0215e49c(self, i, 0x3a);
+        for (i = 0xf; i < 0x1d; i++) func_ov004_0215e49c(self, i, 0x11e);
         for (j = 0; j < 3; j++) {
             node = func_ov023_021f6880(obj, j + 0x65);
             if (node != 0) node->flags |= 8;
         }
-        SetField38IfState8_0215e49c(self, 0x31, 0x1e2);
-        SetField38IfState8_0215e49c(self, 0x32, 0x1e3);
+        func_ov004_0215e49c(self, 0x31, 0x1e2);
+        func_ov004_0215e49c(self, 0x32, 0x1e3);
 #if !defined(jpn)
         func_ov004_0215e574(self, 0x31, 0xff, 0, 0);
         func_ov004_0215e574(self, 0x32, 0xff, 0, 0);
@@ -206,6 +206,6 @@ extern "C" ARM int func_ov004_02161c18(void* self) {
         node = func_ov023_021f6880(obj, btn + 0x64);
         if (node != 0 && func_ov023_021f6f10(node) == 0x13) node->SetState(state);
     }
-    SetNodeFieldsAndMaybeNotify_0215f6f4(self, data_ov004_021707e8.fieldB, data_ov004_021707e8.field6, dim);
+    func_ov004_0215f6f4(self, data_ov004_021707e8.fieldB, data_ov004_021707e8.field6, dim);
     return 0;
 }

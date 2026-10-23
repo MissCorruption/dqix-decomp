@@ -135,20 +135,20 @@ extern "C" void func_ov006_0215fa1c(AlchemyMenu* self, int total);
 extern "C" void func_ov006_0215fb7c(AlchemyMenu* self);
 extern "C" void func_ov006_0215fcf0(AlchemyMenu* self);
 extern "C" void func_ov006_0215f7e8(AlchemyMenu* self);
-void ResetWithSub0208203c(Obj0208203c* repeat);
-Recipe* FindNodeOrMark_02158d8c(void* self, short index);
+extern "C" void func_0208203c(Obj0208203c* repeat);
+extern "C" Recipe* func_ov006_02158d8c(void* self, short index);
 extern "C" RecipeRecord* func_ov006_02153c6c(void* ingredients, short id);
 extern "C" void func_ov006_02153b9c(void* ingredients, short id, unsigned char* amounts);
-void ClearFlag40_02157184(ClearFlag40_02157184Struct* pot);
+extern "C" void func_ov006_02157184(ClearFlag40_02157184Struct* pot);
 extern "C" void func_ov006_021555b0(AlchemyPot* pot, Recipe* recipe, RecipeRecord* record, unsigned char* amounts);
 extern "C" unsigned char func_ov006_02159bb0(AlchemyMenu* self);
 extern "C" void func_ov006_02159c64(AlchemyMenu* self);
 extern "C" void func_ov006_021570fc(AlchemyPot* pot, int shown);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int, int);
 extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-void ClearField44IfSet_02158c28(StructC28* self);
+extern "C" void func_0207fdcc(Obj2081* menu, int group);
+extern "C" void func_ov006_02158c28(StructC28* self);
 
 extern "C" char data_02108760[];
 
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov006_0215b57c(AlchemyMenu* self) {
             self->recipeCursor_ = 0x29;
         self->menu_->cursor_ = self->recipeCursor_;
         func_ov006_0215f7e8(self);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
         self->step_++;
     }
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov006_0215b57c(AlchemyMenu* self) {
             self->page_ = self->pages_ - 1;
         if (self->pages_ <= self->page_)
             self->page_ = 0;
-        Recipe* recipe = FindNodeOrMark_02158d8c(self, self->recipeCursor_ - 0x29);
+        Recipe* recipe = func_ov006_02158d8c(self, self->recipeCursor_ - 0x29);
         RecipeRecord* record = 0;
         if (recipe != 0)
         {
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov006_0215b57c(AlchemyMenu* self) {
         }
         else
         {
-            ClearFlag40_02157184((ClearFlag40_02157184Struct*)pot);
+            func_ov006_02157184((ClearFlag40_02157184Struct*)pot);
         }
         func_ov006_021555b0(pot, recipe, record, self->amounts_);
         if (pageChanged)
@@ -217,23 +217,23 @@ extern "C" ARM void func_ov006_0215b57c(AlchemyMenu* self) {
             if (recipe != 0 && record != 0)
             {
                 func_ov006_021570fc(pot, (pot->windowFlags_ & 0x800) ? 0 : 1);
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             }
             return;
         }
         if (!func_ov006_02158a28(self) && func_ov006_02158b78(self))
         {
             self->flags_ &= ~0x80;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xe);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xf);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, 0xe);
+            func_0207fdcc((Obj2081*)self->menu_, 0xf);
             self->state_ = 2;
             self->step_ = 0;
             self->background_ = 2;
-            ClearFlag40_02157184((ClearFlag40_02157184Struct*)pot);
+            func_ov006_02157184((ClearFlag40_02157184Struct*)pot);
             if (self->bookCursor_ == 0x25 || self->bookCursor_ == 0x26)
                 self->step_ = 2;
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
 }

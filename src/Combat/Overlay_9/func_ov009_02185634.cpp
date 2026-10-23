@@ -178,64 +178,64 @@ struct Container020e0310;
 struct Foo0207df50;
 
 struct GameResources;
-GameResources* GetWord0x0_0200fb8c(int* gameState);
-char* GetGlobalField0x1c020421a0();
-void ZeroInit020de848(void* obj);
+extern "C" GameResources* func_0200fb8c(int* gameState);
+extern "C" char* func_020421a0();
+extern "C" void func_020de848(void* obj);
 extern "C" void func_020de9a4(void* list, SafeAllocator* alloc, void* data, unsigned int size, const void* entries, int count);
 extern "C" void func_020dfec0(void* container, SafeAllocator* alloc, void* data, unsigned int size);
-void InitTenAllocatorsAndClearFields_021e4e8c(void* model);
-void CreateTenAndOne_021e4f64(void* model, SafeAllocator* alloc);
-void InitBlockArray_021e4fd8(void* model);
-void SetIntC0C_021e6198(void* model, int value);
-const char* GetFieldByKey020e0434(Container020e0310* c, int key);
+extern "C" void func_ov023_021e4e8c(void* model);
+extern "C" void func_ov023_021e4f64(void* model, SafeAllocator* alloc);
+extern "C" void func_ov023_021e4fd8(void* model);
+extern "C" void func_ov023_021e6198(void* model, int value);
+extern "C" const char* func_020e0434(Container020e0310* c, int key);
 extern "C" void func_0207de48(void* p, int a, int b);
-void CopyInternalFields0207df50(Foo0207df50* p);
-void RestorePairTables0207df90(char* p);
-void BackupPairTables0207dfac(char* p);
-void InitCombatController020a2010(void* camera);
+extern "C" void func_0207df50(Foo0207df50* p);
+extern "C" void func_0207df90(char* p);
+extern "C" void func_0207dfac(char* p);
+extern "C" void func_020a2010(void* camera);
 struct Vec3Target0202e5c0;
-void SetVec3At0x4(Vec3Target0202e5c0* camera, int x, int y, int z);
-void SetFields0x10To0x18_0202e5c8(unsigned char* camera, int a, int b, int c);
+extern "C" void func_0202e5c0(Vec3Target0202e5c0* camera, int x, int y, int z);
+extern "C" void func_0202e5c8(unsigned char* camera, int a, int b, int c);
 extern "C" void func_0202e0a4(void* camera);
-void SetField0x238False_020a27a0(void* camera);
-void SetField0x3b0Value_020100c4(GameState* gs, int camera);
-void GetEntryPair02188bf8(unsigned char* base, int idx, short* out0, short* out1);
+extern "C" void func_020a27a0(void* camera);
+extern "C" void func_020100c4(GameState* gs, int camera);
+extern "C" void func_ov009_02188bf8(unsigned char* base, int idx, short* out0, short* out1);
 extern "C" int func_ov009_02188b14(void* self, int type, int idx);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
 extern "C" void func_ov023_021e5e68(void* model, short a, short b);
-void SetByteC11_021e6150(void* model, unsigned char value);
-void ResetList0204af64(List0204af64* background);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* background, int value);
+extern "C" void func_ov023_021e6150(void* model, unsigned char value);
+extern "C" void func_0204af64(List0204af64* background);
+extern "C" void func_0204b11c(unsigned char* background, int value);
 extern "C" void func_0204b5b4(BackgroundGraphics* background, int screen);
-void DispatchViaTable0204b5e8(Obj0204b5e8* background, int a, int b);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
-void AllocateArray0204af38(Foo0204af38* background, int count, SafeAllocator* allocator);
-int CountActiveEntries(ActiveEntry02046900* archive);
-void* FindRecordByIndex(Rec020467f0* archive, int index, void** name, int* size);
+extern "C" void func_0204b5e8(Obj0204b5e8* background, int a, int b);
+extern "C" void func_0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
+extern "C" void func_0204af38(Foo0204af38* background, int count, SafeAllocator* allocator);
+extern "C" int func_02046900(ActiveEntry02046900* archive);
+extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
 extern "C" void func_0204b174(BackgroundGraphics* background, void* file, SafeAllocator* allocator, unsigned int size);
-void DispatchEntry0204b8d0(Obj0204b8d0* background, unsigned int a, int b, int c, short d, short e, short f, short g,
+extern "C" void func_0204b8d0(Obj0204b8d0* background, unsigned int a, int b, int c, short d, short e, short f, short g,
                            unsigned short h);
-void FlushAndDispatchList0204b0e8(List0204b0e8* background, void* a);
+extern "C" void func_0204b0e8(List0204b0e8* background, void* a);
 extern "C" void func_0204bc74(BackgroundGraphics* background, int a, int b, int c, int d, int e, int f);
 extern "C" void func_ov023_021da274(void* self);
-void AllocateBuffer0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int buffer, unsigned int len);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* list, Elem_0205cf78* elems, unsigned char count);
-void InitStruct0205a444(char* table);
+extern "C" void func_0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int buffer, unsigned int len);
+extern "C" void func_0205cf78(Struct_0205cf78* list, Elem_0205cf78* elems, unsigned char count);
+extern "C" void func_0205a444(char* table);
 struct Struct0205a198;
-void Init0205a198(Struct0205a198* entry);
+extern "C" void func_0205a198(Struct0205a198* entry);
 struct ClearTarget0205a234;
-void ClearField0And40205a234(ClearTarget0205a234* tail);
+extern "C" void func_0205a234(ClearTarget0205a234* tail);
 extern "C" void func_0205a528(Table0205a444* table, void* file, int size, SafeAllocator* alloc);
 extern "C" void func_ov003_0215e6f8(void* obj, SafeAllocator* alloc, void* data, unsigned int size);
 extern "C" void func_ov003_0215f41c(Ov3Obj* obj, const char* name);
 extern "C" unsigned char* func_ov003_0215f4fc(Ov3Obj* obj, const char* name);
-void InitWordsQuad_021e60e0(void* model, unsigned int angle);
+extern "C" void func_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void func_ov023_021e5974(void* model, Hero* hero, short a, int b, int c);
 extern "C" void func_ov023_021d99a4(void* self);
-void SetupTag021d9c7c(void* self);
-void SetupTag021d9da4(void* self);
-void SetElementFieldC2_0205deb4(Struct_0205d81c* s, int key, int value);
-void SetStatValue021855dc(unsigned char* self, int val);
+extern "C" void func_ov023_021d9c7c(void* self);
+extern "C" void func_ov023_021d9da4(void* self);
+extern "C" void func_0205deb4(Struct_0205d81c* s, int key, int value);
+extern "C" void func_ov009_021855dc(unsigned char* self, int val);
 
 #if defined(jpn)
 #define data_ov009_0218acb0 data_ov009_0218bc25
@@ -270,7 +270,7 @@ extern const char data_ov009_0218ad26[];
 extern const char data_ov009_0218ad28[];
 
 #if defined(jpn)
-#define SetStatValue021855dc func_ov009_021867bc
+#define func_ov009_021855dc func_ov009_021867bc
 extern "C" void func_020e0484(void* list, SafeAllocator* alloc, const char* name, const void* entries, int count, int flag);
 extern "C" void func_ov009_02185888(void* obj);
 extern "C" void func_ov009_02185850(void* obj);
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 {
     unsigned int offset;
     GameState* gs = GameState::GetInstance();
-    GetWord0x0_0200fb8c((int*)gs);
+    func_0200fb8c((int*)gs);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned char step = self->step_;
     if (step == 0)
@@ -307,8 +307,8 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         LoadFileIntoMemory(data_ov009_0218acb0, data, &size);
         self->allocators_[5].Reset();
         func_020dfec0(self->strings_, &self->allocators_[5], data, size);
-        self->unk_f8 = *(int*)(GetGlobalField0x1c020421a0() + 0x28);
-        ZeroInit020de848(self->unk_c8);
+        self->unk_f8 = *(int*)(func_020421a0() + 0x28);
+        func_020de848(self->unk_c8);
         func_020e0484(self->unk_c8, &self->allocators_[4], data_020f2a38, data_ov009_0218ab48, 0x29, 1);
 #else
         BackgroundLoader::AddLockGlobal();
@@ -318,8 +318,8 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         self->allocators_[5].Reset();
         func_020dfec0(self->strings_, &self->allocators_[5], data, size);
         BackgroundLoader::RemoveLockGlobal();
-        self->unk_f8 = *(int*)(GetGlobalField0x1c020421a0() + 0x5c);
-        ZeroInit020de848(self->unk_c8);
+        self->unk_f8 = *(int*)(func_020421a0() + 0x5c);
+        func_020de848(self->unk_c8);
         BackgroundLoader::AddLockGlobal();
         unsigned int listSize;
         void* list = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &listSize);
@@ -332,18 +332,18 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 #if !defined(jpn)
         void* model0 = self->models_[0];
 #endif
-        InitTenAllocatorsAndClearFields_021e4e8c(MODEL0);
-        CreateTenAndOne_021e4f64(MODEL0, &self->allocators_[3]);
-        InitBlockArray_021e4fd8(MODEL0);
-        SetIntC0C_021e6198(MODEL0, (int)self->unk_c8);
+        func_ov023_021e4e8c(MODEL0);
+        func_ov023_021e4f64(MODEL0, &self->allocators_[3]);
+        func_ov023_021e4fd8(MODEL0);
+        func_ov023_021e6198(MODEL0, (int)self->unk_c8);
         self->models_[1] = self->allocators_[3].Allocate(0xc20);
 #if !defined(jpn)
         void* model1 = self->models_[1];
 #endif
-        InitTenAllocatorsAndClearFields_021e4e8c(MODEL1);
-        CreateTenAndOne_021e4f64(MODEL1, &self->allocators_[3]);
-        InitBlockArray_021e4fd8(MODEL1);
-        SetIntC0C_021e6198(MODEL1, (int)self->unk_c8);
+        func_ov023_021e4e8c(MODEL1);
+        func_ov023_021e4f64(MODEL1, &self->allocators_[3]);
+        func_ov023_021e4fd8(MODEL1);
+        func_ov023_021e6198(MODEL1, (int)self->unk_c8);
 
         if (self->mode_ == 0)
         {
@@ -370,14 +370,14 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
                 PairTableAlign pairAlign = kPairTableAlign;
 #endif
                 if (DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, buf + offset, length, room,
-                                                GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x7d0)))
+                                                func_020e0434((Container020e0310*)self->strings_, 0x7d0)))
                 {
                     func_0207de48(self->pairs_, pairSize, pairAlign);
-                    CopyInternalFields0207df50((Foo0207df50*)self->pairs_);
-                    RestorePairTables0207df90(self->pairs_);
+                    func_0207df50((Foo0207df50*)self->pairs_);
+                    func_0207df90(self->pairs_);
                     ((Object3D*)self->object_)->SetModelFromFileCopy(self->modelAllocator_, buf + offset, length,
                                                        Model3D::TextureStagingMode_Normal);
-                    BackupPairTables0207dfac(self->pairs_);
+                    func_0207dfac(self->pairs_);
                 }
             }
             BackgroundLoader::RemoveLockGlobal();
@@ -391,12 +391,12 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 #else
         Scene* scene = (Scene*)((char*)self + 0x124);
 #endif
-        InitCombatController020a2010(scene->camera_);
-        SetVec3At0x4((Vec3Target0202e5c0*)scene->camera_, 0xd000, 0xf800, 0x42ccc);
-        SetFields0x10To0x18_0202e5c8((unsigned char*)scene->camera_, 0xd000, 0xf800, 0);
+        func_020a2010(scene->camera_);
+        func_0202e5c0((Vec3Target0202e5c0*)scene->camera_, 0xd000, 0xf800, 0x42ccc);
+        func_0202e5c8((unsigned char*)scene->camera_, 0xd000, 0xf800, 0);
         func_0202e0a4(scene->camera_);
-        SetField0x238False_020a27a0(scene->camera_);
-        SetField0x3b0Value_020100c4(gs, (int)scene->camera_);
+        func_020a27a0(scene->camera_);
+        func_020100c4(gs, (int)scene->camera_);
 
         self->sex_ = 0;
         self->unk_da4[0] = 2;
@@ -420,9 +420,9 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             self->unk_dae[1] = 0;
         }
 #if defined(jpn)
-        memcpy(self->nameA_, GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
+        memcpy(self->nameA_, func_020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
         self->nameEndA_ = 0;
-        memcpy(self->nameB_, GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
+        memcpy(self->nameB_, func_020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
         self->nameEndB_ = 0;
 #endif
 
@@ -468,7 +468,7 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             } while (--n);
             look->unk_15_0_ = eyes;
         }
-        GetEntryPair02188bf8((unsigned char*)self, self->unk_da4[self->sex_], &look->unk_18, &look->unk_1a);
+        func_ov009_02188bf8((unsigned char*)self, self->unk_da4[self->sex_], &look->unk_18, &look->unk_1a);
         short top = func_ov009_02188b14(self, 5, self->unk_da6[self->sex_]) + 0x233c;
         short bottom = func_ov009_02188b14(self, 3, self->unk_dac[self->sex_]) + 0x2328;
         defaults = data_ov009_0218aa40;
@@ -481,8 +481,8 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 
         if (self->unk_da2 != 0)
         {
-            SetByteC11_021e6150(MODEL0, 1);
-            SetByteC11_021e6150(MODEL1, 1);
+            func_ov023_021e6150(MODEL0, 1);
+            func_ov023_021e6150(MODEL1, 1);
             switch (self->unk_da2)
             {
             case 1:
@@ -535,24 +535,24 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             SafeAllocator* allocator = &self->allocators_[0];
             if (i == 3)
                 allocator = &self->allocators_[2];
-            ResetList0204af64((List0204af64*)background);
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+            func_0204af64((List0204af64*)background);
+            func_0204b11c((unsigned char*)background, 0);
             unsigned char lo = data_ov009_0218a96c[i];
             background->unk_1c_0_ = lo;
             background->unk_1c_4_ = data_ov009_0218a994[i];
             func_0204b5b4(background, data_ov009_0218a998[i]);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
-            AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, allocator);
+            func_0204b5e8((Obj0204b5e8*)background, 0, 0);
+            func_0204b12c((AllocTarget0204b12c*)background, allocator);
             if (data_ov009_0218a99c[i] > 0)
-                AllocateArray0204af38((Foo0204af38*)background, (unsigned char)data_ov009_0218a99c[i], allocator);
+                func_0204af38((Foo0204af38*)background, (unsigned char)data_ov009_0218a99c[i], allocator);
         }
 
 #if defined(jpn)
-        self->task_ = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->strings_, self->state_), NULL);
+        self->task_ = loader->QueueLoadFile(func_020e0434((Container020e0310*)self->strings_, self->state_), NULL);
 #else
         signed char state = self->state_;
-        const char* inner = GetFieldByKey020e0434((Container020e0310*)self->strings_, (short)(state + 0x32));
-        self->task_ = loader->QueueLoadFileInGP2(GetFieldByKey020e0434((Container020e0310*)self->strings_, state),
+        const char* inner = func_020e0434((Container020e0310*)self->strings_, (short)(state + 0x32));
+        self->task_ = loader->QueueLoadFileInGP2(func_020e0434((Container020e0310*)self->strings_, state),
                                                  inner, NULL);
 #endif
         self->step_++;
@@ -566,12 +566,12 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             unsigned int archiveSize;
             int size;
             loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             if (self->mode_ == 1)
                 count--;
             for (int i = 0; i < count; i++)
             {
-                void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &size);
+                void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, &size);
                 if (file != NULL)
                 {
                     if (i == 0)
@@ -594,17 +594,17 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             int visible = 1;
             if (self->mode_ == 1)
                 visible = 0;
-            DispatchEntry0204b8d0((Obj0204b8d0*)&self->backgrounds_[0], visible, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[0], 0);
+            func_0204b8d0((Obj0204b8d0*)&self->backgrounds_[0], visible, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+            func_0204b0e8((List0204b0e8*)&self->backgrounds_[0], 0);
             func_0204bc74(&self->backgrounds_[1], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[1], 0);
+            func_0204b0e8((List0204b0e8*)&self->backgrounds_[1], 0);
             func_0204bc74(&self->backgrounds_[2], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[2], 0);
+            func_0204b0e8((List0204b0e8*)&self->backgrounds_[2], 0);
             func_0204bc74(&self->backgrounds_[5], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[5], 0);
+            func_0204b0e8((List0204b0e8*)&self->backgrounds_[5], 0);
             self->flags_ |= 0x1000;
             func_ov023_021da274(self);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[1], 0);
+            func_0204b0e8((List0204b0e8*)&self->backgrounds_[1], 0);
             self->flags_ &= ~0x1000;
 
             self->canvasBufA_ = self->allocators_[0].Allocate(0x1000);
@@ -613,30 +613,30 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             for (int i = 0; i < 1; i++)
             {
                 canvas = &self->canvasA_[i];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)canvas, &self->allocators_[0], (int)self->canvasBufA_, bufferSize);
+                func_0204c7a8((Obj0204c7a8*)canvas, &self->allocators_[0], (int)self->canvasBufA_, bufferSize);
                 canvas->background_ = &self->backgrounds_[2];
             }
             self->canvasListA_.background_ = &self->backgrounds_[2];
             self->canvasListA_.unk_b2 = 1;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)&self->canvasListA_, (Elem_0205cf78*)self->canvasA_, 1);
+            func_0205cf78((Struct_0205cf78*)&self->canvasListA_, (Elem_0205cf78*)self->canvasA_, 1);
 
             self->canvasBufB_ = self->allocators_[2].Allocate(0x400);
             for (int i = 0; i < 4; i++)
             {
                 canvas = &self->canvasB_[i];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)canvas, &self->allocators_[2], (int)self->canvasBufB_,
+                func_0204c7a8((Obj0204c7a8*)canvas, &self->allocators_[2], (int)self->canvasBufB_,
                                        data_ov009_0218a9a4[i]);
                 canvas->background_ = &self->backgrounds_[5];
             }
             self->canvasListB_.background_ = &self->backgrounds_[5];
             self->canvasListB_.unk_b2 = 1;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)&self->canvasListB_, (Elem_0205cf78*)self->canvasB_, 4);
+            func_0205cf78((Struct_0205cf78*)&self->canvasListB_, (Elem_0205cf78*)self->canvasB_, 4);
 
             int i;
 #if !defined(jpn)
             Table0205a444* table = self->tableA_;
 #endif
-            InitStruct0205a444((char*)TABLE_A);
+            func_0205a444((char*)TABLE_A);
             TABLE_A->unk_50 = 0;
 #if defined(jpn)
             TABLE_A->SetEntries(self->entriesA_, 6);
@@ -646,13 +646,13 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 #endif
             TABLE_A->tail_ = self->tailA_;
             for (i = 0; i < 6; i++)
-                Init0205a198((Struct0205a198*)&self->entriesA_[i]);
-            ClearField0And40205a234((ClearTarget0205a234*)self->tailA_);
+                func_0205a198((Struct0205a198*)&self->entriesA_[i]);
+            func_0205a234((ClearTarget0205a234*)self->tailA_);
 
 #if !defined(jpn)
             Table0205a444* tableB = self->tableB_;
 #endif
-            InitStruct0205a444((char*)TABLE_B);
+            func_0205a444((char*)TABLE_B);
 #if defined(jpn)
             TABLE_B->SetKind(1);
 #else
@@ -666,14 +666,14 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 #endif
             TABLE_B->tail_ = self->tailB_;
             for (int j = 0; j < 0x19; j++)
-                Init0205a198((Struct0205a198*)&self->entriesB_[j]);
-            ClearField0And40205a234((ClearTarget0205a234*)self->tailB_);
+                func_0205a198((Struct0205a198*)&self->entriesB_[j]);
+            func_0205a234((ClearTarget0205a234*)self->tailB_);
 
 #if defined(jpn)
-            self->task_ = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->strings_, 1000), NULL);
+            self->task_ = loader->QueueLoadFile(func_020e0434((Container020e0310*)self->strings_, 1000), NULL);
 #else
-            const char* inner = GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x41a);
-            self->task_ = loader->QueueLoadFileInGP2(GetFieldByKey020e0434((Container020e0310*)self->strings_, 1000),
+            const char* inner = func_020e0434((Container020e0310*)self->strings_, 0x41a);
+            self->task_ = loader->QueueLoadFileInGP2(func_020e0434((Container020e0310*)self->strings_, 1000),
                                                      inner, NULL);
 #endif
             self->step_++;
@@ -688,11 +688,11 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             unsigned int archiveSize;
             int size;
             loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-            int count = CountActiveEntries((ActiveEntry02046900*)archive);
+            int count = func_02046900((ActiveEntry02046900*)archive);
             self->allocators_[6].Reset();
             for (int i = 0; i < count; i++)
             {
-                void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, &size);
+                void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, &size);
                 if (file != NULL)
                 {
                     if (i < 4)
@@ -740,17 +740,17 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
 #endif
     else
     {
-        InitWordsQuad_021e60e0(self->models_[0], 0x1eb);
-        InitWordsQuad_021e60e0(self->models_[1], 0x1eb);
+        func_ov023_021e60e0(self->models_[0], 0x1eb);
+        func_ov023_021e60e0(self->models_[1], 0x1eb);
         func_ov023_021e5974(self->models_[0], self->hero_, self->hero_->unk_568, 0, 0);
         func_ov023_021e5974(self->models_[1], self->hero_, self->hero_->unk_568, 0, 0);
         self->current_ = self->models_[0];
         self->next_ = self->models_[1];
         func_ov023_021d99a4(self);
-        SetupTag021d9c7c(self);
-        SetupTag021d9da4(self);
-        SetElementFieldC2_0205deb4((Struct_0205d81c*)&self->canvasListB_, 2, 0);
-        SetElementFieldC2_0205deb4((Struct_0205d81c*)&self->canvasListB_, 3, 0);
+        func_ov023_021d9c7c(self);
+        func_ov023_021d9da4(self);
+        func_0205deb4((Struct_0205d81c*)&self->canvasListB_, 2, 0);
+        func_0205deb4((Struct_0205d81c*)&self->canvasListB_, 3, 0);
 #if defined(jpn)
         func_ov009_02185888(self->unk_dc);
         func_ov009_02185850(self->unk_dc);
@@ -758,6 +758,6 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         self->unk_ee = 1;
         func_ov009_02185c58(self->unk_dc);
 #endif
-        SetStatValue021855dc((unsigned char*)self, 1);
+        func_ov009_021855dc((unsigned char*)self, 1);
     }
 }

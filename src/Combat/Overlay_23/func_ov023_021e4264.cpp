@@ -5,7 +5,7 @@ enum {regionalOffset0=0x634};
 #endif
 #include <globaldefs.h>
 
-void ComputeShortPair_021e2bdc(void* a, int unused, short* out1, short* out2);
+extern "C" void func_ov023_021e2bdc(void* a, int unused, short* out1, short* out2);
 extern "C" void func_0205ac40(void* obj, void* entry);
 
 struct Obj021e4264 {
@@ -30,7 +30,7 @@ struct Entry021e4264 {
 extern "C" ARM void func_ov023_021e4264(Obj021e4264* obj) {
     short lo, hi;
     Entry021e4264* entry = (Entry021e4264*)obj->fcc;
-    ComputeShortPair_021e2bdc((char*)obj + 0xd4, 0x11, &lo, &hi);
+    func_ov023_021e2bdc((char*)obj + 0xd4, 0x11, &lo, &hi);
     if (obj->f634 & 0x100) {
         lo--;
         hi++;
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021e4264(Obj021e4264* obj) {
     func_0205ac40(obj->fc8, e0);
 
     entry = (Entry021e4264*)obj->fcc;
-    ComputeShortPair_021e2bdc((char*)obj + 0xd4, 0x12, &lo, &hi);
+    func_ov023_021e2bdc((char*)obj + 0xd4, 0x12, &lo, &hi);
     if (obj->f634 & 0x200) {
         lo++;
         hi++;

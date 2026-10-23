@@ -8,12 +8,12 @@ extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" void* func_ov023_021f6880(void* list, int value);
 
 struct Obj_021844ec;
-int GetField9c_021844ec(struct Obj_021844ec* obj);
+extern "C" int func_ov011_021844ec(struct Obj_021844ec* obj);
 
-void* GetFieldPtrAt_021f79e4_021f79e4(void* obj);
+extern "C" void* func_ov023_021f79e4(void* obj);
 
 struct Obj0204c7a8;
-void AllocateBuffer0204c7a8(struct Obj0204c7a8* obj, SafeAllocator* alloc, int val, unsigned int len);
+extern "C" void func_0204c7a8(struct Obj0204c7a8* obj, SafeAllocator* alloc, int val, unsigned int len);
 
 struct Obj021f7da0 {
     char pad0[4];
@@ -38,7 +38,7 @@ struct Obj021f7da0 {
     unsigned short f10e;
 };
 
-// USA: func_ov023_021f7da0  (semantic: InitObjKind6AndLinkNodes_021f7da0)
+// USA: func_ov023_021f7da0
 extern "C" ARM int func_ov023_021f7da0(struct Obj021f7da0* obj, void* ctx, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9) {
     func_ov023_021f6ed8(obj);
     obj->f4 = 6;
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov023_021f7da0(struct Obj021f7da0* obj, void* ctx, int a
         return 0;
     }
 
-    int f9c = GetField9c_021844ec((struct Obj_021844ec*)ctx);
+    int f9c = func_ov011_021844ec((struct Obj_021844ec*)ctx);
     if (f9c == 0) {
         return 0;
     }
@@ -69,14 +69,14 @@ extern "C" ARM int func_ov023_021f7da0(struct Obj021f7da0* obj, void* ctx, int a
         return 0;
     }
 
-    AllocateBuffer0204c7a8((struct Obj0204c7a8*)&obj->f20, alloc, f9c, len);
+    func_0204c7a8((struct Obj0204c7a8*)&obj->f20, alloc, f9c, len);
 
     void* list = func_ov011_021849c8(ctx);
     void* node = func_ov023_021f6880(list, arg5);
     if (node == NULL) {
         return 0;
     }
-    obj->f24 = GetFieldPtrAt_021f79e4_021f79e4(node);
+    obj->f24 = func_ov023_021f79e4(node);
 
     obj->f108 = (unsigned char)arg8;
     void* node2 = func_ov023_021f6880(list, arg9);

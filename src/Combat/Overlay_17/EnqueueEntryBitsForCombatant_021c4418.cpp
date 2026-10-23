@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void* GetData02100044_0202ae24(void);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" void* func_0202ae24(void);
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
 struct Field150Holder02052e2c;
-short* GetField150Ptr0x488_02052e2c(struct Field150Holder02052e2c* obj);
+extern "C" short* func_02052e2c(struct Field150Holder02052e2c* obj);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
 struct Entry150_021c4418 {
@@ -34,13 +34,13 @@ struct LocalEvt021c4418 {
     signed char field10;
 };
 
-// USA: func_ov017_021c4418  (semantic: EnqueueEntryBitsForCombatant_021c4418)
+// USA: func_ov017_021c4418
 extern "C" ARM void func_ov017_021c4418(int combatantId, signed char flag10) {
     GameState* battleStruct = GameState::GetInstance();
-    void* p = GetData02100044_0202ae24();
-    GameObject* c = GetCombatantWithFlag0x100_0200ff1c(battleStruct, combatantId);
+    void* p = func_0202ae24();
+    GameObject* c = func_0200ff1c(battleStruct, combatantId);
     if (!c) return;
-    struct Entry150_021c4418* entry = (struct Entry150_021c4418*)GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)c);
+    struct Entry150_021c4418* entry = (struct Entry150_021c4418*)func_02052e2c((struct Field150Holder02052e2c*)c);
     if (!entry) return;
 
     struct LocalEvt021c4418 evt;

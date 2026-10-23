@@ -37,20 +37,20 @@ struct Menu_02167b34 {
     signed char combatantId;
 };
 
-void* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" void* func_02053c6c(unsigned char* obj);
 extern "C" void func_02083e28(void* data, int arg);
 extern "C" void func_ov003_02167e28(Menu_02167b34* menu, BaseCombatStats* stats, int flag, unsigned char index, int byteValue, int halfValue, int wordValue);
 extern "C" void func_ov003_02167fa4(Menu_02167b34* menu, int flag, unsigned char* table);
-void SetEntryFieldsForRange_02168088(struct Wrapper02168088* obj, int* arr);
+extern "C" void func_ov003_02168088(struct Wrapper02168088* obj, int* arr);
 extern "C" void func_020813ec(void* list, int arg);
 
 static inline BaseCombatStats* GetBaseStats(GameObject* c) { SDK_NULL_ASSERT(c); return c->baseStats_; }
 
 // USA: func_ov003_02167b34
 extern "C" ARM void func_ov003_02167b34(Menu_02167b34* menu) {
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), menu->combatantId);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), menu->combatantId);
     if (combatant == 0) return;
-    CombatantData_02167b34* data = (CombatantData_02167b34*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    CombatantData_02167b34* data = (CombatantData_02167b34*)func_02053c6c((unsigned char*)combatant);
     func_02083e28(data, 0);
     func_ov003_02167e28(menu, GetBaseStats(combatant), data->flag, data->index, data->byteTable[data->index], data->halfTable[data->index], data->wordTable[data->index]);
     func_ov003_02167fa4(menu, data->index & 0xff, data->entryTable);
@@ -67,6 +67,6 @@ extern "C" ARM void func_ov003_02167b34(Menu_02167b34* menu) {
     values[9] = combatant->baseStats_->primaryStats.attack;
     values[10] = combatant->baseStats_->primaryStats.defense;
     values[11] = data->value9;
-    SetEntryFieldsForRange_02168088((struct Wrapper02168088*)menu, values);
+    func_ov003_02168088((struct Wrapper02168088*)menu, values);
     func_020813ec(menu->list, 0);
 }

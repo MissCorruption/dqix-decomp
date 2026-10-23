@@ -3,6 +3,6 @@
 
 class GameState;
 
-void* GetField0x3b0Value_020100bc(GameState* state);
+extern "C" void* func_020100bc(GameState* state);
 
 #endif

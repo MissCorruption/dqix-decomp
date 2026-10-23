@@ -12,13 +12,13 @@ enum { MiddleFieldDelta = 0, TailFieldDelta = 0 };
 #endif
 
 struct ClearThreeWords02094d00Struct;
-void ClearThreeWords02094d00(ClearThreeWords02094d00Struct*);
-void ResetFourSubStructs_02012fa4(char* obj);
+extern "C" void func_02094d00(ClearThreeWords02094d00Struct*);
+extern "C" void func_02012fa4(char* obj);
 extern "C" void func_020982b4(void* obj);
-unsigned char GetByte0x4_0200fb9c(char* gs);
-int GetWord0x7f6c_0201201c(void* gs);
+extern "C" unsigned char func_0200fb9c(char* gs);
+extern "C" int func_0201201c(void* gs);
 struct FieldBlock63d6_115a8;
-unsigned char GetByteField0x63d6_020115a8(FieldBlock63d6_115a8*);
+extern "C" unsigned char func_020115a8(FieldBlock63d6_115a8*);
 
 // USA: func_020134e0
 extern "C" ARM void func_020134e0(char* obj) {
@@ -59,21 +59,21 @@ extern "C" ARM void func_020134e0(char* obj) {
     *(short*)(obj + 0x27d6 + TailFieldDelta) = 0;
     *(char*)(obj + 0x23bb + MiddleFieldDelta) = -1;
 
-    ((ZoneFeatures*)(obj + 0x6c + MiddleFieldDelta))->Reset_0201e248();
+    ((ZoneFeatures*)(obj + 0x6c + MiddleFieldDelta))->func_0201e248();
     ((AtmosphericEffectSet*)(obj + 0xf4 + MiddleFieldDelta))->Reset();
     ((LightingInfo*)(obj + 0x10c + MiddleFieldDelta))->Initialize();
     ((SafeAllocator*)(obj + 0x54 + MiddleFieldDelta))->ResetAllocatorPointer();
     ((SafeAllocator*)(obj + 0x2730 + TailFieldDelta))->ResetAllocatorPointer();
     ((Model3D*)(obj + 0x498 + MiddleFieldDelta))->Clear();
     ((Model3D*)(obj + 0x544 + MiddleFieldDelta))->Clear();
-    ClearThreeWords02094d00((ClearThreeWords02094d00Struct*)(obj + 0x2724 + TailFieldDelta));
+    func_02094d00((ClearThreeWords02094d00Struct*)(obj + 0x2724 + TailFieldDelta));
 
     *(int*)(obj + 0x27c4 + TailFieldDelta) = 0;
     *(int*)(obj + 0x27b8 + TailFieldDelta) = 0;
     *(int*)(obj + 0x27bc + TailFieldDelta) = 0xa000;
     *(int*)(obj + 0x27c0 + TailFieldDelta) = 0;
     *(int*)(obj + 0x820 + MiddleFieldDelta) = 0;
-    ResetFourSubStructs_02012fa4(obj + 0x600 + MiddleFieldDelta);
+    func_02012fa4(obj + 0x600 + MiddleFieldDelta);
     memset(obj + 0x27dc + TailFieldDelta, 0, 0x40);
 
     *(char*)(obj + 0x281c + TailFieldDelta) = 0;
@@ -84,18 +84,18 @@ extern "C" ARM void func_020134e0(char* obj) {
     *(int*)(obj + 0x274c + TailFieldDelta) = 1;
     *(int*)(obj + 0x2750 + TailFieldDelta) = 1;
 
-    if (GetByte0x4_0200fb9c((char*)gs) != 5) {
+    if (func_0200fb9c((char*)gs) != 5) {
         *(short*)(obj + 0x27d8 + TailFieldDelta) = 0;
         *(short*)(obj + 0x27da + TailFieldDelta) = 0;
     }
     *(char*)(obj + 0x281d + TailFieldDelta) = 0;
     *(char*)(obj + 0x281e + TailFieldDelta) = 0;
-    if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
+    if (func_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
         return;
     }
 
-    if (GetWord0x7f6c_0201201c(gs) == 5 || GetByte0x4_0200fb9c((char*)gs) == 4 ||
-        GetByte0x4_0200fb9c((char*)gs) == 2) {
+    if (func_0201201c(gs) == 5 || func_0200fb9c((char*)gs) == 4 ||
+        func_0200fb9c((char*)gs) == 2) {
         func_020982b4(obj + 0x840 + MiddleFieldDelta);
         *(short*)(obj + 0x27b4 + TailFieldDelta) = 2;
         *(short*)(obj + 0x27b6 + TailFieldDelta) = 0;

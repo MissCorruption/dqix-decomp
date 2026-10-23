@@ -11,8 +11,8 @@ extern OctetLimit_0222e224 data_ov031_02248ee0;
 extern State_0222e224* data_ov031_02290c98;
 
 extern "C" void func_ov031_022366d8(unsigned char* src3, unsigned char* out4);
-void GetFields181c_02227520(int* a, int* b);
-int CheckRange_0221b258(unsigned char* p);
+extern "C" void func_ov031_02227520(int* a, int* b);
+extern "C" int func_ov031_0221b258(unsigned char* p);
 
 // USA: func_ov031_0222e224
 extern "C" ARM int func_ov031_0222e224(void) {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov031_0222e224(void) {
 
     func_ov031_022366d8(state->digits, addr);
 
-    GetFields181c_02227520(&mode, NULL);
+    func_ov031_02227520(&mode, NULL);
     if (mode == 1) {
         int seenZero = 0;
         unsigned char* p = addr;
@@ -68,5 +68,5 @@ extern "C" ARM int func_ov031_0222e224(void) {
         return 1;
     }
 
-    return CheckRange_0221b258(addr) != 0;
+    return func_ov031_0221b258(addr) != 0;
 }

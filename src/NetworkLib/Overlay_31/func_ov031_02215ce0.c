@@ -128,10 +128,10 @@ struct DiscoveryState {
 
 extern DiscoveryState* data_ov031_0224e5d8;
 void func_ov031_022118a8(DiscoveryRc4Context*, const void*, unsigned long);
-void Rc4Crypt_02211938(DiscoveryRc4Context*, const void*, unsigned long, void*);
-void Crc16Update_020d1be4(const unsigned short*, unsigned short*, const unsigned char*, unsigned int);
-unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
-int EncodeChar_02215ccc(int);
+void func_ov031_02211938(DiscoveryRc4Context*, const void*, unsigned long, void*);
+void func_020d1be4(const unsigned short*, unsigned short*, const unsigned char*, unsigned int);
+unsigned short func_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
+int func_ov031_02215ccc(int);
 
 #ifdef __cplusplus
 }
@@ -175,18 +175,18 @@ ARM void func_ov031_02215ce0(void* argument) {
                         VectorizedInvertedMemcpy(&magic, rc4key, 4);
                         VectorizedInvertedMemcpy(reply->bssDesc[entryIndex]->bssid + 2, rc4key + 4, 4);
                         func_ov031_022118a8(&data_ov031_0224e5d8->cipher, rc4key, 8);
-                        Rc4Crypt_02211938(&data_ov031_0224e5d8->cipher,
+                        func_ov031_02211938(&data_ov031_0224e5d8->cipher,
                             &data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex], 0x70,
                             &data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex]);
                         pCrcData = (unsigned char*)&data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex];
-                        Crc16Update_020d1be4(data_ov031_0224e5d8->crcTable.table, &data_ov031_0224e5d8->crc, pCrcData, 0x6e);
-                        crc = Crc16Compute_020d1cc8(data_ov031_0224e5d8->crcTable.table, pCrcData, 0x6e);
+                        func_020d1be4(data_ov031_0224e5d8->crcTable.table, &data_ov031_0224e5d8->crc, pCrcData, 0x6e);
+                        crc = func_020d1cc8(data_ov031_0224e5d8->crcTable.table, pCrcData, 0x6e);
                         state = data_ov031_0224e5d8;
                         storedCrc = state->slots[state->writeIndex].crc;
                         if (crc != storedCrc && storedCrc != 0) {
                             VectorizedMemset(&state->slots[state->writeIndex], 0, 0x70);
                         } else {
-                            state->linkLevels[state->writeIndex] = EncodeChar_02215ccc((unsigned char)reply->bssDesc[entryIndex]->rssi);
+                            state->linkLevels[state->writeIndex] = func_ov031_02215ccc((unsigned char)reply->bssDesc[entryIndex]->rssi);
                             data_ov031_0224e5d8->tgids[data_ov031_0224e5d8->writeIndex] = reply->bssDesc[entryIndex]->gameInfo.tgid;
                             data_ov031_0224e5d8->writeIndex = (data_ov031_0224e5d8->writeIndex + 1) % 16;
                             ++data_ov031_0224e5d8->count;

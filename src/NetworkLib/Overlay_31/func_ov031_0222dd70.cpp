@@ -4,7 +4,7 @@ extern unsigned char* data_ov031_02290c98;
 extern "C" void* VectorizedInvertedMemcpy(void* dst, void* src, int n);
 extern "C" int func_02005a94(signed char* s);
 
-// USA: func_ov031_0222dd70  (semantic: CheckAndFormatEntry_0222dd70)
+// USA: func_ov031_0222dd70
 extern "C" ARM int func_ov031_0222dd70(int cmpVal) {
     unsigned char idx = data_ov031_02290c98[0x14];
     unsigned char* entry = data_ov031_02290c98 + 8 + idx * 3;

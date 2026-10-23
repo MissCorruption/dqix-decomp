@@ -11,7 +11,7 @@ struct Struct020dfc40 {
 
 struct SafeAllocator;
 struct Obj020dfe88;
-int ResetHandleState020dfe88(Obj020dfe88*);
+extern "C" int func_020dfe88(Obj020dfe88*);
 extern "C" void func_020dfec0(void* p, void* a, void* b, unsigned int c);
 extern "C" void func_020e0028(void* p, void* a, void* b, unsigned int c, short* e, int f);
 extern "C" int func_020dfd40(void* self, void* a, void* b);
@@ -24,7 +24,7 @@ extern "C" ARM int func_020dfd40(void* self, void* a, void* b) {
     switch (p->field_e) {
     case 1:
         if (a == 0) {
-            ResetHandleState020dfe88((Obj020dfe88*)p);
+            func_020dfe88((Obj020dfe88*)p);
             return 1;
         }
         if (b != 0) {
@@ -51,7 +51,7 @@ extern "C" ARM int func_020dfd40(void* self, void* a, void* b) {
             idx = p->field_c;
             func_020e0028(p, p->field_14, data, size, &idx, 1);
         }
-        ResetHandleState020dfe88((Obj020dfe88*)p);
+        func_020dfe88((Obj020dfe88*)p);
         return 1;
     }
     default:

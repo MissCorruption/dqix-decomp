@@ -19,11 +19,11 @@
 #define REG_BG3_SCROLL_SUB (*(volatile unsigned int*)0x0400101c)
 #define REG_POWER_CONTROL (*(volatile unsigned short*)0x04000304)
 
-void SetVBlankIrqEnable_020c3864(int);
-void SetDispcntModeAndFlags020c391c(int, int, int);
+extern "C" void func_020c3864(int);
+extern "C" void func_020c391c(int, int, int);
 extern "C" void func_020c39a0(short*, int);
-void SetSubBgMode_020c3984(unsigned int);
-void RestoreDisplayMode_020c38d4();
+extern "C" void func_020c3984(unsigned int);
+extern "C" void func_020c38d4();
 extern "C" void func_ov031_0223c308();
 extern "C" void func_ov031_0223d928();
 extern "C" void func_ov031_0223dabc();
@@ -35,10 +35,10 @@ static inline unsigned int SubDisplayWithClearedLayers(unsigned int mask) {
 
 // USA: func_ov031_022271f0
 extern "C" ARM void func_ov031_022271f0() {
-    SetVBlankIrqEnable_020c3864(0);
+    func_020c3864(0);
     MapVRAMBanksToMainBG(1);
     MapVRAMBanksToMainObj(2);
-    SetDispcntModeAndFlags020c391c(1, 0, 0);
+    func_020c391c(1, 0, 0);
     DISPCNT &= ~0x1f00;
     DISPCNT &= ~0xe000;
     func_020c39a0((short*)&REG_MASTER_BRIGHTNESS, 0);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov031_022271f0() {
     ColorEffect_ConfigureBrightnessAdjust(0x04000050, 0x3f, 0x10);
     MapVRAMBanksToSubBG(0x80);
     MapVRAMBanksToSubObj(0x100);
-    SetSubBgMode_020c3984(0);
+    func_020c3984(0);
     DISPCNTSUB = SubDisplayWithClearedLayers(0x1f00);
     DISPCNTSUB = SubDisplayWithClearedLayers(0xe000);
     func_020c39a0((short*)&REG_MASTER_BRIGHTNESS_SUB, 0);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov031_022271f0() {
     func_ov031_0223d928();
     func_ov031_0223dabc();
     func_ov031_0223b79c();
-    RestoreDisplayMode_020c38d4();
+    func_020c38d4();
     DISPCNTSUB |= 0x10000;
-    SetVBlankIrqEnable_020c3864(1);
+    func_020c3864(1);
 }

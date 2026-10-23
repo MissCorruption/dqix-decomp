@@ -123,17 +123,17 @@ struct AlchemyMenu {
 
 extern "C" void func_ov006_0215fa1c(AlchemyMenu* self, int total);
 extern "C" void func_020813ec(void* menu, int group);
-void ResetWithSub0208203c(Obj0208203c* repeat);
+extern "C" void func_0208203c(Obj0208203c* repeat);
 extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int, int);
-void FilterAndSortEntries02071ffc(Container02071ffc* table, int category, int kind, int sort, short max, short* count);
-void ComputeField_02158cac_02158cac(void* self);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-void CallFunc0204c804OverAllElems(Cont0207fe44* menu);
-void ClearFlag40_02157184(ClearFlag40_02157184Struct* pot);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int, int);
+extern "C" void func_02071ffc(Container02071ffc* table, int category, int kind, int sort, short max, short* count);
+extern "C" void func_ov006_02158cac(void* self);
+extern "C" void func_0207fdcc(Obj2081* menu, int group);
+extern "C" void func_0207fe44(Cont0207fe44* menu);
+extern "C" void func_ov006_02157184(ClearFlag40_02157184Struct* pot);
 extern "C" void func_ov006_0215745c(short filter, signed char* category, signed char* kind);
-void ClearField44IfSet_02158c28(StructC28* self);
+extern "C" void func_ov006_02158c28(StructC28* self);
 
 extern "C" char data_02108760[];
 
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
             self->bookCursor_ = 0x24;
         self->menu_->cursor_ = self->bookCursor_;
         func_020813ec(self->menu_, self->group_);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
         self->step_++;
     }
@@ -157,8 +157,8 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
         self->cursor_ = &self->bookCursor_;
         if (func_ov006_02158a28(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             int open = 0;
             self->cursor_ = 0;
             self->filterCursor_ = -1;
@@ -193,28 +193,28 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
                 self->flags_ |= 0x80;
             }
             short count = 0;
-            FilterAndSortEntries02071ffc((Container02071ffc*)&self->table_, self->filterCategory_, self->filterKind_, self->sort_, 0x10, &count);
+            func_02071ffc((Container02071ffc*)&self->table_, self->filterCategory_, self->filterKind_, self->sort_, 0x10, &count);
             Recipe* recipes = self->table_.unk_0;
             self->recipes_ = recipes;
             self->pageStart_ = recipes;
-            ComputeField_02158cac_02158cac(self);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_ov006_02158cac(self);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             return;
         }
         if (func_ov006_02158b78(self))
         {
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
-            CallFunc0204c804OverAllElems((Cont0207fe44*)self->menu_);
+            func_0207fe44((Cont0207fe44*)self->menu_);
             self->state_ = 4;
             self->step_ = 0;
             self->background_ = 0;
             self->flags_ |= 0x20;
             self->message_ = 0;
             self->messageStep_ = 0;
-            ClearFlag40_02157184((ClearFlag40_02157184Struct*)self->pot_);
+            func_ov006_02157184((ClearFlag40_02157184Struct*)self->pot_);
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
     else if (self->step_ == 2)
     {
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
         }
         self->menu_->cursor_ = self->filterCursor_;
         func_020813ec(self->menu_, self->group_);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
         self->step_++;
     }
@@ -244,18 +244,18 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
         self->cursor_ = &self->filterCursor_;
         if (func_ov006_02158a28(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->recipeCursor_ = -1;
             func_ov006_0215745c(self->filterCursor_, &self->filterCategory_, &self->filterKind_);
             short count = 0;
-            FilterAndSortEntries02071ffc((Container02071ffc*)&self->table_, self->filterCategory_, self->filterKind_, self->sort_, 0x10, &count);
+            func_02071ffc((Container02071ffc*)&self->table_, self->filterCategory_, self->filterKind_, self->sort_, 0x10, &count);
             Recipe* recipes = self->table_.unk_0;
             self->recipes_ = recipes;
             self->pageStart_ = recipes;
-            ComputeField_02158cac_02158cac(self);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_ov006_02158cac(self);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->state_ = 0xa;
             self->step_ = 0;
             self->flags_ |= 0x80;
@@ -263,12 +263,12 @@ extern "C" ARM void func_ov006_0215daf0(AlchemyMenu* self) {
         }
         if (func_ov006_02158b78(self))
         {
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->filterCursor_ = -1;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->step_ = 0;
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
 }

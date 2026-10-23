@@ -4,24 +4,24 @@
 #if defined(jpn)
 #define RG(u, j) (j)
 extern "C" int func_02042638(char* buf, int a, int b);
-#define AppendFormatted02041fac func_02042638
+#define func_02041fac func_02042638
 #else
 #define RG(u, j) (u)
 #endif
 
-void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
+extern "C" void func_020dc4d0(signed char* out, signed char* outCount);
 struct Obj02061bd8;
-int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
+extern "C" int func_02061bd8(struct Obj02061bd8* obj);
 
 struct Container020e0310;
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-int AppendFormatted02041fac(char* buf, int a, int b);
-int AppendPaletteTag_02041e70(char* dst, int palette);
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
-int AppendString02042058(char* dst, const char* src);
-int CallFunc020e0434With02153694_020e51cc(int value);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_02041fac(char* buf, int a, int b);
+extern "C" int func_02041e70(char* dst, int palette);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_020e51cc(int value);
 extern "C" int func_ov002_02159774(void* base, int id, int a2, int a3, int a4);
 
 // USA: func_ov002_0215e250
@@ -33,13 +33,13 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
 
     signed char idArr[7];
     signed char count;
-    FilterSlotsWithFlag0x800020dc4d0(idArr, &count);
+    func_020dc4d0(idArr, &count);
 
     signed char matched = 0;
     for (int i = 0; i < count; i++) {
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, idArr[i]);
+        GameObject* c = func_0200ff1c(bs, idArr[i]);
         if (c != NULL) {
-            if (CheckField0x56bLowNibble((struct Obj02061bd8*)c) != 0) {
+            if (func_02061bd8((struct Obj02061bd8*)c) != 0) {
                 matched++;
             }
         }
@@ -48,42 +48,42 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
 
     int idx = 0;
     if (flag) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
 
-    int field = GetFieldByKey020e0434((struct Container020e0310*)(base + RG(0x20, 0x8)), 2);
-    AppendFormatted02041fac(dst, field, 0x16);
+    int field = func_020e0434((struct Container020e0310*)(base + RG(0x20, 0x8)), 2);
+    func_02041fac(dst, field, 0x16);
 
     for (int i2 = 0; i2 < count; i2++) {
         GameObject* c800 = bs->GetPartyMemberByIndex(idArr[idx]);
         if (c800 != NULL) {
-            GameObject* c100 = GetCombatantWithFlag0x100_0200ff1c(bs, idArr[idx]);
-            if (CheckField0x56bLowNibble((struct Obj02061bd8*)c100) != 0) {
+            GameObject* c100 = func_0200ff1c(bs, idArr[idx]);
+            if (func_02061bd8((struct Obj02061bd8*)c100) != 0) {
                 for (int attempt = 0; attempt < 4; attempt++) {
                     idx = (idx + 1) % 4;
                     if (idx == 0) break;
-                    GameObject* c3 = GetCombatantWithFlag0x100_0200ff1c(bs, idArr[idx]);
+                    GameObject* c3 = func_0200ff1c(bs, idArr[idx]);
                     if (c3 == NULL) continue;
-                    if (CheckField0x56bLowNibble((struct Obj02061bd8*)c3) != 0) continue;
+                    if (func_02061bd8((struct Obj02061bd8*)c3) != 0) continue;
                     bs->GetPartyMemberByIndex(idArr[idx]);
                     break;
                 }
             }
 
             int pal = func_ov002_02159774(base, idArr[idx], 0, 1, 1);
-            AppendPaletteTag_02041e70(dst, pal);
-            AppendNameTag_02041b70(dst, i2, (const char*)(base + RG(0x1ab0, 0x1a08) + idArr[idx] * RG(0x3c, 0x18)));
-            AppendPaletteTag_02041e70(dst, 0xf);
-            AppendString02042058(dst, *(const char**)(base + 0x1000 + RG(0xbdc, 0xaa4)));
+            func_02041e70(dst, pal);
+            func_02041b70(dst, i2, (const char*)(base + RG(0x1ab0, 0x1a08) + idArr[idx] * RG(0x3c, 0x18)));
+            func_02041e70(dst, 0xf);
+            func_02042058(dst, *(const char**)(base + 0x1000 + RG(0xbdc, 0xaa4)));
 
             idx++;
         }
     }
 
 #if defined(jpn)
-    AppendNameTag_02041b70(dst, count, (const char*)GetFieldByKey020e0434((struct Container020e0310*)(base + 0x8), 0x76d));
+    func_02041b70(dst, count, (const char*)func_020e0434((struct Container020e0310*)(base + 0x8), 0x76d));
 #else
-    AppendNameTag_02041b70(dst, count, (const char*)CallFunc020e0434With02153694_020e51cc(0x1a));
+    func_02041b70(dst, count, (const char*)func_020e51cc(0x1a));
 #endif
 }

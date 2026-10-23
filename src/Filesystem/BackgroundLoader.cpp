@@ -25,7 +25,7 @@ struct Struct_02104304
 
 extern "C"
 {
-    int _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState*);
+    int func_0200fb08(GameState*);
 
     void func_020c9be0();
 
@@ -123,10 +123,10 @@ void BackgroundLoader::Populate(void* fileLoadSpace, unsigned int spaceCapacity,
     flags_78c_0_ = true;
     flags_78c_2_ = true;
 
-    ClampAndSubmit020d97a8(&context_, s_loaderInstanceData.contextStackSpace_,
+    func_020d97a8(&context_, s_loaderInstanceData.contextStackSpace_,
         sizeof(s_loaderInstanceData.contextStackSpace_), relativePrio,
         &BackgroundLoaderThreadFunction, (int)this);
-    Forward020d9828(&context_);
+    func_020d9828(&context_);
 }
 
 void BackgroundLoader::MaybeWaitIdle()
@@ -186,7 +186,7 @@ int BackgroundLoader::QueueFileTask(const char* filename, int type, const char* 
     int newID = -1;
     LockResourceMutex();
 #if defined(usa)
-    int language = _Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState::GetInstance());
+    int language = func_0200fb08(GameState::GetInstance());
     char replacedFilename[80] = { 0 };
     StringReplaceLanguageTag(filename, replacedFilename, language);
 #endif

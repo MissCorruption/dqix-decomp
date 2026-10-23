@@ -34,7 +34,7 @@ struct SubBlock02038508 {
     ZoneFeatures::Opcode6aEntry* unknown60;
 };
 
-void InitBlock02038508(SubBlock02038508* block);
-SubBlock02038508* GetFieldPtrAt0x26c_020399a8(void* object);
-void CopyBlockTo0x26c_020398b4(GameObject* object, SubBlock02038508* source);
+extern "C" void func_02038508(SubBlock02038508* block);
+extern "C" SubBlock02038508* func_020399a8(void* object);
+extern "C" void func_020398b4(GameObject* object, SubBlock02038508* source);
 extern "C" void func_ov017_021d3f00(SubBlock02038508* block, unsigned char first, unsigned char second);

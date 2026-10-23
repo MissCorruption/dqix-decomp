@@ -57,8 +57,8 @@ struct KeyManager {
 #endif
     State0200fad4 cache[3];
 };
-int CompareSixBytes_02011fb4(unsigned char*, SixBytes);
-void ClearFlagsAndValue0200fad4(State0200fad4*);
+extern "C" int func_02011fb4(unsigned char*, SixBytes);
+extern "C" void func_0200fad4(State0200fad4*);
 
 // USA: func_02011b68
 extern "C" ARM void func_02011b68(KeyManager* self) {
@@ -80,7 +80,7 @@ extern "C" ARM void func_02011b68(KeyManager* self) {
                 if (previous->id >= 0 && previous->id != self->protagonist) {
                     insert = 1;
                     for (int k = 0; k < 3; k++) {
-                        if (CompareSixBytes_02011fb4(self->cache[k].key.b, key)) {
+                        if (func_02011fb4(self->cache[k].key.b, key)) {
                             self->cache[k].state.active = 1;
                             insert = 0;
                             break;
@@ -108,7 +108,7 @@ checkedKey:
             for (int j = 0; j < 3; j++) {
                 if (!self->cache[j].state.active) {
                     State0200fad4* slot = &self->cache[j];
-                    ClearFlagsAndValue0200fad4(slot);
+                    func_0200fad4(slot);
                     self->cache[j].state.active = 1;
                     slot->key = pending[i];
                     break;
@@ -123,7 +123,7 @@ checkedKey:
             if (self->cache[i].elapsed >= 60.0f) {
                 TimedKey* entry = self->timed;
                 for (int j = 0; j < 16; j++, entry++) {
-                    if (entry->active && CompareSixBytes_02011fb4(entry->key.b, self->cache[i].key)) {
+                    if (entry->active && func_02011fb4(entry->key.b, self->cache[i].key)) {
                         if (++entry->timer >= 60) {
                             if (entry->count >= 9999) entry->timer = 59;
                             else {
@@ -139,6 +139,6 @@ checkedKey:
         }
     }
     for (int i = 0; i < 3; i++) {
-        if (!self->cache[i].state.active) ClearFlagsAndValue0200fad4(&self->cache[i]);
+        if (!self->cache[i].state.active) func_0200fad4(&self->cache[i]);
     }
 }

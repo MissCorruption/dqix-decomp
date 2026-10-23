@@ -15,13 +15,13 @@ struct MemberScreen {
 extern "C" long labs(long);
 struct Dst02157174;
 struct Src02157174;
-void CopyThreeFields02157174(Dst02157174*, Src02157174*);
+extern "C" void func_ov005_02157174(Dst02157174*, Src02157174*);
 struct StructAt020473c8;
-void RenderFlaggedIndexedEntry(StructAt020473c8*, int);
+extern "C" void func_020473c8(StructAt020473c8*, int);
 extern "C" void func_02047554(void* obj, int val, int param1);
 struct Container020dedd0;
-void* FindElementByKey020dedd0(Container020dedd0*, int);
-MemberScreen* GetField1c_021a193c(int* p);
+extern "C" void* func_020dedd0(Container020dedd0*, int);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
 extern "C" int func_020dd4c4(char a, void* b);
 extern "C" void func_ov005_02154d18(void* obj, int a, int b);
 extern "C" void func_ov005_02154d34(void* obj, int a, int b);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                         t.y = py;
                         t.z = 0;
                     }
-                    CopyThreeFields02157174((Dst02157174*)o, (Src02157174*)&t);
+                    func_ov005_02157174((Dst02157174*)o, (Src02157174*)&t);
                 }
             }
         }
@@ -123,9 +123,9 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                 Obj02159c88* o = s->obj;
                 Vec3_02159c88 v = o->pos;
                 v.y = (i * 0x18) << 12;
-                CopyThreeFields02157174((Dst02157174*)o, (Src02157174*)&v);
+                func_ov005_02157174((Dst02157174*)o, (Src02157174*)&v);
                 G3_MTX_PUSH = 0;
-                RenderFlaggedIndexedEntry((StructAt020473c8*)o, 1);
+                func_020473c8((StructAt020473c8*)o, 1);
                 G3_MTX_POP = 1;
                 if (self->flagA8 == 0 && self->flagA9 == 0) {
                     int tx = v.x + REGION(0x11000,0x8000);
@@ -154,16 +154,16 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                 G3_MTX_TRANS = py;
                 G3_MTX_TRANS = p.z - 0x1000;
                 self->color2d00 = 0x25f;
-                RenderFlaggedIndexedEntry((StructAt020473c8*)self->entry2c80, 1);
+                func_020473c8((StructAt020473c8*)self->entry2c80, 1);
                 G3_MTX_POP = 1;
             }
             int id = s->id;
             if (id >= 0) {
-                void* elem = FindElementByKey020dedd0((Container020dedd0*)self->container, (short)id);
+                void* elem = func_020dedd0((Container020dedd0*)self->container, (short)id);
                 if (elem != 0) {
                     Obj02159c88* o = s->obj;
                     GameResources* res = GetGameResources();
-                    MemberScreen* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
+                    MemberScreen* holder = func_ov017_021a193c((int*)res->unknown_ptr_array_36fc[3]);
                     if (func_020dd4c4(holder->member, elem) != 0) {
                         int px = s->x;
                         int py = s->y;
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                             G3_MTX_TRANS = py;
                             G3_MTX_TRANS = p.z - 0x1000;
                             self->color2d00 = 0x1ce7;
-                            RenderFlaggedIndexedEntry((StructAt020473c8*)self->entry2c80, 1);
+                            func_020473c8((StructAt020473c8*)self->entry2c80, 1);
                             G3_MTX_POP = 1;
                         }
                         o->color = 0x3def;
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                     Obj02159c88* o = s->obj;
                     if (i == self->cursor2 || i >= 8) {
                         G3_MTX_PUSH = 0;
-                        RenderFlaggedIndexedEntry((StructAt020473c8*)o, 1);
+                        func_020473c8((StructAt020473c8*)o, 1);
                         G3_MTX_POP = 1;
                         if (i < 8) {
                             if (self->flagA8 == 0 && self->flagA9 == 0) {
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
     }
     if (self->selected >= 0 && self->flagAB == 0) {
         G3_MTX_PUSH = 0;
-        RenderFlaggedIndexedEntry((StructAt020473c8*)&self->dragModel, 1);
+        func_020473c8((StructAt020473c8*)&self->dragModel, 1);
         G3_MTX_POP = 1;
         Vec3_02159c88 v = self->dragModel.pos;
         func_ov005_02154d18(&self->frame, v.x, v.y);

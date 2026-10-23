@@ -21,16 +21,16 @@ struct VectorCommand {
     char unknown0[8];
     Vector3i vector;
 };
-CombatCameraWork* GetActiveCombatWork_ov000_02160130(void);
+extern "C" CombatCameraWork* func_ov000_02160130(void);
 
 // USA: func_ov025_021e5a2c
 extern "C" ARM int func_ov025_021e5a2c(VectorCommand* command) {
     GameState* bs = GameState::GetInstance();
-    CameraState* f = (CameraState*)GetField0x3b0Value_020100bc(bs);
+    CameraState* f = (CameraState*)func_020100bc(bs);
     if (f != 0) {
         f->vector = command->vector;
     }
-    CombatCameraWork* w = GetActiveCombatWork_ov000_02160130();
+    CombatCameraWork* w = func_ov000_02160130();
     if (w) {
         w->cameraUpdated = 1;
     }

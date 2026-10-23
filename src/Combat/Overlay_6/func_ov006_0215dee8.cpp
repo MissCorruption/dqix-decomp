@@ -133,41 +133,41 @@ struct AlchemyMenu {
     unsigned char closeRequested_;
 };
 
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
+extern "C" void func_0207fdcc(Obj2081* menu, int group);
 extern "C" void func_ov006_0215fa1c(AlchemyMenu* self, int total);
 extern "C" void func_ov006_0215fb7c(AlchemyMenu* self);
 extern "C" void func_ov006_0215fcf0(AlchemyMenu* self);
 extern "C" void func_ov006_0215f7e8(AlchemyMenu* self);
-void ResetWithSub0208203c(Obj0208203c* repeat);
-Recipe* FindNodeOrMark_02158d8c(void* self, short index);
+extern "C" void func_0208203c(Obj0208203c* repeat);
+extern "C" Recipe* func_ov006_02158d8c(void* self, short index);
 extern "C" RecipeRecord* func_ov006_02153c6c(void* ingredients, short id);
 extern "C" void func_ov006_02153b9c(void* ingredients, short id, unsigned char* amounts);
 extern "C" void func_ov006_021555b0(AlchemyPot* pot, Recipe* recipe, RecipeRecord* record, unsigned char* amounts);
 extern "C" unsigned char func_ov006_02159bb0(AlchemyMenu* self);
 extern "C" void func_ov006_02159c64(AlchemyMenu* self);
 extern "C" void func_ov006_021570fc(AlchemyPot* pot, int shown);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int, int);
 extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
 extern "C" int func_ov006_021537d0(void* ingredients, short id);
-void SetElementFlag0x40_02081ea4(Obj2081* menu, int group, int value);
-void ClearFlag40_02157184(ClearFlag40_02157184Struct* pot);
-void ClearField44IfSet_02158c28(StructC28* self);
+extern "C" void func_02081ea4(Obj2081* menu, int group, int value);
+extern "C" void func_ov006_02157184(ClearFlag40_02157184Struct* pot);
+extern "C" void func_ov006_02158c28(StructC28* self);
 extern "C" void func_ov006_02159db0(AlchemyMenu* self);
 extern "C" signed char func_ov006_02159e50(AlchemyMenu* self);
 struct Obj0215a33c;
-void Func_0215a33c(Obj0215a33c*, int);
+extern "C" void func_ov006_0215a33c(Obj0215a33c*, int);
 extern "C" unsigned char func_ov006_0215a384(AlchemyMenu* self, int great);
 extern "C" void func_ov006_0215fe34(AlchemyMenu* self, void* result);
 extern "C" unsigned char func_ov006_0215fecc(AlchemyMenu* self);
-int GetField0x3acValue_020100a8(GameState* gameState);
+extern "C" int func_020100a8(GameState* gameState);
 extern "C" int func_020dd4c4(signed char member, void* results);
 extern "C" int func_ov006_02153a78(void* ingredients, int times);
-void SetEntryLowNibbleAndElement02080c68(void* menu, int id, int value);
+extern "C" void func_02080c68(void* menu, int id, int value);
 extern "C" void func_ov006_0215f9e8(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_021599c0(AlchemyMenu* self);
 extern "C" void func_ov006_0215a5dc(AlchemyMenu* self);
-int CheckFlagOrByte55_02158c70();
+extern "C" int func_ov006_02158c70();
 
 extern "C" char data_02108760[];
 
@@ -176,8 +176,8 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
     if (self->step_ == 0)
     {
         self->background_ = 1;
-        CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0);
-        CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 1);
+        func_0207fdcc((Obj2081*)self->menu_, 0);
+        func_0207fdcc((Obj2081*)self->menu_, 1);
         func_ov006_0215fa1c(self, 0);
         func_ov006_0215fb7c(self);
         func_ov006_0215fcf0(self);
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
             self->recipeCursor_ = 0x29;
         self->menu_->cursor_ = self->recipeCursor_;
         func_ov006_0215f7e8(self);
-        ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+        func_0208203c((Obj0208203c*)self->repeat_);
         self->cursor_ = 0;
         self->step_++;
     }
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
             self->page_ = self->pages_ - 1;
         if (self->pages_ <= self->page_)
             self->page_ = 0;
-        Recipe* recipe = FindNodeOrMark_02158d8c(self, self->recipeCursor_ - 0x29);
+        Recipe* recipe = func_ov006_02158d8c(self, self->recipeCursor_ - 0x29);
         RecipeRecord* record = 0;
         if (recipe != 0)
         {
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
                 AlchemyPot* pot = self->pot_;
                 int shown = (pot->windowFlags_ & 0x800) ? 1 : 0;
                 func_ov006_021570fc(pot, shown == 0 ? 1 : 0);
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
                 return;
             }
             return;
@@ -248,12 +248,12 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
                     return;
                 self->recipe_ = recipe;
                 self->menu_->cursor_ = *self->cursor_;
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-                ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0208203c((Obj0208203c*)self->repeat_);
                 self->cursor_ = 0;
                 if (func_ov006_021537d0(self->ingredients_, recipe->id_))
                 {
-                    SetElementFlag0x40_02081ea4((Obj2081*)self->menu_, 9, 1);
+                    func_02081ea4((Obj2081*)self->menu_, 9, 1);
                     self->message_ = 3;
                     self->messageStep_ = 0;
                     self->flags_ |= 0x20;
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
                     self->step_++;
                     return;
                 }
-                SetElementFlag0x40_02081ea4((Obj2081*)self->menu_, 9, 1);
+                func_02081ea4((Obj2081*)self->menu_, 9, 1);
                 self->message_ = 2;
                 self->messageStep_ = 0;
                 self->flags_ |= 0x20;
@@ -273,21 +273,21 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
         else if (func_ov006_02158b78(self) || button == 3)
         {
             if (button == 3)
-                DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xe);
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xf);
+                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, 0xe);
+            func_0207fdcc((Obj2081*)self->menu_, 0xf);
             self->state_ = 9;
             self->step_ = 0;
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
-            ClearFlag40_02157184((ClearFlag40_02157184Struct*)self->pot_);
+            func_ov006_02157184((ClearFlag40_02157184Struct*)self->pot_);
             self->background_ = 2;
             if (self->bookCursor_ == 0x25 || self->bookCursor_ == 0x26)
                 self->step_ = 2;
             self->flags_ &= ~0x80;
         }
-        ClearField44IfSet_02158c28((StructC28*)self);
+        func_ov006_02158c28((StructC28*)self);
     }
     else if (self->step_ == 2)
     {
@@ -301,7 +301,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
         {
             if (choice != 1)
                 return;
-            Func_0215a33c((Obj0215a33c*)self, 0);
+            func_ov006_0215a33c((Obj0215a33c*)self, 0);
             self->step_++;
             return;
         }
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
             if (done == 0)
                 return;
             self->showResult_ = 0;
-            if (!(func_020dd4c4(GetField0x3acValue_020100a8(GameState::GetInstance()), self->results_) & 4))
+            if (!(func_020dd4c4(func_020100a8(GameState::GetInstance()), self->results_) & 4))
             {
                 self->step_ = 7;
                 return;
@@ -362,12 +362,12 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
         self->message_ = 8;
         self->messageStep_ = 0;
         self->state_ = 0xb;
-        ClearFlag40_02157184((ClearFlag40_02157184Struct*)self->pot_);
+        func_ov006_02157184((ClearFlag40_02157184Struct*)self->pot_);
         self->step_ = 0;
     }
     else if (self->step_ == 8)
     {
-        SetEntryLowNibbleAndElement02080c68(self->menu_, 9, 1);
+        func_02080c68(self->menu_, 9, 1);
         func_ov006_0215f9e8(self);
         self->flags_ |= 8;
         self->repeatDelay_ = 0;
@@ -381,13 +381,13 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
             return;
         if (g_keyManager.TestKeysPressed(1) || result == 2)
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = 0;
             self->times_ = self->count_;
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xa);
+            func_0207fdcc((Obj2081*)self->menu_, 0xa);
             self->state_ = 0xb;
-            ClearFlag40_02157184((ClearFlag40_02157184Struct*)self->pot_);
+            func_ov006_02157184((ClearFlag40_02157184Struct*)self->pot_);
             self->step_ = 0;
             self->message_ = 7;
             self->messageStep_ = 0;
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
         unsigned char cancelled = func_ov006_02158b78(self);
         if (cancelled == 0 && result != 3)
             return;
-        CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 0xa);
+        func_0207fdcc((Obj2081*)self->menu_, 0xa);
         self->step_ = 0;
         self->flags_ &= ~8;
         self->count_ = 1;
@@ -405,7 +405,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
     }
     else if (self->step_ == 0x64)
     {
-        int advanced = CheckFlagOrByte55_02158c70();
+        int advanced = func_ov006_02158c70();
         if (advanced == 0)
             return;
         self->message_ = 1;
@@ -415,7 +415,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
     }
     else if (self->step_ == 0x65)
     {
-        int advanced = CheckFlagOrByte55_02158c70();
+        int advanced = func_ov006_02158c70();
         if (advanced != 0)
         {
             advanced = 0;

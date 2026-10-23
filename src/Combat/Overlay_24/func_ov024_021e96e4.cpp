@@ -2,7 +2,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 
 struct Ctx_021e96e4 {
     char pad[0x10];
@@ -44,11 +44,11 @@ extern "C" ARM int func_ov024_021e96e4(Ctx_021e96e4* ctx, int id,
 #if defined(jpn)
             return 0x1b;
 #else
-            return SelectByIndexRange0to3_021da644(id, 0x26d, 0x1b);
+            return func_ov024_021da644(id, 0x26d, 0x1b);
 #endif
 
         }
     }
-    return SelectByIndexRange0to3_021da644(id,
+    return func_ov024_021da644(id,
         params->codeA, params->codeB);
 }

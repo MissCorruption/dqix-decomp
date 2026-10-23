@@ -13,18 +13,18 @@ struct Obj0204b5e8;
 struct SelfTag0204b3a0;
 struct Zone02172a14;
 
-int CountActiveEntries(ActiveEntry02046900 *archive);
-void *FindRecordByIndex(Rec020467f0 *archive, int index, void **name, int *size);
+extern "C" int func_02046900(ActiveEntry02046900 *archive);
+extern "C" void *func_020467f0(Rec020467f0 *archive, int index, void **name, int *size);
 extern "C" void func_0205a528(void *renderer, void *file, unsigned int size, void *allocator);
 extern "C" void func_0204c684(void *canvas);
 extern "C" Zone02172a14 *func_02012fe4(void);
 extern "C" void __clear(void *dst, int count);
 extern "C" void func_0204f41c(void *canvas, int a, int b, char *text, int c, int d, short *outA, short *outB, int e);
-void ResetList0204af64(List0204af64 *obj);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char *obj, int a);
-void DispatchViaTable0204b5e8(Obj0204b5e8 *obj, int a, int b);
-void DispatchByTag0204b2e0(void *obj, char *str);
-void DispatchByTagLookup0204b3a0(SelfTag0204b3a0 *self, char *str);
+extern "C" void func_0204af64(List0204af64 *obj);
+extern "C" void func_0204b11c(unsigned char *obj, int a);
+extern "C" void func_0204b5e8(Obj0204b5e8 *obj, int a, int b);
+extern "C" void func_0204b2e0(void *obj, char *str);
+extern "C" void func_0204b3a0(SelfTag0204b3a0 *self, char *str);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int control, int a, int b, int c, int d);
 void SetMainBrightness(GameResources *resources, int a, int b);
 extern "C" void func_020728ac(void *a, void *b, void *file, unsigned int size, int c, int d, int e);
@@ -96,7 +96,7 @@ struct Self02172a14 {
 extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
     GameResources *res       = GetGameResources();
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    FontBankLoader* global = GetGlobal02109400_02094a00();
+    FontBankLoader* global = func_02094a00();
     if (self->step_ == 0) {
         self->b180_ = 0;
         self->w170_ = self->w128_;
@@ -112,9 +112,9 @@ extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
         unsigned int size;
         int fileSize;
         loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count = CountActiveEntries((ActiveEntry02046900 *) file);
+        int count = func_02046900((ActiveEntry02046900 *) file);
         for (int i = 0; i < count; i++) {
-            void *data = FindRecordByIndex((Rec020467f0 *) file, i, &name, &fileSize);
+            void *data = func_020467f0((Rec020467f0 *) file, i, &name, &fileSize);
             func_0205a528((char *) self + 0x130, data, fileSize, (char *) self + 0x1ac);
         }
         loader->RemoveTask(self->task_);
@@ -135,9 +135,9 @@ extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
         short outA;
         short outB;
         loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count = CountActiveEntries((ActiveEntry02046900 *) file);
+        int count = func_02046900((ActiveEntry02046900 *) file);
         for (int i = 0; i < count; i++) {
-            datas[i] = FindRecordByIndex((Rec020467f0 *) file, i, &name, &sizes[i]);
+            datas[i] = func_020467f0((Rec020467f0 *) file, i, &name, &sizes[i]);
         }
         func_0204c684(&canvas);
         canvas.pixels_ = (char *) datas[0] + 0x10;
@@ -151,14 +151,14 @@ extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
         if (v > 9999) v = 9999;
         sprintf(text, data_ov003_021809f4, v);
         func_0204f41c(&canvas, 0xb0, 0x48, text, 8, 1, &outA, &outB, 0);
-        ResetList0204af64((List0204af64 *) &list);
+        func_0204af64((List0204af64 *) &list);
         list.lo_ = 0;
         list.hi_ = 1;
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) &list, 0);
-        DispatchViaTable0204b5e8((Obj0204b5e8 *) &list, 0, 0);
+        func_0204b11c((unsigned char *) &list, 0);
+        func_0204b5e8((Obj0204b5e8 *) &list, 0, 0);
         for (int i = 0; i < count; i++) {
-            DispatchByTag0204b2e0(&list, (char *) datas[i]);
-            DispatchByTagLookup0204b3a0((SelfTag0204b3a0 *) &list, (char *) datas[i]);
+            func_0204b2e0(&list, (char *) datas[i]);
+            func_0204b3a0((SelfTag0204b3a0 *) &list, (char *) datas[i]);
         }
         ColorEffect_ConfigureAlphaBlend(0x04000050, 1, 0x12, 0x1f, 0x1f);
         SetMainBrightness(res, 0, 0x18);
@@ -188,8 +188,8 @@ extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
         self->step_ = 5;
     }
     if (self->step_ == 5) {
-        BlankFunction02094b30(global, 0x1ff, 0);
-        if (AlwaysTrue02094b4c(global) != 0) {
+        func_02094b30(global, 0x1ff, 0);
+        if (func_02094b4c(global) != 0) {
             self->unk_ec = 2;
             self->step_  = 0;
         }

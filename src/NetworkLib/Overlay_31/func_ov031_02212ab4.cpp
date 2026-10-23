@@ -36,23 +36,23 @@ struct RegisteredContext02212ab4 {
 };
 extern RegisteredContext02212ab4* data_ov031_0224e5c0;
 extern char data_ov031_02249ab4[];
-int IsGlobal0224e5a4Set_02211aec();
-void* CallWithTag6_02212790(void*, int);
-void* CallWithTag6Zero_022127a8(void*);
-int RegisterAndDispatch_02212524(char*, void*);
+extern "C" int func_ov031_02211aec();
+extern "C" void* func_ov031_02212790(void*, int);
+extern "C" void* func_ov031_022127a8(void*);
+extern "C" int func_ov031_02212524(char*, void*);
 extern "C" void func_ov031_022128fc();
 
 // USA: func_ov031_02212ab4
 extern "C" ARM int func_ov031_02212ab4(DWCNdCallback callback, char* gameCode, char* password) {
-    if (IsGlobal0224e5a4Set_02211aec()) return 0;
-    data_ov031_0224e5c0 = (RegisteredContext02212ab4*)CallWithTag6_02212790((void*)0xa80, 32);
+    if (func_ov031_02211aec()) return 0;
+    data_ov031_0224e5c0 = (RegisteredContext02212ab4*)func_ov031_02212790((void*)0xa80, 32);
     data_ov031_0224e5c0->callbackRegistered = 0;
     VectorizedMemset(data_ov031_0224e5c0, 0, 0xa80);
     data_ov031_0224e5c0->callback = callback;
     strncpy(data_ov031_0224e5c0->gameCode, gameCode, 31);
     strncpy(data_ov031_0224e5c0->password, password, 31);
-    if (!RegisterAndDispatch_02212524(data_ov031_02249ab4, data_ov031_0224e5c0->registration)) {
-        CallWithTag6Zero_022127a8(data_ov031_0224e5c0);
+    if (!func_ov031_02212524(data_ov031_02249ab4, data_ov031_0224e5c0->registration)) {
+        func_ov031_022127a8(data_ov031_0224e5c0);
         data_ov031_0224e5c0 = 0;
         return 0;
     }

@@ -7,7 +7,7 @@ struct SizeInputStruct022054fc {
 	unsigned char field2;
 	unsigned char field3;
 };
-ARM int ComputeAlignedSizePair_022054fc(SizeInputStruct022054fc* p);
+extern "C" ARM int func_ov031_022054fc(SizeInputStruct022054fc* p);
 
 struct Obj0220547c {
 	char pad0[0x2];
@@ -22,21 +22,21 @@ struct Obj0220547c {
 	SizeInputStruct022054fc s14;
 };
 
-// USA: func_ov031_0220547c  (semantic: GetTotalSize_0220547c)
+// USA: func_ov031_0220547c
 extern "C" ARM int func_ov031_0220547c(Obj0220547c* obj) {
 	int total = 0x80;
 	if (obj->field2 != 0) {
 		total += 0x114;
 		total += func_ov031_022070bc(obj->field2);
 		total += func_ov031_022070bc(obj->field8);
-		total += ComputeAlignedSizePair_022054fc(&obj->s10);
+		total += func_ov031_022054fc(&obj->s10);
 	}
 	if (obj->field6 != 0) {
 		total += 0x110;
 		total += func_ov031_022070bc(obj->field6);
 		total += func_ov031_022070bc(obj->fieldA);
 		total += func_ov031_022070bc(obj->fieldC);
-		total += ComputeAlignedSizePair_022054fc(&obj->s14);
+		total += func_ov031_022054fc(&obj->s14);
 	}
 	return total;
 }

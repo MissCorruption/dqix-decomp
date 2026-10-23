@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
 extern unsigned short* data_ov031_02290d14;
-void SetGlobal02290d14_02239108(unsigned short v);
+extern "C" void func_ov031_02239108(unsigned short v);
 unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 extern "C" void func_ov031_02238a88(int);
 #if defined(jpn)
 extern "C" void func_ov027_021dcd5c(void* obj);
 #else
-void ResetBlockFields_021dcd5c(void* obj);
+extern "C" void func_ov025_021dcd5c(void* obj);
 #endif
 
 // USA: func_ov031_02238b60
 extern "C" ARM void func_ov031_02238b60(void) {
-    SetGlobal02290d14_02239108(3);
+    func_ov031_02239108(3);
     unsigned short i = 1;
     do {
         if (!(data_ov031_02290d14[1] & (1 << i))) goto next;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_02238b60(void) {
 #if defined(jpn)
             func_ov027_021dcd5c((void*)(int)i);
 #else
-            ResetBlockFields_021dcd5c((void*)(int)i);
+            func_ov025_021dcd5c((void*)(int)i);
 #endif
         } else {
             func_ov031_02238a88(i);

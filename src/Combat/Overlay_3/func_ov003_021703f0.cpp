@@ -7,11 +7,11 @@ struct Elem_0205d81c {
 };
 
 struct Struct_0205d81c;
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char* obj);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" int func_0204c7e0(unsigned char* obj);
 
 struct ShortArrays0204c610;
-void GetFourShortsAtIndex(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
+extern "C" void func_0204c610(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
 
 struct Obj_021703f0 {
     char pad0[1];
@@ -29,17 +29,17 @@ struct Obj_021703f0 {
 // USA: func_ov003_021703f0
 extern "C" ARM void func_ov003_021703f0(struct Obj_021703f0* obj, short* outX, short* outY) {
     if (obj->state == 5) {
-        if (obj->owner != 0 && CheckField0x9cSetWhenField0xd4Present_0204c7e0(obj->owner) != 0) {
+        if (obj->owner != 0 && func_0204c7e0(obj->owner) != 0) {
 #if defined(jpn)
             *outX = 0x2c;
             *outY = obj->index * 17 + 0x3a;
 #else
-            struct Elem_0205d81c* elem = FindElementByC40205d81c(obj->list, 0);
+            struct Elem_0205d81c* elem = func_0205d81c(obj->list, 0);
             if (elem == 0) return;
             short ex = elem->posX << 3;
             short ey = elem->posY << 3;
             short x0, y0, w, h;
-            GetFourShortsAtIndex((struct ShortArrays0204c610*)elem, obj->index, &x0, &y0, &w, &h);
+            func_0204c610((struct ShortArrays0204c610*)elem, obj->index, &x0, &y0, &w, &h);
             int x = x0;
             int y = y0;
             x = (short)(x + ex);

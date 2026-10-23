@@ -5,10 +5,10 @@
 #include "World/Object3D.h"
 
 struct Flags02033fdc;
-void ClearFlag0x4At0xe0(struct Flags02033fdc* p);
-void ClearCombatantSlot_0200fd48(GameState* battleStruct, int id);
-void* GetActiveCombatWork_ov000_02160130(void);
-void ForwardField0xc0_0205ebec(void* obj);
+extern "C" void func_02033fdc(struct Flags02033fdc* p);
+extern "C" void func_0200fd48(GameState* battleStruct, int id);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void func_0205ebec(void* obj);
 extern "C" void* func_02057924(void);
 extern "C" void func_02057f00(void* obj, int index);
 
@@ -44,7 +44,7 @@ struct Obj021e9558 {
     int loadTaskId;
 };
 
-CombatSlot021e9558* GetSlotPtr02160f20(void* work);
+extern "C" CombatSlot021e9558* func_ov000_02160f20(void* work);
 extern "C" void func_ov025_021e8bc4(struct Obj021e9558* obj, int priority);
 
 extern unsigned int data_ov025_021ef990;
@@ -54,8 +54,8 @@ extern char data_02108760[];
 // USA: func_ov025_021e9558
 extern "C" ARM void func_ov025_021e9558(struct Obj021e9558* obj) {
     GameState* gs = GameState::GetInstance();
-    CombatWork021e9558* work = (CombatWork021e9558*)GetActiveCombatWork_ov000_02160130();
-    CombatSlot021e9558* slot = GetSlotPtr02160f20(work);
+    CombatWork021e9558* work = (CombatWork021e9558*)func_ov000_02160130();
+    CombatSlot021e9558* slot = func_ov000_02160f20(work);
     void* list = func_02057924();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov025_021e9558(struct Obj021e9558* obj) {
         GameObject* c = gs->GetCombatantByIndex(node->id);
         if (c != NULL) {
             c->obj3D_.DisableFlag(0x800);
-            ClearFlag0x4At0xe0((struct Flags02033fdc*)c);
+            func_02033fdc((struct Flags02033fdc*)c);
         }
     }
 
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov025_021e9558(struct Obj021e9558* obj) {
             target->obj3D_.MakeVisible();
         }
         holder->obj3D_.Detach();
-        ClearCombatantSlot_0200fd48(gs, 200);
+        func_0200fd48(gs, 200);
     }
 
 #if defined(jpn)
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov025_021e9558(struct Obj021e9558* obj) {
 #else
     work->actors[1].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
 #endif
-    ForwardField0xc0_0205ebec(data_02108760);
+    func_0205ebec(data_02108760);
     LightingManager::GetInstance()->BeginFade(0x1000, 1000);
     obj->field_0x1c4 = 0;
 }

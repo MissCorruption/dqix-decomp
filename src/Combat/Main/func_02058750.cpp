@@ -20,11 +20,11 @@ struct Obj02058750 {
     char pad3[0x20];
     unsigned short index[2];
 };
-void* GetSubField0x18_02055120(S02055080*);
+extern "C" void* func_02055120(S02055080*);
 
 // USA: func_02058750
 extern "C" ARM void func_02058750(Obj02058750* self) {
-    Count02058750* counts = (Count02058750*)GetSubField0x18_02055120((S02055080*)self->track);
+    Count02058750* counts = (Count02058750*)func_02055120((S02055080*)self->track);
     if (counts->count[0] > 1 && counts->count[0] > self->index[0]) {
         Node02058750* previous = (Node02058750*)self->track->entries[0].GetNthElement(self->index[0]);
         if (previous && previous->entry->time < self->time) {

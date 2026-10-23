@@ -3,7 +3,7 @@
 #include "Combat/CombatantRecovery.h"
 
 extern "C" int func_020dc920(int a, int b, int c, int d);
-int TestFlagBit55dIfActive_0218b628(signed char bit);
+extern "C" int func_ov017_0218b628(signed char bit);
 extern int data_020fdcb0[][8];
 
 struct Stat02159774 {
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov002_02159774(char *self, int id, int check, int a, uns
     GameObject *c;
     float cur, max, ratio;
     int res;
-    c = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), id);
+    c = func_0200ff1c(GameState::GetInstance(), id);
     if (c == 0) return 3;
     if (check) {
         int special = 0;
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov002_02159774(char *self, int id, int check, int a, uns
     cur    = (float) e[0];
     max    = (float) e[2];
     if ((*(int *) (self + regionalOffset1) & 1) || *(int *) (self + regionalOffset2) == 4) {
-        if (TestFlagBit55dIfActive_0218b628(id)) {
+        if (func_ov017_0218b628(id)) {
             cur = (float) (int) c->combatFields_.savedState_130_->hp;
             max = (float) (int) c->baseStats_->primaryStats.maxHP;
         } else {

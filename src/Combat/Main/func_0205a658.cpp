@@ -26,9 +26,9 @@ struct CellScript0205a658 {
     unsigned int capacity;
     unsigned short recordCount, entryCount;
 };
-int GetCellBankBlock_020b00a4(void*, void**);
-void* GetEntryVarStride_020b00e0(Hdr02b00e0*, unsigned int);
-void Init0205a198(Struct0205a198*);
+extern "C" int func_020b00a4(void*, void**);
+extern "C" void* func_020b00e0(Hdr02b00e0*, unsigned int);
+extern "C" void func_0205a198(Struct0205a198*);
 
 // USA: func_0205a658
 extern "C" ARM int func_0205a658(CellScript0205a658* self, void* data, unsigned int length, SafeAllocator* allocator) {
@@ -38,13 +38,13 @@ extern "C" ARM int func_0205a658(CellScript0205a658* self, void* data, unsigned 
     else if (!length) buffer = 0;
     else {
         memcpy(buffer, data, length);
-        if (!GetCellBankBlock_020b00a4(buffer, (void**)&header)) buffer = 0;
+        if (!func_020b00a4(buffer, (void**)&header)) buffer = 0;
     }
     if (!buffer) return 1;
     if (allocator && !self->records) {
         self->recordCount = header->count;
         self->records = (Struct0205a198*)allocator->Allocate(self->recordCount * sizeof(Struct0205a198));
-        for (unsigned short i = 0; i < self->recordCount; ++i) Init0205a198(&self->records[i]);
+        for (unsigned short i = 0; i < self->recordCount; ++i) func_0205a198(&self->records[i]);
     }
     Struct0205a198* records;
     unsigned short recordCount = self->recordCount;
@@ -58,7 +58,7 @@ extern "C" ARM int func_0205a658(CellScript0205a658* self, void* data, unsigned 
         unsigned short total = 0;
         for (i = 0; i < count; ++i) {
             if (recordCount <= i) break;
-            entry = (Struct0205a198*)GetEntryVarStride_020b00e0(header, i);
+            entry = (Struct0205a198*)func_020b00e0(header, i);
             if (!entry) break;
             unsigned short cellCount = entry->count;
             record = &records[i];
@@ -83,7 +83,7 @@ extern "C" ARM int func_0205a658(CellScript0205a658* self, void* data, unsigned 
     self->entryCount = header->count;
     self->mappingMode = header->mappingMode;
     int mode;
-    Struct0205a198* last = (Struct0205a198*)GetEntryVarStride_020b00e0(header, (unsigned short)(header->count - 1));
+    Struct0205a198* last = (Struct0205a198*)func_020b00e0(header, (unsigned short)(header->count - 1));
     if (!last) return 1;
     struct { int mappingMode; Cell0205a658* cell; } lastCellInfo;
     lastCellInfo.mappingMode = self->mappingMode;

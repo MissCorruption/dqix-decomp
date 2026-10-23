@@ -92,18 +92,18 @@ struct Owner02047a5c;
 struct Owner02047a3c;
 struct Obj0205eaa0;
 
-unsigned short GetShortField1b0_02184a00(struct Obj_02184a00* obj);
+extern "C" unsigned short func_ov011_02184a00(struct Obj_02184a00* obj);
 extern "C" int func_020c39c8(volatile unsigned short* p);
-void* AddOffset20_021f7318(void* p);
-unsigned char GetEntryByteIfFlag0x84(struct Owner02047a5c* owner, int index);
-int GetElementByte1IfEnabled(struct Owner02047a3c* obj, int index);
-unsigned short GetShortAt_021f8c50_021f8c50(unsigned char* obj);
-unsigned short GetShortAt_021f8c60_021f8c60(unsigned char* obj);
-unsigned int GetShort6_021f6f08(struct Obj021f6f08* obj);
-int GetField1c8_02184bd8(struct Obj_02184bd8* obj);
-void SetField1c8False_02184bcc(struct Obj_02184bcc* obj);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void* GetLinkedNodeIfKind6_021f9cb8(void* unused, void* other, void* node);
+extern "C" void* func_ov023_021f7318(void* p);
+extern "C" unsigned char func_02047a5c(struct Owner02047a5c* owner, int index);
+extern "C" int func_02047a3c(struct Owner02047a3c* obj, int index);
+extern "C" unsigned short func_ov023_021f8c50(unsigned char* obj);
+extern "C" unsigned short func_ov023_021f8c60(unsigned char* obj);
+extern "C" unsigned int func_ov023_021f6f08(struct Obj021f6f08* obj);
+extern "C" int func_ov011_02184bd8(struct Obj_02184bd8* obj);
+extern "C" void func_ov011_02184bcc(struct Obj_02184bcc* obj);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void* func_ov023_021f9cb8(void* unused, void* other, void* node);
 
 extern "C" void __clear(void* buf, int n);
 extern "C" void* func_ov011_021849c8(void* obj);
@@ -126,7 +126,7 @@ static inline int GetMasterBrightnessSub_021f8e1c() { return func_020c39c8((vola
 
 // USA: func_ov023_021f8e1c
 extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
-    if (self->id != GetShortField1b0_02184a00((struct Obj_02184a00*)other)) {
+    if (self->id != func_ov011_02184a00((struct Obj_02184a00*)other)) {
         return;
     }
     if (self->flags & 0x10) {
@@ -317,7 +317,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
     if (row != self->row || col != self->col) {
         moved = 1;
         Node021f8e1c* node = func_ov023_021f6880(nodes, self->table[func_ov023_021f9bc8(self)]);
-        void* linked = GetLinkedNodeIfKind6_021f9cb8(self, other, node);
+        void* linked = func_ov023_021f9cb8(self, other, node);
         if (linked != 0) {
             func_ov023_021f88b8(linked, other, 0x8000);
         }
@@ -347,9 +347,9 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
                 if (func_ov023_021f6f10(node) == 0) {
                     x = (int)(pos.x / 4096.0f);
                     y = (int)(pos.y / 4096.0f);
-                    void* elem = AddOffset20_021f7318(node);
-                    w = GetEntryByteIfFlag0x84((struct Owner02047a5c*)elem, 0);
-                    h = GetElementByte1IfEnabled((struct Owner02047a3c*)elem, 0);
+                    void* elem = func_ov023_021f7318(node);
+                    w = func_02047a5c((struct Owner02047a5c*)elem, 0);
+                    h = func_02047a3c((struct Owner02047a3c*)elem, 0);
                 } else if (func_ov023_021f6f10(node) == 8) {
                     const Vec3_021f8e1c* v = AddrOf_021f8e1c(func_ov023_021f8b78(node, other));
                     pos.x = v->x;
@@ -357,17 +357,17 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
                     pos.z = v->z;
                     x = (int)(pos.x / 4096.0f) + node->offX;
                     y = (int)(pos.y / 4096.0f) + node->offY;
-                    w = GetShortAt_021f8c50_021f8c50((unsigned char*)node);
-                    h = GetShortAt_021f8c60_021f8c60((unsigned char*)node);
+                    w = func_ov023_021f8c50((unsigned char*)node);
+                    h = func_ov023_021f8c60((unsigned char*)node);
                 }
                 if (x < touchX && touchX <= x + w && y < touchY && touchY <= y + h) {
                     col = cell % self->cols;
                     row = cell / self->cols;
                     node = func_ov023_021f6880(nodes, self->table[row * self->cols + col]);
                     if (node != 0 && func_ov023_021f6f10(node) == 8 && node->IsDisabled() == 0) {
-                        void* linked = GetLinkedNodeIfKind6_021f9cb8(self, other, node);
+                        void* linked = func_ov023_021f9cb8(self, other, node);
                         if (linked != 0) {
-                            func_ov023_021f88b8(linked, other, (unsigned short)GetShort6_021f6f08((struct Obj021f6f08*)node));
+                            func_ov023_021f88b8(linked, other, (unsigned short)func_ov023_021f6f08((struct Obj021f6f08*)node));
                         }
                     } else if (row == self->row && col == self->col) {
                         done = 1;
@@ -383,9 +383,9 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
         self->col = col;
         self->dirty = 1;
     }
-    if (GetField1c8_02184bd8((struct Obj_02184bd8*)other)) {
+    if (func_ov011_02184bd8((struct Obj_02184bd8*)other)) {
         self->dirty = 1;
-        SetField1c8False_02184bcc((struct Obj_02184bcc*)other);
+        func_ov011_02184bcc((struct Obj_02184bcc*)other);
     }
     if (self->dirty) {
         func_ov023_021f98e0(self, other);
@@ -435,7 +435,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
             func_ov011_02184a40(other, self->snd40);
         }
         if (played && self->confirmSe != 0) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
         }
     }
 
@@ -465,7 +465,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
                 }
             }
             if (played && self->confirmSe != 0) {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+                func_0205eaa0(&data_02108760, 1, 0);
             }
         }
     }

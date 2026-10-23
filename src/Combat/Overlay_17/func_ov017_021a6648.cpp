@@ -26,28 +26,28 @@ struct EventParams021a6648 {
     int field_38, field_3c, field_40; Vector3i scale;
 };
 extern "C" void* func_02057924();
-unsigned int* GetDataPtr02114e04_020d6c00();
-void CancelPendingAction020397cc(Obj020397cc*, int);
-int IsField0Null_02046b08(void**);
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" int func_02046b08(void**);
+extern "C" void func_020466e4(unsigned int*, unsigned int);
 extern "C" void func_020a0cc4(unsigned int);
-void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
-void CopyInternalFields0207df50(Foo0207df50*);
-void BackupPairTableToBuffer_020bb700(int*);
-void ReadGlobalPair020bb910(int*);
+extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_020bb700(int*);
+extern "C" void func_020bb910(int*);
 void CleanInvalidateCacheRange(const void*, unsigned int);
 extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, Foo0207df50*);
-void FindNodeAndProcess02057fb4(void*, int, void*);
-void SetForwardAndStore0205ebc0(void*, int, int);
-void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
-void SetByteField0x253_020397c0(void*);
-void ForwardField0xc0_0205ebec(void*);
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-void SetCombatModeFromCase020dc2d0(int);
-void RegisterNodeAndNotify_0219593c();
-Obj020d7aa0* GetGlobalResetObj020d7a50();
-void TeardownAndResetState020d7aa0(Obj020d7aa0*);
-int ListContainsId(ListHead02046b60*, int);
+extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void func_0205ebc0(void*, int, int);
+extern "C" void func_0205ebfc(void*, int, int);
+extern "C" void func_020397c0(void*);
+extern "C" void func_0205ebec(void*);
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void func_020dc2d0(int);
+extern "C" void func_ov017_0219593c();
+extern "C" Obj020d7aa0* func_020d7a50();
+extern "C" void func_020d7aa0(Obj020d7aa0*);
+extern "C" int func_02046b60(ListHead02046b60*, int);
 extern "C" void func_02046a8c(ListHead02046b60*, void*);
 extern "C" void func_ov017_021a6b30(Transition021a6648*);
 extern const char* data_ov017_021d771c[3];
@@ -65,13 +65,13 @@ extern "C" ARM void func_ov017_021a6648(Transition021a6648* self, ListHead02046b
     GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* manager = func_02057924();
-    unsigned int* flags = GetDataPtr02114e04_020d6c00();
+    unsigned int* flags = func_020d6c00();
     if (self->state == 0) {
         leader->obj3D_.MakeHidden();
-        CancelPendingAction020397cc((Obj020397cc*)leader, 1);
-        if (!IsField0Null_02046b08((void**)resources->unknown_ptr_array_36fc[1])) return;
+        func_020397cc((Obj020397cc*)leader, 1);
+        if (!func_02046b08((void**)resources->unknown_ptr_array_36fc[1])) return;
         SetFlags00(resources, 0x10);
-        OrBitsIntoField0_020466e4(flags, 1);
+        func_020466e4(flags, 1);
         func_020a0cc4(0x7000);
         self->task = loader->QueueLoadFile(data_ov017_021d771c[self->kind], 0);
         self->state++;
@@ -80,13 +80,13 @@ extern "C" ARM void func_ov017_021a6648(Transition021a6648* self, ListHead02046b
         void* data;
         unsigned int length;
         loader->GetLoadedFileByID(self->task, &data, &length);
-        self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x7000), 0x7000);
+        self->allocator.CreateTypeA(func_02012d88(&data_02114e20, 0x7000), 0x7000);
         self->allocator.Reset();
         BattleStateTable021a6648* table = (BattleStateTable021a6648*)resources->unknown_2cc;
         Foo0207df50* fields = &table->transition;
-        CopyInternalFields0207df50(fields);
-        BackupPairTableToBuffer_020bb700(self->backup);
-        ReadGlobalPair020bb910(self->pair);
+        func_0207df50(fields);
+        func_020bb700(self->backup);
+        func_020bb910(self->pair);
         void* copy = self->allocator.Allocate(length);
         memcpy(copy, data, length);
         CleanInvalidateCacheRange(copy, length);
@@ -119,13 +119,13 @@ extern "C" ARM void func_ov017_021a6648(Transition021a6648* self, ListHead02046b
         params.position = leader->obj3D_.position_;
         params.scale = scale;
         params.enabled = 1;
-        FindNodeAndProcess02057fb4(manager, 0xc, &params);
+        func_02057fb4(manager, 0xc, &params);
         if (self->kind == 2) {
-            SetForwardAndStore0205ebc0(&data_02108760, 0xa3, 0xa3);
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 5, 0);
+            func_0205ebc0(&data_02108760, 0xa3, 0xa3);
+            func_0205ebfc(&data_02108760, 5, 0);
         } else {
-            SetForwardAndStore0205ebc0(&data_02108760, 0xb2, 0xb2);
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 2, 0);
+            func_0205ebc0(&data_02108760, 0xb2, 0xb2);
+            func_0205ebfc(&data_02108760, 2, 0);
         }
         self->timer = 0;
         self->state++;
@@ -137,20 +137,20 @@ extern "C" ARM void func_ov017_021a6648(Transition021a6648* self, ListHead02046b
     } else if (self->state == 5) {
         self->timer += game->GetTickCount();
         if (self->timer < data_ov017_021d6aaa[self->kind * 3]) return;
-        SetByteField0x253_020397c0(leader);
-        ForwardField0xc0_0205ebec(&data_02108760);
+        func_020397c0(leader);
+        func_0205ebec(&data_02108760);
         ClearFlags00(resources, 0x10);
-        ClearFlags020466f4((FlagWord020466f4*)flags, 1);
-        SetCombatModeFromCase020dc2d0(0);
+        func_020466f4((FlagWord020466f4*)flags, 1);
+        func_020dc2d0(0);
         if (self->reset) {
-            RegisterNodeAndNotify_0219593c();
-            TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
+            func_ov017_0219593c();
+            func_020d7aa0(func_020d7a50());
         }
-        if (!self->skipLists && ListContainsId(list, 0xa)) {
+        if (!self->skipLists && func_02046b60(list, 0xa)) {
             func_02046a8c(list, resources->unknown_ptr_3718);
             ClearFlags00(resources, 0x800);
         }
-        if (!self->skipLists && ListContainsId(list, 0x40)) func_02046a8c(list, resources->unknown_ptr_array_3afc[0x27]);
+        if (!self->skipLists && func_02046b60(list, 0x40)) func_02046a8c(list, resources->unknown_ptr_array_3afc[0x27]);
         func_ov017_021a6b30(self);
         self->done = 1;
     }

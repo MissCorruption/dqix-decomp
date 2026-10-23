@@ -18,8 +18,8 @@ struct StructInit36e0;
 struct AlchemyPot;
 
 extern "C" void func_ov006_021547c8(AlchemyPot*);
-void TailCallInitStruct_02153730(StructInit36e0*);
-char* GetGlobalField0x1c020421a0();
+extern "C" void func_ov006_02153730(StructInit36e0*);
+extern "C" char* func_020421a0();
 
 struct AlchemyMenu {
 #if !defined(jpn)
@@ -83,8 +83,8 @@ extern "C" ARM void func_ov006_02157cc0(AlchemyMenu* self)
         loader->RemoveTask(self->unk_358);
         self->unk_358 = -1;
     }
-    TailCallInitStruct_02153730((StructInit36e0*)self->ingredients_);
-    *(int*)(GetGlobalField0x1c020421a0() + R(0x228, 0x2d8)) = 0;
+    func_ov006_02153730((StructInit36e0*)self->ingredients_);
+    *(int*)(func_020421a0() + R(0x228, 0x2d8)) = 0;
     if (self->allocators_ == 0)
         return;
     for (unsigned char i = 0; i < 10; i++)

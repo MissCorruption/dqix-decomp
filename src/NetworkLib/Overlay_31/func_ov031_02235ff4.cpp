@@ -11,7 +11,7 @@ struct SessionLog {
 
 extern SessionLog* data_ov031_02290cfc;
 extern const char data_ov031_0224be50[];
-int VariadicForward020c7130(char*, const char*, ...);
+extern "C" int func_020c7130(char*, const char*, ...);
 
 // USA: func_ov031_02235ff4
 extern "C" ARM void func_ov031_02235ff4(char* destination) {
@@ -20,5 +20,5 @@ extern "C" ARM void func_ov031_02235ff4(char* destination) {
     unsigned char second = address->octets[1];
     unsigned char third = address->octets[2];
     unsigned char fourth = address->octets[3];
-    VariadicForward020c7130(destination, data_ov031_0224be50, first, second, third, fourth);
+    func_020c7130(destination, data_ov031_0224be50, first, second, third, fourth);
 }

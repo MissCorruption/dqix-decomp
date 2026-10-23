@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #if defined(jpn)
 #define func_ov023_021f6524 func_ov004_02168f08
-#define ClearNodeMaskById_021f6600 func_ov004_02168ed8
-#define DispatchNodeIfState6_021f6680 func_ov004_02168fa4
+#define func_ov023_021f6600 func_ov004_02168ed8
+#define func_ov023_021f6680 func_ov004_02168fa4
 #endif
 
 struct Grid021f9b30;
@@ -64,23 +64,23 @@ struct Scene02169658 {
     short f1be;
 };
 
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" unsigned char* func_02053c6c(unsigned char* obj);
 extern "C" Node02169658* func_ov023_021f6524(void* ctx, int value);
-Node02169658* GetNodeIfType8_02168a6c(void* a, int id);
-Node02169658* GetNodeIfType15_02168a38(void* a, int id);
-Node02169658* GetNodeIfType11_02168ad4(void* a, int id);
-extern "C" int _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(struct Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
+extern "C" Node02169658* func_ov004_02168a6c(void* a, int id);
+extern "C" Node02169658* func_ov004_02168a38(void* a, int id);
+extern "C" Node02169658* func_ov004_02168ad4(void* a, int id);
+extern "C" int func_ov023_021f9b30(struct Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
 #if defined(jpn)
 extern "C" void func_ov004_02168ed8(void* obj, int id, int mask);
 #else
-void ClearNodeMaskById_021f6600(void* obj, int id, int mask);
+extern "C" void func_ov023_021f6600(void* obj, int id, int mask);
 #endif
 extern "C" void func_ov023_021f9ba8(void* obj, int v);
 #if defined(jpn)
 extern "C" void* func_ov004_02168fa4(void*, int);
 extern "C" void func_ov023_021f809c(void*, void*);
 #else
-int DispatchNodeIfState6_021f6680(void* obj, int id);
+extern "C" int func_ov023_021f6680(void* obj, int id);
 #endif
 extern "C" void func_ov004_02169b4c(void* obj);
 
@@ -89,42 +89,42 @@ extern struct Ctx02169658* data_ov004_02171030;
 
 // USA: func_ov004_02169658
 extern "C" ARM int func_ov004_02169658(struct Scene02169658* scene) {
-    unsigned char* base = GetFieldAt0x150_02053c6c((unsigned char*)GameState::GetInstance()->GetUnknownGameObject()) + 0x3c;
+    unsigned char* base = func_02053c6c((unsigned char*)GameState::GetInstance()->GetUnknownGameObject()) + 0x3c;
     Node02169658* grid = func_ov023_021f6524(scene, 0x64);
     int i;
     for (i = 0; i < 8; i++) {
-        Node02169658* a = GetNodeIfType8_02168a6c(scene, i + 0xc8);
-        Node02169658* b = GetNodeIfType8_02168a6c(scene, i + 0xd8);
-        Node02169658* c = GetNodeIfType15_02168a38(scene, i + 0xd0);
-        Node02169658* d = GetNodeIfType15_02168a38(scene, i + 0xe0);
+        Node02169658* a = func_ov004_02168a6c(scene, i + 0xc8);
+        Node02169658* b = func_ov004_02168a6c(scene, i + 0xd8);
+        Node02169658* c = func_ov004_02168a38(scene, i + 0xd0);
+        Node02169658* d = func_ov004_02168a38(scene, i + 0xe0);
         if (i == 0) {
             a->f20 = base;
             a->flags &= ~8;
-            _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((struct Grid021f9b30*)grid, (unsigned short)(i + 0xc8), (unsigned short)i, 0);
+            func_ov023_021f9b30((struct Grid021f9b30*)grid, (unsigned short)(i + 0xc8), (unsigned short)i, 0);
             a->SetVisible(0);
         } else {
             a->flags |= 8;
-            _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj((struct Grid021f9b30*)grid, 0, (unsigned short)i, 0);
+            func_ov023_021f9b30((struct Grid021f9b30*)grid, 0, (unsigned short)i, 0);
             a->SetVisible(0);
         }
         b->flags |= 8;
         c->flags |= 8;
         d->flags |= 8;
     }
-    ClearNodeMaskById_021f6600(scene, 2, 8);
+    func_ov023_021f6600(scene, 2, 8);
     func_ov023_021f9ba8(grid, 0);
-    ClearNodeMaskById_021f6600(scene, 0x14, 4);
+    func_ov023_021f6600(scene, 0x14, 4);
 #if defined(jpn)
     void* selected = func_ov004_02168fa4(scene, 0x14);
     if (selected) func_ov023_021f809c(selected, scene);
 #else
-    DispatchNodeIfState6_021f6680(scene, 0x14);
+    func_ov023_021f6680(scene, 0x14);
 #endif
     grid->Refresh(0);
-    Node02169658* first = GetNodeIfType8_02168a6c(scene, 0xc8);
+    Node02169658* first = func_ov004_02168a6c(scene, 0xc8);
     first->v44(0);
     first->v7c(0);
-    Node02169658* n = GetNodeIfType11_02168ad4(scene, 2);
+    Node02169658* n = func_ov004_02168ad4(scene, 2);
     struct Triple02169658 t = data_ov004_021700e0;
     n->Apply(&t);
     data_ov004_02171030->f198 = 1;

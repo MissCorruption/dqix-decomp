@@ -4,7 +4,7 @@ extern "C" void func_ov031_022234d8(void* data, void* fn);
 extern "C" int func_ov031_02223478(void* buf);
 extern "C" int func_ov031_0223b61c(int t, int a, int b);
 extern "C" void func_ov031_02234ea8(void* arg);
-void SetField604_02234f34();
+extern "C" void func_ov031_02234f34();
 
 extern "C" void LoadToMainObjStandardPalette(int, int, unsigned int);
 extern "C" void LoadToMainBG3CharacterData(int, int, unsigned int);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_0222ec20(void) {
 	int h1 = func_ov031_0223b61c(t1, 0, 4);
 	data_ov031_02290ca0.field8->field8 = h1;
 	func_ov031_02234ea8((void*)data_ov031_02290ca0.field8->field8);
-	SetField604_02234f34();
+	func_ov031_02234f34();
 	int t2 = func_ov031_02223478(&b);
 	int h2 = func_ov031_0223b61c(t2, 0, 4);
 	data_ov031_02290ca0.field8->fieldc = h2;

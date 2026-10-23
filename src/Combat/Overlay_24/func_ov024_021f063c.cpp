@@ -7,8 +7,8 @@ struct FlagInner_021de25c { char unk[0x14]; int flags; };
 struct FlagObj_021de25c { char unk[0x138]; struct FlagInner_021de25c* inner; };
 
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
-int IsFlagBit5Set_021de25c(struct FlagObj_021de25c* obj);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021de25c(struct FlagObj_021de25c* obj);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021febcc;
 
@@ -31,8 +31,8 @@ extern "C" ARM int func_ov024_021f063c(int* a0, int a1, int a2, int* outCount, s
     for (i = 0; i < count; i++) {
         GameObject* member = GetCombatantByID(*a0, *(short*)&buf[i]);
         if (!member) continue;
-        if (IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)member)) continue;
-        if (IsCombatantFlagMask512_021eda60(member)) continue;
+        if (func_ov024_021de25c((struct FlagObj_021de25c*)member)) continue;
+        if (func_ov024_021eda60(member)) continue;
         unsigned char* p = (unsigned char*)member->currentStats_;
         int v = p[0x4a];
         if (v > 0) validCount++;

@@ -122,60 +122,60 @@ struct Tension_021e6a90 {
 
 struct Cbt_021e6a90* GetCombatantByID(int, int);
 struct GameObject;
-int IsCombatantFlag2Mask2048_021e7ba8(GameObject*);
+extern "C" int func_ov024_021e7ba8(GameObject*);
 struct FlagObj_021da998;
-int IsFlagBit8388608Set_021da998(FlagObj_021da998*);
+extern "C" int func_ov024_021da998(FlagObj_021da998*);
 struct FlagObj_021dd260;
-int IsFlagBit24Set_021dd260(FlagObj_021dd260*);
-float GetClampedRateMultiplier_02074738(int tension, int mode);
+extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
+extern "C" float func_02074738(int tension, int mode);
 extern "C" int func_ov000_02156068(struct Battle_021e6a90* battle, int id, int kind, int mode);
 extern "C" struct Tension_021e6a90* func_ov000_02153710(struct Battle_021e6a90* battle, int id);
 extern "C" int func_ov000_02159dbc(struct Battle_021e6a90* battle, int id);
 float CalculateTensionBonus(int tension, int level);
 struct FieldObj_021ea7fc;
-int CheckFieldMatch_021ea7fc(void*, FieldObj_021ea7fc*, int);
+extern "C" int func_ov024_021ea7fc(void*, FieldObj_021ea7fc*, int);
 struct Random;
-float ApplyRandomVariance_02074838(int, int, Random*);
+extern "C" float func_02074838(int, int, Random*);
 extern "C" float func_ov000_02156b38(struct Battle_021e6a90* battle, int id, int elem);
-int GetBits23To25At0x2f4_02085748(unsigned char* p);
+extern "C" int func_02085748(unsigned char* p);
 struct S886b0;
-int CheckFlag0x80AndKind1_020886b0(S886b0*);
+extern "C" int func_020886b0(S886b0*);
 struct S886f8;
-int CheckFlag0x80AndKind2_020886f8(S886f8*);
+extern "C" int func_020886f8(S886f8*);
 struct Obj02088740;
-int IsFlag0x80SetAndStateEquals3(Obj02088740*);
+extern "C" int func_02088740(Obj02088740*);
 struct Obj02088788;
-int IsFlag0x80SetAndStateEquals4(Obj02088788*);
+extern "C" int func_02088788(Obj02088788*);
 struct Obj020887d0;
-int IsFlag0x80SetAndStateEquals5(Obj020887d0*);
+extern "C" int func_020887d0(Obj020887d0*);
 struct Combatant_2088660;
-int IsField0x18Flag0x80Set_02088660(Combatant_2088660*);
-float GetPackedRateModifierField1_02085968(char*);
-float GetScaledBits0To5At0x2fc_02085818(unsigned char* p);
-float GetPackedRateModifierField4_02085a10(char*);
+extern "C" int func_02088660(Combatant_2088660*);
+extern "C" float func_02085968(char*);
+extern "C" float func_02085818(unsigned char* p);
+extern "C" float func_02085a10(char*);
 struct Actor02085a48;
-float GetField0x304ScaleLow(Actor02085a48*);
-float GetPackedRateModifierField3_020859d8(char*);
-float GetPackedRateModifierField2_020859a0(char*);
-float GetPackedRateModifierField0_02085930(char*);
-float GetScaledBits6To11At0x2fc_02085850(unsigned char* p);
-float GetScaledBits24To29At0x2fc_020858f8(unsigned char* p);
+extern "C" float func_02085a48(Actor02085a48*);
+extern "C" float func_020859d8(char*);
+extern "C" float func_020859a0(char*);
+extern "C" float func_02085930(char*);
+extern "C" float func_02085850(unsigned char* p);
+extern "C" float func_020858f8(unsigned char* p);
 struct Actor02085a80;
-float GetField0x304ScaleMid(Actor02085a80*);
-float GetScaledBits18To23At0x2fc_020858c0(unsigned char* p);
-float GetScaledBits12To17At0x2fc_02085888(unsigned char* p);
-float ComputeQuarterDecayFactor020748d0(int v);
-float ComputeQuarterDecayFactor_020748a8(int v);
-float LookupTableC0_02074938(int v);
-int IsCombatantFlag2Mask32_021e67b0(GameObject*);
+extern "C" float func_02085a80(Actor02085a80*);
+extern "C" float func_020858c0(unsigned char* p);
+extern "C" float func_02085888(unsigned char* p);
+extern "C" float func_020748d0(int v);
+extern "C" float func_020748a8(int v);
+extern "C" float func_02074938(int v);
+extern "C" int func_ov024_021e67b0(GameObject*);
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
-void IncrementByteCounterCapped0x63_0215a8d4(unsigned char*, int);
-int TestBit5At0x2f4_02085154(unsigned char* p);
-int TestBit10At0x2f4_020851d8(unsigned char* p);
+extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
+extern "C" void func_ov000_0215a8d4(unsigned char*, int);
+extern "C" int func_02085154(unsigned char* p);
+extern "C" int func_020851d8(unsigned char* p);
 int NextRandomMax(Random*, int);
-int TestBit4At0x2f4_02085128(unsigned char* p);
-void ZeroFieldsAt0xe58And0xe82And0x8e52_ov000_0215cd80(void*);
+extern "C" int func_02085128(unsigned char* p);
+extern "C" void func_ov000_0215cd80(void*);
 
 extern signed char data_ov024_021fe798[];
 struct Scale4_021e6a90 { float v[4]; };
@@ -200,14 +200,14 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
     float dmg = base;
     float baseF = dmg;
 
-    if (action->id != 0x150 && IsCombatantFlag2Mask2048_021e7ba8((GameObject*)target) &&
+    if (action->id != 0x150 && func_ov024_021e7ba8((GameObject*)target) &&
         action->kind == 1) {
         ctx->flags->bit6 = 1;
         if ((action->flags10 & 0x2000) &&
-            (IsFlagBit8388608Set_021da998((FlagObj_021da998*)attacker) ||
-             IsFlagBit24Set_021dd260((FlagObj_021dd260*)attacker))) {
+            (func_ov024_021da998((FlagObj_021da998*)attacker) ||
+             func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
             ctx->state47 = 1;
-            if (IsFlagBit24Set_021dd260((FlagObj_021dd260*)attacker)) {
+            if (func_ov024_021dd260((FlagObj_021dd260*)attacker)) {
                 ctx->state47 = 2;
             }
         }
@@ -215,14 +215,14 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
     }
 
     if (ctx->enabled76 && (action->flags10 & 0x2000) &&
-        (IsFlagBit8388608Set_021da998((FlagObj_021da998*)attacker) ||
-         IsFlagBit24Set_021dd260((FlagObj_021dd260*)attacker))) {
+        (func_ov024_021da998((FlagObj_021da998*)attacker) ||
+         func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
         if (base != 0 || (action->id != 0x70 && action->id != 0x48)) {
             float mult;
             if (IsPartyMember(attackerId)) {
-                mult = GetClampedRateMultiplier_02074738(attacker->stats->tension24, 0);
+                mult = func_02074738(attacker->stats->tension24, 0);
             } else {
-                mult = GetClampedRateMultiplier_02074738(attacker->stats->tension24, 1);
+                mult = func_02074738(attacker->stats->tension24, 1);
             }
             dmg = dmg * mult;
             unsigned char ok = 1;
@@ -243,7 +243,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             }
         }
         ctx->state47 = 1;
-        if (IsFlagBit24Set_021dd260((FlagObj_021dd260*)attacker)) {
+        if (func_ov024_021dd260((FlagObj_021dd260*)attacker)) {
             ctx->state47 = 2;
         }
     }
@@ -254,7 +254,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
         }
     }
 
-    if (CheckFieldMatch_021ea7fc(ctx, (FieldObj_021ea7fc*)action, crit)) {
+    if (func_ov024_021ea7fc(ctx, (FieldObj_021ea7fc*)action, crit)) {
         unsigned char mode = 0;
         int value = base;
         float floor = 0.0f;
@@ -263,7 +263,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             mode = 1;
             floor = base;
             if (IsPartyMember(attackerId)) {
-                struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
+                struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
                 if (p) {
                     struct Bits2f4_021e6a90* w = (struct Bits2f4_021e6a90*)(p->field150 + 0x2f4);
                     if (w && (w->bit1 || w->bit0)) {
@@ -275,7 +275,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             }
         }
         dmg = 1.2f * dmg;
-        float v = ApplyRandomVariance_02074838((short)value, mode, (Random*)ctx->battle);
+        float v = func_02074838((short)value, mode, (Random*)ctx->battle);
         if (dmg < v) {
             dmg = v;
         }
@@ -288,10 +288,10 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
 
     int elem = 0;
     signed char* tbl = data_ov024_021fe798;
-    struct Cbt_021e6a90* self = (struct Cbt_021e6a90*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
+    struct Cbt_021e6a90* self = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
     if (self) {
         for (; *tbl != -1; tbl += 2) {
-            if (tbl[1] == GetBits23To25At0x2f4_02085748(self->field150)) {
+            if (tbl[1] == func_02085748(self->field150)) {
                 elem = tbl[0];
                 break;
             }
@@ -300,7 +300,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
 
     int useElem = 0;
     float elemDmg = 0;
-    if (IsPartyMember(attackerId) && GetCombatantWithFlag0x100_0200ff1c(gs, attackerId) &&
+    if (IsPartyMember(attackerId) && func_0200ff1c(gs, attackerId) &&
         (action->flags10 & 0x40000) && elem >= 1 && elem <= 7) {
         elemDmg = dmg * func_ov000_02156b38(ctx->battle, targetId, elem);
         useElem = 1;
@@ -308,13 +308,13 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
 
     float resist = 0;
     if (target && action->elem == 8 && action->id != 0x1f9 && action->id != 0x205) {
-        if (CheckFlag0x80AndKind1_020886b0((S886b0*)attacker->stats)) {
+        if (func_020886b0((S886b0*)attacker->stats)) {
             resist = 1.1f * dmg;
             resist = resist * (target->stats->resist3e / 100.0f);
-        } else if (CheckFlag0x80AndKind2_020886f8((S886f8*)attacker->stats)) {
+        } else if (func_020886f8((S886f8*)attacker->stats)) {
             resist = 1.1f * dmg;
             resist = resist * (target->stats->resist3f / 100.0f);
-        } else if (IsFlag0x80SetAndStateEquals3((Obj02088740*)attacker->stats)) {
+        } else if (func_02088740((Obj02088740*)attacker->stats)) {
             struct Stats_021e6a90* ts = target->stats;
             float a = 1.1f * dmg;
             a = a * (ts->resist41 / 100.0f);
@@ -324,7 +324,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             if (b < a) {
                 resist = a;
             }
-        } else if (IsFlag0x80SetAndStateEquals4((Obj02088788*)attacker->stats)) {
+        } else if (func_02088788((Obj02088788*)attacker->stats)) {
             struct Stats_021e6a90* ts = target->stats;
             float a = 1.1f * dmg;
             a = a * (ts->resist43 / 100.0f);
@@ -334,11 +334,11 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             if (b < a) {
                 resist = a;
             }
-        } else if (IsFlag0x80SetAndStateEquals5((Obj020887d0*)attacker->stats)) {
+        } else if (func_020887d0((Obj020887d0*)attacker->stats)) {
             resist = 1.1f * dmg;
             resist = resist * (target->stats->resist44 / 100.0f);
         }
-        if (IsField0x18Flag0x80Set_02088660((Combatant_2088660*)attacker->stats)) {
+        if (func_02088660((Combatant_2088660*)attacker->stats)) {
             useElem = 1;
         }
     }
@@ -352,43 +352,43 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
     }
 
     if (IsPartyMember(attackerId)) {
-        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
+        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
         if (p && (action->flags10 & 0x40000)) {
             if (func_ov000_02156068(ctx->battle, targetId, 1, 0)) {
-                dmg = dmg * GetPackedRateModifierField1_02085968((char*)p->field150);
+                dmg = dmg * func_02085968((char*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 2, 0)) {
-                dmg = dmg * GetScaledBits0To5At0x2fc_02085818(p->field150);
+                dmg = dmg * func_02085818(p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 3, 0)) {
-                dmg = dmg * GetPackedRateModifierField4_02085a10((char*)p->field150);
+                dmg = dmg * func_02085a10((char*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 4, 0)) {
-                dmg = dmg * GetField0x304ScaleLow((Actor02085a48*)p->field150);
+                dmg = dmg * func_02085a48((Actor02085a48*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 5, 0)) {
-                dmg = dmg * GetPackedRateModifierField3_020859d8((char*)p->field150);
+                dmg = dmg * func_020859d8((char*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 6, 0)) {
-                dmg = dmg * GetPackedRateModifierField2_020859a0((char*)p->field150);
+                dmg = dmg * func_020859a0((char*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 7, 0)) {
-                dmg = dmg * GetPackedRateModifierField0_02085930((char*)p->field150);
+                dmg = dmg * func_02085930((char*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 8, 0)) {
-                dmg = dmg * GetScaledBits6To11At0x2fc_02085850(p->field150);
+                dmg = dmg * func_02085850(p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 9, 0)) {
-                dmg = dmg * GetScaledBits24To29At0x2fc_020858f8(p->field150);
+                dmg = dmg * func_020858f8(p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 10, 0)) {
-                dmg = dmg * GetField0x304ScaleMid((Actor02085a80*)p->field150);
+                dmg = dmg * func_02085a80((Actor02085a80*)p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 11, 0)) {
-                dmg = dmg * GetScaledBits18To23At0x2fc_020858c0(p->field150);
+                dmg = dmg * func_020858c0(p->field150);
             }
             if (func_ov000_02156068(ctx->battle, targetId, 12, 0)) {
-                dmg = dmg * GetScaledBits12To17At0x2fc_02085888(p->field150);
+                dmg = dmg * func_02085888(p->field150);
             }
         }
     }
@@ -408,22 +408,22 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
         }
         if (action->flags10 & 1) {
             if ((target->stats->flags14 & 0x10000) && action->sub18 != 2) {
-                dmg = dmg * ComputeQuarterDecayFactor020748d0((signed char)target->stats->decayA);
+                dmg = dmg * func_020748d0((signed char)target->stats->decayA);
             }
         }
         if ((action->flags10 & 4) && (target->stats->flags14 & 0x20000)) {
-            dmg = dmg * ComputeQuarterDecayFactor_020748a8((signed char)target->stats->decayB);
+            dmg = dmg * func_020748a8((signed char)target->stats->decayB);
         }
         if ((action->flags10 & 0x10) && target && ctx->battle->flag8e94 == 0) {
             if (target->stats->rank21 <= 3) {
-                dmg = dmg * LookupTableC0_02074938((signed char)target->stats->rank21);
+                dmg = dmg * func_02074938((signed char)target->stats->rank21);
             }
-            if (IsCombatantFlag2Mask32_021e67b0((GameObject*)target)) {
-                dmg = dmg * LookupTableC0_02074938(1);
+            if (func_ov024_021e67b0((GameObject*)target)) {
+                dmg = dmg * func_02074938(1);
             }
-            if (ArrayContainsByte_02086ef0((ArrayContainsByteStruct*)(GetPtrField0x2a04_02010828(GameState::GetInstance())), targetId) &&
+            if (func_02086ef0((ArrayContainsByteStruct*)(func_02010828(GameState::GetInstance())), targetId) &&
                 target && target->stats->rank21 == 1) {
-                IncrementByteCounterCapped0x63_0215a8d4((unsigned char*)ctx->battle, 0);
+                func_ov000_0215a8d4((unsigned char*)ctx->battle, 0);
             }
         }
     }
@@ -434,14 +434,14 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
 
     forced = 0;
     if (IsPartyMember(attackerId)) {
-        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
+        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
         if (p) {
             if (action->flags10 & 0x80000) {
-                if (TestBit5At0x2f4_02085154(p->field150)) {
+                if (func_02085154(p->field150)) {
                     ctx->flags->bit2 = 0;
                 }
             }
-            if ((action->flags10 & 0x40000) && TestBit10At0x2f4_020851d8(p->field150)) {
+            if ((action->flags10 & 0x40000) && func_020851d8(p->field150)) {
                 dmg = 1.0f;
                 forced = 1;
                 ctx->flags->bit2 = 0;
@@ -503,25 +503,25 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             dmg = 1.0f + NextRandomMax((Random*)ctx->battle, 2);
         }
         if (IsPartyMember(attackerId)) {
-            struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
-            if (p && (action->flags10 & 0x40000) && TestBit4At0x2f4_02085128(p->field150)) {
+            struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
+            if (p && (action->flags10 & 0x40000) && func_02085128(p->field150)) {
                 dmg += 1.0f;
             }
         }
         if (ctx->enabled76 && (action->flags10 & 0x2000) &&
-            (IsFlagBit8388608Set_021da998((FlagObj_021da998*)attacker) ||
-             IsFlagBit24Set_021dd260((FlagObj_021dd260*)attacker))) {
+            (func_ov024_021da998((FlagObj_021da998*)attacker) ||
+             func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
             float mult;
             if (IsPartyMember(attackerId)) {
-                mult = GetClampedRateMultiplier_02074738(attacker->stats->tension24, 0);
+                mult = func_02074738(attacker->stats->tension24, 0);
             } else {
-                mult = GetClampedRateMultiplier_02074738(attacker->stats->tension24, 1);
+                mult = func_02074738(attacker->stats->tension24, 1);
             }
             dmg = dmg * mult;
         }
     }
 
-    if (IsFlagBit24Set_021dd260((FlagObj_021dd260*)target) && action->sub18 == 1) {
+    if (func_ov024_021dd260((FlagObj_021dd260*)target) && action->sub18 == 1) {
         dmg = 0.5f * dmg;
     }
 
@@ -537,7 +537,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId,
             ctx->hud->level = level;
         }
     } else {
-        ZeroFieldsAt0xe58And0xe82And0x8e52_ov000_0215cd80(ctx->battle);
+        func_ov000_0215cd80(ctx->battle);
     }
 
     int result = dmg;

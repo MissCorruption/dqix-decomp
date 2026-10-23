@@ -71,8 +71,8 @@ struct Menu0215c058
     short held;
 };
 
-Member0215c058* GetField1c_021a193c(int*);
-void DispatchByIdxAndCond021551fc(char*, int, int);
+extern "C" Member0215c058* func_ov017_021a193c(int*);
+extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
 extern "C" void func_ov005_02156658(Menu0215c058* self, int x, int y);
 extern "C" int func_ov005_02155670(Menu0215c058* self, int x, int y);
@@ -90,12 +90,12 @@ extern "C" void func_ov005_02154d50(CursorFrame0215c058* obj, int a, int b);
 extern "C" void func_ov005_02154d7c(CursorFrame0215c058* obj, int a, int b);
 extern "C" void func_ov005_021537bc(CursorFrame0215c058* frame, int mode, unsigned short value);
 struct Struct_0205bb84;
-int ComputeScaledSum0205bb84(Struct_0205bb84*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-int CheckFlag30Or401_02157190(void* self);
-unsigned char* GetPtrField0x2a04_02010828(GameState*);
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char*, unsigned int);
-signed char* GetPointerAt0xbf0_0207c60c(void*, unsigned int);
+extern "C" int func_0205bb84(Struct_0205bb84*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" int func_ov005_02157190(void* self);
+extern "C" unsigned char* func_02010828(GameState*);
+extern "C" short* func_0207c5f8(unsigned char*, unsigned int);
+extern "C" signed char* func_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Menu0215c058* self, int mode);
 
 extern char data_02108760[];
@@ -116,8 +116,8 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
     }
     else if (self->state == 1)
     {
-        Member0215c058* screen = GetField1c_021a193c(((GameResources0215c058*)GetGameResources())->ptr);
-        DispatchByIdxAndCond021551fc((char*)self, screen->member, 0);
+        Member0215c058* screen = func_ov017_021a193c(((GameResources0215c058*)GetGameResources())->ptr);
+        func_ov005_021551fc((char*)self, screen->member, 0);
         GameState* gs = _ZN9GameState11GetInstanceEv();
         int touched = 0;
         int moved = 0;
@@ -199,21 +199,21 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             func_ov005_021537bc(&frame, 0, 0x7fff);
         }
 
-        int sel = ComputeScaledSum0205bb84((Struct_0205bb84*)self->scroll) + 8;
+        int sel = func_0205bb84((Struct_0205bb84*)self->scroll) + 8;
         if (sel != self->selected)
         {
             self->selected = sel;
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
             func_ov005_021579ec(self, self->cursorMode, self->selected);
         }
         else if (sel == self->selected)
         {
-        if (CheckFlag30Or401_02157190(self) != 0 || moved)
+        if (func_ov005_02157190(self) != 0 || moved)
         {
             short index = self->selected - 8 + self->page * 16;
-            unsigned char* bag = GetPtrField0x2a04_02010828(gs);
-            short* ids = GetPointerFromArray0xbd0_0207c5f8(bag + 0x1d4, data_ov005_0215cd10[self->tab]);
-            signed char* amounts = GetPointerAt0xbf0_0207c60c(bag + 0x1d4, data_ov005_0215cd10[self->tab]);
+            unsigned char* bag = func_02010828(gs);
+            short* ids = func_0207c5f8(bag + 0x1d4, data_ov005_0215cd10[self->tab]);
+            signed char* amounts = func_0207c60c(bag + 0x1d4, data_ov005_0215cd10[self->tab]);
             short id = ids[self->held];
             signed char amount = amounts[self->held];
             ids[self->held] = ids[index];
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             self->f3daa = 0;
             self->held = -1;
             func_ov005_0215792c(self, 4);
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             screen->flags |= 0x81;
 #if defined(jpn)
             self->cursorTarget = (char*)self + 0x19e8;

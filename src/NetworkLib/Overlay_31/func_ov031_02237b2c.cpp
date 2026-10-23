@@ -34,16 +34,16 @@ extern const FourShorts_0223cb1c data_ov031_022492e2;
 extern "C" void* func_ov031_0223cf4c(unsigned int, int);
 extern "C" Obj0223bcc8* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bbd8(Obj0223bcc8*, int, int, int);
-void SetEntryHalfword4Bits_0223bcc8(Obj0223bcc8*, int, int);
+extern "C" void func_ov031_0223bcc8(Obj0223bcc8*, int, int);
 extern "C" void* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void* func_ov031_0223b8c4(int, int, int);
-int GetTableEntryByField0_022236d0();
+extern "C" int func_ov031_022236d0();
 extern "C" void func_ov031_0223c980(void*, int, int, int, int, int, int, void*);
 extern "C" void func_ov031_0223ca54(void*, int, int, void*, int);
 extern "C" void func_ov031_0223cd30(int, int, int, int);
 extern "C" void func_ov031_0223cc18(int, int, const FourShorts_0223cb1c*);
 extern "C" void func_ov031_022381c8(int);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02237ecc(void*);
 extern "C" void func_ov031_02237f2c(void*);
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
@@ -63,21 +63,21 @@ extern "C" ARM void func_ov031_02237b2c(int id, int style, unsigned char flag, i
     ColorEffect_ConfigureBrightnessAdjust(0x04000050, 31, 0);
     data_ov031_02290d10->mainSprite = func_ov031_0223be70(0, data_ov031_0224938c[style], 0);
     func_ov031_0223bbd8(data_ov031_02290d10->mainSprite, -1, 256, 0);
-    SetEntryHalfword4Bits_0223bcc8(data_ov031_02290d10->mainSprite, -1, 0);
+    func_ov031_0223bcc8(data_ov031_02290d10->mainSprite, -1, 0);
     int i = 0;
     if (i < data_ov031_02249394[style]) {
         const unsigned char* sprite = data_ov031_022492fe[style];
         do {
             data_ov031_02290d10->sprites[i] = func_ov031_0223be70(0, *sprite++, 0);
             func_ov031_0223bbd8(data_ov031_02290d10->sprites[i], -1, 256, 0);
-            SetEntryHalfword4Bits_0223bcc8(data_ov031_02290d10->sprites[i], -1, 0);
+            func_ov031_0223bcc8(data_ov031_02290d10->sprites[i], -1, 0);
             i++;
         } while (i < data_ov031_02249394[style]);
     }
     int textCount;
     data_ov031_02290d10->panel = func_ov031_0223c458(0, 32, 12, 1, &textCount, 0);
     data_ov031_02290d10->textSprites = func_ov031_0223b8c4(0, textCount, 0);
-    int tableEntry = GetTableEntryByField0_022236d0();
+    int tableEntry = func_ov031_022236d0();
     func_ov031_0223c980(data_ov031_02290d10->panel, 0, 0,
         data_ov031_0224931c[style].width, data_ov031_0224931c[style].height,
         2, tableEntry, (void*)text);
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov031_02237b2c(int id, int style, unsigned char flag, i
     func_ov031_0223cc18(0, 1, &data_ov031_022492e2);
     func_ov031_022381c8(192);
     REG_DISPCNT = (REG_DISPCNT & ~0xe000) | 0x6000;
-    if (flag) data_ov031_02290d10->task = CallWithZeroExtra_0223e218((void*)1, (void*)func_ov031_02237ecc, 0, 120);
-    else data_ov031_02290d10->task = CallWithZeroExtra_0223e218((void*)1, (void*)func_ov031_02237f2c, 0, 120);
+    if (flag) data_ov031_02290d10->task = func_ov031_0223e218((void*)1, (void*)func_ov031_02237ecc, 0, 120);
+    else data_ov031_02290d10->task = func_ov031_0223e218((void*)1, (void*)func_ov031_02237f2c, 0, 120);
 }

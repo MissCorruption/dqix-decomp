@@ -43,12 +43,12 @@ struct MenuLists {
     short field_0x4c;
     short count;
 };
-int* GetGlobal02109418_02094d6c();
+extern "C" int* func_02094d6c();
 extern "C" void* func_0205ec34();
-unsigned char GetTableByteOrFF_020965ac(GetTableByteOrFFData*, unsigned char);
-int GetPackedNibbleField(PackedNibbleArray0206e120*, int);
-int GetPackedNibbleFlag0x8(PackedNibbleArray0206e2dc*, int);
-int TestBitInByteArrayAt0x84_02096088(void*, int);
+extern "C" unsigned char func_020965ac(GetTableByteOrFFData*, unsigned char);
+extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
+extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc*, int);
+extern "C" int func_02096088(void*, int);
 extern "C" void func_ov004_021660f4();
 struct QuestWindowOwners {
 #if defined(jpn)
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov004_02166198() {
     TableItem* items;
     MenuLists* lists = data_ov004_0217101c.GetMain();
     short count = lists->count;
-    GetTableByteOrFFData* table = (GetTableByteOrFFData*)(GetGlobal02109418_02094d6c());
+    GetTableByteOrFFData* table = (GetTableByteOrFFData*)(func_02094d6c());
     items = table->items;
     void* save = func_0205ec34();
     short regularCount = 0;
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov004_02166198() {
     TableItem* firstItem;
     short firstIndex;
     for (firstIndex = 1; firstIndex <= count; firstIndex++) {
-        int id = GetTableByteOrFF_020965ac(table, (unsigned char)(firstIndex));
+        int id = func_020965ac(table, (unsigned char)(firstIndex));
         firstItem = items;
         int j;
         for (j = 0; j < 0xcc; j++, firstItem++) {
@@ -90,13 +90,13 @@ extern "C" ARM void func_ov004_02166198() {
         }
         if (j == 0xcc) continue;
         if (firstItem->id == 0 || firstItem->id >= 0xff) continue;
-        int state = GetPackedNibbleField((PackedNibbleArray0206e120*)(save), firstItem->id);
+        int state = func_0206e120((PackedNibbleArray0206e120*)(save), firstItem->id);
         if (firstItem->special) {
-            if (GetPackedNibbleFlag0x8((PackedNibbleArray0206e2dc*)(save), firstItem->id)) specialCount++;
+            if (func_0206e2dc((PackedNibbleArray0206e2dc*)(save), firstItem->id)) specialCount++;
         } else {
             switch (state) {
             case 1:
-                if (TestBitInByteArrayAt0x84_02096088(table, firstItem->id)) regularCount++;
+                if (func_02096088(table, firstItem->id)) regularCount++;
                 break;
             case 2:
             case 3:
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov004_02166198() {
                 break;
 #if !defined(jpn)
             case 0:
-                if (TestBitInByteArrayAt0x84_02096088(table, firstItem->id)) regularCount++;
+                if (func_02096088(table, firstItem->id)) regularCount++;
                 break;
 #endif
             }
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov004_02166198() {
     special = lists->special;
     for (short i = 1; i <= count; i++) {
         int state;
-        int id = GetTableByteOrFF_020965ac(table, (unsigned char)(i));
+        int id = func_020965ac(table, (unsigned char)(i));
         TableItem* item = items;
         int j;
         for (j = 0; j < 0xcc; j++, item++) {
@@ -131,17 +131,17 @@ extern "C" ARM void func_ov004_02166198() {
         }
         if (j == 0xcc) continue;
         if (item->id == 0 || item->id >= 0xff) continue;
-        state = GetPackedNibbleField((PackedNibbleArray0206e120*)(save), item->id);
+        state = func_0206e120((PackedNibbleArray0206e120*)(save), item->id);
         bool include = false;
         if (item->special) {
-            if (GetPackedNibbleFlag0x8((PackedNibbleArray0206e2dc*)(save), item->id)) {
+            if (func_0206e2dc((PackedNibbleArray0206e2dc*)(save), item->id)) {
                 include = true;
-                if (state == 1 && TestBitInByteArrayAt0x84_02096088(table, item->id)) state = 3;
+                if (state == 1 && func_02096088(table, item->id)) state = 3;
             }
         } else {
             switch (state) {
             case 1:
-                if (TestBitInByteArrayAt0x84_02096088(table, item->id)) { include = true; state = 3; }
+                if (func_02096088(table, item->id)) { include = true; state = 3; }
                 break;
             case 2:
             case 3:
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov004_02166198() {
                 break;
 #if !defined(jpn)
             case 0:
-                if (TestBitInByteArrayAt0x84_02096088(table, item->id)) { include = true; state = 3; }
+                if (func_02096088(table, item->id)) { include = true; state = 3; }
                 break;
 #endif
             }

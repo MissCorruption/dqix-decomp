@@ -71,14 +71,14 @@ struct PollFd_0224185c {
 
 struct Ring_0224185c { int head; int tail; };
 
-void* AcquireData022918a4_02240310(void);
-HttpJob_0224185c* CallFf38WithData_022402e0(void);
-void ReleaseAllocatorRef_02240324(void);
-int QueryGlobal022918bc_022403d8(void);
-int TailCallCheckSlot_022413b8(void* unused, int id);
-void ResetAndInit32_02241318(void);
-int IsFieldCLessOrEqual_022407e4(Struct022407e4* obj, unsigned int val);
-int CallField30Adjusted_022407f8(Obj022407f8* obj, int b, int c, int d);
+extern "C" void* func_ov031_02240310(void);
+extern "C" HttpJob_0224185c* func_ov031_022402e0(void);
+extern "C" void func_ov031_02240324(void);
+extern "C" int func_ov031_022403d8(void);
+extern "C" int func_ov031_022413b8(void* unused, int id);
+extern "C" void func_ov031_02241318(void);
+extern "C" int func_ov031_022407e4(Struct022407e4* obj, unsigned int val);
+extern "C" int func_ov031_022407f8(Obj022407f8* obj, int b, int c, int d);
 
 extern "C" int func_ov031_02240fc8(HttpReq_0224185c* req);
 extern "C" int func_ov031_0220783c(PollFd_0224185c* fds, int n, int timeout, int flags);
@@ -189,8 +189,8 @@ extern "C" ARM void func_ov031_0224185c(void) {
     keepAlive = 0;
     lastSecure = 0;
     while (data_ov031_02290fd0 == 0) {
-        AcquireData022918a4_02240310();
-        job = CallFf38WithData_022402e0();
+        func_ov031_02240310();
+        job = func_ov031_022402e0();
         if (job == 0) {
             id = -1;
         } else {
@@ -198,9 +198,9 @@ extern "C" ARM void func_ov031_0224185c(void) {
             req = job->req;
             data_ov031_02290fcc = job;
         }
-        ReleaseAllocatorRef_02240324();
+        func_ov031_02240324();
         if (id < 0) {
-            QueryGlobal022918bc_022403d8();
+            func_ov031_022403d8();
             continue;
         }
         resp = req->resp;
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
         if (keepAlive == 0) {
             if (sock >= 0) {
-                if (TailCallCheckSlot_022413b8(req, sock) < 0) err = 10;
+                if (func_ov031_022413b8(req, sock) < 0) err = 10;
                 func_ov031_0224175c(sock, &ctx);
                 sock = -1;
                 if (err != 0) goto done;
@@ -243,9 +243,9 @@ extern "C" ARM void func_ov031_0224185c(void) {
                 ctx = req->sslCtx;
                 req->sslCtx = 0;
             }
-            AcquireData022918a4_02240310();
+            func_ov031_02240310();
             data_ov031_02290fcc->sock = sock;
-            ReleaseAllocatorRef_02240324();
+            func_ov031_02240324();
             if (req->canceled != 0) goto done;
             if (func_ov031_02241404(req, sock, addr, req->port) >= 0) {
                 keepAlive = 1;
@@ -257,10 +257,10 @@ extern "C" ARM void func_ov031_0224185c(void) {
                 func_ov031_02241720(req->sslCtx);
                 req->sslCtx = 0;
             }
-            ResetAndInit32_02241318();
-            AcquireData022918a4_02240310();
+            func_ov031_02241318();
+            func_ov031_02240310();
             data_ov031_02290fcc->sock = sock;
-            ReleaseAllocatorRef_02240324();
+            func_ov031_02240324();
         }
         if (req->canceled != 0) goto done;
         if (keepAlive == 0) {
@@ -503,7 +503,7 @@ extern "C" ARM void func_ov031_0224185c(void) {
         if (req->method == 2) goto done;
 
         if (len >= 0) {
-            while (len > 0 && IsFieldCLessOrEqual_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
+            while (len > 0 && func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
                 int got = func_ov031_02240820(req, sock, resp->bodyLen, len, 0);
                 if (got < 0) goto done;
                 if (got == 0) break;
@@ -511,7 +511,7 @@ extern "C" ARM void func_ov031_0224185c(void) {
                 resp->bodyLen += got;
             }
             if (len != 0) {
-                err = IsFieldCLessOrEqual_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0 ? 6 : 10;
+                err = func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0 ? 6 : 10;
                 goto done;
             }
             err = 0;
@@ -562,15 +562,15 @@ extern "C" ARM void func_ov031_0224185c(void) {
             err = 0;
             goto done;
         }
-        while (IsFieldCLessOrEqual_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
-            int got = CallField30Adjusted_022407f8((Obj022407f8*)req, sock, resp->bodyLen, 0);
+        while (func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
+            int got = func_ov031_022407f8((Obj022407f8*)req, sock, resp->bodyLen, 0);
             if (got < 0) goto done;
             if (got == 0) {
                 err = 0;
                 goto done;
             }
             resp->bodyLen += got;
-            if (IsFieldCLessOrEqual_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0) {
+            if (func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0) {
                 got = func_ov031_02241480(req, sock, data_ov031_02291a04, 1, 0);
                 if (got < 0) goto done;
                 if (got != 0) {
@@ -580,14 +580,14 @@ extern "C" ARM void func_ov031_0224185c(void) {
             }
         }
     done:
-        AcquireData022918a4_02240310();
+        func_ov031_02240310();
         data_ov031_02290fc8(data_ov031_02290fcc);
         data_ov031_02290fcc = 0;
-        ReleaseAllocatorRef_02240324();
+        func_ov031_02240324();
         if (req->canceled != 0) err = 8;
         if (sock >= 0) {
             if (keepAlive == 0 || err != 0) {
-                if (TailCallCheckSlot_022413b8(req, sock) < 0) err = 10;
+                if (func_ov031_022413b8(req, sock) < 0) err = 10;
                 func_ov031_0224175c(sock, &ctx);
                 sock = -1;
                 keepAlive = 0;
@@ -607,7 +607,7 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
     }
     if (sock >= 0) {
-        TailCallCheckSlot_022413b8(req, sock);
+        func_ov031_022413b8(req, sock);
         func_ov031_0224175c(sock, &ctx);
     }
     func_ov031_022417fc();

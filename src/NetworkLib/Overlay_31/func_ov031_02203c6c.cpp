@@ -48,8 +48,8 @@ extern unsigned char data_ov031_0224ca60[0x64];
 extern unsigned char data_ov031_0224d02c[], data_ov031_0224ceac[];
 extern TimedNetworkEntry data_ov031_0224ca00[8];
 extern TimedNetworkAllocation data_ov031_0224cca8[8];
-void SetField164_02203164(int);
-void ClearField164_02203178();
+extern "C" void func_ov031_02203164(int);
+extern "C" void func_ov031_02203178();
 extern "C" int func_ov031_02203bcc();
 extern "C" int func_ov031_022046b8();
 extern "C" int func_ov031_02204710(unsigned int*, int);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov031_02203c6c() {
     data_ov031_0224c980.bufferA = data_ov031_0224d02c;
     data_ov031_0224c980.capacityB = 0x180;
     data_ov031_0224c980.bufferB = data_ov031_0224ceac;
-    SetField164_02203164((int)data_ov031_0224ca60);
+    func_ov031_02203164((int)data_ov031_0224ca60);
     watchdog = 1;
     first = 1;
     unsigned int retry = 1;
@@ -171,5 +171,5 @@ extern "C" ARM void func_ov031_02203c6c() {
         if (data_ov031_0224c980.tick) data_ov031_0224c980.tick();
     }
     if (!(data_ov031_0224c980.flags & 1) && stage != 3) func_ov031_0220480c();
-    ClearField164_02203178();
+    func_ov031_02203178();
 }

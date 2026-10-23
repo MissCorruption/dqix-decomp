@@ -10,20 +10,20 @@ enum { Field105 = 0x125, Field10c = 0x12c };
 enum { Field105 = 0x105, Field10c = 0x10c };
 #endif
 
-void SetField0x3b0Value_020100c4(GameState* battleStruct, int value);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
-int GetFieldIfFlag4_020100f8(char* obj);
-void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
-void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
-void SetField0x23cTrue_020a27ac(void* obj);
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
-void CallHelperFourTimesWithSelf_0218f758(void* self);
+extern "C" void func_020100c4(GameState* battleStruct, int value);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a28b0(unsigned char* obj, int mask);
+extern "C" void func_020a28a0(unsigned char* obj, unsigned char mask);
+extern "C" void func_020a27ac(void* obj);
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+extern "C" void func_ov017_0218f758(void* self);
 
 struct Obj_021849bc;
-int GetField114Masked_021849bc(struct Obj_021849bc* obj, int mask);
+extern "C" int func_ov011_021849bc(struct Obj_021849bc* obj, int mask);
 
 struct Obj021b2200;
-void ClearPendingAndDestroyAllocator_021b2200(struct Obj021b2200* self);
+extern "C" void func_ov017_021b2200(struct Obj021b2200* self);
 
 extern "C" void* func_02012fe4(void);
 extern "C" void func_020a0c0c(void);
@@ -61,13 +61,13 @@ struct SelfState_021b2758 {
 extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     GameState* battleStruct = GameState::GetInstance();
     GameResources* ov = GetGameResources();
-    SetField0x3b0Value_020100c4(battleStruct, self->field0x44);
+    func_020100c4(battleStruct, self->field0x44);
 
     if (data_ov017_021d83f0.slot != 0) {
-        if (GetField114Masked_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 1)) self->field0x38.b.bit0 = 1;
-        if (GetField114Masked_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 2)) self->field0x38.raw |= 2;
-        if (GetField114Masked_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 4)) self->field0x38.raw |= 4;
-        ClearPendingAndDestroyAllocator_021b2200((struct Obj021b2200*)self);
+        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 1)) self->field0x38.b.bit0 = 1;
+        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 2)) self->field0x38.raw |= 2;
+        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 4)) self->field0x38.raw |= 4;
+        func_ov017_021b2200((struct Obj021b2200*)self);
         func_020a0c0c();
     }
 
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
         ClearFlags00(ov, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
         self->field0x38.raw &= ~2;
-        void* p = GetField0x3f8Address_0200fd0c(battleStruct);
+        void* p = func_0200fd0c(battleStruct);
         if (self->field0x48 != 0) ((char*)p)[0x67] = 1;
         return 5;
     }
@@ -85,14 +85,14 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     if (self->field0x38.b.bit2) return 7;
 
     battleStruct->GetUnknownGameObject();
-    int flagVal = GetFieldIfFlag4_020100f8((char*)battleStruct);
+    int flagVal = func_020100f8((char*)battleStruct);
     unsigned char* ctx = (unsigned char*)func_02012fe4();
     if (flagVal != 0) {
-        ClearFlagBits_020a28b0((unsigned char*)flagVal, 2);
+        func_020a28b0((unsigned char*)flagVal, 2);
         if (self->field0x3e != 0) {
-            SetFlagsAt0x244_020a28a0((unsigned char*)flagVal, 2);
+            func_020a28a0((unsigned char*)flagVal, 2);
         }
-        SetField0x23cTrue_020a27ac((void*)flagVal);
+        func_020a27ac((void*)flagVal);
     }
     if (ctx != 0) {
         ctx[Field105] &= ~1;
@@ -114,7 +114,7 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     } else {
         color = *(unsigned short*)(base + idx * 2 + 0x126);
     }
-    Set3DClearColor_020c5588(color, 0x10, 0x7fff, 0, 0);
-    CallHelperFourTimesWithSelf_0218f758(ov);
+    func_020c5588(color, 0x10, 0x7fff, 0, 0);
+    func_ov017_0218f758(ov);
     return 4;
 }

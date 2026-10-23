@@ -61,17 +61,17 @@ struct S02190c2c
 };
 
 extern "C" ViewerEntry* func_ov015_02193160(S02190c2c* self, int page, int* index);
-void SetByteFieldIfChanged_0218ffa8(S_0218ffa8* object, int female);
+extern "C" void func_ov015_0218ffa8(S_0218ffa8* object, int female);
 extern "C" void func_ov015_0218f308(ViewObject* object, const char* event);
 extern "C" void func_ov015_02192700(S02190c2c* self, int unk);
-void UpdateField4c021900dc(Obj021900dc* object);
-void SetByteFieldIfChanged_0218ffd0(S_0218ffd0* object, int color);
-void SetByteFieldIfChanged_0218fff8(S_0218fff8* object, int color);
-void SetField3c02190020(Obj02190020* object, unsigned char color);
-void SetIfChanged0218ff7c(SetStruct_0218ff7c* object, int part, int id);
-PartEntry* FindElementByKey020dedd0(Container020dedd0* names, int id);
-PartEntry* Forward10BitFields020deda4(int names, int category, Fields020deda4* entry);
-void SetPairIfChanged0219005c(SetStruct_0219005c* object, short width, short height);
+extern "C" void func_ov015_021900dc(Obj021900dc* object);
+extern "C" void func_ov015_0218ffd0(S_0218ffd0* object, int color);
+extern "C" void func_ov015_0218fff8(S_0218fff8* object, int color);
+extern "C" void func_ov015_02190020(Obj02190020* object, unsigned char color);
+extern "C" void func_ov015_0218ff7c(SetStruct_0218ff7c* object, int part, int id);
+extern "C" PartEntry* func_020dedd0(Container020dedd0* names, int id);
+extern "C" PartEntry* func_020deda4(int names, int category, Fields020deda4* entry);
+extern "C" void func_ov015_0219005c(SetStruct_0219005c* object, short width, short height);
 
 // USA: func_ov015_02192158
 extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
     switch (self->page_)
     {
     case 15:
-        SetByteFieldIfChanged_0218ffa8((S_0218ffa8*)self->current_, (unsigned char)entry->id_);
+        func_ov015_0218ffa8((S_0218ffa8*)self->current_, (unsigned char)entry->id_);
         break;
     case 17:
         part = 2;
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
         self->menu_ = 1;
         func_ov015_02192700(self, 0);
         self->current_->motion_ = 0;
-        UpdateField4c021900dc((Obj021900dc*)self->current_);
+        func_ov015_021900dc((Obj021900dc*)self->current_);
         break;
     }
     if (!setPart)
@@ -152,30 +152,30 @@ extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
     {
         if (self->page_ == 18)
         {
-            SetByteFieldIfChanged_0218ffd0((S_0218ffd0*)node->object_, (unsigned char)entry->id_);
+            func_ov015_0218ffd0((S_0218ffd0*)node->object_, (unsigned char)entry->id_);
         }
         else if (self->page_ == 19)
         {
-            SetByteFieldIfChanged_0218fff8((S_0218fff8*)node->object_, (unsigned char)entry->id_);
+            func_ov015_0218fff8((S_0218fff8*)node->object_, (unsigned char)entry->id_);
         }
         else if (self->page_ == 21)
         {
-            SetField3c02190020((Obj02190020*)node->object_, entry->id_);
+            func_ov015_02190020((Obj02190020*)node->object_, entry->id_);
         }
         else if (self->page_ == 20)
         {
-            SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
-            SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, 4, entry->id_);
+            func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
+            func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, 4, entry->id_);
         }
         else if (self->page_ == 23)
         {
-            SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
-            PartEntry* skin = Forward10BitFields020deda4((int)&self->parts_, 0x61,
-                (Fields020deda4*)FindElementByKey020dedd0((Container020dedd0*)&self->parts_, (short)node->object_->parts_[0]));
+            func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
+            PartEntry* skin = func_020deda4((int)&self->parts_, 0x61,
+                (Fields020deda4*)func_020dedd0((Container020dedd0*)&self->parts_, (short)node->object_->parts_[0]));
             if (skin != NULL)
-                SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, 5, skin->unk_18);
+                func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, 5, skin->unk_18);
             else
-                SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, 5, 0x36b0);
+                func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, 5, 0x36b0);
         }
         else if (self->page_ == 16)
         {
@@ -184,19 +184,19 @@ extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
                 switch (entry->id_)
                 {
                 case 0:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0x109f);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0x109f);
                     break;
                 case 1:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xe35, 0x1028);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xe35, 0x1028);
                     break;
                 case 2:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xf0a, 0xfae);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xf0a, 0xfae);
                     break;
                 case 3:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0x1024, 0xf33);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0x1024, 0xf33);
                     break;
                 case 4:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xf1e, 0xeb4);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xf1e, 0xeb4);
                     break;
                 }
             }
@@ -205,26 +205,26 @@ extern "C" ARM void func_ov015_02192158(S02190c2c* self, int index)
                 switch (entry->id_)
                 {
                 case 0:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0x1051);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0x1051);
                     break;
                 case 1:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xe39, 0xffb);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xe39, 0xffb);
                     break;
                 case 2:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xee1, 0xf85);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xee1, 0xf85);
                     break;
                 case 3:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0x1024, 0xf33);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0x1024, 0xf33);
                     break;
                 case 4:
-                    SetPairIfChanged0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0xeb4);
+                    func_ov015_0219005c((SetStruct_0219005c*)node->object_, 0xeb8, 0xeb4);
                     break;
                 }
             }
         }
         else
         {
-            SetIfChanged0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
+            func_ov015_0218ff7c((SetStruct_0218ff7c*)node->object_, (unsigned char)part, entry->id_);
         }
     }
 }

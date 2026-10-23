@@ -67,13 +67,13 @@ struct WMDataSharingInfo
 
 extern "C" void func_020d63f0(void* callback);
 extern "C" void func_020d651c(void* callback);
-WMArm9Buf* GetBattleContext_020d41d8();
-unsigned short GetBattleContextField0x150_020d46cc();
+extern "C" WMArm9Buf* func_020d41d8();
+extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d6318
 extern "C" ARM void func_020d6318(void* callback)
 {
-    WMArm9Buf* const p = GetBattleContext_020d41d8();
+    WMArm9Buf* const p = func_020d41d8();
     WMPortSendCallback* const cb = (WMPortSendCallback*)callback;
     const WMCallbackFunc portCallback = p->portCallbackTable[cb->port];
     WMDataSharingInfo* const dsInfo = (WMDataSharingInfo*)p->portCallbackArgument[cb->port];
@@ -84,7 +84,7 @@ extern "C" ARM void func_020d6318(void* callback)
         return;
     if (dsInfo != cb->arg)
         return;
-    aid = GetBattleContextField0x150_020d46cc();
+    aid = func_020d46cc();
     if (cb->errcode == 0)
     {
         if (aid == 0)

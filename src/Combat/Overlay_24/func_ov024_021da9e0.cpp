@@ -70,27 +70,27 @@ struct Act_021da9e0 {
 };
 
 extern "C" float func_ov024_021db358(GameObject* c);
-int ClassifyField0x81fe_ov000_0215fc60(char*);
+extern "C" int func_ov000_0215fc60(char*);
 extern "C" int func_ov000_0215ffa0(void* node);
-void* FindNodeAtDepth0215fff4(void* node, int index, int slot);
+extern "C" void* func_ov000_0215fff4(void* node, int index, int slot);
 extern "C" struct Entry_021da9e0* func_ov000_0215e958(void* world);
 extern "C" void func_ov000_0215cd44(void* world, void* entry, GameObject* c, int d, unsigned long long e, int g);
-void AppendToChainAndIncCount0215ffc4(void* node, void* entry, int v);
+extern "C" void func_ov000_0215ffc4(void* node, void* entry, int v);
 struct SlotArrayStruct_021eb4e4;
-void SetFirstEmptySlot48_021eb4e4(SlotArrayStruct_021eb4e4*, int);
+extern "C" void func_ov024_021eb4e4(SlotArrayStruct_021eb4e4*, int);
 extern "C" unsigned long long func_ov024_021e4b14(struct Act_021da9e0* self, int a, int id, struct Rec_021da9e0* rec, int dmg);
 extern "C" int func_ov000_02159f18(void* world, unsigned long long bits, int bit);
 struct List02160094;
-struct Node_021da9e0* GetNodeAtIndex02160094(List02160094*, int);
-struct Rec_021da9e0* SearchBothTables02079e2c(char*, int);
+extern "C" struct Node_021da9e0* func_ov000_02160094(List02160094*, int);
+extern "C" struct Rec_021da9e0* func_02079e2c(char*, int);
 extern "C" short func_ov000_0215a004(void* world, int a, int id, int dmg, void* effects, struct Rec_021da9e0* rec, int flag, int mode);
 extern "C" void func_ov000_02159eac(void* world, void* effects, int bit);
-void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int v);
+extern "C" void func_ov000_0215a88c(void* world, void* entry, int v);
 extern "C" int func_ov024_021eb08c(struct Act_021da9e0* self, int a, int id, int kind);
 extern "C" void func_ov000_0215a908(void* world, int id);
 extern "C" unsigned short func_ov024_021e9b24(struct Act_021da9e0* self, int id, struct Rec_021da9e0* rec, int flag);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, void* entry, GameObject* c, short a, short b, short d, unsigned long long f, unsigned char h);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" void func_ov000_0215ccbc(void* world, void* entry, GameObject* c, short a, short b, short d, unsigned long long f, unsigned char h);
 
 static inline int IsPartySlot_021da9e0(int id) {
     return id >= 0 && id <= 3;
@@ -109,15 +109,15 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
     float ratio = func_ov024_021db358(c);
     unsigned short code = rec->f4.id;
     if (code == 0x150) dmg = 0;
-    if (ClassifyField0x81fe_ov000_0215fc60((char*)obj->world) != 0 && code == 1 && id == 0) {
-        GameObject* g = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), 0);
+    if (func_ov000_0215fc60((char*)obj->world) != 0 && code == 1 && id == 0) {
+        GameObject* g = func_0200ff1c(GameState::GetInstance(), 0);
         if (g) {
-            if (ClassifyField0x81fe_ov000_0215fc60((char*)obj->world) == 1) {
+            if (func_ov000_0215fc60((char*)obj->world) == 1) {
                 unsigned short hp = c->currentStats_->primaryStats.currHP;
                 dmg = (int)(0.9f * (float)hp);
                 if (hp <= dmg) dmg = hp - 1;
                 if (dmg <= 0) dmg = 1;
-            } else if (ClassifyField0x81fe_ov000_0215fc60((char*)obj->world) == 2) {
+            } else if (func_ov000_0215fc60((char*)obj->world) == 2) {
                 dmg = g->currentStats_->primaryStats.currHP;
             }
         }
@@ -138,7 +138,7 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
                     struct Entry_021da9e0** link = &n->entries[j];
                     struct Entry_021da9e0* dst = 0;
                     if (obj->fc->counts[1] != 0)
-                        dst = (struct Entry_021da9e0*)FindNodeAtDepth0215fff4(obj->fc, obj->fc->counts[1] - 1, 1);
+                        dst = (struct Entry_021da9e0*)func_ov000_0215fff4(obj->fc, obj->fc->counts[1] - 1, 1);
                     while (e) {
                         struct Link_021da9e0* x = e->chain;
                         if (x) {
@@ -146,7 +146,7 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
                                 dst = func_ov000_0215e958(obj->world);
                                 if (!dst) return 0;
                                 func_ov000_0215cd44(obj->world, dst, c, 0, 0, 0);
-                                AppendToChainAndIncCount0215ffc4(obj->fc, dst, 1);
+                                func_ov000_0215ffc4(obj->fc, dst, 1);
                                 ((unsigned char*)obj->world)[0x8e02]++;
                             }
                             struct Link_021da9e0** p = &dst->chain;
@@ -168,7 +168,7 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
                 found = 1;
             }
         }
-        if (found) SetFirstEmptySlot48_021eb4e4((SlotArrayStruct_021eb4e4*)obj, (int)obj->fc);
+        if (found) func_ov024_021eb4e4((SlotArrayStruct_021eb4e4*)obj, (int)obj->fc);
     }
     union { struct { int lo; int hi; }; unsigned long long value; } effects;
     effects.lo = 0;
@@ -184,12 +184,12 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
     if (!func_ov000_02159f18(obj->world, effects.value, 0xd) && !func_ov000_02159f18(obj->world, effects.value, 0x29)) {
         struct Rec_021da9e0* r = rec;
         if (obj->list) {
-            struct Node_021da9e0* first = GetNodeAtIndex02160094((List02160094*)obj->list, 0);
+            struct Node_021da9e0* first = func_ov000_02160094((List02160094*)obj->list, 0);
             if (first) {
                 if (first->f20 != a) r = 0;
                 unsigned int k = rec->f4.id;
                 if (k == 1 || k == 2 || k == 0xdb || k == 0xdf || k == 0xe0 || obj->fc->f1d.b0)
-                    r = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), 1);
+                    r = func_02079e2c((char*)func_020797dc(), 1);
             }
         }
         hp = func_ov000_0215a004(obj->world, a, id, dmg, &effects, r, obj->fc->f1c.b7 != 0, 0);
@@ -204,7 +204,7 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
         obj->fc->counts[2] = 0;
         if (obj->list && func_ov000_02159f18(obj->world, effects.value, 2) && rec->f4.id != 0x61) {
             if (IsPartySlot_021da9e0(id))
-                AddEntryAndIncrementCount0215a88c(obj->world, entry, (unsigned short)rec->f28.a);
+                func_ov000_0215a88c(obj->world, entry, (unsigned short)rec->f28.a);
             obj->f68 = entry;
         }
     } else if (!func_ov000_02159f18(obj->world, effects.value, 0x29)) {
@@ -220,7 +220,7 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
         }
     }
     if (rec->f4.id == 0x61) {
-        if (obj->f18 > 0) AddEntryAndIncrementCount0215a88c(obj->world, entry, 0x1f0);
+        if (obj->f18 > 0) func_ov000_0215a88c(obj->world, entry, 0x1f0);
         unsigned short sel;
         if (dmg > 0) {
             sel = func_ov024_021e9b24(obj, id, rec, 0);
@@ -232,15 +232,15 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
 #if defined(jpn)
                 sel = 0x1b;
 #else
-                sel = SelectByIndexRange0to3_021da644(id, 0x26d, 0x1b);
+                sel = func_ov024_021da644(id, 0x26d, 0x1b);
 #endif
         }
-        if (sel) AddEntryAndIncrementCount0215a88c(obj->world, entry, sel);
+        if (sel) func_ov000_0215a88c(obj->world, entry, sel);
         if (obj->list && func_ov000_02159f18(obj->world, effects.value, 2)) {
             if (IsPartySlot_021da9e0(id))
-                AddEntryAndIncrementCount0215a88c(obj->world, entry, (unsigned short)rec->f28.a);
+                func_ov000_0215a88c(obj->world, entry, (unsigned short)rec->f28.a);
             else
-                AddEntryAndIncrementCount0215a88c(obj->world, entry, (unsigned short)rec->f28.b);
+                func_ov000_0215a88c(obj->world, entry, (unsigned short)rec->f28.b);
             *flags |= 2;
             obj->fc->entries[1] = 0;
             obj->fc->counts[1] = 0;
@@ -252,16 +252,16 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
         dmg = 0;
         hp = 0;
         if (IsPartySlot_021da9e0(id))
-            AddEntryAndIncrementCount0215a88c(obj->world, entry, 8);
+            func_ov000_0215a88c(obj->world, entry, 8);
         else
-            AddEntryAndIncrementCount0215a88c(obj->world, entry, 0x45);
+            func_ov000_0215a88c(obj->world, entry, 0x45);
         obj->f6e = 1;
     } else if (func_ov000_02159f18(obj->world, effects.value, 0x29)) {
         dmg = 0;
         hp = 1;
-        AddEntryAndIncrementCount0215a88c(obj->world, entry, 0xc8);
+        func_ov000_0215a88c(obj->world, entry, 0xc8);
         obj->f6e = 1;
     }
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->world, entry, c, dmg, hp, CurrMP_021da9e0(c), effects.value, obj->fc->f1c.b7 != 0);
+    func_ov000_0215ccbc(obj->world, entry, c, dmg, hp, CurrMP_021da9e0(c), effects.value, obj->fc->f1c.b7 != 0);
     return entry;
 }

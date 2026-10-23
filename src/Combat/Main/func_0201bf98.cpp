@@ -1,0 +1,18 @@
+#include <globaldefs.h>
+
+// USA: func_0201bf98
+extern "C" ARM void func_0201bf98(unsigned char* obj, int bit, int set) {
+    if (set) {
+#if defined(jpn)
+        obj[0x2784] |= (1 << bit);
+#else
+        obj[0x2744] |= (1 << bit);
+#endif
+    } else {
+#if defined(jpn)
+        obj[0x2784] &= ~(1 << bit);
+#else
+        obj[0x2744] &= ~(1 << bit);
+#endif
+    }
+}

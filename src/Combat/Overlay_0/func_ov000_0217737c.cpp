@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-void* CopyStaticData02174da4(int unused, void* dest);
-int IsField0x118Equal2_ov000_0217542c(void* obj);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-int AppendString02042058(char* dst, const char* src);
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
+extern "C" void* func_ov000_02174da4(int unused, void* dest);
+extern "C" int func_ov000_0217542c(void* obj);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
 
 struct Container020e0310;
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int CallFunc020e0434With02153694_020e51cc(int value);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_020e51cc(int value);
 
 extern short data_ov000_021834c4[4];
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0217737c(void* objRaw, char* dst) {
         return;
     }
     int localArr[4];
-    CopyStaticData02174da4((int)obj, localArr);
+    func_ov000_02174da4((int)obj, localArr);
 #if defined(jpn)
     int nameIdx = 0;
     MenuLabels0217737c labels(data_ov000_021845c6);
@@ -36,10 +36,10 @@ extern "C" ARM void func_ov000_0217737c(void* objRaw, char* dst) {
 #if !defined(jpn)
     int nameIdx = 0;
 #endif
-    if (IsField0x118Equal2_ov000_0217542c(obj)) {
-        AppendFrameTag02041c08(dst, cursorId, 8, 5, 5, 5);
+    if (func_ov000_0217542c(obj)) {
+        func_02041c08(dst, cursorId, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursorId);
+    func_02041ea4(dst, cursorId);
     int keyArg = 0;
     for (int i = 0; i < 4; i++) {
         int v = localArr[i];
@@ -47,15 +47,15 @@ extern "C" ARM void func_ov000_0217737c(void* objRaw, char* dst) {
             continue;
         }
         if (nameIdx != 0) {
-            int f = GetFieldByKey020e0434((struct Container020e0310*)(obj + 0xb8), keyArg);
-            AppendString02042058(dst, (const char*)f);
+            int f = func_020e0434((struct Container020e0310*)(obj + 0xb8), keyArg);
+            func_02042058(dst, (const char*)f);
         }
 #if defined(jpn)
         char* r = labels.names[v];
 #else
-        int r = CallFunc020e0434With02153694_020e51cc(data_ov000_021834c4[v]);
+        int r = func_020e51cc(data_ov000_021834c4[v]);
 #endif
-        AppendNameTag_02041b70(dst, nameIdx, (const char*)r);
+        func_02041b70(dst, nameIdx, (const char*)r);
         nameIdx++;
     }
 }

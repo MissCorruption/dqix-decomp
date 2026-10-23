@@ -105,42 +105,42 @@ struct Struct_0205d81c;
 
 extern char data_ov008_0218b590[];
 
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 extern "C" void __clear(void* p, unsigned int size);
 extern "C" void func_02046380(void* w);
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 struct StoreStruct;
-void StoreInArray0x8b0_020465c0(StoreStruct*, int, int);
-char* FindEntryByKey_02072a68(TableA68*, int);
+extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" char* func_02072a68(TableA68*, int);
 extern "C" void func_02046608(void* w, int a, char* str, char* buf, int b, int c, int d);
 extern "C" int func_020420e8(const char* text, int large);
-void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
+extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
 extern "C" void* memset(void* p, int v, unsigned int n);
-Ent0218aa24* GetFieldAt0x150_02053c6c(unsigned char*);
+extern "C" Ent0218aa24* func_02053c6c(unsigned char*);
 extern "C" void func_ov008_0218b240(Self0218aa24* self);
 extern "C" void func_02042764(const void* codes, char* text, int value);
-void* FindElementByC40205d81c(Struct_0205d81c*, int);
-int AppendXYTag_02041a90(char* dst, int x, int y);
-void AppendString02042058(char* text, const char* append);
-void AppendLineXTag02041cf4(char* dst, int color, int a, int b, int c);
-int AppendPaletteTag_02041e70(char* dst, int palette);
-void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
-void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
+extern "C" void* func_0205d81c(Struct_0205d81c*, int);
+extern "C" int func_02041a90(char* dst, int x, int y);
+extern "C" void func_02042058(char* text, const char* append);
+extern "C" void func_02041cf4(char* dst, int color, int a, int b, int c);
+extern "C" int func_02041e70(char* dst, int palette);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 #if defined(jpn)
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
 extern "C" void func_020474a8(void* w, int a, const char* str, char* buf);
 extern "C" int func_ov008_0218bb28(Self0218aa24* self, const char* str);
 extern "C" unsigned int strlen(const char* s);
-int AppendXTag_02041a28(char* dst, int x);
+extern "C" int func_02041a28(char* dst, int x);
 
 // USA: func_ov008_0218aa24
 extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
     char buf80[0x80];
 
-    void* win = GetGlobalField0x1c020421a0();
+    void* win = func_020421a0();
     GameState* gs = GameState::GetInstance();
-    FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->list, 0, 2);
+    func_0205de24((Struct0205de24*)self->list, 0, 2);
     self->c9 = 0;
     self->bc = 0x15;
     self->be = 0;
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
         if (m == 0) {
             fail = 1;
         } else {
-            ent = GetFieldAt0x150_02053c6c((unsigned char*)m);
+            ent = func_02053c6c((unsigned char*)m);
             if (ent == 0) fail = 1;
         }
         if (fail) {
@@ -186,48 +186,48 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
         level = quest->level;
         name = (const char*)quest;
     }
-    FindElementByC40205d81c((Struct_0205d81c*)self->list, 0);
-    AppendXYTag_02041a90(self->text, func_ov008_0218bb28(self, name), 3);
-    AppendString02042058(self->text, name);
-    AppendLineXTag02041cf4(self->text, 0x7fff, 2, 0x56, 0xf);
+    func_0205d81c((Struct_0205d81c*)self->list, 0);
+    func_02041a90(self->text, func_ov008_0218bb28(self, name), 3);
+    func_02042058(self->text, name);
+    func_02041cf4(self->text, 0x7fff, 2, 0x56, 0xf);
 
-    char* str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)vocation);
+    char* str = func_02072a68((TableA68*)self->texts, (short)vocation);
     int x = func_ov008_0218bb28(self, str);
     if (rank != 0) x -= 5;
-    AppendXYTag_02041a90(self->text, x, 0x12);
-    AppendString02042058(self->text, str);
+    func_02041a90(self->text, x, 0x12);
+    func_02042058(self->text, str);
     if (rank != 0) {
         if (rank >= 10) {
             rank = 10;
-            AppendPaletteTag_02041e70(self->text, 0xd);
+            func_02041e70(self->text, 0xd);
         } else {
-            AppendPaletteTag_02041e70(self->text, 5);
+            func_02041e70(self->text, 5);
         }
         int x2 = x + strlen(str) / 2 * 10;
-        str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)(rank + 0x12c));
-        AppendXYTag_02041a90(self->text, x2, 0x11);
-        AppendString02042058(self->text, str);
-        AppendPaletteTag_02041e70(self->text, 0xf);
+        str = func_02072a68((TableA68*)self->texts, (short)(rank + 0x12c));
+        func_02041a90(self->text, x2, 0x11);
+        func_02042058(self->text, str);
+        func_02041e70(self->text, 0xf);
     }
 
     func_02046380(win);
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 0, scroll);
-    SetByteAtIndex_020465d8((unsigned char*)win, 0, 0);
-    SetByteInRange_020465f0((unsigned char*)win, 0, 3);
-    func_020474a8(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f6), buf80);
-    AppendXYTag_02041a90(self->text, 0x1f, 0x1b);
-    AppendString02042058(self->text, buf80);
-    AppendLineXTag02041cf4(self->text, 0x7fff, 2, 0x56, 0x28);
+    func_020465c0((StoreStruct*)win, 0, scroll);
+    func_020465d8((unsigned char*)win, 0, 0);
+    func_020465f0((unsigned char*)win, 0, 3);
+    func_020474a8(win, 10, func_02072a68((TableA68*)self->texts, 0x1f6), buf80);
+    func_02041a90(self->text, 0x1f, 0x1b);
+    func_02042058(self->text, buf80);
+    func_02041cf4(self->text, 0x7fff, 2, 0x56, 0x28);
     memset(buf80, 0, 0x80);
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 1, self->e1c_title);
-    SetByteAtIndex_020465d8((unsigned char*)win, 1, 1);
-    SetByteInRange_020465f0((unsigned char*)win, 1, 2);
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 2, self->e1c_scroll);
-    SetByteAtIndex_020465d8((unsigned char*)win, 2, 1);
-    SetByteInRange_020465f0((unsigned char*)win, 2, 2);
-    func_020474a8(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f8), buf80);
-    AppendXTag_02041a28(self->text, 12);
-    AppendString02042058(self->text, buf80);
+    func_020465c0((StoreStruct*)win, 1, self->e1c_title);
+    func_020465d8((unsigned char*)win, 1, 1);
+    func_020465f0((unsigned char*)win, 1, 2);
+    func_020465c0((StoreStruct*)win, 2, self->e1c_scroll);
+    func_020465d8((unsigned char*)win, 2, 1);
+    func_020465f0((unsigned char*)win, 2, 2);
+    func_020474a8(win, 10, func_02072a68((TableA68*)self->texts, 0x1f8), buf80);
+    func_02041a28(self->text, 12);
+    func_02042058(self->text, buf80);
     func_0205d304(self->list, self->text, 0, 0, 0, 1, 0);
     self->link->level115 = (signed char)level;
     self->link->level13d = (signed char)level;
@@ -241,16 +241,16 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
     char buf40[0x40];
     char name[0x30];
 
-    void* win = GetGlobalField0x1c020421a0();
+    void* win = func_020421a0();
     GameState* gs = GameState::GetInstance();
     __clear(buf40, 0x40);
     func_02046380(win);
-    SetIndexedName02046574((Obj02046574*)win, 0, data_ov008_0218b590);
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 2, 0x21);
-    func_02046608(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f8), buf40, 0x100, 0, 0);
+    func_02046574((Obj02046574*)win, 0, data_ov008_0218b590);
+    func_020465c0((StoreStruct*)win, 2, 0x21);
+    func_02046608(win, 10, func_02072a68((TableA68*)self->texts, 0x1f8), buf40, 0x100, 0, 0);
     int width = (func_020420e8(buf40, 0) + 0x17) & ~7;
     if (width < 0x58) width = 0x58;
-    FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->list, 0, 2);
+    func_0205de24((Struct0205de24*)self->list, 0, 2);
     self->c9 = 0;
     self->bc = 0x20 - (width >> 3);
     self->be = 0;
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
         if (m == 0) {
             fail = 1;
         } else {
-            ent = GetFieldAt0x150_02053c6c((unsigned char*)m);
+            ent = func_02053c6c((unsigned char*)m);
             if (ent == 0) fail = 1;
         }
         if (fail) {
@@ -301,49 +301,49 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
         codes = quest;
     }
     func_02042764(codes, name, 1);
-    FindElementByC40205d81c((Struct_0205d81c*)self->list, 0);
-    AppendXYTag_02041a90(self->text, (width - func_020420e8(name, 0)) / 2, 3);
-    AppendString02042058(self->text, name);
-    AppendLineXTag02041cf4(self->text, 0x7fff, 2, width - 2, 0xf);
+    func_0205d81c((Struct_0205d81c*)self->list, 0);
+    func_02041a90(self->text, (width - func_020420e8(name, 0)) / 2, 3);
+    func_02042058(self->text, name);
+    func_02041cf4(self->text, 0x7fff, 2, width - 2, 0xf);
 
     char* str;
     if (female) {
-        str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)(vocation + 0x46));
+        str = func_02072a68((TableA68*)self->texts, (short)(vocation + 0x46));
     } else {
-        str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)vocation);
+        str = func_02072a68((TableA68*)self->texts, (short)vocation);
     }
     int x = (width - func_020420e8(str, 0)) / 2;
     if (rank != 0) x -= 5;
-    AppendXYTag_02041a90(self->text, x, 0x12);
-    AppendString02042058(self->text, str);
+    func_02041a90(self->text, x, 0x12);
+    func_02042058(self->text, str);
     if (rank != 0) {
         if (rank >= 10) {
             rank = 10;
-            AppendPaletteTag_02041e70(self->text, 0xd);
+            func_02041e70(self->text, 0xd);
         } else {
-            AppendPaletteTag_02041e70(self->text, 5);
+            func_02041e70(self->text, 5);
         }
         int x2 = x + func_020420e8(str, 0);
-        str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)(rank + 0x12c));
-        AppendXYTag_02041a90(self->text, x2 + 2, 0x12);
-        AppendString02042058(self->text, str);
-        AppendPaletteTag_02041e70(self->text, 0xf);
+        str = func_02072a68((TableA68*)self->texts, (short)(rank + 0x12c));
+        func_02041a90(self->text, x2 + 2, 0x12);
+        func_02042058(self->text, str);
+        func_02041e70(self->text, 0xf);
     }
 
     func_02046380(win);
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 0, scroll);
-    SetByteAtIndex_020465d8((unsigned char*)win, 0, 0);
-    SetByteInRange_020465f0((unsigned char*)win, 0, 3);
-    func_02046608(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f6), buf80, 0x100, 0, 0);
-    AppendXYTag_02041a90(self->text, (width >> 1) - 13, 0x1e);
-    AppendString02042058(self->text, buf80);
-    AppendLineXTag02041cf4(self->text, 0x7fff, 2, width - 2, 0x28);
+    func_020465c0((StoreStruct*)win, 0, scroll);
+    func_020465d8((unsigned char*)win, 0, 0);
+    func_020465f0((unsigned char*)win, 0, 3);
+    func_02046608(win, 10, func_02072a68((TableA68*)self->texts, 0x1f6), buf80, 0x100, 0, 0);
+    func_02041a90(self->text, (width >> 1) - 13, 0x1e);
+    func_02042058(self->text, buf80);
+    func_02041cf4(self->text, 0x7fff, 2, width - 2, 0x28);
     memset(buf80, 0, 0x80);
-    SetIndexedName02046574((Obj02046574*)win, 0, FindEntryByKey_02072a68((TableA68*)self->texts, (short)(self->e1c_title + 0x1f9)));
-    StoreInArray0x8b0_020465c0((StoreStruct*)win, 2, self->e1c_scroll);
-    func_02046608(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f8), buf80, 0x100, 0, 0);
-    AppendXYTag_02041a90(self->text, 12, 0x2a);
-    AppendString02042058(self->text, buf80);
+    func_02046574((Obj02046574*)win, 0, func_02072a68((TableA68*)self->texts, (short)(self->e1c_title + 0x1f9)));
+    func_020465c0((StoreStruct*)win, 2, self->e1c_scroll);
+    func_02046608(win, 10, func_02072a68((TableA68*)self->texts, 0x1f8), buf80, 0x100, 0, 0);
+    func_02041a90(self->text, 12, 0x2a);
+    func_02042058(self->text, buf80);
     func_0205d304(self->list, self->text, 0, 0, 0, 1, 0, 0);
     self->link->level115 = (signed char)level;
     self->link->level13d = (signed char)level;

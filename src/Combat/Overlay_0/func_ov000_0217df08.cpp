@@ -56,30 +56,30 @@ struct Battle0217df08 {
     unsigned short flags;
 };
 
-Messages0217df08* GetGlobalField0x1c020421a0();
+extern "C" Messages0217df08* func_020421a0();
 extern "C" Node0217df08* func_ov000_02161318(void* obj, int id);
-int IsFlag0x28Bit0Set_ov000_02171a60(void*);
-void Clear12Bytes020e46c4(void*);
+extern "C" int func_ov000_02171a60(void*);
+extern "C" void func_020e46c4(void*);
 struct Container020e0310;
-const char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" const char* func_020e0434(Container020e0310*, int);
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" int sprintf(char* buffer, const char* format, ...);
-Combatant0217df08* GetCombatantWithFlag0x400_0200fea4(GameState*, int);
+extern "C" Combatant0217df08* func_0200fea4(GameState*, int);
 extern "C" void func_020e4ce8(NameParts0217df08*, Combatant0217df08*, int);
 extern "C" int func_ov000_0217ff34(void* self, int id, int* amount);
 extern "C" void func_02046380(Messages0217df08*);
-void InitObjFromCombatantId020e4bf4(void*, int);
-void AppendString02042058(char*, const char*);
+extern "C" void func_020e4bf4(void*, int);
+extern "C" void func_02042058(char*, const char*);
 extern "C" char* func_020e046c(char* buf, void* data, unsigned int size, int idx);
 extern "C" void func_02046608(Messages0217df08*, int, char*, char*, int, int, int);
 extern "C" void __clear(void*, int);
-void TrimTrailingLetterCode_0217aa08(char*, char*);
+extern "C" void func_ov000_0217aa08(char*, char*);
 extern "C" void func_020e4f18(NameParts0217df08*, NameParts0217df08*, int);
 #if !defined(jpn)
 extern "C" void func_0204500c(Messages0217df08*, char*, int, int);
 #endif
 extern "C" void func_02043124(Messages0217df08*);
-void ReinitController02043204(char*);
+extern "C" void func_02043204(char*);
 #if !defined(jpn)
 extern "C" void func_ov000_0217c638(Battle0217df08* obj, int arg1, int arg2);
 #endif
@@ -126,7 +126,7 @@ struct BattleJ0217df08 {
 };
 
 struct Obj02046574;
-void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Obj02046574*, int, char*);
 extern "C" void func_020474a8(MessagesJ0217df08*, int, char*, char*);
 extern "C" void func_0204500c(MessagesJ0217df08*, char*, int);
 extern "C" void func_ov000_0217c638(BattleJ0217df08* obj, int arg1, int arg2);
@@ -136,7 +136,7 @@ extern const char data_ov000_021851cc[];
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg2) {
     GameState* gs = GameState::GetInstance();
-    MessagesJ0217df08* g = (MessagesJ0217df08*)GetGlobalField0x1c020421a0();
+    MessagesJ0217df08* g = (MessagesJ0217df08*)func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (self->state == 0) {
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
             unsigned int size;
             loader->GetLoadedFileByID(self->taskId, &data, &size);
             if (data != 0) {
-                const char* separator = GetFieldByKey020e0434((Container020e0310*)self->messages, 6);
+                const char* separator = func_020e0434((Container020e0310*)self->messages, 6);
                 char* work = g->work;
                 char* text = g->text;
                 memset(work, 0, 0x800);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
                 int msg;
                 Rank0217df08* rank;
                 for (i = 0; i < arg2; i++) {
-                    CombatantJ0217df08* c = (CombatantJ0217df08*)GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[i]);
+                    CombatantJ0217df08* c = (CombatantJ0217df08*)func_0200fea4(gs, self->combatantIds[i]);
                     if (c != 0) {
                         rank = c->rank;
                         if (rank == 0) {
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
                 }
                 appended = 0;
                 for (j = 0; j < arg2; j++) {
-                    c = (CombatantJ0217df08*)GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[j]);
+                    c = (CombatantJ0217df08*)func_0200fea4(gs, self->combatantIds[j]);
                     if (c != 0) {
                         int amount = -1;
                         msg = func_ov000_0217ff34(self, self->combatantIds[j], &amount);
@@ -191,15 +191,15 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
                                 memberName = *(char**)((char*)member + 0x134);
                             }
                             func_02046380((Messages0217df08*)g);
-                            SetIndexedName02046574((Obj02046574*)g, 0, c->name);
-                            SetIndexedName02046574((Obj02046574*)g, 1, memberName);
+                            func_02046574((Obj02046574*)g, 0, c->name);
+                            func_02046574((Obj02046574*)g, 1, memberName);
                             if (appended != 0) {
-                                AppendString02042058(text, separator);
+                                func_02042058(text, separator);
                             }
                             appended = 1;
                             memset(work, 0, 0x800);
                             func_020e046c(work, data, size, msg);
-                            AppendString02042058(text, work);
+                            func_02042058(text, work);
                             memset(work, 0, 0x800);
                             func_020474a8(g, 0xc, text, work);
                             memset(text, 0, 0x800);
@@ -219,10 +219,10 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
                     char name[0x40];
                     __clear(name, 0x40);
                     if (bestName != 0) {
-                        TrimTrailingLetterCode_0217aa08(bestName, name);
+                        func_ov000_0217aa08(bestName, name);
                     }
                     func_02046380((Messages0217df08*)g);
-                    SetIndexedName02046574((Obj02046574*)g, 2, name);
+                    func_02046574((Obj02046574*)g, 2, name);
                     func_020e046c(text, data, size, msg);
                     func_020474a8(g, 0xc, text, work);
                 }
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
     } else if (self->state == 2) {
         if (g->active == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
             func_02043124((Messages0217df08*)g);
-            ReinitController02043204((char*)g);
+            func_02043204((char*)g);
             self->state = 0;
             self->commands[self->index] = 0;
             self->index = self->index - 1;
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2) {
     GameState* gs = GameState::GetInstance();
-    Messages0217df08* g = GetGlobalField0x1c020421a0();
+    Messages0217df08* g = func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (self->state == 0) {
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                     Node0217df08* node = func_ov000_02161318(self, i);
                     if (node != 0) {
                         present++;
-                        if (!IsFlag0x28Bit0Set_ov000_02171a60(node)) {
+                        if (!func_ov000_02171a60(node)) {
                             if (node->fc != 0) {
                                 ready++;
                             }
@@ -282,9 +282,9 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                 NameParts0217df08 names;
                 NameParts0217df08 parts;
                 NameParts0217df08 original;
-                Clear12Bytes020e46c4(&names);
-                Clear12Bytes020e46c4(&parts);
-                const char* separator = GetFieldByKey020e0434((Container020e0310*)self->messages, 6);
+                func_020e46c4(&names);
+                func_020e46c4(&parts);
+                const char* separator = func_020e0434((Container020e0310*)self->messages, 6);
                 char* work = g->work;
                 char* text = g->text;
                 memset(work, 0, 0x960);
@@ -296,7 +296,7 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                 int msg;
                 Rank0217df08* rank;
                 for (i = 0; i < arg2; i++) {
-                    Combatant0217df08* c = GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[i]);
+                    Combatant0217df08* c = func_0200fea4(gs, self->combatantIds[i]);
                     if (c != 0) {
                         rank = c->rank;
                         if (rank == 0) {
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                 }
                 appended = 0;
                 for (j = 0; j < arg2; j++) {
-                    Combatant0217df08* c = GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[j]);
+                    Combatant0217df08* c = func_0200fea4(gs, self->combatantIds[j]);
                     if (c != 0) {
                         int amount = -1;
                         msg = func_ov000_0217ff34(self, self->combatantIds[j], &amount);
@@ -319,16 +319,16 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                             func_02046380(g);
                             func_020e4ce8(&parts, c, 1);
                             func_020e4ce8(&original, c, 0);
-                            InitObjFromCombatantId020e4bf4(&names, amount);
+                            func_020e4bf4(&names, amount);
                             g->parts = &parts;
                             g->names = &names;
                             if (appended != 0) {
-                                AppendString02042058(text, separator);
+                                func_02042058(text, separator);
                             }
                             appended = 1;
                             memset(work, 0, 0x960);
                             func_020e046c(work, data, size, msg);
-                            AppendString02042058(text, work);
+                            func_02042058(text, work);
                             memset(work, 0, 0x960);
                             g->count30 = present;
                             g->count31 = ready;
@@ -352,8 +352,8 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
                     __clear(singular, 0x80);
                     char plural[0x80];
                     __clear(plural, 0x80);
-                    TrimTrailingLetterCode_0217aa08(parts.singular, singular);
-                    TrimTrailingLetterCode_0217aa08(parts.plural, plural);
+                    func_ov000_0217aa08(parts.singular, singular);
+                    func_ov000_0217aa08(parts.plural, plural);
                     parts.singular = singular;
                     parts.plural = plural;
                     func_020e4f18(&original, &parts, 2);
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
     } else if (self->state == 2) {
         if (g->active == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
             func_02043124(g);
-            ReinitController02043204((char*)g);
+            func_02043204((char*)g);
             self->state = 0;
             self->commands[self->index] = 0;
             self->index = self->index - 1;

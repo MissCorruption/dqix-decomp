@@ -23,17 +23,17 @@ struct Obj0207fcb8;
 struct Cont0207fd44;
 struct Cont0207fd88;
 
-void* GetDataPtr02114e04_020d6c00(void);
-void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
-void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
-void ClearAllBuffers0207fcb8(struct Obj0207fcb8* obj);
-void CallFunc0204b04cOverList0x2c(struct Cont0207fd44* obj);
-void CallFunc0204b088OverList0x2c(struct Cont0207fd88* obj);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_02074bd0(struct Struct02074bd0* obj);
+extern "C" void func_0207fcb8(struct Obj0207fcb8* obj);
+extern "C" void func_0207fd44(struct Cont0207fd44* obj);
+extern "C" void func_0207fd88(struct Cont0207fd88* obj);
 extern "C" void* memset(void* dst, int val, unsigned int len);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
-int GetGlobalField0x1c020421a0(void);
-void ReinitController02043204(char* obj);
+extern "C" int func_020421a0(void);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_02043124(char* obj);
 
 struct BattleView0215fb94 {
@@ -60,7 +60,7 @@ struct BattleView0215fb94 {
 
 // USA: func_ov003_0215fb94
 extern "C" ARM void func_ov003_0215fb94(BattleView0215fb94* view) {
-    ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x80000);
+    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 0x80000);
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (view->loadTaskId >= 0) {
         loader->RemoveTask(view->loadTaskId);
@@ -74,14 +74,14 @@ extern "C" ARM void func_ov003_0215fb94(BattleView0215fb94* view) {
     *dispcnt = (*dispcnt & ~0x1f00) | 0x100;
     *(volatile unsigned short*)0x4000050 = 0;
 
-    ClearFlag0x10IfSet((struct Struct02074bd0*)view->field_0x2f4);
+    func_02074bd0((struct Struct02074bd0*)view->field_0x2f4);
 
     Manager0207f7f0* sub = view->field_0x324;
     if (sub != NULL) {
-        ClearAllBuffers0207fcb8((struct Obj0207fcb8*)sub);
-        CallFunc0204b04cOverList0x2c((struct Cont0207fd44*)sub);
-        CallFunc0204b088OverList0x2c((struct Cont0207fd88*)sub);
-        FlushNotifyEntries_0207f8bc(sub);
+        func_0207fcb8((struct Obj0207fcb8*)sub);
+        func_0207fd44((struct Cont0207fd44*)sub);
+        func_0207fd88((struct Cont0207fd88*)sub);
+        func_0207f8bc(sub);
     }
 
     if (view->charBuffer != NULL) {
@@ -91,9 +91,9 @@ extern "C" ARM void func_ov003_0215fb94(BattleView0215fb94* view) {
     }
     view->charBuffer = NULL;
 
-    char* controller = (char*)GetGlobalField0x1c020421a0();
+    char* controller = (char*)func_020421a0();
     if (*(int*)(controller + kRegion998) != 0) {
-        ReinitController02043204(controller);
+        func_02043204(controller);
         func_02043124(controller);
     }
     *(int*)(controller + kRegion2d8) = 0;

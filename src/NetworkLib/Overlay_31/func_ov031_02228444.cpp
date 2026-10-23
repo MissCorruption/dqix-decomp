@@ -7,8 +7,8 @@ extern "C" void func_ov031_0223b710(int);
 extern "C" void func_ov031_0223cbbc(int, int);
 extern "C" void func_ov031_02232508(void);
 extern "C" void func_ov031_0222905c(void);
-extern void SetField1014_022274d0(int, int);
-extern void SetField_022274c0_022274c0(int);
+extern "C" void func_ov031_022274d0(int, int);
+extern "C" void func_ov031_022274c0(int);
 
 struct State02228444 {
 	unsigned char field0;
@@ -34,11 +34,11 @@ extern "C" ARM void func_ov031_02228444(void) {
 	if (state == 1) goto case1;
 	return;
 case0:
-	SetField1014_022274d0(1, 0);
-	SetField_022274c0_022274c0((int)func_ov031_02232508);
+	func_ov031_022274d0(1, 0);
+	func_ov031_022274c0((int)func_ov031_02232508);
 	return;
 case1:
-	SetField1014_022274d0(0, 0);
-	SetField_022274c0_022274c0((int)func_ov031_0222905c);
+	func_ov031_022274d0(0, 0);
+	func_ov031_022274c0((int)func_ov031_0222905c);
 	return;
 }

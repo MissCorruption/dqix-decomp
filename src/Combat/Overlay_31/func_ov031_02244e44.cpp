@@ -77,27 +77,27 @@ extern RetryTime02244e44 data_ov031_02249594[4];
 extern int data_ov031_0224c8a4;
 extern Mutex data_ov031_02291e50;
 extern SessionGlobals02244e44 data_ov031_02291e04;
-extern "C" Obj022075a4* _Z21SelectAndCall022071d8ii(int, int, int);
-int QueryOrSetState_022075a4(Obj022075a4*, int, int);
+extern "C" Obj022075a4* func_ov031_022071d8(int, int, int);
+extern "C" int func_ov031_022075a4(Obj022075a4*, int, int);
 extern "C" PeerInfo02244e44* func_ov031_02207440(Obj022075a4*);
-int SendSwapped_02207230(void*, Packet02207230*);
+extern "C" int func_ov031_02207230(void*, Packet02207230*);
 extern "C" int func_ov031_0220783c(int*, int, int, int);
-int CallWithZeroZeroZero_0220728c(int, int, int);
+extern "C" int func_ov031_0220728c(int, int, int);
 extern "C" int func_02001aec(const void*, const void*, int);
 extern "C" int func_ov031_02245750(Struct_02245528*, PeerReply02244e44*);
 extern "C" int func_ov031_02207434(Obj022075a4*);
 extern "C" void func_ov031_022077c0();
 extern "C" void func_ov031_02245938();
-int GetField260_0220d540();
-void SetField34AndClear35_37_02245528(Struct_02245528*, int);
+extern "C" int func_ov031_0220d540();
+extern "C" void func_ov031_02245528(Struct_02245528*, int);
 
 // USA: func_ov031_02244e44
 extern "C" ARM void func_ov031_02244e44(Struct_02245528* session) {
     switch (session->phase) {
     case 0:
-        session->handle = _Z21SelectAndCall022071d8ii(2, 1, 0);
+        session->handle = func_ov031_022071d8(2, 1, 0);
         if ((int)session->handle < 0) { session->phase = 5; break; }
-        QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) & ~4);
+        func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) & ~4);
         session->phase = 1;
         session->attempt = -1;
         session->repeat = 0;
@@ -146,8 +146,8 @@ extern "C" ARM void func_ov031_02244e44(Struct_02245528* session) {
         packet.length = ((length >> 8) & 0xff) | ((length << 8) & 0xff00);
         VectorizedInvertedMemcpy(*info->data, packet.data, info->data_length);
         GetCurrentTimestamp();
-        QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) | 4);
-        int status = SendSwapped_02207230(session->handle, &packet);
+        func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) | 4);
+        int status = func_ov031_02207230(session->handle, &packet);
         if (status == -26) {
             unsigned long long elapsed = ((GetCurrentTimestamp() - session->retry_started.ticks) << 6) / 0x82ea;
             if (elapsed >= 0x3a98) status = -76;
@@ -183,12 +183,12 @@ extern "C" ARM void func_ov031_02244e44(Struct_02245528* session) {
     }
     case 4: {
         GetCurrentTimestamp();
-        QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) | 4);
+        func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) | 4);
         int descriptor[2];
         if (func_ov031_0220783c(descriptor, 1, 0x7fd88, 0) > 0) {
             PeerReply02244e44 reply;
             memset(&reply, 0, 0x14);
-            if (CallWithZeroZeroZero_0220728c((int)session->handle, (int)&reply, 0x14) < 0) {
+            if (func_ov031_0220728c((int)session->handle, (int)&reply, 0x14) < 0) {
                 GetCurrentTimestamp();
                 if (data_ov031_02291e04.peer) {
                     SavedPeer02244e44* peer = ((SessionGame02244e44*)GameState::GetInstance())->GetPeers();
@@ -210,14 +210,14 @@ extern "C" ARM void func_ov031_02244e44(Struct_02245528* session) {
             }
         } else {
             session->phase = 5;
-            QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) & ~4);
+            func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) & ~4);
         }
         break;
     }
     case 5:
         GetCurrentTimestamp();
-        QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) | 4);
-        QueryOrSetState_022075a4(session->handle, 4, QueryOrSetState_022075a4(session->handle, 3, 0) | 4);
+        func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) | 4);
+        func_ov031_022075a4(session->handle, 4, func_ov031_022075a4(session->handle, 3, 0) | 4);
         if (func_ov031_02207434(session->handle) == 0) {
             SleepCurrentContext(1);
             for (int index = 0; index < 0x7530; index++) {
@@ -232,9 +232,9 @@ extern "C" ARM void func_ov031_02244e44(Struct_02245528* session) {
         session->phase = 6;
         break;
     case 6:
-        if (!GetField260_0220d540()) {
+        if (!func_ov031_0220d540()) {
             GetCurrentTimestamp();
-            SetField34AndClear35_37_02245528(session, 0);
+            func_ov031_02245528(session, 0);
             session->done = 1;
         }
         break;

@@ -4,14 +4,14 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int a0, short* buf, int count, int flag);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Obj_021eef68 { int field0; };
 struct Buf8_021eef68 { short v[8]; };
 extern struct Buf8_021eef68 data_ov024_021fed0c;
 
-// USA: func_ov024_021eef68  (semantic: SelectLowDefenseAndMaybePick_021eef68)
+// USA: func_ov024_021eef68
 extern "C" ARM int func_ov024_021eef68(struct Obj_021eef68* obj, int unused1, int unused2, int* outCount, short* outArray) {
     struct Buf8_021eef68 buf = data_ov024_021fed0c;
     int count = func_ov000_0215eb1c(obj->field0, buf.v, 8, 1);
@@ -23,13 +23,13 @@ extern "C" ARM int func_ov024_021eef68(struct Obj_021eef68* obj, int unused1, in
         if (!c) continue;
         if (c->currentStats_->primaryStats.defense >= 0xffff) continue;
         if (c->currentStats_->defenseBuff >= 2) continue;
-        if (IsCombatantFlagMask512_021eda60(c)) continue;
+        if (func_ov024_021eda60(c)) continue;
         int idx = *outCount;
         *outCount = idx + 1;
         outArray[idx] = buf.v[i];
     }
 
     if (*outCount <= 0) return 0;
-    PickRandomTableEntryResetCounter_021ed890((struct Random**)obj, outCount, outArray);
+    func_ov024_021ed890((struct Random**)obj, outCount, outArray);
     return 1;
 }

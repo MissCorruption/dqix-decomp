@@ -7,7 +7,7 @@
 #define REGION_BASE 0x1d00
 #endif
 
-ARM int ClearEntryFlagsAndInit02180528(char* obj);
+extern "C" ARM int func_ov000_02180528(char* obj);
 
 struct Point02180594 {
     short x;
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov000_02180594(Obj02180594* obj, int speed, SafeAllocato
         obj->field918 = 0;
         obj->field91c = 0;
         obj->state++;
-        ClearEntryFlagsAndInit02180528((char*)obj);
+        func_ov000_02180528((char*)obj);
         obj->flags |= 8;
         return 1;
     } else if (obj->state == 1) {

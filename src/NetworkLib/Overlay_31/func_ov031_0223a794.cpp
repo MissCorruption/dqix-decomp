@@ -4,18 +4,18 @@ extern unsigned char* data_ov031_02290d20;
 
 extern "C" int func_ov031_0223a718(void);
 extern "C" void func_ov031_0223ab6c(void);
-int TailCallWithField648Ac8_0223ac14(void);
+extern "C" int func_ov031_0223ac14(void);
 extern "C" void func_ov031_0223ac38(void);
-void CallStubsSetField_0223adf0(void);
+extern "C" void func_ov031_0223adf0(void);
 extern "C" void func_ov031_0223ae1c(void);
-void SetFieldA90_0223aff8(void);
+extern "C" void func_ov031_0223aff8(void);
 extern "C" int func_ov031_0223b010(void);
 extern "C" void func_ov027_021dcd20(void);
-extern int GetField40_02239be8(void);
+extern "C" int func_ov031_02239be8(void);
 extern "C" void func_ov031_0223a47c(void);
 extern "C" void func_ov031_0223a374(void);
 
-// USA: func_ov031_0223a794  (semantic: RunFieldA90StateMachine_0223a794)
+// USA: func_ov031_0223a794
 extern "C" ARM void func_ov031_0223a794(void) {
 	switch (data_ov031_02290d20[0xa90]) {
 	case 0:
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		func_ov031_0223ab6c();
 		break;
 	case 3:
-		TailCallWithField648Ac8_0223ac14();
+		func_ov031_0223ac14();
 		data_ov031_02290d20[0xa90] = 4;
 		break;
 	case 4:
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		func_ov031_0223ac38();
 		break;
 	case 7:
-		CallStubsSetField_0223adf0();
+		func_ov031_0223adf0();
 		break;
 	case 8:
 	case 9:
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		func_ov031_0223ae1c();
 		break;
 	case 11:
-		SetFieldA90_0223aff8();
+		func_ov031_0223aff8();
 		break;
 	case 16:
 		*(int*)(data_ov031_02290d20 + 0xa9c) = 0;
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		unsigned int v = *(unsigned int*)(data_ov031_02290d20 + 0xa9c);
 		*(unsigned int*)(data_ov031_02290d20 + 0xa9c) = v + 1;
 		if (v <= 0x1e) break;
-		if (GetField40_02239be8() != 1) break;
+		if (func_ov031_02239be8() != 1) break;
 		func_ov031_0223a47c();
 		data_ov031_02290d20[0xa90] = 0x14;
 		break;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		unsigned int v = *(unsigned int*)(data_ov031_02290d20 + 0xa9c);
 		*(unsigned int*)(data_ov031_02290d20 + 0xa9c) = v + 1;
 		if (v <= 0x1e) break;
-		if (GetField40_02239be8() != 1) break;
+		if (func_ov031_02239be8() != 1) break;
 		func_ov031_0223a47c();
 		data_ov031_02290d20[0xa90] = 0x17;
 		break;
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		unsigned int v = *(unsigned int*)(data_ov031_02290d20 + 0xa9c);
 		*(unsigned int*)(data_ov031_02290d20 + 0xa9c) = v + 1;
 		if (v <= 0x1e) break;
-		if (GetField40_02239be8() != 1) break;
+		if (func_ov031_02239be8() != 1) break;
 		func_ov031_0223a47c();
 		data_ov031_02290d20[0xa90] = 0x1a;
 		break;
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		unsigned int v = *(unsigned int*)(data_ov031_02290d20 + 0xa9c);
 		*(unsigned int*)(data_ov031_02290d20 + 0xa9c) = v + 1;
 		if (v <= 0x1e) break;
-		if (GetField40_02239be8() == 1) {
+		if (func_ov031_02239be8() == 1) {
 			func_ov031_0223a47c();
 			data_ov031_02290d20[0xa90] = 0x1d;
 			break;
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov031_0223a794(void) {
 		unsigned int v = *(unsigned int*)(data_ov031_02290d20 + 0xa9c);
 		*(unsigned int*)(data_ov031_02290d20 + 0xa9c) = v + 1;
 		if (v <= 0x1e) break;
-		if (GetField40_02239be8() != 1) break;
+		if (func_ov031_02239be8() != 1) break;
 		func_ov031_0223a47c();
 		data_ov031_02290d20[0xa90] = 0x22;
 		break;

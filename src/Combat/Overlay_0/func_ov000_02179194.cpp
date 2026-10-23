@@ -48,21 +48,21 @@ struct TextResources {
 struct StoreStruct;
 struct Struct_0205d81c;
 struct StructA0205d5d0;
-TextResources* GetGlobalField0x1c020421a0();
-MenuSkill* GetBoundedField420_0217199c(void*, int);
-void NotifyLocalizedResourceLoad020dd040(int, char*);
+extern "C" TextResources* func_020421a0();
+extern "C" MenuSkill* func_ov000_0217199c(void*, int);
+extern "C" void func_020dd040(int, char*);
 extern "C" void func_02046608(TextResources*, int, char*, char*, int, int, int);
 extern "C" void func_02046380(TextResources*);
-int IsFlag0x18Bit0x200Set_ov000_02153a8c(GameObject*);
-unsigned int AdjustValueByFieldFlag_020dd290(void*, unsigned int);
-void StoreInArray0x8b0_020465c0(StoreStruct*, int, int);
-const char* CallFunc020e0434With02153694_020e51cc(int);
-int AppendString02042058(char*, const char*);
-void* FindElementByC40205d81c(Struct_0205d81c*, int);
+extern "C" int func_ov000_02153a8c(GameObject*);
+extern "C" unsigned int func_020dd290(void*, unsigned int);
+extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" const char* func_020e51cc(int);
+extern "C" int func_02042058(char*, const char*);
+extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
 extern "C" void func_0205d304(SkillTextWindow*, char*, int, int, int, int, int);
-extern "C" void _Z23SetByteInRange_020465f0Phih(unsigned char*, int, unsigned char);
-extern "C" void _Z23SetByteAtIndex_020465d8Phih(unsigned char*, int, unsigned char);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
 extern "C" void func_0205d304(SkillTextWindow*, char*, int, int, int, int, int, int);
@@ -77,52 +77,52 @@ extern "C" ARM void func_ov000_02179194(SkillDisplay* display, SkillMenu* menu) 
 #endif
     if (!menu) return;
     int cursor = menu->cursor;
-    char* scratch = GetGlobalField0x1c020421a0()->scratch;
+    char* scratch = func_020421a0()->scratch;
 #if defined(jpn)
     memset(scratch, 0, 0x800);
 #else
     memset(scratch, 0, 0x960);
 #endif
     GameState* game = GameState::GetInstance();
-    MenuSkill* skill = GetBoundedField420_0217199c(menu, cursor);
+    MenuSkill* skill = func_ov000_0217199c(menu, cursor);
     if (!skill) return;
     GameObject* combatant = game->GetCombatantByIndex(menu->combatant);
     if (!combatant) return;
-    GameObject* partyMember = GetCombatantWithFlag0x100_0200ff1c(game, menu->combatant);
+    GameObject* partyMember = func_0200ff1c(game, menu->combatant);
     if (!partyMember) return;
-    NotifyLocalizedResourceLoad020dd040(skill->skill, scratch);
+    func_020dd040(skill->skill, scratch);
 #if defined(jpn)
     destination = scratch;
 #else
-    func_02046608(GetGlobalField0x1c020421a0(), 10, scratch, text, 0x72, 0, 0);
+    func_02046608(func_020421a0(), 10, scratch, text, 0x72, 0, 0);
     destination = text;
 #endif
-    resources = GetGlobalField0x1c020421a0();
+    resources = func_020421a0();
     func_02046380(resources);
     int cost;
-    if (IsFlag0x18Bit0x200Set_ov000_02153a8c(combatant)) cost = 0;
+    if (func_ov000_02153a8c(combatant)) cost = 0;
     else {
         unsigned int value = skill->cost;
         if (value >= 0xff) cost = menu->maximumCost;
-        else cost = AdjustValueByFieldFlag_020dd290(partyMember, value);
+        else cost = func_020dd290(partyMember, value);
     }
-    StoreInArray0x8b0_020465c0((StoreStruct*)resources, 0, cost);
-    StoreInArray0x8b0_020465c0((StoreStruct*)resources, 1, menu->maximumCost);
+    func_020465c0((StoreStruct*)resources, 0, cost);
+    func_020465c0((StoreStruct*)resources, 1, menu->maximumCost);
 #if defined(jpn)
-    _Z23SetByteInRange_020465f0Phih((unsigned char*)resources, 0, 3);
-    _Z23SetByteInRange_020465f0Phih((unsigned char*)resources, 1, 3);
-    _Z23SetByteAtIndex_020465d8Phih((unsigned char*)resources, 0, 1);
-    _Z23SetByteAtIndex_020465d8Phih((unsigned char*)resources, 1, 1);
-    AppendString02042058(destination, data_ov000_02185169);
+    func_020465f0((unsigned char*)resources, 0, 3);
+    func_020465f0((unsigned char*)resources, 1, 3);
+    func_020465d8((unsigned char*)resources, 0, 1);
+    func_020465d8((unsigned char*)resources, 1, 1);
+    func_02042058(destination, data_ov000_02185169);
 #else
-    AppendString02042058(destination, CallFunc020e0434With02153694_020e51cc(0x3ec));
+    func_02042058(destination, func_020e51cc(0x3ec));
 #endif
     SkillTextWindow* window = &display->window;
-    if (FindElementByC40205d81c((Struct_0205d81c*)window, 0x23)) {
+    if (func_0205d81c((Struct_0205d81c*)window, 0x23)) {
 #if defined(jpn)
-        TryApplyElemFields0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1);
+        func_0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1);
 #else
-        TryApplyElemFields0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1, 0);
+        func_0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1, 0);
 #endif
     } else {
         int width = menu->width;

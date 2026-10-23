@@ -15,6 +15,6 @@ union LootPointState {
 
 typedef char LootPointStateSizeCheck[sizeof(LootPointState) == 4 ? 1 : -1];
 
-void EnqueueEventTag183_021d38f8(unsigned char mode, signed char partySlot,
+extern "C" void func_ov017_021d38f8(unsigned char mode, signed char partySlot,
                                unsigned char mask, unsigned char pointId,
                                const LootPointState* packedState);

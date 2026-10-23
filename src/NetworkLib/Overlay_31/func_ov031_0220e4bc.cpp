@@ -8,7 +8,7 @@ extern void* data_ov031_0224e53c;
 
 struct TypeStruct_0220e4bc { short f0; unsigned short type; };
 
-// USA: func_ov031_0220e4bc  (semantic: DispatchEventByField260_0220e4bc)
+// USA: func_ov031_0220e4bc
 extern "C" ARM void func_ov031_0220e4bc(struct TypeStruct_0220e4bc *s) {
     switch (s->type) {
         case 0: {

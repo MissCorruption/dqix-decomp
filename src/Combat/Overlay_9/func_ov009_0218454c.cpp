@@ -31,20 +31,20 @@ struct Struct021847c4 {
     int rows_;
 };
 
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int* field, unsigned int bits);
-void ZeroInit020de848(void* table);
-void ResetStruct020dfc40(Struct020dfc40* table);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
+extern "C" void func_020de848(void* table);
+extern "C" void func_020dfc40(Struct020dfc40* table);
 #if defined(jpn)
 #define func_ov009_021847ec func_ov009_02185850
 #endif
 extern "C" void func_ov009_021847ec(void* checker);
-void ResetList0204af64(List0204af64* background);
-void InitStruct0205cfd4(InitTarget0205cfd4* window);
+extern "C" void func_0204af64(List0204af64* background);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
 extern "C" void func_0204c684(Canvas* canvas);
-void Init0205bef8(Struct_0205bef8* cursor);
-void ResetFields021847c4(Struct021847c4* grid);
-int FindEntryIndexByKey020424e4(int text, int mode);
+extern "C" void func_0205bef8(Struct_0205bef8* cursor);
+extern "C" void func_ov009_021847c4(Struct021847c4* grid);
+extern "C" int func_020424e4(int text, int mode);
 
 extern char data_ov009_0218aca4[];
 
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov009_0218454c(CharacterCreation* self, int vocation, i
 {
     self->mode_ = mode;
     if (self->mode_ == 1)
-        OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0xf);
+        func_020466e4(func_020d6c00(), 0xf);
     self->allocators_[0].ResetAllocatorPointer();
     self->allocators_[1].ResetAllocatorPointer();
     self->allocators_[2].ResetAllocatorPointer();
@@ -163,18 +163,18 @@ extern "C" ARM void func_ov009_0218454c(CharacterCreation* self, int vocation, i
     self->keyboard_ = NULL;
     self->layout_ = NULL;
 #endif
-    ZeroInit020de848(&self->partNames_);
-    ResetStruct020dfc40(&self->texts_);
+    func_020de848(&self->partNames_);
+    func_020dfc40(&self->texts_);
     self->unk_f8 = NULL;
     func_ov009_021847ec(&self->checker_);
-    ResetList0204af64(&self->backgrounds_[0]);
-    ResetList0204af64(&self->backgrounds_[1]);
-    ResetList0204af64(&self->backgrounds_[2]);
-    ResetList0204af64(&self->backgrounds_[3]);
-    ResetList0204af64(&self->backgrounds_[4]);
-    ResetList0204af64(&self->backgrounds_[5]);
-    InitStruct0205cfd4(&self->windows_[0]);
-    InitStruct0205cfd4(&self->windows_[1]);
+    func_0204af64(&self->backgrounds_[0]);
+    func_0204af64(&self->backgrounds_[1]);
+    func_0204af64(&self->backgrounds_[2]);
+    func_0204af64(&self->backgrounds_[3]);
+    func_0204af64(&self->backgrounds_[4]);
+    func_0204af64(&self->backgrounds_[5]);
+    func_0205cfd4(&self->windows_[0]);
+    func_0205cfd4(&self->windows_[1]);
     for (int i = 0; i < 1; i++)
         func_0204c684(&self->canvases_[i]);
     for (int i = 0; i < 4; i++)
@@ -195,8 +195,8 @@ extern "C" ARM void func_ov009_0218454c(CharacterCreation* self, int vocation, i
     self->targetAngle_ = 0;
     self->object_.Initialize();
     self->object2_.Initialize();
-    Init0205bef8(&self->cursor_);
-    ResetFields021847c4(&self->grid_);
+    func_0205bef8(&self->cursor_);
+    func_ov009_021847c4(&self->grid_);
     self->cursorX_ = -1;
     self->cursorY_ = -1;
     self->cursorWidth_ = -1;
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov009_0218454c(CharacterCreation* self, int vocation, i
     self->keyboardResult_ = 0;
 #else
     self->names_ = NULL;
-    self->unk_db4 = FindEntryIndexByKey020424e4((int)data_ov009_0218aca4, 0);
+    self->unk_db4 = func_020424e4((int)data_ov009_0218aca4, 0);
 #endif
     self->unk_db6 = 0;
 #if defined(jpn)

@@ -8,32 +8,32 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(struct ArrayContainsByteStruct* s, int val);
+extern "C" int func_02086ef0(struct ArrayContainsByteStruct* s, int val);
 struct Holder0209a9dc;
 struct Entry0209a9dc { unsigned short id; unsigned short pad; };
-struct Entry0209a9dc* FindEntryById0209a9dc(struct Holder0209a9dc* h, int i);
-void* SearchBothTables02079e2c(char* p, int key);
+extern "C" struct Entry0209a9dc* func_0209a9dc(struct Holder0209a9dc* h, int i);
+extern "C" void* func_02079e2c(char* p, int key);
 struct TableA68;
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
 struct Obj02046574;
-void SetIndexedName02046574(struct Obj02046574* obj, int index, char* str);
+extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
 #if defined(jpn)
 extern "C" void func_0204500c(void* obj, char* buffer, int a);
 #else
 extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
 #endif
 
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-int CheckThresholdOverAny_021f5228(int id);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_ov023_021f5228(int id);
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
 extern "C" int func_ov023_021f4438(void* obj);
 extern "C" int func_ov023_021f4fc8(void);
 struct Reset_021eefac;
-void ResetFields_021eefac(struct Reset_021eefac* s);
+extern "C" void func_ov023_021eefac(struct Reset_021eefac* s);
 extern "C" void func_ov017_021ccea4(int a, unsigned char* b, int c);
 
 struct Entry1c021f2368 { unsigned char attempts[0x14]; };
@@ -55,7 +55,7 @@ extern "C" struct GlobalState021f2368* _ZZ17GetGlobal021ffefcvE1s;
 
 struct PctBits021f2368 { unsigned short low : 7; unsigned short pct : 9; };
 
-// USA: func_ov023_021f2368  (semantic: ProcessEntryMatchAndDispatch_021f2368)
+// USA: func_ov023_021f2368
 extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x5af4, regionalOffset1=0x17e2, regionalOffset2=0x868, regionalOffset3=0x5900, regionalOffset4=0x8c, regionalOffset5=0x17fb, regionalOffset6=0x5958, regionalOffset7=0x17de, regionalOffset8=0x17df, regionalOffset9=0xe28};
@@ -64,47 +64,47 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
 #endif
     GameState* battleStruct = GameState::GetInstance();
     struct GlobalState021f2368* g = _ZZ17GetGlobal021ffefcvE1s;
-    int state = GetGlobalField0x1c020421a0();
+    int state = func_020421a0();
     unsigned char* stateObj = (unsigned char*)state;
     (int)BackgroundLoader::GetInstance();
     int id = g->id;
-    int contains = ArrayContainsByte_02086ef0((struct ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(battleStruct), id);
+    int contains = func_02086ef0((struct ArrayContainsByteStruct*)func_02010828(battleStruct), id);
 
     if (g->counter == 0) {
-        struct Entry0209a9dc* e = FindEntryById0209a9dc((struct Holder0209a9dc*)((char*)g + 0xf0),
+        struct Entry0209a9dc* e = func_0209a9dc((struct Holder0209a9dc*)((char*)g + 0xf0),
             g->arr1c[id].attempts[g->field70]);
         if (e != NULL) {
             short val = *(short*)((char*)e + 2);
-            ActionDataTables* tbl = GetData02108e10_020797dc();
-            void* found = SearchBothTables02079e2c((char*)tbl, val);
+            ActionDataTables* tbl = func_020797dc();
+            void* found = func_02079e2c((char*)tbl, val);
             if (found != NULL) {
 #if defined(jpn)
                 GameObject* textCombatant;
-                if ((textCombatant = GetCombatantWithFlag0x100_0200ff1c(battleStruct, id)) != 0 && contains != 0) {
+                if ((textCombatant = func_0200ff1c(battleStruct, id)) != 0 && contains != 0) {
 #else
-                if (GetCombatantWithFlag0x100_0200ff1c(battleStruct, id) != 0 && contains != 0) {
+                if (func_0200ff1c(battleStruct, id) != 0 && contains != 0) {
 #endif
 
 #if defined(jpn)
                     char* combatantName = *(char**)((char*)textCombatant + 0x134);
                     char msgBuf[0x100];
-                    char* e1 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + regionalOffset0), 0xc);
+                    char* e1 = (char*)func_02072a68((struct TableA68*)(obj + regionalOffset0), 0xc);
                     sprintf(msgBuf, e1, combatantName, *(char**)found);
-                    char* e2 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + regionalOffset0), 0x22);
+                    char* e2 = (char*)func_02072a68((struct TableA68*)(obj + regionalOffset0), 0x22);
                     strcat(msgBuf, e2);
                     func_0204500c(stateObj, msgBuf, 1);
 
 #else
                     char buf1[0xc];
                     char msgBuf[0x80];
-                    char* e1 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + regionalOffset0), 0xc);
+                    char* e1 = (char*)func_02072a68((struct TableA68*)(obj + regionalOffset0), 0xc);
                     sprintf(msgBuf, e1);
-                    char* e2 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + regionalOffset0), 0x22);
+                    char* e2 = (char*)func_02072a68((struct TableA68*)(obj + regionalOffset0), 0x22);
                     strcat(msgBuf, e2);
-                    InitObjFromCombatantId020e4bf4(buf1, id);
+                    func_020e4bf4(buf1, id);
                     *(void**)(stateObj + 0x10) = buf1;
                     char* name = *(char**)found;
-                    SetIndexedName02046574((struct Obj02046574*)stateObj, 1, name);
+                    func_02046574((struct Obj02046574*)stateObj, 1, name);
                     func_0204500c(stateObj, msgBuf, 1, 0xe3);
 
 #endif
@@ -115,18 +115,18 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
         }
         g->field70 = g->field70 + 1;
         if (g->byteArr6c[id] <= g->field70) {
-            void* p2a04b = GetPtrField0x2a04_02010828(battleStruct);
-            GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(battleStruct, id);
-            unsigned char* field150 = (unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+            void* p2a04b = func_02010828(battleStruct);
+            GameObject* combatant = func_0200ff1c(battleStruct, id);
+            unsigned char* field150 = (unsigned char*)func_02053c6c((unsigned char*)combatant);
             struct PctBits021f2368* pb = (struct PctBits021f2368*)(obj + id * 0x54 + regionalOffset3 + regionalOffset4);
             if (pb->pct != 0) {
                 g->e5 = 0xc;
-            } else if (ArrayContainsByte_02086ef0((struct ArrayContainsByteStruct*)p2a04b, id) &&
-                       CheckThresholdOverAny_021f5228(id) != 0 &&
+            } else if (func_02086ef0((struct ArrayContainsByteStruct*)p2a04b, id) &&
+                       func_ov023_021f5228(id) != 0 &&
                        *(unsigned short*)(field150 + 0x564) != 0) {
                 g->e5 = 8;
                 void* base = func_0205ec34();
-                if (TestBitInByteArray_0206dfb0((int)base, (unsigned char*)base + 0x8c, 0x119c)) {
+                if (func_0206dfb0((int)base, (unsigned char*)base + 0x8c, 0x119c)) {
                     stateObj[regionalOffset5] = 0;
                 }
             } else {
@@ -154,7 +154,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* obj) {
         if (func_ov023_021f4fc8() != 0) {
             signed char e5 = g->e5;
             if (e5 >= 0) {
-                ResetFields_021eefac((struct Reset_021eefac*)g);
+                func_ov023_021eefac((struct Reset_021eefac*)g);
                 func_ov017_021ccea4(id, (unsigned char*)&g->arr1c[id], g->byteArr6c[id]);
                 return e5;
             } else {

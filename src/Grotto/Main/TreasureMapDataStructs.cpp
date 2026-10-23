@@ -12,8 +12,8 @@
 
 extern "C"
 {
-    extern "C" void _Z22PushInputLogA_020a1df8i(unsigned int);
-    extern "C" void _Z28PopStack0AndTrigger_020a1e54i(int);
+    extern "C" void func_020a1df8(unsigned int);
+    extern "C" void func_020a1e54(int);
 }
 
 #define TMAPLANGDATA_READ(offset, into, len) \
@@ -87,10 +87,10 @@ bool ExportDetailedTreasureMapData(const TreasureMapMetadata* from,
         to->legacy_.Populate(from->QualityOrLegacyBossID, from->LegacyBossLevel, from->SeedOrMinTurns);
     }
 
-    _Z22PushInputLogA_020a1df8i(4);
+    func_020a1df8(4);
     to->LoadLegacyBossStats(computeLegacyStats, legacyStatsData);
     to->LoadTreasures();
-    _Z28PopStack0AndTrigger_020a1e54i(1);
+    func_020a1e54(1);
 
     for (int i = 0; i < 3; i++)
         to->discoveredTreasures_[i] = false;

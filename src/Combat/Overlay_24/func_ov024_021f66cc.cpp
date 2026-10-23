@@ -2,8 +2,8 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* gameState, int combatantId);
-int GetCombatantField0x148Bits3To4_ov000_02159d94(void* unused, int id);
+extern "C" GameObject* func_0200fea4(GameState* gameState, int combatantId);
+extern "C" int func_ov000_02159d94(void* unused, int id);
 
 struct MoveData_021f66cc {
 	char pad0[0xc];
@@ -11,7 +11,7 @@ struct MoveData_021f66cc {
 	unsigned short handlerB;
 };
 
-struct MoveData_021f66cc* SearchBothTables02079e2c(char* table, int key);
+extern "C" struct MoveData_021f66cc* func_02079e2c(char* table, int key);
 
 class AIHandler_021f66cc {
 public:
@@ -25,10 +25,10 @@ extern Handler_021f66cc data_ov024_021ff790[];
 // USA: func_ov024_021f66cc
 extern "C" ARM int func_ov024_021f66cc(AIHandler_021f66cc* obj, void* battle, int moveId, int id, int a4, int a5) {
 	obj->battle = battle;
-	GetCombatantWithFlag0x400_0200fea4(GameState::GetInstance(), id);
-	struct MoveData_021f66cc* move = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), (short)moveId);
+	func_0200fea4(GameState::GetInstance(), id);
+	struct MoveData_021f66cc* move = func_02079e2c((char*)func_020797dc(), (short)moveId);
 	int handler = 0;
-	int kind = GetCombatantField0x148Bits3To4_ov000_02159d94(obj->battle, (short)id);
+	int kind = func_ov000_02159d94(obj->battle, (short)id);
 	switch (kind) {
 	case 1:
 		handler = move->handlerA;

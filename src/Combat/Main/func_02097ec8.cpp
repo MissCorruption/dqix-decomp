@@ -22,10 +22,10 @@ extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(ZoneState*, int, int);
 extern "C" void func_02082828(ZoneWork*);
 extern "C" void func_020542b4(T02054280*, SafeAllocator*, char*);
-int IsIdInRange020981e4(int, int);
-int IsIdInRange02098240(int, int);
-int IsIdInSet02098210(int, int);
-void ResetAllocators02054280(T02054280*);
+extern "C" int func_020981e4(int, int);
+extern "C" int func_02098240(int, int);
+extern "C" int func_02098210(int, int);
+extern "C" void func_02054280(T02054280*);
 
 static inline SafeAllocator& GetResourceAllocator(GameResources* resources, int index) {
     return resources->allocator_array_1a0[index];
@@ -40,8 +40,8 @@ extern "C" ARM void func_02097ec8(ZoneResourceState* state) {
     ZoneState* zone = func_02012fe4();
     int zoneId = zone->zoneId;
     int previousZoneId = zone->previousZoneId;
-    if (!IsIdInRange020981e4((int)state, zoneId) &&
-        !IsIdInRange020981e4((int)state, previousZoneId)) return;
+    if (!func_020981e4((int)state, zoneId) &&
+        !func_020981e4((int)state, previousZoneId)) return;
     if (zoneId != 0xc3b5 && zoneId != 0xc419 && zoneId != 0xc47d && zoneId != 0xc4e1)
         state->entered = 1;
     func_0202ae18();
@@ -52,15 +52,15 @@ extern "C" ARM void func_02097ec8(ZoneResourceState* state) {
         func_0201bd3c(zone, 20, 0);
         func_0201bd3c(zone, 21, 0);
     }
-    if (IsIdInRange020981e4((int)state, zoneId) &&
-        !IsIdInRange02098240((int)state, zoneId) &&
-        !IsIdInSet02098210((int)state, zoneId) && zoneId != 0xc3bb) {
+    if (func_020981e4((int)state, zoneId) &&
+        !func_02098240((int)state, zoneId) &&
+        !func_02098210((int)state, zoneId) && zoneId != 0xc3bb) {
         GameResources* resources = GetGameResources();
         SafeAllocator* allocator = &GetResourceAllocator(GetGameResources(), 2);
         allocator->Reset();
         state->slots = (T02054280*)allocator->Allocate(0x5ec);
         state->work = (ZoneWork*)allocator->Allocate(kWorkBytes);
-        ResetAllocators02054280(state->slots);
+        func_02054280(state->slots);
         func_02082828(state->work);
         func_020542b4(state->slots, &resources->allocator_array_1a0[3], &GetResourceBuffer(resources, 0x930));
     }

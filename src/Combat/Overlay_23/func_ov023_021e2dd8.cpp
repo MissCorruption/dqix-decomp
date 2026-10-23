@@ -3,11 +3,11 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-void* GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
-void ZeroInit020de848(void* obj);
-void ClearFields_021e20c0(void* p);
-void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020de848(void* obj);
+extern "C" void func_ov023_021e20c0(void* p);
+extern "C" void func_020dc4d0(signed char* out, signed char* outCount);
 
 // USA: func_ov023_021e2dd8
 extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
@@ -23,8 +23,8 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     int i;
     int j;
 
-    p = GetDataPtr02114e04_020d6c00();
-    OrBitsIntoField0_020466e4((unsigned int*)p, 0xf);
+    p = func_020d6c00();
+    func_020466e4((unsigned int*)p, 0xf);
 
     *(unsigned int*)(obj + 0x0) = 0;
     *(unsigned int*)(obj + 0x4) = 0;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     ((SafeAllocator*)(obj + 0x7c))->ResetAllocatorPointer();
     ((SafeAllocator*)(obj + 0x90))->ResetAllocatorPointer();
 
-    ZeroInit020de848(obj + 0xa4);
+    func_020de848(obj + 0xa4);
 
     *(unsigned short*)(obj + 0xbc) = 0;
     *(unsigned short*)(obj + 0xbe) = 0;
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     *(unsigned int*)(obj + 0xcc) = 0;
     *(unsigned int*)(obj + 0xd0) = 0;
 
-    ClearFields_021e20c0(obj + 0xd4);
+    func_ov023_021e20c0(obj + 0xd4);
 
     *(unsigned int*)(obj + regionalOffset0) = 0;
     *(unsigned int*)(obj + regionalOffset1) = 0;
@@ -63,11 +63,11 @@ extern "C" ARM void func_ov023_021e2dd8(unsigned char* obj) {
     battle = GameState::GetInstance();
     outCount = 0;
     for (i = 0; i < 4; i++) buf[i] = -1;
-    FilterSlotsWithFlag0x800020dc4d0(buf, &outCount);
+    func_020dc4d0(buf, &outCount);
     for (j = 0; j < 4; j++) {
         signed char v = buf[j];
         *(int*)((char*)obj + j * 4 + regionalOffset8) = v;
-        GetCombatantWithFlag0x100_0200ff1c(battle, v);
+        func_0200ff1c(battle, v);
     }
 
     *(int*)(obj + regionalOffset7) = outCount;

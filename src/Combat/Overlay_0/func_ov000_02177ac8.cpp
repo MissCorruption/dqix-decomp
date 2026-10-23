@@ -5,14 +5,14 @@
 #endif
 struct Container020e0310;
 
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
 extern "C" int func_020420e8(const char* text, int large);
-int IsField0x118Equal2_ov000_0217542c(void* obj);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
-int AppendString02042058(char* dst, const char* src);
-int AppendXTag_02041a28(char* dst, int x);
+extern "C" int func_ov000_0217542c(void* obj);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02041a28(char* dst, int x);
 
 extern int data_ov000_021834e0[6];
 
@@ -31,29 +31,29 @@ extern "C" ARM void func_ov000_02177ac8(char* obj, char* dst) {
     signed char cursor = *(signed char*)(obj + cursorOffset);
 #if !defined(jpn)
     for (int i = 0; i < 3; i++) {
-        const char* name = (const char*)GetFieldByKey020e0434((struct Container020e0310*)(obj + 0xb8), (short)(i + 30014));
+        const char* name = (const char*)func_020e0434((struct Container020e0310*)(obj + 0xb8), (short)(i + 30014));
         int width = func_020420e8(name, 0);
         if (maxWidth < width) {
             maxWidth = width;
         }
     }
 #endif
-    if (IsField0x118Equal2_ov000_0217542c(obj)) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    if (func_ov000_0217542c(obj)) {
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
     for (int i = 0; i < 6; i++) {
         int id = data_ov000_021834e0[i];
-        AppendNameTag_02041b70(dst, id, (const char*)GetFieldByKey020e0434((struct Container020e0310*)(obj + 0xb8), (short)(id + 30014)));
+        func_02041b70(dst, id, (const char*)func_020e0434((struct Container020e0310*)(obj + 0xb8), (short)(id + 30014)));
         if (i == 5) {
             break;
         }
         int odd = i & 1;
         if (odd) {
-            AppendString02042058(dst, (const char*)GetFieldByKey020e0434((struct Container020e0310*)(obj + 0xb8), 0));
+            func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)(obj + 0xb8), 0));
         }
         if (!odd) {
-            AppendXTag_02041a28(dst, maxWidth + 0x20);
+            func_02041a28(dst, maxWidth + 0x20);
         }
     }
 }

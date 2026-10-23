@@ -8,23 +8,23 @@
 #define RG(u, j) (u)
 #endif
 
-unsigned char* GetGlobal02109030_020936f8(void);
+extern "C" unsigned char* func_020936f8(void);
 extern "C" void func_ov003_021612c0(void* obj);
 extern "C" int func_ov003_02161344(void* obj);
-int CountValidCombatantsMinusField_02160b84(void* obj);
-int GetFieldIfFlag4_020100f8(char* obj);
+extern "C" int func_ov003_02160b84(void* obj);
+extern "C" int func_020100f8(char* obj);
 struct Vector3i;
-void ReadFields0x70To0x78_0202e7d4(unsigned char* obj, int* a, int* b, int* c);
+extern "C" void func_0202e7d4(unsigned char* obj, int* a, int* b, int* c);
 extern "C" void func_ov017_021c37a4(void);
 struct GlobalObj0202e6a8;
-void AddWrappedField0x70_0202e784(struct GlobalObj0202e6a8* obj, int value);
+extern "C" void func_0202e784(struct GlobalObj0202e6a8* obj, int value);
 struct CamState0202e6c0;
-void ClampField74BySign(struct CamState0202e6c0* obj, int value);
+extern "C" void func_0202e6c0(struct CamState0202e6c0* obj, int value);
 struct Obj0202e71c;
-void SetField78Clamped0202e71c(struct Obj0202e71c* obj, int value);
+extern "C" void func_0202e71c(struct Obj0202e71c* obj, int value);
 struct Cont0207fe44;
-void CallFunc0204c804OverAllElems(struct Cont0207fe44* menu);
-void ClearFlag0x3c9Bit0AndCleanup_020939fc(unsigned char* obj);
+extern "C" void func_0207fe44(struct Cont0207fe44* menu);
+extern "C" void func_020939fc(unsigned char* obj);
 
 struct Camera0216552c {
     char unk_0[0x4];
@@ -57,7 +57,7 @@ struct Menu0216552c {
 
 // USA: func_ov003_0216552c
 extern "C" ARM void func_ov003_0216552c(Menu0216552c* self) {
-    unsigned char* global = GetGlobal02109030_020936f8();
+    unsigned char* global = func_020936f8();
     Window0216552c* window = self->window_;
     short* nextState = self->nextState_;
 
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov003_0216552c(Menu0216552c* self) {
             if (result != 1) {
                 return;
             }
-            if (CountValidCombatantsMinusField_02160b84(self) != 0) {
+            if (func_ov003_02160b84(self) != 0) {
                 self->field_0x488 = 0x1a;
                 self->messageId_ = self->windowMessageId_ = 0xa9;
                 window->messageId_ = self->windowMessageId_;
@@ -91,27 +91,27 @@ extern "C" ARM void func_ov003_0216552c(Menu0216552c* self) {
                 int angle;
                 int position[3];
                 int target[3];
-                Camera0216552c* camera = (Camera0216552c*)GetFieldIfFlag4_020100f8((char*)GameState::GetInstance());
+                Camera0216552c* camera = (Camera0216552c*)func_020100f8((char*)GameState::GetInstance());
                 if (camera != NULL) {
                     *(Vector3i*)position = *(Vector3i const*)camera->position_;
                     *(Vector3i*)target = *(Vector3i const*)camera->target_;
-                    ReadFields0x70To0x78_0202e7d4((unsigned char*)camera, &angle, &height, &distance);
+                    func_0202e7d4((unsigned char*)camera, &angle, &height, &distance);
                 }
                 func_ov017_021c37a4();
                 if (camera != NULL) {
                     *(Vector3i*)camera->position_ = *(Vector3i const*)position;
                     *(Vector3i*)camera->target_ = *(Vector3i const*)target;
-                    AddWrappedField0x70_0202e784((struct GlobalObj0202e6a8*)camera, angle);
-                    ClampField74BySign((struct CamState0202e6c0*)camera, height);
-                    SetField78Clamped0202e71c((struct Obj0202e71c*)camera, distance);
+                    func_0202e784((struct GlobalObj0202e6a8*)camera, angle);
+                    func_0202e6c0((struct CamState0202e6c0*)camera, height);
+                    func_0202e71c((struct Obj0202e71c*)camera, distance);
                     camera->angle_ = angle;
                 }
-                CallFunc0204c804OverAllElems((struct Cont0207fe44*)window);
+                func_0207fe44((struct Cont0207fe44*)window);
                 nextState[0] = 0x21;
                 nextState[1] = 1;
                 self->code_ = 10;
                 self->step_ = 0;
-                ClearFlag0x3c9Bit0AndCleanup_020939fc(global);
+                func_020939fc(global);
             }
         } else {
             self->field_0x488 = 0x1a;

@@ -110,48 +110,48 @@ struct Slot021ebb90 { unsigned char idx; unsigned char cat; };
 struct Bytes02033b88;
 struct Obj0203a588;
 
-void* GetActiveCombatWork_ov000_02160130(void);
-unsigned char GetByte_021dcc64_021dcc64(void* obj);
-void SetByte_021dcc58(void* obj, unsigned char v);
-int CheckCombatantStatusOrTable_02162954(void* self);
-int Check021ed2f4(void* obj);
+extern "C" void* func_ov000_02160130(void);
+extern "C" unsigned char func_ov025_021dcc64(void* obj);
+extern "C" void func_ov025_021dcc58(void* obj, unsigned char v);
+extern "C" int func_ov000_02162954(void* self);
+extern "C" int func_ov025_021ed2f4(void* obj);
 extern "C" void func_ov025_021ebb24(struct Struct021ecb90* obj);
-struct ListNode021600f8* GetNodeAtIndex021600f8(struct List021600f8* list, int index);
-struct ListNode02160094* GetNodeAtIndex02160094(struct List02160094* list, int index);
-struct Row02079e2c* SearchBothTables02079e2c(char* table, int key);
-void AppendUniqueShort0216346c(char* obj, int val);
-void AppendUniqueShort021634c8(char* obj, int val);
+extern "C" struct ListNode021600f8* func_ov000_021600f8(struct List021600f8* list, int index);
+extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
+extern "C" struct Row02079e2c* func_02079e2c(char* table, int key);
+extern "C" void func_ov000_0216346c(char* obj, int val);
+extern "C" void func_ov000_021634c8(char* obj, int val);
 extern "C" short func_ov000_0215ffa0(void* obj);
 extern "C" int func_ov025_021d8c30(void* sl_, void* sb_, int kind, int category, int idx, int inner, int flag);
-void ClearSubstructFlag0x4_02049ae4(unsigned char* obj);
-int GetSubstructByte0x56_02049ee8(unsigned char* obj);
-int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" void func_02049ae4(unsigned char* obj);
+extern "C" int func_02049ee8(unsigned char* obj);
+extern "C" int func_02033b88(struct Bytes02033b88* p, int val);
+extern "C" void* func_020421a0(void);
 extern "C" void func_02043124(void* self);
-struct Obj0203a588* GetData02104b6c_02039e70(void);
-void ResetLowFlagEntries0203a588(struct Obj0203a588* obj);
-void ZeroFieldsAt0x6e8_ov000_02182a44(void* obj);
+extern "C" struct Obj0203a588* func_02039e70(void);
+extern "C" void func_0203a588(struct Obj0203a588* obj);
+extern "C" void func_ov000_02182a44(void* obj);
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
-int TestBit0At0x2f4_02085078(unsigned char* obj);
-int TestBit1At0x2f4_020850a4(unsigned char* obj);
+extern "C" int func_02085078(unsigned char* obj);
+extern "C" int func_020850a4(unsigned char* obj);
 extern "C" void* func_02057924(void);
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 extern "C" int func_020c32f8(int);
 extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
-short ClampScaledStat_0216352c(int id, float a, float b);
+extern "C" short func_ov000_0216352c(int id, float a, float b);
 extern "C" int func_ov000_021635e4(int id, unsigned char mode);
-int IsCombatantStateSpecial02163c0c(void* unused, int id);
-void FindNodeAndProcess02057fb4(void* list, int id, void* config);
-void DispatchIfField0xc4NonNeg_0205ebfc(void* obj, int a, int b);
-int IsIdUnique021ee438(struct Ctx021ee438* obj, int id);
+extern "C" int func_ov000_02163c0c(void* unused, int id);
+extern "C" void func_02057fb4(void* list, int id, void* config);
+extern "C" void func_0205ebfc(void* obj, int a, int b);
+extern "C" int func_ov025_021ee438(struct Ctx021ee438* obj, int id);
 extern "C" void func_ov025_021dcf14(void* combatWork);
 extern "C" void* func_ov000_02160f14(void* combatWork);
 extern "C" void func_ov000_0216df00(void* handle, int a, int b, int c, float scale);
 extern "C" void func_ov000_021626a0(void* combatWork, int a, int b);
-void CopyStructFields_021ecb90(struct Struct021ecb90* dst, struct Struct021ecb90* src);
+extern "C" void func_ov025_021ecb90(struct Struct021ecb90* dst, struct Struct021ecb90* src);
 
 extern int data_02108760;
 extern "C" void __clear(void* dst, unsigned int n);
@@ -178,15 +178,15 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
     unsigned char* codes;
 
     GameState* battle = GameState::GetInstance();
-    unsigned char* cw = (unsigned char*)GetActiveCombatWork_ov000_02160130();
+    unsigned char* cw = (unsigned char*)func_ov000_02160130();
     GameResources* p54 = GetGameResources();
 
-    if (GetByte_021dcc64_021dcc64(cw) != 0 && GetByte_021dcc64_021dcc64(cw) < 3) return;
-    if (GetByte_021dcc64_021dcc64(cw) > 5 && GetByte_021dcc64_021dcc64(cw) < 7) return;
+    if (func_ov025_021dcc64(cw) != 0 && func_ov025_021dcc64(cw) < 3) return;
+    if (func_ov025_021dcc64(cw) > 5 && func_ov025_021dcc64(cw) < 7) return;
 
     unsigned int fpv = battle->GetEffectiveDeltaTime();
 
-    if (obj->f301 != 0 && CheckCombatantStatusOrTable_02162954(cw) != 0) {
+    if (obj->f301 != 0 && func_ov000_02162954(cw) != 0) {
         for (int j = 0; j < 12; j++) {
             if (obj->entries[j].a != 0) {
                 if (fpv < obj->entries[j].f) obj->entries[j].f -= fpv;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
             if (e->f <= e->e || obj->f300 == 1) {
                 if (e->d & 0x80) {
                     if (cw[Field6efe] != 4) return;
-                    if (Check021ed2f4(obj->f30c) == 0) return;
+                    if (func_ov025_021ed2f4(obj->f30c) == 0) return;
                 }
                 func_ov025_021ebb24(&obj->entries[i]);
                 if (obj->f300 != 0) obj->f300--;
@@ -219,13 +219,13 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
         struct ListNode021600f8* node1 = 0;
         struct ListNode02160094* node2 = 0;
         if (e->mode == 1) {
-            struct ListNode021600f8* n = GetNodeAtIndex021600f8((struct List021600f8*)obj->entries[i].a, e->idx);
+            struct ListNode021600f8* n = func_ov000_021600f8((struct List021600f8*)obj->entries[i].a, e->idx);
             if (n != 0) node1 = n;
         } else if (e->mode == 0) {
-            struct ListNode02160094* n = GetNodeAtIndex02160094((struct List02160094*)obj->entries[i].a, 0);
+            struct ListNode02160094* n = func_ov000_02160094((struct List02160094*)obj->entries[i].a, 0);
             if (n != 0) node2 = n;
         } else if (e->mode == 2 || e->mode == 3) {
-            struct ListNode021600f8* n = GetNodeAtIndex021600f8((struct List021600f8*)obj->entries[i].a, e->idx);
+            struct ListNode021600f8* n = func_ov000_021600f8((struct List021600f8*)obj->entries[i].a, e->idx);
             if (n != 0) node1 = n;
         }
 
@@ -233,10 +233,10 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
         unsigned int sp4c = fpv + obj->entries[i].e;
 
         if (!(obj->entries[i].d & 0x10)) {
-            struct Row02079e2c* row = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(),
+            struct Row02079e2c* row = func_02079e2c((char*)func_020797dc(),
                                                                ((struct List021600f8*)obj->entries[i].a)->id);
             for (int spRow = 0; spRow < ((struct List021600f8*)obj->entries[i].a)->count; spRow++) {
-                struct ListNode021600f8* node = GetNodeAtIndex021600f8((struct List021600f8*)obj->entries[i].a, spRow);
+                struct ListNode021600f8* node = func_ov000_021600f8((struct List021600f8*)obj->entries[i].a, spRow);
                 if (node != 0) {
                     unsigned char found = 0;
                     unsigned char blocked = 0;
@@ -246,14 +246,14 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                             if (row != 0 && (row->flags >> 28 == 3 || row->flags >> 28 == 4)) {
                                 blocked = 1;
                             } else {
-                                AppendUniqueShort0216346c((char*)cw, node->vals[j]);
+                                func_ov000_0216346c((char*)cw, node->vals[j]);
                                 found = 1;
                             }
                         } else if (codes[j] == 1 || codes[j] == 2) {
                             if (found == 0) {
                                 if (cw[Field6efe] == 0) cw[Field6efe] = 1;
                                 if (blocked != 0 && obj->entries[i].f != 0) obj->entries[i].d |= 0x80;
-                                AppendUniqueShort021634c8((char*)cw, node->vals[j - 1]);
+                                func_ov000_021634c8((char*)cw, node->vals[j - 1]);
                                 *(short*)(cw + Field6efc) = func_ov000_0215ffa0(node);
                             }
                             obj->f306 = 1;
@@ -263,23 +263,23 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
             }
 
             if (row == 0 || (row->flags >> 28 != 3 && row->flags >> 28 != 4)) {
-                struct ListNode02160094* n0 = GetNodeAtIndex02160094((struct List02160094*)obj->entries[i].a, 0);
+                struct ListNode02160094* n0 = func_ov000_02160094((struct List02160094*)obj->entries[i].a, 0);
                 int partyBlocked = 0;
                 if (n0 != 0 && n0 != 0 && IsPartyId021ebb90(n0->id)) {
-                    GameObject* member = GetCombatantWithFlag0x100_0200ff1c(battle, n0->id);
+                    GameObject* member = func_0200ff1c(battle, n0->id);
                     if (member != 0 &&
-                        (TestBit0At0x2f4_02085078(*(unsigned char**)((char*)member + CombatantSubobject)) != 0 ||
-                         TestBit1At0x2f4_020850a4(*(unsigned char**)((char*)member + CombatantSubobject)) != 0)) {
+                        (func_02085078(*(unsigned char**)((char*)member + CombatantSubobject)) != 0 ||
+                         func_020850a4(*(unsigned char**)((char*)member + CombatantSubobject)) != 0)) {
                         if (row != 0 && row->flags >> 28 != 2) partyBlocked = 1;
                     }
                 }
                 if (node1 != 0 && partyBlocked == 0) {
                     for (int j = 1; j < node1->codeCount; j++) {
                         unsigned char* codes = node1->codes;
-                        if ((codes[j] == 7 || codes[j] == 8 || codes[j] == 6) && GetByte_021dcc64_021dcc64(cw) == 0) {
-                            SetByte_021dcc58(cw, 1);
+                        if ((codes[j] == 7 || codes[j] == 8 || codes[j] == 6) && func_ov025_021dcc64(cw) == 0) {
+                            func_ov025_021dcc58(cw, 1);
                             struct Struct021ecb90 copyA = obj->entries[i];
-                            CopyStructFields_021ecb90((struct Struct021ecb90*)(cw + Field6f78), &copyA);
+                            func_ov025_021ecb90((struct Struct021ecb90*)(cw + Field6f78), &copyA);
                             obj->entries[i].ringBase = 0;
                             obj->entries[i].d |= 0x18;
                             if (obj->f306 != 0) obj->entries[i].d |= 6;
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
 
         if (obj->f306 != 0) {
             struct Struct021ecb90 copyB = obj->entries[i];
-            CopyStructFields_021ecb90((struct Struct021ecb90*)(cw + Field6f78), &copyB);
+            func_ov025_021ecb90((struct Struct021ecb90*)(cw + Field6f78), &copyB);
             obj->entries[i].ringBase = 0;
             obj->entries[i].d |= 0x10;
             obj->entries[i].d |= 0x08;
@@ -308,10 +308,10 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     int mode = obj->entries[i].mode;
                     int targetId2 = -1;
                     if (mode == 1) {
-                        struct ListNode021600f8* n = GetNodeAtIndex021600f8((struct List021600f8*)obj->entries[i].a, idx);
+                        struct ListNode021600f8* n = func_ov000_021600f8((struct List021600f8*)obj->entries[i].a, idx);
                         if (n != 0) targetId2 = func_ov000_0215ffa0(n);
                     } else if (mode == 0) {
-                        struct ListNode02160094* n = GetNodeAtIndex02160094((struct List02160094*)obj->entries[i].a, idx);
+                        struct ListNode02160094* n = func_ov000_02160094((struct List02160094*)obj->entries[i].a, idx);
                         if (n != 0) targetId2 = n->id;
                     }
                     if (targetId2 >= 0) {
@@ -320,14 +320,14 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                         GameObject* c2 = battle->GetCombatantByIndex(targetId2);
                         if (c2 != 0) {
                             ((Object3D*)((unsigned char*)c2))->MakeVisible();
-                            ClearSubstructFlag0x4_02049ae4((unsigned char*)c2);
-                            if (GetSubstructByte0x56_02049ee8((unsigned char*)c2) != 0) {
-                                SetByte0xbeShiftPrev((struct Bytes02033b88*)c2, 0);
+                            func_02049ae4((unsigned char*)c2);
+                            if (func_02049ee8((unsigned char*)c2) != 0) {
+                                func_02033b88((struct Bytes02033b88*)c2, 0);
                             }
                         }
-                        func_02043124(GetGlobalField0x1c020421a0());
-                        ResetLowFlagEntries0203a588(GetData02104b6c_02039e70());
-                        ZeroFieldsAt0x6e8_ov000_02182a44(cw + Field6ffc);
+                        func_02043124(func_020421a0());
+                        func_0203a588(func_02039e70());
+                        func_ov000_02182a44(cw + Field6ffc);
                     }
                 }
                 obj->entries[i].d |= 8;
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
 
         if (!(obj->entries[i].d & 2)) {
             int ownerId = -1;
-            struct ListNode02160094* n1 = GetNodeAtIndex02160094((struct List02160094*)obj->entries[i].a, 0);
+            struct ListNode02160094* n1 = func_ov000_02160094((struct List02160094*)obj->entries[i].a, 0);
             if (n1 != 0) ownerId = n1->id;
 
             if (sp14 <= obj->entries[i].g && obj->entries[i].g < sp4c) {
@@ -388,7 +388,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                             int sv = 0x1000;
                             switch (e->u) {
                             case 0:
-                                sv = ClampScaledStat_0216352c(targetId3, e->p / 4096.0f, e->q / 4096.0f);
+                                sv = func_ov000_0216352c(targetId3, e->p / 4096.0f, e->q / 4096.0f);
                                 break;
                             case 1:
                                 sv = func_ov000_021635e4(targetId3, e->p);
@@ -414,7 +414,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                             case 4: {
                                 dir.z = e->r;
                                 float speed = e->s / 4096.0f;
-                                sf = (short)(ClampScaledStat_0216352c(targetId3, speed, 1.0f) - (int)speed);
+                                sf = (short)(func_ov000_0216352c(targetId3, speed, 1.0f) - (int)speed);
                                 if (sf <= 0) sf = 0;
                                 dir.y = 0;
                                 dir.x = 0;
@@ -438,7 +438,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                                 break;
                             }
                             case 2:
-                                sf = ClampScaledStat_0216352c(targetId3, 1.0f, 0.5f);
+                                sf = func_ov000_0216352c(targetId3, 1.0f, 0.5f);
                                 dir.x = e->r;
                                 dir.y = e->s;
                                 dir.z = e->t;
@@ -464,10 +464,10 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     }
 
                     if (sp50 != 0) params.pos.z += 0x2000;
-                    if (cw[Field6ff9] != 0 && IsCombatantStateSpecial02163c0c(cw, targetId3) != 0) {
+                    if (cw[Field6ff9] != 0 && func_ov000_02163c0c(cw, targetId3) != 0) {
                         params.pos.y += 0xe66;
                     }
-                    FindNodeAndProcess02057fb4(spawnObj, obj->entries[i].k, &params);
+                    func_02057fb4(spawnObj, obj->entries[i].k, &params);
                 }
 
                 if (obj->entries[i].d & 0x20) SetMainBrightness(p54, 0x10, 0xf);
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
         }
 
         if (!(obj->entries[i].d & 4) && sp14 <= obj->entries[i].m && obj->entries[i].m < sp4c) {
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, obj->entries[i].l, 0);
+            func_0205ebfc(&data_02108760, obj->entries[i].l, 0);
             obj->entries[i].d |= 4;
         }
 
@@ -519,7 +519,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
             for (int cur = obj->entries[i].w; cur < numSlots; cur++) {
                 unsigned int slotTime = obj->entries[i].ringBase + cur * obj->entries[i].ringStride;
                 if (!(ringStart <= slotTime && slotTime < ringEnd)) continue;
-                if (IsIdUnique021ee438(obj->f30c, obj->f308) != 0 || waitUnique == 0) {
+                if (func_ov025_021ee438(obj->f30c, obj->f308) != 0 || waitUnique == 0) {
                     obj->f308 = func_ov025_021d8c30(cw, (void*)obj->entries[i].a, obj->entries[i].mode,
                                                     slots[cur].cat, obj->entries[i].idx, slots[cur].idx, 0);
                     obj->entries[i].w++;
@@ -527,7 +527,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                         SetMainBrightness(p54, 0, 0xf);
                         obj->entries[i].d &= ~0x20;
                     }
-                    if (IsIdUnique021ee438(obj->f30c, obj->f308) == 0 && waitUnique != 0) {
+                    if (func_ov025_021ee438(obj->f30c, obj->f308) == 0 && waitUnique != 0) {
                         stalled = 1;
                         break;
                     }
@@ -538,7 +538,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                 break;
             }
             if (numSlots == obj->entries[i].w) {
-                if (IsIdUnique021ee438(obj->f30c, obj->f308) != 0 || (obj->entries[i].d & 0x40) != 0 ||
+                if (func_ov025_021ee438(obj->f30c, obj->f308) != 0 || (obj->entries[i].d & 0x40) != 0 ||
                     waitUnique == 0) {
                     obj->entries[i].d |= 1;
                     obj->f308 = 0;
@@ -549,7 +549,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
             obj->entries[i].d |= 1;
         }
 
-        if (sp50 != 0 && GetByte_021dcc64_021dcc64(cw) == 1) func_ov025_021dcf14(cw);
+        if (sp50 != 0 && func_ov025_021dcc64(cw) == 1) func_ov025_021dcf14(cw);
 
         obj->entries[i].e += fpv;
         if (stalled == 0) obj->entries[i].x += fpv;

@@ -12,26 +12,26 @@ struct Struct020865b0;
 struct S0215f56c;
 struct Outer02166164;
 
-int SetSublistEntriesFlag1_02080b54(void* obj, int id);
-int CompareThreshold_021614e8(int);
-void SetOrClearFlags464_02166164(Outer02166164*, int, int);
+extern "C" int func_02080b54(void* obj, int id);
+extern "C" int func_ov003_021614e8(int);
+extern "C" void func_ov003_02166164(Outer02166164*, int, int);
 extern "C" void func_02042764(void* src, void* dst, int flag);
-int GetFieldAt0x50(Struct020865b0*);
-int ClassifyRatio_0215f56c(S0215f56c*);
-int SetEntryFlagById02080b40(void* obj, int id);
-void SetEntryHighNibble0x13(struct Container02080cc0* obj, int id, int value);
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
-void ResolveEntryValueByKey02080fe0(void*, int, int);
-void SetEntryFirstField02080fa8(struct Container02080fa8*, int, int);
-void SetEntryHalfword0xe_0208103c(void*, int, int);
-void GetEntryFieldsAt0x602080828(void*, int, short*, short*);
-void GetEntryOutputs020808c8(void*, int, short*, short*);
-void SetEntryFieldsAt0x602080854(void*, int, int, int);
-int GetFieldByKey020e0434(struct Container020e0310*, int);
+extern "C" int func_020865b0(Struct020865b0*);
+extern "C" int func_ov003_0215f56c(S0215f56c*);
+extern "C" int func_02080b40(void* obj, int id);
+extern "C" void func_02080cc0(struct Container02080cc0* obj, int id, int value);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
+extern "C" void func_02080fe0(void*, int, int);
+extern "C" void func_02080fa8(struct Container02080fa8*, int, int);
+extern "C" void func_0208103c(void*, int, int);
+extern "C" void func_02080828(void*, int, short*, short*);
+extern "C" void func_020808c8(void*, int, short*, short*);
+extern "C" void func_02080854(void*, int, int, int);
+extern "C" int func_020e0434(struct Container020e0310*, int);
 extern "C" void func_ov003_0215f5e8(void* menu, int page, int count);
 extern "C" void func_ov003_02160c58(void* self, short* outHigh, short* outLow);
-void SetEntryNibbleByShortId(struct StatusOwner02081198* owner, int id, int enable);
-void SetEntryFlag0x2ByShortId(struct StatusOwner02081164* obj, int id, int value);
+extern "C" void func_02081198(struct StatusOwner02081198* owner, int id, int enable);
+extern "C" void func_02081164(struct StatusOwner02081164* obj, int id, int value);
 extern "C" int func_020813ec(void* obj, int id);
 extern "C" void func_ov003_02160678(void* self);
 extern "C" void func_ov003_02160794(void* self);
@@ -55,10 +55,10 @@ struct Party02165c9c {
     unsigned char count;
 };
 
-void* GetPtrField0x2a04_02010828(GameState*);
+extern "C" void* func_02010828(GameState*);
 
 static inline Party02165c9c* GetParty() {
-    return (Party02165c9c*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    return (Party02165c9c*)func_02010828(GameState::GetInstance());
 }
 
 struct ShortPair02165c9c {
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
     short outHigh, outLow;
     ShortPair02165c9c ids;
 
-    SetSublistEntriesFlag1_02080b54(elementObj, 6);
+    func_02080b54(elementObj, 6);
     party = GetParty();
     count = party->count;
     idA = 0x15;
@@ -152,17 +152,17 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
     row = self->page * 4;
     v = -1;
     idC = 0xcb;
-    emptyName = GetFieldByKey020e0434(&self->cont2dc, 0x7530);
-    otherName = GetFieldByKey020e0434(&self->cont2dc, 0x7531);
+    emptyName = func_020e0434(&self->cont2dc, 0x7530);
+    otherName = func_020e0434(&self->cont2dc, 0x7531);
     self->flag4bd = (unsigned char)idA;
     memset(self->counters, 0, 4);
-    if (CompareThreshold_021614e8((int)self) == 0) {
+    if (func_ov003_021614e8((int)self) == 0) {
         empty = 1;
     } else {
         empty = 0;
     }
     total = count + empty;
-    SetOrClearFlags464_02166164((Outer02166164*)self, total > 4, 1);
+    func_ov003_02166164((Outer02166164*)self, total > 4, 1);
 #if !defined(jpn)
     memset(self->names, 0, sizeof(self->names));
 #endif
@@ -170,19 +170,19 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
     for (i = 0; i < 4; i++) {
         entry = &party->members[row];
 #if defined(jpn)
-        SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)entry->name);
+        func_02080f8c((struct Container02080f8c*)elementObj, idA, (int)entry->name);
 #else
         off = i * 0x30;
         func_02042764(entry->name, (char*)self->names + off, 1);
-        SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)&self->names[0][off]);
+        func_02080f8c((struct Container02080f8c*)elementObj, idA, (int)&self->names[0][off]);
 #endif
-        if (GetFieldAt0x50((Struct020865b0*)entry) != 0) {
-            v = (short)(GetFieldAt0x50((Struct020865b0*)entry) + 0x11);
+        if (func_020865b0((Struct020865b0*)entry) != 0) {
+            v = (short)(func_020865b0((Struct020865b0*)entry) + 0x11);
         }
-        ResolveEntryValueByKey02080fe0(elementObj, (short)(idA + 4), v);
-        SetEntryFirstField02080fa8((struct Container02080fa8*)elementObj, (short)(idA + 8),
-                                   entry->unk2[GetFieldAt0x50((Struct020865b0*)entry)]);
-        color = ClassifyRatio_0215f56c((S0215f56c*)entry);
+        func_02080fe0(elementObj, (short)(idA + 4), v);
+        func_02080fa8((struct Container02080fa8*)elementObj, (short)(idA + 8),
+                                   entry->unk2[func_020865b0((Struct020865b0*)entry)]);
+        color = func_ov003_0215f56c((S0215f56c*)entry);
         if (idA == ((struct EntryList02165c9c*)elementObj)->field36 && color == 0xf) {
             color = 0xa;
         }
@@ -192,42 +192,42 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
             }
             for (j = 0; j < 3; j++) {
                 k = idA + j * 4;
-                SetEntryHighNibble0x13(elementObj, (short)k, color);
-                SetEntryFlagById02080b40(elementObj, (short)(unsigned int)k);
+                func_02080cc0(elementObj, (short)k, color);
+                func_02080b40(elementObj, (short)(unsigned int)k);
             }
 #if !defined(jpn)
-            SetEntryHighNibble0x13(elementObj, idB, color);
-            SetEntryFlagById02080b40(elementObj, idB);
+            func_02080cc0(elementObj, idB, color);
+            func_02080b40(elementObj, idB);
 #endif
-            kind = entry->unkF[GetFieldAt0x50((Struct020865b0*)entry)];
-            SetEntryHalfword0xe_0208103c(elementObj, idC, (short)(kind + 100));
+            kind = entry->unkF[func_020865b0((Struct020865b0*)entry)];
+            func_0208103c(elementObj, idC, (short)(kind + 100));
             if (kind != 0) {
                 color = 5;
                 if (kind == 0xa) {
                     color = 0xd;
                 }
-                SetEntryHighNibble0x13(elementObj, idC, color);
+                func_02080cc0(elementObj, idC, color);
                 key = i + 0x19;
-                GetEntryFieldsAt0x602080828(elementObj, (short)key, &t32, &t30);
-                GetEntryOutputs020808c8(elementObj, (short)(unsigned int)key, &t2e, &t2c);
+                func_02080828(elementObj, (short)key, &t32, &t30);
+                func_020808c8(elementObj, (short)(unsigned int)key, &t2e, &t2c);
 #if defined(jpn)
-                SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t32 + t2e + 1), (short)(t30 + 2));
+                func_02080854(elementObj, idC, (short)(t32 + t2e + 1), (short)(t30 + 2));
 #else
-                SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t32 + t2e + 1), t30);
+                func_02080854(elementObj, idC, (short)(t32 + t2e + 1), t30);
 #endif
-                SetEntryHighNibble0x13(elementObj, idC, color);
-                SetEntryFlagById02080b40(elementObj, idC);
+                func_02080cc0(elementObj, idC, color);
+                func_02080b40(elementObj, idC);
             }
             self->counters[i] = entry->bit0 + 1;
         } else {
             name = emptyName;
-            if (empty != 0 && CompareThreshold_021614e8((int)self) == 0) {
+            if (empty != 0 && func_ov003_021614e8((int)self) == 0) {
                 empty = 0;
                 name = otherName;
             }
-            SetEntryHighNibble0x13(elementObj, idA, color);
-            SetEntryFlagById02080b40(elementObj, idA);
-            SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, name);
+            func_02080cc0(elementObj, idA, color);
+            func_02080b40(elementObj, idA);
+            func_02080f8c((struct Container02080f8c*)elementObj, idA, name);
         }
         row++;
         idA = (short)(idA + 1);
@@ -241,14 +241,14 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
     func_ov003_02160c58(self, &outHigh, &outLow);
     party = GetParty();
     outLow = outLow - (party->countF7c - 1);
-    SetEntryFirstField02080fa8((struct Container02080fa8*)elementObj, 0x23, outLow);
-    SetEntryFirstField02080fa8((struct Container02080fa8*)elementObj, 0x24, outHigh);
+    func_02080fa8((struct Container02080fa8*)elementObj, 0x23, outLow);
+    func_02080fa8((struct Container02080fa8*)elementObj, 0x24, outHigh);
 
     ids = data_ov003_0217f3ec.ids;
     for (int n = 0; n < 2; n++) {
         short id = ids.v[n];
-        SetEntryNibbleByShortId((struct StatusOwner02081198*)elementObj, id, 1);
-        SetEntryFlag0x2ByShortId((struct StatusOwner02081164*)elementObj, id, 1);
+        func_02081198((struct StatusOwner02081198*)elementObj, id, 1);
+        func_02081164((struct StatusOwner02081164*)elementObj, id, 1);
         func_020813ec(elementObj, id);
     }
     func_ov003_02160678(self);

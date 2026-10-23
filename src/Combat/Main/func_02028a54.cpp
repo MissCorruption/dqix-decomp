@@ -21,9 +21,9 @@ struct Combatant02028a54 {
     char reserved13c[0x5c];
 };
 
-void InitializeSubObjectsAndFields020289c4(BigRecord020289c4*);
-void ClearCombatantSlot_0200fd48(GameState*, int);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_020289c4(BigRecord020289c4*);
+extern "C" void func_0200fd48(GameState*, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_0202ae18();
 extern "C" void func_02012fe4();
 extern "C" void func_02076a8c(GameObject*);
@@ -48,7 +48,7 @@ extern "C" ARM int func_02028a54(BigRecord020289c4* records, int id)
     }
     if (index < 0) return 0;
     BigRecord020289c4* record = &records[index];
-    InitializeSubObjectsAndFields020289c4(record);
+    func_020289c4(record);
     record->flagB = 1;
     record->id = id;
     record->allocator->Reset();
@@ -59,7 +59,7 @@ extern "C" ARM int func_02028a54(BigRecord020289c4* records, int id)
     int i = 0;
     if (!objects) {
         int firstSlot = index * 12 + 0x70;
-        for (; i < 12; ++i) ClearCombatantSlot_0200fd48(state, i + firstSlot);
+        for (; i < 12; ++i) func_0200fd48(state, i + firstSlot);
         return 0;
     }
     int firstSlot = index * 12;
@@ -67,7 +67,7 @@ extern "C" ARM int func_02028a54(BigRecord020289c4* records, int id)
     for (; i < 12; ++i) {
         func_02076a8c(&objects[i].object);
         objects[i].object.obj3D_.MakeHidden();
-        RegisterCombatantSlot_0200fd38(state, i + firstSlot, &objects[i].object);
+        func_0200fd38(state, i + firstSlot, &objects[i].object);
     }
     return 1;
 }

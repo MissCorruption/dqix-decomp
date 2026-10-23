@@ -8,12 +8,12 @@
 #include "GameState/Field3b0.h"
 #include "Input/Input.h"
 
-void AdvanceActor020a20d8(void* actor);
+extern "C" void func_020a20d8(void* actor);
 
 struct Struct021931b4;
-void PushArrayValue021931b4(struct Struct021931b4* s, int v);
+extern "C" void func_ov015_021931b4(struct Struct021931b4* s, int v);
 struct Owner_021931cc;
-int Pop021931cc(struct Owner_021931cc* o);
+extern "C" int func_ov015_021931cc(struct Owner_021931cc* o);
 extern "C" void func_ov015_02192700(void* obj, int a1);
 struct S0218f1c4;
 extern "C" ARM void func_ov015_0218f1c4(struct S0218f1c4* obj);
@@ -41,9 +41,9 @@ extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
     if (bs == 0) {
         return;
     }
-    void* f3b0 = GetField0x3b0Value_020100bc(bs);
+    void* f3b0 = func_020100bc(bs);
     if (f3b0 != 0) {
-        AdvanceActor020a20d8(f3b0);
+        func_020a20d8(f3b0);
     }
 
     struct ListNode02190d7c* node = obj->list;
@@ -62,13 +62,13 @@ extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
 
     int v;
     if (obj->field194 == 2) {
-        PushArrayValue021931b4((struct Struct021931b4*)obj, obj->field1a4);
+        func_ov015_021931b4((struct Struct021931b4*)obj, obj->field1a4);
         obj->field1a4 = 0x23;
         goto cleanup;
     }
 
     do {
-        v = Pop021931cc((struct Owner_021931cc*)obj);
+        v = func_ov015_021931cc((struct Owner_021931cc*)obj);
     } while (v >= 0x23);
 
     signed char state = obj->field38;
@@ -77,12 +77,12 @@ extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
         case 0:
         case 1:
             while (v >= 0xf) {
-                v = Pop021931cc((struct Owner_021931cc*)obj);
+                v = func_ov015_021931cc((struct Owner_021931cc*)obj);
             }
             goto reset;
         case 2:
             while (v >= 0x21) {
-                v = Pop021931cc((struct Owner_021931cc*)obj);
+                v = func_ov015_021931cc((struct Owner_021931cc*)obj);
             }
             goto reset;
         default:

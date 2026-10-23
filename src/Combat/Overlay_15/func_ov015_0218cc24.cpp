@@ -36,20 +36,20 @@ struct Obj0218cc24 {
 };
 
 struct Vector3i;
-void DelayThenSyncBit0_020c9820();
-void ResetObjectState02079a3c(void*);
+extern "C" void func_020c9820();
+extern "C" void func_02079a3c(void*);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
 struct Container020dedd0;
-void* FindElementByKey020dedd0(Container020dedd0*, int);
+extern "C" void* func_020dedd0(Container020dedd0*, int);
 extern "C" int func_ov015_0218c03c(void* self, char* buf, int i, int one);
 extern "C" void func_ov015_0218c538(void* self, int zero);
 extern "C" void func_ov015_0218c3a4(void* self, int v);
 extern "C" void func_02099e18(void* a, int b, int c, int d);
 struct Fields020407b4;
-void SetFields0x44(Fields020407b4*, int, int, int);
+extern "C" void func_020407b4(Fields020407b4*, int, int, int);
 extern "C" int fix32_Divide(int, int);
 
 extern int data_0211e33c __attribute__((aligned(4)));
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
     SafeAllocator* alloc;
     short id;
 
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     id = self->GetEnt(7)->unknown_2_;
     if (self->ids[7] != id) {
         self->GetEnt(3)->unknown_2_ = -1;
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
     unsigned int room = 0x30000;
     GPCReadPair pair;
     char name[0x80];
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine, &data_ov015_021940c0,
                                                    buf, size, room, false, 0)) {
         buf += size;
@@ -109,14 +109,14 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
             alloc = self->allocs;
             off14 = i * 0x14;
             ((SafeAllocator*)((char*)alloc + off14))->Reset();
-            CopyInternalFields0207df50((Foo0207df50*)(pairs + off70));
+            func_0207df50((Foo0207df50*)(pairs + off70));
             self->ents[i].Initialize();
             self->ents[i].position_ = savedPos;
             self->ents[i].unknown_2_ = self->ids[i];
             if (self->ids[i] < 0) {
                 continue;
             }
-            Elem0218cc24* elem = (Elem0218cc24*)FindElementByKey020dedd0((Container020dedd0*)((char*)self->container + 0x4c), (short)self->ids[i]);
+            Elem0218cc24* elem = (Elem0218cc24*)func_020dedd0((Container020dedd0*)((char*)self->container + 0x4c), (short)self->ids[i]);
             if (elem == 0) {
                 continue;
             }
@@ -144,12 +144,12 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
                     void* m = self->GetEnt(0)->pModel_;
                     self->f54 = 0;
                     if (elem->kind == 4) {
-                        SetFields0x44((Fields020407b4*)&self->ents[i], 0, 0, 0);
+                        func_020407b4((Fields020407b4*)&self->ents[i], 0, 0, 0);
                         if (m) {
                             self->boneIdx = ((Model3D*)m)->GetBoneIndex(&data_ov015_021940db);
                         }
                     } else if (elem->kind == 6) {
-                        SetFields0x44((Fields020407b4*)&self->ents[i], 0, 0, 0);
+                        func_020407b4((Fields020407b4*)&self->ents[i], 0, 0, 0);
                         if (m) {
                             self->boneIdx = ((Model3D*)m)->GetBoneIndex(&data_ov015_021940e1);
                         }
@@ -159,7 +159,7 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
                             short v = self->s40;
                             int x = (int)(((long long)v * 9830LL + 0x800) >> 12);
                             int y = (int)(((long long)v * -1638LL + 0x800) >> 12);
-                            SetFields0x44((Fields020407b4*)&self->ents[i], x, y, 0);
+                            func_020407b4((Fields020407b4*)&self->ents[i], x, y, 0);
                             if (m) {
                                 self->boneIdx = ((Model3D*)m)->GetBoneIndex(&data_ov015_021940e7);
                             }
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
                             short v = self->s40;
                             int x = (int)(((long long)v * -9830LL + 0x800) >> 12);
                             int y = (int)(((long long)v * -1638LL + 0x800) >> 12);
-                            SetFields0x44((Fields020407b4*)&self->ents[i], x, y, 0);
+                            func_020407b4((Fields020407b4*)&self->ents[i], x, y, 0);
                             if (m) {
                                 self->boneIdx = ((Model3D*)m)->GetBoneIndex(&data_ov015_021940e1);
                             }
@@ -176,15 +176,15 @@ extern "C" ARM int func_ov015_0218cc24(Obj0218cc24* self) {
                 }
                 if (i == 9) {
                     short v = self->s40;
-                    SetFields0x44((Fields020407b4*)&self->ents[i], (int)(((long long)v * 0x2000LL + 0x800) >> 12), 0, 0);
+                    func_020407b4((Fields020407b4*)&self->ents[i], (int)(((long long)v * 0x2000LL + 0x800) >> 12), 0, 0);
                 }
             }
-            RestorePairTables0207df90(pairs + off70);
+            func_0207df90(pairs + off70);
             DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, buf, size, room, name);
             self->ents[i].SetModelFromFileCopy((SafeAllocator*)((char*)alloc + off14), buf, size, Model3D::TextureStagingMode_Normal);
             buf += size;
             room -= size;
-            BackupPairTables0207dfac(pairs + off70);
+            func_0207dfac(pairs + off70);
             if (i == 4 && self->GetEnt(3)->pModel_ != 0) {
                 ((Model3D*)self->GetEnt(3)->pModel_)->ApplyTexturesFromModel((Model3D*)self->ents[i].pModel_);
             }

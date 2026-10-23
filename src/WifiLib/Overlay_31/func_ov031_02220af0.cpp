@@ -47,8 +47,8 @@ extern Session02220af0 data_ov031_0224f8c4;
 extern Peer02220af0 data_ov031_0224f9b0;
 
 void SleepCurrentContext(unsigned int milliseconds);
-ARM int SelectAndCall022071d8(int unused, int mode);
-int SwapField2AndForward02207204(void* obj, struct Packet02207204* pkt);
+extern "C" ARM int func_ov031_022071d8(int unused, int mode);
+extern "C" int func_ov031_02207204(void* obj, struct Packet02207204* pkt);
 extern "C" int func_ov031_0221fee4();
 extern "C" int func_ov031_0221fb90();
 extern "C" void func_ov031_02222af0();
@@ -101,7 +101,7 @@ extern "C" THUMB int func_ov031_02220af0() {
             break;
         case 3: {
             typedef int (*Fn3)(int, int, int);
-            socket = ((Fn3)SelectAndCall022071d8)(2, 2, 0);
+            socket = ((Fn3)func_ov031_022071d8)(2, 2, 0);
             if (socket < 0) {
                 result = -2;
                 done = 1;
@@ -112,7 +112,7 @@ extern "C" THUMB int func_ov031_02220af0() {
             local.family = 2;
             local.port = 0x1e6;
             local.address = 0;
-            result = SwapField2AndForward02207204((void*)socket, &local);
+            result = func_ov031_02207204((void*)socket, &local);
             if (result < 0) {
                 result = -2;
                 done = 1;

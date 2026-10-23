@@ -19,13 +19,13 @@ struct BattleInfo0222faac {
     unsigned char suppressSecondValues;
 };
 
-BattleInfo0222faac* GetOffset400_02235c70();
+extern "C" BattleInfo0222faac* func_ov031_02235c70();
 extern "C" void func_ov031_0222ff34(unsigned char*, int);
 extern "C" void func_ov031_02230088(unsigned char*, int);
 
 // USA: func_ov031_0222faac
 extern "C" ARM void func_ov031_0222faac(int index, int row) {
-    BattleInfo0222faac* info = GetOffset400_02235c70();
+    BattleInfo0222faac* info = func_ov031_02235c70();
     switch (index) {
     case 0:
         func_ov031_0222ff34(info->name, row);

@@ -9,8 +9,8 @@ extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* p);
 extern "C" void* func_02012fe4(void);
 
-void ClearRecords02026644(char* obj);
-void AppendRecord020269e4(char* obj, const void* src);
+extern "C" void func_02026644(char* obj);
+extern "C" void func_020269e4(char* obj, const void* src);
 
 struct Cont02026780 {
     unsigned short uniqueID;
@@ -85,7 +85,7 @@ extern "C" ARM int func_02026780(MapDisplay* arg0, void* fileBuf, unsigned int f
     }
 
     if (func_0202c540(func_0202ae18()) != 0) {
-        ClearRecords02026644((char*)self);
+        func_02026644((char*)self);
         return 0;
     }
 
@@ -144,7 +144,7 @@ extern "C" ARM int func_02026780(MapDisplay* arg0, void* fileBuf, unsigned int f
                     rec.pos.x = ax + fix32_Divide(c->position.x, 9830);
                     rec.pos.z = az + fix32_Divide(c->position.z, 9830);
                 }
-                AppendRecord020269e4((char*)self, &rec);
+                func_020269e4((char*)self, &rec);
             }
         }
 

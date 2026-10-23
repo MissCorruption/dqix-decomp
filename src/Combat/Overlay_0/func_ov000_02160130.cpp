@@ -1,0 +1,12 @@
+#include <globaldefs.h>
+
+struct BattleWorkHolder02160130 {
+    int flag;
+    void* work;
+};
+extern struct BattleWorkHolder02160130 data_ov000_02184220;
+
+// USA: func_ov000_02160130
+extern "C" ARM void* func_ov000_02160130(void) {
+    return data_ov000_02184220.work;
+}

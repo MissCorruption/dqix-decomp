@@ -22,12 +22,12 @@ struct CombatWork021e771c {
 };
 
 extern "C" Resources021e771c* func_ov017_021b8478(void* node);
-CombatWork021e771c* GetActiveCombatWork_ov000_02160130(void);
+extern "C" CombatWork021e771c* func_ov000_02160130(void);
 extern "C" void func_ov000_02166804(CombatWork021e771c* work);
 void* LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-void* ClearStruct020709d8(void* obj);
-void* Clear12Bytes0206efc4(void* obj);
+extern "C" void* func_020709d8(void* obj);
+extern "C" void* func_0206efc4(void* obj);
 extern "C" void func_02070b6c(void* table, void* owner, void* data, unsigned int size, int a, int b);
 #if defined(jpn)
 extern "C" void func_0206f230(void* table, void* owner, void* data, unsigned int size, int a, int b);
@@ -35,9 +35,9 @@ extern "C" void func_0206f230(void* table, void* owner, void* data, unsigned int
 extern "C" void func_0206f230(void* table, void* owner, void* data, unsigned int size, int a, int b, int c, int d);
 #endif
 
-unsigned int LoadGPCFile02166008(void* unused, GPCReadPair* readPair, int flag);
+extern "C" unsigned int func_ov000_02166008(void* unused, GPCReadPair* readPair, int flag);
 extern "C" void func_ov000_02166070(CombatWork021e771c* work, GPCReadPair* readPair, int index, int id, int flag, unsigned int length);
-void ResetGPCReadPairAndHalveCounter_ov000_0216638c(void* unused, GPCReadPair* pair, int flag);
+extern "C" void func_ov000_0216638c(void* unused, GPCReadPair* pair, int flag);
 
 #if defined(jpn)
 extern char data_ov025_021efb1e[];
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov025_021e771c(short* ids, int count, int a, int b) {
     GameResources* resources = GetGameResources();
     GameState::GetInstance();
     Resources021e771c* res = func_ov017_021b8478(resources->unknown_ptr_3718);
-    CombatWork021e771c* work = GetActiveCombatWork_ov000_02160130();
+    CombatWork021e771c* work = func_ov000_02160130();
     func_ov000_02166804(work);
     Table021e771c* tableA = &res->tableA;
     Table021e771c* tableB = &res->tableB;
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e771c(short* ids, int count, int a, int b) {
 #endif
 
     if (data != 0) {
-        ClearStruct020709d8(tableB);
+        func_020709d8(tableB);
         func_02070b6c(tableB, owner, data, size, a, b);
 #if defined(jpn)
         void* data2 = LoadFileIntoMemory(data_ov025_021efb3a, data_0211e33c, &size);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov025_021e771c(short* ids, int count, int a, int b) {
 #endif
 
         if (data2 != 0) {
-            Clear12Bytes0206efc4(tableA);
+            func_0206efc4(tableA);
 #if defined(jpn)
             func_0206f230(tableA, owner, data2, size, a, b);
 #else
@@ -88,11 +88,11 @@ extern "C" ARM int func_ov025_021e771c(short* ids, int count, int a, int b) {
             readPair++;
             ZeroInitGPCPointer(&(readPair - 1)->pGPCFile);
             (readPair - 1)->ZeroInitializeMachine();
-            unsigned int length = LoadGPCFile02166008(work, &pair, 0);
+            unsigned int length = func_ov000_02166008(work, &pair, 0);
             for (int i = 0; i < count; i++) {
                 func_ov000_02166070(work, &pair, i, ids[i], 0, length);
             }
-            ResetGPCReadPairAndHalveCounter_ov000_0216638c(work, &pair, 0);
+            func_ov000_0216638c(work, &pair, 0);
             pair.Reset();
             ZeroDestroyGPCPointer(&pair.pGPCFile);
         }

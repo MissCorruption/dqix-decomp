@@ -37,19 +37,19 @@ struct AlchemyMenu {
     unsigned short flags_;
 };
 
-void SetSublistEntriesFlag1_02080b54(void*, int);
-void SetSublistEntriesFlag2_02080608(void*, int);
-void ClearSublistEntryFlag2_020806c4(void*, int);
-void SetEntryFlagById02080b40(void*, int);
-void* CallFunc020e52a0_020e5294(void*, int);
+extern "C" void func_02080b54(void*, int);
+extern "C" void func_02080608(void*, int);
+extern "C" void func_020806c4(void*, int);
+extern "C" void func_02080b40(void*, int);
+extern "C" void* func_020e5294(void*, int);
 #if defined(jpn)
 struct Container020e0310;
-const char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" const char* func_020e0434(Container020e0310*, int);
 #endif
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
-void SetEntryFirstField02080fa8(Container02080fa8*, int, int);
-void Forward0207f7acObjPlus4Size0x40_020805f4(void*, int);
-void SetOrClearEntryFlag0x102081130(void*, int, int);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
+extern "C" void func_02080fa8(Container02080fa8*, int, int);
+extern "C" void func_020805f4(void*, int);
+extern "C" void func_02081130(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void func_020e4864(const char*, char*, int, int, int, int);
 extern "C" void func_020813ec(void*, int);
@@ -75,41 +75,41 @@ extern "C" ARM void func_ov006_0215f4dc(AlchemyMenu* self) {
     nameEntry = 0x64;
     iconEntry = 0x6c;
     countEntry = 0x74;
-    SetSublistEntriesFlag1_02080b54(menu, 0x11);
-    SetSublistEntriesFlag2_02080608(menu, 0x11);
+    func_02080b54(menu, 0x11);
+    func_02080608(menu, 0x11);
     self->flags_ &= ~4;
     if (count > 8) self->flags_ |= 4;
     for (row = 0; row < 8; row++) {
         if (count > position && items[position] > 0) {
-            ClearSublistEntryFlag2_020806c4(menu, nameEntry);
-            SetEntryFlagById02080b40(menu, nameEntry);
-            SetEntryFlagById02080b40(menu, iconEntry);
-            SetEntryFlagById02080b40(menu, countEntry);
+            func_020806c4(menu, nameEntry);
+            func_02080b40(menu, nameEntry);
+            func_02080b40(menu, iconEntry);
+            func_02080b40(menu, countEntry);
 #if defined(jpn)
-            SetEntryFirstField02080f8c((Container02080f8c*)menu, nameEntry, (int)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, items[position]));
+            func_02080f8c((Container02080f8c*)menu, nameEntry, (int)func_020e0434((Container020e0310*)self->itemNames_, items[position]));
 #else
-            const char** name = (const char**)CallFunc020e52a0_020e5294(self->itemNames_, items[position]);
+            const char** name = (const char**)func_020e5294(self->itemNames_, items[position]);
             if (name != NULL) {
                 memset(self->texts_[row], 0, 4);
                 func_020e4864(*name, self->texts_[row], 1, 0, 0, 0);
-                SetEntryFirstField02080f8c((Container02080f8c*)self->menu_, nameEntry, (int)self->texts_[row]);
+                func_02080f8c((Container02080f8c*)self->menu_, nameEntry, (int)self->texts_[row]);
             }
-            Forward0207f7acObjPlus4Size0x40_020805f4(menu, nameEntry);
+            func_020805f4(menu, nameEntry);
 #endif
             unsigned char amount = counts[position];
             if (self->item_ == items[position]) amount -= self->count_;
-            SetEntryFirstField02080fa8((Container02080fa8*)menu, countEntry, amount);
+            func_02080fa8((Container02080fa8*)menu, countEntry, amount);
         }
         nameEntry = (short)(nameEntry + 1);
         iconEntry++;
         countEntry = (short)(countEntry + 1);
         position++;
     }
-    SetEntryFlagById02080b40(menu, 0x7c);
-    SetEntryFlagById02080b40(menu, 0x7d);
-    SetEntryFlagById02080b40(menu, 0x7e);
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 0x7c, self->page_ + 1);
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 0x7d, self->pages_);
-    SetOrClearEntryFlag0x102081130(menu, 0x11, (self->flags_ & 4) ? 1 : 0);
+    func_02080b40(menu, 0x7c);
+    func_02080b40(menu, 0x7d);
+    func_02080b40(menu, 0x7e);
+    func_02080fa8((Container02080fa8*)menu, 0x7c, self->page_ + 1);
+    func_02080fa8((Container02080fa8*)menu, 0x7d, self->pages_);
+    func_02081130(menu, 0x11, (self->flags_ & 4) ? 1 : 0);
     func_020813ec(menu, 0x11);
 }

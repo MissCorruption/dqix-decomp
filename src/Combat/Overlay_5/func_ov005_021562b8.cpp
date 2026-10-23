@@ -60,14 +60,14 @@ struct EquipmentMenu {
 
 extern int data_02108760;
 
-MemberScreen* GetField1c_021a193c(int* p);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
 extern "C" void func_ov005_02156658(EquipmentMenu* self, int x, int y);
 extern "C" void func_ov005_021567ac(EquipmentMenu* self, int x, int y);
 extern "C" void func_ov005_0215690c(EquipmentMenu* self, int x, int y);
 extern "C" void func_ov005_021579ec(EquipmentMenu* self, unsigned int state, unsigned char slot);
-void MaybeInvoke0204719c_02047230(Foo02048004* model);
+extern "C" void func_02047230(Foo02048004* model);
 extern "C" void func_ov005_02156e1c(EquipmentMenu* self, int x, int y);
 extern "C" void func_ov005_02156ecc(EquipmentMenu* self, int x, int y);
 
@@ -82,9 +82,9 @@ extern "C" ARM void func_ov005_021562b8(EquipmentMenu* self) {
     if (g_touchInput.pressed_) {
         if (x == 0 || y == 0)
             return;
-        MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         if (!(self->flags_ & 0x400) && (screen->flags_ & 0x800)) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1b, 0);
+            func_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1b, 0);
             func_ov005_0215792c(self, 1);
             return;
         }
@@ -109,11 +109,11 @@ extern "C" ARM void func_ov005_021562b8(EquipmentMenu* self) {
             if (self->tapTimer_ > 0) {
                 if (self->slots_[self->slot_].item_ >= 0) {
                     func_ov005_0215792c(self, 5);
-                    DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
+                    func_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
                     screen->flags_ &= ~1;
                     screen->flags_ &= ~0x80;
                 }
-                MaybeInvoke0204719c_02047230((Foo02048004*)self->dragModel_);
+                func_02047230((Foo02048004*)self->dragModel_);
                 self->dragged_ = -1;
                 self->unk_3dc0 = -1;
                 self->touchTime_ = 0;
@@ -150,7 +150,7 @@ extern "C" ARM void func_ov005_021562b8(EquipmentMenu* self) {
             self->touchY_ = -1;
         }
         func_ov005_02156ecc(self, x, y);
-        MaybeInvoke0204719c_02047230((Foo02048004*)self->dragModel_);
+        func_02047230((Foo02048004*)self->dragModel_);
         self->dragged_ = -1;
         self->unk_3dc0 = -1;
     }

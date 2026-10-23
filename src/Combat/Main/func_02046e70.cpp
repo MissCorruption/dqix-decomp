@@ -7,9 +7,9 @@
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
 struct Fields020407b4;
-void SetFields0x44(struct Fields020407b4* obj, int a, int b, int c);
+extern "C" void func_020407b4(struct Fields020407b4* obj, int a, int b, int c);
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern AllocatorUnion data_02114e20;
 
 // USA: func_02046e70
@@ -32,7 +32,7 @@ extern "C" ARM void func_02046e70(void* self, void* a1, Object3D* a2) {
         Object3D* o1 = *(Object3D**)((char*)self + 0xe8);
         o1->SetScale(0x1000, 0x1000, 0x1000);
         Object3D* o2 = *(Object3D**)((char*)self + 0xe8);
-        SetFields0x44((struct Fields020407b4*)o2, 0, -0xa000, 0x1000);
+        func_020407b4((struct Fields020407b4*)o2, 0, -0xa000, 0x1000);
         Object3D* o3 = *(Object3D**)((char*)self + 0xe8);
         o3->MaybeSetBCFGAnimation(0, 0);
     }
@@ -41,7 +41,7 @@ extern "C" ARM void func_02046e70(void* self, void* a1, Object3D* a2) {
     if (a1 != NULL) {
         return;
     }
-    void* buf = AllocateAligned4_02012d88(&data_02114e20, 0x301c);
+    void* buf = func_02012d88(&data_02114e20, 0x301c);
     if (buf != NULL) {
         SafeAllocator* alloc = (SafeAllocator*)((char*)self + 0x24);
         alloc->ResetAllocatorPointer();

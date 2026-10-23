@@ -14,23 +14,23 @@ enum { ArenaSize = 0x2e4c0, ScenePlanes = 0x1c, SceneReady = 0x14bc, SceneSize =
 struct AllocatorUnion;
 struct Obj020397cc;
 
-void CancelPendingAction020397cc(Obj020397cc* obj, int flag);
-int GetFieldIfFlag4_020100f8(char* obj);
-void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
-void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
-void SetByteField0x253_020397c0(void* obj);
+extern "C" void func_020397cc(Obj020397cc* obj, int flag);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a28a0(unsigned char* obj, unsigned char mask);
+extern "C" void func_020a28b0(unsigned char* obj, int mask);
+extern "C" void func_020397c0(void* obj);
 extern "C" void func_020a0cc4(unsigned int size);
 extern "C" void func_020a0c0c(void);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_020a1940(unsigned int id);
-void PushInputLogA_020a1df8(int value);
-void PushInputLogB_020a1ef0(int value);
+extern "C" void func_020a1df8(int value);
+extern "C" void func_020a1ef0(int value);
 extern "C" void func_ov012_021843d4(void* scene);
 extern "C" void func_ov012_02184884(void* scene, SafeAllocator* allocator);
 extern "C" int func_ov012_02184acc(void* scene, unsigned int tick);
 extern "C" void func_ov012_02185af0(void* scene);
-void SetCombatModeFromCase020dc2d0(int mode);
-void CancelActionAndInsertNode_021a5530(char* obj);
+extern "C" void func_020dc2d0(int mode);
+extern "C" void func_ov017_021a5530(char* obj);
 extern "C" void func_ov017_0218d77c(GameResources* res, int flag);
 extern char data_02114e20;
 
@@ -59,13 +59,13 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
     GameState* gs = GameState::GetInstance();
     GameResources* res = GetGameResources();
     GameObject* unknown = gs->GetUnknownGameObject();
-    CancelPendingAction020397cc((Obj020397cc*)unknown, 1);
+    func_020397cc((Obj020397cc*)unknown, 1);
     SetFlags04(res, 0xc0);
-    unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)gs);
-    SetFlagsAt0x244_020a28a0(flags, 3);
+    unsigned char* flags = (unsigned char*)func_020100f8((char*)gs);
+    func_020a28a0(flags, 3);
     if (task->step == 0) {
         func_020a0cc4(ArenaSize);
-        void* buffer = AllocateAligned4_02012d88((AllocatorUnion*)&data_02114e20, ArenaSize);
+        void* buffer = func_02012d88((AllocatorUnion*)&data_02114e20, ArenaSize);
         if (buffer == NULL) {
             func_020a0c0c();
             task->failed = 1;
@@ -75,11 +75,11 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
         task->allocator.Reset();
 #if !defined(jpn)
         if (task->restore) {
-            PushInputLogA_020a1df8(3);
+            func_020a1df8(3);
         }
 #endif
         func_020a1940(OVERLAY_ID(12));
-        PushInputLogB_020a1ef0(1);
+        func_020a1ef0(1);
         task->scene = (Scene021c17fc*)task->allocator.Allocate(SceneSize);
         func_ov012_021843d4(task->scene);
         func_ov012_02184884(task->scene, &task->allocator);
@@ -103,14 +103,14 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
     unsigned char ready = task->scene->ready;
     *(volatile unsigned int*)0x4000000 = (task->scene->planes << 8) | (*(volatile unsigned int*)0x4000000 & ~0x1f00);
     func_ov017_021c1a24(task);
-    SetCombatModeFromCase020dc2d0(0);
+    func_020dc2d0(0);
     if (task->restore) {
         if (ready) {
-            SetByteField0x253_020397c0(unknown);
-            ClearFlagBits_020a28b0(flags, 3);
+            func_020397c0(unknown);
+            func_020a28b0(flags, 3);
             ClearFlags04(res, 0xc0);
         } else {
-            CancelActionAndInsertNode_021a5530((char*)res);
+            func_ov017_021a5530((char*)res);
         }
     } else {
         func_ov017_0218d77c(res, 1);

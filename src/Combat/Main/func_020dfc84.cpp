@@ -9,9 +9,9 @@ struct Struct020dfc40 {
     void* field_14;
 };
 
-int ResetHandleState020dfe88(struct Obj020dfe88* obj);
-void ResetStruct020dfc40(struct Struct020dfc40* p);
-int ReplaceBinExtensionWithNat020e05f8(char*, char const*, short);
+extern "C" int func_020dfe88(struct Obj020dfe88* obj);
+extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" int func_020e05f8(char*, char const*, short);
 extern "C" int func_020dfd40(void* self, char* a, char* b);
 
 // USA: func_020dfc84
@@ -20,16 +20,16 @@ extern "C" ARM int func_020dfc84(void* self, void* field_14, char* fmt, char* ex
     struct Struct020dfc40* p;
 
     p = (struct Struct020dfc40*)self;
-    ResetHandleState020dfe88((struct Obj020dfe88*)self);
-    ResetStruct020dfc40(p);
+    func_020dfe88((struct Obj020dfe88*)self);
+    func_020dfc40(p);
     p->field_14 = field_14;
     p->field_c = field_c;
     p->field_e = 1;
 
     if (n >= 0) {
-        ReplaceBinExtensionWithNat020e05f8(buf + 0x20, fmt, n);
+        func_020e05f8(buf + 0x20, fmt, n);
         if (ext != 0) {
-            ReplaceBinExtensionWithNat020e05f8(buf, ext, n);
+            func_020e05f8(buf, ext, n);
             func_020dfd40(self, buf + 0x20, buf);
         } else {
             func_020dfd40(self, buf + 0x20, 0);

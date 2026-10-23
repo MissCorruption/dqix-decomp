@@ -10,7 +10,7 @@ extern "C" void func_ov031_022234d8(void*, void (*)(const void*, unsigned int, u
 extern "C" void* func_ov031_02223478(const char*);
 extern "C" void* func_ov031_0223b61c(void*, int, int);
 extern "C" void func_ov031_02234ea8(void*);
-void SetField604_02234f34();
+extern "C" void func_ov031_02234f34();
 
 struct BackgroundResources_0222b71c {
     int field_00;
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov031_0222b71c() {
     func_ov031_022234d8(data_ov031_0224b9f4, LoadToMainBG3ScreenData);
     data_ov031_02290c8c.resources->first = func_ov031_0223b61c(func_ov031_02223478(firstName.text), 0, 4);
     func_ov031_02234ea8(data_ov031_02290c8c.resources->first);
-    SetField604_02234f34();
+    func_ov031_02234f34();
     data_ov031_02290c8c.resources->second = func_ov031_0223b61c(func_ov031_02223478(secondName.text), 0, 4);
     SUB_BG_0222b71c.controls[0].priority = 3;
     SUB_BG_0222b71c.controls[1].priority = 3;

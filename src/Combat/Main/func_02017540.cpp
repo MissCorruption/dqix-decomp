@@ -4,7 +4,7 @@
 
 extern Vector3i data_020e6e2c;
 extern Vector3i data_020e6e38;
-void ClearGlobalFlagBits02016d8c(void* rotation);
+extern "C" void func_02016d8c(void* rotation);
 
 // USA: func_02017540
 extern "C" ARM void func_02017540(Zone3D* zone) {
@@ -43,7 +43,7 @@ extern "C" ARM void func_02017540(Zone3D* zone) {
                 fix32_t cosineY = fix32cos(angleY);
                 fix32_t sineY = fix32sin(angleY);
                 Mat3x3_WriteRotationY(&rotationY, sineY, cosineY);
-                ClearGlobalFlagBits02016d8c(&rotationY);
+                func_02016d8c(&rotationY);
                 RenderConfig::SubmitToFifo();
                 zone->models_498_[0].DrawMeshWithMaterial(true, 0, 0, 1);
                 Vector3i offset = data_020e6e38;
@@ -56,7 +56,7 @@ extern "C" ARM void func_02017540(Zone3D* zone) {
                 Mat3x3_WriteRotationX(&rotationX, sineX, cosineX);
                 Matrix3x3 rotation;
                 Mat3x3_Multiply(&rotationX, &rotationY, &rotation);
-                ClearGlobalFlagBits02016d8c(&rotation);
+                func_02016d8c(&rotation);
                 RenderConfig::SubmitToFifo();
                 zone->models_498_[1].DrawMeshWithMaterial(true, 0, 0, 1);
             }

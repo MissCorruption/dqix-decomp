@@ -2,21 +2,21 @@
 #include "std_library_functions.h"
 
 struct SubBgControlBackup02074b64;
-void BackupSubBgControlRegisters(struct SubBgControlBackup02074b64* obj);
+extern "C" void func_02074b64(struct SubBgControlBackup02074b64* obj);
 
 struct InitTarget0205cfd4;
-void InitStruct0205cfd4(struct InitTarget0205cfd4* s);
+extern "C" void func_0205cfd4(struct InitTarget0205cfd4* s);
 
 // USA: func_ov023_021d8a40
 extern "C" ARM void func_ov023_021d8a40(void* obj) {
     *(unsigned char*)((char*)obj + 0x18) = 0;
     *(unsigned char*)((char*)obj + 0x19) = 0;
-    BackupSubBgControlRegisters((struct SubBgControlBackup02074b64*)((char*)obj + 8));
+    func_02074b64((struct SubBgControlBackup02074b64*)((char*)obj + 8));
     unsigned int* reg = (unsigned int*)0x4001000;
     *(int*)((char*)obj + 0x1c) = (*reg & 0x1f00) >> 8;
     *(int*)obj = 0;
     *(int*)((char*)obj + 4) = 0;
-    InitStruct0205cfd4((struct InitTarget0205cfd4*)((char*)obj + 0x20));
+    func_0205cfd4((struct InitTarget0205cfd4*)((char*)obj + 0x20));
     for (int i = 0; i < 4; i++) {
         *(int*)((char*)obj + 0xdc + i * 4) = 0;
     }

@@ -3,11 +3,11 @@
 #include "std_library_functions.h"
 
 struct S_10088;
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-int IsFlag10088Set_02010088(struct S_10088* obj);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_02010088(struct S_10088* obj);
 struct AddEntryList_021f6a1c;
-void AddEntryIfUnderLimit16_021f6a1c(struct AddEntryList_021f6a1c* obj, void* src);
+extern "C" void func_ov024_021f6a1c(struct AddEntryList_021f6a1c* obj, void* src);
 extern "C" void func_ov024_021f9874(void* obj, void* buf, int slot, int value);
 
 struct Stats_021fc068 {
@@ -72,8 +72,8 @@ struct WorkBuffer_021fc068 {
 // USA: func_ov024_021fc068
 extern "C" ARM void func_ov024_021fc068(struct Obj_021fc068* obj) {
 	struct Combatant_021fc068* self = obj->self;
-	GetFieldAt0x150_02053c6c((unsigned char*)self);
-	GetData02108e10_020797dc();
+	func_02053c6c((unsigned char*)self);
+	func_020797dc();
 	struct Action_021fc068* action = obj->action;
 	if (action->mode == 1) return;
 	GetCombatantByID((int)obj->battle, (short)obj->targetId);
@@ -87,11 +87,11 @@ extern "C" ARM void func_ov024_021fc068(struct Obj_021fc068* obj) {
 	memset(&buf, 0, sizeof(buf));
 	memset(&buf, 0, sizeof(buf));
 	for (int i = 0; i < 4; i++) {
-		if (!TestBitAt0x34_020a35e0(obj->battle->partyWork, i)) continue;
+		if (!func_020a35e0(obj->battle->partyWork, i)) continue;
 		if (action->targetType == 1 && i != obj->id) continue;
 		struct Combatant_021fc068* c = GetCombatantByID((int)obj->battle, (short)i);
 		if (!c) continue;
-		if (!IsFlag10088Set_02010088((struct S_10088*)c)) continue;
+		if (!func_02010088((struct S_10088*)c)) continue;
 		if ((action->flags10 & 0x400) && (c->stats->flags14 & 0x200)) continue;
 		struct Entry_021fc068 entry;
 		entry.value = (float)(c->stats->hp / 2);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov024_021fc068(struct Obj_021fc068* obj) {
 		entry.slot = i;
 		entry.rate = (int)rate;
 		entry.kind = 5;
-		AddEntryIfUnderLimit16_021f6a1c((struct AddEntryList_021f6a1c*)&buf, &entry);
+		func_ov024_021f6a1c((struct AddEntryList_021f6a1c*)&buf, &entry);
 		if (action->targetType == 2 || action->targetType == 1) {
 			func_ov024_021f9874(obj, &buf, 0, (unsigned char)c->id);
 			memset(&buf, 0, sizeof(buf));

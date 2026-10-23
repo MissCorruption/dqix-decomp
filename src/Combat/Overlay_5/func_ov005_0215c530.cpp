@@ -138,21 +138,21 @@ struct Member0215c530
 struct StructDE1D4;
 struct Obj0205eaa0;
 
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char*, unsigned int);
-signed char* GetPointerAt0xbf0_0207c60c(void*, unsigned int);
-void Compact0207c51c(unsigned char*, int);
-void ClearElements_021e1518(void*);
-void BuildChain_021e1b5c(void*, int, int, int);
-void BuildChain_021e1b0c(void*, int, int, int);
-Member0215c530* GetField1c_021a193c(int*);
-void InitStruct020de1d4(StructDE1D4*);
+extern "C" short* func_0207c5f8(unsigned char*, unsigned int);
+extern "C" signed char* func_0207c60c(void*, unsigned int);
+extern "C" void func_0207c51c(unsigned char*, int);
+extern "C" void func_ov023_021e1518(void*);
+extern "C" void func_ov023_021e1b5c(void*, int, int, int);
+extern "C" void func_ov023_021e1b0c(void*, int, int, int);
+extern "C" Member0215c530* func_ov017_021a193c(int*);
+extern "C" void func_020de1d4(StructDE1D4*);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void* memcpy(void*, const void*, unsigned int);
-Entry0215c530* FindEntryById_021db08c(void*, int);
+extern "C" Entry0215c530* func_ov023_021db08c(void*, int);
 extern "C" int func_020dd4c4(int, Item0215c530*);
 extern "C" void func_ov005_021579ec(Menu0215c530*, unsigned int, unsigned char);
 extern "C" void func_0205bb04(void*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" void func_ov005_021555c0(Menu0215c530*);
 extern "C" void func_ov023_021dcae0(Obj021dcae0*, int);
 extern "C" void func_ov005_0215792c(Menu0215c530*, unsigned char);
@@ -168,24 +168,24 @@ extern char data_02108760[];
 // USA: func_ov005_0215c530
 extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
 {
-    unsigned char* bag = (unsigned char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
+    unsigned char* bag = (unsigned char*)func_02010828(GameState::GetInstance());
     int count = self->counts[self->tab];
-    short* ids = GetPointerFromArray0xbd0_0207c5f8(bag + 0x1d4, data_ov005_0215cd08[self->tab]);
-    signed char* amounts = GetPointerAt0xbf0_0207c60c(bag + 0x1d4, data_ov005_0215cd08[self->tab]);
-    Compact0207c51c(bag + 0x1d4, data_ov005_0215cd00[self->tab]);
+    short* ids = func_0207c5f8(bag + 0x1d4, data_ov005_0215cd08[self->tab]);
+    signed char* amounts = func_0207c60c(bag + 0x1d4, data_ov005_0215cd08[self->tab]);
+    func_0207c51c(bag + 0x1d4, data_ov005_0215cd00[self->tab]);
 
     int rebuild = 0;
     int reorder = 0;
     if (self->modes[self->tab] == 0 || self->modes[self->tab] == 1)
     {
-        ClearElements_021e1518(&self->head);
-        BuildChain_021e1b5c(&self->head, -1, data_ov005_0215cd00[self->tab], -1);
+        func_ov023_021e1518(&self->head);
+        func_ov023_021e1b5c(&self->head, -1, data_ov005_0215cd00[self->tab], -1);
         rebuild = 1;
     }
     else if (self->modes[self->tab] == 3)
     {
-        ClearElements_021e1518(&self->head);
-        BuildChain_021e1b0c(&self->head, -1, data_ov005_0215cd00[self->tab], -1);
+        func_ov023_021e1518(&self->head);
+        func_ov023_021e1b0c(&self->head, -1, data_ov005_0215cd00[self->tab], -1);
         rebuild = 1;
     }
     else if (self->modes[self->tab] == 2)
@@ -227,10 +227,10 @@ extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
         }
         else
         {
-            signed char member = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member;
+            signed char member = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member;
             Item0215c530 item;
             ItemDef0215c530 def;
-            InitStruct020de1d4((StructDE1D4*)&item);
+            func_020de1d4((StructDE1D4*)&item);
             memset(&def, 0, 0x20);
             item.def = &def;
             int n = 0;
@@ -240,11 +240,11 @@ extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
                 short id = ids[i];
                 if (id > 0)
                 {
-                    InitStruct020de1d4((StructDE1D4*)&item);
+                    func_020de1d4((StructDE1D4*)&item);
                     memset(&def, 0, 0x20);
                     Entry0215c530* entry;
                     item.def = &def;
-                    entry = FindEntryById_021db08c(&self->entryList, id);
+                    entry = func_ov023_021db08c(&self->entryList, id);
                     if (entry)
                     {
                         item.id = entry->id;
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
                     }
                 }
             }
-            Compact0207c51c(bag + 0x1d4, data_ov005_0215cd00[self->tab]);
+            func_0207c51c(bag + 0x1d4, data_ov005_0215cd00[self->tab]);
             memcpy(outIds + n, ids, rejected * 2);
             memcpy(outAmounts + n, amounts, rejected);
         }
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
                 }
             }
         }
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
     }
 
     if (self->modes[self->tab] == 0 || self->modes[self->tab] == 1)

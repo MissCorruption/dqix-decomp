@@ -35,10 +35,10 @@ struct VCountAlarmNode020c92d0;
 
 unsigned int DisableSpecificInterrupts(unsigned int flagMask);
 unsigned int AcknowledgeSpecificInterrupts(unsigned int flagMask);
-long StoreValueCountingDecreases_020c96a8(int line);
-int ClassifyPointRegion_020c965c(ClassifyPointRegionStruct* alarm, int currentFrame, int currentLine);
-void UnlinkVCountAlarmNode_020c9384(VCountAlarmNode* alarm);
-void InsertVCountAlarmNode(VCountAlarmNode020c92d0* alarm);
+extern "C" long func_020c96a8(int line);
+extern "C" int func_020c965c(ClassifyPointRegionStruct* alarm, int currentFrame, int currentLine);
+extern "C" void func_020c9384(VCountAlarmNode* alarm);
+extern "C" void func_020c92d0(VCountAlarmNode020c92d0* alarm);
 extern "C" void func_020c945c(VCountAlarm* alarm);
 
 #define DISPSTAT (*(volatile unsigned short*)0x04000004)
@@ -63,7 +63,7 @@ extern "C" ARM void func_020c94e4()
     *(unsigned int*)((unsigned int)data_027e0000 + 0x3ff8) |= 4;
     unsigned short status = DISPSTAT;
     currentLine = ((status >> 8) & 0xff) | ((status << 1) & 0x100);
-    currentFrame = StoreValueCountingDecreases_020c96a8(currentLine - 1);
+    currentFrame = func_020c96a8(currentLine - 1);
 
     if (NULL == (alarm = data_02111654.head))
     {
@@ -72,8 +72,8 @@ extern "C" ARM void func_020c94e4()
     do
     {
         currentLine = GetVCount();
-        currentFrame = StoreValueCountingDecreases_020c96a8(currentLine);
-        check = ClassifyPointRegion_020c965c((ClassifyPointRegionStruct*)alarm, currentFrame, currentLine);
+        currentFrame = func_020c96a8(currentLine);
+        check = func_020c965c((ClassifyPointRegionStruct*)alarm, currentFrame, currentLine);
         switch (check)
         {
         case 0:
@@ -87,7 +87,7 @@ extern "C" ARM void func_020c94e4()
             AcknowledgeSpecificInterrupts(4);
         case 1:
             handler = alarm->handler;
-            UnlinkVCountAlarmNode_020c9384((VCountAlarmNode*)alarm);
+            func_020c9384((VCountAlarmNode*)alarm);
             alarm->handler = NULL;
             if (handler)
             {
@@ -97,13 +97,13 @@ extern "C" ARM void func_020c94e4()
             {
                 alarm->handler = handler;
                 alarm->frame = data_02111654.frameCount + 1;
-                InsertVCountAlarmNode((VCountAlarmNode020c92d0*)alarm);
+                func_020c92d0((VCountAlarmNode020c92d0*)alarm);
             }
             break;
         case 2:
-            UnlinkVCountAlarmNode_020c9384((VCountAlarmNode*)alarm);
+            func_020c9384((VCountAlarmNode*)alarm);
             alarm->frame = data_02111654.frameCount + 1;
-            InsertVCountAlarmNode((VCountAlarmNode020c92d0*)alarm);
+            func_020c92d0((VCountAlarmNode020c92d0*)alarm);
             break;
         }
     } while (NULL != (alarm = data_02111654.head));

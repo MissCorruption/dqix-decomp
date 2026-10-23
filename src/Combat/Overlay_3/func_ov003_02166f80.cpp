@@ -1,0 +1,31 @@
+#include <globaldefs.h>
+#if defined(jpn)
+enum { kRegion324 = 0x20c };
+#else
+enum { kRegion324 = 0x324 };
+#endif
+
+struct Obj2081;
+
+struct Elem2081 {
+    char unk[0xc5];
+    unsigned char flags;
+};
+
+extern "C" struct Elem2081* func_02081da8(struct Obj2081* obj, int key);
+extern "C" void func_020813ec(void* obj, int key);
+
+// USA: func_ov003_02166f80
+extern "C" ARM void func_ov003_02166f80(void* self, int key, int set) {
+    struct Obj2081* obj = *(struct Obj2081**)((char*)self + kRegion324);
+    struct Elem2081* elem = func_02081da8(obj, key);
+    if (elem == NULL) {
+        return;
+    }
+    if (set) {
+        elem->flags |= 0x40;
+    } else {
+        elem->flags &= ~0x40;
+    }
+    func_020813ec(*(void**)((char*)self + kRegion324), key);
+}

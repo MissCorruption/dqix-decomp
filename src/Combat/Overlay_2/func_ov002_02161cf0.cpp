@@ -13,15 +13,15 @@ struct Struct_0205ba68;
 struct Node0205bacc;
 struct Struct_0205bcdc;
 struct Struct0205cf1c;
-void SetChannelAFlag0205cef8(void *p);
-void SetChannelBFlag0205cf04(void *p);
-void ClearChannelAFlag0205cf10(void *p);
-void ClearFlagByte0205cf1c(struct Struct0205cf1c *p);
-unsigned char ReadBattleField0x64f4Byte_02011804(GameState* gameState);
-int GetCountByType02157108(void *base, int id);
-void SetupPointerTable0205ba68(struct Struct_0205ba68 *p, int a, int b, int c);
-void SetField0AndPropagate0205bacc(struct Node0205bacc *p, int v);
-void SetIndexIfValid0205bcdc(struct Struct_0205bcdc *p, int v);
+extern "C" void func_0205cef8(void *p);
+extern "C" void func_0205cf04(void *p);
+extern "C" void func_0205cf10(void *p);
+extern "C" void func_0205cf1c(struct Struct0205cf1c *p);
+extern "C" unsigned char func_02011804(GameState* gameState);
+extern "C" int func_ov002_02157108(void *base, int id);
+extern "C" void func_0205ba68(struct Struct_0205ba68 *p, int a, int b, int c);
+extern "C" void func_0205bacc(struct Node0205bacc *p, int v);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc *p, int v);
 extern "C" void func_0205bb04(void *p, int v);
 extern "C" int func_020dc428();
 extern "C" void func_ov002_02156080(void *self, short *out, short *outCount);
@@ -37,8 +37,8 @@ extern "C" ARM void func_ov002_02161cf0(char *base) {
     int flag;
     GameState::GetInstance();
     flag = 0;
-    SetChannelAFlag0205cef8(base + RG(0x2c8 + 0xc00, 0xe20));
-    SetChannelBFlag0205cf04(base + RG(0x2c8 + 0xc00, 0xe20));
+    func_0205cef8(base + RG(0x2c8 + 0xc00, 0xe20));
+    func_0205cf04(base + RG(0x2c8 + 0xc00, 0xe20));
     switch (*(int *) (base + 0x1000 + RG(0xbb8, 0xa80))) {
         case 1:
             cursor = *(short *) (base + RG(0x1b00 + 0xe0, 0x1a00 + 0xa8));
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov002_02161cf0(char *base) {
             cols   = 1;
             rows   = 3;
             cursor = *(short *) (base + RG(0x1b00 + 0xe4, 0x1a00 + 0xac));
-            if (ReadBattleField0x64f4Byte_02011804(GameState::GetInstance()) == 0) {
+            if (func_02011804(GameState::GetInstance()) == 0) {
                 total = 2;
                 rows  = 2;
             }
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov002_02161cf0(char *base) {
             }
             cols  = 1;
             rows  = 8;
-            total = GetCountByType02157108(base, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)));
+            total = func_ov002_02157108(base, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)));
             pages = (total + 7) / 8;
             if (total < 8) rows = total;
             if (total <= *(short *) (base + RG(0x1b00 + 0xe8, 0x1a00 + 0xb0))) *(short *) (base + RG(0x1b00 + 0xe8, 0x1a00 + 0xb0)) = total - 1;
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov002_02161cf0(char *base) {
         case K(13, 14):
             cols  = 1;
             rows  = 8;
-            total = GetCountByType02157108(base, *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9))) + 1;
+            total = func_ov002_02157108(base, *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9))) + 1;
             pages = 1;
             if (total > 8) total = 8;
             if (total < 8) rows = total;
@@ -267,17 +267,17 @@ extern "C" ARM void func_ov002_02161cf0(char *base) {
             cursor = *(short *) (base + RG(0x1c00 + 0x14, 0x1a00 + 0xdc));
             break;
         default:
-            ClearChannelAFlag0205cf10(base + RG(0x2c8 + 0xc00, 0xe20));
-            ClearFlagByte0205cf1c((struct Struct0205cf1c *) (base + RG(0x2c8 + 0xc00, 0xe20)));
+            func_0205cf10(base + RG(0x2c8 + 0xc00, 0xe20));
+            func_0205cf1c((struct Struct0205cf1c *) (base + RG(0x2c8 + 0xc00, 0xe20)));
             return;
     }
-    SetupPointerTable0205ba68((struct Struct_0205ba68 *) (list + 4), cols, rows, flag);
-    SetupPointerTable0205ba68((struct Struct_0205ba68 *) (list + 0x54), cols, rows, flag);
-    SetField0AndPropagate0205bacc((struct Node0205bacc *) (list + 4), total);
-    SetField0AndPropagate0205bacc((struct Node0205bacc *) (list + 0x54), total);
+    func_0205ba68((struct Struct_0205ba68 *) (list + 4), cols, rows, flag);
+    func_0205ba68((struct Struct_0205ba68 *) (list + 0x54), cols, rows, flag);
+    func_0205bacc((struct Node0205bacc *) (list + 4), total);
+    func_0205bacc((struct Node0205bacc *) (list + 0x54), total);
     *(int *) (list + 8)    = pages;
     *(int *) (list + 0x58) = pages;
-    SetIndexIfValid0205bcdc((struct Struct_0205bcdc *) (list + 4), cursor);
+    func_0205bcdc((struct Struct_0205bcdc *) (list + 4), cursor);
     func_0205bb04(list + 0x54, cursor);
     *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
 }

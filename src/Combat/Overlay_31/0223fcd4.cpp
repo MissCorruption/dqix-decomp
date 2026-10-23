@@ -12,7 +12,7 @@ struct InitContext0223fcd4 {
     int field20;
 };
 extern InitContext0223fcd4 data_ov031_02290fbc;
-int ClearFourWords022918a4_022402f4(void);
+extern "C" int func_ov031_022402f4(void);
 extern "C" void func_ov031_0224030c(void);
 extern "C" int func_ov031_02240338(int, int);
 
@@ -25,7 +25,7 @@ extern "C" int func_ov031_0223fcd4(AllocateCallback allocate, FreeCallback relea
     data_ov031_02290fbc.field20 = 0;
     data_ov031_02290fbc.field10 = 0;
     data_ov031_02290fbc.field14 = 0;
-    switch (ClearFourWords022918a4_022402f4()) {
+    switch (func_ov031_022402f4()) {
     case 0:
         data_ov031_02290fbc.error = 9;
         return 0;

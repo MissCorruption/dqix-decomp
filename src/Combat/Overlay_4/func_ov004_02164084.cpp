@@ -104,12 +104,12 @@ extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" void func_ov023_021f9d14(void*, void*);
 extern "C" void func_ov023_021f809c(void*, void*);
 extern "C" MapAllocatorNode* func_ov011_021845f8(void*, int);
-void SetField3aIfFound_021634b8(void*, int, int);
-extern "C" void _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(Grid021f9b30*, unsigned short, unsigned int, unsigned int);
-void ClearNodeMaskById_021f6600(void*, int, int);
-int CopyToRegion0x6482IfDst_020119f8(char*, void*);
+extern "C" void func_ov004_021634b8(void*, int, int);
+extern "C" void func_ov023_021f9b30(Grid021f9b30*, unsigned short, unsigned int, unsigned int);
+extern "C" void func_ov023_021f6600(void*, int, int);
+extern "C" int func_020119f8(char*, void*);
 struct Info02011930;
-int GetAndConsumeNameEntries02011930(void*, Info02011930*, void*, void*);
+extern "C" int func_02011930(void*, Info02011930*, void*, void*);
 
 // USA: func_ov004_02164084
 extern "C" ARM int func_ov004_02164084(void* obj) {
@@ -141,22 +141,22 @@ extern "C" ARM int func_ov004_02164084(void* obj) {
         if (!right) continue;
         if (func_ov023_021f6f10(right) != 8) return 0;
         func_ov023_021f65d4(obj, i + 0x226, 8);
-        SetField3aIfFound_021634b8(obj, i + 0x226, 0);
+        func_ov004_021634b8(obj, i + 0x226, 0);
         func_ov023_021f65d4(obj, i + 0x230, 8);
-        SetField3aIfFound_021634b8(obj, i + 0x230, 0);
+        func_ov004_021634b8(obj, i + 0x230, 0);
         func_ov023_021f65d4(obj, i + 0x23a, 8);
-        SetField3aIfFound_021634b8(obj, i + 0x23a, 0);
+        func_ov004_021634b8(obj, i + 0x23a, 0);
         DetailedTreasureMapData* det = &data_ov004_02171010.buffer->details[i];
         det->BlankFunction();
         left->text = 0;
         left->flags |= 8;
-        _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, 0, i & 0xffff, 0);
+        func_ov023_021f9b30(grid, 0, i & 0xffff, 0);
         right->text = 0;
         right->flags |= 8;
         if (index >= data_ov004_02171010.buffer->count) continue;
         ExportDetailedTreasureMapData(&data_ov004_02171010.buffer->maps[index], &data_ov004_02171010.buffer->details[i], true, scratch);
         left->flags &= ~8;
-        _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, (unsigned short)(i + 0x3c), (unsigned short)i, 0);
+        func_ov023_021f9b30(grid, (unsigned short)(i + 0x3c), (unsigned short)i, 0);
         right->flags &= ~8;
         if (det->mapType_ == 1) {
             left->text = det->regular_.nameNoLevel_;
@@ -169,13 +169,13 @@ extern "C" ARM int func_ov004_02164084(void* obj) {
         left->Notify(0xf);
         right->Notify(0xf);
         if (det->discoveryState_ == 1) {
-            ClearNodeMaskById_021f6600(obj, i + 0x230, 8);
+            func_ov023_021f6600(obj, i + 0x230, 8);
         } else if (det->discoveryState_ == 2) {
-            ClearNodeMaskById_021f6600(obj, i + 0x226, 8);
+            func_ov023_021f6600(obj, i + 0x226, 8);
         } else if (det->discoveryState_ == 3) {
-            ClearNodeMaskById_021f6600(obj, i + 0x23a, 8);
+            func_ov023_021f6600(obj, i + 0x23a, 8);
         }
-        if (CopyToRegion0x6482IfDst_020119f8((char*)gs, 0)) {
+        if (func_020119f8((char*)gs, 0)) {
             if (det->discoveryState_ == 1) {
                 left->Notify(4);
                 right->Notify(4);
@@ -184,7 +184,7 @@ extern "C" ARM int func_ov004_02164084(void* obj) {
                 right->Notify(4);
             }
         } else {
-            if (!GetAndConsumeNameEntries02011930(gs, 0, 0, 0)) continue;
+            if (!func_02011930(gs, 0, 0, 0)) continue;
             if (!data_ov004_02171010.buffer->maps[index].GetInitialByteUnknownBit()) continue;
             left->Notify(4);
             right->Notify(4);
@@ -195,7 +195,7 @@ extern "C" ARM int func_ov004_02164084(void* obj) {
     if (data_ov004_02171010.buffer->count == 0) {
         grid->page = 1;
         grid->field_0x5e = 1;
-        _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, 0x3c, 0, 0);
+        func_ov023_021f9b30(grid, 0x3c, 0, 0);
         Widget02164084* w = func_ov023_021f6880(func_ov011_021849c8(obj), 0x1f4);
         if (w) w->flags |= 8;
         w = func_ov023_021f6880(func_ov011_021849c8(obj), 0x14);

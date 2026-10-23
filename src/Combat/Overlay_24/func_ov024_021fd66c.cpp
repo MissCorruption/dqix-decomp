@@ -2,14 +2,14 @@
 #include "GameState/GameState.h"
 
 struct Struct_021fa76c;
-int CheckAllFlagsClear_021fa76c(struct Struct_021fa76c* combatant);
-int CheckField0x14FlagsClear0208824c(unsigned char* obj);
+extern "C" int func_ov024_021fa76c(struct Struct_021fa76c* combatant);
+extern "C" int func_0208824c(unsigned char* obj);
 struct FlagObj_021da9b0;
-int IsFlagBit8Set_021da9b0(struct FlagObj_021da9b0* obj);
+extern "C" int func_ov024_021da9b0(struct FlagObj_021da9b0* obj);
 extern "C" int func_ov000_02156068(void* obj, int id, int a2, int a3);
 extern "C" void func_ov024_021fd088(void* obj, float pct, int a2);
 struct IndexedObj_021fe6b4;
-void SetFieldFromIndexed_021fe6b4(struct IndexedObj_021fe6b4* obj, int val);
+extern "C" void func_ov024_021fe6b4(struct IndexedObj_021fe6b4* obj, int val);
 
 struct Field4Bits_021fd66c { unsigned int code : 12; };
 struct Field14Bits_021fd66c { unsigned int lo : 7; unsigned int val : 7; };
@@ -42,9 +42,9 @@ struct Obj_021fd66c {
 // USA: func_ov024_021fd66c
 extern "C" ARM void func_ov024_021fd66c(struct Obj_021fd66c* obj) {
 	GameObject* c = obj->ptr668;
-	if (!CheckAllFlagsClear_021fa76c((struct Struct_021fa76c*)c)) return;
-	if (!CheckField0x14FlagsClear0208824c((unsigned char*)c->currentStats_)) return;
-	if (IsFlagBit8Set_021da9b0((struct FlagObj_021da9b0*)c)) return;
+	if (!func_ov024_021fa76c((struct Struct_021fa76c*)c)) return;
+	if (!func_0208824c((unsigned char*)c->currentStats_)) return;
+	if (func_ov024_021da9b0((struct FlagObj_021da9b0*)c)) return;
 	struct State64c_021fd66c* state = obj->state64c;
 	float valF = (float)state->bits14.val;
 	unsigned char pctBase = *(unsigned char*)((char*)c->currentStats_ + 0x4e);
@@ -62,6 +62,6 @@ extern "C" ARM void func_ov024_021fd66c(struct Obj_021fd66c* obj) {
 		if (!func_ov000_02156068(obj->field0, c->obj3D_.unknown_4_, 9, 0)) return;
 	}
 	if (scaled > 100.0f) scaled = 100.0f;
-	SetFieldFromIndexed_021fe6b4((struct IndexedObj_021fe6b4*)obj, 1);
+	func_ov024_021fe6b4((struct IndexedObj_021fe6b4*)obj, 1);
 	func_ov024_021fd088(obj, scaled, 3);
 }

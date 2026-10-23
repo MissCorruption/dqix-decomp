@@ -20,22 +20,22 @@ extern "C" void func_02022da0(void*);
 
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void* func_0203bd08(void);
-void* GetData02105254_0203b628(void);
+extern "C" void* func_0203b628(void);
 extern "C" void func_02021428(void* obj, int amount);
 
 extern "C" int func_020420e8(void* p, int flag);
 
-void TailForward0203b66c(char* obj);
-void InitSubObject0203bd78(char* obj);
-void InitBattleContext0203bd24(char* obj);
-void SetArraySlotFlag0203b718(void* objPtr, int mode, int idx, int fillByte);
+extern "C" void func_0203b66c(char* obj);
+extern "C" void func_0203bd78(char* obj);
+extern "C" void func_0203bd24(char* obj);
+extern "C" void func_0203b718(void* objPtr, int mode, int idx, int fillByte);
 extern "C" void func_0203ba74(void* obj);
 struct Struct0205a198;
-void Init0205a198(struct Struct0205a198* p);
-void InitStruct0205a444(char* obj);
+extern "C" void func_0205a198(struct Struct0205a198* p);
+extern "C" void func_0205a444(char* obj);
 
-int FormatAndCopyNames02020b98(void* obj);
-void ClearRecords02026644(char* obj);
+extern "C" int func_02020b98(void* obj);
+extern "C" void func_02026644(char* obj);
 #if defined(jpn)
 extern "C" void func_020211b0(char* obj, int handle);
 #else
@@ -44,8 +44,8 @@ extern "C" void func_020211b0(char* obj, int* handle);
 #if defined(jpn)
 #else
 #endif
-int InitAndCopyBuffer02023330(void* obj, int flag);
-void InitFourEntrySlots02020aa0(void* obj);
+extern "C" int func_02023330(void* obj, int flag);
+extern "C" void func_02020aa0(void* obj);
 #if defined(jpn)
 extern "C" void func_02020fc4(void* obj, int handle, SafeAllocator* alloc);
 #else
@@ -54,9 +54,9 @@ extern "C" void func_02020fc4(void* obj, int* handle, SafeAllocator* alloc);
 extern "C" void func_020210f8(char* obj, int* handle, SafeAllocator* alloc);
 extern "C" void func_0202445c(void* obj);
 extern "C" void func_ov017_02191234(void* obj);
-void DelayThenSyncBit0_020c9820(void);
+extern "C" void func_020c9820(void);
 extern "C" void func_0202343c(void* obj);
-void MarkActiveCombatantSlots02026b7c(unsigned char* obj);
+extern "C" void func_02026b7c(unsigned char* obj);
 extern "C" void func_02026bdc(void* obj, int flag);
 
 extern const char* data_020ef460[];
@@ -92,7 +92,7 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
     modes = func_02012fe4()->pUnknownStruct_8_;
     axis = GetGameResources();
     battleCtx = (char*)func_0203bd08();
-    table = (char*)GetData02105254_0203b628();
+    table = (char*)func_0203b628();
     state = self->loadStage;
     alloc = GetResourceAllocator(axis, 12);
 
@@ -106,7 +106,7 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
             data_020ef460[0], (SafeAllocator*)0);
 #endif
         loader->AddFence();
-        self->namesTask = FormatAndCopyNames02020b98(self);
+        self->namesTask = func_02020b98(self);
         self->fileTask984 = loader->QueueLoadFileInGP2(
             data_020ef460[REGION_VALUE(1, 2)],
             &data_020ef598, (SafeAllocator*)0);
@@ -140,17 +140,17 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
         if (IsBrightnessWithinValidRange((GameResources*)axis, true) != 0) return;
         func_02020720(self);
         func_02020838(self);
-        TailForward0203b66c(table);
+        func_0203b66c(table);
         alloc->Reset();
-        InitSubObject0203bd78(battleCtx);
-        InitBattleContext0203bd24(battleCtx);
-        SetArraySlotFlag0203b718(table, 1, 0, 0);
-        SetArraySlotFlag0203b718(table, 1, 1, 0);
+        func_0203bd78(battleCtx);
+        func_0203bd24(battleCtx);
+        func_0203b718(table, 1, 0, 0);
+        func_0203b718(table, 1, 1, 0);
         func_0203ba74(table);
         for (i0 = 0; i0 < 0x1c; i0++) {
-            Init0205a198(&self->records[i0]);
+            func_0205a198(&self->records[i0]);
         }
-        InitStruct0205a444((char*)&self->entryList);
+        func_0205a444((char*)&self->entryList);
         self->entryList.active = 1;
         self->entryList.records = self->records;
         self->entryList.count = 0x1c;
@@ -192,7 +192,7 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
         if (self->refreshRecords != 0) {
             self->field9b8 = 1;
             self->field9b9 = 0;
-            ClearRecords02026644((char*)self);
+            func_02026644((char*)self);
         }
         loader->AddFence();
         sprintf(buf, &data_020ef5b9, self->name);
@@ -228,9 +228,9 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
 #else
         char* vram = (char*)0x6600000;
         memcpy(self->savedTiles, vram + 0x2c20, 0x40);
-        InitAndCopyBuffer02023330(self, 1);
+        func_02023330(self, 1);
 #endif
-        InitFourEntrySlots02020aa0(self);
+        func_02020aa0(self);
         self->loadStage = self->loadStage + 1;
     }
     if (self->loadStage == REGION_VALUE(5, 6)) {
@@ -254,10 +254,10 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
         self->field9c8 = 0;
         self->field9c3 = 0;
         self->loadStage = self->loadStage + 1;
-        DelayThenSyncBit0_020c9820();
+        func_020c9820();
         func_0202343c(self);
         func_0202445c(self);
-        MarkActiveCombatantSlots02026b7c((unsigned char*)self);
+        func_02026b7c((unsigned char*)self);
         func_02026bdc(self, 0);
     }
 }

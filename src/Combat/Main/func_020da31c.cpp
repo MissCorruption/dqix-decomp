@@ -29,11 +29,11 @@ struct State0205a180 {
     MatrixTarget_020da31c* output;
 };
 extern "C" void* func_02057924();
-void InitStruct02078484(InitStruct02078484Struct*);
-void FindNodeAndProcess02057fb4(void*, int, void*);
-void* GetInlineRecordByBattleId_02058658(void*, int);
-void StoreZeroAndField0xb6ToOut(State0205a180*);
-void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
+extern "C" void func_02078484(InitStruct02078484Struct*);
+extern "C" void func_02057fb4(void*, int, void*);
+extern "C" void* func_02058658(void*, int);
+extern "C" void func_0205a180(State0205a180*);
+extern "C" void func_0205ebfc(void*, int, int);
 extern char data_020f2884[], data_020f2887[], data_02108760[];
 
 // USA: func_020da31c
@@ -48,7 +48,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         if (!(event->flags & 8)) {
             InitStruct02078484Struct effect;
             event->flags |= 8;
-            InitStruct02078484(&effect);
+            func_02078484(&effect);
             int index = event->objectIndex;
             effect.objectIndex = index;
             effect.enabled = 0;
@@ -59,7 +59,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
             effect.scale.x = 0x1000;
             effect.scale.y = 0x1000;
             effect.scale.z = 0x1000;
-            FindNodeAndProcess02057fb4(manager, 0x14, &effect);
+            func_02057fb4(manager, 0x14, &effect);
         }
         int timer = ((ActorView_020da31c*)actor)->timer;
         int distance = fix32SignedAngleDistance(actor->obj3D_.rotation_.y, ((ActorView_020da31c*)actor)->direction);
@@ -67,7 +67,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         if (event->ticks < 3) return;
         event->ticks = 0;
         InitStruct02078484Struct effect;
-        InitStruct02078484(&effect);
+        func_02078484(&effect);
         effect.position = actor->obj3D_.position_;
         effect.rotation = actor->obj3D_.rotation_;
         effect.scale.x = 200;
@@ -75,7 +75,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         effect.scale.z = 200;
         sprintf(effect.filename, data_020f2884, data_020f2887);
         effect.flags |= 0x40;
-        FindNodeAndProcess02057fb4(manager, 0x15, &effect);
+        func_02057fb4(manager, 0x15, &effect);
         break;
     }
     case 2: {
@@ -84,7 +84,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         if (!(event->flags & 8)) {
             InitStruct02078484Struct effect;
             event->flags |= 8;
-            InitStruct02078484(&effect);
+            func_02078484(&effect);
             int index = event->objectIndex;
             effect.objectIndex = index;
             effect.enabled = 0;
@@ -95,26 +95,26 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
             effect.scale.x = 0x3000;
             effect.scale.y = 0x1000;
             effect.scale.z = 0x3000;
-            FindNodeAndProcess02057fb4(manager, 0x14, &effect);
+            func_02057fb4(manager, 0x14, &effect);
         }
         if (++event->ticks < 7) return;
         event->ticks = 0;
         InitStruct02078484Struct effect;
-        InitStruct02078484(&effect);
+        func_02078484(&effect);
         effect.position = actor->obj3D_.position_;
         effect.rotation = actor->obj3D_.rotation_;
         effect.scale.x = 225;
         effect.scale.y = 225;
         effect.scale.z = 225;
         sprintf(effect.filename, data_020f2884, data_020f2887);
-        FindNodeAndProcess02057fb4(manager, 0x15, &effect);
+        func_02057fb4(manager, 0x15, &effect);
         break;
     }
     case 3: {
         GameObject* actor = game->GetMaybeWanderingMonsterByIndex(event->objectIndex);
         if (!actor) return;
         InitStruct02078484Struct effect;
-        State0205a180* record = (State0205a180*)GetInlineRecordByBattleId_02058658(manager, 0xd0);
+        State0205a180* record = (State0205a180*)func_02058658(manager, 0xd0);
         if (record && record->output) {
             MatrixTarget_020da31c* output = record->output;
             Matrix4x3 result, world, offset, rotation;
@@ -137,7 +137,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         ++event->ticks;
         if (event->activations < 1 && (event->flags & 0x10)) {
             if (!event->started) {
-                InitStruct02078484(&effect);
+                func_02078484(&effect);
                 effect.position = actor->obj3D_.position_;
                 effect.rotation = actor->obj3D_.rotation_;
                 effect.lifetime = 90;
@@ -146,14 +146,14 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
                 effect.scale.z = 0x199;
                 sprintf(effect.filename, data_020f2884, data_020f2887);
                 effect.flags |= 0xb8;
-                FindNodeAndProcess02057fb4(manager, 0x16, &effect);
+                func_02057fb4(manager, 0x16, &effect);
                 event->started = 1;
-                DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 1, 0);
+                func_0205ebfc(data_02108760, 1, 0);
             } else {
-                State0205a180* active = (State0205a180*)GetInlineRecordByBattleId_02058658(manager, 0xd0);
+                State0205a180* active = (State0205a180*)func_02058658(manager, 0xd0);
                 if (active) {
-                    StoreZeroAndField0xb6ToOut(active);
-                    DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 1, 0);
+                    func_0205a180(active);
+                    func_0205ebfc(data_02108760, 1, 0);
                 }
             }
             ++event->activations;

@@ -4,7 +4,7 @@
 extern "C" void func_ov023_021f6ed8(void* obj);
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
 struct Obj021f9eb4;
-void ClearFields0To3_021f9eb4(struct Obj021f9eb4* o);
+extern "C" void func_ov023_021f9eb4(struct Obj021f9eb4* o);
 
 struct Obj021f9ec8 {
     char pad0[4];
@@ -21,7 +21,7 @@ struct Obj021f9ec8 {
     void* f24;
 };
 
-// USA: func_ov023_021f9ec8  (semantic: InitObjAndAllocateEntries_021f9ec8)
+// USA: func_ov023_021f9ec8
 extern "C" ARM int func_ov023_021f9ec8(struct Obj021f9ec8* obj, void* ctx, int arg3, int arg4, int arg5) {
     func_ov023_021f6ed8(obj);
     obj->f4 = 9;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov023_021f9ec8(struct Obj021f9ec8* obj, void* ctx, int a
 
     int i;
     for (i = 0; i < obj->f20; i++) {
-        ClearFields0To3_021f9eb4((struct Obj021f9eb4*)((char*)obj->f24 + i * 0x28));
+        func_ov023_021f9eb4((struct Obj021f9eb4*)((char*)obj->f24 + i * 0x28));
     }
     return 1;
 }

@@ -23,11 +23,11 @@ struct Clamp020e29a8;
 struct Obj020e280c;
 
 extern "C" void func_020813ec(struct Obj2081* obj, int key);
-void ResetWithSub0208203c(struct Obj0208203c* obj);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void SetElementFlag0x20_02080c04(struct Obj2081* obj, int key);
-void ClampFieldTo2At0x16(struct Clamp020e29a8* p, int v);
-void ResetAndReposition020e280c(struct Obj020e280c* self, void* b);
+extern "C" void func_0208203c(struct Obj0208203c* obj);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_02080c04(struct Obj2081* obj, int key);
+extern "C" void func_020e29a8(struct Clamp020e29a8* p, int v);
+extern "C" void func_020e280c(struct Obj020e280c* self, void* b);
 
 extern struct Obj0205eaa0 data_02108760;
 
@@ -50,12 +50,12 @@ extern "C" ARM void func_ov003_02155580(struct Ctx02155580* self, int arg) {
     self->field1e8 = self->field1ea = 6;
     self->menu->selected = self->field1ea;
     func_020813ec(self->menu, self->key1e6);
-    ResetWithSub0208203c((struct Obj0208203c*)self->field80);
+    func_0208203c((struct Obj0208203c*)self->field80);
     self->field8 = 0;
-    DispatchWithShortB4_0205eaa0(&data_02108760, 5, 0);
+    func_0205eaa0(&data_02108760, 5, 0);
     if (self->cursor != 0) {
-        SetElementFlag0x20_02080c04(self->menu, self->key1e6);
-        ClampFieldTo2At0x16((struct Clamp020e29a8*)self->cursor, (signed char)arg);
-        ResetAndReposition020e280c((struct Obj020e280c*)self->cursor, (void*)-1);
+        func_02080c04(self->menu, self->key1e6);
+        func_020e29a8((struct Clamp020e29a8*)self->cursor, (signed char)arg);
+        func_020e280c((struct Obj020e280c*)self->cursor, (void*)-1);
     }
 }

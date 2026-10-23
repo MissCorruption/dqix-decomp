@@ -50,12 +50,12 @@ extern "C" void func_ov005_0215a2c8(EquipmentMenu* self);
 extern "C" void func_ov005_0215a3bc(EquipmentMenu* self);
 extern "C" void func_ov005_0215aa44(EquipmentMenu* self);
 extern "C" void func_ov005_0215acc0(EquipmentMenu* self);
-void ClearBuffers0204b010OverList0x98(Cont0205d1e0* window);
-void CallFunc0204c8f0OverList0x9c(Cont0205d228* window);
-void CallFunc0204b04cOverList0x98(Cont0205d274* window);
+extern "C" void func_0205d1e0(Cont0205d1e0* window);
+extern "C" void func_0205d228(Cont0205d228* window);
+extern "C" void func_0205d274(Cont0205d274* window);
 extern "C" void func_ov005_02159c88(EquipmentMenu* self);
-int GetInnerFlagBit0020e28dc(Outer020e28dc* p);
-void UpdateEntryIfActive020e2794(Struct020e2794* p, void* a);
+extern "C" int func_020e28dc(Outer020e28dc* p);
+extern "C" void func_020e2794(Struct020e2794* p, void* a);
 extern "C" void func_ov005_0215a7ec(EquipmentMenu* self);
 extern "C" void func_ov005_0215a418(EquipmentMenu* self);
 extern "C" void func_ov005_0215b0a0(EquipmentMenu* self);
@@ -102,13 +102,13 @@ extern "C" ARM void func_ov005_02154ef0(EquipmentMenu* self) {
         func_ov005_0215a3bc(self);
         func_ov005_0215aa44(self);
         func_ov005_0215acc0(self);
-        ClearBuffers0204b010OverList0x98((Cont0205d1e0*)self->window_);
-        CallFunc0204c8f0OverList0x9c((Cont0205d228*)self->window_);
-        CallFunc0204b04cOverList0x98((Cont0205d274*)self->window_);
+        func_0205d1e0((Cont0205d1e0*)self->window_);
+        func_0205d228((Cont0205d228*)self->window_);
+        func_0205d274((Cont0205d274*)self->window_);
     }
     func_ov005_02159c88(self);
-    if (self->unk_e64 != NULL && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->unk_e64))
-        UpdateEntryIfActive020e2794((Struct020e2794*)self->unk_e64, (void*)self->unk_e68);
+    if (self->unk_e64 != NULL && func_020e28dc((Outer020e28dc*)self->unk_e64))
+        func_020e2794((Struct020e2794*)self->unk_e64, (void*)self->unk_e68);
     func_ov005_0215a7ec(self);
     func_ov005_0215a418(self);
     if (!(self->flags_ & 0x200) && self->unk_3e04 <= 0) {

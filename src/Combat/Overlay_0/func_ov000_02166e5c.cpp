@@ -104,40 +104,40 @@ struct PartyLog02166e5c {
 };
 struct RegionCode02166e5c { unsigned char bytes[4]; };
 
-void DestroyAllocators020545b8(T020545b8*);
+extern "C" void func_020545b8(T020545b8*);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void ClearEightWords_0203dafc(Struct_203dafc*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_0203dafc(Struct_203dafc*);
 struct Obj02054664;
-void ResetSelectionState02054664(Obj02054664*);
-void SetAndClearField0x19c_02053da0(char*, Field0x19cData*);
+extern "C" void func_02054664(Obj02054664*);
+extern "C" void func_02053da0(char*, Field0x19cData*);
 extern "C" void func_02049c88(Combatant02166e5c*, CombatantModelState02166e5c*);
-void RunOverlayScript0216d1c4(int, StreamHeader*, int, int*);
-void SetPtrFieldIfNonNull0x13c_ov000_02165480(void*, int);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
-void RegisterOrAllocateCombatant02053c74(char*, int);
-CombatantData02166e5c* GetFieldAt0x150_02053c6c(unsigned char*);
-void ResetStruct020d3c08(char*);
+extern "C" void func_ov000_0216d1c4(int, StreamHeader*, int, int*);
+extern "C" void func_ov000_02165480(void*, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_02053c74(char*, int);
+extern "C" CombatantData02166e5c* func_02053c6c(unsigned char*);
+extern "C" void func_020d3c08(char*);
 struct Obj020d3c28;
-void InitAndMaybeStartStream020d3c28(Obj020d3c28*);
+extern "C" void func_020d3c28(Obj020d3c28*);
 struct FindEntryByKindContainer020d3d90;
-ClassEntry02166e5c* FindEntryByKind(FindEntryByKindContainer020d3d90*, int);
+extern "C" ClassEntry02166e5c* func_020d3d90(FindEntryByKindContainer020d3d90*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void func_02083cbc(CombatantData02166e5c*, Growth02166e5c*, void*);
 extern "C" void func_02083e28(CombatantData02166e5c*, int);
-void SetBit0x954StoreIndex0x950_02083ca0(unsigned char*, int);
-void ClearTwoRegions02083c18(char*);
-void SetBitInArray0x910_02083b60(unsigned char*, int);
-void SetBitInField0x34_020a35cc(unsigned char*, unsigned char);
+extern "C" void func_02083ca0(unsigned char*, int);
+extern "C" void func_02083c18(char*);
+extern "C" void func_02083b60(unsigned char*, int);
+extern "C" void func_020a35cc(unsigned char*, unsigned char);
 struct Bytes02033b88;
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
+extern "C" void func_02033b88(Bytes02033b88*, int);
 struct Obj020397cc;
-void CancelPendingAction020397cc(Obj020397cc*, int);
-void CopyCombatantStats0208936c(char*, char*, char*);
-void CopyInRegion0x571d_020114c0(char*, int, void*);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void*, int);
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_0208936c(char*, char*, char*);
+extern "C" void func_020114c0(char*, int, void*);
+extern "C" void func_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183aa5[], data_ov000_021839e2[], data_ov000_02183abe[];
 extern const char data_020ef078[];
 extern const RegionCode02166e5c data_ov000_02183014;
@@ -155,10 +155,10 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
 #else
 #define blocks_3 blocks[3]
 #endif
-    DestroyAllocators020545b8((T020545b8*)GetIndexedEntry_021a11f4(resources, 2));
+    func_020545b8((T020545b8*)func_ov017_021a11f4(resources, 2));
     allocator->Reset();
-    CopyInternalFields0207df50((Foo0207df50*)&blocks_3);
-    RestorePairTables0207df90(blocks_3.bytes);
+    func_0207df50((Foo0207df50*)&blocks_3);
+    func_0207df90(blocks_3.bytes);
     BackgroundLoader::AddLockGlobal();
     unsigned int size;
     if (!LoadFileIntoMemory(data_ov000_02183aa5, data_0211e33c, &size)) {
@@ -171,31 +171,31 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
         return;
     }
     CombatantLoadInfo02166e5c loadInfo;
-    ClearEightWords_0203dafc(&loadInfo.words);
+    func_0203dafc(&loadInfo.words);
     loadInfo.archive.fileData = data_0211e33c;
     loadInfo.archive.unk_8 = size;
     loadInfo.archive.allocator = allocator;
     loadInfo.archive.unk_10 = 1;
-    ResetSelectionState02054664((Obj02054664*)combatant);
+    func_02054664((Obj02054664*)combatant);
     if (!combatant->object.LoadFromCCHROrCMOTArchive(&loadInfo.archive, 0)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     combatant->object.SetScale(0x10a, 0x10a, 0x10a);
-    SetAndClearField0x19c_02053da0((char*)combatant, &self->selection);
+    func_02053da0((char*)combatant, &self->selection);
     func_02049c88(combatant, &self->model);
     const void* script;
     unsigned int scriptSize;
     if (FindFilesInNarcBySubstring(data_0211e33c, data_ov000_021839e2, &script, &scriptSize, 1)) {
         int scriptState = 0;
-        RunOverlayScript0216d1c4((int)allocator, (StreamHeader*)script, scriptSize, &scriptState);
-        SetPtrFieldIfNonNull0x13c_ov000_02165480(combatant, scriptState);
+        func_ov000_0216d1c4((int)allocator, (StreamHeader*)script, scriptSize, &scriptState);
+        func_ov000_02165480(combatant, scriptState);
     }
     if (!LoadFileIntoMemory(data_ov000_02183abe, data_0211e33c, &size)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    ClearEightWords_0203dafc(&loadInfo.words);
+    func_0203dafc(&loadInfo.words);
     loadInfo.archive.fileData = data_0211e33c;
     loadInfo.archive.unk_8 = size;
     loadInfo.archive.allocator = allocator;
@@ -204,17 +204,17 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    RegisterCombatantSlot_0200fd38(game, 1, (GameObject*)combatant);
-    RegisterOrAllocateCombatant02053c74((char*)combatant, 1);
-    CombatantData02166e5c* data = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    func_0200fd38(game, 1, (GameObject*)combatant);
+    func_02053c74((char*)combatant, 1);
+    CombatantData02166e5c* data = func_02053c6c((unsigned char*)combatant);
     if (!data) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
     ClassTable02166e5c table;
-    ResetStruct020d3c08((char*)&table);
-    InitAndMaybeStartStream020d3c28((Obj020d3c28*)&table);
-    ClassEntry02166e5c* entry = FindEntryByKind((FindEntryByKindContainer020d3d90*)&table, 1);
+    func_020d3c08((char*)&table);
+    func_020d3c28((Obj020d3c28*)&table);
+    ClassEntry02166e5c* entry = func_020d3d90((FindEntryByKindContainer020d3d90*)&table, 1);
     sprintf(data->name, data_020ef078, entry);
     Growth02166e5c growth;
     growth.experience = 0;
@@ -233,27 +233,27 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
     func_02083e28(data, 0);
     combatant->stats->maxHP = combatant->baseStats->primaryStats.maxHP;
     combatant->stats->maxMP = combatant->baseStats->primaryStats.maxMP;
-    SetBit0x954StoreIndex0x950_02083ca0((unsigned char*)data, 0);
-    ClearTwoRegions02083c18((char*)data);
-    SetBitInArray0x910_02083b60((unsigned char*)data, entry->emblem);
+    func_02083ca0((unsigned char*)data, 0);
+    func_02083c18((char*)data);
+    func_02083b60((unsigned char*)data, entry->emblem);
     data->vocationTable[0] = entry->vocation;
     data->mode = 0xb;
     data->phase = 3;
-    SetBitInField0x34_020a35cc(self->roster, 1);
-    PartyLog02166e5c* log = (PartyLog02166e5c*)GetPtrField0x2a04_02010828(game);
+    func_020a35cc(self->roster, 1);
+    PartyLog02166e5c* log = (PartyLog02166e5c*)func_02010828(game);
     log->entries[log->count++] = 1;
-    SetByte0xbeShiftPrev((Bytes02033b88*)combatant, 0);
-    CancelPendingAction020397cc((Obj020397cc*)combatant, 1);
-    CopyCombatantStats0208936c(combatant->savedStats, (char*)combatant->stats, (char*)combatant->baseStats);
+    func_02033b88((Bytes02033b88*)combatant, 0);
+    func_020397cc((Obj020397cc*)combatant, 1);
+    func_0208936c(combatant->savedStats, (char*)combatant->stats, (char*)combatant->baseStats);
     combatant->flags |= 0x20;
-    BackupPairTables0207dfac(blocks_3.bytes);
+    func_0207dfac(blocks_3.bytes);
     int level = entry->level;
     CombatantData02166e5c* levelData = combatant->data;
     if (levelData) levelData->level = (unsigned char)level;
     int codeLength = 2;
     RegionCode02166e5c code = data_ov000_02183014;
-    CopyInRegion0x571d_020114c0((char*)game, codeLength, &code);
-    SetCombatWorkFlags0x55f4_ov000_02160fa8(self, 0x400000);
+    func_020114c0((char*)game, codeLength, &code);
+    func_ov000_02160fa8(self, 0x400000);
     BackgroundLoader::RemoveLockGlobal();
 #undef blocks_3
 }

@@ -4,12 +4,12 @@
 struct Struct0205de24;
 struct Struct_0205c570;
 
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-int CheckFlagOrThreshold_02161b48(char *self, int flag);
-void *GetDataPtr02114e04_020d6c00(void);
-void OrBitsIntoField0_020466e4(unsigned int *p, unsigned int mask);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
+extern "C" int func_ov002_02161b48(char *self, int flag);
+extern "C" void *func_020d6c00(void);
+extern "C" void func_020466e4(unsigned int *p, unsigned int mask);
 extern "C" int GetInventoryItemByID(char *self, int idx, int member);
 extern "C" void func_ov002_02161cf0(char *self);
 extern "C" void func_ov002_0215d864(char *self);
@@ -28,10 +28,10 @@ extern "C" ARM void func_ov002_021642e4(char *self) {
     char *sub = self + 0x38;
     if (phase == 0) {
         *(short *) (self + 0x1ab0) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + 0xe20), 0, 2);
+        func_0205de24((struct Struct0205de24 *) (self + 0xe20), 0, 2);
         func_ov002_02161cf0(self);
         func_ov002_0215d864(self);
-        OrBitsIntoField0_020466e4((unsigned int *) GetDataPtr02114e04_020d6c00(), 1);
+        func_020466e4((unsigned int *) func_020d6c00(), 1);
         if (*(int *) (self + 0x22ac) & 1) {
             ((SafeAllocator *) (self + 0x7c8))->Reset();
             func_ov023_021dc9e8(sub, (SafeAllocator *) (self + 0x7c8),
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov002_021642e4(char *self) {
         *(int *) (self + 0x22ac) |= 4;
         func_ov002_02161b98(self);
         *(short *) (self + 0x1ab0) =
-            GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xe20));
+            func_0205d794((struct Struct_0205c570 *) (self + 0xe20));
         *(short *) (self + 0x1aea) = GetInventoryItemByID(self, *(short *) (self + 0x1ab0), *(signed char *) (self + 0x1ae8));
         func_ov023_021dcae0(sub, *(short *) (self + 0x1aea));
-        if (CheckFlagOrThreshold_02161b48(self, 1)) {
+        if (func_ov002_02161b48(self, 1)) {
             *(short *) (self + 0x1aea) = -1;
             *(short *) (self + 0x1ab0) = -1;
             func_ov002_02156e90(self);
@@ -71,10 +71,10 @@ extern "C" ARM void func_ov002_021642e4(char *self) {
     int phase = *(int *) (self + 0x1bc0);
     if (phase == 0) {
         *(short *) (self + 0x1be8) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + 0xec8), 0, 2);
+        func_0205de24((struct Struct0205de24 *) (self + 0xec8), 0, 2);
         func_ov002_02161cf0(self);
         func_ov002_0215d864(self);
-        OrBitsIntoField0_020466e4((unsigned int *) GetDataPtr02114e04_020d6c00(), 1);
+        func_020466e4((unsigned int *) func_020d6c00(), 1);
         if (*(int *) (self + 0x247c) & 1) {
             ((SafeAllocator *) (self + 0x864))->Reset();
             func_ov023_021dc9e8(self + 0x50, (SafeAllocator *) (self + 0x864),
@@ -98,10 +98,10 @@ extern "C" ARM void func_ov002_021642e4(char *self) {
         *(int *) (self + 0x247c) |= 4;
         func_ov002_02161b98(self);
         *(short *) (self + 0x1be8) =
-            GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xec8));
+            func_0205d794((struct Struct_0205c570 *) (self + 0xec8));
         *(short *) (self + 0x1c22) = GetInventoryItemByID(self, *(short *) (self + 0x1be8), *(signed char *) (self + 0x1c20));
         func_ov023_021dcae0(self + 0x50, *(short *) (self + 0x1c22));
-        if (CheckFlagOrThreshold_02161b48(self, 1)) {
+        if (func_ov002_02161b48(self, 1)) {
             *(short *) (self + 0x1c22) = -1;
             *(short *) (self + 0x1be8) = -1;
             func_ov002_02156e90(self);

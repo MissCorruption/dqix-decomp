@@ -10,7 +10,7 @@ struct Info02011930 {
     unsigned char b1;
     unsigned short s0;
 };
-unsigned char GetAndConsumeNameEntries02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
+extern "C" unsigned char func_02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 extern char* data_ov004_02171010;
 extern "C" void* func_02012fe4(void);
@@ -19,7 +19,7 @@ struct Elem020985ec {
     unsigned int key;
     unsigned char pad1[0xd4];
 };
-struct Elem020985ec* FindElementByShiftedField0x10(struct Elem020985ec* arr, int val);
+extern "C" struct Elem020985ec* func_020985ec(struct Elem020985ec* arr, int val);
 
 // USA: func_ov004_02164f48
 extern "C" ARM int func_ov004_02164f48(void* a1) {
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov004_02164f48(void* a1) {
     name1buf[0] = 0;
     name2buf[0] = 0;
 
-    if (GetAndConsumeNameEntries02011930(battle, &info, name1buf, name2buf) != 0) {
+    if (func_02011930(battle, &info, name1buf, name2buf) != 0) {
         func_ov011_021848a0(a1, 0x69);
 
         srand(GetMain16BitTimerCounter());
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov004_02164f48(void* a1) {
 #else
             struct Elem020985ec* base = (struct Elem020985ec*)((char*)func_02012fe4() + 0x840);
 #endif
-            struct Elem020985ec* elem = FindElementByShiftedField0x10(base, questIdx);
+            struct Elem020985ec* elem = func_020985ec(base, questIdx);
             if (elem) {
                 ((unsigned char*)elem)[0xb] &= ~0x80;
             }

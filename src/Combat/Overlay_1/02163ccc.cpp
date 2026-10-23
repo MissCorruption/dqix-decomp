@@ -9,7 +9,7 @@ extern SafeAllocator* data_ov001_021658b8[8];
 
 struct HeadList020469f8;
 struct HeadNode020469f8;
-void PrependNodeToHead(struct HeadList020469f8* list, struct HeadNode020469f8* node);
+extern "C" void func_020469f8(struct HeadList020469f8* list, struct HeadNode020469f8* node);
 
 struct Entry_02163ccc { int type; int val; int pad2; unsigned char* child; };
 struct DataTable_02163ccc { char pad0[4]; Entry_02163ccc* table; };
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov001_02163ccc(char* self, int mode) {
 
     if (mode < 1) {
         func_ov017_021b621c(node, allocator, 0);
-        PrependNodeToHead((struct HeadList020469f8*)list, (struct HeadNode020469f8*)node);
+        func_020469f8((struct HeadList020469f8*)list, (struct HeadNode020469f8*)node);
     } else {
         idx = func_ov017_021d60f4(self);
         slot = -1;
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov001_02163ccc(char* self, int mode) {
         }
         func_ov017_021b621c(node, allocator, obj);
         *(short*)(node + 0xfe) = (short)slot;
-        PrependNodeToHead((struct HeadList020469f8*)list, (struct HeadNode020469f8*)node);
+        func_020469f8((struct HeadList020469f8*)list, (struct HeadNode020469f8*)node);
     }
     node[8] = 0;
 #if defined(jpn)

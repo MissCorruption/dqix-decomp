@@ -14,7 +14,7 @@ struct Src021cd6d8 {
 	unsigned char pad;
 	float f10;
 };
-void EnqueueEventTag142_021cd6d8(Src021cd6d8* src);
+extern "C" void func_ov017_021cd6d8(Src021cd6d8* src);
 
 // USA: func_ov017_021bc6e0
 extern "C" ARM void func_ov017_021bc6e0(char* self, unsigned char byteArg, int flags) {
@@ -39,5 +39,5 @@ extern "C" ARM void func_ov017_021bc6e0(char* self, unsigned char byteArg, int f
 	params.f6 = *(short*)(self + 0x52);
 	params.f10 = battleStruct->GetDayTimer();
 	params.fc = byteArg;
-	EnqueueEventTag142_021cd6d8(&params);
+	func_ov017_021cd6d8(&params);
 }

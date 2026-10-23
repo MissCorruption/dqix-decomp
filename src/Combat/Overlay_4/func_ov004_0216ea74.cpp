@@ -34,11 +34,11 @@ extern Struct02171048_0216ea74 data_ov004_02171048;
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_ov017_021b2090(PackedField017 a, PackedField017 b);
-int GetFieldAt0x7e_0201e830(struct S_e830* p);
-void Set3DClearColor_020c5588(int, int, int, int, int);
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
-int RegisterSlotA020cf0fc(int);
-int RegisterSlotB020cf1a8(int);
+extern "C" int func_0201e830(struct S_e830* p);
+extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" int func_020cf0fc(int);
+extern "C" int func_020cf1a8(int);
 
 struct AllocatorContext0216ea74 {
     unsigned char unknown00[4];
@@ -95,7 +95,7 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* a) {
     if (!zone) return 0;
     S_e830* p = GetZonePlacementData(zone);
     if (!p) return 0;
-    data_ov004_02171048.ptr->half0c = GetFieldAt0x7e_0201e830(p);
+    data_ov004_02171048.ptr->half0c = func_0201e830(p);
 
     GameResources* obj = GetGameResources();
     data_ov004_02171048.ptr->word00 = GetFlags00(obj);
@@ -104,13 +104,13 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* a) {
     SetFlags00(obj, 4);
     SetFlags04(obj, 0x8de);
 
-    Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
-    SetFogState_020c54a4(0, 0, 0, 0);
+    func_020c5588(0, 0x1f, 0x7fff, 0, 0);
+    func_020c54a4(0, 0, 0, 0);
 
     int slotA[4];
     int slotB[3];
-    RegisterSlotA020cf0fc((int)slotA);
-    RegisterSlotB020cf1a8((int)slotB);
+    func_020cf0fc((int)slotA);
+    func_020cf1a8((int)slotB);
 
     data_ov004_02171048.ptr->cfg.low = slotA[0] + 0x7d0;
     data_ov004_02171048.ptr->cfg.f12 = slotA[1];

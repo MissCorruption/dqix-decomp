@@ -17,18 +17,18 @@ struct InteractionRequest { unsigned char type; char pad1; short index; int fiel
 struct S02046b1c;
 struct Vec3;
 extern "C" Zone3D* func_02012fe4();
-void* GetGlobalField0x1c020421a0();
-void* GetField0x3b0Value_020100bc(GameState*);
-bool CheckSubstructByte0x7cPositive_020535c8(signed char*);
-void* GetField0x0List02046b1c(S02046b1c*);
-ZoneChestRenderRecord* GetElementStride0x24_020177a8(unsigned char*, int);
+extern "C" void* func_020421a0();
+extern "C" void* func_020100bc(GameState*);
+extern "C" bool func_020535c8(signed char*);
+extern "C" void* func_02046b1c(S02046b1c*);
+extern "C" ZoneChestRenderRecord* func_020177a8(unsigned char*, int);
 int fix32abs(int);
 extern "C" int func_020c32f8(int);
 extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
-int GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
-InteractionReset* GetGlobalResetObj020d7a50();
-void InitObj0219a674(unsigned char*);
+extern "C" int func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
+extern "C" InteractionReset* func_020d7a50();
+extern "C" void func_ov017_0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(GameResources*, InteractionRequest*);
 
 static inline int MultiplyFix(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
@@ -37,22 +37,22 @@ static inline int MultiplyFix(int a, int b) { return (int)(((long long)a * b + 0
 extern "C" ARM void func_ov017_02197e2c(GameResources* resources) {
     GameState* game = GameState::GetInstance();
     Zone3D* zone = func_02012fe4();
-    GetGlobalField0x1c020421a0();
-    GetField0x3b0Value_020100bc(game);
+    func_020421a0();
+    func_020100bc(game);
     InteractionPlayer* player = (InteractionPlayer*)game->GetUnknownGameObject();
     Vector3i* position = &player->obj.position_;
-    if (CheckSubstructByte0x7cPositive_020535c8((signed char*)player)) return;
+    if (func_020535c8((signed char*)player)) return;
     if (!zone->numChests_) return;
     int direction = 0;
     int hasList = 0;
-    void* list = GetField0x0List02046b1c((S02046b1c*)resources->unknown_ptr_array_36fc[0]);
+    void* list = func_02046b1c((S02046b1c*)resources->unknown_ptr_array_36fc[0]);
     if (list) hasList = 1;
     int bestAngle = 0x3244;
     ZoneChestRenderRecord* candidate = 0;
     ZoneChestRenderRecord* selected = 0;
     int selectedIndex = -1;
     for (int i = 0; i < zone->numChests_; i++) {
-        candidate = GetElementStride0x24_020177a8((unsigned char*)zone, i);
+        candidate = func_020177a8((unsigned char*)zone, i);
         if (!candidate) continue;
         Vector3i distance;
         Vector3i delta = *position;
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* resources) {
         Matrix3x3 rotation;
         Mat3x3_WriteRotationY(&rotation, sine, cosine);
         Mat3x3_ApplyToVector(&rotated, &rotation, &rotated);
-        int difference = GetAbsAngleDeltaBetween_021a4754(position, (short)player->obj.rotation_.y, &point);
+        int difference = func_ov017_021a4754(position, (short)player->obj.rotation_.y, &point);
         if (difference >= bestAngle) continue;
         bestAngle = difference;
         selectedIndex = i;
@@ -83,14 +83,14 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* resources) {
     if (hasList || selectedIndex < 0 || !candidate || !selected) return;
     if (player->mode != 0 && player->mode != 1) return;
     if ((selected->secondPass == 1 || selected->secondPass == 2) && selected->active != 1) return;
-    InteractionReset* reset = GetGlobalResetObj020d7a50();
+    InteractionReset* reset = func_020d7a50();
     int enabled = selected->active == 1 ? 1 : 0;
     if (!enabled) return;
     if (reset->mode > 1) return;
     InteractionRequest request;
-    InitObj0219a674((unsigned char*)&request);
+    func_ov017_0219a674((unsigned char*)&request);
     request.type = 2;
-    request.angle = GetAbsAngleDeltaBetween_021a4754(&player->obj.position_, (short)player->obj.rotation_.y, &selected->position);
+    request.angle = func_ov017_021a4754(&player->obj.position_, (short)player->obj.rotation_.y, &selected->position);
     request.point = selected;
     request.index = selectedIndex;
     request.direction = direction;

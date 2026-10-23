@@ -2,9 +2,9 @@
 #include "Memory/SafeAllocator.h"
 #include "Combat/MapDisplay.h"
 
-void Init0205a198(struct Struct0205a198*);
+extern "C" void func_0205a198(struct Struct0205a198*);
 struct ClearTarget0205a234;
-void ClearField0And40205a234(struct ClearTarget0205a234*);
+extern "C" void func_0205a234(struct ClearTarget0205a234*);
 
 struct Menu02172128 {
     char pad0[0x170];
@@ -45,10 +45,10 @@ extern "C" ARM void func_ov000_02172128(Menu02172128* self, SafeAllocator* alloc
 #endif
     self->entries = (Struct0205a198*)allocator->Allocate(kEntryCount * sizeof(Struct0205a198));
     for (unsigned char i = 0; i < kEntryCount; i++) {
-        Init0205a198(&self->entries[i]);
+        func_0205a198(&self->entries[i]);
     }
     self->target = (ClearTarget0205a234*)allocator->Allocate(8);
-    ClearField0And40205a234(self->target);
+    func_0205a234(self->target);
     unsigned int size = allocator->GetMaxPossibleAllocation();
     self->restAlloc.CreateTypeA(allocator->Allocate(size), size);
 }

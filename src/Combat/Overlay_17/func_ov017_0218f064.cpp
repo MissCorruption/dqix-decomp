@@ -55,27 +55,27 @@ enum { ActorBaseSize = 0x2c4, ActorExtendedSize = 0x2c8, ActorSpecialSize = 0x2e
 #else
 enum { ActorBaseSize = 0x2d0, ActorExtendedSize = 0x2d4, ActorSpecialSize = 0x2f8 };
 #endif
-void* GetField0x3f8Address_0200fd0c(GameState*);
+extern "C" void* func_0200fd0c(GameState*);
 extern "C" Zone3D* func_02012fe4();
 extern "C" void func_0202ae18();
-void CopyInternalFields0207df50(Foo0207df50*);
-void DestroyAllocators020545b8(T020545b8*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_020545b8(T020545b8*);
 extern "C" void func_020542b4(T020545b8*, SafeAllocator*, InternalBlock0218f064*);
 extern "C" int func_ov017_021925e0();
-void* FindNegativeEntry_021a11b4(S021a11b4*);
+extern "C" void* func_ov017_021a11b4(S021a11b4*);
 extern "C" void func_02054464(T020545b8*, SafeAllocator*, InternalBlock0218f064*);
 extern "C" void func_02037d10(Combatant0218f064*);
-void SetFlag0x20002048104(Obj02048104*);
-void ResetSelectionState02054664(Obj02054664*);
-int GetMaxFieldPlus1_02192548_02192548();
-void ResetState020415d8(State020415d8*);
+extern "C" void func_02048104(Obj02048104*);
+extern "C" void func_02054664(Obj02054664*);
+extern "C" int func_ov017_02192548();
+extern "C" void func_020415d8(State020415d8*);
 extern "C" void func_020c9be0();
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
-void StoreVec3AtField0x50_0203db34(unsigned char*, int, int, int);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void SetPointerFields02053c4c(char*, char*);
-void RegisterOrAllocateCombatant02053c74(char*, int);
-void SetLowNibble56b_0218f57c(void*, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_0203db34(unsigned char*, int, int, int);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_02053c4c(char*, char*);
+extern "C" void func_02053c74(char*, int);
+extern "C" void func_ov017_0218f57c(void*, int);
 extern "C" int func_ov017_0218f5a4(GameResources*, int, int, int, int);
 #if defined(jpn)
 #define data_ov017_021d73a4 data_ov017_021d7804
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
 #if !defined(jpn)
     Zone3D* zone;
 #endif
-    Ticket0218f064* ticket = (Ticket0218f064*)GetField0x3f8Address_0200fd0c(game);
+    Ticket0218f064* ticket = (Ticket0218f064*)func_0200fd0c(game);
 #if defined(jpn)
     ZoneEntryContext0218f064* entries = ((ZoneOwner0218f064*)func_02012fe4())->GetEntries();
 #else
@@ -114,8 +114,8 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
         InternalBlock0218f064* blocks = InternalBlocks0218f064(resources);
         specialAllocator->Reset();
         InternalBlock0218f064* block = &blocks[21];
-        CopyInternalFields0207df50((Foo0207df50*)block);
-        DestroyAllocators020545b8(entry);
+        func_0207df50((Foo0207df50*)block);
+        func_020545b8(entry);
         func_020542b4(entry, specialAllocator, block);
     } else {
         if (func_ov017_021925e0()) {
@@ -123,13 +123,13 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
                 if (((T020545b8*)&resources->substruct_array_12c8[i])->id == id) return;
             }
         }
-        entry = (T020545b8*)FindNegativeEntry_021a11b4((S021a11b4*)resources);
+        entry = (T020545b8*)func_ov017_021a11b4((S021a11b4*)resources);
         if (!entry) return;
         allocator = &entry->allocator;
         int index = entry->index + 1;
         SafeAllocator* primary = &resources->allocator_array_38[index];
         InternalBlock0218f064* block = &((InternalOwner0218f064*)resources)->blocks[index];
-        DestroyAllocators020545b8(entry);
+        func_020545b8(entry);
         if (kind == 4) func_02054464(entry, primary, block);
         else func_020542b4(entry, primary, block);
     }
@@ -145,25 +145,25 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
         func_02037d10(combatant);
     } else if (kind == 0x200) {
         combatant = (Combatant0218f064*)allocator->Allocate(ActorBaseSize);
-        SetFlag0x20002048104((Obj02048104*)combatant);
+        func_02048104((Obj02048104*)combatant);
     } else if (kind == 0x1000) {
         combatant = (Combatant0218f064*)allocator->Allocate(ActorExtendedSize);
-        ResetSelectionState02054664((Obj02054664*)combatant);
-        if (combatant) combatant->sequence = GetMaxFieldPlus1_02192548_02192548();
+        func_02054664((Obj02054664*)combatant);
+        if (combatant) combatant->sequence = func_ov017_02192548();
     } else if (kind == 0x4000) {
         combatant = (Combatant0218f064*)allocator->Allocate(ActorSpecialSize);
-        ResetState020415d8((State020415d8*)combatant);
+        func_020415d8((State020415d8*)combatant);
     } else if (kind == 4) {
         combatant = (Combatant0218f064*)allocator->Allocate(ActorExtendedSize);
-        ResetSelectionState02054664((Obj02054664*)combatant);
-        if (combatant) combatant->sequence = GetMaxFieldPlus1_02192548_02192548();
+        func_02054664((Obj02054664*)combatant);
+        if (combatant) combatant->sequence = func_ov017_02192548();
         initialize = 0;
     }
     if (!combatant) func_020c9be0();
     combatant->object.unknown_4_ = (short)id;
     combatant->entry = entry;
     entry->id = (short)id;
-    RegisterCombatantSlot_0200fd38(game, id, (GameObject*)combatant);
+    func_0200fd38(game, id, (GameObject*)combatant);
     if (initialize) {
         Components0218f064* components = (Components0218f064*)allocator->Allocate(0x764);
         if (!components) func_020c9be0();
@@ -183,17 +183,17 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
         Object3D* tenth = &components->objects[10];
         tenth->Initialize();
         int base = id * 12;
-        RegisterCombatantSlot_0200fd38(game, base + 0x13, (GameObject*)&components->objects[0]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x14, (GameObject*)&components->objects[1]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x15, (GameObject*)&components->objects[2]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x16, (GameObject*)&components->objects[3]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x17, (GameObject*)&components->objects[5]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x18, (GameObject*)sixth);
-        RegisterCombatantSlot_0200fd38(game, base + 0x19, (GameObject*)seventh);
-        RegisterCombatantSlot_0200fd38(game, base + 0x1a, (GameObject*)&components->objects[8]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x1b, (GameObject*)&components->objects[4]);
-        RegisterCombatantSlot_0200fd38(game, base + 0x1c, (GameObject*)ninth);
-        RegisterCombatantSlot_0200fd38(game, base + 0x1d, (GameObject*)tenth);
+        func_0200fd38(game, base + 0x13, (GameObject*)&components->objects[0]);
+        func_0200fd38(game, base + 0x14, (GameObject*)&components->objects[1]);
+        func_0200fd38(game, base + 0x15, (GameObject*)&components->objects[2]);
+        func_0200fd38(game, base + 0x16, (GameObject*)&components->objects[3]);
+        func_0200fd38(game, base + 0x17, (GameObject*)&components->objects[5]);
+        func_0200fd38(game, base + 0x18, (GameObject*)sixth);
+        func_0200fd38(game, base + 0x19, (GameObject*)seventh);
+        func_0200fd38(game, base + 0x1a, (GameObject*)&components->objects[8]);
+        func_0200fd38(game, base + 0x1b, (GameObject*)&components->objects[4]);
+        func_0200fd38(game, base + 0x1c, (GameObject*)ninth);
+        func_0200fd38(game, base + 0x1d, (GameObject*)tenth);
     }
     combatant->field_b0 = 0x324;
     combatant->field_b4 = 0x189;
@@ -201,17 +201,17 @@ extern "C" ARM void func_ov017_0218f064(GameResources* resources, int id, int ki
     combatant->object.SetRadius(0x1000);
     combatant->object.MaybeSetRegularAnimation(data_ov017_021d73a4, 0);
     combatant->object.position_ = ticket->position;
-    StoreVec3AtField0x50_0203db34((unsigned char*)combatant, combatant->object.rotation_.x, ticket->rotation, combatant->object.rotation_.z);
-    SetByte0xbeShiftPrev((Bytes02033b88*)combatant, 0);
+    func_0203db34((unsigned char*)combatant, combatant->object.rotation_.x, ticket->rotation, combatant->object.rotation_.z);
+    func_02033b88((Bytes02033b88*)combatant, 0);
     if (kind == 0x4000) {
 #if defined(jpn)
         char* companion = entries->companion;
 #else
         char* companion = ZoneSpecials0218f064(zone)->companion;
 #endif
-        if (companion) SetPointerFields02053c4c((char*)combatant, companion);
-    } else RegisterOrAllocateCombatant02053c74((char*)combatant, id);
-    if (mode > 0) SetLowNibble56b_0218f57c(combatant, mode);
+        if (companion) func_02053c4c((char*)combatant, companion);
+    } else func_02053c74((char*)combatant, id);
+    if (mode > 0) func_ov017_0218f57c(combatant, mode);
     if (registerEffect) func_ov017_0218f5a4(resources, id, 0, 0, 0);
 }
 

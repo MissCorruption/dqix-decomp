@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" double func_020055d4(char* str);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 
 // USA: func_02069c1c
 extern "C" ARM int func_02069c1c(char** obj, char* str) {
@@ -23,7 +23,7 @@ extern "C" ARM int func_02069c1c(char** obj, char* str) {
             }
         }
     }
-    char* g = (char*)GetGlobalField0x1c020421a0();
+    char* g = (char*)func_020421a0();
     *(int*)(g + 0x1000 + 0x840) = (int)(localArr[0] * 4096.0f);
     void* dst = *obj;
     unsigned short marker = 0xff2a;

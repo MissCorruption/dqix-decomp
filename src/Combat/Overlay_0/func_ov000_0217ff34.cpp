@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct Unit0217ff34;
-Unit0217ff34* GetCombatantWithFlag0x400_0200fea4(GameState*,int);
-int GetGlobalField0x1c020421a0();
+extern "C" Unit0217ff34* func_0200fea4(GameState*,int);
+extern "C" int func_020421a0();
 struct Random;
 Random* GetBTRandom();
 int NextRandomMax(Random*,int);
@@ -19,8 +19,8 @@ struct Unit0217ff34 { char p[0x138]; Details0217ff34* details; };
 extern "C" ARM int func_ov000_0217ff34(void* self,int id,int* amount) {
     int result = -1;
     GameState* gs = GameState::GetInstance();
-    GetGlobalField0x1c020421a0();
-    Unit0217ff34* unit = GetCombatantWithFlag0x400_0200fea4(gs,id);
+    func_020421a0();
+    Unit0217ff34* unit = func_0200fea4(gs,id);
     if (!unit) return result;
     int special = 0;
     if (unit) {

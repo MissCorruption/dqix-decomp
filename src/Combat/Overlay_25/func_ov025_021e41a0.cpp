@@ -51,12 +51,12 @@ struct EffectGlobals { unsigned char padding0[0xc]; char* slots; };
 #endif
 extern EffectGlobals data_ov025_021ef988;
 extern "C" void* func_02057924();
-EffectSource* GetNodeAtIndex02160094(List02160094*, int);
-EffectTarget* GetNodeAtIndex021600f8(List021600f8*, int);
-void InitStruct02078484(InitStruct02078484Struct*);
-EffectWork* GetActiveCombatWork_ov000_02160130();
-void* FindNodeAndProcess02057fb4(void*, int, void*);
-void** GetSlotPtr_021e8cf0_021e8cf0(char*, int);
+extern "C" EffectSource* func_ov000_02160094(List02160094*, int);
+extern "C" EffectTarget* func_ov000_021600f8(List021600f8*, int);
+extern "C" void func_02078484(InitStruct02078484Struct*);
+extern "C" EffectWork* func_ov000_02160130();
+extern "C" void* func_02057fb4(void*, int, void*);
+extern "C" void** func_ov025_021e8cf0(char*, int);
 
 static inline void ScaleHorizontal(Vector3i* offset, int factor) {
     offset->x *= factor;
@@ -67,20 +67,20 @@ static inline void ScaleHorizontal(Vector3i* offset, int factor) {
 extern "C" ARM int func_ov025_021e41a0(EffectCommand* command, List021600f8* list) {
     GameState* game = GameState::GetInstance();
     void* manager = func_02057924();
-    EffectSource* source = GetNodeAtIndex02160094((List02160094*)list, 0);
+    EffectSource* source = func_ov000_02160094((List02160094*)list, 0);
     if (!source) return 0;
     int sourceId = source->id;
     GameObject* object = game->GetGameObjectByIndex(sourceId);
     int frame = object->obj3D_.normalizedAnimationTime_;
     if (command->minimumFrame > 0 && frame < command->minimumFrame) return 0;
     InitStruct02078484Struct effect;
-    InitStruct02078484(&effect);
+    func_02078484(&effect);
     effect.flag2 = 0;
     int attach = 1;
     if (command->flags & 1) {
         Vector3i position = {};
         for (int i = 0; i < list->count; i++) {
-            EffectTarget* target = GetNodeAtIndex021600f8(list, i);
+            EffectTarget* target = func_ov000_021600f8(list, i);
             if (target) {
                 GameObject* targetObject = game->GetGameObjectByIndex(target->id);
                 if (targetObject) {
@@ -94,7 +94,7 @@ extern "C" ARM int func_ov025_021e41a0(EffectCommand* command, List021600f8* lis
             int scale = 4096.0f * (1.0f / (unsigned int)list->count);
             Vector3fixMultiplyScalar(&position, scale, &position);
         }
-        EffectTarget* target = GetNodeAtIndex021600f8(list, 0);
+        EffectTarget* target = func_ov000_021600f8(list, 0);
         Vector3i offset = {command->x, command->y, command->z};
         int party = 0;
         int id = target->id;
@@ -118,10 +118,10 @@ extern "C" ARM int func_ov025_021e41a0(EffectCommand* command, List021600f8* lis
         effect.scale.y = 0x800;
         effect.scale.z = 0x800;
     }
-    EffectWork* work = GetActiveCombatWork_ov000_02160130();
+    EffectWork* work = func_ov000_02160130();
     work->id = command->id;
-    void* instance = FindNodeAndProcess02057fb4(manager, command->id, &effect);
-    void** slot = GetSlotPtr_021e8cf0_021e8cf0(data_ov025_021ef988.slots, command->slot);
+    void* instance = func_02057fb4(manager, command->id, &effect);
+    void** slot = func_ov025_021e8cf0(data_ov025_021ef988.slots, command->slot);
     if (slot) *slot = instance;
     return 1;
 }

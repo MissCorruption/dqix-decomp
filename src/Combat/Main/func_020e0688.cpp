@@ -17,37 +17,37 @@ struct Obj020e0688 {
 };
 
 struct FlagWord02046708;
-int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
-void* GetDataPtr02114e04_020d6c00(void);
-void ReleaseHandle02022b90(void* owner, int* handle);
-void DelayThenSyncBit0_020c9820(void);
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" void* func_020d6c00(void);
+extern "C" void func_02022b90(void* owner, int* handle);
+extern "C" void func_020c9820(void);
 
 struct ActiveEntry02046900;
-int CountActiveEntries(struct ActiveEntry02046900* entry);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
 
 struct Rec020467f0;
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
 
 struct List0204af64;
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void func_0204af64(struct List0204af64* obj);
 
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* obj, int value);
 
 extern "C" void func_0204b5b4(void*, int);
 
 struct Obj0204b5e8;
-int DispatchViaTable0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
 
-void DispatchByTag0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* obj, char* str);
 
 struct SelfTag0204b3a0;
-void DispatchByTagLookup0204b3a0(struct SelfTag0204b3a0* self, char* str);
+extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
 
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(struct List0204b0e8* obj, void* buf);
+extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
 
 struct List0204afb4;
-void ResetRecordList0204afb4(struct List0204afb4* obj);
+extern "C" void func_0204afb4(struct List0204afb4* obj);
 
 struct LocalList020e0688 {
     unsigned char pad0[0x1c];
@@ -62,7 +62,7 @@ extern "C" ARM void func_020e0688(struct Obj020e0688* self) {
         return;
     }
 
-    if (TestFlags02046708((struct FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 0x41)) {
+    if (func_02046708((struct FlagWord02046708*)func_020d6c00(), 0x41)) {
         return;
     }
 
@@ -84,29 +84,29 @@ extern "C" ARM void func_020e0688(struct Obj020e0688* self) {
         LocalList020e0688 s;
 
         loader->GetLoadedFileByID(self->handle_a0c, (void**)(&recListHead), (unsigned int*)(&val2Ignored));
-        int count = CountActiveEntries((struct ActiveEntry02046900*)recListHead);
+        int count = func_02046900((struct ActiveEntry02046900*)recListHead);
         for (int i = 0; i < count; i++) {
-            arrayC[i] = FindRecordByIndex((struct Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
+            arrayC[i] = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
         }
 
-        DelayThenSyncBit0_020c9820();
-        ResetList0204af64((struct List0204af64*)&s);
+        func_020c9820();
+        func_0204af64((struct List0204af64*)&s);
         s.lo = 1;
         s.hi = 0;
         func_0204b5b4(&s, 2);
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&s, 0);
-        DispatchViaTable0204b5e8((struct Obj0204b5e8*)&s, 0, 0);
+        func_0204b11c((unsigned char*)&s, 0);
+        func_0204b5e8((struct Obj0204b5e8*)&s, 0, 0);
 
         for (int i = 0; i < count; i++) {
-            DispatchByTag0204b2e0(&s, (char*)arrayC[i]);
-            DispatchByTagLookup0204b3a0((struct SelfTag0204b3a0*)&s, (char*)arrayC[i]);
+            func_0204b2e0(&s, (char*)arrayC[i]);
+            func_0204b3a0((struct SelfTag0204b3a0*)&s, (char*)arrayC[i]);
         }
 
-        FlushAndDispatchList0204b0e8((struct List0204b0e8*)&s, 0);
-        ResetRecordList0204afb4((struct List0204afb4*)&s);
+        func_0204b0e8((struct List0204b0e8*)&s, 0);
+        func_0204afb4((struct List0204afb4*)&s);
     }
 
-    ReleaseHandle02022b90(self, &self->handle_a0c);
+    func_02022b90(self, &self->handle_a0c);
     self->flag_55c = 1;
     self->flag_9c5 = 0;
 }

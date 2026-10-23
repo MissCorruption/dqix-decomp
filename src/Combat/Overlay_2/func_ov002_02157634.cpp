@@ -117,16 +117,16 @@ struct StateArray {
     int tail;
 };
 
-struct Element02157634* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
-void* SearchBothTables02079e2c(char* p, int key);
-int IsIdInSpecialSet0201b868(void* p, int id);
-void Something_021a6b9c(void* a, int b);
+extern "C" struct Element02157634* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" void* func_02079e2c(char* p, int key);
+extern "C" int func_0201b868(void* p, int id);
+extern "C" void func_ov017_021a6b9c(void* a, int b);
 extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
-unsigned char GetField0x397cValue_020100b0(GameState* gs);
-void* GetPtrField0x2a04_02010828(GameState* gs);
-unsigned char CopyOutRegion0x571d_020114ec(char* obj, void* dst);
-void InitStateArray02157ce0(char* p);
-void ClearStruct020a8170(struct Struct020a8170* p);
+extern "C" unsigned char func_020100b0(GameState* gs);
+extern "C" void* func_02010828(GameState* gs);
+extern "C" unsigned char func_020114ec(char* obj, void* dst);
+extern "C" void func_ov002_02157ce0(char* p);
+extern "C" void func_020a8170(struct Struct020a8170* p);
 extern "C" void* __clear(void* dst, int count);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
 extern "C" void* func_0202ae18(void);
@@ -155,7 +155,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
     struct StateArray st;
     unsigned char buf[4];
     void* ctx;
-    struct Element02157634* e = FindElementByKey020dedd0((struct Container020dedd0*)p->container7ec, p->command);
+    struct Element02157634* e = func_020dedd0((struct Container020dedd0*)p->container7ec, p->command);
     if (e == 0) {
         return;
     }
@@ -181,8 +181,8 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             break;
         case 0x56f0:
             if (func_0202c508(check) != 0) {
-                if (IsIdInSpecialSet0201b868(obj, id) != 0) {
-                    Something_021a6b9c(GetGameResources(), 1);
+                if (func_0201b868(obj, id) != 0) {
+                    func_ov017_021a6b9c(GetGameResources(), 1);
                     p->msgId = 0x7530;
                     p->msgId2 = -1;
                     p->nextState = regionalState2b;
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
         case 0x5603:
             ((SafeAllocator*)p->alloc8a0)->Reset();
             p->anim = (struct Struct020a8170*)((SafeAllocator*)p->alloc8a0)->Allocate(0x10);
-            ClearStruct020a8170(p->anim);
+            func_020a8170(p->anim);
             func_020a818c(p->anim, p->alloc8a0);
             func_020a8304(p->anim);
             if (p->anim->count == 0) {
@@ -248,12 +248,12 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             return;
         }
         {
-            ActionDataTables* tbl = GetData02108e10_020797dc();
+            ActionDataTables* tbl = func_020797dc();
             int key = e->key;
             if (e->kind == 0x1f) {
                 key = 0xfc;
             }
-            struct TableEntry* entry = (struct TableEntry*)SearchBothTables02079e2c((char*)tbl, key);
+            struct TableEntry* entry = (struct TableEntry*)func_02079e2c((char*)tbl, key);
             if (entry != 0) {
                 if (entry->b10 & 1) {
                     p->flags.on = 1;
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
         if (p->type == 2 || p->type == 7) {
             next = regionalState7;
         } else {
-            p->target = GetField0x397cValue_020100b0(gs);
+            p->target = func_020100b0(gs);
             flag = 1;
         }
     } else if (p->state == regionalState7) {
@@ -282,12 +282,12 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             ok = 0;
         }
         if (!ok) {
-            actor = GetField0x397cValue_020100b0(gs);
+            actor = func_020100b0(gs);
         }
-        ActionDataTables* tbl = GetData02108e10_020797dc();
-        GetPtrField0x2a04_02010828(gs);
-        InitStateArray02157ce0((char*)&st);
-        InitStateArray02157ce0((char*)&st);
+        ActionDataTables* tbl = func_020797dc();
+        func_02010828(gs);
+        func_ov002_02157ce0((char*)&st);
+        func_ov002_02157ce0((char*)&st);
         if (p->flags.on) {
             int key = e->key;
             if (e->kind == 0x1f) {
@@ -297,12 +297,12 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             st.actor = actor;
             st.count = 1;
             st.ids[0] = target;
-            struct TableEntry* entry = (struct TableEntry*)SearchBothTables02079e2c((char*)tbl, key);
+            struct TableEntry* entry = (struct TableEntry*)func_02079e2c((char*)tbl, key);
             if (entry != 0) {
                 func_ov016_0218b5c0(0, -1);
                 if (entry->type == 3) {
                     __clear(buf, 4);
-                    st.count = CopyOutRegion0x571d_020114ec((char*)gs, buf);
+                    st.count = func_020114ec((char*)gs, buf);
                     for (int i = 0; i < st.count; i++) {
                         st.ids[i] = buf[i];
                     }
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
                 func_ov002_0216c42c(p, &st, entry);
                 p->cc6 = 1;
                 p->cc7 = 0;
-                InitStateArray02157ce0(p->stateArray);
+                func_ov002_02157ce0(p->stateArray);
                 memcpy(p->stateArray, &st, 0x3c);
                 p->msgId = -1;
                 p->msgId2 = -1;

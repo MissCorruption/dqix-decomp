@@ -25,31 +25,31 @@ struct Entry_0205d6a0;
 extern "C" char data_02108760[];
 
 extern "C" void func_ov005_02159904(EquipmentMenu* self);
-void SetChannelAFlag0205cef8(void* window);
-void SetChannelBFlag0205cf04(void* window);
-int GetActiveScaledSum0205d794(Struct_0205c570* window);
-int CheckFlag30Or401_02157190(void* self);
+extern "C" void func_0205cef8(void* window);
+extern "C" void func_0205cf04(void* window);
+extern "C" int func_0205d794(Struct_0205c570* window);
+extern "C" int func_ov005_02157190(void* self);
 struct Obj_0205da38;
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
-void ClearChannelAFlag0205cf10(void* window);
-void ClearFlagByte0205cf1c(Struct0205cf1c* window);
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int unk);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
+extern "C" void func_0205cf10(void* window);
+extern "C" void func_0205cf1c(Struct0205cf1c* window);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int unk);
 
 // USA: func_ov005_02158f80
 extern "C" ARM void func_ov005_02158f80(EquipmentMenu* self) {
     if (self->menuStep_ == 0) {
         func_ov005_02159904(self);
-        SetChannelAFlag0205cef8(self->window_);
-        SetChannelBFlag0205cf04(self->window_);
+        func_0205cef8(self->window_);
+        func_0205cf04(self->window_);
         self->menuStep_++;
     } else if (self->menuStep_ == 1) {
-        self->menuChoice_ = GetActiveScaledSum0205d794((Struct_0205c570*)self->window_);
-        if (CheckFlag30Or401_02157190(self) | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->window_, 0x14)) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ClearChannelAFlag0205cf10(self->window_);
-            ClearFlagByte0205cf1c((Struct0205cf1c*)self->window_);
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 0);
+        self->menuChoice_ = func_0205d794((Struct_0205c570*)self->window_);
+        if (func_ov005_02157190(self) | func_0205da38((struct Obj_0205da38*)self->window_, 0x14)) {
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205cf10(self->window_);
+            func_0205cf1c((Struct0205cf1c*)self->window_);
+            func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
             if (self->slot_ >= 0 && self->slot_ < 8) {
                 switch (self->menuChoice_) {
                 case 0:
@@ -83,9 +83,9 @@ extern "C" ARM void func_ov005_02158f80(EquipmentMenu* self) {
         }
         if (!g_keyManager.TestKeysPressed(2))
             return;
-        ClearChannelAFlag0205cf10(self->window_);
-        ClearFlagByte0205cf1c((Struct0205cf1c*)self->window_);
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 0);
+        func_0205cf10(self->window_);
+        func_0205cf1c((Struct0205cf1c*)self->window_);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
         self->menuState_ = 4;
         self->menuStep_ = 0;
     }

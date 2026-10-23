@@ -28,12 +28,12 @@ struct Param2085ab8 {
     unsigned int hi14 : 4;
 };
 
-unsigned char* GetFieldAt0x150_02053c6c(unsigned char* obj);
-int TestBitInArray0x8ec_02083b00(unsigned char* obj, int index);
-float AccumulateMagicalMending02084e78(void* param0);
-int AccumulateCategorySlotBits02085ab8(unsigned char* actor, Param2085ab8* action);
+extern "C" unsigned char* func_02053c6c(unsigned char* obj);
+extern "C" int func_02083b00(unsigned char* obj, int index);
+extern "C" float func_02084e78(void* param0);
+extern "C" int func_02085ab8(unsigned char* actor, Param2085ab8* action);
 float CalculateCritRate(int deftness, float accessoryBonus, float bookBonus, float skillBonus, unsigned char hitCount);
-float ComputeWeightedRatio020748f8(float a, unsigned int b);
+extern "C" float func_020748f8(float a, unsigned int b);
 extern "C" float func_ov000_02155a04(GameObject* obj);
 
 static inline unsigned char* GetStatus(GameObject* c) {
@@ -52,19 +52,19 @@ extern "C" ARM int func_ov000_02156cc4(struct Random* rand, int attackerId, Para
     GameState* bs = GameState::GetInstance();
     float rate;
     if (IsPartyIndex(attackerId)) {
-        GameObject* attacker = GetCombatantWithFlag0x100_0200ff1c(bs, attackerId);
-        unsigned char* battler = GetFieldAt0x150_02053c6c((unsigned char*)attacker);
+        GameObject* attacker = func_0200ff1c(bs, attackerId);
+        unsigned char* battler = func_02053c6c((unsigned char*)attacker);
         int deftness = ((Battler02156cc4*)battler)->deftness;
-        float mending = AccumulateMagicalMending02084e78(battler);
-        float bonus = AccumulateCategorySlotBits02085ab8(battler, action);
+        float mending = func_02084e78(battler);
+        float bonus = func_02085ab8(battler, action);
         rate = CalculateCritRate(deftness, mending, bonus, action->critChance / 100.0f, (unsigned char)hitCount);
-        if (TestBitInArray0x8ec_02083b00(GetStatus(attacker), 0x11d)) {
+        if (func_02083b00(GetStatus(attacker), 0x11d)) {
             if (func_ov000_02155a04(attacker) < 0.25f) {
                 rate *= 2.0f;
             }
         }
     } else {
-        rate = ComputeWeightedRatio020748f8(action->critChance / 100.0f, (unsigned char)hitCount);
+        rate = func_020748f8(action->critChance / 100.0f, (unsigned char)hitCount);
     }
     rate = 100.0f * rate;
     return NextRandomMax(rand, 10000) < (int)rate;

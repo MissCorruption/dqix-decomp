@@ -94,10 +94,10 @@ struct AlchemyPot {
     unsigned char resetBlend_;
 };
 
-void* GetWord0x0_0200fb8c(int* gameState);
-void SetForwardAndStore0205ebc0(void* sound, int a, int b);
-void DispatchIfField0xc4NonNeg_0205ebfc(void* sound, int a, int b);
-void ForwardField0xc0_0205ebec(void* sound);
+extern "C" void* func_0200fb8c(int* gameState);
+extern "C" void func_0205ebc0(void* sound, int a, int b);
+extern "C" void func_0205ebfc(void* sound, int a, int b);
+extern "C" void func_0205ebec(void* sound);
 
 extern char data_02108760[];
 extern char data_ov006_02160080[];
@@ -113,7 +113,7 @@ extern char data_ov006_021600a9[];
 
 // USA: func_ov006_02155068
 extern "C" ARM void func_ov006_02155068(AlchemyPot* self) {
-    unsigned int* resources = (unsigned int*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    unsigned int* resources = (unsigned int*)func_0200fb8c((int*)GameState::GetInstance());
     unsigned short flags = self->flags_;
     if (flags & 0x2000) {
         SetFlags04((GameResources*)resources, 0x2000);
@@ -123,8 +123,8 @@ extern "C" ARM void func_ov006_02155068(AlchemyPot* self) {
     }
     if (flags & 0x80) {
         if (self->animationStep_ == 0) {
-            SetForwardAndStore0205ebc0(data_02108760, 0x7a, 0x7a);
-            DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 0, 0);
+            func_0205ebc0(data_02108760, 0x7a, 0x7a);
+            func_0205ebfc(data_02108760, 0, 0);
             self->pot_.MaybeSetRegularAnimation(data_ov006_02160080, 1);
             self->effect_.MaybeSetRegularAnimation(data_ov006_02160087, 1);
             self->steam_.MaybeSetRegularAnimation(data_ov006_02160080, 9);
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov006_02155068(AlchemyPot* self) {
             return;
         }
         ClearFlags04((GameResources*)resources, 0x2000);
-        ForwardField0xc0_0205ebec(data_02108760);
+        func_0205ebec(data_02108760);
         self->animationStep_ = 0;
         self->pot_.MaybeSetRegularAnimation(data_ov006_021600a0, 1);
         self->effect_.StopCurrentAnimation();

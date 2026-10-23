@@ -28,7 +28,7 @@ extern "C" ARM void func_020c9be0(void);
 extern "C" int func_ov027_021dab00(int a, int b, void* c);
 
 struct Base_021d989c;
-ARM void DoReadRequest_021d989c(Base_021d989c* p);
+extern "C" ARM void func_ov027_021d989c(Base_021d989c* p);
 
 struct InputDD638_021d9940 {
     unsigned char type;
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov027_021d9940(void) {
         best->base = addr & ~0x1f;
         *(void**)(c7ce0 + 0x10) = best;
         *(void**)(c7ce0 + 0x14) = obj;
-        func_ov027_021dd3f8(c7ce0, (unsigned int)&DoReadRequest_021d989c, 0, 4);
+        func_ov027_021dd3f8(c7ce0, (unsigned int)&func_ov027_021d989c, 0, 4);
         goto fail;
     fail:
         return 0x15;

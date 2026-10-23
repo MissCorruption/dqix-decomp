@@ -5,7 +5,7 @@ extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
-ARM void ConfigurePairMode020bb48c(unsigned int mode, int installHandlers);
+extern "C" ARM void func_020bb48c(unsigned int mode, int installHandlers);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 void UpdateVRAMStagingVRAMBanks(void);
@@ -40,7 +40,7 @@ extern "C" ARM void func_02097b34(struct Obj02097b34* obj) {
             count = count + 1;
             mask &= mask - 1;
         }
-        ConfigurePairMode020bb48c(count, 1);
+        func_020bb48c(count, 1);
     }
     if (obj->field1e & 2) {
         MapVRAMBanksToSubBG(obj->field10);

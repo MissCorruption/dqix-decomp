@@ -2,7 +2,7 @@
 
 extern void* data_ov031_0224e588;
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-int CallWithZeroZeroZero_0220728c(int a, int b, int c);
+extern "C" int func_ov031_0220728c(int a, int b, int c);
 extern "C" void func_ov031_02210358(int a, int b);
 
 // USA: func_ov031_022104e4
@@ -17,7 +17,7 @@ extern "C" ARM int func_ov031_022104e4(unsigned char* buf) {
     VectorizedMemset(buf, 0, 0x414);
     do {
         int handle = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
-        n = CallWithZeroZeroZero_0220728c(handle, (int)cur, 4 - processed);
+        n = func_ov031_0220728c(handle, (int)cur, 4 - processed);
         if (n > 0) {
             processed += n;
             cur += n;
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov031_022104e4(unsigned char* buf) {
     if (processed < total) {
         do {
             int handle = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
-            n = CallWithZeroZeroZero_0220728c(handle, (int)cur, total - processed);
+            n = func_ov031_0220728c(handle, (int)cur, total - processed);
             if (n > 0) {
                 processed += n;
                 cur += n;

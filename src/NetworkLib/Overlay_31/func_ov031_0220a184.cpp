@@ -23,11 +23,11 @@ struct SecurityConnection {
 
 extern "C" void func_ov031_022037a8(const void*, int, int, int, SecurityConnection*);
 extern "C" void func_ov031_02209cf8(void*, int);
-void BytesToShortArrayBE_0220c8d0(unsigned short*, unsigned char*, int, int);
-unsigned int SwapActiveContextPriority_02207cf0();
+extern "C" void func_ov031_0220c8d0(unsigned short*, unsigned char*, int, int);
+extern "C" unsigned int func_ov031_02207cf0();
 extern "C" void func_ov031_0220c2bc(unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
-void SetActiveContextPriorityIfValid_02207d3c(unsigned int);
-void InitTwoSections_022098ac(void*, int, int);
+extern "C" void func_ov031_02207d3c(unsigned int);
+extern "C" void func_ov031_022098ac(void*, int, int);
 extern unsigned char data_ov031_02245fa8[8];
 extern void* (*data_ov031_0224c994)(unsigned int);
 extern int (*data_ov031_0224c9c0)(void*);
@@ -66,12 +66,12 @@ extern "C" ARM int func_ov031_0220a184(SecurityConnection* connection) {
     unsigned short* message = workspace + words;
     unsigned short* exponent = message + words;
     modulus = exponent + words;
-    BytesToShortArrayBE_0220c8d0(message, padding, length, words);
-    BytesToShortArrayBE_0220c8d0(exponent, handshake->exponent, handshake->exponentLength, words);
-    BytesToShortArrayBE_0220c8d0(modulus, handshake->modulus, length, words);
-    unsigned int priority = SwapActiveContextPriority_02207cf0();
+    func_ov031_0220c8d0(message, padding, length, words);
+    func_ov031_0220c8d0(exponent, handshake->exponent, handshake->exponentLength, words);
+    func_ov031_0220c8d0(modulus, handshake->modulus, length, words);
+    unsigned int priority = func_ov031_02207cf0();
     func_ov031_0220c2bc(workspace, message, exponent, words, modulus);
-    SetActiveContextPriorityIfValid_02207d3c(priority);
+    func_ov031_02207d3c(priority);
     unsigned char* packet = (unsigned char*)data_ov031_0224c994(length + 0x49);
     if (packet == 0) {
         data_ov031_0224c9c0(padding);
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov031_0220a184(SecurityConnection* connection) {
         } while (index >= 0);
     }
     func_ov031_022037a8(packet, length + 9, 0, 0, connection);
-    InitTwoSections_022098ac(handshake, (int)(packet + 5), length + 4);
+    func_ov031_022098ac(handshake, (int)(packet + 5), length + 4);
     data_ov031_0224c9c0(packet);
     data_ov031_0224c9c0(workspace);
     return data_ov031_0224c9c0(padding);

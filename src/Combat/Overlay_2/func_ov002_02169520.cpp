@@ -10,13 +10,13 @@ struct Struct_0205c570;
 struct Obj_0205da38;
 struct Obj0205eaa0;
 
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-int GetField110ArrayValue021574d4(void *self, int idx);
-int CheckFlagOrThreshold_02161b48(char *self, int flag);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
+extern "C" int func_ov002_021574d4(void *self, int idx);
+extern "C" int func_ov002_02161b48(char *self, int flag);
 extern "C" void func_ov002_02161cf0(void *self);
 extern "C" void func_ov002_02160274(void *self);
 extern "C" void func_ov002_02156e90(void *self);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov002_02169520(char *base) {
     int phase = *(int *) (base + 0x1bc0 + regionalState);
     if (phase == 0) {
         *(short *) (base + 0x1c08 + regionalState) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + 0xec8 + regionalList), 0, 2);
+        func_0205de24((struct Struct0205de24 *) (base + 0xec8 + regionalList), 0, 2);
         func_ov002_02161cf0(base);
         func_ov002_02160274(base);
         (*(int *) (base + 0x1bc0 + regionalState))++;
@@ -45,18 +45,18 @@ extern "C" ARM void func_ov002_02169520(char *base) {
     if (phase != 1) return;
     *(int *) (base + 0x247c + regionalFlags) |= 4;
     short old                  = *(short *) (base + 0x1c08 + regionalState);
-    *(short *) (base + 0x1c08 + regionalState) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0xec8 + regionalList));
+    *(short *) (base + 0x1c08 + regionalState) = func_0205d794((struct Struct_0205c570 *) (base + 0xec8 + regionalList));
     if (old != *(short *) (base + 0x1c08 + regionalState)) *(int *) (base + 0x1bcc + regionalState) = 1;
-    *(signed char *) (base + 0x1c20 + regionalState) = GetField110ArrayValue021574d4(base, *(short *) (base + 0x1c08 + regionalState));
+    *(signed char *) (base + 0x1c20 + regionalState) = func_ov002_021574d4(base, *(short *) (base + 0x1c08 + regionalState));
 #if defined(jpn)
     func_ov002_0215cd18(base);
 #endif
     int pressed                      = g_keyManager.TestKeysPressed(0x601);
-    int cancel = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0xec8 + regionalList), 0x14)) ? 1 : 0;
+    int cancel = (pressed | func_0205da38((struct Obj_0205da38*)(base + 0xec8 + regionalList), 0x14)) ? 1 : 0;
     if (cancel) {
         *(unsigned char *) (base + 0xf80 + regionalList) = *(int *) (base + 0x1bb8 + regionalState);
         *(int *) (base + 0x247c + regionalFlags) &= ~4;
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+        func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
         int ok                     = 0;
         *(short *) (base + 0x1c12 + regionalState) = ok;
         int sel                    = *(signed char *) (base + 0x1c20 + regionalState);
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_02169520(char *base) {
         *(int *) (base + 0x1bc0 + regionalState)   = 0;
         return;
     }
-    if (CheckFlagOrThreshold_02161b48(base, 1)) {
+    if (func_ov002_02161b48(base, 1)) {
         *(short *) (base + 0x1c08 + regionalState)       = -1;
         *(signed char *) (base + 0x1c20 + regionalState) = -1;
         func_ov002_02156e90(base);

@@ -3,14 +3,14 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
+extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 
 // USA: func_02048150
 extern "C" ARM void func_02048150(GameObject* object, int hp, int notify) {
     GameState* state = GameState::GetInstance();
     GameResources* resources = GetGameResources();
-    ArrayContainsByteStruct* list = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(state);
+    ArrayContainsByteStruct* list = (ArrayContainsByteStruct*)func_02010828(state);
     CombatantStatus* runtime = object->combatFields_.savedState_130_;
     int hadFlag = 0;
     if (runtime->flags & 1) hadFlag = 1;
@@ -24,6 +24,6 @@ extern "C" ARM void func_02048150(GameObject* object, int hp, int notify) {
     if (current->flags & 4) keepFlag = 1;
     current->flags = 0;
     if (keepFlag) object->combatFields_.savedState_130_->flags |= 4;
-    if (hadFlag && ArrayContainsByte_02086ef0(list, object->obj3D_.unknown_4_) && notify)
+    if (hadFlag && func_02086ef0(list, object->obj3D_.unknown_4_) && notify)
         func_ov017_02191108(resources, 1, 1, 1, 1);
 }

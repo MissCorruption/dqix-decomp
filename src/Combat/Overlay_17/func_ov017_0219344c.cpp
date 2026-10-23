@@ -55,23 +55,23 @@ struct Link0219344c {
 };
 
 extern "C" void* func_02012fe4(void);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24** head);
-void ClearFlags0x40And0x80At0xe0(ByteFlags02033f2c* p);
-int NotifyEntriesFlag256_0218df50(void* a, void* b);
+extern "C" int func_02046b24(HeadNode02046b24** head);
+extern "C" void func_02033f2c(ByteFlags02033f2c* p);
+extern "C" int func_ov017_0218df50(void* a, void* b);
 extern "C" int func_ov017_0218dfd8(Actor0219344c* self);
-int GetField0xe4IfFlag0x40(BitFlag02033f44* p);
-int IsFlag0x1ceBit0x8Set_02039dcc(unsigned char* p);
+extern "C" int func_02033f44(BitFlag02033f44* p);
+extern "C" int func_02039dcc(unsigned char* p);
 extern "C" int func_ov017_02193290(Probe0219344c* probe, Actor0219344c* self, Vector3i* dest, Vector3i* pos, int* y, int* yLow, int hidden);
 extern "C" int func_02017d90(Zone0219344c* zone, int index, Grid0219344c* grid, Probe0219344c probe, Actor0219344c* self);
 extern "C" int func_ov017_02192b48(Grid0219344c* grid, Probe0219344c* probe, int count, Actor0219344c* self, int arg, Vector3i* dest, Vector3i* pos, int* y, int* yLow, int enable, int* reset, int inCell, int index, int hidden);
-unsigned char GetField0x397cValue_020100b0(GameState* gs);
-void SetByteField0x253_020397c0(void* obj);
-int SetByte0xbeShiftPrev(Bytes02033b88* p, int val);
-void CancelPendingAction020397cc(Obj020397cc* obj, int val);
+extern "C" unsigned char func_020100b0(GameState* gs);
+extern "C" void func_020397c0(void* obj);
+extern "C" int func_02033b88(Bytes02033b88* p, int val);
+extern "C" void func_020397cc(Obj020397cc* obj, int val);
 extern "C" void func_020531f0(GameObject* obj);
-unsigned char* GetElementStride0x24_020177a8(unsigned char* p, int i);
-void GetDeltaAndForward_0218daa8(void* res, Vec3* pos, int speed, int a, unsigned char b);
-unsigned char* GetActorEntryByIndex_0201777c(ActorListManager* list, int i);
+extern "C" unsigned char* func_020177a8(unsigned char* p, int i);
+extern "C" void func_ov017_0218daa8(void* res, Vec3* pos, int speed, int a, unsigned char b);
+extern "C" unsigned char* func_0201777c(ActorListManager* list, int i);
 
 #define SETUP_PROBE()                                          \
     do {                                                       \
@@ -130,13 +130,13 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     Vector3i saved;
     SETUP_PROBE();
     reset = 1;
-    if (GetHeadNodeIdOrMinusOne(head) != 3 || self->flagC1) {
+    if (func_02046b24(head) != 3 || self->flagC1) {
         self->fieldAC += 0x51;
     }
     if (self->fieldAC > 0x1000) {
         self->fieldAC = 0x1000;
     }
-    ClearFlags0x40And0x80At0xe0((ByteFlags02033f2c*)self);
+    func_02033f2c((ByteFlags02033f2c*)self);
     inCell = 1;
     useCell = zone->useCell;
     if (useCell != 0) {
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
         if (mode == 2 && i == 0 && outA != NULL && outB != NULL) {
             saved = self->position_;
             dest = &saved;
-            notifyA |= NotifyEntriesFlag256_0218df50(self, 0);
+            notifyA |= func_ov017_0218df50(self, 0);
             notifyB |= notifyA;
             notifyB |= func_ov017_0218dfd8(self);
             Vector3i cur = self->position_;
@@ -180,12 +180,12 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
             saved = self->position_;
             dest = &saved;
             if (outA != NULL && outB != NULL) {
-                if (GetField0xe4IfFlag0x40((BitFlag02033f44*)self) && !IsFlag0x1ceBit0x8Set_02039dcc((unsigned char*)self) && notifyB != 0) {
+                if (func_02033f44((BitFlag02033f44*)self) && !func_02039dcc((unsigned char*)self) && notifyB != 0) {
                     self->position_ = *target;
                     break;
                 }
-                if (GetField0xe4IfFlag0x40((BitFlag02033f44*)self)) {
-                    *outA |= NotifyEntriesFlag256_0218df50(self, 0);
+                if (func_02033f44((BitFlag02033f44*)self)) {
+                    *outA |= func_ov017_0218df50(self, 0);
                     *outB |= *outA;
                     *outB |= func_ov017_0218dfd8(self);
                     if (*outB != 0) {
@@ -198,10 +198,10 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
             Vector3fix_Add(&next, &step, &next);
             self->position_ = next;
             if (outA != NULL && outB != NULL) {
-                *outA |= NotifyEntriesFlag256_0218df50(self, 0);
+                *outA |= func_ov017_0218df50(self, 0);
                 *outB |= *outA;
                 *outB |= func_ov017_0218dfd8(self);
-                if (GetField0xe4IfFlag0x40((BitFlag02033f44*)self) && *outB != 0) {
+                if (func_02033f44((BitFlag02033f44*)self) && *outB != 0) {
                     self->position_ = *target;
                     break;
                 }
@@ -230,7 +230,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
         }
         if (dest != NULL && pathHits != 0) {
             short id = self->unknown_4_;
-            if (id != GetField0x397cValue_020100b0(gs)) {
+            if (id != func_020100b0(gs)) {
                 continue;
             }
             found = func_ov017_02193290(&probe, self, dest, &pos, &y, &yLow, hidden);
@@ -252,13 +252,13 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     }
     if (reset != 0) {
         if (oldAC != 0 && player->obj3D_.unknown_4_ == self->unknown_4_) {
-            SetByteField0x253_020397c0(player);
+            func_020397c0(player);
         }
         self->fieldAC = 0;
     } else if (oldAC == 0) {
-        SetByte0xbeShiftPrev((Bytes02033b88*)self, 0);
+        func_02033b88((Bytes02033b88*)self, 0);
         if (player->obj3D_.unknown_4_ == self->unknown_4_) {
-            CancelPendingAction020397cc((Obj020397cc*)player, 1);
+            func_020397cc((Obj020397cc*)player, 1);
             if (!player->obj3D_.GetFlag(0x1000)) {
                 func_020531f0(player);
             }
@@ -271,14 +271,14 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     Link0219344c* link = (Link0219344c*)res2->interactionSelection;
     if (link != NULL && !(startPos.x == endPos.x && startPos.y == endPos.y && startPos.z == endPos.z)) {
         if (link->kind == 2) {
-            unsigned char* elem = GetElementStride0x24_020177a8(zone2, link->index);
+            unsigned char* elem = func_020177a8(zone2, link->index);
             if (elem != NULL) {
-                GetDeltaAndForward_0218daa8(res2, (Vec3*)elem, 0xccc, 0, 0);
+                func_ov017_0218daa8(res2, (Vec3*)elem, 0xccc, 0, 0);
             }
         } else if (hits == 0 && found == 0 && link->kind == 5) {
-            unsigned char* actor = GetActorEntryByIndex_0201777c((ActorListManager*)zone2, link->index);
+            unsigned char* actor = func_0201777c((ActorListManager*)zone2, link->index);
             if (actor != NULL) {
-                GetDeltaAndForward_0218daa8(res2, (Vec3*)(actor + 0x24), 0xc51, 0, 0);
+                func_ov017_0218daa8(res2, (Vec3*)(actor + 0x24), 0xc51, 0, 0);
             }
         }
     }

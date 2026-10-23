@@ -3,24 +3,24 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-unsigned char GetByte0x4_0200fb9c(char* obj);
-void SetByte0x4_0200fb94(char* obj, unsigned char value);
-void SetWord0x7f6c_02012010(void* obj, int value);
-unsigned char GetByte0x7f70_02012034(void* obj);
-void SetByte0x7f70_02012028(void* obj, unsigned char value);
-void SetFieldFlag17188_0218d258(void* obj);
-void SetModeClamped0209ca70(void* obj, int val);
+extern "C" unsigned char func_0200fb9c(char* obj);
+extern "C" void func_0200fb94(char* obj, unsigned char value);
+extern "C" void func_02012010(void* obj, int value);
+extern "C" unsigned char func_02012034(void* obj);
+extern "C" void func_02012028(void* obj, unsigned char value);
+extern "C" void func_ov017_0218d258(void* obj);
+extern "C" void func_0209ca70(void* obj, int val);
 
 struct Actor0209c678;
-void DispatchContextByState0209c678(struct Actor0209c678* actor, int arg);
+extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
 struct Actor0209c20c;
-void InitActorContext0209c20c(struct Actor0209c20c* actor);
+extern "C" void func_0209c20c(struct Actor0209c20c* actor);
 struct Obj_0205e8ec;
-void RefreshDisplayState0205e8ec(struct Obj_0205e8ec* a);
+extern "C" void func_0205e8ec(struct Obj_0205e8ec* a);
 struct Obj0205e9f4;
-void SetStateAndDispatch0205e9f4(struct Obj0205e9f4* obj, int state);
+extern "C" void func_0205e9f4(struct Obj0205e9f4* obj, int state);
 struct StateBits5ccc_11544;
-void SetFlag0x5cccBit0_02011544(struct StateBits5ccc_11544* state);
+extern "C" void func_02011544(struct StateBits5ccc_11544* state);
 
 extern int data_02109bf4;
 extern int data_02108760;
@@ -36,29 +36,29 @@ enum { kStateIndex = 1, kVariantIndex = 2, kModeIndex = 3, kContextIndex = 4, kF
 extern "C" ARM int func_ov004_0216d920() {
     GameState* bs = GameState::GetInstance();
     GameResources* obj = GetGameResources();
-    if (GetByte0x4_0200fb9c((char*)bs) != 2) {
-        DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 0);
-        InitActorContext0209c20c((struct Actor0209c20c*)&data_02109bf4);
-        RefreshDisplayState0205e8ec((struct Obj_0205e8ec*)&data_02108760);
+    if (func_0200fb9c((char*)bs) != 2) {
+        func_0209c678((struct Actor0209c678*)&data_02109bf4, 0);
+        func_0209c20c((struct Actor0209c20c*)&data_02109bf4);
+        func_0205e8ec((struct Obj_0205e8ec*)&data_02108760);
     }
-    SetModeClamped0209ca70((void*)&data_02109bf4, data_ov004_02171034[kContextIndex]);
-    SetStateAndDispatch0205e9f4((struct Obj0205e9f4*)&data_02108760, data_ov004_02171034[kStateIndex]);
+    func_0209ca70((void*)&data_02109bf4, data_ov004_02171034[kContextIndex]);
+    func_0205e9f4((struct Obj0205e9f4*)&data_02108760, data_ov004_02171034[kStateIndex]);
     ClearFlags00(obj, -1);
     ClearFlags04(obj, -1);
     ClearFlags08(obj, -1);
-    SetFieldFlag17188_0218d258(obj);
-    SetWord0x7f6c_02012010(bs, 5);
+    func_ov017_0218d258(obj);
+    func_02012010(bs, 5);
     if (data_ov004_02171034[kVariantIndex] == 1 && data_ov004_02171034[kModeIndex] != 4) {
-        SetByte0x4_0200fb94((char*)bs, 6);
-        SetWord0x7f6c_02012010(bs, 2);
+        func_0200fb94((char*)bs, 6);
+        func_02012010(bs, 2);
     }
-    if (GetByte0x7f70_02012034(bs) == 1) {
-        SetByte0x4_0200fb94((char*)bs, 6);
-        SetWord0x7f6c_02012010(bs, 0);
-        SetByte0x7f70_02012028(bs, 0);
+    if (func_02012034(bs) == 1) {
+        func_0200fb94((char*)bs, 6);
+        func_02012010(bs, 0);
+        func_02012028(bs, 0);
     }
     if (data_ov004_02171034[kFlagIndex] != 0) {
-        SetFlag0x5cccBit0_02011544((struct StateBits5ccc_11544*)bs);
+        func_02011544((struct StateBits5ccc_11544*)bs);
         data_ov004_02171034[kFlagIndex] = 0;
     }
     return 0;

@@ -87,7 +87,7 @@ static inline void SetNames_021dc680(Param021dc680* param, const UserInfo021dc68
 
 int data_ov027_021dd8f8 = 1;
 
-unsigned short IncrementSlotIndex020d4dd4(void);
+extern "C" unsigned short func_020d4dd4(void);
 extern "C" void func_020ca3ec(int val, void* dst, unsigned int size);
 extern "C" void func_020ca390(int val, void* dst, unsigned int size);
 extern "C" unsigned int func_ov027_021dc618(void);
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov027_021dc680(void* work, const UserInfo021dc680* user,
 	param = (Param021dc680*)(((unsigned int)work + 31) & ~31);
 	pwork = (PWork021dc680*)(((unsigned int)param + sizeof(Param021dc680) + 31) & ~31);
 	if (tgid == 0x10000) {
-		tgid = IncrementSlotIndex020d4dd4();
+		tgid = func_020d4dd4();
 	}
 	enabled = DisableIRQInterrupts();
 	data_ov027_021dd8f2 = 0xffff;

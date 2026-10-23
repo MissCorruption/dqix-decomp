@@ -83,20 +83,20 @@ struct Rodata021de6a0 {
     char padd[0xb];
 };
 
-void CopyInternalFields0207df50(Foo0207df50* p);
+extern "C" void func_0207df50(Foo0207df50* p);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-void SetForwardAndStore0205eb54(void* obj, int arg1, int arg2);
-void DispatchIfField0xc4NonNeg_0205eb90(void* obj, int a, int b);
-void ForwardField0xc0_0205eb80(void* obj);
-void InitStruct02078484(InitStruct02078484Struct* req);
-int FindNodeAndProcess02057fb4(void* list, int id, void* req);
-void SetField41AndScaleSub02049f50(Obj02049f50* obj, int val, int count);
-void ResetTwoFields021637c8(void* obj);
-void UpdateFlag8AndBit4_021636ac(void* objRaw);
-void ClearFlagIfParityMismatch02163710_02163710(void* obj, int flag);
-void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char* work);
+extern "C" void func_0205eb54(void* obj, int arg1, int arg2);
+extern "C" void func_0205eb90(void* obj, int a, int b);
+extern "C" void func_0205eb80(void* obj);
+extern "C" void func_02078484(InitStruct02078484Struct* req);
+extern "C" int func_02057fb4(void* list, int id, void* req);
+extern "C" void func_02049f50(Obj02049f50* obj, int val, int count);
+extern "C" void func_ov000_021637c8(void* obj);
+extern "C" void func_ov000_021636ac(void* objRaw);
+extern "C" void func_ov000_02163710(void* obj, int flag);
+extern "C" void func_ov000_02167e6c(unsigned char* work);
 
 extern "C" {
 void* func_02057924();
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
     if (self->phase == 0) {
         if (func_ov000_021759f4(self->list)) {
             self->cmdAlloc.Reset();
-            CopyInternalFields0207df50(&self->stateB);
+            func_0207df50(&self->stateB);
             self->objId = self->objId771e = self->objId7720 = -1;
             SetBrightness(res, -0x10, 0xf);
             self->objId = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov026_021dee0c, &self->cmdAlloc);
@@ -157,18 +157,18 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
             self->objId = self->objId771e = self->objId7720 = -1;
             func_ov000_021626a0(self, 0x26, 1);
             func_ov000_021626a0(self, 0x27, 0);
-            RunFlaglearAndSetMode02167e6c_02167e6c((unsigned char*)self);
+            func_ov000_02167e6c((unsigned char*)self);
             self->phase = 2;
         }
     } else if (self->phase == 2) {
         InitStruct02078484Struct req;
-        SetForwardAndStore0205eb54(data_02108760, 0x1b3, 0x1b3);
-        DispatchIfField0xc4NonNeg_0205eb90(data_02108760, 1, 0);
+        func_0205eb54(data_02108760, 0x1b3, 0x1b3);
+        func_0205eb90(data_02108760, 1, 0);
         self->fadeActive = 1;
         func_ov000_021626a0(self, 0x26, 0);
         func_ov000_021626a0(self, 0x27, 0);
         SetFlags04((GameResources*)res, 0x100000);
-        InitStruct02078484(&req);
+        func_02078484(&req);
         req.b0 = 1;
         req.f10 = 1;
         req.scale.x = 0x800;
@@ -177,8 +177,8 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
         req.offset.x = 0;
         req.offset.z = 0;
         req.offset.y = -0xa000;
-        self->objId7722 = FindNodeAndProcess02057fb4(func_02057924(), 0x1d, &req);
-        self->objId7724 = FindNodeAndProcess02057fb4(func_02057924(), 0x1e, &req);
+        self->objId7722 = func_02057fb4(func_02057924(), 0x1d, &req);
+        self->objId7724 = func_02057fb4(func_02057924(), 0x1e, &req);
         self->objId7726 = 0;
         SetMainBrightness(res, 0, 0xf);
         self->phase = 3;
@@ -212,34 +212,34 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
         }
     } else if (self->phase == 5) {
         InitStruct02078484Struct req;
-        ForwardField0xc0_0205eb80(data_02108760);
+        func_0205eb80(data_02108760);
         self->fadeActive = 0;
         SetMainBrightness(res, -0x10, 0);
         GameState* gs = GameState::GetInstance();
-        InitStruct02078484(&req);
+        func_02078484(&req);
         for (int i = 0; i < 4; i++) {
             GameObject* c = gs->GetCombatantByIndex(i);
             if (c != NULL) {
-                SetField41AndScaleSub02049f50((Obj02049f50*)c, 0x1f, 0);
+                func_02049f50((Obj02049f50*)c, 0x1f, 0);
             }
             req.objectId = i;
             req.f10 = 0;
-            self->objIds[i] = FindNodeAndProcess02057fb4(func_02057924(), 0x12, &req);
+            self->objIds[i] = func_02057fb4(func_02057924(), 0x12, &req);
         }
         func_ov000_02175808(self->list);
         self->uiFlags |= 0x200;
-        ResetTwoFields021637c8(self);
+        func_ov000_021637c8(self);
         func_ov026_021dc440(&self->cmdAlloc, self, self->battle, self->party, data_ov026_021dedec);
         func_ov000_02163894(self);
-        UpdateFlag8AndBit4_021636ac(self);
+        func_ov000_021636ac(self);
         self->phase = 6;
-        SetForwardAndStore0205eb54(data_02108760, 0x1b3, 0x1b3);
-        DispatchIfField0xc4NonNeg_0205eb90(data_02108760, 2, 0);
+        func_0205eb54(data_02108760, 0x1b3, 0x1b3);
+        func_0205eb90(data_02108760, 2, 0);
         self->fadeActive = 1;
     } else if (self->phase == 6) {
         func_ov000_02163928(self);
         if (func_ov026_021dc040(&self->alloc, self, self->battle, self->party)) {
-            ClearFlagIfParityMismatch02163710_02163710(self, 0);
+            func_ov000_02163710(self, 0);
             self->phase = -1;
         }
     } else if (self->phase == -1) {

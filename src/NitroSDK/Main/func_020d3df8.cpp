@@ -96,8 +96,8 @@ struct WMSystemBuffer020d3df8 {
 
 extern WMState020d3df8 data_021142e0;
 extern unsigned long data_02114380[10][WM_FIFO_BUFFER_WORDS] __attribute__((aligned(32)));
-void ClearBit0At027FFF96_020d468c();
-void InitStruct020c7de4(InitData020c7de4*, int, int);
+extern "C" void func_020d468c();
+extern "C" void func_020c7de4(InitData020c7de4*, int, int);
 extern "C" int func_020c7e0c(InitData020c7de4*, void*, int);
 extern "C" void func_020d42e0(unsigned int, unsigned int, unsigned int);
 
@@ -132,7 +132,7 @@ extern "C" ARM WMErrCode020d3df8 func_020d3df8(void* buffer, unsigned short dmaN
     data_021142e0.arm9->status = (WMStatus020d3df8*)(data_021142e0.arm9->arm7 + 1);
     data_021142e0.arm9->fifo9to7 = (unsigned long*)(data_021142e0.arm9->status + 1);
     data_021142e0.arm9->fifo7to9 = data_021142e0.arm9->fifo9to7 + WM_FIFO_BUFFER_WORDS;
-    ClearBit0At027FFF96_020d468c();
+    func_020d468c();
     data_021142e0.arm9->dmaNo = dmaNo;
     data_021142e0.arm9->connectedAidBitmap = 0;
     data_021142e0.arm9->myAid = 0;
@@ -140,7 +140,7 @@ extern "C" ARM WMErrCode020d3df8 func_020d3df8(void* buffer, unsigned short dmaN
         data_021142e0.arm9->portCallbacks[i] = NULL;
         data_021142e0.arm9->portArguments[i] = NULL;
     }
-    InitStruct020c7de4(&data_021142e0.messageQueue, (int)data_021142e0.messages, 10);
+    func_020c7de4(&data_021142e0.messageQueue, (int)data_021142e0.messages, 10);
     for (int i = 0; i < 10; i++) {
         ((WMCallback020d3df8*)data_02114380[i])->apiId = 0x8000;
         CleanCacheRange(data_02114380[i], 2);

@@ -8,12 +8,12 @@ extern "C" void func_ov009_02188944(CharacterCreationUI* self, int val);
 extern "C" int func_ov009_02188ee8(CharacterCreationUI* self);
 #if defined(jpn)
 extern "C" ARM void func_ov009_021867bc(unsigned char *self, int val);
-#define SetStatValue021855dc func_ov009_021867bc
+#define func_ov009_021855dc func_ov009_021867bc
 #else
-ARM void SetStatValue021855dc(unsigned char *self, int val);
+extern "C" ARM void func_ov009_021855dc(unsigned char *self, int val);
 #endif
 
-// USA: func_ov009_021869d8  (semantic: AdvanceStatStep_021869d8)
+// USA: func_ov009_021869d8
 extern "C" ARM void func_ov009_021869d8(CharacterCreationUI* self) {
 	unsigned char step = self->step;
 	if (step == 0) {
@@ -41,11 +41,11 @@ extern "C" ARM void func_ov009_021869d8(CharacterCreationUI* self) {
 	}
 	int result = func_ov009_02188ee8(self);
 	if (result == -2) {
-		SetStatValue021855dc((unsigned char*)self, 5);
+		func_ov009_021855dc((unsigned char*)self, 5);
 		return;
 	}
 	if (result == -3) {
-		SetStatValue021855dc((unsigned char*)self, 3);
+		func_ov009_021855dc((unsigned char*)self, 3);
 		return;
 	}
 	if (result < 0x65 || result > 0x6c) {
@@ -60,5 +60,5 @@ extern "C" ARM void func_ov009_021869d8(CharacterCreationUI* self) {
 	if (v == self->state) {
 		return;
 	}
-	SetStatValue021855dc((unsigned char*)self, v & 0xff);
+	func_ov009_021855dc((unsigned char*)self, v & 0xff);
 }

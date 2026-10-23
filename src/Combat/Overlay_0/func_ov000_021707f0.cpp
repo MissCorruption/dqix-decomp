@@ -59,11 +59,11 @@ struct PaletteOwner {
     float phase;
 };
 
-int GetWord0x0_0200fb8c(int*);
-void* GetOffsetPtr02160f08(void*);
-Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c*, int);
-int IsField0x9cEqual3_0204c7cc(unsigned char*);
-void GetFourShortsAtIndex(ShortArrays0204c610*, int, short*, short*, short*, short*);
+extern "C" int func_0200fb8c(int*);
+extern "C" void* func_ov000_02160f08(void*);
+extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c*, int);
+extern "C" int func_0204c7cc(unsigned char*);
+extern "C" void func_0204c610(ShortArrays0204c610*, int, short*, short*, short*, short*);
 extern "C" void* func_ov017_021b8468(void*);
 extern "C" double func_02009424(double);
 extern "C" void func_0205ac40(void*, void*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_021707f0(PaletteOwner* owner) {
     if (!state) {
         return;
     }
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)state);
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)state);
     if (!resources || !resources->unknown_ptr_3718) {
         return;
     }
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_021707f0(PaletteOwner* owner) {
     if (!battle) {
         return;
     }
-    BattlePaletteState* palette = (BattlePaletteState*)GetOffsetPtr02160f08(battle);
+    BattlePaletteState* palette = (BattlePaletteState*)func_ov000_02160f08(battle);
     if (!palette) {
         return;
     }
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov000_021707f0(PaletteOwner* owner) {
     short top = 0;
     short right = 0;
     short bottom = 0;
-    Elem_0205d81c* element = FindElementByC40205d81c(owner->elements, 13);
+    Elem_0205d81c* element = func_0205d81c(owner->elements, 13);
     signed char colorIndex = 0;
     short slot = 0;
     GameObject* unit = GameState::GetInstance()->GetCombatantByIndex(palette->combatantIndex);
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov000_021707f0(PaletteOwner* owner) {
     if (!element || !slot) {
         return;
     }
-    if (!IsField0x9cEqual3_0204c7cc((unsigned char*)element)) {
+    if (!func_0204c7cc((unsigned char*)element)) {
         return;
     }
     if (element->suppressionFlags) {
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov000_021707f0(PaletteOwner* owner) {
     }
     short x = element->x;
     short y = element->y;
-    GetFourShortsAtIndex((ShortArrays0204c610*)element, 5, &left, &top, &right, &bottom);
+    func_0204c610((ShortArrays0204c610*)element, 5, &left, &top, &right, &bottom);
     cursor->x = (left + (short)(x * 8)) << 12;
     cursor->y = (top + (short)(y * 8)) << 12;
     cursor->size = 0x7c;

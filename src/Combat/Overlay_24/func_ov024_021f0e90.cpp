@@ -3,29 +3,29 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
 extern "C" int func_ov000_0215e9fc(int battle, short* buf, int max, int flag);
 extern "C" int func_ov000_0215eb1c(int battle, short* buf, int max, int flag);
 struct S_bf3c_021f0d0c;
-int IsBitfield1Set_021f0d0c(struct S_bf3c_021f0d0c* obj);
+extern "C" int func_ov024_021f0d0c(struct S_bf3c_021f0d0c* obj);
 struct RngHolder_021ed9dc { int field0; };
-int CanTargetCombatant_021ed9dc(struct RngHolder_021ed9dc* holder, int id);
+extern "C" int func_ov024_021ed9dc(struct RngHolder_021ed9dc* holder, int id);
 
 struct Buf8_021f0e90 { short v[8]; };
 extern struct Buf8_021f0e90 data_ov024_021feebc;
 
 // USA: func_ov024_021f0e90
 extern "C" ARM int func_ov024_021f0e90(struct RngHolder_021ed9dc* holder, int id, int unused, int* outCount, short* outArray) {
-    GameObject* self = GetCombatantWithFlag0x400ByID_ov000_021536f8(holder->field0, id);
+    GameObject* self = func_ov000_021536f8(holder->field0, id);
     if (!self) return 0;
-    if (!IsBitfield1Set_021f0d0c((struct S_bf3c_021f0d0c*)self)) return 0;
+    if (!func_ov024_021f0d0c((struct S_bf3c_021f0d0c*)self)) return 0;
 
     int found = 0;
     struct Buf8_021f0e90 buf = data_ov024_021feebc;
     int count = func_ov000_0215e9fc(holder->field0, buf.v, 4, 1);
     if (count <= 0) return 0;
     for (int i = 0; i < count; i++) {
-        if (CanTargetCombatant_021ed9dc(holder, buf.v[i])) {
+        if (func_ov024_021ed9dc(holder, buf.v[i])) {
             found = 1;
             break;
         }

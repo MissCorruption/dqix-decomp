@@ -13,9 +13,9 @@ extern "C" void* func_0205ec34(void);
 struct Variant02030b0c;
 
 struct PackedNibbleArray0206e2dc;
-int GetPackedNibbleFlag0x8(struct PackedNibbleArray0206e2dc* obj, int index);
+extern "C" int func_0206e2dc(struct PackedNibbleArray0206e2dc* obj, int index);
 struct PackedNibbleArray0206e2a0;
-void SetPackedNibbleFlag0x8(struct PackedNibbleArray0206e2a0* obj, int index);
+extern "C" void func_0206e2a0(struct PackedNibbleArray0206e2a0* obj, int index);
 
 extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 
@@ -39,9 +39,9 @@ extern "C" ARM int func_ov023_021f5a1c(struct Variant02030b0c* list, int count) 
     for (int i = 0; i < count; i++) {
         int v = ((Script::Parameter*)list)->ToInt();
         list = (struct Variant02030b0c*)((char*)list + 8);
-        int flag = GetPackedNibbleFlag0x8((struct PackedNibbleArray0206e2dc*)obj, v);
+        int flag = func_0206e2dc((struct PackedNibbleArray0206e2dc*)obj, v);
         if (flag == 0) {
-            SetPackedNibbleFlag0x8((struct PackedNibbleArray0206e2a0*)obj, v);
+            func_0206e2a0((struct PackedNibbleArray0206e2a0*)obj, v);
             data_ov023_021fff08.ptr->bits.low13 |= 0x40;
             func_0206df6c(obj, (unsigned char*)((char*)obj + 0x8c), 0x797, 1);
         }

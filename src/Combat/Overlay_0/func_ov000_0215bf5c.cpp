@@ -13,24 +13,24 @@ struct Flags0215bf5c { unsigned long long flags; };
 struct Work0215bf5c { unsigned short kind; char p[9]; unsigned char flags; };
 struct State0215bf5c { char p0[0xe]; unsigned short id; char p1[7]; unsigned char flag; };
 struct Out0215bf5c { char p0[0x20]; int field20; };
-Node0215bf5c* GetNodeAtIndex02160094(List02160094*,int);
-Flags0215bf5c* GetNodeAtIndex0215feb4(char*,int,int);
-void* GetWorkArrayEntry0215e9d8(void*);
-void InitStruct02160030(void*);
-void* GetTableEntry0x8e00Bound0x48_ov000_0215e918(void*);
-void* GetTableEntry0x8e01Bound0x88_ov000_0215e938(void*);
-void ResetStruct02157cdc(void*);
-void AppendToChainAndIncCount0215fe84(void*,void*,int);
-void AppendToChainAndIncCount0215ffc4(void*,void*,int);
+extern "C" Node0215bf5c* func_ov000_02160094(List02160094*,int);
+extern "C" Flags0215bf5c* func_ov000_0215feb4(char*,int,int);
+extern "C" void* func_ov000_0215e9d8(void*);
+extern "C" void func_ov000_02160030(void*);
+extern "C" void* func_ov000_0215e918(void*);
+extern "C" void* func_ov000_0215e938(void*);
+extern "C" void func_ov000_02157cdc(void*);
+extern "C" void func_ov000_0215fe84(void*,void*,int);
+extern "C" void func_ov000_0215ffc4(void*,void*,int);
 struct Obj02160068; struct Node02160068;
-void AppendNode02160068(Obj02160068*,Node02160068*);
+extern "C" void func_ov000_02160068(Obj02160068*,Node02160068*);
 struct Obj021600cc; struct Node021600cc;
-void AppendNode021600cc(Obj021600cc*,Node021600cc*);
+extern "C" void func_ov000_021600cc(Obj021600cc*,Node021600cc*);
 extern "C" {
 GameObject* _ZN9GameState19GetCombatantByIndexEi(GameState*,int);
 int func_ov000_0215fd90(Flags0215bf5c*,int);
 Out0215bf5c* func_ov000_0215e958(void*);
-void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void*,Out0215bf5c*,GameObject*,short,short,short,unsigned long long,unsigned char);
+void func_ov000_0215ccbc(void*,Out0215bf5c*,GameObject*,short,short,short,unsigned long long,unsigned char);
 }
 
 struct Root0215bf5c { char p[0x8e00]; unsigned char count0,count1,count2; char q[0x21]; int workCount; };
@@ -41,7 +41,7 @@ static inline int GetCount0215bf5c(Node0215bf5c* node) { return node->count28; }
 // USA: func_ov000_0215bf5c
 extern "C" ARM void func_ov000_0215bf5c(Root0215bf5c* self,List02160094* list) {
     for (int i=0;i<list->count;i++) {
-        Node0215bf5c* node=GetNodeAtIndex02160094(list,i);
+        Node0215bf5c* node=func_ov000_02160094(list,i);
         if (!node) continue;
         Flags0215bf5c* flags;
         bool special;bool moveExtra;
@@ -53,27 +53,27 @@ extern "C" ARM void func_ov000_0215bf5c(Root0215bf5c* self,List02160094* list) {
         GameObject* unit=gs->GetCombatantByIndex(id);
         if (!unit) continue;
         int count=GetCount0215bf5c(node);
-        flags=GetNodeAtIndex0215feb4((char*)node,i,2);
+        flags=func_ov000_0215feb4((char*)node,i,2);
         special=false; moveExtra=0;
         if (flags && (func_ov000_0215fd90(flags,0x22) || func_ov000_0215fd90(flags,0x25))) special=true;
         if (!special && !node->flag29) { moveExtra=1;count+=node->count2a; }
         if (count<=0) continue;
-        work=(Work0215bf5c*)GetWorkArrayEntry0215e9d8(self);
+        work=(Work0215bf5c*)func_ov000_0215e9d8(self);
         if (!work) continue;
-        InitStruct02160030(work);
-        Node0215bf5c* copy=(Node0215bf5c*)GetTableEntry0x8e00Bound0x48_ov000_0215e918(self);
+        func_ov000_02160030(work);
+        Node0215bf5c* copy=(Node0215bf5c*)func_ov000_0215e918(self);
         if (!copy) continue;
         memset(copy,0,0x30);copy->sentinel=-1;copy->field30=0;
-        state=(State0215bf5c*)GetTableEntry0x8e01Bound0x88_ov000_0215e938(self);
+        state=(State0215bf5c*)func_ov000_0215e938(self);
         if (!state) continue;
-        ResetStruct02157cdc(state);
+        func_ov000_02157cdc(state);
         out=func_ov000_0215e958(self);
         if (!out) continue;
         memset(out,0,0x20);out->field20=0;
         work->kind=0x3ae;
         int moved=0;
         if (flags && ((flags->flags&2ULL) || (flags->flags&4ULL) || (flags->flags&0x10ULL) || (flags->flags&0x2000ULL))) {
-            AppendToChainAndIncCount0215fe84(copy,flags,2);
+            func_ov000_0215fe84(copy,flags,2);
             node->chain8=0;node->count28=0;moved=1;
         }
         if (!moved && !moveExtra) continue;
@@ -84,12 +84,12 @@ extern "C" ARM void func_ov000_0215bf5c(Root0215bf5c* self,List02160094* list) {
         copy->id=node->id;copy->field24=node->field24;
         int second=unit->GetSecond();
         int first=unit->GetFirst();
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(self,out,unit,0,first,second,0,0);
+        func_ov000_0215ccbc(self,out,unit,0,first,second,0,0);
         state->id=node->id;state->flag=1;
-        AppendToChainAndIncCount0215ffc4(state,out,0);
+        func_ov000_0215ffc4(state,out,0);
         work->flags|=4;
-        AppendNode02160068((Obj02160068*)work,(Node02160068*)copy);
-        AppendNode021600cc((Obj021600cc*)work,(Node021600cc*)state);
+        func_ov000_02160068((Obj02160068*)work,(Node02160068*)copy);
+        func_ov000_021600cc((Obj021600cc*)work,(Node021600cc*)state);
         self->workCount++;self->count0++;self->count1++;self->count2++;
     }
 }

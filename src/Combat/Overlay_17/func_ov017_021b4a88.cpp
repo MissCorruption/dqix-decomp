@@ -14,9 +14,9 @@
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void func_020a0cc4(unsigned int size);
 extern "C" void func_020a0c0c(void);
-int IsInRange0201b5b0(int id);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" int func_0201b5b0(int id);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 
 extern AllocatorUnion data_02114e20;
 #if defined(jpn)
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
     Zone3D* zone = func_02012fe4();
     ActiveGrottoClass* grotto = &zone->grotto_;
     ZoneFeatures features;
-    features.Reset_0201e248();
+    features.func_0201e248();
 
     if (loader->GetTaskStatus(request->taskId)) {
         if (loader->GetDetailedTaskStatus(request->taskId) == BackgroundLoader::TaskStatus_Complete) {
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
 
             SafeAllocator scriptAllocator;
             scriptAllocator.ResetAllocatorPointer();
-            scriptAllocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x800), 0x800);
+            scriptAllocator.CreateTypeA(func_02012d88(&data_02114e20, 0x800), 0x800);
             scriptAllocator.Reset();
 
             NarcHandle archive;
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
                     if (strcmp(data_ov017_021d7b57, extension) == 0) {
                         unsigned int scriptSize;
                         void* script = DecompressLZ77FileIntoScratchSpace(scriptAllocator, file, scriptSize);
-                        features.Reset_0201e248();
-                        features.LoadFromScript_0201e2b4(&scriptAllocator, script, scriptSize);
+                        features.func_0201e248();
+                        features.func_0201e2b4(&scriptAllocator, script, scriptSize);
                     }
                     index++;
                 }
@@ -87,9 +87,9 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
             int floor = id % 20;
             SafeAllocator floorAllocator;
             floorAllocator.ResetAllocatorPointer();
-            floorAllocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x600), 0x600);
+            floorAllocator.CreateTypeA(func_02012d88(&data_02114e20, 0x600), 0x600);
             floorAllocator.Reset();
-            if (IsInRange0201b5b0(id)) {
+            if (func_0201b5b0(id)) {
                 int width = grotto->CalculateAndStoreFloorWidth(floor);
                 int height = grotto->CalculateAndStoreFloorHeight(floor);
                 ActiveGrottoClass* current = &zone->grotto_;
@@ -99,19 +99,19 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
                 map.Clear();
                 map.Clear();
                 map.AllocateBuffers(&floorAllocator);
-                TileFeaturePlacementData* buffer = (TileFeaturePlacementData*)AllocateAligned4_02012d88(&data_02114e20, sizeof(TileFeaturePlacementData) * 256);
+                TileFeaturePlacementData* buffer = (TileFeaturePlacementData*)func_02012d88(&data_02114e20, sizeof(TileFeaturePlacementData) * 256);
                 current->CalculateFloorMap(floor, width, height, &map);
                 func_02019728(zone, floor, &features, buffer, &map);
                 func_0201a300(zone, floor, request->target, buffer, &map);
-                TailForward02012da4(&data_02114e20, buffer);
+                func_02012da4(&data_02114e20, buffer);
                 map.Clear2();
             }
             void* scriptHeap = scriptAllocator.GetSignedAllocator();
             scriptAllocator.Destroy();
-            TailForward02012da4(&data_02114e20, scriptHeap);
+            func_02012da4(&data_02114e20, scriptHeap);
             void* floorHeap = floorAllocator.GetSignedAllocator();
             floorAllocator.Destroy();
-            TailForward02012da4(&data_02114e20, floorHeap);
+            func_02012da4(&data_02114e20, floorHeap);
             func_020a0c0c();
         }
         loader->RemoveTask(request->taskId);
@@ -119,5 +119,5 @@ extern "C" ARM void func_ov017_021b4a88(Request021b4a88* request) {
         request->taskId = loader->QueueLoadFile(data_ov017_021d7b3a, 0);
         request->state = 3;
     }
-    features.Reset_0201e248();
+    features.func_0201e248();
 }

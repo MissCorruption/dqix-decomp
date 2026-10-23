@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void* arg);
-GameResources* GetWord0x0_0200fb8c(int* obj);
+extern "C" GameResources* func_0200fb8c(int* obj);
 
 // USA: func_ov001_0215b074
 extern "C" ARM int func_ov001_0215b074(int mode, char* args, int count) {
@@ -15,7 +15,7 @@ extern "C" ARM int func_ov001_0215b074(int mode, char* args, int count) {
     if (count >= 2) {
         brightness = func_ov017_021d60f4(args + 8);
     }
-    GameResources* res = GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    GameResources* res = func_0200fb8c((int*)GameState::GetInstance());
     if (res == NULL) return 0;
     setFlag = 0;
     if (mode == 0) {

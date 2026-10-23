@@ -25,12 +25,12 @@ bool GetFileInNarc(const void*, const char*, const void**, unsigned int*, unsign
 extern const char data_ov017_021d7504[], data_ov017_021d7510[], data_ov017_021d751b[];
 extern const char data_ov017_021d751f[], data_ov017_021d7526[], data_ov017_021d7530[], data_ov017_021d753a[];
 extern const char data_ov017_021d7544[], data_ov017_021d7555[], data_ov017_021d7567[];
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-int NormalizeField5_0200fb08(Struct0200fb08*);
-void* GetData02109020_0208e9e8();
-void InitFourNamedSubStructs_02096604(char*, int);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" void* func_0208e9e8();
+extern "C" void func_02096604(char*, int);
 extern "C" {
 Zone3D* func_02012fe4();
 void func_02018d28(Zone3D*, SafeAllocator*, void*, unsigned int);
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* self) {
     allocator = &self->allocator_array_38[5];
     Foo0207df50* pairs = reinterpret_cast<Foo0207df50*>(reinterpret_cast<char*>(self) + PairTablesOffset);
     allocator->Reset();
-    CopyInternalFields0207df50(pairs);
+    func_0207df50(pairs);
     BackgroundLoader::AddLockGlobal();
     char path[0x50];
     unsigned int length;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* self) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    RestorePairTables0207df90((char*)pairs);
+    func_0207df90((char*)pairs);
     NarcHandle archive;
     if (!archive.Initialize(data_ov017_021d751b, (const unsigned char*)&data_0211e33c)) {
         BackgroundLoader::RemoveLockGlobal();
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_0219b624(GameResources* self) {
     }
 #if !defined(jpn)
     sprintf(name, data_ov017_021d751f, data_ov017_021d7526);
-    switch (NormalizeField5_0200fb08((Struct0200fb08*)game)) {
+    switch (func_0200fb08((Struct0200fb08*)game)) {
     case 3: sprintf(name, data_ov017_021d751f, data_ov017_021d7530); break;
     case 5: sprintf(name, data_ov017_021d751f, data_ov017_021d753a); break;
     }
@@ -117,12 +117,12 @@ extern "C" ARM void func_ov017_0219b624(GameResources* self) {
             info.allocator = allocator;
             info.unk_10 = 1;
             object->LoadFromCHRArchive(&info);
-            func_0208f36c(GetData02109020_0208e9e8(), object);
+            func_0208f36c(func_0208e9e8(), object);
         }
     }
     BackgroundLoader::RemoveLockGlobal();
-    InitFourNamedSubStructs_02096604(static_cast<char*>(self->unknown_ptr_4328), (int)allocator);
-    BackupPairTables0207dfac((char*)pairs);
+    func_02096604(static_cast<char*>(self->unknown_ptr_4328), (int)allocator);
+    func_0207dfac((char*)pairs);
     globals->lootableTemplates_[0] = &self->substruct_array_2b90[5];
     globals->lootableTemplates_[1] = &self->substruct_array_2b90[6];
     globals->lootableTemplates_[2] = &self->substruct_array_2b90[7];

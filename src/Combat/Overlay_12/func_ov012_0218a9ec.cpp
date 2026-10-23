@@ -31,11 +31,11 @@ struct ProfileHeader {
     unsigned int showBirthday : 1;
 };
 
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
-int AppendString02042058(char* dst, const char* src);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02042058(char* dst, const char* src);
 
 // USA: func_ov012_0218a9ec
 extern "C" ARM void func_ov012_0218a9ec(unsigned char* self, char* dst, int c) {
@@ -46,17 +46,17 @@ extern "C" ARM void func_ov012_0218a9ec(unsigned char* self, char* dst, int c) {
         (ProfileHeader*)((char*)GameState::GetInstance() + kProfileOffset);
 
     if (c != 0) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
 
     int i;
     for (i = 0; i < 8; i++) {
         if (i != 0) {
-            AppendString02042058(dst, *(char**)(self + kSeparatorOffset));
+            func_02042058(dst, *(char**)(self + kSeparatorOffset));
         }
-        void* name = FindEntryByKey_02072a68((struct TableA68*)(self + kStringsOffset),
+        void* name = func_02072a68((struct TableA68*)(self + kStringsOffset),
                                     (short)(((short)profile->female) + i * 2 + 0x7530));
-        AppendNameTag_02041b70(dst, i, (const char*)name);
+        func_02041b70(dst, i, (const char*)name);
     }
 }

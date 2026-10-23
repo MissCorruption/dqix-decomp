@@ -1,7 +1,7 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define _Z27ScaleStatsIfType12_021f6f10Pv _Z27CheckAnyBuffBelow2_021f5c80P16Wrapper_021f5c80iiPiPs
-#define _Z40InitTenAllocatorsAndClearFields_021e4e8cPv func_ov023_021e5080
+#define func_ov024_021f6f10 func_ov024_021f5c80
+#define func_ov023_021e4e8c func_ov023_021e5080
 #define data_ov023_021ff5b4 data_ov023_021fe83c
 #define func_ov023_021fc518 func_ov023_021fb810
 #else
@@ -17,16 +17,16 @@ struct TaggedNumber02184c30 {
     union { int i; float f; } value;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
 extern "C" ARM int func_ov023_021fc518(void* obj, void* script, int id, int heapId, int unk2, int unk);
-void InitTenAllocatorsAndClearFields_021e4e8c(void* model);
+extern "C" void func_ov023_021e4e8c(void* model);
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern char data_ov023_021ff5b4;
 
@@ -62,10 +62,10 @@ extern "C" ARM int func_ov011_02187720(struct TaggedNumber02184c30* params, int 
     int unk2;
     int id;
 
-    id = GetTaggedValueAsInt_02184c30(&params[0]);
-    heapId = GetTaggedValueAsInt_02184c30(&params[1]);
-    unk2 = GetTaggedValueAsInt_02184c30(&params[2]);
-    GetTaggedValueAsInt_02184c30(&params[3]);
+    id = func_ov011_02184c30(&params[0]);
+    heapId = func_ov011_02184c30(&params[1]);
+    unk2 = func_ov011_02184c30(&params[2]);
+    func_ov011_02184c30(&params[3]);
     script = func_ov017_021b2164();
     heap = (MenuHeap02187720*)func_ov011_021845f8(script, heapId);
     if (heap == 0)
@@ -86,13 +86,13 @@ extern "C" ARM int func_ov011_02187720(struct TaggedNumber02184c30* params, int 
             allocator++;
         } while (allocator < model->allocators + 10);
         model->animationAllocator.ResetAllocatorPointer();
-        InitTenAllocatorsAndClearFields_021e4e8c(model);
+        func_ov023_021e4e8c(model);
         model++;
     } while (model < prototype.models + 2);
     memcpy(object, &prototype, sizeof(MenuObject02187720));
     if (!func_ov023_021fc518(object, script, id, heapId, unk2, unk))
         return 0;
 
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(script), (struct ListNode_021f67ac*)object);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(script), (struct ListNode_021f67ac*)object);
     return 1;
 }

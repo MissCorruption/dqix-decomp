@@ -21,7 +21,7 @@ struct Out020b08b8 {
     int arr[3];
 };
 
-void SetIndexedFieldAt0x8020b035c(char* base, int index, int value);
+extern "C" void func_020b035c(char* base, int index, int value);
 
 // USA: func_020b08b8
 extern "C" ARM void func_020b08b8(Res020b08b8* res, Pcmp020b08b8* pcmp, int base, int tier,
@@ -71,5 +71,5 @@ extern "C" ARM void func_020b08b8(Res020b08b8* res, Pcmp020b08b8* pcmp, int base
 
     out->f0 = res->f0;
     out->f4 = res->f4;
-    SetIndexedFieldAt0x8020b035c((char*)out, tier, base);
+    func_020b035c((char*)out, tier, base);
 }

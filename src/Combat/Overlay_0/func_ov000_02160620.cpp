@@ -48,41 +48,41 @@ struct BattleManager {
 extern "C" SearchStruct* func_0202ae18();
 extern "C" void func_02015438(void*);
 extern "C" void func_ov023_021eb43c(void*);
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 extern "C" void func_ov000_021735d0(void*, unsigned int);
-Obj02039fec* GetData02104b6c_02039e70();
-void ProcessSlotDamping02039fec(Obj02039fec*);
-void DecrementFieldsAndMaybeReset021824d8(void*);
-int PeekInputLogB_020a1fa8();
+extern "C" Obj02039fec* func_02039e70();
+extern "C" void func_02039fec(Obj02039fec*);
+extern "C" void func_ov000_021824d8(void*);
+extern "C" int func_020a1fa8();
 extern "C" void func_ov025_021df794(void*);
 extern "C" int func_0202c540(SearchStruct*);
-int TestFlagBitAt0xe_0202c578(SearchStruct*, int);
-FlagWord020466f4* GetDataPtr02114e04_020d6c00();
-void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-void* GetGlobal02109030_020936f8();
-void ResetAndSetFlag0x3c9Bit0_020939dc(void*);
-void ResetEightRegionsAndFlags_02093a14(char*);
+extern "C" int func_0202c578(SearchStruct*, int);
+extern "C" FlagWord020466f4* func_020d6c00();
+extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void* func_020936f8();
+extern "C" void func_020939dc(void*);
+extern "C" void func_02093a14(char*);
 extern "C" void func_02094030(void*, int, int, int);
 extern "C" void func_ov000_0215fb04(void*, int);
-int CheckThreeFlags_02195550(unsigned char*);
+extern "C" int func_ov017_02195550(unsigned char*);
 extern "C" void func_ov000_021682ec(BattleFrame*);
 extern "C" void func_ov000_02163db4(BattleFrame*);
 extern "C" void func_ov000_021640dc(BattleFrame*);
 extern "C" void func_ov000_0216873c(BattleFrame*);
 extern "C" void func_ov000_021688dc(BattleFrame*);
 extern "C" void func_ov026_021d8ba0(BattleFrame*);
-void RunCombatTurnCycle02169770(unsigned char*);
+extern "C" void func_ov000_02169770(unsigned char*);
 extern "C" void func_ov025_021db038(BattleFrame*);
 extern "C" void func_ov023_021ed9f8(BattleFrame*);
 extern "C" void func_ov023_021f4c04(BattleFrame*);
 extern "C" void func_ov026_021db090(BattleFrame*);
-void HandleField_02160de4(void*);
-void HandleField_02160e94(void*);
-void ProcessFlaggedombatants02160fe4_02160fe4(void*);
+extern "C" void func_ov000_02160de4(void*);
+extern "C" void func_ov000_02160e94(void*);
+extern "C" void func_ov000_02160fe4(void*);
 extern "C" void func_ov025_021e9558(void*);
-void ResetInputLogB_020a1edc();
-void PushInputLogB_020a1ef0(int);
-void ForwardField0xc0_0205eb80(void*);
+extern "C" void func_020a1edc();
+extern "C" void func_020a1ef0(int);
+extern "C" void func_0205eb80(void*);
 extern int data_ov000_02184220;
 extern unsigned char data_02108760[0xd0];
 
@@ -96,29 +96,29 @@ extern "C" ARM void func_ov000_02160620(BattleFrame* frame) {
         if (frame->optional)
             func_ov023_021eb43c(frame->optional);
         if (frame->mode == 0 && (frame->flags & 0x40000) == 0 && (frame->flags & 0x80000) != 0 &&
-                ((BattleManager*)GetGlobalField0x1c020421a0())->blocked == 0)
+                ((BattleManager*)func_020421a0())->blocked == 0)
             func_ov000_021735d0(frame->turnTimer, game->GetTickCount());
-        ProcessSlotDamping02039fec(GetData02104b6c_02039e70());
-        DecrementFieldsAndMaybeReset021824d8(frame->damping);
-        if (frame->state == 8 && PeekInputLogB_020a1fa8() == 4)
+        func_02039fec(func_02039e70());
+        func_ov000_021824d8(frame->damping);
+        if (frame->state == 8 && func_020a1fa8() == 4)
             func_ov025_021df794(frame->effect);
         GameObject* object = game->GetGameObjectByIndex(0xc8);
         if (object)
             object->obj3D_.AdvanceEffects();
-        if (func_0202c540(search) && TestFlagBitAt0xe_0202c578(search, 0) && frame->resetDone == 0) {
-            ClearFlags020466f4(GetDataPtr02114e04_020d6c00(), 0x8020);
-            void* state = GetGlobal02109030_020936f8();
-            ResetAndSetFlag0x3c9Bit0_020939dc(state);
-            ResetEightRegionsAndFlags_02093a14((char*)state);
+        if (func_0202c540(search) && func_0202c578(search, 0) && frame->resetDone == 0) {
+            func_020466f4(func_020d6c00(), 0x8020);
+            void* state = func_020936f8();
+            func_020939dc(state);
+            func_02093a14((char*)state);
             func_02094030(state, 4, -1, 0);
             frame->resetDone = 1;
         }
     }
     for (int i = 1; i < 4; ++i) {
-        if (TestFlagBitAt0xe_0202c578(search, i))
+        if (func_0202c578(search, i))
             func_ov000_0215fb04(frame->random, i);
     }
-    if (CheckThreeFlags_02195550(context) == 0)
+    if (func_ov017_02195550(context) == 0)
         func_ov000_021682ec(frame);
     switch (frame->state) {
     case 0: func_ov000_02163db4(frame); break;
@@ -126,30 +126,30 @@ extern "C" ARM void func_ov000_02160620(BattleFrame* frame) {
     case 4: func_ov000_0216873c(frame); break;
     case 6: func_ov000_021688dc(frame); break;
     case 7:
-        if (PeekInputLogB_020a1fa8() == 3)
+        if (func_020a1fa8() == 3)
             func_ov026_021d8ba0(frame);
         break;
-    case 17: RunCombatTurnCycle02169770((unsigned char*)frame); break;
+    case 17: func_ov000_02169770((unsigned char*)frame); break;
     case 8: func_ov025_021db038(frame); break;
     case 9:
-        if (PeekInputLogB_020a1fa8() == 1) {
+        if (func_020a1fa8() == 1) {
             func_ov023_021ed9f8(frame);
             break;
         }
     case 10:
-        if (PeekInputLogB_020a1fa8() == 1) {
+        if (func_020a1fa8() == 1) {
             func_ov023_021f4c04(frame);
             break;
         }
     case 11:
-        if (PeekInputLogB_020a1fa8() == 3)
+        if (func_020a1fa8() == 3)
             func_ov026_021db090(frame);
         break;
-    case 18: HandleField_02160de4(frame); break;
-    case 19: HandleField_02160e94(frame); break;
+    case 18: func_ov000_02160de4(frame); break;
+    case 19: func_ov000_02160e94(frame); break;
     }
     if (frame->flags & 0x200)
-        ProcessFlaggedombatants02160fe4_02160fe4(frame);
+        func_ov000_02160fe4(frame);
     if ((frame->flags & 0x2000000) &&
             (frame->state == 8 || frame->state == 7 || frame->state == 1 || frame->state == 0 || frame->state == 9)) {
         if (frame->state == 8)
@@ -161,11 +161,11 @@ extern "C" ARM void func_ov000_02160620(BattleFrame* frame) {
     }
     if (data_ov000_02184220) {
         if (frame->state == 7 || frame->state == 11) {
-            ResetInputLogB_020a1edc();
-            PushInputLogB_020a1ef0(3);
+            func_020a1edc();
+            func_020a1ef0(3);
         } else if (frame->state == 9 || frame->state == 10) {
-            ResetInputLogB_020a1edc();
-            PushInputLogB_020a1ef0(1);
+            func_020a1edc();
+            func_020a1ef0(1);
         }
         data_ov000_02184220 = 0;
     }
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov000_02160620(BattleFrame* frame) {
     frame->countdown -= (signed char)game->GetTickCount();
     if (frame->countdown < 0) {
         frame->countdown = 0;
-        ForwardField0xc0_0205eb80(data_02108760);
+        func_0205eb80(data_02108760);
         frame->countdownFlag = 0;
     }
 }

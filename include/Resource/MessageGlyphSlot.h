@@ -46,4 +46,4 @@ struct State0204166c {
 typedef State0204166c MessageGlyphSlot;
 typedef char MessageGlyphSlotSizeCheck[sizeof(MessageGlyphSlot) == 0x1c ? 1 : -1];
 
-void ResetState0204166c(MessageGlyphSlot* slot);
+extern "C" void func_0204166c(MessageGlyphSlot* slot);

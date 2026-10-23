@@ -8,13 +8,13 @@ extern "C" void func_ov009_02188944(CharacterCreationUI* self, int val);
 extern "C" int func_ov009_02188ee8(CharacterCreationUI* self);
 #if defined(jpn)
 extern "C" ARM void func_ov009_021867bc(unsigned char* self, int val);
-#define SetStatValue021855dc func_ov009_021867bc
+#define func_ov009_021855dc func_ov009_021867bc
 #else
-ARM void SetStatValue021855dc(unsigned char* self, int val);
+extern "C" ARM void func_ov009_021855dc(unsigned char* self, int val);
 #endif
 
-int CallFunc020a0db8AtField0x16c_0202ee38(char* obj, int a, int b);
-void CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(char* obj, int a, int b);
+extern "C" int func_0202ee38(char* obj, int a, int b);
+extern "C" void func_0202ee58(char* obj, int a, int b);
 
 #if defined(jpn)
 #define data_ov009_0218a9c8 data_ov009_0218b9a4
@@ -33,7 +33,7 @@ extern Vector3fix data_ov009_0218a9e0;
 #endif
 extern Vector3fix data_ov009_0218a9ec;
 
-// USA: func_ov009_021866f0  (semantic: AdvanceStatStep_021866f0)
+// USA: func_ov009_021866f0
 extern "C" ARM void func_ov009_021866f0(CharacterCreationUI* self) {
     unsigned char step = self->step;
     if (step == 0) {
@@ -45,8 +45,8 @@ extern "C" ARM void func_ov009_021866f0(CharacterCreationUI* self) {
 
         Vector3fix position = data_ov009_0218a9c8;
         Vector3fix target = data_ov009_0218a9d4;
-        CallFunc020a0db8AtField0x16c_0202ee38((char*)self->camera, (int)&position, 0x1e000);
-        CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58((char*)self->camera, (int)&target, 0x1e000);
+        func_0202ee38((char*)self->camera, (int)&position, 0x1e000);
+        func_0202ee58((char*)self->camera, (int)&target, 0x1e000);
 
         self->flags |= 1;
         self->step = self->step + 1;
@@ -69,10 +69,10 @@ extern "C" ARM void func_ov009_021866f0(CharacterCreationUI* self) {
     int result = func_ov009_02188ee8(self);
     int flag = 0;
     if (result == -2) {
-        SetStatValue021855dc((unsigned char*)self, 6);
+        func_ov009_021855dc((unsigned char*)self, 6);
         flag = 1;
     } else if (result == -3) {
-        SetStatValue021855dc((unsigned char*)self, 4);
+        func_ov009_021855dc((unsigned char*)self, 4);
         flag = 1;
     } else if (result >= 0x65 && result <= 0x6c) {
         int idx = self->sex;
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov009_021866f0(CharacterCreationUI* self) {
         if (v <= arrv) {
             signed char cur = self->state;
             if (v != cur) {
-                SetStatValue021855dc((unsigned char*)self, v & 0xff);
+                func_ov009_021855dc((unsigned char*)self, v & 0xff);
                 flag = 1;
             }
         }
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov009_021866f0(CharacterCreationUI* self) {
     if (flag != 0) {
         Vector3fix position = data_ov009_0218a9e0;
         Vector3fix target = data_ov009_0218a9ec;
-        CallFunc020a0db8AtField0x16c_0202ee38((char*)self->camera, (int)&position, 0x1e000);
-        CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58((char*)self->camera, (int)&target, 0x1e000);
+        func_0202ee38((char*)self->camera, (int)&position, 0x1e000);
+        func_0202ee58((char*)self->camera, (int)&target, 0x1e000);
     }
 }

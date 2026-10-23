@@ -9,7 +9,7 @@ struct BattleRecordPlayClock {
     unsigned char seconds;
 };
 
-void ClearShortByteByte_02184598(BattleRecordPlayClock*);
+extern "C" void func_ov008_02184598(BattleRecordPlayClock*);
 
 struct BattleRecordClockPair {
     BattleRecordPlayClock elapsed;
@@ -94,6 +94,6 @@ struct BattleRecordSnapshot {
 
 typedef char BattleRecordSnapshotSizeCheck[sizeof(BattleRecordSnapshot) == 0xb0 ? 1 : -1];
 
-int LoadBattleBlock020ac4c0(void* destination);
+extern "C" int func_020ac4c0(void* destination);
 
 #endif

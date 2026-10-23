@@ -48,7 +48,7 @@ extern const Vec3i02184a4c data_ov008_0218b328;
 extern const Vec3i02184a4c data_ov008_0218b334;
 extern const Vec3i02184a4c data_ov008_0218b31c;
 
-int StringLength_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* s);
 
 struct List02184a4c {
     void* entries;
@@ -192,84 +192,84 @@ struct Obj02184a4c {
 
 extern "C" void* func_0202ae18(void);
 extern "C" char* func_0205ec34(void);
-extern "C" int _Z27TestBitInByteArray_0206dfb0iPhi(char* unused, char* arr, int index);
-int LoadBattleBlock020ac4c0(void* dst);
+extern "C" int func_0206dfb0(char* unused, char* arr, int index);
+extern "C" int func_020ac4c0(void* dst);
 extern "C" int func_0202c508(void* obj);
 extern "C" int func_0202c540(void* obj);
 struct List020727d8;
-void ResetListHeader020727d8(List020727d8*);
-void SubmitScriptFromFile020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
-void Reset0209fe9c(char*);
+extern "C" void func_020727d8(List020727d8*);
+extern "C" void func_020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
+extern "C" void func_0209fe9c(char*);
 struct Obj0209fee4;
-void InitManagerAndAllocateBuffers0209fee4(Obj0209fee4*, SafeAllocator*, int, int);
+extern "C" void func_0209fee4(Obj0209fee4*, SafeAllocator*, int, int);
 struct IntField0x60_0209ff64;
-void SetIntAt0x60(IntField0x60_0209ff64*, int);
+extern "C" void func_0209ff64(IntField0x60_0209ff64*, int);
 struct TaskState0209ff6c;
-void PollOv017Task0209ff6c(TaskState0209ff6c*);
+extern "C" void func_0209ff6c(TaskState0209ff6c*);
 extern "C" int func_ov008_02185964(void* obj);
 extern "C" void* ExtractFileFromGP2(const char* gp2, const char* inner, unsigned int* outSize);
 extern "C" void func_020dfec0(void* container, SafeAllocator* alloc, void* data, unsigned int size);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(void* obj, int a);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
 struct AllocTarget0204b12c;
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
 struct Foo0204af38;
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
 struct Container020e0310;
-const char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" const char* func_020e0434(Container020e0310*, int);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900*);
+extern "C" int func_02046900(ActiveEntry02046900*);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0204b174(void* obj, void* rec, SafeAllocator* alloc, int size);
 struct Obj0204b8d0;
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
 extern "C" int func_ov008_02188a54(Obj02184a4c* obj, int a);
-void InitStruct0205a444(char*);
+extern "C" void func_0205a444(char*);
 struct Struct0205a198;
-void Init0205a198(Struct0205a198*);
+extern "C" void func_0205a198(Struct0205a198*);
 struct ClearTarget0205a234;
-void ClearField0And40205a234(ClearTarget0205a234*);
+extern "C" void func_0205a234(ClearTarget0205a234*);
 extern "C" int func_0205a528(void* obj, void* data, int size, SafeAllocator* alloc);
 extern "C" int func_ov008_02188d74(Obj02184a4c* obj);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 int LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
 struct ObjectArchiveLoadInfo;
 struct Vector3i;
-void InitCombatController020a2010(void* obj);
+extern "C" void func_020a2010(void* obj);
 struct Vec3Target0202e5c0;
-void SetVec3At0x4(Vec3Target0202e5c0*, int, int, int);
-void SetFields0x10To0x18_0202e5c8(unsigned char*, int, int, int);
-void SetField0x238False_020a27a0(void* obj);
-void SetField0x3b0Value_020100c4(GameState*, int);
+extern "C" void func_0202e5c0(Vec3Target0202e5c0*, int, int, int);
+extern "C" void func_0202e5c8(unsigned char*, int, int, int);
+extern "C" void func_020a27a0(void* obj);
+extern "C" void func_020100c4(GameState*, int);
 struct S020a13c4;
-void ClearStruct020a13c4(S020a13c4*);
-void SetupGlobalAndRunScript020a13e4(void* a, void* b, int c, unsigned short d, unsigned char e);
+extern "C" void func_020a13c4(S020a13c4*);
+extern "C" void func_020a13e4(void* a, void* b, int c, unsigned short d, unsigned char e);
 extern "C" int func_ov023_021ed724(void* obj, short* ids, int count);
 struct Array020a15bc;
-MessageSrc02184a4c* FindElementByField020a15bc(Array020a15bc*, int);
+extern "C" MessageSrc02184a4c* func_020a15bc(Array020a15bc*, int);
 extern "C" void func_020e046c(char* buf, void* b, unsigned int c, int idx);
-int GetField5cbcValue_0201081c(char*);
-int CompareStrings_020d3018(const char* a, const char* b);
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_0201081c(char*);
+extern "C" int func_020d3018(const char* a, const char* b);
+extern "C" int func_0202b7d8(int*);
 extern "C" void func_ov008_0218712c(Obj02184a4c* obj, int a);
 struct Manager02187664;
-void InitConfig02187664(Manager02187664*, int);
+extern "C" void func_ov008_02187664(Manager02187664*, int);
 extern "C" void func_ov008_02187a70(Obj02184a4c* obj, int a);
 extern "C" void func_ov008_02187f6c(Obj02184a4c* obj, int a);
 struct Struct_0205d81c;
-Elem0205d81c02184a4c* FindElementByC40205d81c(Struct_0205d81c*, int);
-char* GetGlobalField0x1c020421a0(void);
+extern "C" Elem0205d81c02184a4c* func_0205d81c(Struct_0205d81c*, int);
+extern "C" char* func_020421a0(void);
 extern "C" void func_020432c4(char* obj);
 struct Actor0209c3b4;
-void SetStateAndDispatch0209c3b4(Actor0209c3b4*, int);
+extern "C" void func_0209c3b4(Actor0209c3b4*, int);
 extern "C" void func_ov008_02186964(Obj02184a4c* obj);
 
 struct ArchiveInfo02184a4c {
@@ -306,17 +306,17 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
     if (state == 0) {
         obj->flags |= 0x200000;
         char* save = func_0205ec34();
-        int seen = _Z27TestBitInByteArray_0206dfb0iPhi(save, save + 0x8c, 0x113b);
+        int seen = func_0206dfb0(save, save + 0x8c, 0x113b);
         if (seen != 0) {
             obj->flags |= 0x80;
             obj->flags &= ~1;
         }
         BattleBlock02184a4c block;
-        LoadBattleBlock020ac4c0(&block);
+        func_020ac4c0(&block);
         BattleBlock02184a4c* pb = &block;
         unsigned int scriptId = pb->GetTail()->GetScriptId();
         if (scriptId == 0) {
-            if (_Z27TestBitInByteArray_0206dfb0iPhi(save, save + 0x8c, 0x796) != 0) {
+            if (func_0206dfb0(save, save + 0x8c, 0x796) != 0) {
                 if (func_0202c508(scene) != 0) {
                     obj->flags |= 2;
                 }
@@ -339,8 +339,8 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
                 char path[0x80];
                 __clear(path, 0x80);
                 List02184a4c list;
-                ResetListHeader020727d8((List020727d8*)&list);
-                SubmitScriptFromFile020727f8(&list, data_ov008_0218b400, 1000, path, REGION_VALUE(1, 2));
+                func_020727d8((List020727d8*)&list);
+                func_020727f8(&list, data_ov008_0218b400, 1000, path, REGION_VALUE(1, 2));
                 obj->taskId = loader->QueueLoadFile(path, NULL);
                 obj->flags |= 0x400;
             }
@@ -353,11 +353,11 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             loader->GetLoadedFileByID(obj->taskId, &data, &size);
             obj->alloc78.Reset();
             obj->poller = (Poller02184a4c*)obj->alloc78.Allocate(0xd0);
-            Reset0209fe9c((char*)obj->poller);
-            InitManagerAndAllocateBuffers0209fee4((Obj0209fee4*)obj->poller, &obj->alloc78, (int)data, size);
-            SetIntAt0x60((IntField0x60_0209ff64*)obj->poller, 100);
+            func_0209fe9c((char*)obj->poller);
+            func_0209fee4((Obj0209fee4*)obj->poller, &obj->alloc78, (int)data, size);
+            func_0209ff64((IntField0x60_0209ff64*)obj->poller, 100);
             do {
-                PollOv017Task0209ff6c((TaskState0209ff6c*)obj->poller);
+                func_0209ff6c((TaskState0209ff6c*)obj->poller);
             } while (func_ov008_02185964(obj->poller) == 0);
             loader->RemoveTask(obj->taskId);
             obj->taskId = -1;
@@ -381,12 +381,12 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
                 return;
             }
         }
-        FontBankLoader* global = GetGlobal02109400_02094a00();
-        BlankFunction02094b40(global);
-        BlankFunction02094b34(global, 0x6b, 0x1fc, 0, 0);
+        FontBankLoader* global = func_02094a00();
+        func_02094b40(global);
+        func_02094b34(global, 0x6b, 0x1fc, 0, 0);
         obj->b11++;
     } else if (state == 3) {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) != 0) {
+        if (func_02094b4c(func_02094a00()) != 0) {
 #if defined(jpn)
             obj->alloc14.Reset();
             void* data = obj->alloc14.Allocate(0x2000);
@@ -407,14 +407,14 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             if (obj->b24 != 0) {
                 obj->b11 = 5;
             } else {
-                SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)obj->list, 0);
+                func_0204b11c((unsigned char*)obj->list, 0);
                 obj->ecLo = 0;
                 obj->ecHi = 1;
                 func_0204b5b4(obj->list, 3);
-                DispatchViaTable0204b5e8((Obj0204b5e8*)obj->list, 0, 0);
-                AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)obj->list, &obj->alloc00);
-                AllocateArray0204af38((Foo0204af38*)obj->list, 1, &obj->alloc00);
-                obj->taskId = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)obj->container, 0), NULL);
+                func_0204b5e8((Obj0204b5e8*)obj->list, 0, 0);
+                func_0204b12c((AllocTarget0204b12c*)obj->list, &obj->alloc00);
+                func_0204af38((Foo0204af38*)obj->list, 1, &obj->alloc00);
+                obj->taskId = loader->QueueLoadFile(func_020e0434((Container020e0310*)obj->container, 0), NULL);
                 obj->b11++;
             }
         }
@@ -425,36 +425,36 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             unsigned int size;
             int recSize;
             loader->GetLoadedFileByID(obj->taskId, &data, &size);
-            int count = CountActiveEntries((ActiveEntry02046900*)data);
+            int count = func_02046900((ActiveEntry02046900*)data);
             for (int i = 0; i < count; i++) {
-                void* found = FindRecordByIndex((Rec020467f0*)data, i, &rec, &recSize);
+                void* found = func_020467f0((Rec020467f0*)data, i, &rec, &recSize);
                 if (found != NULL) {
                     func_0204b174(obj->list, found, &obj->alloc00, recSize);
                 }
             }
             loader->RemoveTask(obj->taskId);
             obj->taskId = -1;
-            DispatchEntry0204b8d0((Obj0204b8d0*)obj->list, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)obj->list, NULL);
+            func_0204b8d0((Obj0204b8d0*)obj->list, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+            func_0204b0e8((List0204b0e8*)obj->list, NULL);
             obj->b11++;
         }
     } else if (state == 5) {
         if (func_ov008_02188a54(obj, 0) != 0) {
             if (obj->b24 == 0) {
-                InitStruct0205a444((char*)obj->table);
+                func_0205a444((char*)obj->table);
                 obj->table->f50 = 0;
                 Entry0205a198* entries = obj->GetEntries();
                 obj->GetTable()->SetEntries(entries, 0x12);
                 obj->table->tail = obj->tail;
                 for (int i = 0; i < 0x12; i++) {
-                    Init0205a198((Struct0205a198*)&obj->entries[i]);
+                    func_0205a198((Struct0205a198*)&obj->entries[i]);
                 }
-                ClearField0And40205a234((ClearTarget0205a234*)obj->tail);
+                func_0205a234((ClearTarget0205a234*)obj->tail);
 #if defined(jpn)
-                obj->taskId = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)obj->container, 3), NULL);
+                obj->taskId = loader->QueueLoadFile(func_020e0434((Container020e0310*)obj->container, 3), NULL);
 #else
-                const char* inner = GetFieldByKey020e0434((Container020e0310*)obj->container, 6);
-                obj->taskId = loader->QueueLoadFileInGP2(GetFieldByKey020e0434((Container020e0310*)obj->container, 5), inner, NULL);
+                const char* inner = func_020e0434((Container020e0310*)obj->container, 6);
+                obj->taskId = loader->QueueLoadFileInGP2(func_020e0434((Container020e0310*)obj->container, 5), inner, NULL);
 #endif
                 obj->b11++;
             } else {
@@ -468,10 +468,10 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             unsigned int size;
             int recSize;
             loader->GetLoadedFileByID(obj->taskId, &data, &size);
-            int count = CountActiveEntries((ActiveEntry02046900*)data);
+            int count = func_02046900((ActiveEntry02046900*)data);
             obj->alloc3c.Reset();
             for (int i = 0; i < count; i++) {
-                void* found = FindRecordByIndex((Rec020467f0*)data, i, &rec, &recSize);
+                void* found = func_020467f0((Rec020467f0*)data, i, &rec, &recSize);
                 if (found != NULL) {
                     func_0205a528(obj->table, found, recSize, &obj->alloc3c);
                 }
@@ -491,11 +491,11 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
         }
     } else if (state == 8) {
         char* stage = ov17->stage;
-        CopyInternalFields0207df50((Foo0207df50*)(stage + 0x230));
-        RestorePairTables0207df90(stage + 0x230);
+        func_0207df50((Foo0207df50*)(stage + 0x230));
+        func_0207df90(stage + 0x230);
         BackgroundLoader::AddLockGlobal();
         unsigned int size = 0;
-        if (LoadFileIntoMemory(GetFieldByKey020e0434((Container020e0310*)obj->container, 10), data_0211e33c, &size) != 0) {
+        if (LoadFileIntoMemory(func_020e0434((Container020e0310*)obj->container, 10), data_0211e33c, &size) != 0) {
             ArchiveInfo02184a4c info;
             info.unk_0 = 0;
             info.unk_14 = 0;
@@ -515,20 +515,20 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             ((Object3D*)&obj->model)->MaybeSetBCFGAnimation(0, 0);
         }
         BackgroundLoader::RemoveLockGlobal();
-        BackupPairTables0207dfac(stage + 0x230);
-        InitCombatController020a2010(obj->controller);
-        SetVec3At0x4((Vec3Target0202e5c0*)obj->controller, 0, 0x8000, 0x40000);
-        SetFields0x10To0x18_0202e5c8((unsigned char*)obj->controller, 0, 0, 0);
-        SetField0x238False_020a27a0(obj->controller);
-        SetField0x3b0Value_020100c4(gs, (int)obj->controller);
+        func_0207dfac(stage + 0x230);
+        func_020a2010(obj->controller);
+        func_0202e5c0((Vec3Target0202e5c0*)obj->controller, 0, 0x8000, 0x40000);
+        func_0202e5c8((unsigned char*)obj->controller, 0, 0, 0);
+        func_020a27a0(obj->controller);
+        func_020100c4(gs, (int)obj->controller);
         obj->b11++;
     } else if (state == 9) {
         if (!obj->HasFlag(1)) {
             obj->b11 = 0xff;
         } else if (func_ov008_02185964(obj->poller) != 0) {
             if (obj->poller->count > 0) {
-                ClearStruct020a13c4((S020a13c4*)obj->script);
-                SetupGlobalAndRunScript020a13e4(obj->script, obj->scriptArg8c, 0, 0, 1);
+                func_020a13c4((S020a13c4*)obj->script);
+                func_020a13e4(obj->script, obj->scriptArg8c, 0, 0, 1);
                 short ids[50];
                 int count = obj->poller->count;
                 for (int i = 0; i < count; i++) {
@@ -559,7 +559,7 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
                 memset(msg->name, 0, 0x38);
                 memset(msg->buf, 0, REGION_VALUE(0x118, 0x200));
                 msg->text = msg->buf;
-                MessageSrc02184a4c* src = FindElementByField020a15bc((Array020a15bc*)obj->script, ids[0]);
+                MessageSrc02184a4c* src = func_020a15bc((Array020a15bc*)obj->script, ids[0]);
                 msg = obj->message;
                 if (src != NULL) {
                     *(unsigned int*)msg = src->word0;
@@ -569,7 +569,7 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
                     const char* text = src->text;
                     if (text != NULL) {
                         memset(msg->buf, 0, REGION_VALUE(0x118, 0x200));
-                        sprintf(msg->buf + StringLength_020d2ff0(msg->buf), data_ov008_0218b3e0, text);
+                        sprintf(msg->buf + func_020d2ff0(msg->buf), data_ov008_0218b3e0, text);
                     }
                 }
                 Member02184a4c* hero = (Member02184a4c*)GameState::GetInstance()->GetProtagonist();
@@ -597,16 +597,16 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
                 obj->poller = NULL;
             }
             if (obj->b14 <= 0) {
-                int id = GetField5cbcValue_0201081c((char*)gs);
+                int id = func_0201081c((char*)gs);
                 if (func_0202c540(scene) != 0) {
                     obj->flags |= 0x100;
                     id = 0x3eb;
                 }
                 memset(obj->pathBuf, 0, REGION_VALUE(0x800, 0x960));
                 List02184a4c list;
-                ResetListHeader020727d8((List020727d8*)&list);
-                SubmitScriptFromFile020727f8(&list, data_ov008_0218b400, (short)id, obj->pathBuf, REGION_VALUE(1, 2));
-                if (CompareStrings_020d3018(obj->pathBuf, data_ov008_0218b48f) == 0) {
+                func_020727d8((List020727d8*)&list);
+                func_020727f8(&list, data_ov008_0218b400, (short)id, obj->pathBuf, REGION_VALUE(1, 2));
+                if (func_020d3018(obj->pathBuf, data_ov008_0218b48f) == 0) {
                     obj->b11 = 0xff;
                 } else {
                     obj->taskId = loader->QueueLoadFile(obj->pathBuf, NULL);
@@ -623,11 +623,11 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
             loader->GetLoadedFileByID(obj->taskId, &data, &size);
             obj->alloc78.Reset();
             obj->poller = (Poller02184a4c*)obj->alloc78.Allocate(0xd0);
-            Reset0209fe9c((char*)obj->poller);
-            InitManagerAndAllocateBuffers0209fee4((Obj0209fee4*)obj->poller, &obj->alloc78, (int)data, size);
-            SetIntAt0x60((IntField0x60_0209ff64*)obj->poller, 100);
+            func_0209fe9c((char*)obj->poller);
+            func_0209fee4((Obj0209fee4*)obj->poller, &obj->alloc78, (int)data, size);
+            func_0209ff64((IntField0x60_0209ff64*)obj->poller, 100);
             do {
-                PollOv017Task0209ff6c((TaskState0209ff6c*)obj->poller);
+                func_0209ff6c((TaskState0209ff6c*)obj->poller);
             } while (func_ov008_02185964(obj->poller) == 0);
             loader->RemoveTask(obj->taskId);
             obj->taskId = -1;
@@ -636,7 +636,7 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
     } else if (state == 11) {
         if (obj->poller->count > 0) {
             obj->b14 = obj->poller->ids[0];
-            obj->b16 = GetField5cbcValue_0201081c((char*)gs);
+            obj->b16 = func_0201081c((char*)gs);
             if (obj->HasFlag(0x100)) {
                 obj->flags &= ~0x100;
                 obj->b16 = 0x3ea;
@@ -653,26 +653,26 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
         } else {
             void* scene2 = func_0202ae18();
             int id = 0x3ea;
-            if (CheckField0NonZero_0202b7d8((int*)scene2) != 0) {
+            if (func_0202b7d8((int*)scene2) != 0) {
                 if (func_0202c540(scene2) != 0) {
                     id++;
                 }
             }
             memset(obj->pathBuf, 0, REGION_VALUE(0x800, 0x960));
             List02184a4c list;
-            ResetListHeader020727d8((List020727d8*)&list);
-            SubmitScriptFromFile020727f8(&list, data_ov008_0218b400, id, obj->pathBuf, REGION_VALUE(1, 2));
+            func_020727d8((List020727d8*)&list);
+            func_020727f8(&list, data_ov008_0218b400, id, obj->pathBuf, REGION_VALUE(1, 2));
             obj->taskId = loader->QueueLoadFile(obj->pathBuf, NULL);
             obj->b11 = 10;
             obj->flags |= 0x100;
         }
     } else if (state == 0xff) {
         func_ov008_0218712c(obj, 0);
-        InitConfig02187664((Manager02187664*)obj, 0);
+        func_ov008_02187664((Manager02187664*)obj, 0);
         func_ov008_02187a70(obj, 0);
         func_ov008_02187f6c(obj, 0);
         for (int i = 0; i < 6; i++) {
-            Elem0205d81c02184a4c* elem = FindElementByC40205d81c((Struct_0205d81c*)obj->elems, (unsigned char)i);
+            Elem0205d81c02184a4c* elem = func_0205d81c((Struct_0205d81c*)obj->elems, (unsigned char)i);
             if (elem != NULL) {
                 if (!(i != 4 && i != 5)) {
                     elem->fc2 = 1;
@@ -683,12 +683,12 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
         }
         if (obj->b24 == 0) {
             char* stage = ov17->stage;
-            char* presenter = GetGlobalField0x1c020421a0();
-            CopyInternalFields0207df50((Foo0207df50*)(stage + 0x5b0));
-            RestorePairTables0207df90(stage + 0x5b0);
+            char* presenter = func_020421a0();
+            func_0207df50((Foo0207df50*)(stage + 0x5b0));
+            func_0207df90(stage + 0x5b0);
             func_020432c4(presenter);
-            BackupPairTables0207dfac(stage + 0x5b0);
-            SetStateAndDispatch0209c3b4((Actor0209c3b4*)&data_02109bf4, 0x29);
+            func_0207dfac(stage + 0x5b0);
+            func_0209c3b4((Actor0209c3b4*)&data_02109bf4, 0x29);
             obj->b10 = 3;
             obj->b11 = 0;
             if (obj->message == NULL) {

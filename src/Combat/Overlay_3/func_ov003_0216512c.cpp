@@ -49,18 +49,18 @@ struct Battle0216512c {
     unsigned char step;
 };
 
-unsigned char* GetGlobal02109030_020936f8(void);
+extern "C" unsigned char* func_020936f8(void);
 extern "C" void func_ov003_021612c0(struct Battle0216512c* obj);
 extern "C" int func_ov003_02161344(struct Battle0216512c* obj);
-void CallFunc0204c804OverAllElems(struct Cont0207fe44* obj);
-void EnqueueEventTag50_021cea8c(void);
+extern "C" void func_0207fe44(struct Cont0207fe44* obj);
+extern "C" void func_ov017_021cea8c(void);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
-void ClearFlag0x3c9Bit0AndCleanup_020939fc(unsigned char* obj);
-void SetOrClearFlag40_02166f80(void* self, int key, int set);
+extern "C" void func_020939fc(unsigned char* obj);
+extern "C" void func_ov003_02166f80(void* self, int key, int set);
 
 // USA: func_ov003_0216512c
 extern "C" ARM void func_ov003_0216512c(struct Battle0216512c* obj) {
-    unsigned char* global = GetGlobal02109030_020936f8();
+    unsigned char* global = func_020936f8();
     if (obj->step == 0) {
         func_ov003_021612c0(obj);
         obj->step++;
@@ -70,11 +70,11 @@ extern "C" ARM void func_ov003_0216512c(struct Battle0216512c* obj) {
             if (result != 1) {
                 return;
             }
-            CallFunc0204c804OverAllElems(obj->model);
+            func_0207fe44(obj->model);
             obj->field484 = 0x13;
             obj->step++;
             obj->flags |= 0xc000000;
-            EnqueueEventTag50_021cea8c();
+            func_ov017_021cea8c();
             return;
         }
         obj->field488 = 0x1b;
@@ -91,9 +91,9 @@ extern "C" ARM void func_ov003_0216512c(struct Battle0216512c* obj) {
         obj->flags |= 0x82;
         obj->code = 6;
         obj->step = 0;
-        ClearFlag0x3c9Bit0AndCleanup_020939fc(global);
+        func_020939fc(global);
     } else if (obj->step == 3) {
-        SetOrClearFlag40_02166f80(obj, obj->field488, 0);
+        func_ov003_02166f80(obj, obj->field488, 0);
         obj->code = 10;
         obj->step = 1;
     }

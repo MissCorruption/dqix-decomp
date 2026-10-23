@@ -14,7 +14,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
 
 struct Obj020397cc;
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
 
 int fix32ReduceAngle0To2Pi(int angle);
 int fix32sin(int angle);
@@ -24,25 +24,25 @@ struct Vec3 { int x; int y; int z; };
 extern "C" int fix32_Atan2(int x, int z);
 
 struct Obj02033834;
-void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
+extern "C" void func_02033834(struct Obj02033834* obj, int arg);
 struct Obj02033b68;
-void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
+extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
 struct Foo02033b58;
-void SetByteSavingPrevious(struct Foo02033b58* p, unsigned char v);
+extern "C" void func_02033b58(struct Foo02033b58* p, unsigned char v);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 
-unsigned char CopyOutRegion0x5718_02011494(char* obj, void* dst);
+extern "C" unsigned char func_02011494(char* obj, void* dst);
 
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
 struct Vector3i;
-void InitAndResetHeader_0219e310(unsigned char* obj, int flag);
+extern "C" void func_ov017_0219e310(unsigned char* obj, int flag);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 struct PosData_021ab280 {
     char pad0[8];
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
 
     int state = obj->state;
     if (state == 0) {
-        CancelPendingAction020397cc((struct Obj020397cc*)combatant, 1);
+        func_020397cc((struct Obj020397cc*)combatant, 1);
         ((Object3D*)((unsigned char*)combatant))->EnableFlag(0x01000080);
 
         struct Vec3 dir;
@@ -92,8 +92,8 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         Vector3fix_Normalize((const Vector3fix*)&dir, (Vector3fix*)&dir);
         int angle2 = fix32_Atan2(dir.x, dir.z);
 
-        SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
-        SetByteIfChanged02033b68((struct Obj02033b68*)combatant, 1);
+        func_02033834((struct Obj02033834*)combatant, angle2);
+        func_02033b68((struct Obj02033b68*)combatant, 1);
         SetBrightness((GameResources*)mgr, -16, 15);
 
         obj->state = obj->state + 1;
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         if (gVal <= 4) {
             obj->state = state + 1;
             obj->counter = 0;
-            SetByteSavingPrevious((struct Foo02033b58*)combatant, 1);
+            func_02033b58((struct Foo02033b58*)combatant, 1);
         }
     } else if (state == 2) {
         struct Vec3 delta;
@@ -114,8 +114,8 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
         int angle2 = fix32_Atan2(delta.x, delta.z);
 
-        SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
-        SetByteSavingPrevious((struct Foo02033b58*)combatant, 1);
+        func_02033834((struct Obj02033834*)combatant, angle2);
+        func_02033b58((struct Foo02033b58*)combatant, 1);
         *(unsigned short*)((char*)combatant + 0xb2) = 0xa3;
 
         if (IsBrightnessTransitionActive((GameResources*)mgr) == 0) {
@@ -129,8 +129,8 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
         int angle2 = fix32_Atan2(delta.x, delta.z);
 
-        SetVecYByMode02033834((struct Obj02033834*)combatant, angle2);
-        SetByteSavingPrevious((struct Foo02033b58*)combatant, 1);
+        func_02033834((struct Obj02033834*)combatant, angle2);
+        func_02033b58((struct Foo02033b58*)combatant, 1);
         *(unsigned short*)((char*)combatant + 0xb2) = 0xa3;
 
         if (IsBrightnessTransitionActive((GameResources*)mgr) == 0) {
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
         ((Object3D*)((unsigned char*)combatant))->DisableFlag(0x01000080);
 
         unsigned char buf[4];
-        unsigned char count = CopyOutRegion0x5718_02011494((char*)battle, buf);
+        unsigned char count = func_02011494((char*)battle, buf);
         for (int i = 0; i < count; i++) {
             GameObject* c = battle->GetGameObjectByIndex(buf[i]);
             if (c != 0) {
@@ -149,8 +149,8 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
             }
         }
 
-        void* entryV = GetField0x3f8Address_0200fd0c(battle);
-        GetField0x3acValue_020100a8(battle);
+        void* entryV = func_0200fd0c(battle);
+        func_020100a8(battle);
         VectorizedMemset(entryV, 0, 0x70);
         unsigned char* e = (unsigned char*)entryV;
         unsigned char one = 1;
@@ -178,10 +178,10 @@ extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
 
         e[0xc] = 1;
         e[7] = 1;
-        CallFunc0200fbb4AtField0x3f8_0200fcfc(battle, entryV);
+        func_0200fcfc(battle, entryV);
 
-        InitAndResetHeader_0219e310(*(unsigned char**)(mgr + 0x3000 + kResourceHeaderOffset), 0);
-        AppendNodeToTail(*(struct TailList020469b4**)(mgr + 0x3000 + kResourceTailOffset),
+        func_ov017_0219e310(*(unsigned char**)(mgr + 0x3000 + kResourceHeaderOffset), 0);
+        func_020469b4(*(struct TailList020469b4**)(mgr + 0x3000 + kResourceTailOffset),
                           *(struct TailNode020469b4**)(mgr + 0x3000 + kResourceHeaderOffset));
 
         obj->field1 = 1;

@@ -11,13 +11,13 @@ struct InitTarget0205cfd4;
 struct Struct020dfc40;
 
 extern "C" void func_02074af4(void* obj);
-void InitStruct0205cfd4(struct InitTarget0205cfd4* s);
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void func_0205cfd4(struct InitTarget0205cfd4* s);
+extern "C" void func_0204af64(struct List0204af64* obj);
 extern "C" void func_0204c684(void* obj);
-void InitStruct0205a444(char* obj);
-void ResetStruct020dfc40(struct Struct020dfc40* p);
-void ClearFields_021e20c0(void* p);
-void ClearFlagFields_02169658(void* obj);
+extern "C" void func_0205a444(char* obj);
+extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void func_ov023_021e20c0(void* p);
+extern "C" void func_ov003_02169658(void* obj);
 
 struct CanvasSlot021681c8 {
     unsigned char data[0xe0];
@@ -74,18 +74,18 @@ extern "C" ARM void func_ov003_021681c8(BattleView021681c8* view) {
     view->allocs[1].ResetAllocatorPointer();
     view->allocs[0].ResetAllocatorPointer();
 
-    InitStruct0205cfd4((struct InitTarget0205cfd4*)view->field_0xe4);
+    func_0205cfd4((struct InitTarget0205cfd4*)view->field_0xe4);
     for (int i = 0; i < 2; i++) {
-        ResetList0204af64(&view->lists[i]);
+        func_0204af64(&view->lists[i]);
     }
     for (int i = 0; i < 3; i++) {
         func_0204c684(&view->canvases[i]);
     }
-    InitStruct0205a444(view->field_0x480);
+    func_0205a444(view->field_0x480);
     view->field_0x4d4 = 0;
     view->field_0x4d8 = 0;
-    ResetStruct020dfc40((struct Struct020dfc40*)view->field_0x64);
-    ClearFields_021e20c0(view->field_0x80);
+    func_020dfc40((struct Struct020dfc40*)view->field_0x64);
+    func_ov023_021e20c0(view->field_0x80);
 
     view->field_0x4dc = 0;
     view->field_0x4ec = 0;
@@ -106,5 +106,5 @@ extern "C" ARM void func_ov003_021681c8(BattleView021681c8* view) {
     view->field_0x5a4 = 0;
     view->field_0x5a5 = 0;
     view->field_0x59f = 0;
-    ClearFlagFields_02169658(view);
+    func_ov003_02169658(view);
 }

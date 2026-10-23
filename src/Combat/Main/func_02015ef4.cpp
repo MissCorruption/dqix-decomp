@@ -56,23 +56,23 @@ struct ChestDisplayState {
     Foo02048004* object;
 };
 
-void MaybeInvoke0204719c_02047230(Foo02048004*);
+extern "C" void func_02047230(Foo02048004*);
 extern "C" int func_02015ae4(ChestDisplayState*);
 extern "C" int func_02015cd0(ChestDisplayState*);
-void* GetElement02094d5c(GetElement02094d5cList*, int);
-void ClearMatchingEntries020159c0(Holder020159c0*, int);
-void* FindElementByKey020dedd0(Container020dedd0*, int);
-int GetPreferredPackedField020de234(StructDE234_020de234*, int);
+extern "C" void* func_02094d5c(GetElement02094d5cList*, int);
+extern "C" void func_020159c0(Holder020159c0*, int);
+extern "C" void* func_020dedd0(Container020dedd0*, int);
+extern "C" int func_020de234(StructDE234_020de234*, int);
 extern "C" int sprintf(char*, const char*, ...);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
+extern "C" int func_02046b24(HeadNode02046b24**);
 extern "C" void func_0204719c(void*);
-void CopyState0207dfc8(State0207dfc8*, State0207dfc8*);
-void RestorePairTables0207df90(char*);
-void Forward02047b30(void*, int, int, int);
-void BackupPairTables0207dfac(char*);
-void* GetField0x3b0Value_020100bc(GameState*);
-void ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-void RenderFlaggedIndexedEntry(StructAt020473c8*, int);
+extern "C" void func_0207dfc8(State0207dfc8*, State0207dfc8*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_02047b30(void*, int, int, int);
+extern "C" void func_0207dfac(char*);
+extern "C" void* func_020100bc(GameState*);
+extern "C" void func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" void func_020473c8(StructAt020473c8*, int);
 
 struct NameBuf {
     char s[0x20];
@@ -92,7 +92,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
     self->unk_23bc[1] = 0;
     if (entry->state == 0 || entry->state == 8) {
         if (entry->object) {
-            MaybeInvoke0204719c_02047230((Foo02048004*)entry->object);
+            func_02047230((Foo02048004*)entry->object);
             entry->object = 0;
         }
         return -1;
@@ -106,13 +106,13 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
         if (entry->kind == 0 || entry->kind == 1) {
             rec = (ChestRecord*)containers->GetContainerByID(entry->uniqueID, 0);
         } else if (entry->kind == 2) {
-            rec = (ChestRecord*)GetElement02094d5c((GetElement02094d5cList*)self->unknown_struct_2724_, entry->uniqueID);
+            rec = (ChestRecord*)func_02094d5c((GetElement02094d5cList*)self->unknown_struct_2724_, entry->uniqueID);
         }
         if (!rec) {
             entry->state = 8;
             return 0;
         }
-        ClearMatchingEntries020159c0((Holder020159c0*)self, (signed char)protagonistId);
+        func_020159c0((Holder020159c0*)self, (signed char)protagonistId);
         if (entry->owner == playerId) {
             if (rec->lootType == 1) {
                 NameBuf name = data_020e6e88;
@@ -120,9 +120,9 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
                 entry->state = 4;
                 return 0;
             } else if (rec->lootType == 2) {
-                PackedElement* packed = (PackedElement*)FindElementByKey020dedd0((Container020dedd0*)self->unknown_struct_2754_, rec->key);
+                PackedElement* packed = (PackedElement*)func_020dedd0((Container020dedd0*)self->unknown_struct_2754_, rec->key);
                 if (packed && packed->marker != 0x5617) {
-                    int field = GetPreferredPackedField020de234((StructDE234_020de234*)packed, 0);
+                    int field = func_020de234((StructDE234_020de234*)packed, 0);
                     char path[0x50];
                     sprintf(path, data_020ef20b, (signed char)packed->code, field);
                     entry->taskID = loader->QueueLoadFile(path, 0);
@@ -142,16 +142,16 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
         loader->GetLoadedFileByID(entry->taskID, &file, &size);
         GameResources* root = GetGameResources();
         HeadNode02046b24** head = (HeadNode02046b24**)root->unknown_ptr_array_36fc[0];
-        if (file && GetHeadNodeIdOrMinusOne(head) != 4) {
+        if (file && func_02046b24(head) != 4) {
             Foo02048004* slot = &reinterpret_cast<Foo02048004*>(self->unk_600)[entry->owner];
             entry->object = slot;
             func_0204719c(slot);
             entry->object->bit2 = 1;
             char saved[0x70];
-            CopyState0207dfc8((State0207dfc8*)self->unknown_ptr_50_, (State0207dfc8*)saved);
-            RestorePairTables0207df90(saved);
-            Forward02047b30(entry->object, (int)file, size, (int)self->pAllocator_68_);
-            BackupPairTables0207dfac(saved);
+            func_0207dfc8((State0207dfc8*)self->unknown_ptr_50_, (State0207dfc8*)saved);
+            func_0207df90(saved);
+            func_02047b30(entry->object, (int)file, size, (int)self->pAllocator_68_);
+            func_0207dfac(saved);
             *reinterpret_cast<int*>(self->unk_600 + 0x220) = 0x1f;
             entry->delay = 0;
         } else {
@@ -183,7 +183,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
                 entry->angleX = 0x647a;
                 entry->state = 1;
                 if (entry->object) {
-                    MaybeInvoke0204719c_02047230((Foo02048004*)entry->object);
+                    func_02047230((Foo02048004*)entry->object);
                     entry->object = 0;
                 }
             }
@@ -191,7 +191,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
             entry->angleX = 0x4000;
             entry->state = 8;
             if (entry->object) {
-                MaybeInvoke0204719c_02047230((Foo02048004*)entry->object);
+                func_02047230((Foo02048004*)entry->object);
                 entry->object = 0;
             }
         }
@@ -201,8 +201,8 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
         self->unk_23bc[1] = 1;
         int x = 0;
         int y = 0;
-        void* camera = GetField0x3b0Value_020100bc(gs);
-        if (camera) ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)entry, &x, &y);
+        void* camera = func_020100bc(gs);
+        if (camera) func_0202ec84(camera, (Vec3copy0202ec84*)entry, &x, &y);
         x -= 12;
         y -= 0x28;
         if (entry->delay < 10) entry->delay++;
@@ -224,7 +224,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
             obj->words1c[0] = px << 12;
             obj->words1c[1] = offsetY << 12;
             obj->words1c[2] = 0;
-            RenderFlaggedIndexedEntry((StructAt020473c8*)entry->object, 1);
+            func_020473c8((StructAt020473c8*)entry->object, 1);
         }
     }
     return 0;

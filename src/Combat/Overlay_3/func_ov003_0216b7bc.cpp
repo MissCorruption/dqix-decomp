@@ -38,10 +38,10 @@ struct Msg0216b7bc {
     char names[4];
 };
 
-struct MsgCtl0216b7bc* GetGlobalField0x1c020421a0();
+extern "C" struct MsgCtl0216b7bc* func_020421a0();
 extern "C" void* func_02012fe4(void);
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendString02042058(char* dst, const char* src);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
 extern "C" void func_02046380(struct MsgCtl0216b7bc* ctl);
 #if !defined(jpn)
 extern "C" void func_0204500c(struct MsgCtl0216b7bc* ctl, char* text, int a, int b);
@@ -58,7 +58,7 @@ extern char data_ov003_021801c2[];
 
 // USA: func_ov003_0216b7bc
 extern "C" ARM void func_ov003_0216b7bc(struct Msg0216b7bc* obj) {
-    struct MsgCtl0216b7bc* ctl = GetGlobalField0x1c020421a0();
+    struct MsgCtl0216b7bc* ctl = func_020421a0();
     GameState::GetInstance();
     if (obj->request == 3) {
         obj->subState = 2;
@@ -74,28 +74,28 @@ extern "C" ARM void func_ov003_0216b7bc(struct Msg0216b7bc* obj) {
         char* buf = ctl->textBuf;
 #endif
         memset(buf, 0, REGION_LAYOUT(0x800, 0x960));
-        AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 0));
+        func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 0));
         if (progress->rewardFlags == 0) {
-            AppendString02042058(buf, data_ov003_021801b2);
+            func_02042058(buf, data_ov003_021801b2);
         } else {
-            AppendString02042058(buf, data_ov003_021801c2);
+            func_02042058(buf, data_ov003_021801c2);
         }
         unsigned char flags = progress->rewardFlags;
 #if defined(jpn)
         if (flags & 0x1) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 1));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 1));
         }
         else if (flags & 0x2) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 2));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 2));
         }
         else if (flags & 0x4) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 3));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 3));
         }
         else if (flags & 0x8) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 4));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 4));
         }
         else if (flags & 0x10) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, 5));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, 5));
         }
 #else
         int idx = -1;
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov003_0216b7bc(struct Msg0216b7bc* obj) {
             idx = 5;
         }
         if (idx >= 0) {
-            AppendString02042058(buf, GetFieldByKey020e0434((struct Container020e0310*)obj->names, idx));
+            func_02042058(buf, func_020e0434((struct Container020e0310*)obj->names, idx));
         }
 #endif
         progress->rewardFlags &= ~0xff;

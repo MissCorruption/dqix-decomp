@@ -22,36 +22,36 @@ struct Obj020e25e8;
 struct Entry_0205d6a0;
 struct Struct_0205bcdc;
 struct Container020dedd0;
-int GetGlobalField0x1c020421a0(void);
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" int func_020421a0(void);
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
 extern "C" void func_ov002_02161cf0(char *base);
 extern "C" void func_ov002_02160fb4(char *base);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int clear, int key);
-char *GetField4Ptr020e1b24(void *p);
-void ResetAndReposition020e280c(struct Obj020e280c *self, void *b);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-char *GetFieldIfFlag4_020100f8(char *obj);
-int GetIntAt0x23c(struct IntField0x23c_020a27c4 *obj);
-int GetField0x15UnlessInactive_020e2918(signed char *param);
-int GetSignedByteAt0x14_020e2910(signed char *p);
-void ResetSelectionState020e25e8(struct Obj020e25e8 *obj);
-char *FindElementByKey020dedd0(struct Container020dedd0 *c, int key);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
+extern "C" void func_0205def8(struct Struct_0205def8 *s, int clear, int key);
+extern "C" char *func_020e1b24(void *p);
+extern "C" void func_020e280c(struct Obj020e280c *self, void *b);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
+extern "C" char *func_020100f8(char *obj);
+extern "C" int func_020a27c4(struct IntField0x23c_020a27c4 *obj);
+extern "C" int func_020e2918(signed char *param);
+extern "C" int func_020e2910(signed char *p);
+extern "C" void func_020e25e8(struct Obj020e25e8 *obj);
+extern "C" char *func_020dedd0(struct Container020dedd0 *c, int key);
 extern "C" void func_ov002_0215b9a4(char *self, unsigned char key, int flag);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0 *a, int flag);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0 *a, int flag);
 extern "C" void func_ov017_0219577c(int a, int b, int c);
 extern "C" int func_020dc920(int a, int b, int c, int d);
 extern "C" void func_ov002_0216bfd4(char *self, int a);
-void EnqueueEventTag170_021d0198(int a, int b, int c, int d);
-int CheckStateAndGetCode0215753c(unsigned char *p);
+extern "C" void func_ov017_021d0198(int a, int b, int c, int d);
+extern "C" int func_ov002_0215753c(unsigned char *p);
 extern "C" void func_ov002_02156e90(void *base);
-void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int a, int b);
-void ReinitController02043204(char *obj);
-void SetFieldB0AndUpdate0205dee8(struct Obj0205dee8 *o, int v);
-void SetIndexIfValid0205bcdc(struct Struct_0205bcdc *s, int index);
+extern "C" void func_0205deb4(struct Struct_0205d81c *s, int a, int b);
+extern "C" void func_02043204(char *obj);
+extern "C" void func_0205dee8(struct Obj0205dee8 *o, int v);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc *s, int index);
 extern "C" void func_0205bb04(void *s, int n);
-int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
+extern "C" int func_020e2984(struct Outer020e28dc* window);
 extern "C" char data_02108760[];
 extern "C" unsigned char data_ov002_0216d3ac;
 
@@ -63,11 +63,11 @@ struct Bits0216a300 {
 
 #define CONFIRM_0216A300() \
     do { \
-        char *e = FindElementByKey020dedd0((struct Container020dedd0 *) (base + RG(0x3ec + 0x400, 0x750)), \
+        char *e = func_020dedd0((struct Container020dedd0 *) (base + RG(0x3ec + 0x400, 0x750)), \
                                                                     *(short *) (base + RG(0x1c00 + 0x22, 0x1a00 + 0xea))); \
         if (e != NULL && *(short *) (e + 0x18) == 0x5612) { \
             func_ov002_0215b9a4(base, *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)), 1); \
-            ResetEntryList0205d6a0((struct Entry_0205d6a0 *) LST(base), 0); \
+            func_0205d6a0((struct Entry_0205d6a0 *) LST(base), 0); \
             *(short *) (base + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x797e; \
             *(short *) (base + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1; \
             *(int *) (base + 0x1000 + RG(0xbb8, 0xa80))           = K(0x26, 0x29); \
@@ -78,7 +78,7 @@ struct Bits0216a300 {
         } \
         if (*(unsigned char *) (base + 0x1000 + RG(0xc30, 0xaf8)) != 0) { \
             func_ov002_0215b9a4(base, *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)), 1); \
-            ResetEntryList0205d6a0((struct Entry_0205d6a0 *) LST(base), 0); \
+            func_0205d6a0((struct Entry_0205d6a0 *) LST(base), 0); \
             switch (*(unsigned char *) (base + 0x1000 + RG(0xc79, 0xb3d))) { \
                 case 0: func_ov002_0216bfd4(base, 4); return; \
                 case 3: func_ov002_0216bfd4(base, 2); return; \
@@ -86,11 +86,11 @@ struct Bits0216a300 {
             return; \
         } \
         func_ov002_02156e90(base); \
-        ReinitController02043204(g); \
+        func_02043204(g); \
         if (*(unsigned char *) (base + 0x2000 + RG(0x521, 0x351)) != 0) { \
             *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = *(int *) (base + 0x1000 + RG(0xbbc, 0xa84)); \
-            SetFieldB0AndUpdate0205dee8((struct Obj0205dee8 *) LST(base), 4); \
-            SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), 4, 0); \
+            func_0205dee8((struct Obj0205dee8 *) LST(base), 4); \
+            func_0205deb4((struct Struct_0205d81c *) LST(base), 4, 0); \
             func_ov002_02161cf0(base); \
             *(unsigned char *) (base + 0x2000 + RG(0x521, 0x351)) = 0; \
         } else if ((*(short *) (base + RG(0x1b00 + 0xf0, 0x1a00 + 0xb8)) >= 0 || *(short *) (base + RG(0x1b00 + 0xe8, 0x1a00 + 0xb0)) >= 0 || \
@@ -99,68 +99,68 @@ struct Bits0216a300 {
         { \
             int n_   = (*(short *) (base + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = 7); \
             char *l_ = LST(base); \
-            SetIndexIfValid0205bcdc((struct Struct_0205bcdc *) (l_ + 4), n_); \
+            func_0205bcdc((struct Struct_0205bcdc *) (l_ + 4), n_); \
             func_0205bb04(l_ + 0x54, n_); \
             func_ov002_0215b9a4(base, K(0x21, 0x24), 0); \
         } \
         if (*(int *) (base + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) { \
             *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = K(0xb, 0xc); \
             func_ov002_0215b9a4(base, K(0xb, 0xc), 0); \
-            SetFieldB0AndUpdate0205dee8((struct Obj0205dee8 *) LST(base), K(0xb, 0xc)); \
-            SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), K(0xb, 0xc), 0); \
-            SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), K(0xd, 0xe), 1); \
+            func_0205dee8((struct Obj0205dee8 *) LST(base), K(0xb, 0xc)); \
+            func_0205deb4((struct Struct_0205d81c *) LST(base), K(0xb, 0xc), 0); \
+            func_0205deb4((struct Struct_0205d81c *) LST(base), K(0xd, 0xe), 1); \
             func_ov002_02161cf0(base); \
         } \
     } while (0)
 
 // USA: func_ov002_0216a300
 extern "C" ARM void func_ov002_0216a300(char *base) {
-    char *g                                 = (char *) GetGlobalField0x1c020421a0();
+    char *g                                 = (char *) func_020421a0();
     *(unsigned char *) (g + 0x1000 + RG(0x9ae, 0x7de)) = 0;
     int state                               = *(int *) (base + 0x1000 + RG(0xbc0, 0xa88));
     if (state == 0) {
         *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) LST(base), 0, 3);
+        func_0205de24((struct Struct0205de24 *) LST(base), 0, 3);
         func_ov002_02161cf0(base);
         func_ov002_02160fb4(base);
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 5, 0);
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) LST(base), 0, K(0x25, 0x28));
-        char *p = GetField4Ptr020e1b24(*(void **) (*(char **) base + 0x10));
+        func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 5, 0);
+        func_0205def8((struct Struct_0205def8 *) LST(base), 0, K(0x25, 0x28));
+        char *p = func_020e1b24(*(void **) (*(char **) base + 0x10));
         if (((struct Bits0216a300 *) p)->b0) {
-            ResetAndReposition020e280c(*(struct Obj020e280c **) (base + 4), *(void **) (p + 0x30));
+            func_020e280c(*(struct Obj020e280c **) (base + 4), *(void **) (p + 0x30));
         } else {
-            ResetAndReposition020e280c(*(struct Obj020e280c **) (base + 4), (void *) -1);
+            func_020e280c(*(struct Obj020e280c **) (base + 4), (void *) -1);
         }
         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
     } else if (state == 1) {
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) LST(base), 0, K(0x25, 0x28));
+        func_0205def8((struct Struct_0205def8 *) LST(base), 0, K(0x25, 0x28));
         *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         *(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) =
-            GetActiveScaledSum0205d794((struct Struct_0205c570 *) LST(base));
+            func_0205d794((struct Struct_0205c570 *) LST(base));
         int ok  = 0;
-        char *f = GetFieldIfFlag4_020100f8((char *) GameState::GetInstance());
-        if (f != NULL && ((*(unsigned char *) (f + 0x244) & 2) || GetIntAt0x23c((struct IntField0x23c_020a27c4 *) f) == 0)) {
+        char *f = func_020100f8((char *) GameState::GetInstance());
+        if (f != NULL && ((*(unsigned char *) (f + 0x244) & 2) || func_020a27c4((struct IntField0x23c_020a27c4 *) f) == 0)) {
             if (g_keyManager.TestKeysPressed(0x200)) {
                 ok = 1;
             } else {
                 ok = 0;
             }
         }
-        *(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = GetField0x15UnlessInactive_020e2918(*(signed char **) (base + 4));
+        *(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2918(*(signed char **) (base + 4));
         if (*(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) >= 0 || ok) {
-            *(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = GetSignedByteAt0x14_020e2910(*(signed char **) (base + 4));
-            ResetSelectionState020e25e8(*(struct Obj020e25e8 **) (base + 4));
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            *(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda)) = func_020e2910(*(signed char **) (base + 4));
+            func_020e25e8(*(struct Obj020e25e8 **) (base + 4));
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
             data_ov002_0216d3ac = 0;
             switch (*(short *) (base + RG(0x1c00 + 0x12, 0x1a00 + 0xda))) {
                 case 0: {
                     *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
                     *(unsigned char *) (base + RG(0xf80, 0xed8)) = *(int *) (base + 0x1000 + RG(0xbb8, 0xa80));
-                    char *e                           = FindElementByKey020dedd0(
+                    char *e                           = func_020dedd0(
                         (struct Container020dedd0 *) (base + RG(0x3ec + 0x400, 0x750)), *(short *) (base + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                     if (e != NULL && *(short *) (e + 0x18) == 0x5612) {
                         func_ov002_0215b9a4(base, *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)), 1);
-                        ResetEntryList0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
+                        func_0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
                         *(short *) (base + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = 0x7972;
                         *(short *) (base + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1;
                         *(int *) (base + 0x1000 + RG(0xbb8, 0xa80))           = K(0x26, 0x29);
@@ -172,16 +172,16 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                     }
                     if (*(unsigned char *) (base + 0x1000 + RG(0xc30, 0xaf8)) != 0) {
                         *(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
-                        ResetEntryList0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
+                        func_0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
                         switch (*(unsigned char *) (base + 0x1000 + RG(0xc79, 0xb3d))) {
                             case 0: {
-                                char *m = (char *)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)));
+                                char *m = (char *)func_0200ff1c(GameState::GetInstance(), *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)));
                                 int go  = 1;
                                 if (m != NULL && *(unsigned short *) (*(char **) (m + 0x130) + 4) == 0) go = 0;
                                 if (!func_020dc920(*(unsigned char *) (base + 0x1000 + RG(0xc21, 0xae9)), 1, 0, 0)) go = 0;
                                 if (go) {
                                     func_ov002_0216bfd4(base, 1);
-                                    EnqueueEventTag170_021d0198(1, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)),
+                                    func_ov017_021d0198(1, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)),
                                                                         *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)),
                                                                         *(short *) (base + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                                     *(int *) (base + 0x1000 + RG(0xc74, 0xb38)) = 0x1e;
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                             }
                             case 3:
                                 func_ov002_0216bfd4(base, 4);
-                                EnqueueEventTag170_021d0198(2, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)),
+                                func_ov017_021d0198(2, *(signed char *) (base + RG(0x1c00 + 0x20, 0x1a00 + 0xe8)),
                                                                     *(signed char *) (base + RG(0x1c00 + 0x21, 0x1a00 + 0xe9)),
                                                                     *(short *) (base + RG(0x1c00 + 0x22, 0x1a00 + 0xea)));
                                 return;
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                         *(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) = 1;
                         return;
                     }
-                    *(short *) (base + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = CheckStateAndGetCode0215753c((unsigned char *) base);
+                    *(short *) (base + RG(0x1c00 + 0x28, 0x1a00 + 0xf0))          = func_ov002_0215753c((unsigned char *) base);
                     *(short *) (base + RG(0x1c00 + 0x2a, 0x1a00 + 0xf2))          = -1;
                     *(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
                     if (*(short *) (base + RG(0x1c00 + 0x28, 0x1a00 + 0xf0)) < 0) {
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                             *(short *) (base + RG(0x1c00 + 0xa, 0x1a00 + 0xd2)) = -1;
                         }
                     } else {
-                        ResetEntryList0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
+                        func_0205d6a0((struct Entry_0205d6a0 *) LST(base), 0);
                         *(int *) (base + 0x1000 + RG(0xbb8, 0xa80))  = K(0x26, 0x29);
                         *(short *) (base + RG(0x1c00 + 0x16, 0x1a00 + 0xde)) = 0;
                         *(short *) (base + RG(0x1c00 + 0x18, 0x1a00 + 0xe0)) = 0;
@@ -231,14 +231,14 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     }
                     if (*(int *) (base + 0x1000 + RG(0xbbc, 0xa84)) == K(0x24, 0x27)) {
-                        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), K(0x15, 0x16), 1);
+                        func_0205deb4((struct Struct_0205d81c *) LST(base), K(0x15, 0x16), 1);
                         *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = K(0x24, 0x27);
                         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 1;
                     }
                     if (*(int *) (base + 0x1000 + RG(0xbbc, 0xa84)) == K(0xb, 0xc)) {
                         func_ov002_0215b9a4(base, K(0xd, 0xe), 0);
-                        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), K(0xb, 0xc), 1);
-                        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) LST(base), K(0xd, 0xe), 1);
+                        func_0205deb4((struct Struct_0205d81c *) LST(base), K(0xb, 0xc), 1);
+                        func_0205deb4((struct Struct_0205d81c *) LST(base), K(0xd, 0xe), 1);
                     }
                     break;
                 }
@@ -248,8 +248,8 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
                     CONFIRM_0216A300();
                     break;
             }
-        } else if (*(struct Outer020e28dc **) (base + 4) != NULL && IsFlag0x2Active020e2984(*(struct Outer020e28dc **) (base + 4))) {
-            ResetSelectionState020e25e8(*(struct Obj020e25e8 **) (base + 4));
+        } else if (*(struct Outer020e28dc **) (base + 4) != NULL && func_020e2984(*(struct Outer020e28dc **) (base + 4))) {
+            func_020e25e8(*(struct Obj020e25e8 **) (base + 4));
             *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) &= ~4;
             *(unsigned char *) (base + 0x1000 + RG(0xc2e, 0xaf6)) = 0;
             data_ov002_0216d3ac                        = 0;

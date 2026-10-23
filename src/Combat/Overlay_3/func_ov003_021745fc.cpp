@@ -59,14 +59,14 @@ int func_020800fc(Menu021745fc* menu, short* cursor, short prevCursor, unsigned 
 void func_020813ec(Menu021745fc* menu, short group);
 }
 
-void ClearFlag80AtOffset1000_02174988(char* self);
-void SetElementFlagIfValid_0217451c(char* self);
-int GetGlobalField0x1c020421a0();
-void ReinitController02043204(char* obj);
-void CallFunc0204c87cOverEntries0207fc6c(Obj0207fc6c* obj, int ticks);
-void ClearSublistEntriesFlag4_020804fc(void* menu, int group);
-int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
-void UpdateEntryStateAndPosition(Ctx020e263c* ctx, int ticks);
+extern "C" void func_ov003_02174988(char* self);
+extern "C" void func_ov003_0217451c(char* self);
+extern "C" int func_020421a0();
+extern "C" void func_02043204(char* obj);
+extern "C" void func_0207fc6c(Obj0207fc6c* obj, int ticks);
+extern "C" void func_020804fc(void* menu, int group);
+extern "C" int func_020e28dc(Outer020e28dc* o);
+extern "C" void func_020e263c(Ctx020e263c* ctx, int ticks);
 
 extern unsigned int data_ov003_02180cc8[2];
 extern StateFn021745fc data_020e6d5c;
@@ -78,8 +78,8 @@ extern "C" ARM bool func_ov003_021745fc(BattleMenu021745fc* self, int ticks) {
     if (func_ov017_021959b4())
         func_ov003_02174550(self);
     func_ov003_021749f0(self);
-    ClearFlag80AtOffset1000_02174988((char*)self);
-    SetElementFlagIfValid_0217451c((char*)self);
+    func_ov003_02174988((char*)self);
+    func_ov003_0217451c((char*)self);
 
     if (self->state_ != 0) {
         if (self->pending_ >= 0) {
@@ -87,34 +87,34 @@ extern "C" ARM bool func_ov003_021745fc(BattleMenu021745fc* self, int ticks) {
             return false;
         }
 #if defined(jpn)
-        ((unsigned char*)GetGlobalField0x1c020421a0())[0x17de] = 0;
+        ((unsigned char*)func_020421a0())[0x17de] = 0;
 #else
-        ((unsigned char*)GetGlobalField0x1c020421a0())[0x19ae] = 0;
+        ((unsigned char*)func_020421a0())[0x19ae] = 0;
 #endif
         Menu021745fc* menu = self->menu_;
         if (menu != NULL)
-            CallFunc0204c87cOverEntries0207fc6c((Obj0207fc6c*)menu, ticks);
+            func_0207fc6c((Obj0207fc6c*)menu, ticks);
         if (self->cursor_ != NULL) {
             func_02081f20(self->repeat_, ticks);
             self->prevCursor_ = *self->cursor_;
             self->menuEvents_ = func_020800fc(menu, self->cursor_, self->prevCursor_, self->repeatButtons_, self->unk_89a, (self->flags_ & 0x400) != 0);
             menu->cursor_ = *self->cursor_;
             if (self->menuEvents_ != 0)
-                ClearSublistEntriesFlag4_020804fc(menu, self->group_);
+                func_020804fc(menu, self->group_);
             if (self->prevCursor_ != *self->cursor_)
                 func_020813ec(menu, self->group_);
         }
     }
 
-    if (self->ctrl_ != NULL && GetInnerFlagBit0020e28dc(self->ctrl_))
-        UpdateEntryStateAndPosition((Ctx020e263c*)self->ctrl_, self->ticks_);
+    if (self->ctrl_ != NULL && func_020e28dc(self->ctrl_))
+        func_020e263c((Ctx020e263c*)self->ctrl_, self->ticks_);
 
     if (!(data_ov003_02180cc8[0] & 1)) {
         data_ov003_02180aa4[9] = data_020e6d5c;
         data_ov003_02180cc8[0] |= 1;
     }
     if (data_ov003_02180aa4[self->state_] == NULL) {
-        ReinitController02043204((char*)GetGlobalField0x1c020421a0());
+        func_02043204((char*)func_020421a0());
         return !(self->flags_ & 0x80);
     }
     (self->*data_ov003_02180aa4[self->state_])();

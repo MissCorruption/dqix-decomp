@@ -17,19 +17,19 @@ struct Scene02154720 {
  char pad208[0x330-0x208];int field330,field334;unsigned char blocked,reset,started;
 };
 extern "C" void func_02074af4(void*);
-void InitStruct0205a444(char*);
+extern "C" void func_0205a444(char*);
 struct Obj02081ee4;
 struct Sub02081ee4;
-void InitWithSub02081ee4(Obj02081ee4*, Sub02081ee4*);
-void Clear0x54Bytes0208247c(void*);
+extern "C" void func_02081ee4(Obj02081ee4*, Sub02081ee4*);
+extern "C" void func_0208247c(void*);
 struct Struct020dfc40;
-void ResetStruct020dfc40(Struct020dfc40*);
-void ClearFields_021e20c0(void*);
-void ZeroInit020de848(void*);
-unsigned int GetField0x3acValue_020100a8(GameState*);
+extern "C" void func_020dfc40(Struct020dfc40*);
+extern "C" void func_ov023_021e20c0(void*);
+extern "C" void func_020de848(void*);
+extern "C" unsigned int func_020100a8(GameState*);
 extern "C" void* memset(void*,int,unsigned int);
-unsigned int CopyOutRegion0x571d_020114ec(char*, void*);
-void ResetFields_0215873c(void*);
+extern "C" unsigned int func_020114ec(char*, void*);
+extern "C" void func_ov003_0215873c(void*);
 // USA: func_ov003_02154720
 extern "C" ARM void func_ov003_02154720(void* memory,unsigned char flagIn) {
  unsigned char flag=flagIn;
@@ -43,23 +43,23 @@ extern "C" ARM void func_ov003_02154720(void* memory,unsigned char flagIn) {
  self->display=(*(volatile unsigned int*)0x04000000&0x1f00)>>8;
  *(volatile unsigned int*)0x04000000=(*(volatile unsigned int*)0x04000000&~0x1f00)|0x100;
  gs=GameState::GetInstance();
- party=(Party02154720*)GetPtrField0x2a04_02010828(gs);
+ party=(Party02154720*)func_02010828(gs);
  self->p0=0;self->p4=0;self->pc=0;self->p8=0;self->p10=0;self->p14=0;self->p18=0;self->p20=0;self->p24=0;self->p28=0;
- InitStruct0205a444((char*)self->init2c);
- InitWithSub02081ee4((Obj02081ee4*)self->selector, (Sub02081ee4*)self->sub);
- Clear0x54Bytes0208247c(self->clear90);
- ResetStruct020dfc40((Struct020dfc40*)self->resetE4);
- ResetStruct020dfc40((Struct020dfc40*)self->resetFc);
- ClearFields_021e20c0(self->clear114);
- ZeroInit020de848(self->zero178);
+ func_0205a444((char*)self->init2c);
+ func_02081ee4((Obj02081ee4*)self->selector, (Sub02081ee4*)self->sub);
+ func_0208247c(self->clear90);
+ func_020dfc40((Struct020dfc40*)self->resetE4);
+ func_020dfc40((Struct020dfc40*)self->resetFc);
+ func_ov023_021e20c0(self->clear114);
+ func_020de848(self->zero178);
  self->task=-1;self->field1d4=0;self->changed=0;self->scale=0;
  self->field1e0=-1;self->field1e2=-1;self->field1e4=-1;self->element=-1;self->previous=-1;self->field1ea=-1;self->field1ee=-1;self->pending=self->field1ee;self->field1f0=-1;
- self->current=GetField0x3acValue_020100a8(gs);
+ self->current=func_020100a8(gs);
  self->state=0;self->flag1f9=0;self->flag1fa=0;self->multiplayer=0;self->flags=0;self->field200=0;self->skip=0;
  self->field330=0;self->field334=0;self->blocked=0;self->reset=0;self->started=0;
  for(init=0;init<4;init++) { self->ids[init]=0;memset(&self->cache[init],0,4); }
- self->count=CopyOutRegion0x571d_020114ec((char*)gs, self->ids);
- Party02154720* currentParty=(Party02154720*)GetPtrField0x2a04_02010828(gs);
+ self->count=func_020114ec((char*)gs, self->ids);
+ Party02154720* currentParty=(Party02154720*)func_02010828(gs);
  count=self->count;
  for(int i=0;i<count;i++) {
   int id;
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov003_02154720(void* memory,unsigned char flagIn) {
  for(k=0;k<count-1;k++) {
   if(self->ids[k]==0xff) for(int j=k+1;j<count;j++) if(self->ids[j]!=0xff) {self->ids[k]=self->ids[j];self->ids[j]=0xff;break;}
  }
- ResetFields_0215873c(self);
+ func_ov003_0215873c(self);
  if(flag) self->flags|=1;
  self->multiplayer=party->count!=1;
 }

@@ -3,7 +3,7 @@
 #include "NitroSDK/Timing.h"
 
 extern int data_ov031_0224e53c;
-int RunTwoSteps_0220db28(void);
+extern "C" int func_ov031_0220db28(void);
 
 struct Ctx2000 {
 	char pad[0x260];
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov031_0220da1c(int newState) {
 		ctx->sub.state = newState;
 	}
 	if (newState == 9) {
-		SetTimeout((Alarm*)((char*)data_ov031_0224e53c + 0x22cc), 0x22f5341, (Alarm::PFNCompletion)&RunTwoSteps_0220db28, NULL);
+		SetTimeout((Alarm*)((char*)data_ov031_0224e53c + 0x22cc), 0x22f5341, (Alarm::PFNCompletion)&func_ov031_0220db28, NULL);
 	}
 	SetIRQInterruptState(state);
 }

@@ -4,8 +4,8 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-void* GetData02100044_0202ae24(void);
-void* GetField6b0_021b8470(void* obj);
+extern "C" void* func_0202ae24(void);
+extern "C" void* func_ov017_021b8470(void* obj);
 extern "C" int func_ov000_0215e9fc(void* obj, short* buf, int max, int flag);
 extern "C" int func_ov000_0215eb1c(void* obj, short* buf, int max, int flag);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -31,8 +31,8 @@ extern "C" ARM void func_ov017_021c8758(unsigned short id) {
 #endif
     GameState* bs = GameState::GetInstance();
     unsigned char* base = (unsigned char*)GetGameResources();
-    void* data = GetData02100044_0202ae24();
-    void* field = GetField6b0_021b8470(*(void**)(base + 0x3000 + regionalOffset));
+    void* data = func_0202ae24();
+    void* field = func_ov017_021b8470(*(void**)(base + 0x3000 + regionalOffset));
     if (field == NULL) {
         return;
     }

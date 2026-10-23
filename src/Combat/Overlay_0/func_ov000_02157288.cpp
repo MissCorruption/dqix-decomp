@@ -2,12 +2,12 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char* stats);
-float SelectOneOrHalf_02074968(int x);
-int IsFlag0x14Bit0x20Set_ov000_021543f4(GameObject* combatant);
-float SelectHalfOrQuarter_02074978(int x);
-void ClearBattleFlag0x14Bit4_02088390(void* obj);
-void ClearFlag0x20AndBytes_020883fc(void* obj);
+extern "C" int func_020882f8(unsigned char* stats);
+extern "C" float func_02074968(int x);
+extern "C" int func_ov000_021543f4(GameObject* combatant);
+extern "C" float func_02074978(int x);
+extern "C" void func_02088390(void* obj);
+extern "C" void func_020883fc(void* obj);
 
 struct Action_02157288 {
     char pad0[0x10];
@@ -42,21 +42,21 @@ extern "C" ARM int func_ov000_02157288(struct Random* rng, int combatantId, stru
     }
 
     isParty = IsPartyIndex(combatantId);
-    if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)c->currentStats_)) {
-        rate = SelectOneOrHalf_02074968(isParty);
-    } else if (IsFlag0x14Bit0x20Set_ov000_021543f4(c)) {
-        rate = SelectHalfOrQuarter_02074978(isParty);
+    if (func_020882f8((unsigned char*)c->currentStats_)) {
+        rate = func_02074968(isParty);
+    } else if (func_ov000_021543f4(c)) {
+        rate = func_02074978(isParty);
     }
 
     rate *= 100.0f;
     roll = NextRandomMax(rng, 100);
     if (roll < (int)rate) {
         result = 0x40;
-        if (IsFlag0x14Bit0x20Set_ov000_021543f4(c)) {
+        if (func_ov000_021543f4(c)) {
             result = 0x173;
         }
-        ClearBattleFlag0x14Bit4_02088390(c->currentStats_);
-        ClearFlag0x20AndBytes_020883fc(c->currentStats_);
+        func_02088390(c->currentStats_);
+        func_020883fc(c->currentStats_);
         ((struct CombatStats_02157288*)c->currentStats_)->flag3b_0 = 1;
         return result;
     }

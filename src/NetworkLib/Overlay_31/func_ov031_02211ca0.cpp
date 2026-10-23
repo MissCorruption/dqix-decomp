@@ -16,9 +16,9 @@ struct Glob0224e5b4_02211ca0 {
 
 extern Glob0224e5b4_02211ca0 data_ov031_0224e5b4;
 
-void SetGlobal0224e5a4IfNotNine_ov031_02211b08(int a, int b);
+extern "C" void func_ov031_02211b08(int a, int b);
 extern "C" int func_ov031_02212d40(void* buf);
-void* CallWithConst32_02211b54(void*, void*);
+extern "C" void* func_ov031_02211b54(void*, void*);
 extern "C" void func_ov031_02211b98(void*, void*);
 
 struct Buf02211ca0 {
@@ -29,7 +29,7 @@ struct Buf02211ca0 {
 	unsigned char pad[2];
 };
 
-// USA: func_ov031_02211ca0  (semantic: DispatchIfStateOne_02211ca0)
+// USA: func_ov031_02211ca0
 extern "C" ARM void func_ov031_02211ca0(void) {
 	Q02211ca0* q = data_ov031_0224e5b4.field4;
 	if (q != 0) {
@@ -40,15 +40,15 @@ extern "C" ARM void func_ov031_02211ca0(void) {
 			q = data_ov031_0224e5b4.field4;
 			buf.b8 = (unsigned char)q->field8;
 			buf.b9 = (unsigned char)q->fielda;
-			buf.fn0 = CallWithConst32_02211b54;
+			buf.fn0 = func_ov031_02211b54;
 			buf.fn1 = func_ov031_02211b98;
 			q->field4 = 2;
 
 			if (func_ov031_02212d40(&buf) == 0) {
-				SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, 0xffff3be9);
+				func_ov031_02211b08(9, 0xffff3be9);
 			}
 		}
 	} else {
-		SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, 0xffff3be9);
+		func_ov031_02211b08(9, 0xffff3be9);
 	}
 }

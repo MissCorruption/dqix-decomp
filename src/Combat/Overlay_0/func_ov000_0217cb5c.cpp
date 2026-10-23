@@ -41,16 +41,16 @@ struct Combatant {
     signed char slot;
 };
 
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void* GetPtrField0x2a04_02010828(GameState*);
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
-TableEntry0217f8c0* FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void* func_02010828(GameState*);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
+extern "C" TableEntry0217f8c0* func_ov000_0217f8c0(Struct0217f8c0*);
 extern Obj0205eaa0 data_02108760;
 extern "C" {
 void func_02012fe4();
 int func_ov000_0217c594(void*, int);
-void _Z22CopyStaticData02174da4iPv(void*, void*);
+void func_ov000_02174da4(void*, void*);
 void func_ov000_02177038(void*, int, int, int, int);
 int func_ov000_0217f990(void*);
 Combatant* func_ov000_02161318(void*, int);
@@ -64,25 +64,25 @@ extern "C" ARM void func_ov000_0217cb5c(Battle* self, int a, int b)
 {
     func_02012fe4();
     self->flags |= 0x100;
-    int mode = GetActiveScaledSum0205d794((Struct_0205c570*)self->entryList);
+    int mode = func_0205d794((Struct_0205c570*)self->entryList);
     if (mode < 0) mode = 0;
     self->mode = mode;
     if (func_ov000_0217c594(self, 0)) {
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
         int table[4];
-        _Z22CopyStaticData02174da4iPv(self, table);
+        func_ov000_02174da4(self, table);
         switch (table[self->mode]) {
         case 0:
             func_ov000_02177038(self, 0, self->kinds[self->kindIndex], a, b);
             self->kindIndex++;
             self->kinds[self->kindIndex] = 13;
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->entryList, 1);
+            func_0205d6a0((Entry_0205d6a0*)self->entryList, 1);
             self->flags |= 4;
             if (func_ov000_0217f990(self) == 0) {
                 self->flags &= ~4;
                 self->field17c = -1;
                 GameState* game = GameState::GetInstance();
-                Party* party = (Party*)GetPtrField0x2a04_02010828(game);
+                Party* party = (Party*)func_02010828(game);
                 unsigned char count = party->count;
                 for (unsigned char i = 0; i < count; i++) {
                     Combatant* c = func_ov000_02161318(self, self->members[i]);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov000_0217cb5c(Battle* self, int a, int b)
             self->step = 0;
             self->kindIndex++;
             self->kinds[self->kindIndex] = 2;
-            func_ov000_02176634(self, FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self), 2, a, b);
+            func_ov000_02176634(self, func_ov000_0217f8c0((Struct0217f8c0*)self), 2, a, b);
             break;
         case 2:
             self->flags &= ~0x100;
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov000_0217cb5c(Battle* self, int a, int b)
             func_ov000_02177038(self, 0, self->kinds[self->kindIndex], a, b);
             self->kindIndex++;
             self->kinds[self->kindIndex] = 11;
-            ResetEntryList0205d6a0((Entry_0205d6a0*)self->entryList, 1);
+            func_0205d6a0((Entry_0205d6a0*)self->entryList, 1);
             func_ov000_02180394(self);
             break;
         }

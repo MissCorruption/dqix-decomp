@@ -77,18 +77,18 @@ extern "C" void func_020c976c(unsigned long cycles);
 extern "C" void func_020c9bf0();
 extern "C" int func_020d135c();
 extern "C" int func_020ceba8(int sw, int led, int skip, int isSync);
-void RunCallbackList_020cef0c(CallbackNodeCEF0C* list);
+extern "C" void func_020cef0c(CallbackNodeCEF0C* list);
 int DisableIRQInterrupts();
 int SetIRQInterruptState(int);
 unsigned int DisableSpecificInterrupts(unsigned int mask);
 unsigned int SetSpecificInterruptsEnabled(unsigned int mask);
 int Is64BitTimerInitialized();
-int IsPowcntBit0Set_020cede0();
-unsigned long ReadTwoBitFlags_020ce810(int* top, int* bottom);
-unsigned long IssueCategorizedRequestAndPumpHandler020ce6d0(int target, int sw);
-unsigned long IssueRequestAndPumpHandler020ce614(int status);
-unsigned long SendEncodedMessagePair_020ce45c(int trigger, int keyIntrData);
-unsigned long TerminateSystem020ce7a4();
+extern "C" int func_020cede0();
+extern "C" unsigned long func_020ce810(int* top, int* bottom);
+extern "C" unsigned long func_020ce6d0(int target, int sw);
+extern "C" unsigned long func_020ce614(int status);
+extern "C" unsigned long func_020ce45c(int trigger, int keyIntrData);
+extern "C" unsigned long func_020ce7a4();
 
 // USA: func_020ce89c
 extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPattern)
@@ -103,7 +103,7 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
     unsigned long preGXS;
     int preLCDPower;
 
-    RunCallbackList_020cef0c(data_021117ec.preSleepCallbackList);
+    func_020cef0c(data_021117ec.preSleepCallbackList);
 
     prepIrq = DisableIrq();
     prepIntrMode = DisableIRQInterrupts();
@@ -125,15 +125,15 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
 
     preGX = DISPCNT;
     preGXS = DISPCNTSUB;
-    preLCDPower = IsPowcntBit0Set_020cede0();
-    if (ReadTwoBitFlags_020ce810(&preTop, &preBottom) != PM_SUCCESS)
+    preLCDPower = func_020cede0();
+    if (func_020ce810(&preTop, &preBottom) != PM_SUCCESS)
         do
             func_020c976c(RETRY_WAIT_CYCLES);
-        while (ReadTwoBitFlags_020ce810(&preTop, &preBottom) != PM_SUCCESS);
-    if (IssueCategorizedRequestAndPumpHandler020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS)
+        while (func_020ce810(&preTop, &preBottom) != PM_SUCCESS);
+    if (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS)
         do
             func_020c976c(RETRY_WAIT_CYCLES);
-        while (IssueCategorizedRequestAndPumpHandler020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS);
+        while (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS);
 
     {
         volatile unsigned long vcount = GetVBlankCount();
@@ -153,7 +153,7 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
     }
 
     data_021117ec.sleepEndFlag = false;
-    SendEncodedMessagePair_020ce45c(
+    func_020ce45c(
         (unsigned short)(trigger | (preTop ? BACKLIGHT_RECOVER_TOP_ON : 0) | (preBottom ? BACKLIGHT_RECOVER_BOTTOM_ON : 0)),
         (unsigned short)(logic | keyPattern));
     if (!data_021117ec.sleepEndFlag)
@@ -174,10 +174,10 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
         }
         else
         {
-            if (IssueRequestAndPumpHandler020ce614(PM_LED_ON) != PM_SUCCESS)
+            if (func_020ce614(PM_LED_ON) != PM_SUCCESS)
                 do
                     func_020c976c(RETRY_WAIT_CYCLES);
-                while (IssueRequestAndPumpHandler020ce614(PM_LED_ON) != PM_SUCCESS);
+                while (func_020ce614(PM_LED_ON) != PM_SUCCESS);
         }
         DISPCNT = preGX;
         DISPCNTSUB = preGXS;
@@ -191,7 +191,7 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
     RestoreIrq(prepIrq);
 
     if (powerOffFlag)
-        TerminateSystem020ce7a4();
+        func_020ce7a4();
 
-    RunCallbackList_020cef0c(data_021117ec.postSleepCallbackList);
+    func_020cef0c(data_021117ec.postSleepCallbackList);
 }

@@ -34,7 +34,7 @@ struct Self021aa1ac {
     unsigned short step;
 };
 
-Controller021aa1ac* GetGlobalField0x1c020421a0(void);
+extern "C" Controller021aa1ac* func_020421a0(void);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 extern "C" void __clear(void* dst, unsigned int size);
 #if defined(jpn)
@@ -50,8 +50,8 @@ extern char data_ov017_021d7868[];
 // USA: func_ov017_021aa1ac
 extern "C" ARM void func_ov017_021aa1ac(Self021aa1ac* self) {
     GameState* gs = GameState::GetInstance();
-    Party021aa1ac* party = (Party021aa1ac*)GetPtrField0x2a04_02010828(gs);
-    Controller021aa1ac* controller = GetGlobalField0x1c020421a0();
+    Party021aa1ac* party = (Party021aa1ac*)func_02010828(gs);
+    Controller021aa1ac* controller = func_020421a0();
     int memberCount = party->memberCount;
     if (self->step == 0) {
         memset(self->ids, -1, sizeof(self->ids));
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021aa1ac(Self021aa1ac* self) {
         self->count = 0;
         for (int i = 0; i < memberCount; i++) {
             int id = party->memberIds[i];
-            GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(gs, id);
+            GameObject* combatant = func_0200ff1c(gs, id);
             if (combatant == NULL) {
                 continue;
             }
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021aa1ac(Self021aa1ac* self) {
         if (self->count != 0) {
             char text[0x100];
             __clear(text, sizeof(text));
-            sprintf(text, data_ov017_021d783c, GetCombatantWithFlag0x100_0200ff1c(gs, self->ids[0])->baseStats_);
+            sprintf(text, data_ov017_021d783c, func_0200ff1c(gs, self->ids[0])->baseStats_);
             if (++self->shown >= self->count) {
                 self->step++;
             } else {
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_021aa1ac(Self021aa1ac* self) {
         }
         char text[0x100];
         __clear(text, sizeof(text));
-        sprintf(text, data_ov017_021d783c, GetCombatantWithFlag0x100_0200ff1c(gs, self->ids[self->shown])->baseStats_);
+        sprintf(text, data_ov017_021d783c, func_0200ff1c(gs, self->ids[self->shown])->baseStats_);
         if (++self->shown >= self->count) {
             self->step++;
         } else {

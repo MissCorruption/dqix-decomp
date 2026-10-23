@@ -31,7 +31,7 @@ extern "C" ARM void func_ov002_0215b814(char *self) {
     for (i = 0; i < 4; i++) {
         e = (struct Entry *) (self + RG(0x1ab0, 0x1a08)) + i;
         memset(e, 0, 4);
-        GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, i);
+        GameObject *c = func_0200ff1c(gs, i);
         if (c != 0 && c->baseStats_->unk[0] != 0) {
             sprintf(e->name, c->baseStats_->unk);
             e->unk34 = c->combatFields_.savedState_130_->hp;

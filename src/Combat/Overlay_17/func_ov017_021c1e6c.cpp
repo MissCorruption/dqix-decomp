@@ -52,35 +52,35 @@ struct ResourceBanks021c1e6c {
 };
 struct Summon021c1e6c { char pad_0; unsigned char done; char pad_2[6]; short task; unsigned char state, kind; };
 extern "C" unsigned short* func_02012fe4();
-void ResetStruct020d3c08(char*);
-void InitHandlerArrayAndRunScript020d3c84(HandlerSlotArray020d3c84*, StreamHeader*, int);
-Entry021c1e6c* FindEntryByKind(FindEntryByKindContainer020d3d90*, int);
+extern "C" void func_020d3c08(char*);
+extern "C" void func_020d3c84(HandlerSlotArray020d3c84*, StreamHeader*, int);
+extern "C" Entry021c1e6c* func_020d3d90(FindEntryByKindContainer020d3d90*, int);
 extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
-unsigned char FindUnusedSlot_02191764(int, int);
+extern "C" unsigned char func_ov017_02191764(int, int);
 extern "C" void* func_0202ae18();
 extern "C" int func_0202c508(void*);
-void CopyInternalFields0207df50(Foo0207df50*);
+extern "C" void func_0207df50(Foo0207df50*);
 extern "C" void func_02082828(void*);
-void ResetSelectionState02054664(Obj02054664*);
-void SetPointerFields02053c4c(char*, char*);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState*, int);
-void SetField0x2d0_020546a0(void*, int);
-void SetField0x2d1_020546b4(void*, int);
-void CopyVec3ToField0x44(Target02059f38*, Vec3_02059f38*);
-void SetVecYFromValue02033874(Obj02033874*, int);
+extern "C" void func_02054664(Obj02054664*);
+extern "C" void func_02053c4c(char*, char*);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" void func_020546a0(void*, int);
+extern "C" void func_020546b4(void*, int);
+extern "C" void func_02059f38(Target02059f38*, Vec3_02059f38*);
+extern "C" void func_02033874(Obj02033874*, int);
 extern "C" void func_ov017_02191508(int, Entry021c1e6c*);
-void CopyByteField0x253To0x252_02039830(void*);
+extern "C" void func_02039830(void*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void func_ov017_02191234(GameResources*);
 extern "C" int func_0202c540(void*);
-void CallHelperWithBuf_021907dc(int, int, int, int, int);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void ClearFlag0x1ceBit0x4_02039d58(unsigned char*);
-int CheckFlag0x1ceBit2Set_02039d68(unsigned char*);
-void SetFlag0x1ceBit0x4_02039d48(unsigned char*);
+extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_02039d58(unsigned char*);
+extern "C" int func_02039d68(unsigned char*);
+extern "C" void func_02039d48(unsigned char*);
 #if defined(jpn)
 extern char data_ov017_021d87c4[], data_ov017_021d87d8[];
 #else
@@ -109,9 +109,9 @@ extern "C" ARM void func_ov017_021c1e6c(Summon021c1e6c* self) {
             loader->GetLoadedFileByID(self->task, &file, &length);
             if (file) {
                 HandlerSlotArray020d3c84 handlers;
-                ResetStruct020d3c08((char*)&handlers);
-                InitHandlerArrayAndRunScript020d3c84(&handlers, (StreamHeader*)file, length);
-                entry = FindEntryByKind((FindEntryByKindContainer020d3d90*)&handlers, self->kind);
+                func_020d3c08((char*)&handlers);
+                func_020d3c84(&handlers, (StreamHeader*)file, length);
+                entry = func_020d3d90((FindEntryByKindContainer020d3d90*)&handlers, self->kind);
             }
         }
         loader->RemoveTask(self->task);
@@ -123,15 +123,15 @@ extern "C" ARM void func_ov017_021c1e6c(Summon021c1e6c* self) {
             int kind = entry->kind;
             combatantId = 3;
             func_ov017_0218f064(resources, combatantId, 4, 1, kind);
-            slot = FindUnusedSlot_02191764(combatantId, 0);
+            slot = func_ov017_02191764(combatantId, 0);
             self->done = 1;
         } else {
-            if (func_0202c508(func_0202ae18())) ((Global021c1e6c*)GetPtrField0x2a04_02010828(game))->selection = self->kind;
+            if (func_0202c508(func_0202ae18())) ((Global021c1e6c*)func_02010828(game))->selection = self->kind;
             combatantId = 0xce;
             slot = 4;
             PairBank021c1e6c* initialBank = ((ResourceBanks021c1e6c*)resources)->GetBank(1);
             resources->allocator_11c0.Reset();
-            CopyInternalFields0207df50((Foo0207df50*)initialBank);
+            func_0207df50((Foo0207df50*)initialBank);
             Entry021c1e6c* saved = (Entry021c1e6c*)resources->allocator_11c0.Allocate(sizeof(Entry021c1e6c));
             if (!saved) goto configureCombatant;
             memcpy(saved, entry, sizeof(Entry021c1e6c));
@@ -148,12 +148,12 @@ extern "C" ARM void func_ov017_021c1e6c(Summon021c1e6c* self) {
             Combatant021c1e6c* combatant = (Combatant021c1e6c*)resources->allocator_11c0.Allocate(0x2d4);
 #endif
             if (!combatant) goto configureCombatant;
-            ResetSelectionState02054664((Obj02054664*)combatant);
-            SetPointerFields02053c4c((char*)combatant, (char*)stats);
+            func_02054664((Obj02054664*)combatant);
+            func_02053c4c((char*)combatant, (char*)stats);
             unsigned char kind = saved->kind;
             if (combatant->status) combatant->status->SetMode(kind);
             combatant->record = saved;
-            RegisterCombatantSlot_0200fd38(game, 0xce, &combatant->object);
+            func_0200fd38(game, 0xce, &combatant->object);
             char filename[0x50];
 #if defined(jpn)
             sprintf(filename, data_ov017_021d87d8, entry->effect);
@@ -164,21 +164,21 @@ extern "C" ARM void func_ov017_021c1e6c(Summon021c1e6c* self) {
             self->state = 2;
         }
 configureCombatant:
-        GameObject* combatant = GetCombatantWithFlag0x1000_0200ff58(game, combatantId);
+        GameObject* combatant = func_0200ff58(game, combatantId);
         if (combatant) {
-            SetField0x2d0_020546a0(combatant, 0);
-            SetField0x2d1_020546b4(combatant, slot);
+            func_020546a0(combatant, 0);
+            func_020546b4(combatant, slot);
             combatant->obj3D_.SetField06(*data);
             if (game->GetUnknownGameObject()) {
-                CopyVec3ToField0x44((Target02059f38*)combatant, (Vec3_02059f38*)&((GamePosition021c1e6c*)game)->position);
-                SetVecYFromValue02033874((Obj02033874*)combatant, ((GamePosition021c1e6c*)game)->height);
+                func_02059f38((Target02059f38*)combatant, (Vec3_02059f38*)&((GamePosition021c1e6c*)game)->position);
+                func_02033874((Obj02033874*)combatant, ((GamePosition021c1e6c*)game)->height);
             }
             if (entry->special) func_ov017_02191508(combatantId, entry);
             GameObject* leader = game->GetUnknownGameObject();
-            if (leader) CopyByteField0x253To0x252_02039830(leader);
+            if (leader) func_02039830(leader);
             func_ov017_02191108(resources, 1, 1, 1, 1);
             func_ov017_02191234(resources);
-            if (func_0202c540(func_0202ae18())) CallHelperWithBuf_021907dc((int)resources, 0, 1, 1, 1);
+            if (func_0202c540(func_0202ae18())) func_ov017_021907dc((int)resources, 0, 1, 1, 1);
         } else self->done = 1;
     } else if (self->state == 2) {
         if (!loader->GetTaskStatus(self->task)) return;
@@ -194,23 +194,23 @@ configureCombatant:
                 info.fileData = file;
                 info.unk_8 = length;
                 char* pairTables = resources->unknown_11d4;
-                GameObject* combatant = GetCombatantWithFlag0x1000_0200ff58(game, 0xce);
+                GameObject* combatant = func_0200ff58(game, 0xce);
                 if (combatant) {
-                    RestorePairTables0207df90(pairTables);
+                    func_0207df90(pairTables);
                     combatant->obj3D_.LoadFromCCHROrCMOTArchive(&info, 0);
-                    BackupPairTables0207dfac(pairTables);
+                    func_0207dfac(pairTables);
                     combatant->obj3D_.SetScale(0x10a, 0x10a, 0x10a);
-                    SetField0x2d0_020546a0(combatant, 0);
-                    SetByte0xbeShiftPrev((Bytes02033b88*)combatant, 0);
-                    ClearFlag0x1ceBit0x4_02039d58((unsigned char*)combatant);
+                    func_020546a0(combatant, 0);
+                    func_02033b88((Bytes02033b88*)combatant, 0);
+                    func_02039d58((unsigned char*)combatant);
                     for (int i = 0; i < 4; i++) {
-                        GameObject* member = GetCombatantWithFlag0x1000_0200ff58(game, i);
-                        if (member && CheckFlag0x1ceBit2Set_02039d68((unsigned char*)member)) SetFlag0x1ceBit0x4_02039d48((unsigned char*)combatant);
+                        GameObject* member = func_0200ff58(game, i);
+                        if (member && func_02039d68((unsigned char*)member)) func_02039d48((unsigned char*)combatant);
                     }
                     GameObject* leader = game->GetGameObjectByIndex(0);
                     if (leader) {
-                        CopyVec3ToField0x44((Target02059f38*)combatant, (Vec3_02059f38*)&((GamePosition021c1e6c*)game)->position);
-                        SetVecYFromValue02033874((Obj02033874*)combatant, ((GamePosition021c1e6c*)game)->height);
+                        func_02059f38((Target02059f38*)combatant, (Vec3_02059f38*)&((GamePosition021c1e6c*)game)->position);
+                        func_02033874((Obj02033874*)combatant, ((GamePosition021c1e6c*)game)->height);
                         combatant->obj3D_.SetField06(leader->obj3D_.GetField06());
                     }
                 }

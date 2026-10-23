@@ -50,16 +50,16 @@ struct BattleScene_021f00fc {
 
 extern "C" BattleEnd_021f00fc* _ZZ17GetGlobal021ffefcvE1s;
 
-void GetGlobalField0x1c020421a0();
-int CheckField0NonZero_0202b7d8(int* unknown);
-int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* unknown);
-int CollectCombatantsWithFlag0x1000_02010038(GameState* gameState, unsigned char* members);
-int TestBitAt0x34_020a35e0(unsigned char* info, unsigned char member);
-BattleResultMember_021f00fc* FindByByteAt118_021f0360(void* end, int member);
-unsigned int GetTableEntry138_021eea98(Obj021eea98* member);
-void EnqueueEventTag105_021cd4c8(unsigned short, unsigned short, signed char);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* scene, int flag);
-int GetCombatWorkFlags0x55f4_ov000_02160fd4(void* scene, int flag);
+extern "C" void func_020421a0();
+extern "C" int func_0202b7d8(int* unknown);
+extern "C" int func_0202c1a4(SearchStruct0202c1a4* unknown);
+extern "C" int func_02010038(GameState* gameState, unsigned char* members);
+extern "C" int func_020a35e0(unsigned char* info, unsigned char member);
+extern "C" BattleResultMember_021f00fc* func_ov023_021f0360(void* end, int member);
+extern "C" unsigned int func_ov023_021eea98(Obj021eea98* member);
+extern "C" void func_ov017_021cd4c8(unsigned short, unsigned short, signed char);
+extern "C" void func_ov000_02160fa8(void* scene, int flag);
+extern "C" int func_ov000_02160fd4(void* scene, int flag);
 
 extern "C" {
 void __clear(void* buffer, unsigned long size);
@@ -73,50 +73,50 @@ int func_ov023_021f5150(BattleScene_021f00fc* self, BattleInfo_021f00fc* info, i
 extern "C" ARM int func_ov023_021f00fc(BattleScene_021f00fc* self)
 {
     GameState* gameState = GameState::GetInstance();
-    GetGlobalField0x1c020421a0();
+    func_020421a0();
     void* unk = func_0202ae18();
     GameResources* resources = GetGameResources();
-    if (!CheckField0NonZero_0202b7d8((int*)unk) || self->info_->leader_ == GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)unk))
+    if (!func_0202b7d8((int*)unk) || self->info_->leader_ == func_0202c1a4((SearchStruct0202c1a4*)unk))
     {
         unsigned char alive[4];
         __clear(alive, sizeof(alive));
         if (self->legacyBossLevelUp_ != 0)
         {
             unsigned char members[4];
-            int count = CollectCombatantsWithFlag0x1000_02010038(gameState, members);
+            int count = func_02010038(gameState, members);
             for (int i = 0; i < count; i++)
                 alive[members[i]] = 1;
         }
         for (int i = 0; i < 4; i++)
         {
-            if (TestBitAt0x34_020a35e0((unsigned char*)self->info_, i) && alive[i] != 0)
+            if (func_020a35e0((unsigned char*)self->info_, i) && alive[i] != 0)
             {
-                BattleResultMember_021f00fc* member = FindByByteAt118_021f0360(_ZZ17GetGlobal021ffefcvE1s, i);
-                GameObject* partyMember = GetCombatantWithFlag0x100_0200ff1c(gameState, i);
+                BattleResultMember_021f00fc* member = func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, i);
+                GameObject* partyMember = func_0200ff1c(gameState, i);
                 if (member != NULL)
-                    member->experience_ = GetTableEntry138_021eea98((Obj021eea98*)partyMember);
+                    member->experience_ = func_ov023_021eea98((Obj021eea98*)partyMember);
                 self->experience_[i] = 0;
             }
         }
         func_ov017_021cd590(self->info_->unk_8, self->experience_, self->legacyBossLevelUp_, 0);
         func_ov017_021cd35c(self->info_->unk_8, self->drops_, self->dropCount_, self->memberMask_);
         if (self->map_ != 0)
-            EnqueueEventTag105_021cd4c8(self->info_->unk_8, self->mapItem_, self->memberMask_);
+            func_ov017_021cd4c8(self->info_->unk_8, self->mapItem_, self->memberMask_);
     }
     else
     {
         if (resources->unknown_flag_42e2 != 0)
-            SetCombatWorkFlags0x55f4_ov000_02160fa8(self, 0x2000000);
-        if (!GetCombatWorkFlags0x55f4_ov000_02160fd4(self, 0x4000))
+            func_ov000_02160fa8(self, 0x2000000);
+        if (!func_ov000_02160fd4(self, 0x4000))
             return self->endState_;
-        if (!GetCombatWorkFlags0x55f4_ov000_02160fd4(self, 0x8000))
+        if (!func_ov000_02160fd4(self, 0x8000))
             return self->endState_;
     }
     _ZZ17GetGlobal021ffefcvE1s->nothing_ =func_ov023_021f5150(self, self->info_, self->experience_, &self->gold_, self->legacyBossLevelUp_) ? 1 : 0;
     int total = 0;
     for (int i = 0; i < 4; i++)
     {
-        if (TestBitAt0x34_020a35e0((unsigned char*)self->info_, i))
+        if (func_020a35e0((unsigned char*)self->info_, i))
             total += self->experience_[i];
     }
     if (total > 0)

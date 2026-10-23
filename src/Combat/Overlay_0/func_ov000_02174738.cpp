@@ -12,7 +12,7 @@ struct Obj0216fe74 {
     unsigned short count;
 };
 
-char* GetBoundedArrayElement0x40(struct Obj0216fe74* obj, unsigned int index);
+extern "C" char* func_ov000_0216fe74(struct Obj0216fe74* obj, unsigned int index);
 
 struct Entry02174738 {
     char pad0[0x24];
@@ -54,12 +54,12 @@ struct TextSlot02174738 {
     short e;
 };
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-void ClearTwoWordsAndByte_0205b20c(struct S_b20c* obj);
-void SetField0_0205b220(void* obj, int value);
-void SetFieldsAt0x4And0x8_0205b228(void* obj, int value, unsigned char flag);
-void* GetTableEntry020421b0(int idx);
-void SetOrClearFlag0x4At0x24_ov000_02174a38(void* obj, int cond);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" void func_0205b20c(struct S_b20c* obj);
+extern "C" void func_0205b220(void* obj, int value);
+extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
+extern "C" void* func_020421b0(int idx);
+extern "C" void func_ov000_02174a38(void* obj, int cond);
 
 extern "C" void func_ov000_021710ac(struct Entry02174738* obj, int combatantId, int flag);
 extern "C" void func_ov000_02171138(void* obj);
@@ -102,7 +102,7 @@ checkvalid:
     char* info2;
     GameObject* c = GameState::GetInstance()->GetPartyMemberByIndex(id);
     if (c != NULL) {
-        char* slot = GetBoundedArrayElement0x40((struct Obj0216fe74*)((char*)self + 0x11c),
+        char* slot = func_ov000_0216fe74((struct Obj0216fe74*)((char*)self + 0x11c),
                                                 (unsigned short)(id + 0x20));
         if (slot != NULL) {
           info = *(char**)(slot + 8);
@@ -113,7 +113,7 @@ checkvalid:
             if (func_ov017_021bdbcc() != 0) {
                 sel = 0x28;
             }
-            memcpy(vram, GetTableEntry020421b0(sel), 0x80);
+            memcpy(vram, func_020421b0(sel), 0x80);
 
             unsigned short tm = *(unsigned short*)(info + 4) & 0x3ff;
             unsigned int off = tm << 7;
@@ -123,7 +123,7 @@ checkvalid:
           }
         }
         {
-            char* slot2 = GetBoundedArrayElement0x40((struct Obj0216fe74*)((char*)self + 0x11c),
+            char* slot2 = func_ov000_0216fe74((struct Obj0216fe74*)((char*)self + 0x11c),
                                                      (unsigned short)(id + 0x24));
             if (slot2 != NULL) {
               info2 = *(char**)(slot2 + 8);
@@ -136,9 +136,9 @@ checkvalid:
                 text.c = 0;
                 text.d = 0x10;
                 text.e = 0x10;
-                ClearTwoWordsAndByte_0205b20c(&local);
-                SetField0_0205b220(&local, (int)vram);
-                SetFieldsAt0x4And0x8_0205b228(&local, (int)&text, 1);
+                func_0205b20c(&local);
+                func_0205b220(&local, (int)vram);
+                func_0205b228(&local, (int)&text, 1);
                 char* field150 = *(char**)((char*)c + 0x150);
                 int idx = *(int*)(field150 + 0x950);
                 char* p = field150 + idx * 2 + 0x100;
@@ -167,8 +167,8 @@ checkvalid:
         if (e->field4c >= 0) {
             continue;
         }
-        func_ov000_021710ac(e, id, id == GetField0x3acValue_020100a8(bs));
-        SetOrClearFlag0x4At0x24_ov000_02174a38(e, id == GetField0x3acValue_020100a8(bs));
+        func_ov000_021710ac(e, id, id == func_020100a8(bs));
+        func_ov000_02174a38(e, id == func_020100a8(bs));
         func_ov000_02171138(e);
         data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
         func_ov000_02174b14(self);

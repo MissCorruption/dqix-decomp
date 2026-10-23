@@ -2,8 +2,8 @@
 
 extern "C" void func_ov031_02238694(void* p);
 extern "C" void func_ov031_0223b07c(void);
-int Check_0221aff8_0221aff8(int v);
-int GetGlobal02290cfc_02236474(void);
+extern "C" int func_ov031_0221aff8(int v);
+extern "C" int func_ov031_02236474(void);
 unsigned long long GetCurrentTimestamp(void);
 extern unsigned char* data_ov031_02290d20;
 
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov031_0223a4cc(void* p0, struct Src0223a4cc* src) {
     data_ov031_02290d20[0xa92] = src->g;
     data_ov031_02290d20[0xacc] = 2;
     GetCurrentTimestamp();
-    Check_0221aff8_0221aff8((int)(data_ov031_02290d20 + 0x24c + 0x400));
+    func_ov031_0221aff8((int)(data_ov031_02290d20 + 0x24c + 0x400));
     GetCurrentTimestamp();
-    *(int*)(data_ov031_02290d20 + 0xaa4) = GetGlobal02290cfc_02236474();
+    *(int*)(data_ov031_02290d20 + 0xaa4) = func_ov031_02236474();
 }

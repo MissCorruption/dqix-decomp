@@ -8,14 +8,14 @@ struct EffectWords_021e3f14 { int lo; int hi; };
 struct FlagObj_021e05e4;
 struct FlagObj_021da998;
 struct FlagObj_021dd260;
-int IsFlagBit12Field18Set_021e05e4(struct FlagObj_021e05e4* obj);
-int IsFlagBit8388608Set_021da998(struct FlagObj_021da998* obj);
-int IsFlagBit24Set_021dd260(struct FlagObj_021dd260* obj);
-void SetBool0x180Clear0x17f_020488cc(unsigned char* obj, int value);
-void ClearFlag0x1000AndBytes7eA1_02088e64(unsigned char* stats);
-void DecrementCounter0x24UpdateFlag0x14_02087704(void* obj);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-void AppendToChainAndIncCount0215ffc4(void* obj, void* node, int idx);
+extern "C" int func_ov024_021e05e4(struct FlagObj_021e05e4* obj);
+extern "C" int func_ov024_021da998(struct FlagObj_021da998* obj);
+extern "C" int func_ov024_021dd260(struct FlagObj_021dd260* obj);
+extern "C" void func_020488cc(unsigned char* obj, int value);
+extern "C" void func_02088e64(unsigned char* stats);
+extern "C" void func_02087704(void* obj);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215ffc4(void* obj, void* node, int idx);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* ctx);
 extern "C" void func_ov000_02159eac(void* ctx, struct EffectWords_021e3f14* words, int effect);
 extern "C" void func_ov000_0215cd44(void* ctx, struct OutStruct0215ccbc* entry, GameObject* c, int d,
@@ -40,17 +40,17 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Obj_021e3f14* obj, 
     struct OutStruct0215ccbc* entry = func_ov000_0215e958(obj->ctx);
     if (!entry) return 0;
     int added = 0;
-    if (IsFlagBit12Field18Set_021e05e4((struct FlagObj_021e05e4*)c)) {
-        if (!IsPartySlot(id)) SetBool0x180Clear0x17f_020488cc((unsigned char*)c, 1);
-        ClearFlag0x1000AndBytes7eA1_02088e64((unsigned char*)c->currentStats_);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x164);
+    if (func_ov024_021e05e4((struct FlagObj_021e05e4*)c)) {
+        if (!IsPartySlot(id)) func_020488cc((unsigned char*)c, 1);
+        func_02088e64((unsigned char*)c->currentStats_);
+        func_ov000_0215a88c(obj->ctx, entry, 0x164);
         added = 1;
     }
     struct EffectWords_021e3f14 words;
     words.lo = 0;
     words.hi = 0;
-    if (IsFlagBit8388608Set_021da998((struct FlagObj_021da998*)c) || IsFlagBit24Set_021dd260((struct FlagObj_021dd260*)c)) {
-        DecrementCounter0x24UpdateFlag0x14_02087704(c->currentStats_);
+    if (func_ov024_021da998((struct FlagObj_021da998*)c) || func_ov024_021dd260((struct FlagObj_021dd260*)c)) {
+        func_02087704(c->currentStats_);
         int msg = 0;
         unsigned char stage = ((struct Stats_021e3f14*)c->currentStats_)->stage;
         switch (stage) {
@@ -60,12 +60,12 @@ extern "C" ARM unsigned long long func_ov024_021e3f14(struct Obj_021e3f14* obj, 
         case 3: msg = 0x259; break;
         }
         if (stage == 3) func_ov000_02159eac(obj->ctx, &words, 8);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, msg);
+        func_ov000_0215a88c(obj->ctx, entry, msg);
         added = 1;
     }
     if (added) {
         func_ov000_0215cd44(obj->ctx, entry, c, 0, words, 0);
-        AppendToChainAndIncCount0215ffc4(obj->chain, entry, 1);
+        func_ov000_0215ffc4(obj->chain, entry, 1);
         ((unsigned char*)obj->ctx)[0x8e02]++;
     }
     return 0;

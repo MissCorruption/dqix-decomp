@@ -43,13 +43,13 @@ struct Packet {
     unsigned char final : 1;
     unsigned char segmented : 1;
 };
-signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
+extern "C" signed char func_0202c1a4(SearchStruct0202c1a4*);
 extern "C" void func_ov017_021a99dc(void*, void*, int, int, int);
 
 // USA: func_ov017_021d15b0
 extern "C" ARM void func_ov017_021d15b0(int sender, Packet* packet, PacketStore* store, PacketContext* context, SearchStruct0202c1a4* search) {
     void* handler = context->handler;
-    int recipient = GetSearchStructCurrentArrEntry(search);
+    int recipient = func_0202c1a4(search);
     if (!packet->segmented) {
         if (recipient == packet->recipient) func_ov017_021a99dc(handler, packet->payload, packet->type, packet->length, packet->final);
         return;

@@ -35,10 +35,10 @@ extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
 #include "std_library_functions.h"
 
 struct Struct0205de24;
-ARM void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+extern "C" ARM void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
 
 struct Container020e0310;
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
 extern "C" int func_020420e8(char* str, int id);
 extern "C" void func_ov003_02169a84(char* base, char* dst, int flag);
 #if !defined(jpn)
@@ -48,7 +48,7 @@ extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int 
 // USA: func_ov003_0216997c
 extern "C" ARM void func_ov003_0216997c(void* objRaw) {
     char* obj = (char*)objRaw;
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)(obj + kRegione4), 0, 2);
+    func_0205de24((struct Struct0205de24*)(obj + kRegione4), 0, 2);
 
 #if defined(jpn)
     int v = 8;
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0216997c(void* objRaw) {
     struct Container020e0310* c = (struct Container020e0310*)(obj + 0x64);
     short maxLen = 0;
     for (int i = 0; i < 3; i++) {
-        int name = GetFieldByKey020e0434(c, (short)i);
+        int name = func_020e0434(c, (short)i);
         short len = (short)func_020420e8((char*)name, 0);
         if (maxLen < len) maxLen = len;
     }

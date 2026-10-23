@@ -23,8 +23,8 @@ struct GaugeOrder0218251c {
     unsigned char order[5];
 };
 
-int NormalizeField5_0200fb08(Struct0200fb08* gs);
-void SetVec3At0x1c(Vec3Target0203a46c* obj, int x, int y, int z);
+extern "C" int func_0200fb08(Struct0200fb08* gs);
+extern "C" void func_0203a46c(Vec3Target0203a46c* obj, int x, int y, int z);
 extern "C" void func_02047554(GaugeSprite0218251c* obj, int idx, int something);
 
 extern const GaugeOrder0218251c data_ov000_021836d0;
@@ -70,18 +70,18 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
             x2 -= d;
         }
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[7], (x + 2) << 12, 0x1f000, z-- << 12);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[7], (x + 2) << 12, 0x1f000, z-- << 12);
         self->sprites[7].alpha = 0x1f;
         DrawSprite(&self->sprites[7]);
 
         int l = level - 1;
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[l], (x2 + 11) << 12, 0x8000, z-- << 12);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[l], (x2 + 11) << 12, 0x8000, z-- << 12);
         self->sprites[l].alpha = 0x1f;
         DrawSprite(&self->sprites[l]);
 
         if (level >= 2 && t < 6) {
-            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[subLevel - 1], (x + 11) << 12, 0x8000, z-- << 12);
+            func_0203a46c((Vec3Target0203a46c*)&self->sprites[subLevel - 1], (x + 11) << 12, 0x8000, z-- << 12);
             self->sprites[subLevel - 1].alpha = (6 - t) * 31 / 6;
             if (self->sprites[subLevel - 1].alpha > 0x1f) {
                 self->sprites[subLevel - 1].alpha = 0x1f;
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
                     y = w - 6;
                 }
             }
-            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[idx], (x + data_ov000_02184788[i + 1][0]) << 12,
+            func_0203a46c((Vec3Target0203a46c*)&self->sprites[idx], (x + data_ov000_02184788[i + 1][0]) << 12,
                           (y + data_ov000_0218478c[i + 1][0]) << 12, z-- << 12);
             self->sprites[idx].alpha = 0x1f;
             DrawSprite(&self->sprites[idx]);
@@ -130,11 +130,11 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
             x -= (int)(64.0f * (f * f));
         }
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[8], (x + 3) << 12, 0x21000, 0x1000);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[8], (x + 3) << 12, 0x21000, 0x1000);
         self->sprites[8].alpha = 0x1f;
         DrawSprite(&self->sprites[8]);
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[9], (x + 36) << 12, 0x22000, 0);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[9], (x + 36) << 12, 0x22000, 0);
         self->sprites[9].alpha = 0x1f;
         DrawSprite(&self->sprites[9]);
 
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
         if (level == 3) {
             k = 10;
         }
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[slot], (x + data_ov000_02184788[k][0]) << 12,
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[slot], (x + data_ov000_02184788[k][0]) << 12,
                       data_ov000_0218478c[k][0] << 12, -0x1000);
         self->sprites[slot].alpha = 0x1f;
         DrawSprite(&self->sprites[slot]);
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
     if (level <= 0) {
         return;
     }
-    int phase = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance()) - 1;
+    int phase = func_0200fb08((Struct0200fb08*)GameState::GetInstance()) - 1;
     GaugeOrder0218251c order = data_ov000_021836d0;
     int t = 30 - self->timer;
 
@@ -181,18 +181,18 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
             x2 -= d;
         }
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[3], (x + 2) << 12, 0x1f000, z-- << 12);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[3], (x + 2) << 12, 0x1f000, z-- << 12);
         self->sprites[3].alpha = 0x1f;
         DrawSprite(&self->sprites[3]);
 
         int l = level - 1;
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[l], (x2 + 11) << 12, 0x8000, z-- << 12);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[l], (x2 + 11) << 12, 0x8000, z-- << 12);
         self->sprites[l].alpha = 0x1f;
         DrawSprite(&self->sprites[l]);
 
         if (level >= 2 && t < 6) {
-            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[subLevel - 1], (x + 11) << 12, 0x8000, z-- << 12);
+            func_0203a46c((Vec3Target0203a46c*)&self->sprites[subLevel - 1], (x + 11) << 12, 0x8000, z-- << 12);
             self->sprites[subLevel - 1].alpha = (6 - t) * 31 / 6;
             if (self->sprites[subLevel - 1].alpha > 0x1f) {
                 self->sprites[subLevel - 1].alpha = 0x1f;
@@ -213,7 +213,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
                 y = w - 6;
             }
         }
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[idx], (x + 28) << 12, (y + 20) << 12, z << 12);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[idx], (x + 28) << 12, (y + 20) << 12, z << 12);
         self->sprites[idx].alpha = 0x1f;
         DrawSprite(&self->sprites[idx]);
 
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
                 k = 0x1c;
                 j = 12;
             }
-            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[j], (x + data_ov000_021836d5[k][0]) << 12,
+            func_0203a46c((Vec3Target0203a46c*)&self->sprites[j], (x + data_ov000_021836d5[k][0]) << 12,
                           (y + data_ov000_021836d6[k][0]) << 12, (z - 1) << 12);
             self->sprites[j].alpha = 0x1f;
             DrawSprite(&self->sprites[j]);
@@ -244,13 +244,13 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
             x -= (int)(64.0f * (f * f));
         }
 
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[8], (x + 3) << 12, 0x21000, 0x1000);
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[8], (x + 3) << 12, 0x21000, 0x1000);
         self->sprites[8].alpha = 0x1f;
         DrawSprite(&self->sprites[8]);
 
         int c = order.order[phase];
         unsigned char k = c + 4;
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[4], (x + data_ov000_021836d5[k][0]) << 12,
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[4], (x + data_ov000_021836d5[k][0]) << 12,
                       data_ov000_021836d6[k][0] << 12, 0);
         self->sprites[4].alpha = 0x1f;
         DrawSprite(&self->sprites[4]);
@@ -260,7 +260,7 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
         if (level == 3) {
             nextC++;
         }
-        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[slot], (x + data_ov000_021836d5[nextC][0]) << 12,
+        func_0203a46c((Vec3Target0203a46c*)&self->sprites[slot], (x + data_ov000_021836d5[nextC][0]) << 12,
                       data_ov000_021836d6[nextC][0] << 12, -0x1000);
         self->sprites[slot].alpha = 0x1f;
         DrawSprite(&self->sprites[slot]);

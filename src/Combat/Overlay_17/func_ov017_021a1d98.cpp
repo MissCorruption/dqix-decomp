@@ -34,18 +34,18 @@ struct DistanceSlot {
     DistanceSlot() : distance(0x0270f000), selected(0) {}
 };
 
-Entry_02028bd0* GetEntryTableBase_02027ca4();
-Entry_02028bd0* FindInlineEntryById(Entry_02028bd0*, int);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0*, int);
 extern "C" SpawnParams* func_02012fe4();
-int TickActorFlagStateAndDispatch02076bec(GameObject*, void*);
+extern "C" int func_02076bec(GameObject*, void*);
 struct BitField0203402c;
-int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
-void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
+extern "C" int func_0203402c(BitField0203402c*);
+extern "C" void func_0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 // USA: func_ov017_021a1d98
 extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
     GameState* state = GameState::GetInstance();
-    Entry_02028bd0* entry = FindInlineEntryById(GetEntryTableBase_02027ca4(), id);
+    Entry_02028bd0* entry = func_02028bd0(func_02027ca4(), id);
     if (!entry) return;
     SpawnParams* params = func_02012fe4();
     unsigned short field38 = params->field_38;
@@ -83,14 +83,14 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
         if (!slots[j].selected) continue;
         FieldMonster* monster = (FieldMonster*)state->GetMaybeFieldMonsterByIndex(entry->slotGroup * 12 + 0x70 + j);
         if (monster && monster->obj3D_.IsVisible()
-            && TickActorFlagStateAndDispatch02076bec(monster, (void*)arg)
-            && !CheckField0xc4Low15BitsNonZero((BitField0203402c*)monster)) {
+            && func_02076bec(monster, (void*)arg)
+            && !func_0203402c((BitField0203402c*)monster)) {
             int alpha = monster->obj3D_.GetCombinedAlpha();
             int value = (int)((float)field3c / 31.0f * (float)alpha);
             int shadowScale = monster->shadowInfo_ ? monster->shadowInfo_->scale : 0x1000;
             fix32_t size = FIX32_MULTIPLY(shadowScale, monster->obj3D_.GetScale().x * 15);
             const Vector3fix& shadow = monster->obj3D_.MaybeGetShadowSource();
-            SyncBattleState0208f87c(&shadow, field38, size, value, 8);
+            func_0208f87c(&shadow, field38, size, value, 8);
         }
     }
 }

@@ -5,10 +5,10 @@
 struct OutStruct0215ccbc;
 struct EffectWords_021e0bf4 { int lo; int hi; };
 
-short ConsumeMP0215a124(void* unused, int id, int amount);
+extern "C" short func_ov000_0215a124(void* unused, int id, int amount);
 extern "C" void func_ov000_02159eac(void* ctx, struct EffectWords_021e0bf4* words, int effect);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* ctx);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
+extern "C" void func_ov000_0215ccbc(
     int unused, struct OutStruct0215ccbc* out, GameObject* combatant, short valC, short valA, short valB,
     struct EffectWords_021e0bf4 words, unsigned char byteE);
 
@@ -25,7 +25,7 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021e0bf4(struct Obj_021e0bf4
     GameObject* c = GetCombatantByID((int)obj->ctx, id);
     if (!c) return 0;
     if (c->currentStats_->primaryStats.currMP < amount) amount = c->currentStats_->primaryStats.currMP;
-    short mp = ConsumeMP0215a124(obj->ctx, id, amount);
+    short mp = func_ov000_0215a124(obj->ctx, id, amount);
     struct EffectWords_021e0bf4 words;
     words.lo = 0;
     words.hi = 0;
@@ -39,6 +39,6 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021e0bf4(struct Obj_021e0bf4
     unsigned short hp = c->currentStats_->primaryStats.currHP;
     unsigned char flag;
     if (obj->action->flag) flag = 1; else flag = 0;
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)obj->ctx, entry, c, amount, hp, mp, words, flag);
+    func_ov000_0215ccbc((int)obj->ctx, entry, c, amount, hp, mp, words, flag);
     return entry;
 }

@@ -34,7 +34,7 @@ struct VariantNodeTag0216b478 {
     unsigned char flag1a;
 };
 
-// USA: func_ov000_0216b478  (semantic: AllocateVariantNodeTag0x15)
+// USA: func_ov000_0216b478
 extern "C" ARM int func_ov000_0216b478(struct Variant02030b0c* v, int count) {
     struct VariantNodeTag0216b478* node = (struct VariantNodeTag0216b478*)data_ov000_02184264.alloc->Allocate(sizeof(struct VariantNodeTag0216b478));
 

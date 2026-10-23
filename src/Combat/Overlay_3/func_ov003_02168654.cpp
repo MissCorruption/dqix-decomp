@@ -20,18 +20,18 @@ struct Scene68654 {
 };
 extern "C" {
 void func_020dfec0(void*,SafeAllocator*,void*,unsigned int);
-void _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(void*,int);
+void func_0204b11c(void*,int);
 void func_0204b5b4(void*,int);
-void _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(void*,SafeAllocator*);
-void _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(void*,int,int);
+void func_0204b12c(void*,SafeAllocator*);
+void func_0204b5e8(void*,int,int);
 void ColorEffect_ConfigureAlphaBlend(unsigned int*,unsigned char,unsigned char,unsigned char,int);
-int _Z18CountActiveEntriesP19ActiveEntry02046900(void*);
-void* _Z17FindRecordByIndexP11Rec020467f0iPPvPi(void*,int,void**,int*);
+int func_02046900(void*);
+void* func_020467f0(void*,int,void**,int*);
 void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
-void _Z28FlushAndDispatchList0204b0e8P12List0204b0e8Pv(void*,void*);
-void _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(void*,SafeAllocator*,void*,unsigned int);
-void _Z29LinkArrayPrevPointers0205cf78P15Struct_0205cf78P13Elem_0205cf78h(void*,void*,unsigned char);
+void func_0204b0e8(void*,void*);
+void func_0204c7a8(void*,SafeAllocator*,void*,unsigned int);
+void func_0205cf78(void*,void*,unsigned char);
 void func_0205a528(void*,void*,int,SafeAllocator*);
 }
 extern char data_ov003_021800e0[];
@@ -73,13 +73,13 @@ extern "C" ARM void func_ov003_02168654(Scene68654* self) {
             List68654* list;
             for (int i=0;i<2;i++) {
                 list=self->lists+i;
-                _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(list,0);
+                func_0204b11c(list,0);
                 int h=hi.v[i]; int m=mode.v[i];
                 list->lo=0;
                 list->hi=h;
                 func_0204b5b4(list,m);
-                _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(list,self->alloc+1);
-                _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(list,0,0);
+                func_0204b12c(list,self->alloc+1);
+                func_0204b5e8(list,0,0);
             }
             *(volatile unsigned short*)0x400000a=(*(volatile unsigned short*)0x400000a&0x43)|0x1d00;
             *(volatile unsigned short*)0x400000c=(*(volatile unsigned short*)0x400000c&0x43)|0x1e00;
@@ -92,8 +92,8 @@ extern "C" ARM void func_ov003_02168654(Scene68654* self) {
         if (loader->GetTaskStatus(self->task)!=0) {
             void* out; void* data; unsigned int size; void* records[2]; int values[2];
             loader->GetLoadedFileByID(self->task,&data,&size);
-            int count=_Z18CountActiveEntriesP19ActiveEntry02046900(data);
-            for (int i=0;i<count;i++) records[i]=_Z17FindRecordByIndexP11Rec020467f0iPPvPi(data,i,&out,values+i);
+            int count=func_02046900(data);
+            for (int i=0;i<count;i++) records[i]=func_020467f0(data,i,&out,values+i);
             for (int i=0;i<count;i++) {
                 if (records[i]) {
                     func_0204b174(self->lists+1,records[i],self->alloc+1,values[i]);
@@ -106,19 +106,19 @@ extern "C" ARM void func_ov003_02168654(Scene68654* self) {
             for (int i=0;i<2;i++) {
                 list=self->lists+i;
                 func_0204bc74(list,0,0,0,0x20,0x19,0);
-                _Z28FlushAndDispatchList0204b0e8P12List0204b0e8Pv(list,0);
+                func_0204b0e8(list,0);
             }
             self->alloc[2].Reset();
             self->buffer=self->alloc[2].Allocate(0x4000);
             Obj68654* obj;
             for (int i=0;i<3;i++) {
                 obj=self->objects+i;
-                _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(obj,self->alloc+1,self->buffer,0x400);
+                func_0204c7a8(obj,self->alloc+1,self->buffer,0x400);
                 obj->list=self->lists+1;
             }
             self->entries.list=self->lists;
             self->entries.count=2;
-            _Z29LinkArrayPrevPointers0205cf78P15Struct_0205cf78P13Elem_0205cf78h(&self->entries,self->objects,3);
+            func_0205cf78(&self->entries,self->objects,3);
             self->stage++;
         }
     } else if (self->stage==3) {
@@ -133,10 +133,10 @@ extern "C" ARM void func_ov003_02168654(Scene68654* self) {
         if (loader->GetTaskStatus(self->task)!=0) {
             void* out; void* data; unsigned int size; int value;
             loader->GetLoadedFileByID(self->task,&data,&size);
-            int count=_Z18CountActiveEntriesP19ActiveEntry02046900(data);
+            int count=func_02046900(data);
             self->alloc[3].Reset();
             for (int i=0;i<count;i++) {
-                void* record=_Z17FindRecordByIndexP11Rec020467f0iPPvPi(data,i,&out,&value);
+                void* record=func_020467f0(data,i,&out,&value);
                 func_0205a528(self->records,record,value,self->alloc+3);
             }
             loader->RemoveTask(self->task);

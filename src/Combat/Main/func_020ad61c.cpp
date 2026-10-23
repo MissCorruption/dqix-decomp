@@ -46,13 +46,13 @@ extern "C" Zone3D* func_02012fe4(void);
 extern "C" void func_020332ac(Trajectory020ad61c*);
 extern "C" void func_020adda4(Trajectory020ad61c*);
 extern "C" void func_020adaac(Trajectory020ad61c*);
-void SubtractHeightOffset020ae398(Entity020AE398*);
-void UpdateFallMotion020ae3f4(Obj020ae3f4*);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-void SetByteField0x253_020397c0(void*);
-int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+extern "C" void func_020ae398(Entity020AE398*);
+extern "C" void func_020ae3f4(Obj020ae3f4*);
+extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" void func_020397c0(void*);
+extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 extern "C" int func_02018fbc(Zone3D*, Vec3copy0202ec84*);
-int IsField0Null_02046b08(void**);
+extern "C" int func_02046b08(void**);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
 extern short data_020e9450[];
 extern Flag020ad61c data_ov017_021d82fc;
@@ -76,10 +76,10 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
         object->field140 = 0;
         break;
     case 1:
-        SubtractHeightOffset020ae398((Entity020AE398*)object);
+        func_020ae398((Entity020AE398*)object);
         break;
     case 2:
-        UpdateFallMotion020ae3f4((Obj020ae3f4*)object);
+        func_020ae3f4((Obj020ae3f4*)object);
         break;
     }
     object->saved144 = saved144;
@@ -118,11 +118,11 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
     int groundedHit;
     HeadNode02046b24** head = (HeadNode02046b24**)scene->unknown_ptr_array_36fc[0];
     GameObject* actor = game->GetUnknownGameObject();
-    if (actor && GetHeadNodeIdOrMinusOne(head) != 3) {
+    if (actor && func_02046b24(head) != 3) {
         actor->obj3D_.position_ = object->object.position_;
-        SetByteField0x253_020397c0(actor);
+        func_020397c0(actor);
     }
-    camera = GetField0x3b0Value_020100bc(game);
+    camera = func_020100bc(game);
     int directHit = 0;
     groundedHit = 0;
     int screenX[3];
@@ -131,7 +131,7 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
     points[0] = *(Vec3copy0202ec84*)&object->object.position_;
     points[1] = *(Vec3copy0202ec84*)&object->firstPosition;
     points[2] = *(Vec3copy0202ec84*)&object->secondPosition;
-    for (int i = 0; i < 3; i++) ComputeTwoFromVec3_0202ec84(camera, &points[i], &screenX[i], &screenY[i]);
+    for (int i = 0; i < 3; i++) func_0202ec84(camera, &points[i], &screenX[i], &screenY[i]);
     if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
         touchX = g_touchInput.prevX_;
         touchY = g_touchInput.prevY_;
@@ -146,7 +146,7 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
     if (!directHit) {
         for (int i = 0; i < 3; i++) {
             points[i].v[1] = func_02018fbc(world, &points[i]);
-            ComputeTwoFromVec3_0202ec84(camera, &points[i], &screenX[i], &screenY[i]);
+            func_0202ec84(camera, &points[i], &screenX[i], &screenY[i]);
             if (screenX[i] - 16 < touchX && touchX < screenX[i] + 16 &&
                 screenY[i] - 24 < touchY && touchY < screenY[i] + 8) {
                 groundedHit = 1;
@@ -154,7 +154,7 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
             }
         }
     }
-    if (IsField0Null_02046b08((void**)head) && object->state == 0) {
+    if (func_02046b08((void**)head) && object->state == 0) {
         if (g_keyManager.TestKeysPressed(1) || groundedHit) {
             func_ov017_021a72f4(scene, 1);
         } else if (g_keyManager.TestKeysPressed(2) || directHit) {

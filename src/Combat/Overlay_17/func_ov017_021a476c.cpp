@@ -108,30 +108,30 @@ signed char data_ov017_021d76d8 = -1;
 short data_ov017_021d76da = -1;
 unsigned short data_ov017_021d83a8;
 
-void* GetGlobalPtr021075f4_0203cf4c(void);
-int GetGlobalField0x1c020421a0(void);
+extern "C" void* func_0203cf4c(void);
+extern "C" int func_020421a0(void);
 extern "C" Work021a476c* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-int IsField0Null_02046b08(void** obj);
+extern "C" int func_02046b08(void** obj);
 extern "C" int func_ov017_021a4e88(int checkKind, unsigned short* outId);
-int CheckField0NonZero_0202b7d8(int* obj);
-Entry021a476c* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4* list, int id);
-Data021a476c* GetField0x8_02040528(int* obj);
-Info021a476c* GetField0xc02040538(S02040538* p);
-unsigned char GetByte0x26c_02039d7c(char* obj);
-int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
-int CheckField0xc4Low15BitsNonZero(BitField0203402c* p);
-void InitObj0219a674(unsigned char* self);
-void SelectVec3FromSources020406f8(Vec3_020406f8* out, Node020406f8* n);
-short GetAngleDeltaBetween_021a4700(Vec3* p0, int baseAngle, Vec3* p2);
-int GetDeltaAndForward_0218daa8(void* obj, Vec3* otherVec, int c, int d, unsigned char e);
+extern "C" int func_0202b7d8(int* obj);
+extern "C" Entry021a476c* func_0203dce4(EntryList_203dce4* list, int id);
+extern "C" Data021a476c* func_02040528(int* obj);
+extern "C" Info021a476c* func_02040538(S02040538* p);
+extern "C" unsigned char func_02039d7c(char* obj);
+extern "C" int func_020535c8(signed char* obj);
+extern "C" int func_0203402c(BitField0203402c* p);
+extern "C" void func_ov017_0219a674(unsigned char* self);
+extern "C" void func_020406f8(Vec3_020406f8* out, Node020406f8* n);
+extern "C" short func_ov017_021a4700(Vec3* p0, int baseAngle, Vec3* p2);
+extern "C" int func_ov017_0218daa8(void* obj, Vec3* otherVec, int c, int d, unsigned char e);
 extern "C" int func_0202c508(void* obj);
 extern "C" void func_ov017_0219b33c(Ctx021a476c* self, Msg021a476c* msg);
-int GetSignedByte0x1c8_02039860(void* obj);
-unsigned int IsFlag0x1ceBit0x10Set_02039de8(unsigned char* obj);
+extern "C" int func_02039860(void* obj);
+extern "C" unsigned int func_02039de8(unsigned char* obj);
 extern "C" Save021a476c* func_0205ec34(void);
-int HasFlagBit_0218d4ec(void* obj, int bit);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_ov017_0218d4ec(void* obj, int bit);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
 
 // USA: func_ov017_021a476c
 extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
@@ -139,9 +139,9 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
     Msg021a476c near;
     Vector3fix pos;
     GameState* game = GameState::GetInstance();
-    void* list = GetGlobalPtr021075f4_0203cf4c();
-    GetField0x3b0Value_020100bc(game);
-    GetGlobalField0x1c020421a0();
+    void* list = func_0203cf4c();
+    func_020100bc(game);
+    func_020421a0();
     Actor021a476c* player = (Actor021a476c*)game->GetUnknownGameObject();
     GameResources* res = GetGameResources();
     Work021a476c* work = func_02012fe4();
@@ -152,43 +152,43 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
     data_ov017_021d76d8 = -1;
     *(int*)((char*)game + regionalOffset) = -1;
 
-    if (self->active == 0 && !IsField0Null_02046b08((void**)self->list)) {
+    if (self->active == 0 && !func_02046b08((void**)self->list)) {
         func_ov017_021a4e88(0, &data_ov017_021d83a8);
         return;
     }
-    if (CheckField0NonZero_0202b7d8((int*)session) && self->holder->busy != 0) {
+    if (func_0202b7d8((int*)session) && self->holder->busy != 0) {
         return;
     }
     data_ov017_021d76da = func_ov017_021a4e88(1, &data_ov017_021d83a8);
     if (data_ov017_021d76da >= 0) {
-        Entry021a476c* entry = GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)list, data_ov017_021d76da);
+        Entry021a476c* entry = func_0203dce4((EntryList_203dce4*)list, data_ov017_021d76da);
         if (entry != NULL) {
-            Data021a476c* data = GetField0x8_02040528((int*)entry);
-            Info021a476c* info = GetField0xc02040538((S02040538*)entry);
+            Data021a476c* data = func_02040528((int*)entry);
+            Info021a476c* info = func_02040538((S02040538*)entry);
             if (entry->flags & 0x200) {
                 return;
             }
-            if (GetByte0x26c_02039d7c((char*)player) != 0 || res->unknown_4080 != 0) {
+            if (func_02039d7c((char*)player) != 0 || res->unknown_4080 != 0) {
                 return;
             }
             if (IsBrightnessOutsideValidRange(res, false)) {
                 return;
             }
-            if (CheckSubstructByte0x7cPositive_020535c8((signed char*)player)) {
+            if (func_020535c8((signed char*)player)) {
                 return;
             }
-            if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)player)) {
+            if (func_0203402c((BitField0203402c*)player)) {
                 return;
             }
             if (data != NULL && info != NULL) {
                 int limit = 0x1922;
-                InitObj0219a674((unsigned char*)&msg);
+                func_ov017_0219a674((unsigned char*)&msg);
                 msg.kind = 0;
-                SelectVec3FromSources020406f8((Vec3_020406f8*)&pos, (Node020406f8*)entry);
-                msg.angle = fix32abs(GetAngleDeltaBetween_021a4700((Vec3*)&player->obj3D.position_, (short)player->obj3D.rotation_.y, (Vec3*)&pos));
+                func_020406f8((Vec3_020406f8*)&pos, (Node020406f8*)entry);
+                msg.angle = fix32abs(func_ov017_021a4700((Vec3*)&player->obj3D.position_, (short)player->obj3D.rotation_.y, (Vec3*)&pos));
                 if (work->mapId == 0x1901 && data->kind == 0x6a) {
                     limit = 0x25b3;
-                    GetDeltaAndForward_0218daa8(self, (Vec3*)&info->pos, 0xccc, -0x199, 0);
+                    func_ov017_0218daa8(self, (Vec3*)&info->pos, 0xccc, -0x199, 0);
                 }
                 if (msg.angle < limit) {
                     int set = 0;
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
         Work021a476c* work2;
         void* list2;
         GameResources* res2;
-        if (!CheckField0NonZero_0202b7d8((int*)func_0202ae18())) {
+        if (!func_0202b7d8((int*)func_0202ae18())) {
             goto none;
         }
         res2 = GetGameResources();
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
             found = -1;
             goto done;
         }
-        if (IsField0Null_02046b08((void**)list2) == 0) {
+        if (func_02046b08((void**)list2) == 0) {
             found = -1;
             goto done;
         }
@@ -281,10 +281,10 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
             if (member->flags18c & 1) {
                 continue;
             }
-            if (GetSignedByte0x1c8_02039860(member) >= 0) {
+            if (func_02039860(member) >= 0) {
                 continue;
             }
-            if (IsFlag0x1ceBit0x10Set_02039de8((unsigned char*)member)) {
+            if (func_02039de8((unsigned char*)member)) {
                 continue;
             }
             if (!member->obj3D.IsVisible()) {
@@ -317,11 +317,11 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
             mem = (Actor021a476c*)game->GetPartyMemberByIndex(data_ov017_021d76d8);
             save = func_0205ec34();
             if (mem->field1b2 == 0) {
-                if (!HasFlagBit_0218d4ec(self, data_ov017_021d76d8) ||
-                    !TestBitInByteArray_0206dfb0((int)save, save->flags, 0x799)) {
-                    InitObj0219a674((unsigned char*)&near);
+                if (!func_ov017_0218d4ec(self, data_ov017_021d76d8) ||
+                    !func_0206dfb0((int)save, save->flags, 0x799)) {
+                    func_ov017_0219a674((unsigned char*)&near);
                     near.kind = 0xa;
-                    near.angle = fix32abs(GetAngleDeltaBetween_021a4700((Vec3*)&player->obj3D.position_, (short)player->obj3D.rotation_.y, (Vec3*)&mem->obj3D.position_));
+                    near.angle = fix32abs(func_ov017_021a4700((Vec3*)&player->obj3D.position_, (short)player->obj3D.rotation_.y, (Vec3*)&mem->obj3D.position_));
                     if (near.angle < 0x1922) {
                         near.field2 = data_ov017_021d76d8;
                         func_ov017_0219b33c(self, &near);

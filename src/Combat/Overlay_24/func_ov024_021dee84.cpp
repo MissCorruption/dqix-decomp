@@ -3,16 +3,16 @@
 #include "GameState/GameState.h"
 
 struct StatStageStruct02087c30;
-int CanAdjustStatStageBit15(StatStageStruct02087c30* p, unsigned char decrease);
+extern "C" int func_02087c30(StatStageStruct02087c30* p, unsigned char decrease);
 struct StatStageStruct02087c84;
-int SetStatStageBit15(struct StatStageStruct02087c84* p, int delta);
+extern "C" int func_02087c84(struct StatStageStruct02087c84* p, int delta);
 void UpdateCombatantMagicalMending(int unused, int combatantId);
 struct RefStruct_021e9990;
-unsigned short CheckPersonalityCode_021e9990(RefStruct_021e9990* s, int id, int unused2, unsigned char flag, signed char sb);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021e9990(RefStruct_021e9990* s, int id, int unused2, unsigned char flag, signed char sb);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
 extern "C" void func_ov024_021e8bf0(void* work, void* fieldC, unsigned short* sel);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct PackedPair_021dee84 {
@@ -37,8 +37,8 @@ extern "C" ARM void* func_ov024_021dee84(struct Obj_021dee84* obj, int unused, i
 		if (stage < -2) stage = -2;
 		if (stage > 2) stage = 2;
 		if (stage < 0) decrease = 1;
-		if (CanAdjustStatStageBit15((struct StatStageStruct02087c30*)c->currentStats_, decrease)) {
-			result = SetStatStageBit15((struct StatStageStruct02087c84*)c->currentStats_, (signed char)stage);
+		if (func_02087c30((struct StatStageStruct02087c30*)c->currentStats_, decrease)) {
+			result = func_02087c84((struct StatStageStruct02087c84*)c->currentStats_, (signed char)stage);
 			UpdateCombatantMagicalMending((int)obj->field0x10, id);
 			obj->field0x14++;
 			applied = 1;
@@ -46,14 +46,14 @@ extern "C" ARM void* func_ov024_021dee84(struct Obj_021dee84* obj, int unused, i
 	}
 	unsigned short sel = 0;
 	if (applied) {
-		sel = CheckPersonalityCode_021e9990((struct RefStruct_021e9990*)obj, id, (int)action, (unsigned char)decrease, result);
+		sel = func_ov024_021e9990((struct RefStruct_021e9990*)obj, id, (int)action, (unsigned char)decrease, result);
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, action->f24.b, action->f24.c);
+		sel = func_ov024_021da644(id, action->f24.b, action->f24.c);
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
 	func_ov024_021e8bf0(obj, obj->field0xc, &sel);
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	struct Flag_021dee84* fl = (struct Flag_021dee84*)((char*)obj->field0xc + 0x1c);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
 	return entry;

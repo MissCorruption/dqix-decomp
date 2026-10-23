@@ -3,19 +3,19 @@
 #include "Memory/SafeAllocator.h"
 struct GameResources;
 
-void* AllocateFromAllocatorUnion_02012db0(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012db0(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_0200ee94(void* array, int count, int size, void* ctor, void* dtor);
-void* ResetNameTableThenNotify_0201c0e8(void* obj);
-void* NotifyThenResetNameTable_0201c108(void* obj);
+extern "C" void* func_0201c0e8(void* obj);
+extern "C" void* func_0201c108(void* obj);
 extern "C" void func_ov030_021d9340(GameResources* self);
-void* ResetHeaderAndReturn_021d9250(void* p);
-void* ResetHeaderAndReturn_021d9264(void* p);
-void* ResetHeaderAndReturn_021d9278(void* p);
-void* ResetHeaderAndReturn_021d928c(void* p);
-void* ResetHeaderAndReturn_021d92a0(void* p);
-void* ResetHeaderAndReturn_021d92b4(void* p);
-void* ResetHeaderAndReturn_021d92c8(void* p);
-void* ResetHeaderAndReturn_021d92dc(void* p);
+extern "C" void* func_ov030_021d9250(void* p);
+extern "C" void* func_ov030_021d9264(void* p);
+extern "C" void* func_ov030_021d9278(void* p);
+extern "C" void* func_ov030_021d928c(void* p);
+extern "C" void* func_ov030_021d92a0(void* p);
+extern "C" void* func_ov030_021d92b4(void* p);
+extern "C" void* func_ov030_021d92c8(void* p);
+extern "C" void* func_ov030_021d92dc(void* p);
 
 #if defined(jpn)
 enum { kSceneDataSize = 0x33f8, kSceneAllocs = 29, kEntry3a9cSize = 0x14, kAllocGap = 0xf2c - 0x27c, kGap432c = 0x60 };
@@ -84,12 +84,12 @@ struct BattleScene {
 
 // USA: func_ov030_021d8a40
 extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned char** dataOut) {
-    *dataOut = (unsigned char*)AllocateFromAllocatorUnion_02012db0(alloc, kSceneDataSize);
+    *dataOut = (unsigned char*)func_02012db0(alloc, kSceneDataSize);
     if (*dataOut == NULL) {
         return NULL;
     }
 
-    BattleScene* scene = (BattleScene*)AllocateFromAllocatorUnion_02012db0(alloc, sizeof(BattleScene));
+    BattleScene* scene = (BattleScene*)func_02012db0(alloc, sizeof(BattleScene));
     if (scene != NULL) {
         unsigned char* d = *dataOut;
         void *q36c8, *q36cc, *q36d0, *q36d8, *q36fc, *q3700, *q3704, *q3708;
@@ -294,9 +294,9 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
             g++;
         } while (g < scene->groups + 4);
         scene->a2b0c.ResetAllocatorPointer();
-        func_0200ee94(scene->nameTables, 0x12, 0x88, (void*)ResetNameTableThenNotify_0201c0e8, (void*)NotifyThenResetNameTable_0201c108);
-        ResetNameTableThenNotify_0201c0e8(scene->nameTable3520);
-        ResetNameTableThenNotify_0201c0e8(scene->nameTable35a8);
+        func_0200ee94(scene->nameTables, 0x12, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
+        func_0201c0e8(scene->nameTable3520);
+        func_0201c0e8(scene->nameTable35a8);
 
         scene->p36c8 = q36c8;
         scene->p36cc = q36cc;
@@ -318,8 +318,8 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         scene->p36fc[13] = q3730;
         scene->p36fc[14] = q3734;
         scene->p36fc[15] = q3738;
-        func_0200ee94(scene->entries373c, 0xc, 0x48, (void*)ResetHeaderAndReturn_021d9250, (void*)ResetHeaderAndReturn_021d9264);
-        func_0200ee94(scene->entries3a9c, 4, kEntry3a9cSize, (void*)ResetHeaderAndReturn_021d9278, (void*)ResetHeaderAndReturn_021d928c);
+        func_0200ee94(scene->entries373c, 0xc, 0x48, (void*)func_ov030_021d9250, (void*)func_ov030_021d9264);
+        func_0200ee94(scene->entries3a9c, 4, kEntry3a9cSize, (void*)func_ov030_021d9278, (void*)func_ov030_021d928c);
 
         scene->p3afc[0] = q3afc;
         scene->p3afc[1] = q3b00;
@@ -372,8 +372,8 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         scene->p3afc[48] = q3bbc;
         scene->p3afc[49] = q3bc0;
         scene->p3afc[50] = q3bc4;
-        func_0200ee94(scene->entries3bc8, 3, 0x14, (void*)ResetHeaderAndReturn_021d92a0, (void*)ResetHeaderAndReturn_021d92b4);
-        func_0200ee94(scene->entries3c04, 4, 0x28, (void*)ResetHeaderAndReturn_021d92c8, (void*)ResetHeaderAndReturn_021d92dc);
+        func_0200ee94(scene->entries3bc8, 3, 0x14, (void*)func_ov030_021d92a0, (void*)func_ov030_021d92b4);
+        func_0200ee94(scene->entries3c04, 4, 0x28, (void*)func_ov030_021d92c8, (void*)func_ov030_021d92dc);
 
         scene->p3ca4 = q3ca4;
         scene->p3ca8 = q3ca8;
@@ -389,6 +389,6 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
     }
 
     func_ov030_021d9340((GameResources*)scene);
-    EmptyStub02012de4(alloc);
+    func_02012de4(alloc);
     return scene;
 }

@@ -4,24 +4,24 @@
 #include "NitroSDK/Graphics.h"
 
 struct List0204af64;
-void ResetList0204af64(List0204af64* graphics);
+extern "C" void func_0204af64(List0204af64* graphics);
 extern "C" void func_0204b5b4(void* graphics, int priority);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* graphics, int value);
+extern "C" void func_0204b11c(unsigned char* graphics, int value);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8* graphics, int a, int b);
+extern "C" void func_0204b5e8(Obj0204b5e8* graphics, int a, int b);
 struct AllocTarget0204b12c;
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* graphics, SafeAllocator* allocator);
+extern "C" void func_0204b12c(AllocTarget0204b12c* graphics, SafeAllocator* allocator);
 struct Foo0204af38;
-void AllocateArray0204af38(Foo0204af38* graphics, int count, SafeAllocator* allocator);
+extern "C" void func_0204af38(Foo0204af38* graphics, int count, SafeAllocator* allocator);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900* pac);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
 extern "C" void func_0204b174(void* graphics, void* file, SafeAllocator* allocator, unsigned int size);
 struct Obj0204b8d0;
-void DispatchEntry0204b8d0(Obj0204b8d0* graphics, unsigned int a, int b, int c, short d, short e, short width, short height, unsigned short f);
+extern "C" void func_0204b8d0(Obj0204b8d0* graphics, unsigned int a, int b, int c, short d, short e, short width, short height, unsigned short f);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8* graphics, void* characters);
+extern "C" void func_0204b0e8(List0204b0e8* graphics, void* characters);
 
 struct BackgroundGraphics0217cb3c {
     char unk_0[0x1c];
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov003_0217cb3c(Screen0217cb3c* self, int mainScreen, in
         background = &self->mainBackground_;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
         allocator = &self->mainAllocator_;
-        ResetList0204af64((List0204af64*)background);
+        func_0204af64((List0204af64*)background);
         background->screen_ = 0;
         background->palette_ = 1;
         func_0204b5b4(background, 1);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_0217cb3c(Screen0217cb3c* self, int mainScreen, in
         background = &self->subBackground_;
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
         allocator = &self->subAllocator_;
-        ResetList0204af64((List0204af64*)background);
+        func_0204af64((List0204af64*)background);
         background->screen_ = 1;
         background->palette_ = 0;
         func_0204b5b4(background, 0);
@@ -75,24 +75,24 @@ extern "C" ARM void func_ov003_0217cb3c(Screen0217cb3c* self, int mainScreen, in
         fileId = self->fileIds_[0];
     }
 
-    SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
-    DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
-    AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, allocator);
-    AllocateArray0204af38((Foo0204af38*)background, 1, allocator);
+    func_0204b11c((unsigned char*)background, 0);
+    func_0204b5e8((Obj0204b5e8*)background, 0, 0);
+    func_0204b12c((AllocTarget0204b12c*)background, allocator);
+    func_0204af38((Foo0204af38*)background, 1, allocator);
 
     void* name;
     void* file;
     unsigned int size;
     loader->GetLoadedFileByID(fileId, &file, &size);
-    int numFiles = CountActiveEntries((ActiveEntry02046900*)file);
+    int numFiles = func_02046900((ActiveEntry02046900*)file);
     for (int i = 0; i < numFiles; i++) {
         unsigned int dataSize;
-        void* data = FindRecordByIndex((Rec020467f0*)file, i, &name, (int*)&dataSize);
+        void* data = func_020467f0((Rec020467f0*)file, i, &name, (int*)&dataSize);
         if (data != NULL) {
             func_0204b174(background, data, allocator, dataSize);
         }
     }
 
-    DispatchEntry0204b8d0((Obj0204b8d0*)background, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-    FlushAndDispatchList0204b0e8((List0204b0e8*)background, NULL);
+    func_0204b8d0((Obj0204b8d0*)background, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+    func_0204b0e8((List0204b0e8*)background, NULL);
 }

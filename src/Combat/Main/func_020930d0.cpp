@@ -9,14 +9,14 @@ extern "C" void func_02092d60(void* s, int b);
 extern "C" int func_020457e0(char* g);
 extern "C" unsigned char* func_ov017_021b8478(void* p);
 extern "C" void func_02094030(int* obj, short a, short b, int c);
-char* GetGlobalField0x1c020421a0(void);
-void ReinitController02043204(char* obj);
-void* GetPtrField0x2a04_02010828(GameState* gs);
-int* GetGlobal02109030_020936f8(void);
-unsigned int CountMatchingTableEntries02092cd0(BattlePhaseState020930d0* state, int kind);
-int FindMatchingTableIndex02092d18(BattlePhaseState020930d0* state, int kind);
-int ListContainsId(struct ListHead02046b60* list, int id);
-int CountSetBitsAt0x34_020a35f8(unsigned char* p);
+extern "C" char* func_020421a0(void);
+extern "C" void func_02043204(char* obj);
+extern "C" void* func_02010828(GameState* gs);
+extern "C" int* func_020936f8(void);
+extern "C" unsigned int func_02092cd0(BattlePhaseState020930d0* state, int kind);
+extern "C" int func_02092d18(BattlePhaseState020930d0* state, int kind);
+extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
+extern "C" int func_020a35f8(unsigned char* p);
 
 struct BattlePhaseState020930d0 {
     char unk0[0x30];
@@ -70,11 +70,11 @@ extern "C" ARM void func_020930d0(struct BattlePhaseState020930d0* s) {
     unsigned char state;
 
     gs = GameState::GetInstance();
-    gf = (GlobalBlock020930d0*)GetGlobalField0x1c020421a0();
+    gf = (GlobalBlock020930d0*)func_020421a0();
     res = GetGameResources();
     list = (struct ListHead02046b60*)res->unknown_ptr_array_36fc[0];
-    party = (struct CombatantIndexList020930d0*)GetPtrField0x2a04_02010828(gs);
-    g = GetGlobal02109030_020936f8();
+    party = (struct CombatantIndexList020930d0*)func_02010828(gs);
+    g = func_020936f8();
     state = s->field35;
 
     if (state == 0) {
@@ -84,7 +84,7 @@ extern "C" ARM void func_020930d0(struct BattlePhaseState020930d0* s) {
     }
 
     if (state == 1) {
-        tableCount = CountMatchingTableEntries02092cd0(s, 1);
+        tableCount = func_02092cd0(s, 1);
         present = 0;
         for (i = 0; i < 4; i++) {
             if (gs->GetPartyMemberByIndex(i)) present++;
@@ -104,16 +104,16 @@ extern "C" ARM void func_020930d0(struct BattlePhaseState020930d0* s) {
         }
         if (ready) {
             if (s->field32 != 0) return;
-            ReinitController02043204((char*)gf);
+            func_02043204((char*)gf);
             int next;
-            int c0 = CountMatchingTableEntries02092cd0(s, 0);
-            int c5 = CountMatchingTableEntries02092cd0(s, 5);
+            int c0 = func_02092cd0(s, 0);
+            int c5 = func_02092cd0(s, 5);
             if (c0 == 4 && missing == 0) {
                 next = 8;
             } else {
                 next = 6;
-                if (ListContainsId(list, 10)) {
-                    if (total == CountSetBitsAt0x34_020a35f8(func_ov017_021b8478(res->unknown_ptr_3718)) && c0 + c5 == 4) s->field3b = 1;
+                if (func_02046b60(list, 10)) {
+                    if (total == func_020a35f8(func_ov017_021b8478(res->unknown_ptr_3718)) && c0 + c5 == 4) s->field3b = 1;
                 }
             }
             s->field30 = next;
@@ -150,10 +150,10 @@ extern "C" ARM void func_020930d0(struct BattlePhaseState020930d0* s) {
             s->field3b = 0;
             func_02094030(g, 0x4e24, -1, 0);
         }
-        if (CountMatchingTableEntries02092cd0(s, 2) > 1) {
-            func_02094030(g, 0x4e22, -1, FindMatchingTableIndex02092d18(s, 2));
-        } else if (CountMatchingTableEntries02092cd0(s, 2) == 1) {
-            func_02094030(g, 0x4e21, -1, FindMatchingTableIndex02092d18(s, 2));
+        if (func_02092cd0(s, 2) > 1) {
+            func_02094030(g, 0x4e22, -1, func_02092d18(s, 2));
+        } else if (func_02092cd0(s, 2) == 1) {
+            func_02094030(g, 0x4e21, -1, func_02092d18(s, 2));
         }
         for (unsigned char i = 0; i < 4; i++) {
             if (((struct GameStateFlags020930d0*)gs)->slots[i] == 4) {

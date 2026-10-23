@@ -20,7 +20,7 @@ struct Obj02206368 {
 
 extern "C" ARM int func_ov031_022063ec(Obj02206368* obj);
 
-// USA: func_ov031_02206368  (semantic: ClampAndFetchWithBlock_02206368)
+// USA: func_ov031_02206368
 extern "C" ARM int func_ov031_02206368(Obj02206368* obj, int min, int max, int* out, int flags) {
     Queue02206368* q = obj->q;
     if (max > min) {

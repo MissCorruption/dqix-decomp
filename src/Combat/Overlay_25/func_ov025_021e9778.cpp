@@ -57,23 +57,23 @@ struct ActionModeWord {
 
 typedef int (*Handler021e9778)(struct Node021e9778*, struct Slot021e9778*, void*, int);
 
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetOffsetPtr02160f00(void* obj);
-void* GetSlotPtr02160f20(void* obj);
-ListNode02160094* GetNodeAtIndex02160094(List02160094* list, int index);
-void InitStruct02078484(InitStruct02078484Struct* p);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f00(void* obj);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" ListNode02160094* func_ov000_02160094(List02160094* list, int index);
+extern "C" void func_02078484(InitStruct02078484Struct* p);
 extern "C" void* func_ov000_02160f14(void* obj);
-void StoreFields0x1e4And0x1e8IfNonZero_0202ea10(unsigned char* obj, int a, int b);
-short ClampScaledStat_0216352c(int id, float a, float b);
-void FindNodeAndProcess02057fb4(void* list, int id, void* argument);
+extern "C" void func_0202ea10(unsigned char* obj, int a, int b);
+extern "C" short func_ov000_0216352c(int id, float a, float b);
+extern "C" void func_02057fb4(void* list, int id, void* argument);
 extern "C" void* func_02057924(void);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200fea4(GameState* battleStruct, int combatantId);
 extern "C" void func_ov025_021eb6fc(Obj021eb6fc* self, int force);
 extern "C" int func_ov025_021eb46c(Ctx021eb46c* self);
 extern "C" int func_ov025_021eb204(Loader021eb204* self);
 extern "C" void func_ov025_021e9b2c(Obj021e9b2c* self);
 extern "C" void func_ov025_021ebb90(Container021ebb90* obj);
-void UpdateCombatFlags_021e9a94(In021e9a94* obj);
+extern "C" void func_ov025_021e9a94(In021e9a94* obj);
 extern "C" char* strcpy(char* d, const char* s);
 
 extern void* data_ov025_021ef994;
@@ -85,9 +85,9 @@ extern char data_ov025_021ef8de[];
 extern "C" ARM void func_ov025_021e9778(void* self) {
     unsigned char* object = (unsigned char*)self;
     GameState* gs = GameState::GetInstance();
-    void* work = GetActiveCombatWork_ov000_02160130();
-    void* workData = GetOffsetPtr02160f00(work);
-    struct Slot021e9778* slot = (struct Slot021e9778*)GetSlotPtr02160f20(work);
+    void* work = func_ov000_02160130();
+    void* workData = func_ov000_02160f00(work);
+    struct Slot021e9778* slot = (struct Slot021e9778*)func_ov000_02160f20(work);
     data_ov025_021ef994 = self;
     if ((*(unsigned short*)(object + 0x5ce)) != 0) {
         unsigned int dt = gs->GetEffectiveDeltaTime();
@@ -136,15 +136,15 @@ extern "C" ARM void func_ov025_021e9778(void* self) {
     func_ov025_021ebb90((Container021ebb90*)(object + 0x22c));
     data_ov025_021ef9a4 &= ~4;
     if ((*(int*)(object + 0x224)) != 0) {
-        UpdateCombatFlags_021e9a94((In021e9a94*)self);
+        func_ov025_021e9a94((In021e9a94*)self);
     }
     if (*(void**)(object + 8) != NULL && ((ActionModeWord*)((char*)*(void**)(object + 8) + 0x18))->mode == 2) {
-        int id = *(unsigned short*)((char*)GetNodeAtIndex02160094((List02160094*)slot, 0) + 0x20);
+        int id = *(unsigned short*)((char*)func_ov000_02160094((List02160094*)slot, 0) + 0x20);
         int flag = 0;
         GameState* gs2 = GameState::GetInstance();
         int isParty = (id >= 0xc0 && id <= 0xc7);
         if (isParty != 0) {
-            GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs2, id);
+            GameObject* c = func_0200fea4(gs2, id);
             if (c != 0) {
                 short v = c->obj3D_.unknown_2_;
                 if (v == 0x200 || (unsigned int)(v - 0x289) <= 4) {
@@ -159,21 +159,21 @@ extern "C" ARM void func_ov025_021e9778(void* self) {
         if (flag == 0 && (data_ov025_021ef9a4 & 0x200) && !(data_ov025_021ef9a4 & 0x400)) {
             void* list = func_02057924();
             struct InitStruct02078484Struct s;
-            InitStruct02078484(&s);
-            s.f14 = *(unsigned short*)((char*)GetNodeAtIndex02160094((List02160094*)slot, 0) + 0x20);
+            func_02078484(&s);
+            s.f14 = *(unsigned short*)((char*)func_ov000_02160094((List02160094*)slot, 0) + 0x20);
             if (slot->kind & 1) {
                 strcpy((char*)&s, data_ov025_021ef8de);
                 unsigned char* p = (unsigned char*)func_ov000_02160f14(work);
-                StoreFields0x1e4And0x1e8IfNonZero_0202ea10(p, 0x199, 0x3e8);
+                func_0202ea10(p, 0x199, 0x3e8);
             }
             int inParty = (id >= 0xc0 && id <= 0xc7);
             if (inParty != 0) {
-                short t = ClampScaledStat_0216352c(id, 1.0f, 0.5f);
+                short t = func_ov000_0216352c(id, 1.0f, 0.5f);
                 s.f44 = t;
                 s.f48 = t;
                 s.f4c = t;
             }
-            FindNodeAndProcess02057fb4(list, 4, &s);
+            func_02057fb4(list, 4, &s);
             data_ov025_021ef9a4 |= 0x400;
         }
     }

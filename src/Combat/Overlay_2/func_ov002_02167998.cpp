@@ -24,19 +24,19 @@ struct Flags3c {
     unsigned int top : 1;
 };
 
-int GetField0x3acValue_020100a8(GameState *gs);
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int clear, int key);
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" int func_020100a8(GameState *gs);
+extern "C" void func_0205def8(struct Struct_0205def8 *s, int clear, int key);
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
-void GetFourShortsAtIndex(struct ShortArrays0204c610 *base, int index, short *out0, short *out1, short *out2, short *out3);
-void SetFourShortsAtIndex(ShortArrays0204c654*, int, short, short, short, short);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
+extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
+extern "C" void func_0204c610(struct ShortArrays0204c610 *base, int index, short *out0, short *out1, short *out2, short *out3);
+extern "C" void func_0204c654(ShortArrays0204c654*, int, short, short, short, short);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
 extern "C" void func_0205d7a0(unsigned char *obj, int val);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38 *obj, int key);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-int CheckFlagOrThreshold_02161b48(char *self, int flag);
-unsigned char *GetFieldAt0x150_02053c6c(unsigned char *c);
+extern "C" int func_0205da38(struct Obj_0205da38 *obj, int key);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
+extern "C" int func_ov002_02161b48(char *self, int flag);
+extern "C" unsigned char *func_02053c6c(unsigned char *c);
 extern "C" void func_ov002_02161cf0(void *self);
 extern "C" void func_ov002_0215f6a4(void *self);
 extern "C" void func_ov002_02161a8c(void);
@@ -59,11 +59,11 @@ extern "C" ARM void func_ov002_02167998(char *base) {
     if (phase == 0) {
         base[0x1c34] = 0;
         for (int i = 0; i < 5; i++) {
-            SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) obj, 0, data_ov002_0216cc98[i]);
+            func_0205def8((struct Struct_0205def8 *) obj, 0, data_ov002_0216cc98[i]);
         }
-        base[0x1c20]               = GetField0x3acValue_020100a8(gs);
+        base[0x1c20]               = func_020100a8(gs);
         *(short *) (base + 0x1c02) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) obj, 0, 2);
+        func_0205de24((struct Struct0205de24 *) obj, 0, 2);
         func_ov002_02161cf0(base);
         func_ov002_0215f6a4(base);
         (*(int *) (base + 0x1bc0))++;
@@ -73,15 +73,15 @@ extern "C" ARM void func_ov002_02167998(char *base) {
     }
     if (phase != 1) return;
     *(int *) (base + 0x247c) |= 4;
-    struct Elem_0205d81c *e = FindElementByC40205d81c((struct Struct_0205d81c *) obj, 0x18);
+    struct Elem_0205d81c *e = func_0205d81c((struct Struct_0205d81c *) obj, 0x18);
     if (e != 0) {
         short idx = *(signed char *) (base + 0x1c73);
         short a, b, c, d;
-        GetFourShortsAtIndex((struct ShortArrays0204c610 *) e, idx, &a, &b, &c, &d);
+        func_0204c610((struct ShortArrays0204c610 *) e, idx, &a, &b, &c, &d);
         idx += *(signed char *) (base + 0x1c73) + 1;
-        SetFourShortsAtIndex((struct ShortArrays0204c654 *) e, idx, a, b, c, d);
+        func_0204c654((struct ShortArrays0204c654 *) e, idx, a, b, c, d);
         idx += *(signed char *) (base + 0x1c73) + 1;
-        SetFourShortsAtIndex((struct ShortArrays0204c654 *) e, idx, a, b, c, d);
+        func_0204c654((struct ShortArrays0204c654 *) e, idx, a, b, c, d);
     }
     int mode;
     int sel;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov002_02167998(char *base) {
     Cursor *cur = (Cursor *) (obj + 0x6c);
     mode        = cur->col;
     sel         = cur->row;
-    *(short *) (base + 0x1c02) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) obj);
+    *(short *) (base + 0x1c02) = func_0205d794((struct Struct_0205c570 *) obj);
     if (old != *(short *) (base + 0x1c02)) {
         if (col == sel && sel == *(signed char *) (base + 0x1c73) && g_touchInput.pressed_ == 0) {
             sel--;
@@ -106,16 +106,16 @@ extern "C" ARM void func_ov002_02167998(char *base) {
     }
     last  = sel == *(signed char *) (base + 0x1c73);
     shown = !last;
-    SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) obj, shown, 0x1a);
-    SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) obj, shown, 0x1b);
+    func_0205def8((struct Struct_0205def8 *) obj, shown, 0x1a);
+    func_0205def8((struct Struct_0205def8 *) obj, shown, 0x1b);
     if (old != *(short *) (base + 0x1c02)) return;
     int pressed = g_keyManager.TestKeysPressed(0x601);
-    int confirm = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38 *) (base + 0x2c8 + 0xc00), 0x14)) ? 1 : 0;
+    int confirm = (pressed | func_0205da38((struct Obj_0205da38 *) (base + 0x2c8 + 0xc00), 0x14)) ? 1 : 0;
     if (confirm) {
         if (sel == *(signed char *) (base + 0x1c73)) {
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
             for (int i = 0; i < 5; i++) {
-                SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) obj, 1, data_ov002_0216cc98[i]);
+                func_0205def8((struct Struct_0205def8 *) obj, 1, data_ov002_0216cc98[i]);
             }
             *(short *) (base + 0x1c02) = -1;
             func_ov002_02156e90(base);
@@ -128,12 +128,12 @@ extern "C" ARM void func_ov002_02167998(char *base) {
         if (m == 0) return;
         switch (mode) {
         case 0:
-            if (member == GetField0x3acValue_020100a8(gs)) return;
+            if (member == func_020100a8(gs)) return;
             func_ov002_0215b9a4(base, *(int *) (base + 0x1bb8) & 0xff, 1);
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
             *(int *) (base + 0x1bb8)   = 0x19;
             *(int *) (base + 0x1bc0)   = 0;
-            *(short *) (base + 0x1c04) = (signed char) *(int *) (GetFieldAt0x150_02053c6c(m) + 0x94c);
+            *(short *) (base + 0x1c04) = (signed char) *(int *) (func_02053c6c(m) + 0x94c);
             break;
         case 1: {
             struct Flags3c *f = (struct Flags3c *) (*(unsigned char **) (m + 0x134) + 0x3c);
@@ -142,14 +142,14 @@ extern "C" ARM void func_ov002_02167998(char *base) {
             t %= 2;
             f->toggle = t;
             func_ov002_0215b9a4(base, *(int *) (base + 0x1bb8) & 0xff, 0);
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
             break;
         }
         case 2: {
-            unsigned char *f = GetFieldAt0x150_02053c6c(m);
+            unsigned char *f = func_02053c6c(m);
             obj[0xb8]        = *(int *) (base + 0x1bb8);
             *(int *) (base + 0x247c) &= ~4;
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
             *(int *) (base + 0x1bb8)   = 0x1c;
             *(int *) (base + 0x1bc0)   = 0;
             *(short *) (base + 0x1c06) = f[0x56a];
@@ -158,9 +158,9 @@ extern "C" ARM void func_ov002_02167998(char *base) {
         }
         return;
     }
-    if (CheckFlagOrThreshold_02161b48(base, 1)) {
+    if (func_ov002_02161b48(base, 1)) {
         for (int i = 0; i < 5; i++) {
-            SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) obj, 1, data_ov002_0216cc98[i]);
+            func_0205def8((struct Struct_0205def8 *) obj, 1, data_ov002_0216cc98[i]);
         }
         *(short *) (base + 0x1c02) = -1;
         func_ov002_02156e90(base);

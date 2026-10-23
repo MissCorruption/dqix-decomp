@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 
-// USA: func_ov023_021ecbe8  (semantic: AdvanceFadeState_021ecbe8)
+// USA: func_ov023_021ecbe8
 extern "C" ARM void func_ov023_021ecbe8(char* obj) {
 #if defined(jpn)
     enum { recordStride = 0x15c };

@@ -6,9 +6,9 @@
 #endif
 
 void SleepCurrentContext(unsigned int ticks);
-int GetField260_0220d540(void);
-void* GetOffset10FromResult_0220ec04(int index);
-int ClearHandleIfStatusReady_0220ca88(void);
+extern "C" int func_ov031_0220d540(void);
+extern "C" void* func_ov031_0220ec04(int index);
+extern "C" int func_ov031_0220ca88(void);
 extern "C" int func_ov031_0220c970(void* workspace, unsigned int size);
 extern "C" int func_ov031_02245c68(int mode);
 extern "C" void func_ov031_0220eadc(void);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 	data_ov031_02291f24.arena.field_0xc = 0;
 
 	while (data_ov031_02291f24.field4 == 0) {
-		switch (GetField260_0220d540()) {
+		switch (func_ov031_0220d540()) {
 		case 1:
 			func_ov031_02245c68(1);
 			break;
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 					if (data_ov031_02291f24.fieldC == 0) {
 						func_ov031_0220eb88(1);
 						if (func_ov031_0220eb30() >= 1) {
-							CpuCopy8(GetOffset10FromResult_0220ec04(0), &data_ov031_02292040, 0xc0);
+							CpuCopy8(func_ov031_0220ec04(0), &data_ov031_02292040, 0xc0);
 						}
 						func_ov031_0220eb88(0);
 						func_ov031_02245c68(4);
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 	}
 
 	while (data_ov031_02291f24.field4 != 0) {
-		switch (GetField260_0220d540()) {
+		switch (func_ov031_0220d540()) {
 		case 1:
 			data_ov031_02291f24.field4 = 0;
 			break;
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov031_0224599c(void) {
 		}
 	}
 
-	if (ClearHandleIfStatusReady_0220ca88() == 0) {
+	if (func_ov031_0220ca88() == 0) {
 		return;
 	}
 }

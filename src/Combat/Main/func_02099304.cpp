@@ -38,11 +38,11 @@ extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* gs);
 extern "C" void func_02046380(StoreStruct* store);
 extern "C" void* memset(void* dst, int value, unsigned int length);
-void RegisterSlotA020cf0fc(int out);
-StoreStruct* GetGlobalField0x1c020421a0(void);
-void StoreInArray0x8b0_020465c0(StoreStruct* store, int index, int value);
-int CalculateAge_02098f20(int a, int b, int c);
-void SetIndexedName02046574(Obj02046574* obj, int index, char* name);
+extern "C" void func_020cf0fc(int out);
+extern "C" StoreStruct* func_020421a0(void);
+extern "C" void func_020465c0(StoreStruct* store, int index, int value);
+extern "C" int func_02098f20(int a, int b, int c);
+extern "C" void func_02046574(Obj02046574* obj, int index, char* name);
 
 // USA: func_02099304
 extern "C" ARM int func_02099304(ScriptRequest* request, char* name, const void* data, unsigned int size, void* buffer, int bufferSize, unsigned char flags, char* nameA, char* nameB) {
@@ -65,7 +65,7 @@ extern "C" ARM int func_02099304(ScriptRequest* request, char* name, const void*
     } else {
         if (flags & 2) {
             if (func_0202c508(gs)) {
-                RegisterSlotA020cf0fc((int)slot);
+                func_020cf0fc((int)slot);
                 if (slot[1] == request->mid && slot[2] == request->hi) {
                     data_021098e8.flags |= 1;
                 }
@@ -91,26 +91,26 @@ extern "C" ARM int func_02099304(ScriptRequest* request, char* name, const void*
         }
     }
 
-    StoreStruct* store = GetGlobalField0x1c020421a0();
+    StoreStruct* store = func_020421a0();
     func_02046380(store);
     unsigned int hi = request->hi;
-    StoreInArray0x8b0_020465c0(store, 1, request->mid);
-    StoreInArray0x8b0_020465c0(store, 2, hi);
+    func_020465c0(store, 1, request->mid);
+    func_020465c0(store, 2, hi);
     if (request->top) {
         int age;
         if (request->offset < 0) {
             age = 0;
         } else {
-            age = CalculateAge_02098f20(request->lo, request->mid, request->hi);
+            age = func_02098f20(request->lo, request->mid, request->hi);
             if (age < 0) {
                 age = 0;
             }
         }
-        StoreInArray0x8b0_020465c0(store, 0, age);
+        func_020465c0(store, 0, age);
     }
-    SetIndexedName02046574((Obj02046574*)store, 0, name);
-    SetIndexedName02046574((Obj02046574*)store, 1, nameA);
-    SetIndexedName02046574((Obj02046574*)store, 2, nameB);
+    func_02046574((Obj02046574*)store, 0, name);
+    func_02046574((Obj02046574*)store, 1, nameA);
+    func_02046574((Obj02046574*)store, 2, nameB);
 
     script.Initialize();
     script.SetOpcodeLookup(data_020f1504);

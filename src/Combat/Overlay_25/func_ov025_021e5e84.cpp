@@ -2,13 +2,13 @@
 
 #include "GameState/GameState.h"
 
-int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
+extern "C" int func_ov000_021820bc(void* obj, int unused, int index, int arg);
 struct Obj02046574;
-struct Obj02046574* GetGlobalField0x1c020421a0(void);
-void* GetActiveCombatWork_ov000_02160130(void);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int combatantId);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* battleStruct, int combatantId);
-void SetIndexedName02046574(struct Obj02046574* obj, int index, char* str);
+extern "C" struct Obj02046574* func_020421a0(void);
+extern "C" void* func_ov000_02160130(void);
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200fea4(GameState* battleStruct, int combatantId);
+extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
 
 struct Param021e5e84 {
     char pad0[8];
@@ -19,32 +19,32 @@ struct Param021e5e84 {
 // USA: func_ov025_021e5e84
 extern "C" ARM int func_ov025_021e5e84(struct Param021e5e84* p, int b, int unused, void* obj) {
     int ids[8];
-    if (DispatchByIndex021820bc(obj, b, p->targetIndex, (int)&ids[0]) != 1) {
+    if (func_ov000_021820bc(obj, b, p->targetIndex, (int)&ids[0]) != 1) {
         return 1;
     }
 
     GameState* bs = GameState::GetInstance();
-    struct Obj02046574* names = GetGlobalField0x1c020421a0();
+    struct Obj02046574* names = func_020421a0();
     int id = ids[0];
-    GetActiveCombatWork_ov000_02160130();
+    func_ov000_02160130();
 #if defined(jpn)
     GameObject* c = bs->GetCombatantByIndex(id);
     if (c != NULL) {
-        SetIndexedName02046574(names, p->nameIndex, (char*)c->baseStats_);
+        func_02046574(names, p->nameIndex, (char*)c->baseStats_);
     }
 #else
     bs->GetCombatantByIndex(id);
 
     int isPartyMember = (id >= 0 && id <= 3) ? 1 : 0;
     if (isPartyMember) {
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, id);
+        GameObject* c = func_0200ff1c(bs, id);
         if (c != NULL) {
-            SetIndexedName02046574(names, p->nameIndex, (char*)c->baseStats_);
+            func_02046574(names, p->nameIndex, (char*)c->baseStats_);
         }
     } else {
-        GameObject* c = GetCombatantWithFlag0x400_0200fea4(bs, id);
+        GameObject* c = func_0200fea4(bs, id);
         if (c != NULL) {
-            SetIndexedName02046574(names, p->nameIndex, (char*)c + 0x14c);
+            func_02046574(names, p->nameIndex, (char*)c + 0x14c);
         }
     }
 #endif

@@ -5,7 +5,7 @@
 extern float data_ov003_0217fe84[8];
 extern float data_ov003_02180ca4[8];
 
-// USA: func_ov003_0217fbf0  (semantic: AccumulateFloats_0217fbf0)
+// USA: func_ov003_0217fbf0
 extern "C" __declspec(initcode) ARM void __sinit_ov003_0217fbf0(void) {
     float t;
     float a;

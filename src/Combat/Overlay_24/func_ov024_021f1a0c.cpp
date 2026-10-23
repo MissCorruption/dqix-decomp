@@ -7,12 +7,12 @@ extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
 extern "C" void func_ov024_021ed8c0(void* context, int id, int recordAddress, int* count, short* ids);
 
 struct Combatant_20885b4;
-int CheckFlag0x2AndKind1_020885b4(struct Combatant_20885b4* obj);
+extern "C" int func_020885b4(struct Combatant_20885b4* obj);
 struct S88514;
-int CheckFlag0x2AndState2_02088514(struct S88514* obj);
+extern "C" int func_02088514(struct S88514* obj);
 struct FlagInner_021da9b0 { char unk[0x14]; int flags; };
 struct FlagObj_021da9b0 { char unk[0x138]; struct FlagInner_021da9b0* inner; };
-int IsFlagBit8Set_021da9b0(struct FlagObj_021da9b0* obj);
+extern "C" int func_ov024_021da9b0(struct FlagObj_021da9b0* obj);
 
 extern unsigned short data_ov024_021fec24;
 
@@ -37,9 +37,9 @@ extern "C" ARM int func_ov024_021f1a0c(int* a0, int a1, int a2, int* a3, short* 
 	for (int i = 0; i < count; i++) {
 		GameObject* c = GetCombatantByID(*a0, buf[i]);
 		if (!c) continue;
-		if (!CheckFlag0x2AndKind1_020885b4((struct Combatant_20885b4*)c->currentStats_) &&
-		    !CheckFlag0x2AndState2_02088514((struct S88514*)c->currentStats_) &&
-		    !IsFlagBit8Set_021da9b0((struct FlagObj_021da9b0*)c)) continue;
+		if (!func_020885b4((struct Combatant_20885b4*)c->currentStats_) &&
+		    !func_02088514((struct S88514*)c->currentStats_) &&
+		    !func_ov024_021da9b0((struct FlagObj_021da9b0*)c)) continue;
 		int idx = *a3;
 		*a3 = idx + 1;
 		a4[idx] = buf[i];

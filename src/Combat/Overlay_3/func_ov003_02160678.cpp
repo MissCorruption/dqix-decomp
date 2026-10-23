@@ -11,9 +11,9 @@ enum { kRegionValue328_210 = 0x328 };
 #endif
 
 struct Obj2081;
-int HasElementByByte0xc4_020811d0(struct Obj2081* obj, int key);
-void GetLookAndTurnOffsets020809c4(void* obj, int id, int id2, short* out1, short* out2);
-void SetEntryFields_021604f4(char* obj, int valA, int valB, short index, unsigned char flag);
+extern "C" int func_020811d0(struct Obj2081* obj, int key);
+extern "C" void func_020809c4(void* obj, int id, int id2, short* out1, short* out2);
+extern "C" void func_ov003_021604f4(char* obj, int valA, int valB, short index, unsigned char flag);
 
 extern const short data_ov003_0217f400[];
 extern const short data_ov003_0217f41a[];
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_02160678(struct Obj02160678* self) {
     long i = 0;
     int found = 0;
     while (data_ov003_0217f41a[i] >= 0) {
-        if (HasElementByByte0xc4_020811d0(list, data_ov003_0217f41a[i])) {
+        if (func_020811d0(list, data_ov003_0217f41a[i])) {
             found = 1;
             break;
         }
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov003_02160678(struct Obj02160678* self) {
         if (self->slots[k] != 0) {
             short x;
             short y;
-            GetLookAndTurnOffsets020809c4(list, data_ov003_0217f41a[i], id, &x, &y);
-            SetEntryFields_021604f4((char*)self, (short)(x + 0x38), (short)(y - 2), self->slots[k] + 8, flag++);
+            func_020809c4(list, data_ov003_0217f41a[i], id, &x, &y);
+            func_ov003_021604f4((char*)self, (short)(x + 0x38), (short)(y - 2), self->slots[k] + 8, flag++);
         }
         id++;
     }

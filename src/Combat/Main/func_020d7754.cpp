@@ -14,8 +14,8 @@ extern struct CallbackCache0214e33c data_0214e33c;
 
 struct Elem020d7754 { short a; short b; char* c; };
 
-int StringLength_020d2ff0(const char* text);
-void AppendListNode020d78e0(void** headSlot, void* srcData);
+extern "C" int func_020d2ff0(const char* text);
+extern "C" void func_020d78e0(void** headSlot, void* srcData);
 extern char data_020f2330[];
 
 // USA: func_020d7754
@@ -33,11 +33,11 @@ extern "C" ARM int func_020d7754(Script::Parameter* params) {
     }
     if (!allowed) return 1;
     const char* text = params[2].ToString();
-    int length = StringLength_020d2ff0(text);
+    int length = func_020d2ff0(text);
     entry.c = (char*)((SafeAllocator*)data_0214e33c.field8)->Allocate(length + 1);
     if (entry.c == NULL) return 0;
     entry.c[length] = 0;
     sprintf(entry.c, data_020f2330, text);
-    AppendListNode020d78e0(data_0214e33c.fieldC, (void*)&entry);
+    func_020d78e0(data_0214e33c.fieldC, (void*)&entry);
     return 1;
 }

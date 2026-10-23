@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/Main/MessageSlotTable.h"
 
-// USA: func_020dd7ac  (semantic: InitMessageSlotTable_020dd7ac)
+// USA: func_020dd7ac
 extern "C" ARM void func_020dd7ac(MessageSlotTable_020dd7ac* obj) {
     obj->flag = -1;
     obj->unused04 = 0;

@@ -60,8 +60,8 @@ struct EncounterGroup0209b448 {
     short counts[3];
 };
 
-struct LeaderSub0209b448* FindSlotById0209b944(struct SlotEntry0209b944* entries, int index, int key, int* outIdx);
-struct Entry0209bd94* FindEntryByHalfword0209bd94(struct EntryTable0209bd94* table, int key);
+extern "C" struct LeaderSub0209b448* func_0209b944(struct SlotEntry0209b944* entries, int index, int key, int* outIdx);
+extern "C" struct Entry0209bd94* func_0209bd94(struct EntryTable0209bd94* table, int key);
 
 extern const int data_020e8e74[6][3];
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_0209b448(struct SlotEntry0209b944* rows, int key, struc
     rnd = GetBTRandom();
     kind = 1;
     index = 0;
-    sub = FindSlotById0209b944(rows, 0, key, &index);
+    sub = func_0209b944(rows, 0, key, &index);
     if (sub == NULL) {
         kind = 1;
         out->counts[0] = 1;
@@ -162,7 +162,7 @@ extern "C" ARM void func_0209b448(struct SlotEntry0209b944* rows, int key, struc
         }
     }
 
-    entry = FindEntryByHalfword0209bd94(&state->table, key);
+    entry = func_0209bd94(&state->table, key);
     if (entry != NULL) {
         maxCount = entry->maxCount;
     } else {

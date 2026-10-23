@@ -2,7 +2,7 @@
 
 static const double huge = 1.0e300;
 
-// USA: func_02008f5c  (semantic: floor)
+// USA: func_02008f5c
 extern "C" ARM double func_02008f5c(double x) {
     int i0, i1, j0;
     unsigned int i, j;

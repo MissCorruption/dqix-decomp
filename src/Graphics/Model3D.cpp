@@ -19,7 +19,7 @@
 
 extern "C"
 {
-    extern "C" int _Z25GetBoxTestResult_020c56b0Pi(int*);
+    extern "C" int func_020c56b0(int*);
 }
 
 extern unsigned int (*data_020f1ee8)(unsigned int, int, int);
@@ -348,7 +348,7 @@ int Model3D::TestVisible()
     GXFIFO_TEST_BOX = boxparams.u32s.c;
 
     int result;
-    while (_Z25GetBoxTestResult_020c56b0Pi(&result) != 0) {}
+    while (func_020c56b0(&result) != 0) {}
     GXFIFO_MATRIX_POP = 1;
     return result;
 }

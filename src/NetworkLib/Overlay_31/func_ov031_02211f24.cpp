@@ -20,9 +20,9 @@ struct State02211f24
 extern State02211f24 data_ov031_0224e5b4;
 enum ConnectionStatus { CONNECTION_PENDING = 2 };
 extern "C" void func_ov031_02211e08();
-void SetGlobal0224e5a4IfNotNine_ov031_02211b08(int, int);
-int ClassifyField9_02212fb8();
-int GetGlobal022496fcField4_02207cd0();
+extern "C" void func_ov031_02211b08(int, int);
+extern "C" int func_ov031_02212fb8();
+extern "C" int func_ov031_02207cd0();
 extern "C" void func_ov031_022120f8();
 extern "C" void func_ov031_02211bd4(Entry02211f24*, unsigned short, int, int);
 extern "C" int func_ov031_022162f0(void*, void*);
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov031_02211f24()
     case 2: return 2;
     case 3:
         func_ov031_02211e08();
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(5, data_ov031_0224e5b4.error);
+        func_ov031_02211b08(5, data_ov031_0224e5b4.error);
         data_ov031_0224e5b4.entry->state = 7;
         data_ov031_0224e5b4.entry->phase = 4;
         return 7;
@@ -50,7 +50,7 @@ extern "C" ARM int func_ov031_02211f24()
     case 5: return 5;
     }
     if (initial->state == 1) return initial->state;
-    result = ClassifyField9_02212fb8();
+    result = func_ov031_02212fb8();
     if (result == 5)
     {
         data_ov031_0224e5b4.entry->state = 4;
@@ -63,7 +63,7 @@ extern "C" ARM int func_ov031_02211f24()
         if (result >= -10)
         {
             data_ov031_0224e5b4.entry->notified = 1;
-            SetGlobal0224e5a4IfNotNine_ov031_02211b08(9, -50199);
+            func_ov031_02211b08(9, -50199);
             data_ov031_0224e5b4.entry->state = 8;
             return 8;
         }
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov031_02211f24()
         if (!entry->notified)
         {
             field = entry->field8;
-            saved = GetGlobal022496fcField4_02207cd0();
+            saved = func_ov031_02207cd0();
             data_ov031_0224e5b4.error = result;
             func_ov031_022120f8();
             func_ov031_02211bd4(entry, field, 1, (unsigned short)saved);
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov031_02211f24()
         }
         if (data_ov031_0224e5b4.error < result)
             result = data_ov031_0224e5b4.error;
-        SetGlobal0224e5a4IfNotNine_ov031_02211b08(5, result);
+        func_ov031_02211b08(5, result);
         data_ov031_0224e5b4.entry->state = 7;
         return 7;
     }

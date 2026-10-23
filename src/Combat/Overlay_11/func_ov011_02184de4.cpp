@@ -12,9 +12,9 @@ struct TaggedInput02184de4 {
     TaggedNumber02184c30 b;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
-ARM void* NoOp_021845f4(void);
+extern "C" ARM void* func_ov011_021845f4(void);
 extern "C" ARM void* func_ov011_021842c8(unsigned char* node, unsigned int id);
 extern "C" ARM void func_ov011_021842a0(void* obj);
 extern "C" ARM void* func_ov011_02184324(void* a, void* b);
@@ -23,11 +23,11 @@ extern "C" ARM void* func_ov011_02184324(void* a, void* b);
 extern "C" ARM int func_ov011_02184de4(struct TaggedInput02184de4* obj) {
     void* areaBase = GetGameResources();
     void* ctx = func_ov017_021b2164();
-    ctx = NoOp_021845f4();
+    ctx = func_ov011_021845f4();
 
-    int tag0 = GetTaggedValueAsInt_02184c30(&obj->a);
+    int tag0 = func_ov011_02184c30(&obj->a);
     void* allocObj;
-    int tag8 = GetTaggedValueAsInt_02184c30(&obj->b);
+    int tag8 = func_ov011_02184c30(&obj->b);
 
     void* n1 = func_ov011_021842c8((unsigned char*)ctx, tag8);
     if (n1 != 0) return 0;

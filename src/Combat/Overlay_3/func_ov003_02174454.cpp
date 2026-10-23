@@ -15,10 +15,10 @@ enum { kRegion2e6 = 0x2e6 };
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 
 struct Struct02074bd0;
-void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
+extern "C" void func_02074bd0(struct Struct02074bd0* obj);
 
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -33,14 +33,14 @@ extern "C" ARM void func_ov003_02174454(char* self) {
         *(int*)(self + kRegionfec) = -1;
     }
 
-    unsigned char* g = (unsigned char*)GetGlobalField0x1c020421a0();
+    unsigned char* g = (unsigned char*)func_020421a0();
     *(int*)(g + kRegion2d8) = 0;
     g[kRegion2e6] = 1;
 
     unsigned int* reg = (unsigned int*)0x4000000;
     *reg = (*reg & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    ClearFlag0x10IfSet((struct Struct02074bd0*)(self + 0x24));
+    func_02074bd0((struct Struct02074bd0*)(self + 0x24));
 
 #if !defined(jpn)
     if (*(void**)(self + kRegionff4) != 0)

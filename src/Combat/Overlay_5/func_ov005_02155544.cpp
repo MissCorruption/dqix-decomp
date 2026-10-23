@@ -42,17 +42,17 @@ struct EquipmentMenu {
     EquipmentSlot slots_[24];
 };
 
-MemberScreen* GetField1c_021a193c(int* p);
-short* GetField150Ptr0x488(Field150Holder02052e14* obj);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" short* func_02052e14(Field150Holder02052e14* obj);
 
 extern "C" unsigned char data_ov005_0215cbd4[8];
 
 // USA: func_ov005_02155544
 extern "C" ARM void func_ov005_02155544(EquipmentMenu* self) {
     GameState* gameState = GameState::GetInstance();
-    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-    GameObject* member = GetCombatantWithFlag0x100_0200ff1c(gameState, screen->member_);
-    short* equipment = GetField150Ptr0x488((Field150Holder02052e14*)member);
+    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    GameObject* member = func_0200ff1c(gameState, screen->member_);
+    short* equipment = func_02052e14((Field150Holder02052e14*)member);
     for (int i = 0; i < 8; i++) {
         EquipmentSlot* slot = &self->slots_[i];
         slot->item_ = equipment[data_ov005_0215cbd4[i]];

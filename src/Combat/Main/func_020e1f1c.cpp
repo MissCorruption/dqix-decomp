@@ -36,13 +36,13 @@ struct Owner020e1f1c {
 
 void* AllocateVRAMStagingMemory(unsigned int value);
 struct HasDims020e1288;
-int GetHalfProductField8(HasDims020e1288*);
+extern "C" int func_020e1288(HasDims020e1288*);
 extern "C" void func_020e2018(void* owner);
-void ClearStruct02020520(Struct02020520* s);
+extern "C" void func_02020520(Struct02020520* s);
 struct S_b20c;
-void ClearTwoWordsAndByte_0205b20c(S_b20c*);
-void SetField0_0205b220(void* obj, int value);
-void SetFieldsAt0x4And0x8_0205b228(void* obj, int value, unsigned char flag);
+extern "C" void func_0205b20c(S_b20c*);
+extern "C" void func_0205b220(void* obj, int value);
+extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
 
 // USA: func_020e1f1c
 extern "C" ARM void* func_020e1f1c(Owner020e1f1c* owner) {
@@ -50,14 +50,14 @@ extern "C" ARM void* func_020e1f1c(Owner020e1f1c* owner) {
     owner->buffer = buffer;
     if (buffer != 0) {
         Panel020e1f1c* panel = owner->panel;
-        int half = GetHalfProductField8((HasDims020e1288*)panel);
+        int half = func_020e1288((HasDims020e1288*)panel);
         memset((char*)owner->buffer + panel->offset, 0, panel->stride + half);
         func_020e2018(owner);
         int count = owner->panel->count;
         for (int i = 0; i < count; i++) {
             Struct02020520* d = &owner->panel->layouts[i];
             ClipRec020e1f1c* s = &owner->panel->clips[i];
-            ClearStruct02020520(d);
+            func_02020520(d);
             d->a = s->value;
             d->b = s->x;
             d->c = s->y;
@@ -65,9 +65,9 @@ extern "C" ARM void* func_020e1f1c(Owner020e1f1c* owner) {
             d->e = s->h;
         }
         void* obj = owner->panel->obj;
-        ClearTwoWordsAndByte_0205b20c((S_b20c*)obj);
-        SetField0_0205b220(obj, (int)((unsigned int)owner->buffer + owner->panel->offset));
-        SetFieldsAt0x4And0x8_0205b228(obj, (int)owner->panel->layouts, count);
+        func_0205b20c((S_b20c*)obj);
+        func_0205b220(obj, (int)((unsigned int)owner->buffer + owner->panel->offset));
+        func_0205b228(obj, (int)owner->panel->layouts, count);
     }
     return owner->buffer;
 }

@@ -84,11 +84,11 @@ struct Combatant02082828 {
     unsigned short field962;
 };
 extern "C" void func_020891cc(void*);
-void ClearPackedTriples02082cdc(Obj02082cdc*);
-void InitFlagsAndTimers020827c4(Obj020827c4*);
-void CopyStruct02082d38(Struct02082d38*, Struct02082d38*);
-void InitIndexedElements02083508(Obj02083508*);
-extern "C" void CopyFrom027ffcf4_020c99ac(void*);
+extern "C" void func_02082cdc(Obj02082cdc*);
+extern "C" void func_020827c4(Obj020827c4*);
+extern "C" void func_02082d38(Struct02082d38*, Struct02082d38*);
+extern "C" void func_02083508(Obj02083508*);
+extern "C" void func_020c99ac(void*);
 extern char data_020f1010[];
 extern char data_020ef078[];
 
@@ -123,8 +123,8 @@ extern "C" ARM void func_02082828(Combatant02082828* object) {
     object->saved[2].field10 = 1;
     memset(object->field934, 100, 22);
     func_020891cc(object->stats);
-    for (int i = 0; i < 13; i++) ClearPackedTriples02082cdc(&object->triples[i]);
-    InitFlagsAndTimers020827c4(&object->timers488);
+    for (int i = 0; i < 13; i++) func_02082cdc(&object->triples[i]);
+    func_020827c4(&object->timers488);
     memset(object->field4a4, -1, 192);
     object->saved[0].field0 = 0;
     object->packed[0].field0 = object->saved[0].field0;
@@ -152,12 +152,12 @@ extern "C" ARM void func_02082828(Combatant02082828* object) {
     object->field56e = 0;
     object->field1c = object->field6c;
     object->field1e = object->field6e;
-    CopyStruct02082d38(&object->copied, &object->details);
+    func_02082d38(&object->copied, &object->details);
     object->field18 = 0;
     object->field20 = 0;
     memset(object->field454, -1, 16);
     memset(object->field464, 0, 27);
-    InitIndexedElements02083508((Obj02083508*)object);
+    func_02083508((Obj02083508*)object);
     memset(object->field8ec, 0, 36);
     memset(object->field910, 0, 9);
     for (unsigned char slotIndex = 0; slotIndex < 8; slotIndex++) {
@@ -176,7 +176,7 @@ extern "C" ARM void func_02082828(Combatant02082828* object) {
     unsigned char hardwareAddress[6];
 #if defined(jpn)
     char suffix[11];
-    CopyFrom027ffcf4_020c99ac(hardwareAddress);
+    func_020c99ac(hardwareAddress);
     char firstLetter[] = "\x82\x60";
     char secondLetter[] = "\x82\x60";
     signed char first = (hardwareAddress[0] + hardwareAddress[1] + hardwareAddress[2]) % 26;
@@ -186,7 +186,7 @@ extern "C" ARM void func_02082828(Combatant02082828* object) {
     sprintf(suffix, data_020f1130, firstLetter, secondLetter);
 #else
     char suffix[18];
-    CopyFrom027ffcf4_020c99ac(hardwareAddress);
+    func_020c99ac(hardwareAddress);
     int first = (hardwareAddress[0] + hardwareAddress[2] + hardwareAddress[4]) % 26;
     int second = (hardwareAddress[1] + hardwareAddress[3] + hardwareAddress[5]) % 26;
     sprintf(suffix, data_020f1010, (signed char)(first + 65), (signed char)(second + 65));

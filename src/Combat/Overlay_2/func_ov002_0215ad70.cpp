@@ -12,9 +12,9 @@ struct Offsets_0216c98a {
     short v[4];
 };
 
-struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
-void SetEntryFields02154bcc(int a, int b, void *obj, int idx, unsigned char arg5, unsigned char arg6);
-void SetFourShortsAtIndex(ShortArrays0204c654 *arr, int idx, short a, short b, short c, short d);
+extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
+extern "C" void func_ov002_02154bcc(int a, int b, void *obj, int idx, unsigned char arg5, unsigned char arg6);
+extern "C" void func_0204c654(ShortArrays0204c654 *arr, int idx, short a, short b, short c, short d);
 
 #if defined(jpn)
 enum { WindowOffset = 0xe20, SpriteOffset = 0x19c0, SelectionOffset = 0x1ace,
@@ -42,7 +42,7 @@ struct BattleChoiceGridState {
 extern "C" ARM void func_ov002_0215ad70(unsigned char *obj) {
     BattleChoiceGridState* state = ((BattleChoiceGridState*)(obj));
     struct Elem_0205d81c *elem =
-        FindElementByC40205d81c(((Struct_0205d81c*)(&state->window)), GridKey);
+        func_0205d81c(((Struct_0205d81c*)(&state->window)), GridKey);
     if (elem == 0) {
         return;
     }
@@ -60,17 +60,17 @@ extern "C" ARM void func_ov002_0215ad70(unsigned char *obj) {
             short dy = offs.v[row];
             short px = (short) (dx + baseX);
             py       = (short) (dy + baseY);
-            SetEntryFields02154bcc(px, py, state->renderer, tile++, (unsigned char) (k * 4 + 0xc),
+            func_ov002_02154bcc(px, py, state->renderer, tile++, (unsigned char) (k * 4 + 0xc),
                                               0xff);
             idx = (short) (col + row * 4);
             if (state->selection == idx) {
-                SetEntryFields02154bcc(px, py, state->renderer, CursorTile, 8, 0xff);
+                func_ov002_02154bcc(px, py, state->renderer, CursorTile, 8, 0xff);
             }
-            SetFourShortsAtIndex(((ShortArrays0204c654*)(elem)), idx, dx, dy, 0x18, 0x18);
+            func_0204c654(((ShortArrays0204c654*)(elem)), idx, dx, dy, 0x18, 0x18);
             k++;
         }
     }
-    elem = FindElementByC40205d81c(((Struct_0205d81c*)(&state->window)), LabelKey);
+    elem = func_0205d81c(((Struct_0205d81c*)(&state->window)), LabelKey);
     if (elem == 0) {
         return;
     }
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov002_0215ad70(unsigned char *obj) {
     int y2 = elem->y;
     x2     = (short) (x2 * 8) + 0x10;
     y2     = (short) (y2 * 8) + 0x18;
-    SetEntryFields02154bcc(x2, y2, state->renderer, LabelTile, 0x54, 8);
+    func_ov002_02154bcc(x2, y2, state->renderer, LabelTile, 0x54, 8);
 }
 
 #if defined(jpn)

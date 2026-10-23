@@ -12,14 +12,14 @@
 
 extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
 extern "C" void func_ov000_02179a70(void* obj, void* ptr, int val2, void* buf);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 #if defined(jpn)
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
 #else
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
 #endif
 
-// USA: func_ov000_0217992c  (semantic: ApplyElemFieldsAndDispatch_0217992c)
+// USA: func_ov000_0217992c
 extern "C" ARM void func_ov000_0217992c(char* obj, void* ptr, int val2, int val3) {
     if (ptr == NULL) return;
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_0217992c(char* obj, void* ptr, int val2, int val3
     *(short*)(base + 0xae) = 0xb;
     *(unsigned char*)(base + 0xb1) = 0x12;
 
-    int g = GetGlobalField0x1c020421a0();
+    int g = func_020421a0();
     void* buf = *(void**)((char*)g + REGION_OFFSET_0);
     memset(buf, 0, REGION_OFFSET_1);
     func_ov000_02179a70(obj, ptr, val2, buf);

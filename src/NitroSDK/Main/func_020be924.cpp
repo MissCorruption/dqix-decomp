@@ -26,14 +26,14 @@ struct Outer020bc16c;
 struct Obj020bc1ac;
 struct Foo;
 
-Node020bc5bc* AcquireOrEvictSlotAndLink020bc454(SlotObj020bc454* handle, int playerNo, int prio);
-void* PopSlotFirstAndLink020bc5bc(int playerNo, Node020bc5bc* player);
+extern "C" Node020bc5bc* func_020bc454(SlotObj020bc454* handle, int playerNo, int prio);
+extern "C" void* func_020bc5bc(int playerNo, Node020bc5bc* player);
 extern "C" int func_020bded0(int bankNo, unsigned long loadFlag, void* heap, int setAddress, void** data);
-void CallFunc020bc79c_020bc4ec(void* player);
-void HandleCommandType2Event020bc4f8(Obj020bc4f8* player, int seqBase, int seqOffset, int bank);
-void SetInnerByte0x40(Outer020bc16c* handle, unsigned char volume);
-void CallFunc020d1e88OnNodeField3c(Obj020bc1ac* handle, int prio);
-void SetActionParams_020bc210(Foo* handle, int seqArcNo, int index);
+extern "C" void func_020bc4ec(void* player);
+extern "C" void func_020bc4f8(Obj020bc4f8* player, int seqBase, int seqOffset, int bank);
+extern "C" void func_020bc16c(Outer020bc16c* handle, unsigned char volume);
+extern "C" void func_020bc1ac(Obj020bc1ac* handle, int prio);
+extern "C" void func_020bc210(Foo* handle, int seqArcNo, int index);
 
 // USA: func_020be924
 extern "C" ARM int func_020be924(void* handle, int playerNo, int bankNo, int playerPrio,
@@ -44,23 +44,23 @@ extern "C" ARM int func_020be924(void* handle, int playerNo, int bankNo, int pla
     void* bank;
     int result;
 
-    player = AcquireOrEvictSlotAndLink020bc454((SlotObj020bc454*)handle, playerNo, playerPrio);
+    player = func_020bc454((SlotObj020bc454*)handle, playerNo, playerPrio);
     if (player == NULL)
         return 0;
 
-    heap = PopSlotFirstAndLink020bc5bc(playerNo, player);
+    heap = func_020bc5bc(playerNo, player);
 
     result = func_020bded0(bankNo, 6, heap, 0, &bank);
     if (result != 0) {
-        CallFunc020bc79c_020bc4ec(player);
+        func_020bc4ec(player);
         return 0;
     }
 
-    HandleCommandType2Event020bc4f8((Obj020bc4f8*)player, (int)((unsigned char*)seqArc + seqArc->baseOffset),
+    func_020bc4f8((Obj020bc4f8*)player, (int)((unsigned char*)seqArc + seqArc->baseOffset),
                                     sound->offset, (int)bank);
 
-    SetInnerByte0x40((Outer020bc16c*)handle, sound->param.volume);
-    CallFunc020d1e88OnNodeField3c((Obj020bc1ac*)handle, sound->param.channelPrio);
-    SetActionParams_020bc210((Foo*)handle, seqArcNo, index);
+    func_020bc16c((Outer020bc16c*)handle, sound->param.volume);
+    func_020bc1ac((Obj020bc1ac*)handle, sound->param.channelPrio);
+    func_020bc210((Foo*)handle, seqArcNo, index);
     return 1;
 }

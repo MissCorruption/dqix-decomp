@@ -20,9 +20,9 @@ struct Rec020467f0;
 
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" void func_020a620c(void* obj);
-int IsFieldSet_020a64a8(unsigned char* obj);
-int CountActiveEntries(struct ActiveEntry02046900* entry);
-void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* outSize);
+extern "C" int func_020a64a8(unsigned char* obj);
+extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* outSize);
 
 extern char data_ov003_02180a76[];
 
@@ -59,9 +59,9 @@ extern "C" ARM void func_ov003_021735c4(struct Obj021735c4* self) {
             unsigned char* recs[3];
             int sizes[3];
             loader->GetLoadedFileByID(self->handle, &file, &length);
-            int count = CountActiveEntries((struct ActiveEntry02046900*)file);
+            int count = func_02046900((struct ActiveEntry02046900*)file);
             for (int i = 0; i < count; i++) {
-                recs[i] = (unsigned char*)FindRecordByIndex((struct Rec020467f0*)file, i, &recData, &sizes[i]);
+                recs[i] = (unsigned char*)func_020467f0((struct Rec020467f0*)file, i, &recData, &sizes[i]);
             }
             memset((void*)GetSubBG0ScreenBase(), 0, 0x800);
             unsigned char* palette = recs[2];
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov003_021735c4(struct Obj021735c4* self) {
             *(volatile unsigned int*)0x4001010 = (self->scrollY << 16) & 0x1ff0000;
             loader->RemoveTask(self->handle);
             self->handle = -1;
-            if (IsFieldSet_020a64a8(self->fade) == 0) {
+            if (func_020a64a8(self->fade) == 0) {
                 self->state = 2;
             } else {
                 SetSubBrightness(res, 0, 0x18);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov003_021735c4(struct Obj021735c4* self) {
             }
         }
     } else if (self->state == 2) {
-        if (IsFieldSet_020a64a8(self->fade) != 0) {
+        if (func_020a64a8(self->fade) != 0) {
             SetSubBrightness(res, 0, 0x18);
             self->state = 3;
         }

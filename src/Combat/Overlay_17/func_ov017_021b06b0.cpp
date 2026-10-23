@@ -18,15 +18,15 @@ struct TransferSettings { char pad0[0x2784]; short field2784_; short field2786_;
 #endif
 struct PlayerLocation { unsigned short zone_; Vector3fix16 position_; };
 extern "C" TransferSettings* func_02012fe4();
-void* GetData02100044_0202ae24();
-void EnqueueEventTag147_021cdaa0();
+extern "C" void* func_0202ae24();
+extern "C" void func_ov017_021cdaa0();
 extern "C" void func_ov017_021cf730(int, int);
-void EnqueueEventTag162_021cfc74(unsigned char);
+extern "C" void func_ov017_021cfc74(unsigned char);
 extern "C" void func_ov017_021d2184(unsigned char);
-PlayerLocation* GetField0x74deForValidIndex_020120a0(char*, unsigned int);
+extern "C" PlayerLocation* func_020120a0(char*, unsigned int);
 extern "C" void func_ov017_021d360c(int, unsigned char, unsigned short, Vector3fix16);
 extern "C" void func_ov017_021d1a18(int, int, int, int);
-int CheckSlotsAllFree0205e488(void*);
+extern "C" int func_0205e488(void*);
 extern "C" void func_ov017_021cdc24(unsigned char, unsigned int);
 extern "C" void func_ov017_021d22d4(unsigned char, unsigned short, void*);
 struct TransferProgress { unsigned int offset_; char unk4[0x18 - 0x4]; };
@@ -41,21 +41,21 @@ extern "C" ARM unsigned char func_ov017_021b06b0(TransferState* self) {
     GameState* state = GameState::GetInstance();
     TransferSettings* settings = func_02012fe4();
     GrottoStruct* grotto = state->GetGrottoStruct();
-    void* queue = GetData02100044_0202ae24();
+    void* queue = func_0202ae24();
     if (self->phase_ == 0) {
-        EnqueueEventTag147_021cdaa0();
+        func_ov017_021cdaa0();
         func_ov017_021cf730(self->player_, 1);
-        EnqueueEventTag162_021cfc74(grotto->unknown_0[3]);
+        func_ov017_021cfc74(grotto->unknown_0[3]);
         func_ov017_021d2184(self->player_);
         for (int i = 0; i < 4; ++i) {
-            PlayerLocation* location = GetField0x74deForValidIndex_020120a0((char*)state, i);
+            PlayerLocation* location = func_020120a0((char*)state, i);
             if (location) func_ov017_021d360c(0, i, location->zone_, location->position_);
         }
         if (settings->enabled_) func_ov017_021d1a18(1, -1, 1, 0);
         else func_ov017_021d1a18(settings->field2786_, settings->field2784_, 0, 0);
         self->phase_ = 1;
     } else if (self->phase_ == 1) {
-        if (CheckSlotsAllFree0205e488(queue)) {
+        if (func_0205e488(queue)) {
             GetTransferProgress().offset_ = 0;
             self->phase_ = 2;
         }
@@ -69,7 +69,7 @@ extern "C" ARM unsigned char func_ov017_021b06b0(TransferState* self) {
         }
         self->phase_ = 3;
     } else if (self->phase_ == 3) {
-        if (CheckSlotsAllFree0205e488(queue)) {
+        if (func_0205e488(queue)) {
             if (GetTransferProgress().offset_ >= 253) {
                 GetTransferProgress().offset_ = 0;
                 self->phase_ = 4;
@@ -85,7 +85,7 @@ extern "C" ARM unsigned char func_ov017_021b06b0(TransferState* self) {
         }
         self->phase_ = 5;
     } else if (self->phase_ == 5) {
-        if (CheckSlotsAllFree0205e488(queue)) {
+        if (func_0205e488(queue)) {
             if (GetTransferProgress().offset_ >= 736) return 11;
             self->phase_ = 4;
         }

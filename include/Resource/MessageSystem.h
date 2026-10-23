@@ -140,13 +140,13 @@ struct MessageSystem {
     BattleFlags0204500c flags17ff;
     unsigned char pad1800[0x1c4c - 0x1800];
     Foo0207df50* encoder;
-    int CheckAndClearFlag020656e4(int unusedDelta);
-    int FindAndSetFirstFreeBit_02042a90(unsigned char* p, unsigned int count);
-    void Forward020444d4(int ticks);
-    unsigned short GetIndexedHalfword_020656d0();
-    void HandleRepeatInput02045740();
-    void HandleStateChange020455f8();
-    void ProcessPendingFlag02045688();
+    int func_020656e4(int unusedDelta);
+    int func_02042a90(unsigned char* p, unsigned int count);
+    void func_020444d4(int ticks);
+    unsigned short func_020656d0();
+    void func_02045740();
+    void func_020455f8();
+    void func_02045688();
     int func_020440cc();
 };
 
@@ -304,13 +304,13 @@ struct MessageSystem {
     unsigned char b19dc;
     unsigned char pad19dd[0x44b];
     Foo0207df50* encoder;
-    int CheckAndClearFlag020656e4(int unusedDelta);
-    int FindAndSetFirstFreeBit_02042a90(unsigned char* p, unsigned int count);
-    void Forward020444d4(int ticks);
-    unsigned short GetIndexedHalfword_020656d0();
-    void HandleRepeatInput02045740();
-    void HandleStateChange020455f8();
-    void ProcessPendingFlag02045688();
+    int func_020656e4(int unusedDelta);
+    int func_02042a90(unsigned char* p, unsigned int count);
+    void func_020444d4(int ticks);
+    unsigned short func_020656d0();
+    void func_02045740();
+    void func_020455f8();
+    void func_02045688();
     int func_020440cc();
 };
 

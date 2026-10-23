@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void SetAllEntriesFieldits24To29IfField54_021923e0_021923e0(void* obj, unsigned int value);
+extern "C" void func_ov017_021923e0(void* obj, unsigned int value);
 extern unsigned short data_ov017_021d618e[8];
 
 // USA: func_ov017_0219230c
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_0219230c(int p0, int idx, unsigned int flag) {
     for (i = 0; local[i] > -1; i++) {
         GameObject* c = battle->GetGameObjectByIndex(local[i]);
         if (c) {
-            SetAllEntriesFieldits24To29IfField54_021923e0_021923e0(c, flag);
+            func_ov017_021923e0(c, flag);
         }
     }
 }

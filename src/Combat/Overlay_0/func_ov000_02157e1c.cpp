@@ -42,16 +42,16 @@ extern "C" void func_ov000_0215cac8(struct Random* random, short* ids, int count
                                     unsigned short* values, unsigned char* valueCounts);
 extern "C" void __clear(void* dst, unsigned int size);
 int NextRandomMax(struct Random* random, int max);
-void ClearField0x18Flag0x20_02088dc8(unsigned char* stats);
-int IsCombatantFlag0x40000000Set_ov000_0215830c(GameObject* combatant);
-void ClearFlag0x40000000AndBytes_02088b84(unsigned char* stats);
-int IsCombatantFlag0x80000000Set_ov000_02158324(GameObject* combatant);
-void ClearFlag0x80000000AndBytes02088bd4(unsigned char* stats);
-int IsFlag0x18Bit0x800Set_ov000_02156af0(GameObject* combatant);
-void ClearFlag0x800AndBytes7cAnd9f_02089194(unsigned char* stats);
-int IsFlag0x18Bit0x40Set_ov000_02156b08(GameObject* combatant);
-void ClearFlag0x40AndBytes_020890a4(unsigned char* stats);
-int IsIdOrEffectMatchTarget0215fd24(int unused, int id);
+extern "C" void func_02088dc8(unsigned char* stats);
+extern "C" int func_ov000_0215830c(GameObject* combatant);
+extern "C" void func_02088b84(unsigned char* stats);
+extern "C" int func_ov000_02158324(GameObject* combatant);
+extern "C" void func_02088bd4(unsigned char* stats);
+extern "C" int func_ov000_02156af0(GameObject* combatant);
+extern "C" void func_02089194(unsigned char* stats);
+extern "C" int func_ov000_02156b08(GameObject* combatant);
+extern "C" void func_020890a4(unsigned char* stats);
+extern "C" int func_ov000_0215fd24(int unused, int id);
 
 static inline short GetId(short* list, int index) { return list[index]; }
 
@@ -85,17 +85,17 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* random) {
         countOut[curedCount] = 0;
         unsigned char anyCured = 0;
         if (TIMERS(combatant)->flags18 & 0x20) {
-            ClearField0x18Flag0x20_02088dc8((unsigned char*)combatant->currentStats_);
+            func_02088dc8((unsigned char*)combatant->currentStats_);
         }
         timers = TIMERS(combatant);
 
-        if (IsCombatantFlag0x40000000Set_ov000_0215830c(combatant)) {
+        if (func_ov000_0215830c(combatant)) {
             float r = (float)NextRandomMax(random, 100) / 100.0f;
             if (timers->turns8b != 0) {
                 timers->turns8b--;
                 if (data_ov000_02182ad4[timers->turns8b] > r) {
                     timers->turns8b = 0;
-                    ClearFlag0x40000000AndBytes_02088b84((unsigned char*)combatant->currentStats_);
+                    func_02088b84((unsigned char*)combatant->currentStats_);
                     messageOut[messageCount] = 0x1c8;
                     messageCount++;
                     countOut[curedCount]++;
@@ -110,13 +110,13 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* random) {
             }
         }
 
-        if (IsCombatantFlag0x80000000Set_ov000_02158324(combatant)) {
+        if (func_ov000_02158324(combatant)) {
             float r = (float)NextRandomMax(random, 100) / 100.0f;
             if (timers->turns8c != 0) {
                 timers->turns8c--;
                 if (data_ov000_02182ad4[timers->turns8c] > r) {
                     timers->turns8c = 0;
-                    ClearFlag0x80000000AndBytes02088bd4((unsigned char*)combatant->currentStats_);
+                    func_02088bd4((unsigned char*)combatant->currentStats_);
                     messageOut[messageCount] = 0x24c;
                     messageCount++;
                     countOut[curedCount]++;
@@ -131,13 +131,13 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* random) {
             }
         }
 
-        if (IsFlag0x18Bit0x800Set_ov000_02156af0(combatant)) {
+        if (func_ov000_02156af0(combatant)) {
             float r = (float)NextRandomMax(random, 100) / 100.0f;
             if (timers->turns9f != 0) {
                 timers->turns9f--;
                 if (data_ov000_02182ad4[timers->turns9f] > r) {
                     timers->turns9f = 0;
-                    ClearFlag0x800AndBytes7cAnd9f_02089194((unsigned char*)combatant->currentStats_);
+                    func_02089194((unsigned char*)combatant->currentStats_);
                     messageOut[messageCount] = 0x249;
                     messageCount++;
                     countOut[curedCount]++;
@@ -152,12 +152,12 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* random) {
             }
         }
 
-        if (IsFlag0x18Bit0x40Set_ov000_02156b08(combatant)) {
+        if (func_ov000_02156b08(combatant)) {
             if (timers->turns9d != 0) {
                 timers->turns9d--;
                 if (data_ov000_02182bd4[timers->turns9d] > roll) {
                     timers->turns9d = 0;
-                    ClearFlag0x40AndBytes_020890a4((unsigned char*)combatant->currentStats_);
+                    func_020890a4((unsigned char*)combatant->currentStats_);
                     messageOut[messageCount] = 0x1c6;
                     messageCount++;
                     countOut[curedCount]++;
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov000_02157e1c(struct Random* random) {
             int remaining = TIMERS(combatant)->countdown;
             if (remaining <= 0) {
                 TIMERS(combatant)->countdownActive = 0;
-                if (IsIdOrEffectMatchTarget0215fd24((int)random, idList[i])) {
+                if (func_ov000_0215fd24((int)random, idList[i])) {
                     messageOut[messageCount] = 0x25b;
                     messageCount++;
                     countOut[curedCount]++;

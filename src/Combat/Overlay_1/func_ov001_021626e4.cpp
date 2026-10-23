@@ -12,28 +12,28 @@ struct Background021626e4 {
 
 extern "C" int func_ov017_021d612c(void* args);
 extern "C" int func_ov017_021d60f4(void* args);
-unsigned int LoadResourceIntoGlobalBuffer_0215a750(const char* path, void** outPtr);
+extern "C" unsigned int func_ov001_0215a750(const char* path, void** outPtr);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900*);
+extern "C" int func_02046900(ActiveEntry02046900*);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
-void SetBg3ControlFields_02162678(int a, int b, int c, int d);
-void SetSubBgMode_020c3984(unsigned int mode);
-void SetSubBg3ControlFields_021628d4(int a, int b, int c, int d);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
+extern "C" void func_ov001_02162678(int a, int b, int c, int d);
+extern "C" void func_020c3984(unsigned int mode);
+extern "C" void func_ov001_021628d4(int a, int b, int c, int d);
 struct List0204af64;
-void ResetList0204af64(List0204af64*);
+extern "C" void func_0204af64(List0204af64*);
 extern "C" void func_0204b5b4(Background021626e4* background, int a);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" void func_0204b11c(unsigned char*, int);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
-void DelayThenSyncBit0_020c9820();
-void DispatchByTag0204b2e0(void*, char*);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_020c9820();
+extern "C" void func_0204b2e0(void*, char*);
 struct SelfTag0204b3a0;
-void DispatchByTagLookup0204b3a0(SelfTag0204b3a0*, char*);
+extern "C" void func_0204b3a0(SelfTag0204b3a0*, char*);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
 struct List0204afb4;
-void ResetRecordList0204afb4(List0204afb4*);
+extern "C" void func_0204afb4(List0204afb4*);
 
 extern char data_ov001_02165745[];
 
@@ -64,40 +64,40 @@ extern "C" ARM int func_ov001_021626e4(void* args) {
     if (file == NULL) {
         BackgroundLoader::AddLockGlobal();
         locked = 1;
-        if (LoadResourceIntoGlobalBuffer_0215a750(path, &file) == 0) {
+        if (func_ov001_0215a750(path, &file) == 0) {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
         }
     }
 
-    count = CountActiveEntries((ActiveEntry02046900*)file);
+    count = func_02046900((ActiveEntry02046900*)file);
     for (int i = 0; i < count; i++) {
-        records[i] = FindRecordByIndex((Rec020467f0*)file, i, &name, &recordSizes[i]);
+        records[i] = func_020467f0((Rec020467f0*)file, i, &name, &recordSizes[i]);
     }
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x800;
     if (subScreen == 0) {
-        SetBg3ControlFields_02162678(0, 0, 1, 1);
+        func_ov001_02162678(0, 0, 1, 1);
     } else {
         DisableSubBGVRAMBanks();
-        SetSubBgMode_020c3984(0);
+        func_020c3984(0);
         MapVRAMBanksToSubBG(VRAM_BANK_H);
-        SetSubBg3ControlFields_021628d4(0, 0, 0xe, 0);
+        func_ov001_021628d4(0, 0, 0xe, 0);
     }
 
-    ResetList0204af64((List0204af64*)&background);
+    func_0204af64((List0204af64*)&background);
     background.screen = subScreen;
     background.layer = 3;
     func_0204b5b4(&background, 0);
-    SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&background, 0);
-    DispatchViaTable0204b5e8((Obj0204b5e8*)&background, 0, 0);
-    DelayThenSyncBit0_020c9820();
+    func_0204b11c((unsigned char*)&background, 0);
+    func_0204b5e8((Obj0204b5e8*)&background, 0, 0);
+    func_020c9820();
     for (int i = 0; i < count; i++) {
-        DispatchByTag0204b2e0(&background, (char*)records[i]);
-        DispatchByTagLookup0204b3a0((SelfTag0204b3a0*)&background, (char*)records[i]);
+        func_0204b2e0(&background, (char*)records[i]);
+        func_0204b3a0((SelfTag0204b3a0*)&background, (char*)records[i]);
     }
-    FlushAndDispatchList0204b0e8((List0204b0e8*)&background, NULL);
-    ResetRecordList0204afb4((List0204afb4*)&background);
+    func_0204b0e8((List0204b0e8*)&background, NULL);
+    func_0204afb4((List0204afb4*)&background);
 
     if (locked) {
         BackgroundLoader::RemoveLockGlobal();

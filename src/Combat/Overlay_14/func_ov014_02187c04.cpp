@@ -72,11 +72,11 @@ struct Obj2081;
 struct Obj0205eaa0;
 struct Obj0208203c;
 
-short FindMappedMemberId02080468(void* obj, int id);
-void ResetWithSub0208203c(Obj0208203c*);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
-int CheckFlagAndPointInElement_02186ff0(char*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" short func_02080468(void* obj, int id);
+extern "C" void func_0208203c(Obj0208203c*);
+extern "C" void func_0207fdcc(Obj2081*, int);
+extern "C" int func_ov014_02186ff0(char*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 
 extern "C" {
 MonsterListEntry* func_020974b0(MonsterList* list, int family, int, bool sort, int, short* outCount);
@@ -100,10 +100,10 @@ extern "C" ARM void func_ov014_02187c04(MonsterListScreen* self)
             func_ov014_02188330(self);
             self->group_ = 1;
             if (self->modeCursor_ < 0)
-                self->modeCursor_ = FindMappedMemberId02080468(self->menu_, self->group_);
+                self->modeCursor_ = func_02080468(self->menu_, self->group_);
             self->menu_->cursor_ = self->modeCursor_;
             func_020813ec(self->menu_, self->group_);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0208203c((Obj0208203c*)self->repeat_);
             self->cursor_ = NULL;
             self->listStep_++;
         }
@@ -113,8 +113,8 @@ extern "C" ARM void func_ov014_02187c04(MonsterListScreen* self)
         self->cursor_ = &self->modeCursor_;
         if (func_ov014_02186f10(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
             switch (*self->cursor_)
             {
             case 8:
@@ -127,10 +127,10 @@ extern "C" ARM void func_ov014_02187c04(MonsterListScreen* self)
                 self->listStep_ = 0;
                 break;
             }
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->cursor_ = NULL;
         }
-        else if (CheckFlagAndPointInElement_02186ff0((char*)self) || g_keyManager.TestKeysPressed(0x800))
+        else if (func_ov014_02186ff0((char*)self) || g_keyManager.TestKeysPressed(0x800))
         {
             self->listState_ = 5;
             self->listStep_ = 0;

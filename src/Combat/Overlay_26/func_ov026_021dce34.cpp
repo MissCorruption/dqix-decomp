@@ -91,31 +91,31 @@ struct ActorView {
     unsigned int flags18c;
 };
 
-int MatchesActiveIndex020a36a8(Combatant020A36A8*);
-int GetCombatWorkFlags0x55f4_ov000_02160fd4(void*, int);
-void ClearCombatWorkFlags0x55f4_ov000_02160fbc(void*, int);
-void SetBitInField0x34_020a35cc(unsigned char*, unsigned char);
-int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
-SlotWork* FindSlotById_021dae60(Container_021dae60*, int);
-void SetAndClearField0x19c_02053da0(char*, Field0x19cData*);
-void CopyCombatantStats0208936c(char*, char*, char*);
-void ResetObjectState02039d84(Obj02039d84*);
-void ClearFlag0x4At0xe0(Flags02033fdc*);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void ClearField0xc4KeepBit0x8000_0203409c(unsigned char*);
-void ClearFlag0x1ceBit0x4_02039d58(unsigned char*);
-void AddEntry02168644(char*, int);
-void SetFlag0x1ceBit0x1_02039894(unsigned char*);
-void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char*);
-int IsFlag10088Set_02010088(S_10088*);
-int IsFlagBit8192Set_021dd3c4(FlagObj_021dd3c4*);
-void EnqueueEventTag100_021cbc48(Src021cbc48*);
-void DispatchAllEventStages_021cdf80(char*, unsigned char);
-int ClassifyField0x81fe_ov000_0215fc60(char*);
-void Process02181364(void*);
-void ClearFlag_021816e8_021816e8(void*, int);
-void SetFlag_02181694_02181694(void*, int);
-void ClearByteField_0217f5d0_0217f5d0(void*);
+extern "C" int func_020a36a8(Combatant020A36A8*);
+extern "C" int func_ov000_02160fd4(void*, int);
+extern "C" void func_ov000_02160fbc(void*, int);
+extern "C" void func_020a35cc(unsigned char*, unsigned char);
+extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" SlotWork* func_ov026_021dae60(Container_021dae60*, int);
+extern "C" void func_02053da0(char*, Field0x19cData*);
+extern "C" void func_0208936c(char*, char*, char*);
+extern "C" void func_02039d84(Obj02039d84*);
+extern "C" void func_02033fdc(Flags02033fdc*);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_0203409c(unsigned char*);
+extern "C" void func_02039d58(unsigned char*);
+extern "C" void func_ov000_02168644(char*, int);
+extern "C" void func_02039894(unsigned char*);
+extern "C" void func_ov000_02167e6c(unsigned char*);
+extern "C" int func_02010088(S_10088*);
+extern "C" int func_ov026_021dd3c4(FlagObj_021dd3c4*);
+extern "C" void func_ov017_021cbc48(Src021cbc48*);
+extern "C" void func_ov017_021cdf80(char*, unsigned char);
+extern "C" int func_ov000_0215fc60(char*);
+extern "C" void func_ov000_02181364(void*);
+extern "C" void func_ov000_021816e8(void*, int);
+extern "C" void func_ov000_02181694(void*, int);
+extern "C" void func_ov000_0217f5d0(void*);
 
 extern "C" {
 int* func_0202ae18();
@@ -149,17 +149,17 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
     GameState* gs = GameState::GetInstance();
     GetGameResources();
     int* link = func_0202ae18();
-    if (!MatchesActiveIndex020a36a8((Combatant020A36A8*)party) && !GetCombatWorkFlags0x55f4_ov000_02160fd4(self, 0x80000000)) {
+    if (!func_020a36a8((Combatant020A36A8*)party) && !func_ov000_02160fd4(self, 0x80000000)) {
         return;
     }
-    ClearCombatWorkFlags0x55f4_ov000_02160fbc(self, 0x80000000);
+    func_ov000_02160fbc(self, 0x80000000);
     int added = 0;
     int id = func_ov000_0215fad4(battle);
     func_ov000_0215e9fc(battle, ids, 4, 0);
     while (id >= 0) {
-        SetBitInField0x34_020a35cc((unsigned char*)party, id);
+        func_020a35cc((unsigned char*)party, id);
         func_ov000_02174738(list, id);
-        SlotWork* slot = FindSlotById_021dae60((Container_021dae60*)list, id);
+        SlotWork* slot = func_ov026_021dae60((Container_021dae60*)list, id);
         if (slot) {
             GameObject* m = gs->GetPartyMemberByIndex(id);
             if (m) {
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             }
         }
         if (mode >= 0) {
-            SlotWork* s = FindSlotById_021dae60((Container_021dae60*)list, id);
+            SlotWork* s = func_ov026_021dae60((Container_021dae60*)list, id);
             if (s) {
                 s->cmds[s->cursor] = 100;
                 s->done = 0;
@@ -180,18 +180,18 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             m->obj3D_.SetField06(field06);
             memset(&models[id], 0, sizeof(ModelState));
             func_02049c88(m, &models[id]);
-            SetAndClearField0x19c_02053da0((char*)m, (Field0x19cData*)&stats[id]);
-            CopyCombatantStats0208936c((char*)m->currentStats_, (char*)((ActorView*)m)->flags, (char*)m->baseStats_);
+            func_02053da0((char*)m, (Field0x19cData*)&stats[id]);
+            func_0208936c((char*)m->currentStats_, (char*)((ActorView*)m)->flags, (char*)m->baseStats_);
             func_ov026_021dc8fc(self, battle, party, list, scriptA, scriptB, id);
             func_020531f0(m);
-            ResetObjectState02039d84((Obj02039d84*)m);
+            func_02039d84((Obj02039d84*)m);
             ((ActorView*)m)->fc1.mode |= 3;
             ((ActorView*)m)->hidden = 1;
-            ClearFlag0x4At0xe0((Flags02033fdc*)m);
-            SetByte0xbeShiftPrev((Bytes02033b88*)m, 0);
-            ClearField0xc4KeepBit0x8000_0203409c((unsigned char*)m);
+            func_02033fdc((Flags02033fdc*)m);
+            func_02033b88((Bytes02033b88*)m, 0);
+            func_0203409c((unsigned char*)m);
             m->obj3D_.SetInheritedAlpha(0x1f);
-            ClearFlag0x1ceBit0x4_02039d58((unsigned char*)m);
+            func_02039d58((unsigned char*)m);
             if (!(*((ActorView*)m)->flags & 1)) {
                 if (((ActorView*)m)->flags18c & 1) {
                     ((ActorView*)m)->flags18c &= ~1;
@@ -205,8 +205,8 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             entries[id].pos = m->obj3D_.position_;
             entries[id].angle = m->obj3D_.rotation_.y;
             added = 1;
-            AddEntry02168644((char*)self, id);
-            SetFlag0x1ceBit0x1_02039894((unsigned char*)m);
+            func_ov000_02168644((char*)self, id);
+            func_02039894((unsigned char*)m);
             func_ov000_02167fb0(self, m);
             if (m->obj3D_.unknown_4_ == 0 && func_0202c540(link)) {
                 func_ov017_0219c774(events->handle, 0, 0);
@@ -216,16 +216,16 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
         id = func_ov000_0215fad4(battle);
     }
     if (added) {
-        ClearCombatWorkFlags0x55f4_ov000_02160fbc(self, 0x80000000);
+        func_ov000_02160fbc(self, 0x80000000);
         func_ov000_021675a0(self);
-        RunFlaglearAndSetMode02167e6c_02167e6c((unsigned char*)self);
+        func_ov000_02167e6c((unsigned char*)self);
         func_ov026_021daec8(battle, view, 0);
         if (battle->turns == 0) {
             func_ov000_021676a8(self);
         }
         func_ov000_02174b14(list);
         func_ov000_0217a8f4(list);
-        if (MatchesActiveIndex020a36a8((Combatant020A36A8*)party)) {
+        if (func_020a36a8((Combatant020A36A8*)party)) {
             unsigned char alive = 0;
             unsigned char visible = 0;
             int count = func_ov000_0215e9fc(battle, members, 4, 0);
@@ -238,8 +238,8 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             }
             for (i = 0; i < 8; i++) {
                 GameObject* c = gs->GetCombatantByIndex(i + 0xc0);
-                if (c && c->obj3D_.IsVisible() && !IsFlag10088Set_02010088((S_10088*)c) &&
-                    !IsFlagBit8192Set_021dd3c4((FlagObj_021dd3c4*)c)) {
+                if (c && c->obj3D_.IsVisible() && !func_02010088((S_10088*)c) &&
+                    !func_ov026_021dd3c4((FlagObj_021dd3c4*)c)) {
                     visible |= 1 << i;
                 }
             }
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             ev.kind = party->mode;
             ev.field0c = party->field0c;
             for (int j = 0; j < 4; j++) {
-                if (TestBitAt0x34_020a35e0((unsigned char*)party, j)) {
+                if (func_020a35e0((unsigned char*)party, j)) {
                     ev.party |= 1 << j;
                 } else {
                     ev.party &= ~(1 << j);
@@ -258,25 +258,25 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
             }
             ev.myIndex = party->myIndex;
             ev.field2 = party->field2;
-            EnqueueEventTag100_021cbc48(&ev);
-            DispatchAllEventStages_021cdf80((char*)battle, 1);
+            func_ov017_021cbc48(&ev);
+            func_ov017_021cdf80((char*)battle, 1);
             func_ov017_021c847c();
             if (party->mode == 2) {
                 func_ov000_0217fcc4(list, -1);
             }
         }
     }
-    if (ClassifyField0x81fe_ov000_0215fc60((char*)battle) != 0) {
+    if (func_ov000_0215fc60((char*)battle) != 0) {
         if (func_0202c540(func_0202ae18()) != 0) {
-            Process02181364(list);
+            func_ov000_02181364(list);
             func_ov000_0217fcc4(list, -1);
-            ClearFlag_021816e8_021816e8(list, -1);
-            SetFlag_02181694_02181694(list, 0);
+            func_ov000_021816e8(list, -1);
+            func_ov000_02181694(list, 0);
         } else {
             for (int i = 1; i < 4; i++) {
-                SlotWork* s = FindSlotById_021dae60((Container_021dae60*)list, i);
+                SlotWork* s = func_ov026_021dae60((Container_021dae60*)list, i);
                 if (s != 0) {
-                    ClearByteField_0217f5d0_0217f5d0(s);
+                    func_ov000_0217f5d0(s);
                     s->cmds[s->cursor] = 100;
                 }
             }

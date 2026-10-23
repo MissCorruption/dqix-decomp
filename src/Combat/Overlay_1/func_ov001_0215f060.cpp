@@ -7,7 +7,7 @@
 
 extern "C" void* func_ov017_021d612c(void* obj);
 extern "C" int func_ov017_021d60f4(void* a);
-int AbsPlus159IfNegative0215ad2c(int x);
+extern "C" int func_ov001_0215ad2c(int x);
 
 extern SafeAllocator* data_ov001_021658b8[8];
 extern const char data_ov001_02165745[];
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov001_0215f060(char* obj, int count) {
     for (int i = 1; i < count; i++) {
         int id = func_ov017_021d60f4(obj);
         obj += 0x8;
-        GameObject* object = state->GetGameObjectByIndex(AbsPlus159IfNegative0215ad2c(id));
+        GameObject* object = state->GetGameObjectByIndex(func_ov001_0215ad2c(id));
         if (object != NULL) {
             if (data != NULL) {
                 object->obj3D_.LoadType0AnimationFromFileInMemory(slot, alloc, data, length);

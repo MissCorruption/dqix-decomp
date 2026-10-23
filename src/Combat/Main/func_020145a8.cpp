@@ -4,8 +4,8 @@
 #include "World/Zone3D.h"
 #include "std_library_functions.h"
 
-int IsInRange0201b5b0(int id);
-int IsValueInRange0201b5d8(int id);
+extern "C" int func_0201b5b0(int id);
+extern "C" int func_0201b5d8(int id);
 
 #if defined(jpn)
 #define data_020ef156 data_020ef092
@@ -23,16 +23,16 @@ extern char data_020ef18e[];
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020145a8
-void Zone3D::LoadMapAMDJ_020145a8() {
+void Zone3D::func_020145a8() {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     char buf[0x14];
 
-    if (IsInRange0201b5b0(currentZoneID_)) {
+    if (func_0201b5b0(currentZoneID_)) {
         int env = grotto_.GetActiveGrottoEnviron();
         if (env == 0) env = 1;
         if (env > 5) env = 5;
         sprintf(buf, data_020ef156, data_020ef116, env);
-    } else if (IsValueInRange0201b5d8(currentZoneID_)) {
+    } else if (func_0201b5d8(currentZoneID_)) {
         int env = grotto_.GetActiveGrottoEnviron();
         sprintf(buf, data_020ef166, data_020ef116, env);
     } else if (currentZoneID_ == 10000 || currentZoneID_ == 10100) {

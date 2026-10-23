@@ -16,11 +16,11 @@ struct HalfwordArray {
     unsigned short arr[12];
     unsigned short count;
 };
-ARM unsigned short CopyHalfwordArrayByCount_0209c0c0(struct HalfwordArray* src, struct HalfwordArray* dst);
+extern "C" ARM unsigned short func_0209c0c0(struct HalfwordArray* src, struct HalfwordArray* dst);
 struct ZeroWordAndByte0206ee60Struct;
-void ZeroWordAndByte0206ee60(struct ZeroWordAndByte0206ee60Struct* obj);
+extern "C" void func_0206ee60(struct ZeroWordAndByte0206ee60Struct* obj);
 struct StreamHeader;
-void RegisterCallbackWithArgsAndRunScript_0206ee80(void* a, void* b, struct StreamHeader* c, int d, void* e, short f);
+extern "C" void func_0206ee80(void* a, void* b, struct StreamHeader* c, int d, void* e, short f);
 extern "C" void func_ov017_021b5648(void* obj);
 
 extern char data_ov017_021d7bdc;
@@ -37,7 +37,7 @@ struct Sub021b5348 {
     unsigned char field308;
 };
 
-// USA: func_ov017_021b5348  (semantic: ApplyPendingListEntryAndRunScript_021b5348)
+// USA: func_ov017_021b5348
 extern "C" ARM void func_ov017_021b5348(struct Obj021b5348* obj) {
     void* subEarly;
     GameState::GetInstance();
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov017_021b5348(struct Obj021b5348* obj) {
             char* sub = (char*)obj->sub;
             unsigned short buf[12];
             __clear(buf, 0x18);
-            short signedCount = (short)CopyHalfwordArrayByCount_0209c0c0((struct HalfwordArray*)(sub + RegionOffset44), (struct HalfwordArray*)buf);
-            ZeroWordAndByte0206ee60((struct ZeroWordAndByte0206ee60Struct*)((char*)subEarly + RegionOffset304));
+            short signedCount = (short)func_0209c0c0((struct HalfwordArray*)(sub + RegionOffset44), (struct HalfwordArray*)buf);
+            func_0206ee60((struct ZeroWordAndByte0206ee60Struct*)((char*)subEarly + RegionOffset304));
             void* ptrB = *(void**)((char*)obj->sub + 0x10);
-            RegisterCallbackWithArgsAndRunScript_0206ee80((char*)subEarly + RegionOffset304, ptrB, (struct StreamHeader*)out1, (short)out2, buf, signedCount);
+            func_0206ee80((char*)subEarly + RegionOffset304, ptrB, (struct StreamHeader*)out1, (short)out2, buf, signedCount);
         }
     }
 

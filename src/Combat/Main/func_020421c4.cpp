@@ -64,13 +64,13 @@ extern char data_020f000b;
 extern char data_020f0023;
 extern char data_020f003f;
 
-void RegisterFieldTableEntries02042944(void*);
-void ClearStruct0204a82c(struct Struct0204a82c*);
-int GetScaledElementOffset(struct ScaledElementList0204aa48*);
-void InitStruct02094a24(struct Struct02094a24*);
-void BlankFunction02094a20(void*, SafeAllocator*);
-void StoreGlobal02109400_02094a10(int);
-void RebaseOffsets_02042998(struct RebaseStruct*);
+extern "C" void func_02042944(void*);
+extern "C" void func_0204a82c(struct Struct0204a82c*);
+extern "C" int func_0204aa48(struct ScaledElementList0204aa48*);
+extern "C" void func_02094a24(struct Struct02094a24*);
+extern "C" void func_02094a20(void*, SafeAllocator*);
+extern "C" void func_02094a10(int);
+extern "C" void func_02042998(struct RebaseStruct*);
 
 // USA: func_020421c4
 extern "C" ARM void func_020421c4(SafeAllocator* alloc) {
@@ -99,16 +99,16 @@ extern "C" ARM void func_020421c4(SafeAllocator* alloc) {
     data_02107800.f24 = alloc->Allocate(0x960);
     data_02107800.f18 = alloc->Allocate(0x960);
     data_02107800.fc = alloc->Allocate(0x960);
-    RegisterFieldTableEntries02042944(alloc);
+    func_02042944(alloc);
     BackgroundLoader::AddLockGlobal();
 
     fileLen = 0;
     buf = LoadFileIntoMemory(&data_020f000b, data_0211e33c, &fileLen);
-    ClearStruct0204a82c(&entry);
+    func_0204a82c(&entry);
     if (buf != 0) {
         memcpy(&entry, buf, 0xc);
     }
-    size = GetScaledElementOffset((struct ScaledElementList0204aa48*)&entry);
+    size = func_0204aa48((struct ScaledElementList0204aa48*)&entry);
     p = alloc->Allocate(size);
     data_02107800.f4 = p;
     memcpy(p, (void*)((int)data_0211e33c + 0x10), size);
@@ -137,10 +137,10 @@ extern "C" ARM void func_020421c4(SafeAllocator* alloc) {
     f1c = data_02107800.f1c;
     f1c->f2d4 = &data_0210783c;
     p = alloc->Allocate(0x68);
-    InitStruct02094a24((struct Struct02094a24*)p);
-    BlankFunction02094a20(p, alloc);
-    StoreGlobal02109400_02094a10((int)p);
-    RebaseOffsets_02042998((struct RebaseStruct*)((char*)0x01ff9740 + off));
+    func_02094a24((struct Struct02094a24*)p);
+    func_02094a20(p, alloc);
+    func_02094a10((int)p);
+    func_02042998((struct RebaseStruct*)((char*)0x01ff9740 + off));
     if ((char*)0x01ff9740 + off != 0) {
         data_02107800.f10 = (void*)((char*)0x01ff9740 + off);
     }

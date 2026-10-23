@@ -2,11 +2,11 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-int CanAdjustField0x58_0208776c(void* obj, int dir);
+extern "C" int func_0208776c(void* obj, int dir);
 struct StatStageStruct020877c0;
 extern "C" int func_020877c0(struct StatStageStruct020877c0* p, int delta);
 void UpdateCombatantAttack(int unused, int combatantId);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 
 struct Params_021db5ec {
     char pad0[0x30];
@@ -43,7 +43,7 @@ extern "C" ARM void* func_ov024_021db5ec(struct Obj_021db5ec* obj, short arg, in
     if (stage < 0) decrease = 1;
     if (enabled != 0) {
         res = func_ov024_021e4b14(obj, arg, id, params, 1);
-        if (CanAdjustField0x58_0208776c(c->currentStats_, (unsigned char)decrease)) {
+        if (func_0208776c(c->currentStats_, (unsigned char)decrease)) {
             result = func_020877c0((struct StatStageStruct020877c0*)c->currentStats_, (signed char)stage);
             UpdateCombatantAttack((int)obj->ctx, id);
             applied = true;
@@ -64,7 +64,7 @@ extern "C" ARM void* func_ov024_021db5ec(struct Obj_021db5ec* obj, short arg, in
         if (decrease == 0) obj->field0x72 = 1;
     }
     func_ov024_021e8bf0(obj, obj->action, &sel);
-    AddEntryAndIncrementCount0215a88c(obj->ctx, entry, sel);
+    func_ov000_0215a88c(obj->ctx, entry, sel);
     func_ov000_0215cd44(obj->ctx, entry, c, 0, res, obj->action->flag != 0);
     return entry;
 }

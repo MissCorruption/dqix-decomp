@@ -101,19 +101,19 @@ struct Struct020dfc40;
 struct Manager0207f7f0;
 struct Node0207f7f0;
 
-int* GetWord0x0_0200fb8c(int*);
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
-void Set3DClearColor_020c5588(int, int, int, int, int);
-int GetField4Low12(Field4Low12_02097420*);
-MonsterListEntry* GetBufferField8(BufferField8_02097418*);
-void CopyTextAndUppercaseIfFlagged0206819c(const char*, char*, int);
-void SetFieldsFromFormattedValue0207f914(Obj0207f914*, int, int, int);
-void SetSublistEntryField14LowBits_02080798(void*, int, int);
-int CountActiveEntries(ActiveEntry02046900*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
-void ResetStruct020dfc40(Struct020dfc40*);
-void CopyOutBattleRegion0x75f0_020abf38(void*);
-void InitNodeChain0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
+extern "C" int* func_0200fb8c(int*);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c5588(int, int, int, int, int);
+extern "C" int func_02097420(Field4Low12_02097420*);
+extern "C" MonsterListEntry* func_02097418(BufferField8_02097418*);
+extern "C" void func_0206819c(const char*, char*, int);
+extern "C" void func_0207f914(Obj0207f914*, int, int, int);
+extern "C" void func_02080798(void*, int, int);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
+extern "C" void func_020dfc40(Struct020dfc40*);
+extern "C" void func_020abf38(void*);
+extern "C" void func_0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
 
 extern "C" {
 void func_020972e0(MonsterList* list, SafeAllocator* allocator, void* file, unsigned int size);
@@ -136,22 +136,22 @@ extern const char data_ov014_02189784[];
 // USA: func_ov014_02187568
 extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
 {
-    int* resources = GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    int* resources = func_0200fb8c((int*)GameState::GetInstance());
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (self->listStep_ == 0)
     {
         SetFlags04(GetGameResources(), 0x609fe);
-        SetFogState_020c54a4(0, 0, 0, 0);
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
-        FontBankLoader* music = GetGlobal02109400_02094a00();
+        func_020c54a4(0, 0, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
+        FontBankLoader* music = func_02094a00();
         func_02094ab0(music);
-        BlankFunction02094b40(music);
-        BlankFunction02094b30(music, 0x6a, 0);
+        func_02094b40(music);
+        func_02094b30(music, 0x6a, 0);
         self->listStep_++;
     }
     else if (self->listStep_ == 1)
     {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
+        if (func_02094b4c(func_02094a00()))
             self->listStep_++;
     }
     else if (self->listStep_ == 2)
@@ -178,12 +178,12 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
     }
     else if (self->listStep_ == 4)
     {
-        int count = GetField4Low12((Field4Low12_02097420*)&self->list_);
-        MonsterListEntry* entry = GetBufferField8((BufferField8_02097418*)&self->list_);
+        int count = func_02097420((Field4Low12_02097420*)&self->list_);
+        MonsterListEntry* entry = func_02097418((BufferField8_02097418*)&self->list_);
         for (int i = 0; i < count; i++, entry++)
         {
             char name[0x80] = {};
-            CopyTextAndUppercaseIfFlagged0206819c(entry->name_, name, 0);
+            func_0206819c(entry->name_, name, 0);
             sprintf((char*)entry->name_, name);
         }
         BG0CNTSUB = (BG0CNTSUB & (3 | 0x40)) | (0x1d << 8);
@@ -198,7 +198,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
         {
             SafeAllocator* allocators = self->listAllocators_;
             allocators[2].Reset();
-            SetFieldsFromFormattedValue0207f914((Obj0207f914*)self->menu_, (int)&allocators[2], (int)data_ov014_02189734, (int)data_ov014_0218974d);
+            func_0207f914((Obj0207f914*)self->menu_, (int)&allocators[2], (int)data_ov014_02189734, (int)data_ov014_0218974d);
             self->listStep_++;
         }
     }
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
     }
     else if (self->listStep_ == 7)
     {
-        SetSublistEntryField14LowBits_02080798(self->menu_, 6, 1);
+        func_02080798(self->menu_, 6, 1);
         self->spriteRenderer_.unk_50 = 1;
         self->spriteRenderer_.SetSprites(self->listSprites_, 8);
         self->spriteRenderer_.animations_ = self->animations_;
@@ -230,12 +230,12 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
             SafeAllocator* allocators;
             int numFiles;
             loader->GetLoadedFileByID(self->listTaskID_, &file, &size);
-            numFiles = CountActiveEntries((ActiveEntry02046900*)file);
+            numFiles = func_02046900((ActiveEntry02046900*)file);
             allocators = self->listAllocators_;
             allocators[3].Reset();
             for (int i = 0; i < numFiles; i++)
             {
-                void* cells = FindRecordByIndex((Rec020467f0*)file, i, &name, (int*)&cellsSize);
+                void* cells = func_020467f0((Rec020467f0*)file, i, &name, (int*)&cellsSize);
                 if (cells != NULL)
                     func_0205a528(&self->spriteRenderer_, cells, cellsSize, &allocators[3]);
             }
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
     }
     else if (self->listStep_ == 9)
     {
-        ResetStruct020dfc40((Struct020dfc40*)&self->textTable_);
+        func_020dfc40((Struct020dfc40*)&self->textTable_);
         self->listTaskID_ = loader->QueueLoadFileInGP2(data_ov014_0218976a, data_ov014_02189784, NULL);
         self->listStep_++;
     }
@@ -275,7 +275,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
     else if (self->listStep_ == 13)
     {
         func_020abf60(&self->list_);
-        CopyOutBattleRegion0x75f0_020abf38(self->records_);
+        func_020abf38(self->records_);
         func_ov014_02187488(self);
         BG0CNTSUB = (BG0CNTSUB & ~3);
         BG1CNTSUB = (BG1CNTSUB & ~3) | 1;
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
         Manager0207f7f0* menu = self->menu_;
         menu->lists = self->backgrounds_;
         menu->mode = 2;
-        InitNodeChain0207f7f0(self->menu_, self->canvases_, 4);
+        func_0207f7f0(self->menu_, self->canvases_, 4);
         self->menu_->active = 0;
         func_020974b0(&self->list_, -1, -1, false, 0, &self->numMonsters_);
         short count = 0;

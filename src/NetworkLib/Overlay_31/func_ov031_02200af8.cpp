@@ -3,9 +3,9 @@
 extern "C" ARM void* func_ov031_02200af8(int* count);
 extern "C" ARM void func_ov031_02202e44(void* p, int len);
 extern "C" ARM void func_ov031_0220186c(void* p, int len);
-ARM void AdvanceAndClampField30_02200bb8(void);
+extern "C" ARM void func_ov031_02200bb8(void);
 
-// USA: func_ov031_02203008  (semantic: DispatchByTagLoop_02203008)
+// USA: func_ov031_02203008
 extern "C" ARM void func_ov031_02203008(void) {
     int count;
     for (;;) {
@@ -22,6 +22,6 @@ extern "C" ARM void func_ov031_02203008(void) {
                 break;
             }
         }
-        AdvanceAndClampField30_02200bb8();
+        func_ov031_02200bb8();
     }
 }

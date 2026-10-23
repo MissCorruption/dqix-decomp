@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-int IsFieldNotPositive_021a4e70(unsigned char* base);
-unsigned char GetByte0x26c_02039d7c(char* obj);
+extern "C" int func_ov017_021a4e70(unsigned char* base);
+extern "C" unsigned char func_02039d7c(char* obj);
 
 struct SrcFields_0219b33c {
     unsigned char field0;
@@ -30,11 +30,11 @@ extern "C" ARM void func_ov017_0219b33c(char* self, struct SrcFields_0219b33c* s
 #endif
     GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
 
-    if (!IsFieldNotPositive_021a4e70((unsigned char*)self)) return;
+    if (!func_ov017_021a4e70((unsigned char*)self)) return;
 
     if (combatant) {
         if (*(int*)((char*)combatant + regionalOffset0) & 1) return;
-        if (GetByte0x26c_02039d7c((char*)combatant) != 0) return;
+        if (func_02039d7c((char*)combatant) != 0) return;
     }
 
     if (*(short*)(self + regionalOffset1) < src->field10) return;

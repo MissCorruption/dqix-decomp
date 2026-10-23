@@ -6,28 +6,28 @@ enum { kIntrinsicOffset = 0x150, kTableIndexOffset = 0x950 };
 #endif
 #include "GameState/GameState.h"
 
-int TestBitInArray0x8ec_02083b00(unsigned char* obj, int index);
-int GetTableByte020dd11c(unsigned int a, unsigned int b);
-int CountMatchingRoundedShorts_020dd300(int mask);
+extern "C" int func_02083b00(unsigned char* obj, int index);
+extern "C" int func_020dd11c(unsigned int a, unsigned int b);
+extern "C" int func_020dd300(int mask);
 extern unsigned short data_020f29f4[];
 
 // USA: func_020dd3cc
 extern "C" ARM int func_020dd3cc(int combatantId) {
     GameState* gameState = GameState::GetInstance();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(gameState, combatantId);
+    GameObject* combatant = func_0200ff1c(gameState, combatantId);
     if (combatant == 0) {
         return 0;
     }
     unsigned int result = 0;
     for (unsigned short i = 0; i <= 0xb; i++) {
-        if (TestBitInArray0x8ec_02083b00(*(unsigned char**)((char*)combatant + kIntrinsicOffset), data_020f29f4[i])) {
+        if (func_02083b00(*(unsigned char**)((char*)combatant + kIntrinsicOffset), data_020f29f4[i])) {
             result |= 1u << i;
         }
     }
     unsigned char* obj = *(unsigned char**)((char*)combatant + kIntrinsicOffset);
     unsigned char a = (unsigned char)*(int*)(obj + kTableIndexOffset);
     for (unsigned char j = 0; j < 4; j++) {
-        unsigned int v = GetTableByte020dd11c(a, j);
+        unsigned int v = func_020dd11c(a, j);
         if (v == 0) {
             continue;
         }
@@ -38,7 +38,7 @@ extern "C" ARM int func_020dd3cc(int combatantId) {
     for (unsigned int k = 0; k <= 0xb; k++) {
         unsigned int bit = 1u << k;
         if (result & bit) {
-            unsigned int ret = CountMatchingRoundedShorts_020dd300(bit);
+            unsigned int ret = func_020dd300(bit);
             if (ret == 0) {
                 result &= ~bit;
             }

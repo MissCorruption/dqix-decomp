@@ -15,7 +15,7 @@ struct InitStruct02158828 {
     void* f48;
 };
 
-ARM void InitEntry02158828(struct InitStruct02158828* obj);
+extern "C" ARM void func_ov001_02158828(struct InitStruct02158828* obj);
 
 struct BattleCamera_021588e4 {
     InitStruct02158828* entries;
@@ -127,6 +127,6 @@ extern "C" ARM void func_ov001_021588e4(BattleCamera_021588e4* cam) {
         return;
     }
     for (int i = 0; i < cam->entryCount; i++) {
-        InitEntry02158828(&cam->entries[i]);
+        func_ov001_02158828(&cam->entries[i]);
     }
 }

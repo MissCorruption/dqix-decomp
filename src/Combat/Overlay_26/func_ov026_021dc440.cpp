@@ -20,28 +20,28 @@ struct BattleWork { char pad0[0x7712]; signed char animationState; };
 void ZeroInitGPCPointer(GPCFile**);
 void ZeroDestroyGPCPointer(GPCFile**);
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 struct Obj0204a120;
-void InitState0204a120(struct Obj0204a120* obj);
+extern "C" void func_0204a120(struct Obj0204a120* obj);
 struct Owner0204a3f0;
 struct Holder0204a3f0;
-void SetHolderAndMarkNode0204a3f0(struct Owner0204a3f0* owner, struct Holder0204a3f0* h);
-void SetName0204a440(char* obj, const char* src);
-void SetStringField0234_0204a464(char* obj, const char* src);
-void SetField0x3b0Value_020100c4(GameState*, int);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
-int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
-int CountSetBitsAt0x34_020a35f8(unsigned char*);
-void FormatEffectStats02072c9c(int, char*);
+extern "C" void func_0204a3f0(struct Owner0204a3f0* owner, struct Holder0204a3f0* h);
+extern "C" void func_0204a440(char* obj, const char* src);
+extern "C" void func_0204a464(char* obj, const char* src);
+extern "C" void func_020100c4(GameState*, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" int func_020a35e0(unsigned char*, unsigned char);
+extern "C" int func_020a35f8(unsigned char*);
+extern "C" void func_02072c9c(int, char*);
 struct Fields020407b4;
-void SetFields0x44(struct Fields020407b4*, int, int, int);
+extern "C" void func_020407b4(struct Fields020407b4*, int, int, int);
 struct GameResources;
 void SetBrightness(struct GameResources*, int, int);
 void SetMainBrightness(struct GameResources*, int, int);
 extern "C" {
 void func_ov000_021626a0(BattleWork*, int, int);
 void func_ov000_021637fc(BattleWork*, int);
-void _Z38RunFlaglearAndSetMode02167e6c_02167e6cPh(BattleWork*);
+void func_ov000_02167e6c(BattleWork*);
 int func_02032370(int);
 }
 
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
     int mode = self->animationState;
     func_ov000_021626a0(self, 0x26, 1);
     func_ov000_021626a0(self, 0x27, 0);
-    _Z38RunFlaglearAndSetMode02167e6c_02167e6cPh(self);
+    func_ov000_02167e6c(self);
     if (mode != 5) allocator->Reset();
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
             if (obj) {
                 obj->Initialize();
                 ObjectArchiveLoadInfo info;
-                ClearEightWords_0203dafc((Struct_203dafc*)&info);
+                func_0203dafc((Struct_203dafc*)&info);
                 info.unk_8 = size;
                 info.unk_10 = 1;
                 info.allocator = allocator;
@@ -120,11 +120,11 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
                 obj->LoadFromCHRArchive(&info);
                 char* holder = (char*)allocator->Allocate(0x268);
                 if (holder) {
-                    InitState0204a120((Obj0204a120*)holder);
-                    SetHolderAndMarkNode0204a3f0((Owner0204a3f0*)holder, (Holder0204a3f0*)obj);
-                    SetName0204a440(holder, data_ov026_021dee84);
-                    SetStringField0234_0204a464(holder, data_ov026_021dee88);
-                    SetField0x3b0Value_020100c4(game, (int)holder);
+                    func_0204a120((Obj0204a120*)holder);
+                    func_0204a3f0((Owner0204a3f0*)holder, (Holder0204a3f0*)obj);
+                    func_0204a440(holder, data_ov026_021dee84);
+                    func_0204a464(holder, data_ov026_021dee88);
+                    func_020100c4(game, (int)holder);
                     AnimLabels labels;
                     labels.letters[0] = data_ov026_021de6a0.b0;
                     labels.letters[1] = data_ov026_021de6a0.b1;
@@ -135,12 +135,12 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
                     obj->MaybeSetRegularAnimation(animName, 1);
                     Table4 table = data_ov026_021de6e8;
                     int k = 0x10a;
-                    int s = table.v[CountSetBitsAt0x34_020a35f8(party) - 1];
+                    int s = table.v[func_020a35f8(party) - 1];
                     int a = FIX32_MULTIPLY(k, s);
                     obj->SetScale(a, k, a);
                     int b = FIX32_MULTIPLY(s, s);
                     int c = FIX32_MULTIPLY(b, s);
-                    SetFields0x44((Fields020407b4*)obj, 0, 0xcc, -c);
+                    func_020407b4((Fields020407b4*)obj, 0, 0xcc, -c);
                 }
             }
         }
@@ -149,13 +149,13 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
             if (obj) {
                 obj->Initialize();
                 ObjectArchiveLoadInfo info;
-                ClearEightWords_0203dafc((Struct_203dafc*)&info);
+                func_0203dafc((Struct_203dafc*)&info);
                 info.unk_8 = size;
                 info.unk_10 = 1;
                 info.allocator = allocator;
                 info.fileData = buffer;
                 obj->LoadFromCHRArchive(&info);
-                SetFields0x44((Fields020407b4*)obj, 0, 0xcc, 0);
+                func_020407b4((Fields020407b4*)obj, 0, 0xcc, 0);
                 obj->SetScale(0x10a, 0x10a, 0x10a);
                 Model3D* model = obj->pModel_;
                 Object3D::TrackedBoneMatrix* bones = (Object3D::TrackedBoneMatrix*)allocator->Allocate(0x1c0);
@@ -167,15 +167,15 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
                     }
                 }
                 obj->EnableBoneTracking();
-                RegisterCombatantSlot_0200fd38(game, 0xcf, (GameObject*)obj);
+                func_0200fd38(game, 0xcf, (GameObject*)obj);
             }
         }
         for (int i = 0; i < 4; ++i) {
-            if (TestBitAt0x34_020a35e0(party, i)) {
-                GameObject* member = GetCombatantWithFlag0x100_0200ff1c(game, i);
+            if (func_020a35e0(party, i)) {
+                GameObject* member = func_0200ff1c(game, i);
                 if (member) {
                     char tmp[0x14];
-                    FormatEffectStats02072c9c(i, tmp);
+                    func_02072c9c(i, tmp);
 #if defined(jpn)
                     enum { regionalOffset = 0x1b8 };
 #else
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
                     }
                     if (size) {
                         ObjectArchiveLoadInfo info;
-                        ClearEightWords_0203dafc((Struct_203dafc*)&info);
+                        func_0203dafc((Struct_203dafc*)&info);
                         info.unk_10 = 1;
                         info.packageID = 3;
                         info.unk_8 = size;

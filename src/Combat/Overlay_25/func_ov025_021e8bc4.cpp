@@ -5,10 +5,10 @@
 
 extern "C" void* func_02057924(void);
 extern "C" void func_02057f00(void* obj, int value);
-void* GetActiveCombatWork_ov000_02160130(void);
+extern "C" void* func_ov000_02160130(void);
 extern "C" void* func_ov000_02160f14(void* obj);
-void SetField0x3b0Value_020100c4(GameState* battleStruct, int value);
-void ClearCombatantSlot_0200fd48(GameState* battleStruct, int id);
+extern "C" void func_020100c4(GameState* battleStruct, int value);
+extern "C" void func_0200fd48(GameState* battleStruct, int id);
 struct Container02037364;
 struct S1a0;
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
 
     GameState* battle = GameState::GetInstance();
     void* g = func_02057924();
-    GetField0x3b0Value_020100bc(battle);
+    func_020100bc(battle);
 
     struct Node021e8bc4* node = obj->head;
     while (node != 0 && priority <= node->priority) {
@@ -53,13 +53,13 @@ extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
             func_02057f00(g, node->id4);
             break;
         case 3:
-            SetField0x3b0Value_020100c4(battle, (int)func_ov000_02160f14(GetActiveCombatWork_ov000_02160130()));
+            func_020100c4(battle, (int)func_ov000_02160f14(func_ov000_02160130()));
             break;
         case 4: {
             GameObject* combatant = battle->GetGameObjectByIndex(node->id2);
             if (combatant) {
                 ((Object3D*)((unsigned char*)combatant))->Destroy();
-                ClearCombatantSlot_0200fd48(battle, node->id2);
+                func_0200fd48(battle, node->id2);
             }
             break;
         }

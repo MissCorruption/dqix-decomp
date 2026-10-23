@@ -58,13 +58,13 @@ struct S021700bc;
 struct ActiveEntry02046900;
 struct Rec020467f0;
 
-int CheckField0NonZero_0202b7d8(int *p);
-int CountActiveEntries(ActiveEntry02046900 *archive);
-void *FindRecordByIndex(Rec020467f0 *archive, int index, void **name, int *size);
-void *AllocateAligned4_02012d88(AllocatorUnion *alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion *alloc, void *p);
-void EmptyDestructor0205a494(void *p);
-void InitField170_021700bc(S021700bc *p);
+extern "C" int func_0202b7d8(int *p);
+extern "C" int func_02046900(ActiveEntry02046900 *archive);
+extern "C" void *func_020467f0(Rec020467f0 *archive, int index, void **name, int *size);
+extern "C" void *func_02012d88(AllocatorUnion *alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion *alloc, void *p);
+extern "C" void func_0205a494(void *p);
+extern "C" void func_ov003_021700bc(S021700bc *p);
 extern "C" void *func_0202ae18();
 extern "C" void func_0202c288();
 extern "C" void func_02043124(void *p);
@@ -81,7 +81,7 @@ extern "C" void func_ov003_0216e02c(void *sub, SafeAllocator *allocator);
 #endif
 extern "C" int func_ov003_0216e124(void *sub);
 extern "C" void func_ov003_021700dc(void *sub);
-void *GetGlobalField0x1c020421a0();
+extern "C" void *func_020421a0();
 extern "C" void *memset(void *dst, int value, unsigned int length);
 
 extern char data_02114e20;
@@ -89,30 +89,30 @@ extern char data_ov003_021801c9[];
 
 // USA: func_ov003_0216bcfc
 extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
-    Global0216bcfc *global   = (Global0216bcfc *) GetGlobalField0x1c020421a0();
+    Global0216bcfc *global   = (Global0216bcfc *) func_020421a0();
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
     void *obj                = func_0202ae18();
 
     if (self->step_ == 0) {
         func_0202c288();
-        if (CheckField0NonZero_0202b7d8((int *) obj) != 0 && (int) *((unsigned char *) obj + 0x100d) > 1) {
+        if (func_0202b7d8((int *) obj) != 0 && (int) *((unsigned char *) obj + 0x100d) > 1) {
             func_ov003_0216d8d4(self, 0x5d, -1, -1, -1);
             self->step_  = 0;
             self->state_ = 2;
             self->step_  = 0;
             return;
         }
-        Global0216bcfc *global2 = (Global0216bcfc *) GetGlobalField0x1c020421a0();
+        Global0216bcfc *global2 = (Global0216bcfc *) func_020421a0();
 #if defined(jpn)
         memset(global2->text_, 0, 0x800);
 #else
         memset(global2->text_, 0, 0x960);
 #endif
-        void *buffer = AllocateAligned4_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
+        void *buffer = func_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
         VectorizedMemset(buffer, 0, 0x8000);
         self->allocator_.CreateTypeA(buffer, 0x8000);
         self->allocator_.Reset();
-        InitField170_021700bc((S021700bc *) self->sub_410);
+        func_ov003_021700bc((S021700bc *) self->sub_410);
         func_ov003_0216e02c(self->sub_410, &self->allocator_);
         self->unk_4e8 = &self->unk_1324;
         char pixels[0x20];
@@ -130,12 +130,12 @@ extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
         SignedAllocatorHeader *signedAlloc = self->allocator_.GetSignedAllocator();
         if (signedAlloc != 0) {
             self->allocator_.Destroy();
-            TailForward02012da4((AllocatorUnion *) &data_02114e20, signedAlloc);
+            func_02012da4((AllocatorUnion *) &data_02114e20, signedAlloc);
         }
 #if defined(jpn)
-        EmptyDestructor0205a494((char *) self + 0x10fc);
+        func_0205a494((char *) self + 0x10fc);
 #else
-        EmptyDestructor0205a494((char *) self + 0x126c);
+        func_0205a494((char *) self + 0x126c);
 #endif
         self->unk_12bc = 0;
         self->unk_12ac = self->unk_1264;
@@ -151,10 +151,10 @@ extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
         unsigned int size;
         int fileSize;
         loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count            = CountActiveEntries((ActiveEntry02046900 *) file);
+        int count            = func_02046900((ActiveEntry02046900 *) file);
         SafeAllocator *alloc = &self->allocators_[0];
         for (int i = 0; i < count; i++) {
-            void *data = FindRecordByIndex((Rec020467f0 *) file, i, &name, &fileSize);
+            void *data = func_020467f0((Rec020467f0 *) file, i, &name, &fileSize);
 #if defined(jpn)
             func_0205a528((char *) self + 0x10fc, data, fileSize, alloc);
 #else

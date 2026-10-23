@@ -58,19 +58,19 @@ struct Canvas {
 
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
-int CheckElementFlag_02158080_02158080(Obj2081*, int);
-Canvas* FindElementByByte0xc4_02081da8(Obj2081*, int);
-void ResetList0204af64(List0204af64*);
-int DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
-void CallFunc0204b620IfField0x14_0204b938(void*, void*, int, int, unsigned short);
+extern "C" int func_ov006_02158080(Obj2081*, int);
+extern "C" Canvas* func_02081da8(Obj2081*, int);
+extern "C" void func_0204af64(List0204af64*);
+extern "C" int func_0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b938(void*, void*, int, int, unsigned short);
 extern "C" void func_ov006_02154fe4(AlchemyPot*);
-void ResetDisplayState02155480(Obj02155480*);
+extern "C" void func_ov006_02155480(Obj02155480*);
 extern "C" int func_ov006_021570fc(AlchemyPot*, int);
 extern "C" void func_0204b088(void*, int);
-int GetInnerFlagBit0020e28dc(Outer020e28dc*);
-void SetEntryEnabled020e2cc4(Entry020e2cc4*, int);
-void SetYesNoButtonPalette020e2834(SelfState020e2834*);
-void CallFunc0204b088OverList0x2c(Cont0207fd88*);
+extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" void func_020e2cc4(Entry020e2cc4*, int);
+extern "C" void func_020e2834(SelfState020e2834*);
+extern "C" void func_0207fd88(Cont0207fd88*);
 
 struct AlchemyMenu {
     int textPosition_;
@@ -169,9 +169,9 @@ extern "C" ARM void func_ov006_02158478(AlchemyMenu* self)
         return;
     unsigned short* screen = (unsigned short*)GetSubBG0ScreenBase();
     memset(screen, 0, 0x800);
-    if (CheckElementFlag_02158080_02158080((Obj2081*)R(*(void**)((char*)self+0xc),self->menu_), 1))
+    if (func_ov006_02158080((Obj2081*)R(*(void**)((char*)self+0xc),self->menu_), 1))
     {
-        Canvas* canvas = FindElementByByte0xc4_02081da8((Obj2081*)R(*(void**)((char*)self+0xc),self->menu_), 1);
+        Canvas* canvas = func_02081da8((Obj2081*)R(*(void**)((char*)self+0xc),self->menu_), 1);
         if (canvas == 0)
             return;
         short x;
@@ -182,17 +182,17 @@ extern "C" ARM void func_ov006_02158478(AlchemyMenu* self)
         x = canvas->x_;
         y = canvas->y_;
         BackgroundGraphics background;
-        ResetList0204af64((List0204af64*)&background);
+        func_0204af64((List0204af64*)&background);
         background.unk_1c_0_ = 1;
         background.unk_1c_4_ = 0;
         *(unsigned short**)&background.unk_0[0x14] = screen;
-        DispatchViaTable0204b5e8((Obj0204b5e8*)&background, 0, 0);
-        CallFunc0204b620IfField0x14_0204b938(&background, layer, x, y, 0xffff);
+        func_0204b5e8((Obj0204b5e8*)&background, 0, 0);
+        func_0204b938(&background, layer, x, y, 0xffff);
     }
     func_ov006_02154fe4(R(*(AlchemyPot**)((char*)self+8),self->pot_));
     if (self->resetBlend_ != 0)
     {
-        ResetDisplayState02155480((Obj02155480*)R(*(AlchemyPot**)((char*)self+8),self->pot_));
+        func_ov006_02155480((Obj02155480*)R(*(AlchemyPot**)((char*)self+8),self->pot_));
         func_ov006_021570fc(R(*(AlchemyPot**)((char*)self+8),self->pot_), 1);
         self->resetBlend_ = 0;
     }
@@ -200,9 +200,9 @@ extern "C" ARM void func_ov006_02158478(AlchemyMenu* self)
     if (R(*(void**)((char*)self+0x10),self->choice_) != 0)
     {
         void* window = *(void**)((char*)R(*(void**)((char*)self+0x10),self->choice_) + 0x10);
-        SetEntryEnabled020e2cc4((Entry020e2cc4*)((char*)window + 0x28), GetInnerFlagBit0020e28dc((Outer020e28dc*)R(*(void**)((char*)self+0x10),self->choice_)));
-        SetYesNoButtonPalette020e2834((SelfState020e2834*)R(*(void**)((char*)self+0x10),self->choice_));
+        func_020e2cc4((Entry020e2cc4*)((char*)window + 0x28), func_020e28dc((Outer020e28dc*)R(*(void**)((char*)self+0x10),self->choice_)));
+        func_020e2834((SelfState020e2834*)R(*(void**)((char*)self+0x10),self->choice_));
     }
     if (R(*(void**)((char*)self+0xc),self->menu_) != 0)
-        CallFunc0204b088OverList0x2c((Cont0207fd88*)R(*(void**)((char*)self+0xc),self->menu_));
+        func_0207fd88((Cont0207fd88*)R(*(void**)((char*)self+0xc),self->menu_));
 }

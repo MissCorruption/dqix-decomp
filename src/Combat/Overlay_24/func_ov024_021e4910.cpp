@@ -16,8 +16,8 @@ struct StageParameters {
 };
 struct StatStageStruct02087860;
 struct StatStageStruct02087954;
-int CanAdjustStatStageBit3(StatStageStruct02087860*, unsigned char);
-int CanAdjustStatStageBit6(StatStageStruct02087954*, int);
+extern "C" int func_02087860(StatStageStruct02087860*, unsigned char);
+extern "C" int func_02087954(StatStageStruct02087954*, int);
 extern "C" int func_020878b4(ModifiableCombatStats*, int);
 extern "C" int func_020879a8(ModifiableCombatStats*, int);
 void UpdateCombatantDefense(int, int);
@@ -25,10 +25,10 @@ void UpdateCombatantAgility(int, int);
 extern "C" void* func_ov000_0215e958(void*);
 extern "C" int func_ov024_021e95d4(StageAction*, int, StageParameters*, unsigned char, signed char, unsigned char, unsigned char);
 extern "C" int func_ov024_021e96e4(StageAction*, int, StageParameters*, unsigned char, signed char, unsigned char, unsigned char);
-void AddEntryAndIncrementCount0215a88c(void*, void*, int);
+extern "C" void func_ov000_0215a88c(void*, void*, int);
 extern "C" void func_ov000_02159eac(void*, void*, int);
 extern "C" void func_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
-void AppendToChainAndIncCount0215ffc4(void*, void*, int);
+extern "C" void func_ov000_0215ffc4(void*, void*, int);
 
 // USA: func_ov024_021e4910
 extern "C" ARM unsigned long long func_ov024_021e4910(StageAction* action, int unused, short id, StageParameters* parameters) {
@@ -43,24 +43,24 @@ extern "C" ARM unsigned long long func_ov024_021e4910(StageAction* action, int u
     int result = 0;
     void* entry = func_ov000_0215e958(action->battle);
     if (!entry) return 0;
-    if (CanAdjustStatStageBit3((StatStageStruct02087860*)combatant->currentStats_, decrease)) {
+    if (func_02087860((StatStageStruct02087860*)combatant->currentStats_, decrease)) {
         result = func_020878b4(combatant->currentStats_, (signed char)delta);
         UpdateCombatantDefense((int)action->battle, id);
         defenseChanged = 1;
     }
     if (defenseChanged) {
         int code = func_ov024_021e95d4(action, id, parameters, (unsigned char)decrease, (signed char)result, 1, 1);
-        AddEntryAndIncrementCount0215a88c(action->battle, entry, code);
+        func_ov000_0215a88c(action->battle, entry, code);
     }
     int agilityChanged = 0;
-    if (CanAdjustStatStageBit6((StatStageStruct02087954*)combatant->currentStats_, decrease & 0xff)) {
+    if (func_02087954((StatStageStruct02087954*)combatant->currentStats_, decrease & 0xff)) {
         result = func_020879a8(combatant->currentStats_, (signed char)delta);
         UpdateCombatantAgility((int)action->battle, id);
         agilityChanged = 1;
     }
     if (agilityChanged) {
         int code = func_ov024_021e96e4(action, id, parameters, (unsigned char)decrease, (signed char)result, 1, 1);
-        AddEntryAndIncrementCount0215a88c(action->battle, entry, code);
+        func_ov000_0215a88c(action->battle, entry, code);
     }
     union { struct { int low; int high; }; unsigned long long value; } effects;
     effects.low = 0;
@@ -69,7 +69,7 @@ extern "C" ARM unsigned long long func_ov024_021e4910(StageAction* action, int u
         func_ov000_02159eac(action->battle, &effects, 0x1e);
         func_ov000_02159eac(action->battle, &effects, 0x1f);
         func_ov000_0215cd44(action->battle, entry, combatant, 0, 0, 0, 0);
-        AppendToChainAndIncCount0215ffc4(action->chain, entry, 1);
+        func_ov000_0215ffc4(action->chain, entry, 1);
         action->battle->entryCount++;
     }
     return effects.value;

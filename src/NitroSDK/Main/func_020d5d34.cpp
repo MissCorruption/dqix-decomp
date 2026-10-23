@@ -36,9 +36,9 @@ extern "C" int func_020d59bc(WMCallbackFunc callback, void* arg, const unsigned 
 extern "C" void func_020d6318(void* callback);
 extern "C" void func_020d63f0(void* callback);
 extern "C" void func_020d651c(void* callback);
-unsigned short GetBattleContextField0x150_020d46cc();
-unsigned short GetBattleContextField0x14cLow16_020d46fc();
-unsigned char PopCount32_020d1ae4(unsigned int x);
+extern "C" unsigned short func_020d46cc();
+extern "C" unsigned short func_020d46fc();
+extern "C" unsigned char func_020d1ae4(unsigned int x);
 
 // USA: func_020d5d34
 extern "C" ARM int func_020d5d34(WMDataSharingInfo* dsInfo, unsigned short port, unsigned short aidBitmap,
@@ -56,9 +56,9 @@ extern "C" ARM int func_020d5d34(WMDataSharingInfo* dsInfo, unsigned short port,
         return 6;
     if (aidBitmap == 0)
         return 6;
-    aid = GetBattleContextField0x150_020d46cc();
+    aid = func_020d46cc();
     if (aid == 0)
-        connectedAIDs = GetBattleContextField0x14cLow16_020d46fc();
+        connectedAIDs = func_020d46fc();
     func_020ca458(0, dsInfo, sizeof(WMDataSharingInfo));
     dsInfo->writeIndex = 0;
     dsInfo->sendIndex = 0;
@@ -70,7 +70,7 @@ extern "C" ARM int func_020d5d34(WMDataSharingInfo* dsInfo, unsigned short port,
     aidBitmap |= 1 << aid;
     dsInfo->aidBitmap = aidBitmap;
     {
-        const unsigned char stationNumber = PopCount32_020d1ae4(aidBitmap);
+        const unsigned char stationNumber = func_020d1ae4(aidBitmap);
         dsInfo->stationNumber = stationNumber;
         dsInfo->dataSetLength = dataLength * stationNumber;
     }

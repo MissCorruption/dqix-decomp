@@ -26,7 +26,7 @@ struct Window0204cb20 {
     unsigned char font;
 };
 extern "C" void __clear(void*, unsigned int);
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 #if defined(jpn)
 extern "C" void func_020474a8(void*, int, const char*, char*);
 extern "C" int func_0204e3e0(Window0204cb20*, char*, int, int, int);
@@ -38,7 +38,7 @@ extern "C" void func_0204cd60(Window0204cb20*, char*, int, int);
 #endif
 extern "C" void func_02050100(Window0204cb20*, int);
 typedef void (*WindowUpload0204cb20)(void*, int, unsigned int);
-WindowUpload0204cb20 GetTableEntry0204a5e4(int, int);
+extern "C" WindowUpload0204cb20 func_0204a5e4(int, int);
 
 // USA: func_0204cb20
 #if defined(jpn)
@@ -60,7 +60,7 @@ extern "C" ARM void func_0204cb20(Window0204cb20* self, const char* text, short 
         lineHeight = self->lineHeight;
         bufferSize = self->bufferSize;
         __clear(formatted, sizeof(formatted));
-        func_020474a8(GetGlobalField0x1c020421a0(), self->font, text, formatted);
+        func_020474a8(func_020421a0(), self->font, text, formatted);
         int border = func_0204e3e0(self, formatted, 0, 0, mode);
         self->width = width;
         self->height = height;
@@ -73,7 +73,7 @@ extern "C" ARM void func_0204cb20(Window0204cb20* self, const char* text, short 
         func_02050100(self, 0);
         int high = self->reference->GetHigh();
         int low = self->reference->low;
-        WindowUpload0204cb20 upload = GetTableEntry0204a5e4(low, high);
+        WindowUpload0204cb20 upload = func_0204a5e4(low, high);
         CleanInvalidateCacheRange(self->buffer, self->bufferSize);
         upload(self->buffer, self->offset, self->bufferSize);
     }
@@ -100,7 +100,7 @@ extern "C" ARM void func_0204cb20(Window0204cb20* self, const char* text, int mo
         lineHeight = self->lineHeight;
         bufferSize = self->bufferSize;
         __clear(formatted, sizeof(formatted));
-        func_02046608(GetGlobalField0x1c020421a0(), self->font, text, formatted, limit, x, font);
+        func_02046608(func_020421a0(), self->font, text, formatted, limit, x, font);
         int border = func_0204e3e0(self, formatted, 0, 0, mode, font);
         self->width = width;
         self->height = height;
@@ -113,7 +113,7 @@ extern "C" ARM void func_0204cb20(Window0204cb20* self, const char* text, int mo
         func_02050100(self, 0);
         int high = self->reference->GetHigh();
         int low = self->reference->low;
-        WindowUpload0204cb20 upload = GetTableEntry0204a5e4(low, high);
+        WindowUpload0204cb20 upload = func_0204a5e4(low, high);
         CleanInvalidateCacheRange(self->buffer, self->bufferSize);
         upload(self->buffer, self->offset, self->bufferSize);
     }

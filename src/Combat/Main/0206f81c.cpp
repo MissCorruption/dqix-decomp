@@ -31,24 +31,24 @@ extern "C" void* func_ov017_021baedc(void* self, int flag);
 
 struct TailNode020469b4;
 struct TailList020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 struct SetFlagStruct;
-void SetFlag0x9c6_020213fc(struct SetFlagStruct* p, int value);
-void InitContext020e1154(void* obj);
+extern "C" void func_020213fc(struct SetFlagStruct* p, int value);
+extern "C" void func_020e1154(void* obj);
 
-void* GetField0x3f8Address_0200fd0c(GameState*);
-void InitStruct02070378(char* obj);
+extern "C" void* func_0200fd0c(GameState*);
+extern "C" void func_02070378(char* obj);
 
-void* GetGlobalPtr021075f4_0203cf4c(void);
-void* FindEntryPointerByKey0203df78(void* base, int key);
-int GetField0x8_02040528(int* obj);
+extern "C" void* func_0203cf4c(void);
+extern "C" void* func_0203df78(void* base, int key);
+extern "C" int func_02040528(int* obj);
 
 extern "C" void func_ov017_021b8d80(void*);
 extern "C" void func_ov017_021b8d1c(void* obj);
 
-int GetFieldIfFlag4_020100f8(char* obj);
-void ClearIntAt0x23c_020a27b8(unsigned char* obj);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a27b8(unsigned char* obj);
 
 struct Vector3i;
 
@@ -58,57 +58,57 @@ extern "C" int func_0202c540(void* p);
 extern "C" void func_ov017_021b7104(void* node, void* out);
 
 struct GameState;
-void* ZeroInitReturn020de824(void* obj);
-void ZeroInit020de848(void* obj);
+extern "C" void* func_020de824(void* obj);
+extern "C" void func_020de848(void* obj);
 extern char* data_020f2a38;
 extern char* data_020f2a30;
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-int BuildDescriptorFlag1_020de980(void* a, void* b, void* c, int d, int e);
-void InitStruct0207cbe8(char* obj);
+extern "C" int func_020de980(void* a, void* b, void* c, int d, int e);
+extern "C" void func_0207cbe8(char* obj);
 extern "C" void func_0207d300(void* obj, short id, int a, int b);
 
-int DecrementKeyEverywhere02086d88(unsigned char* self, int key);
-unsigned char CopyOutRegion0x5718_02011494(char* obj, void* dst);
+extern "C" int func_02086d88(unsigned char* self, int key);
+extern "C" unsigned char func_02011494(char* obj, void* dst);
 struct CombatantStruct;
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* obj);
 struct Container02083554;
-void* FindEntryByShortField02083554(struct Container02083554* c, int id);
+extern "C" void* func_02083554(struct Container02083554* c, int id);
 extern "C" void func_02083738(void* obj, int bits);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 extern "C" void func_ov017_021c3fb4(int combatantId, int flag);
 extern "C" void func_ov017_021c4418(int combatantId, signed char flag10);
 extern "C" void func_ov017_0218f5a4(void* a, int i, int b, int c, int d);
 
 struct Ctx021a3498;
-void ClearIfMatchAndFinalize_021a3498(struct Ctx021a3498* self);
+extern "C" void func_ov017_021a3498(struct Ctx021a3498* self);
 struct HeadNode02046b24;
-int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
+extern "C" int func_02046b24(struct HeadNode02046b24** obj);
 
 extern "C" void* func_02012fe4(void);
 extern "C" void func_0206461c(void* a, int b);
-int GetField0x3acValue_020100a8(GameState*);
+extern "C" int func_020100a8(GameState*);
 
-void InitByteHeader_021c16a8(unsigned char* self);
+extern "C" void func_ov017_021c16a8(unsigned char* self);
 
 extern "C" void func_ov017_021b65e0(void* obj, int arg1);
 
 struct S021b2ba0;
-void InitObjState_021b2174(unsigned char* obj);
-void SetNameChecked_021b2ba0(S021b2ba0* obj, char* src);
-void SetFields30And34_021b2bd0(void* obj, int a, int b);
+extern "C" void func_ov017_021b2174(unsigned char* obj);
+extern "C" void func_ov017_021b2ba0(S021b2ba0* obj, char* src);
+extern "C" void func_ov017_021b2bd0(void* obj, int a, int b);
 struct S021b2bf4;
-void SetBit4_021b2bf4(S021b2bf4* obj, unsigned int v);
+extern "C" void func_ov017_021b2bf4(S021b2bf4* obj, unsigned int v);
 struct S021b2c0c;
-void SetBit5_021b2c0c(S021b2c0c* obj, unsigned int v);
+extern "C" void func_ov017_021b2c0c(S021b2c0c* obj, unsigned int v);
 struct S021b2bdc;
-void SetBit3_021b2bdc(S021b2bdc* obj, unsigned int v);
+extern "C" void func_ov017_021b2bdc(S021b2bdc* obj, unsigned int v);
 struct HeadList020469f8;
 struct HeadNode020469f8;
-void PrependNodeToHead(struct HeadList020469f8* list, struct HeadNode020469f8* node);
+extern "C" void func_020469f8(struct HeadList020469f8* list, struct HeadNode020469f8* node);
 
-void InitAndRegister_0215e25c(void*, void*);
+extern "C" void func_ov004_0215e25c(void*, void*);
 extern "C" void func_ov004_02168684();
-void AllocateAndCopyBuf20_021689d8(SafeAllocator*, void*);
+extern "C" void func_ov004_021689d8(SafeAllocator*, void*);
 extern char data_020f0b40[];
 extern char data_020f0b4c[];
 extern char data_020f0b56[];
@@ -215,15 +215,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
                 struct TailNode020469b4* node7 = *(struct TailNode020469b4**)((char*)g + 0x3000 + REGION_VALUE(0x524, 0x734));
                 func_ov017_021baedc(node7, 1);
                 *(unsigned short*)((char*)node7 + 8) = *(unsigned short*)(node + 2);
-                AppendNodeToTail(tailList, node7);
-                SetFlag0x9c6_020213fc(*(struct SetFlagStruct**)((char*)g + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
-                InitContext020e1154((void*)0x1f4);
+                func_020469b4(tailList, node7);
+                func_020213fc(*(struct SetFlagStruct**)((char*)g + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), 1);
+                func_020e1154((void*)0x1f4);
                 break;
             }
 
             case 0x85: case 0x8a: case 0xe2: {
-                unsigned char* f3f8 = (unsigned char*)GetField0x3f8Address_0200fd0c((GameState*)battle);
-                InitStruct02070378((char*)f3f8);
+                unsigned char* f3f8 = (unsigned char*)func_0200fd0c((GameState*)battle);
+                func_02070378((char*)f3f8);
                 f3f8[2] = 1;
                 *(unsigned short*)(f3f8 + 0) = *(unsigned short*)(node + 2);
                 *(unsigned int*)(f3f8 + 0x20) = *(unsigned short*)(node + 4);
@@ -231,15 +231,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
                 if (*(unsigned short*)(node + 0) == 0xe2) f3f8[0xc] = 1;
                 if (*((unsigned char*)battle + 0x5000 + REGION_VALUE(0xa4c, 0xcac)) != 0) f3f8[0x60] = 1;
                 slFlag = 1;
-                SetFlag0x9c6_020213fc(*(struct SetFlagStruct**)((char*)g + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), slFlag);
+                func_020213fc(*(struct SetFlagStruct**)((char*)g + 0x3000 + REGION_VALUE(0x4c0, 0x6d0)), slFlag);
                 break;
             }
 
             case 0x76: {
-                void* entry = FindEntryPointerByKey0203df78(GetGlobalPtr021075f4_0203cf4c(), *(unsigned short*)(node + 2));
+                void* entry = func_0203df78(func_0203cf4c(), *(unsigned short*)(node + 2));
                 int sb = 0;
                 if (entry != NULL) {
-                    sb = GetField0x8_02040528((int*)entry);
+                    sb = func_02040528((int*)entry);
                 }
                 if (sb != 0) {
                     unsigned char r7flag;
@@ -254,18 +254,18 @@ extern "C" ARM void func_0206f81c(void* a0) {
                     *(int*)(r8 + 0x114) = sb;
                     *(int*)(r8 + 0x124) = *(unsigned short*)(node + 4);
                     *(unsigned char*)(r8 + 0x139) = (r7flag != 0) ? 1 : 0;
-                    AppendNodeToTail(tailList, (struct TailNode020469b4*)r8);
-                    int flag4 = GetFieldIfFlag4_020100f8((char*)battle);
+                    func_020469b4(tailList, (struct TailNode020469b4*)r8);
+                    int flag4 = func_020100f8((char*)battle);
                     if (flag4 != 0) {
-                        ClearIntAt0x23c_020a27b8((unsigned char*)flag4);
+                        func_020a27b8((unsigned char*)flag4);
                     }
                 }
                 break;
             }
 
             case 0x79: case 0x89: case 0xe1: {
-                unsigned char* f3f8 = (unsigned char*)GetField0x3f8Address_0200fd0c((GameState*)battle);
-                InitStruct02070378((char*)f3f8);
+                unsigned char* f3f8 = (unsigned char*)func_0200fd0c((GameState*)battle);
+                func_02070378((char*)f3f8);
                 f3f8[2] = 1;
                 *(unsigned short*)(f3f8 + 0) = *(unsigned short*)(node + 2);
                 f3f8[0xc] = 1;
@@ -308,7 +308,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
                 desc.f12 = 2;
                 desc.f8 = -1;
 
-                desc.f1 = GetField0x3acValue_020100a8((GameState*)battle);
+                desc.f1 = func_020100a8((GameState*)battle);
                 desc.f4 = *(unsigned short*)(node + 2) + 5 + 0x8000;
                 desc.f2 = 0xffff;
                 desc.f8 = *(unsigned short*)(node + 2);
@@ -321,12 +321,12 @@ extern "C" ARM void func_0206f81c(void* a0) {
                     }
                 }
                 func_ov017_021b7104(r8, &desc);
-                AppendNodeToTail(r7list, (struct TailNode020469b4*)r8);
+                func_020469b4(r7list, (struct TailNode020469b4*)r8);
                 break;
             }
 
             case 0x7c: {
-                void* e = FindEntryPointerByKey0203df78(GetGlobalPtr021075f4_0203cf4c(), *(unsigned short*)(node + 2));
+                void* e = func_0203df78(func_0203cf4c(), *(unsigned short*)(node + 2));
                 if (e != NULL) {
                     *(int*)e |= 0x8000;
                 }
@@ -334,15 +334,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
             }
 
             case 0x72: case 0x74: {
-                if (GetPtrField0x2a04_02010828((GameState*)battle) != NULL) {
+                if (func_02010828((GameState*)battle) != NULL) {
                     unsigned char eventBuf[0x18];
 #if defined(jpn)
                     SafeAllocator* r7base = ((AllocHolder0206f81c*)g)->GetAllocator(1);
 #else
                     void* r7base = ((AllocHolder0206f81c*)g)->GetAllocator(1);
 #endif
-                    ZeroInitReturn020de824(eventBuf);
-                    ZeroInit020de848(eventBuf);
+                    func_020de824(eventBuf);
+                    func_020de848(eventBuf);
 #if defined(jpn)
                     func_020e04f8(eventBuf, (void*)r7base, data_020f2a38, *(short*)(node + 2), true);
 #else
@@ -350,15 +350,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
                     unsigned int outSize = 0;
                     void* loaded = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &outSize);
                     if (loaded != NULL) {
-                        BuildDescriptorFlag1_020de980(eventBuf, r7base, loaded, outSize, (int)(*(short*)(node + 2)));
+                        func_020de980(eventBuf, r7base, loaded, outSize, (int)(*(short*)(node + 2)));
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif
                     SelfBuf0206f81c selfBuf;
                     selfBuf.alloc.ResetAllocatorPointer();
-                    ZeroInitReturn020de824(selfBuf.sub14);
-                    InitStruct0207cbe8((char*)&selfBuf);
-                    InitStruct0207cbe8((char*)&selfBuf);
+                    func_020de824(selfBuf.sub14);
+                    func_0207cbe8((char*)&selfBuf);
+                    func_0207cbe8((char*)&selfBuf);
                     selfBuf.eventPtr = eventBuf;
                     func_0207d300(&selfBuf, *(short*)(node + 2), (signed char)*(unsigned short*)(node + 4), 0);
                 }
@@ -366,24 +366,24 @@ extern "C" ARM void func_0206f81c(void* a0) {
             }
 
             case 0x73: case 0x75: {
-                void* p2a04 = GetPtrField0x2a04_02010828((GameState*)battle);
+                void* p2a04 = func_02010828((GameState*)battle);
                 if (p2a04 != NULL) {
                     int matchCount = 0;
                     for (int total = 0; total < *(unsigned short*)(node + 4); total++) {
-                        if (DecrementKeyEverywhere02086d88((unsigned char*)p2a04, *(short*)(node + 2)) != 0) matchCount++;
+                        if (func_02086d88((unsigned char*)p2a04, *(short*)(node + 2)) != 0) matchCount++;
                     }
                     if (matchCount < *(unsigned short*)(node + 4)) {
                         battle2 = (BattleStruct*)GameState::GetInstance();
                         unsigned char buf40[4];
                         int idArr[4];
                         int arrCount = 0;
-                        unsigned char count = CopyOutRegion0x5718_02011494((char*)battle2, buf40);
+                        unsigned char count = func_02011494((char*)battle2, buf40);
                         for (int i = 0; i < count; i++) {
-                            struct CombatantStruct* combatant = (CombatantStruct*)GetCombatantWithFlag0x100_0200ff1c((GameState*)battle2, buf40[i]);
+                            struct CombatantStruct* combatant = (CombatantStruct*)func_0200ff1c((GameState*)battle2, buf40[i]);
                             if (combatant != NULL) {
-                                int field150 = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+                                int field150 = func_02053c6c((unsigned char*)combatant);
                                 if (field150 != 0) {
-                                    struct Entry02083554* entry = (struct Entry02083554*)FindEntryByShortField02083554((struct Container02083554*)field150, *(unsigned short*)(node + 2));
+                                    struct Entry02083554* entry = (struct Entry02083554*)func_02083554((struct Container02083554*)field150, *(unsigned short*)(node + 2));
                                     if (entry != NULL) {
                                         func_02083738((void*)field150, entry->kind);
                                         idArr[arrCount] = buf40[i];
@@ -396,7 +396,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
                         }
                         int flag10 = -1;
                         for (int j = 0; j < arrCount; j++) {
-                            if (CheckField0NonZero_0202b7d8((int*)func_0202ae18())) {
+                            if (func_0202b7d8((int*)func_0202ae18())) {
                                 int cid = idArr[j];
                                 func_ov017_021c3fb4(cid, 1);
                                 func_ov017_021c4418(cid, flag10);
@@ -406,11 +406,11 @@ extern "C" ARM void func_0206f81c(void* a0) {
                             void* field704 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                             inst = BackgroundLoader::GetInstance();
                             func_ov017_0218f5a4(g2, idArr[j], 1, 0, 0);
-                            while (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)field700) == 0x13) {
+                            while (func_02046b24((struct HeadNode02046b24**)field700) == 0x13) {
                                 inst->RemoveAllLocks();
-                                ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)field700);
-                                if (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)field704) == 0x14) {
-                                    ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)field704);
+                                func_ov017_021a3498((struct Ctx021a3498*)field700);
+                                if (func_02046b24((struct HeadNode02046b24**)field704) == 0x14) {
+                                    func_ov017_021a3498((struct Ctx021a3498*)field704);
                                 }
                             }
                         }
@@ -421,23 +421,23 @@ extern "C" ARM void func_0206f81c(void* a0) {
 
             case 0x9c: case 0x9d: {
                 if (type == 0x9c) {
-                    void* p2a04 = GetPtrField0x2a04_02010828((GameState*)battle);
+                    void* p2a04 = func_02010828((GameState*)battle);
                     if (p2a04 == NULL) break;
                     int found = 0;
-                    if (DecrementKeyEverywhere02086d88((unsigned char*)p2a04, *(short*)(node + 4)) != 0) found = 1;
+                    if (func_02086d88((unsigned char*)p2a04, *(short*)(node + 4)) != 0) found = 1;
                     if (found == 0) {
                         unsigned char buf3c[4];
-                        unsigned char count = CopyOutRegion0x5718_02011494((char*)battle, buf3c);
+                        unsigned char count = func_02011494((char*)battle, buf3c);
                         for (int i = 0; i < count; i++) {
                             int cid = buf3c[i];
-                            struct CombatantStruct* c = (CombatantStruct*)GetCombatantWithFlag0x100_0200ff1c((GameState*)battle, cid);
+                            struct CombatantStruct* c = (CombatantStruct*)func_0200ff1c((GameState*)battle, cid);
                             if (c != NULL) {
-                                int field150 = GetFieldAt0x150_02053c6c((unsigned char*)c);
+                                int field150 = func_02053c6c((unsigned char*)c);
                                 if (field150 != 0) {
-                                    struct Entry02083554* entry = (struct Entry02083554*)FindEntryByShortField02083554((struct Container02083554*)field150, *(short*)(node + 4));
+                                    struct Entry02083554* entry = (struct Entry02083554*)func_02083554((struct Container02083554*)field150, *(short*)(node + 4));
                                     if (entry != NULL) {
                                         func_02083738((void*)field150, entry->kind);
-                                        if (CheckField0NonZero_0202b7d8((int*)func_0202ae18())) {
+                                        if (func_0202b7d8((int*)func_0202ae18())) {
                                             func_ov017_021c3fb4(cid, 1);
                                             func_ov017_021c4418(cid, -1);
                                         }
@@ -446,11 +446,11 @@ extern "C" ARM void func_0206f81c(void* a0) {
                                         void* field704 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                                         BackgroundLoader* inst = BackgroundLoader::GetInstance();
                                         func_ov017_0218f5a4(g2, cid, 1, 0, 0);
-                                        while (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)field700) == 0x13) {
+                                        while (func_02046b24((struct HeadNode02046b24**)field700) == 0x13) {
                                             inst->RemoveAllLocks();
-                                            ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)field700);
-                                            if (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)field704) == 0x14) {
-                                                ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)field704);
+                                            func_ov017_021a3498((struct Ctx021a3498*)field700);
+                                            if (func_02046b24((struct HeadNode02046b24**)field704) == 0x14) {
+                                                func_ov017_021a3498((struct Ctx021a3498*)field704);
                                             }
                                         }
                                         break;
@@ -460,15 +460,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
                         }
                     }
                 }
-                if (GetPtrField0x2a04_02010828((GameState*)battle) != NULL) {
+                if (func_02010828((GameState*)battle) != NULL) {
                     unsigned char eventBuf2[0x18];
 #if defined(jpn)
                     SafeAllocator* r7base2 = ((AllocHolder0206f81c*)g)->GetAllocator(1);
 #else
                     void* r7base2 = ((AllocHolder0206f81c*)g)->GetAllocator(1);
 #endif
-                    ZeroInitReturn020de824(eventBuf2);
-                    ZeroInit020de848(eventBuf2);
+                    func_020de824(eventBuf2);
+                    func_020de848(eventBuf2);
 #if defined(jpn)
                     func_020e04f8(eventBuf2, (void*)r7base2, data_020f2a38, *(short*)(node + 6), true);
 #else
@@ -476,15 +476,15 @@ extern "C" ARM void func_0206f81c(void* a0) {
                     unsigned int outSize2 = 0;
                     void* loaded2 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &outSize2);
                     if (loaded2 != NULL) {
-                        BuildDescriptorFlag1_020de980(eventBuf2, r7base2, loaded2, outSize2, (int)(*(short*)(node + 6)));
+                        func_020de980(eventBuf2, r7base2, loaded2, outSize2, (int)(*(short*)(node + 6)));
                     }
                     BackgroundLoader::RemoveLockGlobal();
 #endif
                     SelfBuf0206f81c selfBuf2;
                     selfBuf2.alloc.ResetAllocatorPointer();
-                    ZeroInitReturn020de824(selfBuf2.sub14);
-                    InitStruct0207cbe8((char*)&selfBuf2);
-                    InitStruct0207cbe8((char*)&selfBuf2);
+                    func_020de824(selfBuf2.sub14);
+                    func_0207cbe8((char*)&selfBuf2);
+                    func_0207cbe8((char*)&selfBuf2);
                     selfBuf2.eventPtr = eventBuf2;
                     func_0207d300(&selfBuf2, *(short*)(node + 6), 1, 0);
                 }
@@ -508,31 +508,31 @@ extern "C" ARM void func_0206f81c(void* a0) {
                     ((struct FlagsRoot0206f81c*)((char*)battle + REGION_VALUE(0xc, 0x26c)))->flags.low |= 0x20;
                 case 5: {
                     unsigned char* r8node = *(unsigned char**)((char*)g2 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    InitObjState_021b2174(r8node);
-                    SetNameChecked_021b2ba0((S021b2ba0*)r8node, data_020f0b40);
-                    SetFields30And34_021b2bd0(r8node, (int)InitAndRegister_0215e25c, OVERLAY_ID(4));
-                    PrependNodeToHead(subTail, (struct HeadNode020469f8*)r8node);
+                    func_ov017_021b2174(r8node);
+                    func_ov017_021b2ba0((S021b2ba0*)r8node, data_020f0b40);
+                    func_ov017_021b2bd0(r8node, (int)func_ov004_0215e25c, OVERLAY_ID(4));
+                    func_020469f8(subTail, (struct HeadNode020469f8*)r8node);
                     break;
                 }
                 case 7: {
                     unsigned char* r8node = *(unsigned char**)((char*)g2 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    InitObjState_021b2174(r8node);
-                    SetBit4_021b2bf4((S021b2bf4*)r8node, 1);
-                    SetBit5_021b2c0c((S021b2c0c*)r8node, 1);
-                    SetNameChecked_021b2ba0((S021b2ba0*)r8node, data_020f0b4c);
-                    SetFields30And34_021b2bd0(r8node, (int)func_ov004_02168684, OVERLAY_ID(4));
-                    PrependNodeToHead(subTail, (struct HeadNode020469f8*)r8node);
+                    func_ov017_021b2174(r8node);
+                    func_ov017_021b2bf4((S021b2bf4*)r8node, 1);
+                    func_ov017_021b2c0c((S021b2c0c*)r8node, 1);
+                    func_ov017_021b2ba0((S021b2ba0*)r8node, data_020f0b4c);
+                    func_ov017_021b2bd0(r8node, (int)func_ov004_02168684, OVERLAY_ID(4));
+                    func_020469f8(subTail, (struct HeadNode020469f8*)r8node);
                     break;
                 }
                 case 8: {
                     unsigned char* r8node = *(unsigned char**)((char*)g2 + 0x3000 + REGION_VALUE(0x92c, 0xb4c));
-                    InitObjState_021b2174(r8node);
-                    SetBit4_021b2bf4((S021b2bf4*)r8node, 1);
-                    SetBit5_021b2c0c((S021b2c0c*)r8node, 1);
-                    SetBit3_021b2bdc((S021b2bdc*)r8node, 0);
-                    SetNameChecked_021b2ba0((S021b2ba0*)r8node, data_020f0b56);
-                    SetFields30And34_021b2bd0(r8node, (int)AllocateAndCopyBuf20_021689d8, OVERLAY_ID(4));
-                    PrependNodeToHead(subTail, (struct HeadNode020469f8*)r8node);
+                    func_ov017_021b2174(r8node);
+                    func_ov017_021b2bf4((S021b2bf4*)r8node, 1);
+                    func_ov017_021b2c0c((S021b2c0c*)r8node, 1);
+                    func_ov017_021b2bdc((S021b2bdc*)r8node, 0);
+                    func_ov017_021b2ba0((S021b2ba0*)r8node, data_020f0b56);
+                    func_ov017_021b2bd0(r8node, (int)func_ov004_021689d8, OVERLAY_ID(4));
+                    func_020469f8(subTail, (struct HeadNode020469f8*)r8node);
                     break;
                 }
                 }
@@ -544,12 +544,12 @@ extern "C" ARM void func_0206f81c(void* a0) {
         }
 
         if (flag18 != 0 && slFlag != 0) {
-            unsigned char* f3f8 = (unsigned char*)GetField0x3f8Address_0200fd0c((GameState*)battle);
+            unsigned char* f3f8 = (unsigned char*)func_0200fd0c((GameState*)battle);
             f3f8[7] = 1;
             *(Vector3i*)(f3f8 + 0x10) = *(Vector3i const*)vec;
         }
         if (flag14 != 0 && slFlag != 0) {
-            unsigned char* f3f8 = (unsigned char*)GetField0x3f8Address_0200fd0c((GameState*)battle);
+            unsigned char* f3f8 = (unsigned char*)func_0200fd0c((GameState*)battle);
             f3f8[7] = 1;
             *(short*)(f3f8 + 0x1c) = val10;
         }
@@ -562,8 +562,8 @@ extern "C" ARM void func_0206f81c(void* a0) {
         if (val1c != 0) {
             unsigned char* r4c = *(unsigned char**)((char*)g + 0x3000 + REGION_VALUE(0x938, 0xb58));
             if (r4c[2] == 0) {
-                InitByteHeader_021c16a8(r4c);
-                AppendNodeToTail(tailList, (struct TailNode020469b4*)r4c);
+                func_ov017_021c16a8(r4c);
+                func_020469b4(tailList, (struct TailNode020469b4*)r4c);
             }
         }
     }

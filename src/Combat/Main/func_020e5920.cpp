@@ -7,8 +7,8 @@ extern float data_020f33b4[6];
 extern char data_020f33d8[];
 extern char data_020f33cc[];
 
-void ClearSubMemberAndReset_02012200(char*);
-void ResetAndFinalizeSubMember_02012224(char*);
+extern "C" void func_02012200(char*);
+extern "C" void func_02012224(char*);
 extern "C" void __register_global_object(void* obj, void* func, void* node);
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
@@ -43,6 +43,6 @@ extern "C" __declspec(initcode) ARM void __sinit_020e5920(void) {
     t = t + a;
     data_020f33b4[2] = t;
 #endif
-    ClearSubMemberAndReset_02012200((char*)&data_020f33d8);
-    __register_global_object((void*)&data_020f33d8, (void*)ResetAndFinalizeSubMember_02012224, (void*)&data_020f33cc);
+    func_02012200((char*)&data_020f33d8);
+    __register_global_object((void*)&data_020f33d8, (void*)func_02012224, (void*)&data_020f33cc);
 }

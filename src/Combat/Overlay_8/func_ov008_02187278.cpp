@@ -103,11 +103,11 @@ struct BattleRecords {
 
 struct Container020e0310;
 
-void* GetGlobalField0x1c020421a0();
-void AppendPaletteTag_02041e70(char* text, int color);
-void AppendYTag_02041a5c(char* text, int y);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void AppendString02042058(char* text, const char* append);
+extern "C" void* func_020421a0();
+extern "C" void func_02041e70(char* text, int color);
+extern "C" void func_02041a5c(char* text, int y);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_02042058(char* text, const char* append);
 
 extern "C" {
 void __clear(void* buffer, unsigned long size);
@@ -117,9 +117,9 @@ int sprintf(char* buffer, const char* format, ...);
 #if defined(jpn)
 struct StoreStruct;
 extern "C" void func_02046380(void*);
-void StoreInArray0x8b0_020465c0(StoreStruct*, int, int);
-void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
-void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
+extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_020474a8(void*, int, const char*, char*);
 #endif
 
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov008_02187278(BattleRecords* self, char* text, int ind
         return;
     BattleRecordPlayClock* time = NULL;
     BattleRecordPlayClock guestTime;
-    ClearShortByteByte_02184598(&guestTime);
+    func_ov008_02184598(&guestTime);
     if (index == 0)
     {
         GuestRecords* guest = self->guestRecords_;
@@ -165,28 +165,28 @@ extern "C" ARM void func_ov008_02187278(BattleRecords* self, char* text, int ind
         return;
     GameState::GetInstance();
 #if defined(jpn)
-    void* messages = GetGlobalField0x1c020421a0();
+    void* messages = func_020421a0();
     char buffer[0x40];
     __clear(buffer, sizeof(buffer));
     func_02046380(messages);
-    StoreInArray0x8b0_020465c0((StoreStruct*)messages, 0, time->hours);
-    SetByteInRange_020465f0((unsigned char*)messages, 0, 4);
-    SetByteAtIndex_020465d8((unsigned char*)messages, 0, 1);
-    StoreInArray0x8b0_020465c0((StoreStruct*)messages, 1, time->minutes);
-    SetByteInRange_020465f0((unsigned char*)messages, 1, 2);
-    SetByteAtIndex_020465d8((unsigned char*)messages, 1, 1);
-    func_020474a8(messages, 10, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 0x6e), buffer);
-    AppendPaletteTag_02041e70(text, 0xe);
-    AppendString02042058(text, buffer);
+    func_020465c0((StoreStruct*)messages, 0, time->hours);
+    func_020465f0((unsigned char*)messages, 0, 4);
+    func_020465d8((unsigned char*)messages, 0, 1);
+    func_020465c0((StoreStruct*)messages, 1, time->minutes);
+    func_020465f0((unsigned char*)messages, 1, 2);
+    func_020465d8((unsigned char*)messages, 1, 1);
+    func_020474a8(messages, 10, func_020e0434((Container020e0310*)&self->texts_, 0x6e), buffer);
+    func_02041e70(text, 0xe);
+    func_02042058(text, buffer);
 #else
-    GetGlobalField0x1c020421a0();
-    AppendPaletteTag_02041e70(text, 0xe);
-    AppendYTag_02041a5c(text, 2);
+    func_020421a0();
+    func_02041e70(text, 0xe);
+    func_02041a5c(text, 2);
     char buffer[0x40];
     __clear(buffer, sizeof(buffer));
-    const char* format = GetFieldByKey020e0434((Container020e0310*)&self->texts_, 0x6e);
+    const char* format = func_020e0434((Container020e0310*)&self->texts_, 0x6e);
     if (format != NULL)
         sprintf(buffer, format, time->hours, time->minutes);
-    AppendString02042058(text, buffer);
+    func_02042058(text, buffer);
 #endif
 }

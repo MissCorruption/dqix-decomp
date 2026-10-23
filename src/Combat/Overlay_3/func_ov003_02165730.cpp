@@ -20,12 +20,12 @@ struct Global02109030 {
     unsigned char flag3c9 : 1;
 };
 
-void* GetDataPtr02114e04_020d6c00(void);
-Global02109030* GetGlobal02109030_020936f8(void);
-int GetGlobalField0x1c020421a0(void);
-void ReinitController02043204(char* obj);
-int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
-void ResetSelectionState020e25e8(struct Obj020e25e8* obj);
+extern "C" void* func_020d6c00(void);
+extern "C" Global02109030* func_020936f8(void);
+extern "C" int func_020421a0(void);
+extern "C" void func_02043204(char* obj);
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" void func_020e25e8(struct Obj020e25e8* obj);
 
 struct PartyList2a04 {
     unsigned char pad_0x0[0xf78];
@@ -50,18 +50,18 @@ struct BattleView02165730 {
 // USA: func_ov003_02165730
 extern "C" ARM void func_ov003_02165730(BattleView02165730* view) {
     GameResources* resources = GetGameResources();
-    void* flagData = GetDataPtr02114e04_020d6c00();
+    void* flagData = func_020d6c00();
 
     if (view->step == 0) {
-        GetGlobal02109030_020936f8()->flag3c9 = 1;
-        ReinitController02043204((char*)GetGlobalField0x1c020421a0());
+        func_020936f8()->flag3c9 = 1;
+        func_02043204((char*)func_020421a0());
         view->field_0x484 = view->field_0x486 = -1;
         view->field_0x4a5 = 0;
 
         GameState* gs = GameState::GetInstance();
-        PartyList2a04* party = (PartyList2a04*)GetPtrField0x2a04_02010828(gs);
+        PartyList2a04* party = (PartyList2a04*)func_02010828(gs);
         for (int i = 0; i < party->count; i++) {
-            GameObject* member = GetCombatantWithFlag0x100_0200ff1c(gs, party->members[i]);
+            GameObject* member = func_0200ff1c(gs, party->members[i]);
             if (member != NULL) {
                 member->obj3D_.MakeVisible();
             }
@@ -71,15 +71,15 @@ extern "C" ARM void func_ov003_02165730(BattleView02165730* view) {
         UnlockAndSetBrightness(resources, 0, 0xf);
         view->step = 1;
         if (view->selection == NULL) return;
-        ResetSelectionState020e25e8(view->selection);
+        func_020e25e8(view->selection);
     } else if (view->step == 1) {
         if (IsBrightnessTransitionActive(resources) != 0) return;
-        if (TestFlags02046708((struct FlagWord02046708*)flagData, 0x41) != 0) {
+        if (func_02046708((struct FlagWord02046708*)flagData, 0x41) != 0) {
             view->flags |= 0x800;
         }
         view->step = 2;
     } else if (view->step == 2) {
-        ReinitController02043204((char*)GetGlobalField0x1c020421a0());
+        func_02043204((char*)func_020421a0());
         view->field_0x484 = view->field_0x486 = -1;
         view->field_0x4a5 = 0;
         view->state = 0x10;

@@ -8,16 +8,16 @@ extern "C" void func_ov017_021d6134(void* obj, int flag);
 
 struct ListHead02046b38;
 struct ListNode02046b38;
-int ListContainsNode(struct ListHead02046b38* list, struct ListNode02046b38* target);
-bool IsInRange0201b588(int id);
-int LoadBattleBlock020ac4c0(void* dst);
+extern "C" int func_02046b38(struct ListHead02046b38* list, struct ListNode02046b38* target);
+extern "C" bool func_0201b588(int id);
+extern "C" int func_020ac4c0(void* dst);
 
 struct BlockWord021eaf50 {
     unsigned int fieldA : 7;
     unsigned int fieldB : 7;
 };
 
-// USA: func_ov023_021eaf50  (semantic: ApplyBattleBlockFieldBIfEligible_021eaf50)
+// USA: func_ov023_021eaf50
 extern "C" ARM int func_ov023_021eaf50(void* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x4ec, regionalOffset1=0x508, regionalOffset2=0x240c};
@@ -31,16 +31,16 @@ extern "C" ARM int func_ov023_021eaf50(void* obj) {
     struct ListNode02046b38* node = *(struct ListNode02046b38**)(base + regionalOffset1);
     void* headerObj = func_ov017_021b8478(node);
 
-    if (ListContainsNode(list, node) != 0) {
+    if (func_02046b38(list, node) != 0) {
         void* zone = func_02012fe4();
         ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)zone + regionalOffset2);
         DetailedTreasureMapData* detail = grotto->GetDetailedData();
 
         if (*((unsigned char*)headerObj + 0x25) != 0) {
-            if (IsInRange0201b588(*(unsigned short*)zone) != 0 && detail != NULL) {
+            if (func_0201b588(*(unsigned short*)zone) != 0 && detail != NULL) {
                 if (detail->mapType_ == 2) {
                     char buf[0xb0];
-                    LoadBattleBlock020ac4c0(buf);
+                    func_020ac4c0(buf);
                     result = ((struct BlockWord021eaf50*)(buf + 0xc))->fieldB;
                 }
             }

@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-int TestBit2At0x2f4_020850d0(unsigned char* obj);
-int RollChanceFromTable_021564cc(struct Random* rand, int id);
+extern "C" int func_020850d0(unsigned char* obj);
+extern "C" int func_ov000_021564cc(struct Random* rand, int id);
 
 struct Ctx_021e8dc0 {
 	char pad0[0x10];
@@ -63,15 +63,15 @@ extern "C" ARM int func_ov024_021e8dc0(struct Ctx_021e8dc0* ctx, int id, struct 
 	}
 	if (count > 1) ctx->field0x7a = 1;
 	if (IsPartyMember(id)) {
-		struct Combatant_021e8dc0* c = (struct Combatant_021e8dc0*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), id);
-		if (c && (params->flags10 & 0x100000) && TestBit2At0x2f4_020850d0(c->field150)) {
+		struct Combatant_021e8dc0* c = (struct Combatant_021e8dc0*)func_0200ff1c(GameState::GetInstance(), id);
+		if (c && (params->flags10 & 0x100000) && func_020850d0(c->field150)) {
 			ctx->field0x7a = 1;
 			count *= 2;
 		}
 		if (params->actionId == 1) {
 			struct Bits2f4_021e8dc0* w = (struct Bits2f4_021e8dc0*)(c->field150 + 0x2f4);
 			if (!w) return count;
-			if (!w->bit1 && !w->bit0 && RollChanceFromTable_021564cc(ctx->random, id)) {
+			if (!w->bit1 && !w->bit0 && func_ov000_021564cc(ctx->random, id)) {
 				ctx->field0x78 = 1;
 				ctx->field0x7a = 1;
 				count++;

@@ -14,9 +14,9 @@ enum { kRegionValue2CC_27C = 0x2cc };
 struct List0202fec8;
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 struct Vector3i;
 
 extern char data_ov003_02180c1d;
@@ -32,8 +32,8 @@ extern "C" ARM void func_ov003_0217c974(char* self) {
     ((BackgroundLoader*)((struct List0202fec8*)list))->GetLoadedFileByID((int)(*(int*)(self + 0x130)), (void**)(&out1), (unsigned int*)(&out2));
 
     void* mgr = GetGameResources();
-    CopyInternalFields0207df50((struct Foo0207df50*)((char*)mgr + kRegionValue2CC_27C));
-    RestorePairTables0207df90((char*)mgr + kRegionValue2CC_27C);
+    func_0207df50((struct Foo0207df50*)((char*)mgr + kRegionValue2CC_27C));
+    func_0207df90((char*)mgr + kRegionValue2CC_27C);
 
     unsigned int fileSize;
     const void* filePtr;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov003_0217c974(char* self) {
     params.unk_10 = 1;
     ((Object3D*)(self + 0x80))->LoadFromCCHROrCMOTArchive(&params, 0);
 
-    BackupPairTables0207dfac((char*)mgr + kRegionValue2CC_27C);
+    func_0207dfac((char*)mgr + kRegionValue2CC_27C);
 
     struct Vec3Words0217fb8c v = data_ov003_0217fb8c;
     *(int*)(self + 0xc4) = 0;

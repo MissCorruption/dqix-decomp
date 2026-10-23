@@ -1,0 +1,30 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+
+extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" void func_ov017_021bdb78(int id);
+extern "C" void func_ov017_02191e5c(int a, int b, short c, unsigned char d, unsigned short e);
+
+extern "C" void func_ov017_0218f80c(int a, int b);
+
+// USA: func_ov017_02191f4c
+extern "C" ARM void func_ov017_02191f4c(int a, int b) {
+#if defined(jpn)
+ enum {regionalOffset0=0x180};
+#else
+ enum {regionalOffset0=0x18c};
+#endif
+	GameState* battleStruct = GameState::GetInstance();
+	GameObject* combatant = battleStruct->GetCombatantByIndex(b);
+	if (!combatant) return;
+	GameObject* c2 = func_0200ff1c(battleStruct, b);
+	if (c2 != NULL && (*(int*)((char*)c2 + regionalOffset0) & 0x40)) {
+		func_ov017_021bdb78(b);
+		return;
+	}
+	func_ov017_02191e5c(a, b, 0x1000, 0, 0);
+	int inRange = (b >= 0 && b <= 3);
+	if (inRange) {
+		func_ov017_0218f80c(a, b);
+	}
+}

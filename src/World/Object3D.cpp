@@ -25,10 +25,10 @@ void CreateRotationZ(Matrix3x3* out, fix32_t s, fix32_t c);
 
 extern "C"
 {
-    void* _Z27GetField0x3b0Value_020100bcP9GameState(GameState*);
-    void _Z27ClearGlobalFlagBits02016d8cPv(void* rotation);
+    void* func_020100bc(GameState*);
+    void func_02016d8c(void* rotation);
 
-    const Matrix3x3* _Z25GetPtrField0x144_0202ed74Pv(void*);
+    const Matrix3x3* func_0202ed74(void*);
 
     void func_020311f0(fix32_t);
     void func_02031234(fix32_t);
@@ -532,7 +532,7 @@ void Object3D::PopulateRenderConfigWorld()
                 Mat3x3_Multiply(&worldRotation, &axisRotation, &worldRotation);
             }
         }
-        _Z27ClearGlobalFlagBits02016d8cPv(&worldRotation);
+        func_02016d8c(&worldRotation);
         Vector3fix multipliedScale;
         Vector3fix ownScale;
         ownScale.x = scale_[0];
@@ -550,7 +550,7 @@ void Object3D::PopulateRenderConfigWorld()
         RenderConfig::SetObjectPosition(&position_);
         if (flags_ & (1 << OBJECT3D_FLAG_19))
         {
-            const Matrix3x3* rotation = _Z25GetPtrField0x144_0202ed74Pv(_Z27GetField0x3b0Value_020100bcP9GameState(GameState::GetInstance()));
+            const Matrix3x3* rotation = func_0202ed74(func_020100bc(GameState::GetInstance()));
             func_020ca528(rotation, &data_0210a010.objectRotationPosition.rotation);
             data_0210a010.flags &= ~((1 << RENDER_CONFIG_FLAG_WORLDVIEW_CACHE_VALID) | (1 << RENDER_CONFIG_FLAG_5) | (1 << RENDER_CONFIG_FLAG_2));
         }
@@ -582,7 +582,7 @@ void Object3D::PopulateRenderConfigWorld()
                     Mat3x3_Multiply(&totalRotation, &axisRotation, &totalRotation);
                 }
             }
-            _Z27ClearGlobalFlagBits02016d8cPv(&totalRotation);
+            func_02016d8c(&totalRotation);
         }
         Vector3fix scaling;
         scaling.x = scale_[0];
@@ -808,7 +808,7 @@ void Object3D::MaybeUpdateBonePositions()
 
     Matrix3x3 rotationMatrix;
     Mat3x3_WriteRotationY(&rotationMatrix, sine, cosine);
-    _Z27ClearGlobalFlagBits02016d8cPv(&rotationMatrix);
+    func_02016d8c(&rotationMatrix);
     Vector3fix scale = { 0x1000, 0x1000, 0x1000 };
     RenderConfig::SetObjectScale(&scale);
     RenderConfig::SubmitToFifo();

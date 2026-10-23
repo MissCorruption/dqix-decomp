@@ -19,11 +19,11 @@ extern NetworkContext data_ov031_02290da0;
 extern unsigned char data_ov031_02290de0[], data_ov031_02290dd4[], data_ov031_02290e0c[], data_ov031_02290df4[];
 extern char data_ov031_02290e28[];
 extern "C" void func_ov031_0223fae8(void*);
-int LogEventCategory33_0223ea60(char*);
+extern "C" int func_ov031_0223ea60(char*);
 extern "C" void* func_ov031_0223e674(const char*);
 extern "C" int func_ov031_0223e454(void*, const void*, int);
-int ClearFourWordsAndFlag_0223fa34();
-int ClearFourWords02290fa4_0223f9f0();
+extern "C" int func_ov031_0223fa34();
+extern "C" int func_ov031_0223f9f0();
 extern "C" int func_ov031_0223fcd4(AllocateCallback, FreeCallback, int);
 extern "C" int func_ov031_0223e8d4(void*);
 extern "C" void func_ov031_0223fa08();
@@ -42,14 +42,14 @@ extern "C" ARM int func_ov031_0223e6c0(AllocateCallback allocate, FreeCallback r
     data_ov031_02290da0.secret = 0;
     data_ov031_02290da0.identity = 0;
     func_ov031_0223fae8(data_ov031_02290de0);
-    LogEventCategory33_0223ea60(data_ov031_02290e28);
+    func_ov031_0223ea60(data_ov031_02290e28);
     if ((data_ov031_02290da0.identity = func_ov031_0223e674(identity)) &&
         (data_ov031_02290da0.secret = func_ov031_0223e674(secret))) {
         int length = func_ov031_0223e454(data_ov031_02290dd4, identifier, 4);
         data_ov031_02290dd4[length] = 0;
         length = func_ov031_0223e454(data_ov031_02290e0c, token, 16);
         data_ov031_02290e0c[length] = 0;
-        if (ClearFourWordsAndFlag_0223fa34() && ClearFourWords02290fa4_0223f9f0()) {
+        if (func_ov031_0223fa34() && func_ov031_0223f9f0()) {
             if (func_ov031_0223fcd4(allocate, release, 10)) {
                 data_ov031_02290da0.handle = func_ov031_0223e8d4(data_ov031_02290df4);
                 data_ov031_02290da0.active = 1;

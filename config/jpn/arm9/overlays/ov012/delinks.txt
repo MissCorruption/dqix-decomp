@@ -4,22 +4,22 @@
     .data       start:0x0218bf40 end:0x0218c000 kind:data align:32
     .bss        start:0x0218c000 end:0x0218c000 kind:bss align:32
 
-src/Combat/Overlay_12/AppendMessageNameTags_02189934.cpp:
+src/Combat/Overlay_12/func_ov012_02189934.cpp:
     .text start:0x0218a34c end:0x0218a494
 
 src/Combat/Overlay_12/func_ov012_0218a4b0.cpp:
     .text start:0x0218af38 end:0x0218b000
 
-src/Combat/Overlay_12/AdvanceTagStateB_02188924.cpp:
+src/Combat/Overlay_12/func_ov012_02188924.cpp:
     .text start:0x02188f6c end:0x02189138
 
-src/Combat/Overlay_12/BuildAndEnqueueMessages_0218a054.cpp:
+src/Combat/Overlay_12/func_ov012_0218a054.cpp:
     .text start:0x0218ab48 end:0x0218acd8
 
 src/Combat/Overlay_12/func_ov012_02187320.cpp:
     .text start:0x02187a50 end:0x02187d2c
 
-src/Combat/Overlay_12/AdvanceTagState_02187158.cpp:
+src/Combat/Overlay_12/func_ov012_02187158.cpp:
     .text start:0x02187884 end:0x02187a50
 
 src/Combat/Overlay_12/func_ov012_02185af0.cpp:
@@ -33,27 +33,27 @@ src/Combat/Overlay_12/func_ov012_02184acc.cpp:
     complete
     .text start:0x02185b90 end:0x02185db4
 
-src/Combat/Overlay_12/InitBattleAllocatorsAndBuffers_02184884.cpp:
+src/Combat/Overlay_12/func_ov012_02184884.cpp:
     complete
     .text start:0x021859c4 end:0x02185b90
 
-src/Combat/Overlay_12/FindIndexByBattleField_02184384.cpp:
+src/Combat/Overlay_12/func_ov012_02184384.cpp:
     complete
     .text start:0x021853f8 end:0x02185448
 
-src/Combat/Overlay_12/GetOffsetInBattleFieldRange_0218432c.cpp:
+src/Combat/Overlay_12/func_ov012_0218432c.cpp:
     complete
     .text start:0x021853a0 end:0x021853f8
 
-src/Combat/Overlay_12/CheckAndRebuildEntry0218930c.cpp:
+src/Combat/Overlay_12/func_ov012_0218930c.cpp:
     complete
     .text start:0x02189be8 end:0x02189c90
 
-src/Combat/Overlay_12/FindAndApplyEntry_021893b4.cpp:
+src/Combat/Overlay_12/func_ov012_021893b4.cpp:
     complete
     .text start:0x02189c90 end:0x02189d18
 
-src/Combat/Overlay_12/DispatchElemHandlerAndApply_02185bf0.cpp:
+src/Combat/Overlay_12/func_ov012_02185bf0.cpp:
     complete
     .text start:0x02186248 end:0x0218634c
 
@@ -69,11 +69,11 @@ src/Combat/Overlay_12/func_ov012_0218a844.cpp:
     complete
     .text start:0x0218b2f0 end:0x0218b47c
 
-src/Combat/Overlay_12/SetupBattleTag0218943c.cpp:
+src/Combat/Overlay_12/func_ov012_0218943c.cpp:
     complete
     .text start:0x02189d18 end:0x02189d8c
 
-src/Combat/Overlay_12/Trans_02185a24.cpp:
+src/Combat/Overlay_12/func_ov012_02185a24.cpp:
     complete
     .text start:0x02186084 end:0x02186118
 
@@ -89,56 +89,56 @@ src/Combat/Overlay_12/func_ov012_0218a1f4.cpp:
     complete
     .text start:0x0218ae20 end:0x0218aec4
 
-src/Combat/Overlay_12/SetupBattleTag0218a7a0.cpp:
+src/Combat/Overlay_12/func_ov012_0218a7a0.cpp:
     complete
     .text start:0x0218b234 end:0x0218b2f0
 
-src/Combat/Overlay_12/Trans_02185ab8.cpp:
+src/Combat/Overlay_12/func_ov012_02185ab8.cpp:
     complete
     .text start:0x02186118 end:0x02186148
 
 
-src/Combat/Overlay_12/BuildMessageB_021898bc.cpp:
+src/Combat/Overlay_12/func_ov012_021898bc.cpp:
     complete
     .text start:0x0218a2d8 end:0x0218a34c
 
 
-src/Combat/Overlay_12/BuildMessageC_02189c44.cpp:
+src/Combat/Overlay_12/func_ov012_02189c44.cpp:
     complete
     .text start:0x0218a6e4 end:0x0218a758
 
 
-src/Combat/Overlay_12/BuildMessageD_02189f38.cpp:
+src/Combat/Overlay_12/func_ov012_02189f38.cpp:
     complete
     .text start:0x0218aa30 end:0x0218aaa4
 
 
-src/Combat/Overlay_12/BuildMessageE_0218a438.cpp:
+src/Combat/Overlay_12/func_ov012_0218a438.cpp:
     complete
     .text start:0x0218aec4 end:0x0218af38
 
 
-src/Combat/Overlay_12/BuildMessageF_0218a974.cpp:
+src/Combat/Overlay_12/func_ov012_0218a974.cpp:
     complete
     .text start:0x0218b47c end:0x0218b4f0
 
 
-src/Combat/Overlay_12/SetupBattleTag02189a78.cpp:
+src/Combat/Overlay_12/func_ov012_02189a78.cpp:
     complete
     .text start:0x0218a494 end:0x0218a50c
 
 
-src/Combat/Overlay_12/SetupBattleTag02189d68.cpp:
+src/Combat/Overlay_12/func_ov012_02189d68.cpp:
     complete
     .text start:0x0218a804 end:0x0218a894
 
 
-src/Combat/Overlay_12/SetupBattleTag0218a574.cpp:
+src/Combat/Overlay_12/func_ov012_0218a574.cpp:
     complete
     .text start:0x0218b000 end:0x0218b078
 
 
-src/Combat/Overlay_12/SetupBattleTag0218aabc.cpp:
+src/Combat/Overlay_12/func_ov012_0218aabc.cpp:
     complete
     .text start:0x0218b5c0 end:0x0218b634
 
@@ -148,47 +148,47 @@ src/Combat/Overlay_12/02184654.cpp:
     .text start:0x02185724 end:0x021859c4
 
 
-src/Combat/Overlay_12/AdvanceTagStateWithMessage_02186fd8.cpp:
+src/Combat/Overlay_12/func_ov012_02186fd8.cpp:
     complete
     .text start:0x02187700 end:0x02187884
 
 
-src/Combat/Overlay_12/AdvanceTagState_021884f4.cpp:
+src/Combat/Overlay_12/func_ov012_021884f4.cpp:
     complete
     .text start:0x02188bb0 end:0x02188cfc
 
 
-src/Combat/Overlay_12/BuildBattleTag02189cbc.cpp:
+src/Combat/Overlay_12/func_ov012_02189cbc.cpp:
     complete
     .text start:0x0218a758 end:0x0218a804
 
 
-src/Combat/Overlay_12/BuildBattleTag02189fb0.cpp:
+src/Combat/Overlay_12/func_ov012_02189fb0.cpp:
     complete
     .text start:0x0218aaa4 end:0x0218ab48
 
 
-src/Combat/Overlay_12/InitBattleRecordsAndDispatch_021861e0.cpp:
+src/Combat/Overlay_12/func_ov012_021861e0.cpp:
     complete
     .text start:0x02186880 end:0x0218699c
 
 
-src/Combat/Overlay_12/ProcessBattleTag02189264.cpp:
+src/Combat/Overlay_12/func_ov012_02189264.cpp:
     complete
     .text start:0x02189b40 end:0x02189be8
 
 
-src/Combat/Overlay_12/ResetAndRebuildEntry_02185f04.cpp:
+src/Combat/Overlay_12/func_ov012_02185f04.cpp:
     complete
     .text start:0x021865a4 end:0x02186614
 
 
-src/Combat/Overlay_12/UpdateBattleTagStateA_02186a7c.cpp:
+src/Combat/Overlay_12/func_ov012_02186a7c.cpp:
     complete
     .text start:0x021871b0 end:0x02187350
 
 
-src/Combat/Overlay_12/UpdateBattleTagStateB_02186e38.cpp:
+src/Combat/Overlay_12/func_ov012_02186e38.cpp:
     complete
     .text start:0x02187560 end:0x02187700
 
@@ -223,7 +223,7 @@ src/Combat/Overlay_12/func_ov012_0218a9ec.cpp:
     .text start:0x0218b4f0 end:0x0218b5c0
 
 
-src/Combat/Overlay_12/ProcessEntry_02185e18.cpp:
+src/Combat/Overlay_12/func_ov012_02185e18.cpp:
     complete
     .text start:0x02186468 end:0x021865a4
 

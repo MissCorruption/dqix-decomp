@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include <NitroSDK/Memory.h>
 
-void SetPriorityAndApplyToContexts_0220057c(unsigned int priority);
-void SetGlobal0224e540Field28_0220f0e4(int v);
-void SetGlobal0224c980Field3c_02200524(int v);
+extern "C" void func_ov031_0220057c(unsigned int priority);
+extern "C" void func_ov031_0220f0e4(int v);
+extern "C" void func_ov031_02200524(int v);
 extern "C" void func_ov031_02200298(void* settings);
 extern "C" void func_ov031_02200aa0(void);
-int CheckField0220f040_02205018(void);
-void DrainList0224e230_02206c08(void);
-void SetGlobal0224e1c0Flag2_02205000(void);
-void CopyFieldsAndSetFlag_02204f94(void);
+extern "C" int func_ov031_02205018(void);
+extern "C" void func_ov031_02206c08(void);
+extern "C" void func_ov031_02205000(void);
+extern "C" void func_ov031_02204f94(void);
 
 struct Config022496a4 {
 	int mode;
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov031_02204e38(void) {
 	VectorizedMemset(settings, 0, sizeof(Settings0224e1d0));
 	data_ov031_0224e1c0.settings.alloc = cfg->alloc;
 	data_ov031_0224e1c0.settings.free = cfg->free;
-	data_ov031_0224e1c0.settings.check = CheckField0220f040_02205018;
+	data_ov031_0224e1c0.settings.check = func_ov031_02205018;
 	data_ov031_0224e1c0.settings.field14 = 0;
 	data_ov031_0224e1c0.settings.field18 = 0;
 	data_ov031_0224e1c0.settings.field2c = data_ov031_0224e1c0.field0;
@@ -98,17 +98,17 @@ extern "C" ARM void func_ov031_02204e38(void) {
 	on = ON_FLAG;
 	if (cfg->mode != 0) {
 		settings->field0 = 0;
-		settings->callback = SetGlobal0224e1c0Flag2_02205000;
+		settings->callback = func_ov031_02205000;
 		data_ov031_0224e1c0.field8 = on;
 		settings->field28 = data_ov031_0224e1c0.field4;
 	} else {
 		data_ov031_0224e1c0.field8 = 0;
 		settings->field0 = on;
-		settings->callback = CopyFieldsAndSetFlag_02204f94;
+		settings->callback = func_ov031_02204f94;
 	}
 
-	SetPriorityAndApplyToContexts_0220057c(cfg->priority != 0 ? cfg->priority : 0xb);
-	SetGlobal0224e540Field28_0220f0e4((int)func_ov031_02200aa0);
-	SetGlobal0224c980Field3c_02200524((int)DrainList0224e230_02206c08);
+	func_ov031_0220057c(cfg->priority != 0 ? cfg->priority : 0xb);
+	func_ov031_0220f0e4((int)func_ov031_02200aa0);
+	func_ov031_02200524((int)func_ov031_02206c08);
 	func_ov031_02200298(settings);
 }

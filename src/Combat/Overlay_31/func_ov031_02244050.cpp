@@ -88,16 +88,16 @@ extern char data_ov031_022495b4[4][8];
 extern char data_ov031_02249582[][3];
 #endif
 extern "C" void func_ov031_022433d0();
-void SetField28_02243404();
+extern "C" void func_ov031_02243404();
 extern "C" int func_ov031_02212ab4(void*, const char*, const char*);
-int RunIfGlobalUnset_02212c18(int);
-void SetCallbackAndRegister_02212bcc(void*);
-int InitAndProcessArray_02212c3c(void*, void*, int);
-int NormalizeField5_0200fb08(Struct0200fb08*);
+extern "C" int func_ov031_02212c18(int);
+extern "C" void func_ov031_02212bcc(void*);
+extern "C" int func_ov031_02212c3c(void*, void*, int);
+extern "C" int func_0200fb08(Struct0200fb08*);
 extern "C" int func_ov031_022123d4();
 extern "C" int func_ov031_02212c84(void*, int, int);
 extern "C" void func_ov031_022120f8();
-void SetField34AndClear35_37_02245528(Struct_02245528*, int);
+extern "C" void func_ov031_02245528(Struct_02245528*, int);
 extern "C" void func_ov023_021f6158(void*);
 extern "C" int func_ov031_02212184();
 extern "C" void func_ov031_02245478(Struct_02245528*);
@@ -123,7 +123,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
         case 3:
             data_ov031_02291e04.error = 0;
             data_ov031_02291e04.completed = 0;
-            if (!RunIfGlobalUnset_02212c18((int)&session->count)) session->phase = 8;
+            if (!func_ov031_02212c18((int)&session->count)) session->phase = 8;
             else session->step++;
             break;
         case 4:
@@ -134,14 +134,14 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
             if (session->count == 0) {
                 session->phase = 5;
                 data_ov031_02291e04.released = 0;
-                SetCallbackAndRegister_02212bcc((void*)SetField28_02243404);
+                func_ov031_02212bcc((void*)func_ov031_02243404);
                 break;
             }
             data_ov031_02291e04.records = (SessionRecordStorage02244050*)((SafeAllocator*)session)->Allocate(0x840);
             if (!data_ov031_02291e04.records) { session->phase = 7; break; }
             data_ov031_02291e04.error = 0;
             data_ov031_02291e04.completed = 0;
-            if (!InitAndProcessArray_02212c3c(data_ov031_02291e04.records, 0, session->count)) session->phase = 8;
+            if (!func_ov031_02212c3c(data_ov031_02291e04.records, 0, session->count)) session->phase = 8;
             else session->step++;
             break;
         case 6:
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
                 }
             }
 #else
-            int language = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+            int language = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
             for (int record = 0; record < session->count; record++) {
                 int record_offset = record * sizeof(SessionRecord02244050);
                 for (int kind = 0; kind < 4; kind++) {
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
             } else {
                 session->phase = 5;
                 data_ov031_02291e04.released = 0;
-                SetCallbackAndRegister_02212bcc((void*)SetField28_02243404);
+                func_ov031_02212bcc((void*)func_ov031_02243404);
             }
         } else if (data_ov031_02291e04.error == 1) session->phase = 8;
         return;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
         session->phase = 6;
         return;
     case 6: {
-        SetField34AndClear35_37_02245528(session, 0);
+        func_ov031_02245528(session, 0);
         SavedSession02244050* saved = ((SessionGame02244050*)GameState::GetInstance())->GetSave();
         saved->settings.field_0 = session->settings.field_0;
         saved->settings.field_12 = session->settings.field_12;
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
         if (!data_ov031_02291e04.completed) return;
         data_ov031_02291e04.error = 0;
         data_ov031_02291e04.released = 0;
-        SetCallbackAndRegister_02212bcc((void*)SetField28_02243404);
+        func_ov031_02212bcc((void*)func_ov031_02243404);
         session->phase = 9;
         if (data_ov031_02291e04.error == 1) session->phase = 8;
         return;

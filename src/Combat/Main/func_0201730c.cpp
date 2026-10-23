@@ -59,12 +59,12 @@ struct CombatEntryList {
     void* field2750;
 };
 
-void* GetPtrField0x144_0202ed74(void* obj);
-void ClearGlobalFlagBits02016d8c(void* arg);
-int GetBoxTestResult_020c56b0(int* out);
-void SubmitGxCommands02047648(unsigned char* obj, int idx, int something);
-void AdvanceStreamRecord0204724c(Obj0204724C* obj);
-void RenderTransformedFlaggedIndexedEntry(StructAt020472e4* obj, int param);
+extern "C" void* func_0202ed74(void* obj);
+extern "C" void func_02016d8c(void* arg);
+extern "C" int func_020c56b0(int* out);
+extern "C" void func_02047648(unsigned char* obj, int idx, int something);
+extern "C" void func_0204724c(Obj0204724C* obj);
+extern "C" void func_020472e4(StructAt020472e4* obj, int param);
 
 extern Vector3i data_020e6e20;
 extern int data_020e6e64[4];
@@ -74,11 +74,11 @@ extern "C" ARM void func_0201730c(CombatEntryList* list) {
     if (list->field2750 == NULL) return;
 
     GameState* game = GameState::GetInstance();
-    void* camera = GetField0x3b0Value_020100bc(game);
+    void* camera = func_020100bc(game);
     if (camera == NULL) return;
     game->GetTickCount();
     unsigned short lightColor = LightingManager::GetInstance()->maybePotBarrelDiffuseColor_;
-    ClearGlobalFlagBits02016d8c(GetPtrField0x144_0202ed74(camera));
+    func_02016d8c(func_0202ed74(camera));
 
     for (int i = 0; i < list->count; i++) {
         CombatEntry* entry = &list->entries[i];
@@ -116,7 +116,7 @@ extern "C" ARM void func_0201730c(CombatEntryList* list) {
         GXFIFO_TEST_BOX = boxParams.u32s.c;
 
         int visible;
-        while (GetBoxTestResult_020c56b0(&visible) != 0) {}
+        while (func_020c56b0(&visible) != 0) {}
         if (visible == 0) continue;
 
         scale = entry->commandRecord.scale;
@@ -128,16 +128,16 @@ extern "C" ARM void func_0201730c(CombatEntryList* list) {
         for (int j = 0; j < 4; j++) entry->segments[j].diffuseColor = lightColor;
 
         if (entry->state != 3) {
-            SubmitGxCommands02047648((unsigned char*)&entry->commandRecord, 0, 1);
+            func_02047648((unsigned char*)&entry->commandRecord, 0, 1);
         } else if (entry->state == 3) {
             if (entry->timer < 12) {
-                AdvanceStreamRecord0204724c((Obj0204724C*)&entry->renderRecord);
-                RenderTransformedFlaggedIndexedEntry(&entry->renderRecord, 1);
+                func_0204724c((Obj0204724C*)&entry->renderRecord);
+                func_020472e4(&entry->renderRecord, 1);
             }
             for (int j = 0; j < 4; j++) {
                 CombatRecord* segment = &entry->segments[j];
                 RenderConfig::SetObjectPosition(&segment->position);
-                Matrix3x3* viewMatrix = (Matrix3x3*)GetPtrField0x144_0202ed74(camera);
+                Matrix3x3* viewMatrix = (Matrix3x3*)func_0202ed74(camera);
                 Matrix3x3 rotation;
                 Matrix3x3 transformed;
                 fix32_t angle = data_020e6e64[j];
@@ -145,9 +145,9 @@ extern "C" ARM void func_0201730c(CombatEntryList* list) {
                 fix32_t sine = fix32sin(angle);
                 Mat3x3_WriteRotationY(&rotation, sine, cosine);
                 Mat3x3_Multiply(viewMatrix, &rotation, &transformed);
-                ClearGlobalFlagBits02016d8c(&transformed);
+                func_02016d8c(&transformed);
                 RenderConfig::SubmitToFifo();
-                SubmitGxCommands02047648((unsigned char*)segment, 0, 1);
+                func_02047648((unsigned char*)segment, 0, 1);
             }
         }
     }

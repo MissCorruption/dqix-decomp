@@ -41,22 +41,22 @@ struct Self0216b968 {
     unsigned char field_0x13ee;
 };
 
-Global0216b968* GetGlobalField0x1c020421a0(void);
+extern "C" Global0216b968* func_020421a0(void);
 extern "C" void func_0205d7a0(void* list, int index);
 extern "C" void func_ov003_0216da90(Self0216b968* self);
-void IterateEntries0205a330(struct Container0205a330* c, int arg);
-int GetActiveScaledSum0205d794(struct Struct_0205c570* list);
+extern "C" void func_0205a330(struct Container0205a330* c, int arg);
+extern "C" int func_0205d794(struct Struct_0205c570* list);
 extern "C" void func_ov003_0216dc58(Self0216b968* self);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
 extern "C" int func_0205d97c(void* list);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* list, int value);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* list, int value);
 
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov003_0216b968
 extern "C" ARM void func_ov003_0216b968(Self0216b968* self) {
-    Global0216b968* global = GetGlobalField0x1c020421a0();
+    Global0216b968* global = func_020421a0();
 
     if (self->step_ == 0) {
         if (global->mode_ == 3) {
@@ -74,19 +74,19 @@ extern "C" ARM void func_ov003_0216b968(Self0216b968* self) {
     } else if (self->step_ == 2) {
         GameState* gameState = GameState::GetInstance();
         struct Container0205a330* entries = global->entries_;
-        IterateEntries0205a330(entries, gameState->GetTickCount());
+        func_0205a330(entries, gameState->GetTickCount());
         global->field_0x19ae = 0;
         self->field_0x13ee = 0;
-        GetActiveScaledSum0205d794((struct Struct_0205c570*)self->list_);
+        func_0205d794((struct Struct_0205c570*)self->list_);
         if (self->field_0x10 != 0) {
             func_ov003_0216dc58(self);
         }
 
         int selection = -1;
-        if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->list_, 0x14) != 0) {
-            selection = GetActiveScaledSum0205d794((struct Struct_0205c570*)self->list_);
+        if (func_0205da38((struct Obj_0205da38*)self->list_, 0x14) != 0) {
+            selection = func_0205d794((struct Struct_0205c570*)self->list_);
         } else if (g_keyManager.TestKeysPressed(0x401) != 0) {
-            selection = GetActiveScaledSum0205d794((struct Struct_0205c570*)self->list_);
+            selection = func_0205d794((struct Struct_0205c570*)self->list_);
         } else if (g_keyManager.TestKeysPressed(2) != 0 || func_0205d97c(self->list_) == 2) {
             selection = -2;
         }
@@ -96,31 +96,31 @@ extern "C" ARM void func_ov003_0216b968(Self0216b968* self) {
         case 0:
             self->result_ = 3;
             self->step_ = 0;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
+            func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
             break;
         case 1:
             self->result_ = 5;
             self->step_ = 0;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
+            func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
             break;
         case 2:
             self->result_ = 4;
             self->step_ = 0;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
+            func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
             break;
         case 3:
             self->result_ = 6;
             self->step_ = 0;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
+            func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
             break;
         case -2:
             self->result_ = 6;
             self->step_ = 0;
-            ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+            func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
             break;
         default:
             break;
@@ -152,9 +152,9 @@ extern "C" ARM void func_ov003_0216b968(Self0216b968* self) {
         self->result_ = result;
         self->step_ = 0;
         if (dispatch) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            func_0205eaa0(&data_02108760, 1, 0);
         }
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
+        func_0205d6a0((struct Entry_0205d6a0*)self->list_, 0);
 #endif
     }
 }

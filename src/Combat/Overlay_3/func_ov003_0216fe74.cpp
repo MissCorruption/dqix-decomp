@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
 
 extern "C" void* __clear(void* dst, int count);
 
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
 
 struct Container020e0310;
 extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int flag);
@@ -13,24 +13,24 @@ extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int
 struct StructA0205d5d0;
 #if defined(jpn)
 extern "C" int sprintf(char* dst, const char* fmt, ...);
-int AppendString02042058(char* dst, const char* src);
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
 extern char data_ov003_0217ea90[];
 extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
 extern char data_ov003_0217ea6f[];
-int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d);
+extern "C" int func_0205d5d0(struct StructA0205d5d0* a, int b, int c, int d);
 #else
-int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
+extern "C" int func_0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
 #endif
 
-// USA: func_ov003_0216fe74  (semantic: SetupAndDispatchBattleMessage_0216fe74)
+// USA: func_ov003_0216fe74
 extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
     char* field3c = *(char**)(self + 0x3c);
     if (field3c == 0) {
         return;
     }
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)field3c, 0, 1);
+    func_0205de24((struct Struct0205de24*)field3c, 0, 1);
 
     (*(char**)(self + 0x3c))[0xb1] = 0;
 
@@ -63,27 +63,27 @@ extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
     __clear(line, 0x80);
 
     if (p3 != -1) {
-        AppendFrameTag02041c08(buf, p3, 8, 5, 5, 5);
+        func_02041c08(buf, p3, 8, 5, 5, 5);
     }
 
     if (p1) {
-        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 6));
+        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 6));
     } else {
-        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 5));
+        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 5));
     }
-    AppendString02042058(buf, line);
-    sprintf(line, data_ov003_0217eaac, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 7));
-    AppendString02042058(buf, line);
+    func_02042058(buf, line);
+    sprintf(line, data_ov003_0217eaac, func_020e0434((struct Container020e0310*)(self + 0xdc), 7));
+    func_02042058(buf, line);
     sprintf(line, data_ov003_0217eabf, data_ov003_0217ea6f);
-    AppendString02042058(buf, line);
+    func_02042058(buf, line);
 
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1);
+    func_0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1);
 #else
     char buf[0x200];
     __clear(buf, 0x200);
 
     if (p3 != -1) {
-        AppendFrameTag02041c08(buf, p3, 8, 5, 5, 5);
+        func_02041c08(buf, p3, 8, 5, 5, 5);
     }
 
     short w = func_ov003_0216df38(buf, (struct Container020e0310*)(self + 0xdc), p1);
@@ -96,6 +96,6 @@ extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
     *(short*)(field3c + 0xa0) = w;
     *(short*)(field3c + 0xa2) = 9;
 
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1, 0);
+    func_0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1, 0);
 #endif
 }

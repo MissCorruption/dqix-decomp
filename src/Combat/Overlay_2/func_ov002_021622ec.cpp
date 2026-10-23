@@ -14,16 +14,16 @@ struct Struct0205de24;
 struct Struct_0205c570;
 struct Obj_0205da38;
 struct Obj0205eaa0;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-int CheckFlagOrThreshold_02161b48(char *base, int a);
-void InitBattleTag0215bf34(char *base);
-int GetWord0x0_0200fb8c(int *p);
-int GetField0x3acValue_020100a8(GameState *gs);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char *arr, int index);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" void func_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
+extern "C" int func_ov002_02161b48(char *base, int a);
+extern "C" void func_ov002_0215bf34(char *base);
+extern "C" int func_0200fb8c(int *p);
+extern "C" int func_020100a8(GameState *gs);
+extern "C" int func_0206dfb0(int unused, unsigned char *arr, int index);
 extern "C" char *func_0205ec34(void);
 extern "C" void func_ov002_02161cf0(void *base);
 extern "C" void func_ov002_0215c0f8(void *base);
@@ -36,7 +36,7 @@ extern "C" char data_02108760[];
 
 static inline int AnyConfirm021622ec(char *base) {
     return (g_keyManager.TestKeysPressed(0x601) |
-            IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0x14)) ? 1 : 0;
+            func_0205da38((struct Obj_0205da38*)(base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0x14)) ? 1 : 0;
 }
 
 // USA: func_ov002_021622ec
@@ -45,8 +45,8 @@ extern "C" ARM void func_ov002_021622ec(char *base) {
     if (state == 0) {
         *(unsigned char *) (base + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
         *(short *) (base + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))          = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
-        InitBattleTag0215bf34(base);
+        func_0205de24((struct Struct0205de24 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)), 0, 2);
+        func_ov002_0215bf34(base);
         func_ov002_02161cf0(base);
         func_ov002_0215c0f8(base);
         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
@@ -54,11 +54,11 @@ extern "C" ARM void func_ov002_021622ec(char *base) {
         *(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) |= 4;
         short old = *(short *) (base + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8));
         *(short *) (base + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8)) =
-            GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
+            func_0205d794((struct Struct_0205c570 *) (base + RG(0x2c8, 0) + RG(0xc00, 0xe20)));
         if (old != *(short *) (base + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))) return;
         if (AnyConfirm021622ec(base) || *(unsigned char *) (base + 0x1000 + RG(0xc2f, 0xaf7)) == 1) {
             GameState *gs                              = GameState::GetInstance();
-            int w                                      = GetWord0x0_0200fb8c((int *) gs);
+            int w                                      = func_0200fb8c((int *) gs);
             *(unsigned char *) (base + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
             switch (*(short *) (base + RG(0x1b00, 0x1a00) + RG(0xe0, 0xa8))) {
                 case 0:
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov002_021622ec(char *base) {
                         *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = 2;
                         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     } else {
-                        SetNodeFieldsAndInsert_021a120c((GameResources*)w, 3, GetField0x3acValue_020100a8(gs));
+                        func_ov017_021a120c((GameResources*)w, 3, func_020100a8(gs));
                         *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                         *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                         func_02012fe4();
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_021622ec(char *base) {
                     break;
                 case 4: {
                     char *save = func_0205ec34();
-                    if (!TestBitInByteArray_0206dfb0((int) save, (unsigned char *) save + 0x8c, 0x119a)) return;
+                    if (!func_0206dfb0((int) save, (unsigned char *) save + 0x8c, 0x119a)) return;
                     func_ov017_021c05f4(w, 1, 0, 0);
                     *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) = RG(0x2b, 0x2e);
                     *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 0;
@@ -101,8 +101,8 @@ extern "C" ARM void func_ov002_021622ec(char *base) {
                     *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) = 0;
                     break;
             }
-            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
-        } else if (CheckFlagOrThreshold_02161b48(base, 1)) {
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+        } else if (func_ov002_02161b48(base, 1)) {
             *(unsigned char *) (base + 0x1000 + RG(0xc2f, 0xaf7)) = 0;
             if (*(unsigned int *) (base + 0x2000 + RG(0x47c, 0x2ac)) & 1) {
                 func_ov023_021dca88(base + RG(0x50, 0x38));

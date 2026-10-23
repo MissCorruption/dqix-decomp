@@ -26,16 +26,16 @@
 
 extern "C" void __clear(void*, unsigned long);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(Struct_203dafc*);
+extern "C" void func_0203dafc(Struct_203dafc*);
 struct Struct020A2CF0;
 struct S020a3568;
-Struct020A2CF0* GetFieldIfFlag2_020100cc(char*);
-void ResetState020a2cf0(Struct020A2CF0*);
-void SetField0x218(S020a3568*, int);
+extern "C" Struct020A2CF0* func_020100cc(char*);
+extern "C" void func_020a2cf0(Struct020A2CF0*);
+extern "C" void func_020a3568(S020a3568*, int);
 ModelRenderContext* GetModel3DContext(Model3D*);
 extern "C" void func_ov015_0218bb3c(RenderCommandHandler*);
 extern char data_ov015_02194078[];
@@ -73,8 +73,8 @@ extern "C" ARM int func_ov015_0218e2a4(BattleModelLoader* self, ModelDescription
     self->allocator->Reset();
     int loaded = 1;
     Foo0207df50* palette = self->manager->palette;
-    CopyInternalFields0207df50(palette);
-    RestorePairTables0207df90((char*)palette);
+    func_0207df50(palette);
+    func_0207df90((char*)palette);
     if (self->mode == 5) sprintf(path, data_ov015_02194078, description->archive);
     else sprintf(path, data_ov015_02194052, description->archive);
     BackgroundLoader::AddLockGlobal();
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov015_0218e2a4(BattleModelLoader* self, ModelDescription
     if (!LoadFileIntoMemory(path, data_0211e33c, &length)) loaded = 0;
     else {
         ObjectArchiveLoadInfo info;
-        ClearEightWords_0203dafc((Struct_203dafc*)&info);
+        func_0203dafc((Struct_203dafc*)&info);
         SafeAllocator* allocator = self->allocator;
         unsigned int archiveLength = length;
         const void* data = data_0211e33c;
@@ -104,14 +104,14 @@ extern "C" ARM int func_ov015_0218e2a4(BattleModelLoader* self, ModelDescription
         self->object->MaybeSetBCFGAnimation(0, self->animationFlags);
     }
     BackgroundLoader::RemoveLockGlobal();
-    BackupPairTables0207dfac((char*)palette);
+    func_0207dfac((char*)palette);
     if (!loaded) return 0;
     GameState* game = GameState::GetInstance();
     if (!game) return 0;
-    Struct020A2CF0* camera = GetFieldIfFlag2_020100cc((char*)game);
+    Struct020A2CF0* camera = func_020100cc((char*)game);
     if (!camera) return 0;
-    ResetState020a2cf0(camera);
-    SetField0x218((S020a3568*)camera, 0);
+    func_020a2cf0(camera);
+    func_020a3568((S020a3568*)camera, 0);
     self->id = description->id;
     return 1;
 }

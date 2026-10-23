@@ -29,47 +29,47 @@ struct Struct0205de24;
 struct ActiveEntry02046900;
 struct Container020e0310;
 
-unsigned char *FindElementForFieldB0_0205d8c4(struct Struct_0205d81c *s);
-int IsField0x9cEqual3_0204c7cc(unsigned char *obj);
-void SetFieldAt0x30_0205bc24(void *obj, int value);
+extern "C" unsigned char *func_0205d8c4(struct Struct_0205d81c *s);
+extern "C" int func_0204c7cc(unsigned char *obj);
+extern "C" void func_0205bc24(void *obj, int value);
 extern "C" int func_0205d0e0(void *obj, int val);
-int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-void PushInputLogB_020a1ef0(int id);
-int GetWord0x0_0200fb8c(int *obj);
-int GetGlobalField0x1c020421a0(void);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char *obj, int value);
+extern "C" int func_0205d794(struct Struct_0205c570 *s);
+extern "C" void func_020a1ef0(int id);
+extern "C" int func_0200fb8c(int *obj);
+extern "C" int func_020421a0(void);
+extern "C" void func_0204b11c(unsigned char *obj, int value);
 extern "C" void func_0204b5b4(void *obj, int val);
-void AllocateAndClearBuffer0204b12c(struct AllocTarget0204b12c *obj,
+extern "C" void func_0204b12c(struct AllocTarget0204b12c *obj,
                                                                                          SafeAllocator *alloc);
-int DispatchViaTable0204b5e8(struct Obj0204b5e8 *obj, int a, int b);
+extern "C" int func_0204b5e8(struct Obj0204b5e8 *obj, int a, int b);
 extern "C" void ColorEffect_ConfigureAlphaBlend(int reg, int a, int b, int c, int d);
 extern "C" void func_0204bc74(void *obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
-void FlushAndDispatchList0204b0e8(struct List0204b0e8 *obj, void *buf);
+extern "C" void func_0204b0e8(struct List0204b0e8 *obj, void *buf);
 extern "C" void func_0204b174(void *obj, void *data, SafeAllocator *alloc, int size);
-void AllocateBuffer0204c7a8(struct Obj0204c7a8 *obj, SafeAllocator *alloc,
+extern "C" void func_0204c7a8(struct Obj0204c7a8 *obj, SafeAllocator *alloc,
                                                                            int buf, unsigned int size);
-void LinkArrayPrevPointers0205cf78(struct Struct_0205cf78 *s,
+extern "C" void func_0205cf78(struct Struct_0205cf78 *s,
                                                                                      struct Elem_0205cf78 *arr,
                                                                                      unsigned char count);
 extern "C" void *memset(void *dst, int value, unsigned int length);
 extern "C" void *memcpy(void *dst, const void *src, unsigned int length);
-void *GetTableEntry020421b0(int idx);
+extern "C" void *func_020421b0(int idx);
 void CleanInvalidateCacheRange(const void *where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
 extern "C" void LoadToMainBG3CharacterData(const void *data, unsigned int offset, unsigned int length);
-void Init0205a198(struct Struct0205a198 *s);
-void ClearField0And40205a234(struct ClearTarget0205a234 *t);
-void InitStruct0205a444(char *p);
-void *FindRecordByIndex(struct Rec020467f0 *rec, int index, void **out, int *out44);
+extern "C" void func_0205a198(struct Struct0205a198 *s);
+extern "C" void func_0205a234(struct ClearTarget0205a234 *t);
+extern "C" void func_0205a444(char *p);
+extern "C" void *func_020467f0(struct Rec020467f0 *rec, int index, void **out, int *out44);
 extern "C" void func_0205a528(void *a, void *ptr, int val, void *d);
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-int CountActiveEntries(struct ActiveEntry02046900 *entry);
+extern "C" int func_02046900(struct ActiveEntry02046900 *entry);
 extern "C" void func_020dfec0(void *dest, void *allocator, void *fileData, unsigned int size);
-int GetFieldByKey020e0434(struct Container020e0310 *c, int key);
+extern "C" int func_020e0434(struct Container020e0310 *c, int key);
 extern "C" void func_020dc7e8(int a, int b);
-void InitBattleTag0215bf34(char *self);
-void InitBattleTag0215c028(char *self);
+extern "C" void func_ov002_0215bf34(char *self);
+extern "C" void func_ov002_0215c028(char *self);
 extern "C" void func_ov002_0215bba8(char *self);
 extern "C" void func_ov002_02161cf0(char *self);
 extern "C" void func_ov002_0215c0f8(char *self);
@@ -144,13 +144,13 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
         return;
     }
 
-    unsigned char *e = FindElementForFieldB0_0205d8c4((struct Struct_0205d81c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
-    if (e != 0 && IsField0x9cEqual3_0204c7cc(e) && !(e[0xc5] & 2)) {
-        SetFieldAt0x30_0205bc24(&((struct Obj0ec8_0215624c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)))->f4, -1);
+    unsigned char *e = func_0205d8c4((struct Struct_0205d81c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
+    if (e != 0 && func_0204c7cc(e) && !(e[0xc5] & 2)) {
+        func_0205bc24(&((struct Obj0ec8_0215624c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)))->f4, -1);
     }
     S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = func_0205d0e0(self + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
     short old   = S16(REGIONAL_OFFSET(0x1aa8, 0x1be0));
-    S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
+    S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = func_0205d794((struct Struct_0205c570 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) >= 1 && old != S16(REGIONAL_OFFSET(0x1aa8, 0x1be0))) {
         S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = 1;
         int saved   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
@@ -160,9 +160,9 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
     }
 
     if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) == 0) {
-        PushInputLogB_020a1ef0(1);
-        char *w     = (char *) GetWord0x0_0200fb8c((int *) GameState::GetInstance());
-        S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) GetGlobalField0x1c020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
+        func_020a1ef0(1);
+        char *w     = (char *) func_0200fb8c((int *) GameState::GetInstance());
+        S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) func_020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
         ((SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)))->Reset();
 
         struct Bytes3_0215624c prio  = data_ov002_0216c96c.prio;
@@ -170,13 +170,13 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
         struct Layer0215624c *o;
         for (int i = 0; i < 3; i++) {
             o = (struct Layer0215624c *) (self + REGIONAL_OFFSET(0xedc, 0xf84) + i * 0x20);
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) o, 0);
+            func_0204b11c((unsigned char *) o, 0);
             o->lo = 0;
             o->hi = prio.v[i];
             func_0204b5b4(o, layer.v[i]);
-            AllocateAndClearBuffer0204b12c((struct AllocTarget0204b12c *) o,
+            func_0204b12c((struct AllocTarget0204b12c *) o,
                                                                                      (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)));
-            DispatchViaTable0204b5e8((struct Obj0204b5e8 *) o, 0, 0);
+            func_0204b5e8((struct Obj0204b5e8 *) o, 0, 0);
         }
 
         REG16(0x0400000a) = (REG16(0x0400000a) & 0x43) | 0x1d00;
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
         for (int i = 0; i < 3; i++) {
             o2 = self + REGIONAL_OFFSET(0xedc, 0xf84) + i * 0x20;
             func_0204bc74(o2, 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((struct List0204b0e8 *) o2, 0);
+            func_0204b0e8((struct List0204b0e8 *) o2, 0);
         }
 
         void *gfx = *(void **) (w + 0x2c);
@@ -204,27 +204,27 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
         S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) = (int) ((SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)))->Allocate(0x4400);
         for (int i = 0; i < 12; i++) {
             char *o = self + REGIONAL_OFFSET(0xf3c, 0xfe4) + i * 0xe0;
-            AllocateBuffer0204c7a8((struct Obj0204c7a8 *) o,
+            func_0204c7a8((struct Obj0204c7a8 *) o,
                                                                        (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)), S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x400);
             *(char **) (o + 4) = self + REGIONAL_OFFSET(0xefc, 0xfa4);
         }
         *(char **) (self + REGIONAL_OFFSET(0xeb8, 0xf60)) = self + REGIONAL_OFFSET(0xedc, 0xf84);
         U8(REGIONAL_OFFSET(0xed2, 0xf7a))                 = 3;
-        LinkArrayPrevPointers0205cf78((struct Struct_0205cf78 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)),
+        func_0205cf78((struct Struct_0205cf78 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)),
                                                                              (struct Elem_0205cf78 *) (self + REGIONAL_OFFSET(0xf3c, 0xfe4)), 12);
 
         memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         memset((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x20, 0x11111111, 0x20);
-        memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, GetTableEntry020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
+        memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, func_020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
         CleanInvalidateCacheRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
         LoadToMainBG1CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
         LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
 
         for (unsigned char i = 0; i < REGIONAL_OFFSET(0x2c, 0x2b); i++) {
-            Init0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
+            func_0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
         }
-        ClearField0And40205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-        InitStruct0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+        func_0205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+        func_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
         *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
         {
             char *p               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -238,16 +238,16 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
         for (int i = 0; i < 4; i++) {
             int val;
             void *out;
-            void *rec = FindRecordByIndex((struct Rec020467f0 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), i, &out, &val);
+            void *rec = func_020467f0((struct Rec020467f0 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), i, &out, &val);
             func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), rec, val, self + REGIONAL_OFFSET(0x7dc, 0x878));
         }
 
         S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)), 0, 2);
+        func_0205de24((struct Struct0205de24 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)), 0, 2);
 
         if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) == 0 && U8(REGIONAL_OFFSET(0x2364, 0x253c)) == 0) {
-            InitBattleTag0215bf34(self);
-            InitBattleTag0215c028(self);
+            func_ov002_0215bf34(self);
+            func_ov002_0215c028(self);
             int saved   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
             S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 1;
             func_ov002_02161cf0(self);
@@ -303,12 +303,12 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
             unsigned int len;
             int val;
             loader->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)), &data, &len);
-            int n = CountActiveEntries((struct ActiveEntry02046900 *) data);
+            int n = func_02046900((struct ActiveEntry02046900 *) data);
             for (unsigned char i = 0; i < REGIONAL_OFFSET(0x2c, 0x2b); i++) {
-                Init0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
+                func_0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
             }
-            ClearField0And40205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
-            InitStruct0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+            func_0205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+            func_0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
             *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
             {
                 char *p               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
@@ -318,7 +318,7 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
             *(int *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x3c) = S32(REGIONAL_OFFSET(0x19c4, 0x1a6c));
             ((SafeAllocator *) (self + REGIONAL_OFFSET(0x7dc, 0x878)))->Reset();
             for (int i = 0; i < n; i++) {
-                void *rec = FindRecordByIndex((struct Rec020467f0 *) data, i, &out, &val);
+                void *rec = func_020467f0((struct Rec020467f0 *) data, i, &out, &val);
                 func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), rec, val, self + REGIONAL_OFFSET(0x7dc, 0x878));
             }
             loader->RemoveTask(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)));
@@ -331,7 +331,7 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
             loader->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)), &data, &len);
             ((SafeAllocator *) (self + REGIONAL_OFFSET(0x7a0, 0x83c)))->Reset();
             func_020dfec0(self + REGIONAL_OFFSET(0x8, 0x20), self + REGIONAL_OFFSET(0x7a0, 0x83c), data, len);
-            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = GetFieldByKey020e0434((struct Container020e0310 *) (self + REGIONAL_OFFSET(0x8, 0x20)), 0);
+            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = func_020e0434((struct Container020e0310 *) (self + REGIONAL_OFFSET(0x8, 0x20)), 0);
             loader->RemoveTask(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)));
             S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = -1;
         }

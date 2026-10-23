@@ -5,8 +5,8 @@
 
 struct Field150Holder02052e2c;
 struct Field150Holder02052e14;
-short* GetField150Ptr0x488_02052e2c(Field150Holder02052e2c* obj);
-short* GetField150Ptr0x488(Field150Holder02052e14* obj);
+extern "C" short* func_02052e2c(Field150Holder02052e2c* obj);
+extern "C" short* func_02052e14(Field150Holder02052e14* obj);
 
 struct CombatantEffectIds02072afc {
     int entries[11];
@@ -15,11 +15,11 @@ extern CombatantEffectIds02072afc data_020e8878;
 
 // USA: func_02072afc
 extern "C" ARM void func_02072afc(int combatantId, int* outIds, short* outValues) {
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), combatantId);
+    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), combatantId);
     if (combatant == NULL) return;
-    short* fallback = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)combatant);
+    short* fallback = func_02052e2c((Field150Holder02052e2c*)combatant);
     if (fallback == NULL) return;
-    short* effects = GetField150Ptr0x488((Field150Holder02052e14*)combatant);
+    short* effects = func_02052e14((Field150Holder02052e14*)combatant);
     CombatantEffectIds02072afc ids = data_020e8878;
     int base = combatantId * 12;
     ids.entries[0] = combatantId;

@@ -2,18 +2,18 @@
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 extern "C" void* func_ov011_021849c8(void* a);
 extern "C" void* func_ov023_021f6880(void** list, int value);
 extern "C" void* func_ov023_021fad18(void* obj);
 
 struct Entry021faed0;
-ARM void* GetEntryPtr_021fa854(char* obj, unsigned int idx);
+extern "C" ARM void* func_ov023_021fa854(char* obj, unsigned int idx);
 
 extern "C" void func_0205ac40(void* obj, void* entry);
 
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern struct Obj0205eaa0 data_02108760;
 
 extern "C" void func_ov011_02184a40(void* a, int b);
@@ -78,14 +78,14 @@ struct Obj021faed0 {
 #endif
 };
 
-// USA: func_ov023_021faed0  (semantic: SyncEntryPositionAndDispatch_021faed0)
+// USA: func_ov023_021faed0
 extern "C" ARM void func_ov023_021faed0(struct Obj021faed0* obj, void* arg1) {
     if ((obj->flags0xc & 8) == 0) {
         void** listHead = (void**)func_ov011_021849c8(arg1);
         void* node = func_ov023_021f6880(listHead, obj->f20);
         void* z = func_ov023_021fad18(node);
-        struct Entry021faed0* entryPtr = (struct Entry021faed0*)GetEntryPtr_021fa854((char*)z, obj->f22);
-        int* state = (int*)GetGlobalField0x1c020421a0();
+        struct Entry021faed0* entryPtr = (struct Entry021faed0*)func_ov023_021fa854((char*)z, obj->f22);
+        int* state = (int*)func_020421a0();
 
         if (entryPtr != 0) {
 #if defined(jpn)
@@ -221,7 +221,7 @@ DONE:
         if (overlap != 0) {
             if (result == 0) return;
             if (obj->flags0xc & 0x40) {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+                func_0205eaa0(&data_02108760, 1, 0);
             }
             func_ov011_02184a40(arg1, result);
         } else {

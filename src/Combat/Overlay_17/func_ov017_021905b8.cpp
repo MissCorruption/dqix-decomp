@@ -18,23 +18,23 @@ extern "C" void func_ov017_02192654(int bit, int id, int cond);
 extern "C" void* func_ov017_021b8468(void* obj);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
-signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* obj);
-unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-void ClearSearchFlagBit0202c600(SearchStruct* obj, int value);
-void ClearSearchFlagBit0202c718(SearchStruct* obj, int value);
-void RemoveSearchEntry0202c21c(SearchStruct* obj, int value);
-Entry0207da94* GetData02108ea8_0207d78c(void);
-void ClearByteField17201_0218d500(void* obj);
-void ProcessEntries0207da94(Entry0207da94* list, int idx);
-Entry020e3544* GetData02153637_020e2ff8(void);
-void ClearMatchingEntries020e3544(Entry020e3544* p, int id);
-BitEntry020e3b08* GetData02153660_020e3808(void);
-void ClearBitInEntries(BitEntry020e3b08* entries, int bit);
-int CheckField0x17dBits4And5Equal0207959c(Obj0207959c* obj, int mode);
-void ClearField0x17dBits0x38_0207958c(ClearField0x17dBits0x38Struct* s);
-void* GetField6b0_021b8470(void* obj);
-unsigned short GetField6b4_021b8480(void* obj);
+extern "C" signed char func_0202c1a4(SearchStruct0202c1a4* obj);
+extern "C" unsigned char func_020100b0(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" void func_0202c600(SearchStruct* obj, int value);
+extern "C" void func_0202c718(SearchStruct* obj, int value);
+extern "C" void func_0202c21c(SearchStruct* obj, int value);
+extern "C" Entry0207da94* func_0207d78c(void);
+extern "C" void func_ov017_0218d500(void* obj);
+extern "C" void func_0207da94(Entry0207da94* list, int idx);
+extern "C" Entry020e3544* func_020e2ff8(void);
+extern "C" void func_020e3544(Entry020e3544* p, int id);
+extern "C" BitEntry020e3b08* func_020e3808(void);
+extern "C" void func_020e3b08(BitEntry020e3b08* entries, int bit);
+extern "C" int func_0207959c(Obj0207959c* obj, int mode);
+extern "C" void func_0207958c(ClearField0x17dBits0x38Struct* s);
+extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" unsigned short func_ov017_021b8480(void* obj);
 
 struct Slot_021905b8 {
     char data[6];
@@ -75,23 +75,23 @@ extern "C" ARM void func_ov017_021905b8(GameResources* self, int id, int remove)
     if (id <= 0) {
         return;
     }
-    if (id == GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search) || id == GetField0x397cValue_020100b0(gs) ||
-        id == GetField0x3acValue_020100a8(gs)) {
-        ClearSearchFlagBit0202c600(search, id);
-        ClearSearchFlagBit0202c718(search, id);
+    if (id == func_0202c1a4((SearchStruct0202c1a4*)search) || id == func_020100b0(gs) ||
+        id == func_020100a8(gs)) {
+        func_0202c600(search, id);
+        func_0202c718(search, id);
         return;
     }
 
-    Entry0207da94* entries = GetData02108ea8_0207d78c();
+    Entry0207da94* entries = func_0207d78c();
     func_0207dba8(entries);
-    ClearByteField17201_0218d500(self);
-    ClearSearchFlagBit0202c600(search, id);
-    ClearSearchFlagBit0202c718(search, id);
+    func_ov017_0218d500(self);
+    func_0202c600(search, id);
+    func_0202c718(search, id);
     if (remove) {
-        RemoveSearchEntry0202c21c(search, id);
+        func_0202c21c(search, id);
     }
     func_ov017_02190264(self, id);
-    ProcessEntries0207da94(entries, (unsigned char)id);
+    func_0207da94(entries, (unsigned char)id);
 
 #if defined(jpn)
     Slot_021905b8* slot = (Slot_021905b8*)((char*)gs + 0x7280);
@@ -109,11 +109,11 @@ extern "C" ARM void func_ov017_021905b8(GameResources* self, int id, int remove)
         }
     }
 
-    ClearMatchingEntries020e3544(GetData02153637_020e2ff8(), id);
+    func_020e3544(func_020e2ff8(), id);
 
     Zone_021905b8* zone = (Zone_021905b8*)self->unknown_ptr_3718;
     if (zone->active != 0) {
-        void* stack = GetField6b0_021b8470(zone);
+        void* stack = func_ov017_021b8470(zone);
         if (stack != NULL) {
             func_ov000_0215fb04(stack, id);
         }
@@ -121,11 +121,11 @@ extern "C" ARM void func_ov017_021905b8(GameResources* self, int id, int remove)
 
     for (int i = 0; i < 0x30; i++) {
         Monster_021905b8* mon = (Monster_021905b8*)gs->GetMaybeFieldMonsterByIndex(i + 0x70);
-        if (mon != NULL && CheckField0x17dBits4And5Equal0207959c((Obj0207959c*)mon, id)) {
+        if (mon != NULL && func_0207959c((Obj0207959c*)mon, id)) {
             int cond;
             Zone_021905b8* z = (Zone_021905b8*)self->unknown_ptr_3718;
             cond = 1;
-            if (z->active != 0 && GetField6b4_021b8480(z) == 0) {
+            if (z->active != 0 && func_ov017_021b8480(z) == 0) {
                 ZoneSlot_021905b8* zs = (ZoneSlot_021905b8*)func_ov017_021b8478(z);
                 if (zs != NULL && zs->id == mon->id) {
                     ZoneState_021905b8* st = (ZoneState_021905b8*)func_ov017_021b8468(z);
@@ -134,10 +134,10 @@ extern "C" ARM void func_ov017_021905b8(GameResources* self, int id, int remove)
                     }
                 }
             }
-            func_ov017_02192654(GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search), mon->id, cond);
-            ClearField0x17dBits0x38_0207958c((ClearField0x17dBits0x38Struct*)mon);
+            func_ov017_02192654(func_0202c1a4((SearchStruct0202c1a4*)search), mon->id, cond);
+            func_0207958c((ClearField0x17dBits0x38Struct*)mon);
         }
     }
 
-    ClearBitInEntries(GetData02153660_020e3808(), id);
+    func_020e3b08(func_020e3808(), id);
 }

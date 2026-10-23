@@ -13,7 +13,7 @@ struct Socket02206150 {
     signed char block;
     signed char kind;
 };
-int IsNotInList0224e22c_02207180(void* v);
+extern "C" int func_ov031_02207180(void* v);
 extern "C" int func_ov031_02206264(Socket02206150* self, const unsigned char* source, int length, unsigned short tag, unsigned long user_data, long flags);
 
 // USA: func_ov031_02206150
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov031_02206150(Socket02206150* self, const unsigned char
     int result;
     int sendFlags;
 
-    if (IsNotInList0224e22c_02207180(self)) return -28;
+    if (func_ov031_02207180(self)) return -28;
     {
         int created = 0;
         if (self != NULL) created = (self->state & 1) != 0;

@@ -31,9 +31,9 @@ struct Obj021ead5c {
     char queue[1];
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-List021600f8* GetSlotPtr02160f20(void* work);
-ListNode021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
+extern "C" void* func_ov000_02160130(void);
+extern "C" List021600f8* func_ov000_02160f20(void* work);
+extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
 extern "C" int func_ov000_0215fd90(Member0215fd90* member, int flag);
 extern "C" short func_ov000_0215ffa0(ListNode021600f8* node);
 extern "C" int func_ov025_021ed380(char* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov025_021ead5c(Obj021ead5c* self, int all) {
         }
         self->triggeredAll = 1;
     }
-    List021600f8* slot = GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
+    List021600f8* slot = func_ov000_02160f20(func_ov000_02160130());
     unsigned char seen[4];
     int partyIds[4];
     __clear(seen, sizeof(seen));
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov025_021ead5c(Obj021ead5c* self, int all) {
     __clear(partyIds, sizeof(partyIds));
     int partyCount = 0;
     if (slot->field1e != 0 || slot->field20 != 0) {
-        for (ListNode021600f8* node = GetNodeAtIndex021600f8(slot, 0); node != NULL; node = node->next) {
+        for (ListNode021600f8* node = func_ov000_021600f8(slot, 0); node != NULL; node = node->next) {
             for (Member0215fd90* m = node->members; m != NULL; m = m->next) {
                 if (func_ov000_0215fd90(m, 0xd) != 0) {
                     continue;

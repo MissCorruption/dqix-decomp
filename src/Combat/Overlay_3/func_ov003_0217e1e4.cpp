@@ -16,14 +16,14 @@ struct Elem_0205d81c {
 };
 
 struct Struct_0205d81c;
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
 
 struct Struct_0205c4a8;
-void AdvanceWrappedAccumulator0205c4a8(struct Struct_0205c4a8* s, int delta);
+extern "C" void func_0205c4a8(struct Struct_0205c4a8* s, int delta);
 struct Struct_0205bb84;
-int ComputeScaledSum0205bb84(struct Struct_0205bb84* s);
+extern "C" int func_0205bb84(struct Struct_0205bb84* s);
 struct Struct_0205bcdc;
-void SetIndexIfValid0205bcdc(struct Struct_0205bcdc* s, int index);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
 extern "C" void func_0205bb04(void* s, int value);
 
 struct ScrollList {
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov003_0217e1e4(struct Obj0217e1e4* self) {
         goto fail;
     }
     g_touchInput.GetTouchPoint(&x, &y);
-    struct Elem_0205d81c* e = FindElementByC40205d81c((struct Struct_0205d81c*)self->list, 0);
+    struct Elem_0205d81c* e = func_0205d81c((struct Struct_0205d81c*)self->list, 0);
     if (e == NULL) {
         goto fail;
     }
@@ -59,14 +59,14 @@ extern "C" ARM int func_ov003_0217e1e4(struct Obj0217e1e4* self) {
         struct ScrollList* list = self->list;
         short left = e->x << 3;
         if (x >= left && x < left + 16) {
-            AdvanceWrappedAccumulator0205c4a8((struct Struct_0205c4a8*)list->scrollState, -1);
+            func_0205c4a8((struct Struct_0205c4a8*)list->scrollState, -1);
         }
         right <<= 3;
         if (right - 16 <= x && x < right) {
-            AdvanceWrappedAccumulator0205c4a8((struct Struct_0205c4a8*)list->scrollState, 1);
+            func_0205c4a8((struct Struct_0205c4a8*)list->scrollState, 1);
         }
-        int index = ComputeScaledSum0205bb84((struct Struct_0205bb84*)list->scrollState);
-        SetIndexIfValid0205bcdc((struct Struct_0205bcdc*)list->indexState, index);
+        int index = func_0205bb84((struct Struct_0205bb84*)list->scrollState);
+        func_0205bcdc((struct Struct_0205bcdc*)list->indexState, index);
         func_0205bb04(list->scrollState, index);
     }
     return 1;

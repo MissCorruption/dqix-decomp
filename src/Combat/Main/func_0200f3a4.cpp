@@ -6,20 +6,20 @@
 #include "GameState/GameState.h"
 
 extern "C" void func_020c99c8(void* out);
-void InitBigManagerStruct0208660c(char* base);
+extern "C" void func_0208660c(char* base);
 struct PartyExtension;
 extern "C" void func_02082828(PartyExtension* ext);
-void ClearSubstructBytes_0200fb40(void* obj);
+extern "C" void func_0200fb40(void* obj);
 struct Pair0209a338;
-void ClearFirstTwoWords0209a338(Pair0209a338* p);
+extern "C" void func_0209a338(Pair0209a338* p);
 struct S_02010124;
-void InitFields02010124(S_02010124* obj);
-void ResetState_020118fc(void* obj);
-void* GetDataPtr02114e04_020d6c00();
+extern "C" void func_02010124(S_02010124* obj);
+extern "C" void func_020118fc(void* obj);
+extern "C" void* func_020d6c00();
 struct S02046730;
-void ClearField0x0_02046730(S02046730* p);
+extern "C" void func_02046730(S02046730* p);
 struct State0200fad4;
-void ClearFlagsAndValue0200fad4(State0200fad4* s);
+extern "C" void func_0200fad4(State0200fad4* s);
 
 struct DayCycleConfig020f33b4 {
     unsigned char initialized;
@@ -117,7 +117,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
 
     memset(gs->objects_, 0, sizeof(gs->objects_));
 
-    InitBigManagerStruct0208660c(base + J(0x2a04));
+    func_0208660c(base + J(0x2a04));
 
     gs->unknown_3b0_ = 0;
     gs->protagonistObjectIndex_ = 0;
@@ -175,7 +175,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     *(int*)(base + J(0x7f60)) = 0;
     *(int*)(base + J(0x7f64)) = 0;
     *(int*)(base + J(0x7f68)) = 0;
-    ClearSubstructBytes_0200fb40(base);
+    func_0200fb40(base);
 
     ((Flags0x569c*)(base + J(0x569c)))->f0_11 = 0x7d0;
     ((Flags0x569c*)(base + J(0x569c)))->f12_15 = 1;
@@ -194,7 +194,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     ((Flags0x56a0*)(base + J(0x56a0)))->f19_29 = 706;
     *(unsigned char*)(base + J(0x56a4)) = 0;
 
-    ClearFirstTwoWords0209a338((Pair0209a338*)(base + J(0x572c)));
+    func_0209a338((Pair0209a338*)(base + J(0x572c)));
     memset(base + J(0x5734), 0, 0x570);
 
     *(short*)(base + J(0x5e6c)) = 0;
@@ -240,7 +240,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     *(unsigned int*)(base + J(0x5ccc)) &= ~1u;
     *(unsigned int*)(base + J(0x5ccc)) |= 2u;
 
-    InitFields02010124((S_02010124*)base);
+    func_02010124((S_02010124*)base);
 
     *(unsigned char*)(base + J(0x63d6)) = 0;
     *(short*)(base + J(0x63d8)) = 0;
@@ -252,7 +252,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     *(unsigned char*)(base + J(0x63e7)) = 0;
     *(unsigned char*)(base + J(0x63e8)) = 0;
     *(unsigned char*)(base + J(0x63ed)) = 0;
-    ResetState_020118fc(base);
+    func_020118fc(base);
 
     *(unsigned char*)(base + J(0x6480)) = 0;
     VectorizedMemset(base + J(0x649e), 0, J_MEMSET_649E);
@@ -299,7 +299,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     *(int*)(base + J(0x71f0)) = 0;
     *(int*)(base + J(0x71f4)) = 0;
 
-    ClearField0x0_02046730((S02046730*)GetDataPtr02114e04_020d6c00());
+    func_02046730((S02046730*)func_020d6c00());
 
     memset(base + J(0x7504), 0, 0xec);
     memset(base + J(0x75f0), 0, 0x4d0);
@@ -314,7 +314,7 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     gs->currentNumTicks_ = 0;
 
     for (int i = 0; i < 3; i++) {
-        ClearFlagsAndValue0200fad4((State0200fad4*)(base + J(0x7f8c) + i * 0xc));
+        func_0200fad4((State0200fad4*)(base + J(0x7f8c) + i * 0xc));
         VectorizedMemset(base + J(0x74c0) + i * 0xa, 0, 6);
         *(signed char*)(base + i * 0xa + J(0x74c6)) = -1;
         *(unsigned char*)(base + i * 0xa + J(0x74c7)) = 0;

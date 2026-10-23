@@ -13,7 +13,7 @@ extern "C" int func_ov004_0216af24(void* a, int key);
 extern "C" void* func_ov011_021849c8(void* a);
 extern "C" VObj0216b390* func_ov023_021f6880(void* obj, int key);
 
-// USA: func_ov004_0216b390  (semantic: OffsetPositionAndNotify_0216b390)
+// USA: func_ov004_0216b390
 extern "C" ARM void func_ov004_0216b390(void* a, int rawKey, int axis) {
     Vector3i v2;
     Vector3i v4;

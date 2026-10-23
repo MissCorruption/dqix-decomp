@@ -64,14 +64,14 @@ struct StrmPlayer020beed8 {
     void* cancelStreamFunc;
 };
 
-void* AttachOrRefreshEntry_020bee20(void** self, int index, int value);
-void InitActionHandlers020bffc4(void* obj, unsigned int id);
-void ResetField14cAndClearFlags020beeac(struct Outer020beeac* p);
-void ResetTween020c01ec(struct Tween020c01ec* t);
-void RetargetTween020c0204(struct Tween020c0260* t, int end, int duration);
-int AcquireRefAt0x120_020bf29c(void* obj, int a, int b);
-void ReleaseRefAt0x120_020bf2d4(void* obj);
-void SetBitForListEntry020bcc4c(struct Obj020bcc4c* obj, int i, int arg);
+extern "C" void* func_020bee20(void** self, int index, int value);
+extern "C" void func_020bffc4(void* obj, unsigned int id);
+extern "C" void func_020beeac(struct Outer020beeac* p);
+extern "C" void func_020c01ec(struct Tween020c01ec* t);
+extern "C" void func_020c0204(struct Tween020c0260* t, int end, int duration);
+extern "C" int func_020bf29c(void* obj, int a, int b);
+extern "C" void func_020bf2d4(void* obj);
+extern "C" void func_020bcc4c(struct Obj020bcc4c* obj, int i, int arg);
 extern "C" int func_020bc9d0(SoundStream020bc9d0* stream, int format, void* buffer, unsigned long bufferSize,
                              int timer, int interval, void* callback, void* arg);
 extern "C" void func_020bf520(int status, int numChannels, void* buffer[], unsigned int len, int format, void* arg);
@@ -86,14 +86,14 @@ extern "C" ARM int func_020beed8(void** handle, const StrmInfo020beed8* strmInfo
     unsigned long long tmpU64;
     int ret;
 
-    player = (StrmPlayer020beed8*)AttachOrRefreshEntry_020bee20(handle, playerNo, playerPrio);
+    player = (StrmPlayer020beed8*)func_020bee20(handle, playerNo, playerPrio);
     if (player == NULL)
         return 0;
 
-    InitActionHandlers020bffc4(player, strmInfo->fileId);
+    func_020bffc4(player, strmInfo->fileId);
 
     if (!player->openStreamFunc(player, strmInfo->fileId)) {
-        ResetField14cAndClearFlags020beeac((struct Outer020beeac*)player);
+        func_020beeac((struct Outer020beeac*)player);
         return 0;
     }
 
@@ -127,8 +127,8 @@ extern "C" ARM int func_020beed8(void** handle, const StrmInfo020beed8* strmInfo
     player->initVolume = strmInfo->volume;
     player->extVolume = 127;
 
-    ResetTween020c01ec((struct Tween020c01ec*)player->fader);
-    RetargetTween020c0204((struct Tween020c0260*)player->fader, 127 << 8, 1);
+    func_020c01ec((struct Tween020c01ec*)player->fader);
+    func_020c0204((struct Tween020c0260*)player->fader, 127 << 8, 1);
 
     switch (player->format) {
     case 0:
@@ -149,10 +149,10 @@ extern "C" ARM int func_020beed8(void** handle, const StrmInfo020beed8* strmInfo
     }
     player->monoFlag = (numChannels == 1) ? 1 : 0;
 
-    ret = AcquireRefAt0x120_020bf29c(player, numChannels, (int)player->chNoList);
+    ret = func_020bf29c(player, numChannels, (int)player->chNoList);
     if (!ret) {
         player->closeStreamFunc(player);
-        ResetField14cAndClearFlags020beeac((struct Outer020beeac*)player);
+        func_020beeac((struct Outer020beeac*)player);
         return 0;
     }
 
@@ -160,16 +160,16 @@ extern "C" ARM int func_020beed8(void** handle, const StrmInfo020beed8* strmInfo
                         player->bufSize * numChannels / player->numChannels, player->timer, 4,
                         (void*)func_020bf520, player);
     if (!ret) {
-        ReleaseRefAt0x120_020bf2d4(player);
+        func_020bf2d4(player);
         player->closeStreamFunc(player);
-        ResetField14cAndClearFlags020beeac((struct Outer020beeac*)player);
+        func_020beeac((struct Outer020beeac*)player);
         return 0;
     }
 
     if (numChannels == 2) {
         struct Obj020bcc4c* stream = (struct Obj020bcc4c*)player->stream;
-        SetBitForListEntry020bcc4c(stream, 0, 0);
-        SetBitForListEntry020bcc4c(stream, 1, 127);
+        func_020bcc4c(stream, 0, 0);
+        func_020bcc4c(stream, 1, 127);
     }
 
     return 1;

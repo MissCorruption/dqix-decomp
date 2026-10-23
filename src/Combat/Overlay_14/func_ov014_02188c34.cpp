@@ -8,7 +8,7 @@
 #include "Filesystem/BackgroundLoader.h"
 
 struct HandleState_02188d10;
-int ResetHandle_02188d10(struct HandleState_02188d10* s);
+extern "C" int func_ov014_02188d10(struct HandleState_02188d10* s);
 extern "C" void func_ov014_02188d48(void* self, int p1, void* out1, unsigned int out2, short p5);
 extern "C" int func_ov014_02188c34(void* self);
 
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov014_02188c34(void* selfRaw) {
         int out1 = 0, out2 = 0;
         ((BackgroundLoader*)(r))->GetLoadedFileByID((int)(*(int*)(self + 0x18)), (void**)(&out1), (unsigned int*)(&out2));
         func_ov014_02188d48(self, *(int*)(self + 0x1c), (void*)out1, (unsigned int)out2, *(short*)(self + 0x14));
-        ResetHandle_02188d10((struct HandleState_02188d10*)self);
+        func_ov014_02188d10((struct HandleState_02188d10*)self);
         return 1;
     }
     default:

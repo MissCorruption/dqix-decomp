@@ -40,10 +40,10 @@ struct CombatantView021e44fc {
     struct CombatantStats021e44fc* stats;
 };
 
-struct ListNode02160094* GetNodeAtIndex02160094(struct List02160094* list, int index);
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetOffsetPtr02160f08(void* obj);
-extern "C" void _Z24SetShortField0xE02176150P11Obj02176150s(struct Obj02176150* obj, unsigned short val);
+extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f08(void* obj);
+extern "C" void func_ov000_02176150(struct Obj02176150* obj, unsigned short val);
 
 static inline int IsPartyIndex(int id) {
     return id >= 0 && id <= 3;
@@ -51,9 +51,9 @@ static inline int IsPartyIndex(int id) {
 
 // USA: func_ov025_021e44fc
 extern "C" ARM int func_ov025_021e44fc(void* unused, struct List02160094* list) {
-    struct ListNode02160094* node = GetNodeAtIndex02160094(list, 0);
+    struct ListNode02160094* node = func_ov000_02160094(list, 0);
     GameState* gs = GameState::GetInstance();
-    struct CombatWorkOffsets021e44fc* work = (struct CombatWorkOffsets021e44fc*)GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
+    struct CombatWorkOffsets021e44fc* work = (struct CombatWorkOffsets021e44fc*)func_ov000_02160f08(func_ov000_02160130());
     struct PartySlot021e44fc* slot;
     if (IsPartyIndex(node->combatantId)) {
         for (int i = 0; i < 4; i++) {
@@ -68,7 +68,7 @@ found:
     struct CombatantView021e44fc* c = (struct CombatantView021e44fc*)gs->GetCombatantByIndex(node->combatantId);
     if (slot != 0) {
         unsigned short value = node->value;
-        _Z24SetShortField0xE02176150P11Obj02176150s(&slot->gauge, value);
+        func_ov000_02176150(&slot->gauge, value);
         slot->gauge.val = value;
     }
     if (c != 0) {

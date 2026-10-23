@@ -33,7 +33,7 @@ struct Recipe {
 
 struct List02071d60;
 
-Recipe* FindEntryByKey02071d60(List02071d60* list, int key);
+extern "C" Recipe* func_02071d60(List02071d60* list, int key);
 
 struct PartyMemberData {
     unsigned int unk_0_0 : 10;
@@ -81,7 +81,7 @@ struct AlchemyIngredients {
 
 // USA: func_ov006_02153f24
 extern "C" ARM short func_ov006_02153f24(AlchemyIngredients* self, short id) {
-    Recipe* recipe = FindEntryByKey02071d60(self->table_, id);
+    Recipe* recipe = func_02071d60(self->table_, id);
     if (recipe == 0)
         return 0;
     short rate = 100;

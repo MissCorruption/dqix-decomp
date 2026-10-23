@@ -6,7 +6,7 @@ struct ReceiveContext0220a6bc {
     unsigned char padding_0x457[0x824 - 0x457]; unsigned char* record; unsigned int total, consumed;
 };
 struct ReceiveSession0220a6bc { unsigned char padding_0x0[0xc]; ReceiveContext0220a6bc* context; unsigned char padding_0x10[0x34]; unsigned int available; };
-unsigned char* WaitOrCycle_02203500(unsigned int*, void*);
+extern "C" unsigned char* func_ov031_02203500(unsigned int*, void*);
 extern unsigned char* (*data_ov031_0224c994)(unsigned int);
 extern "C" void func_ov031_022035e0(unsigned int, void*);
 extern "C" void func_ov031_022098d8(ReceiveContext0220a6bc*, unsigned char*);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov031_0220a6bc(ReceiveSession0220a6bc* session) {
     unsigned int length;
     if (context->record == NULL) {
         if (session->available < 5) return;
-        unsigned char* header = WaitOrCycle_02203500(&length, session);
+        unsigned char* header = func_ov031_02203500(&length, session);
         length = (header[3] << 8) + header[4] + 5;
         if (length > 0x4805) { context->status = 9; return; }
         context->record = data_ov031_0224c994(length);
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov031_0220a6bc(ReceiveSession0220a6bc* session) {
         context->consumed = 0;
         context->retained = 0;
     } else if (session->available == 0) return;
-    unsigned char* source = WaitOrCycle_02203500(&length, session);
+    unsigned char* source = func_ov031_02203500(&length, session);
     unsigned int remaining = context->total - context->consumed;
     int complete;
     if (length >= remaining) { length = remaining; complete = 1; } else complete = 0;

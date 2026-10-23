@@ -9,8 +9,8 @@ enum { kRegionalFieldOffset = 0x3718 };
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void* func_ov017_021b8468(void* obj);
-ARM void* GetField6b0_021b8470(void* obj);
-ARM int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" ARM void* func_ov017_021b8470(void* obj);
+extern "C" ARM int func_020100a8(GameState* battleStruct);
 
 struct EventSrc_021c7334 {
     char pad0[4];
@@ -53,10 +53,10 @@ extern "C" ARM void func_ov017_021c7334(void* unused0, struct EventSrc_021c7334*
     if (!func_ov017_021b8468(obj)) {
         return;
     }
-    if (!GetField6b0_021b8470(obj)) {
+    if (!func_ov017_021b8470(obj)) {
         return;
     }
-    int val = GetField0x3acValue_020100a8(battleStruct);
+    int val = func_020100a8(battleStruct);
     if (*(signed char*)((char*)p1c + 0x2a) == val) {
         return;
     }

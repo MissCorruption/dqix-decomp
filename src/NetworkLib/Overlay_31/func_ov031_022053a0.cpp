@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-void SetField164_02203164(int v);
-void CopyField164_02203270(void* obj);
-void InitSessionFields_0220321c(void);
-void ResetSessionState02203190(void);
-void SetField38IfPresent_02203288(int value);
+extern "C" void func_ov031_02203164(int v);
+extern "C" void func_ov031_02203270(void* obj);
+extern "C" void func_ov031_0220321c(void);
+extern "C" void func_ov031_02203190(void);
+extern "C" void func_ov031_02203288(int value);
 extern "C" void func_ov031_0220603c(void);
 
 struct Inner022053a0 {
@@ -24,23 +24,23 @@ struct Outer022053a0 {
 // USA: func_ov031_022053a0
 extern "C" ARM int func_ov031_022053a0(Outer022053a0* param) {
     Inner022053a0* obj = param->field4;
-    SetField164_02203164((int)obj);
+    func_ov031_02203164((int)obj);
     signed char selector = obj->field73;
     int extra = obj->field68;
 
     switch (selector) {
     case 0:
     case 4:
-        CopyField164_02203270((void*)(extra + 0x20));
-        InitSessionFields_0220321c();
+        func_ov031_02203270((void*)(extra + 0x20));
+        func_ov031_0220321c();
         break;
     case 1:
-        InitSessionFields_0220321c();
-        ResetSessionState02203190();
-        SetField38IfPresent_02203288((int)func_ov031_0220603c);
+        func_ov031_0220321c();
+        func_ov031_02203190();
+        func_ov031_02203288((int)func_ov031_0220603c);
         break;
     case 2:
-        ResetSessionState02203190();
+        func_ov031_02203190();
         break;
     default:
         break;

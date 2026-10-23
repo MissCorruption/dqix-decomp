@@ -3,7 +3,7 @@
 
 struct ActionSummary { unsigned short action; unsigned char target; unsigned char group; unsigned char flags; };
 struct S02053dc0;
-ActionSummary* GetField0x19cOrNull(S02053dc0*);
+extern "C" ActionSummary* func_02053dc0(S02053dc0*);
 struct PartyAction {
     char pad0[0x1d];
     unsigned char group;
@@ -46,22 +46,22 @@ struct SelectedAction {
     unsigned short value;
 };
 struct ActionEntry { char pad0[0x16]; unsigned short value; };
-int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
+extern "C" int func_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_ov000_02162c14(CombatActions*, int, SelectedAction*);
 extern "C" ActionEntry* func_ov000_02171d90(PartyAction*, int);
-int GetClampedArrayField0xd1c_ov000_021761c8(char*, int);
-int GetClampedArrayField0xd3c_ov000_021761ec(char*, int);
-void SetSubstructByte0x4c_02049458(unsigned char*, unsigned char);
+extern "C" int func_ov000_021761c8(char*, int);
+extern "C" int func_ov000_021761ec(char*, int);
+extern "C" void func_02049458(unsigned char*, unsigned char);
 static inline int IsPartyMember(int index) { return index >= 0 && index <= 3; }
 
 // USA: func_ov000_02169850
 extern "C" ARM void func_ov000_02169850(CombatActions* self) {
     GameState* game = GameState::GetInstance();
     for (int i = 0; i < 4; ++i) {
-        if (!TestBitAt0x34_020a35e0(self->state, i)) continue;
-        GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(game, i);
+        if (!func_020a35e0(self->state, i)) continue;
+        GameObject* combatant = func_0200ff1c(game, i);
         if (!combatant) continue;
-        ActionSummary* summary = GetField0x19cOrNull((S02053dc0*)combatant);
+        ActionSummary* summary = func_02053dc0((S02053dc0*)combatant);
         if (!summary) continue;
         int value;
         PartyAction* action;
@@ -103,9 +103,9 @@ extern "C" ARM void func_ov000_02169850(CombatActions* self) {
             summary->group = 0;
             summary->target = 0;
         } else {
-            summary->group = GetClampedArrayField0xd1c_ov000_021761c8(self->targeting, group);
-            summary->target = GetClampedArrayField0xd3c_ov000_021761ec(self->targeting, group);
+            summary->group = func_ov000_021761c8(self->targeting, group);
+            summary->target = func_ov000_021761ec(self->targeting, group);
         }
-        SetSubstructByte0x4c_02049458((unsigned char*)combatant, summary->target);
+        func_02049458((unsigned char*)combatant, summary->target);
     }
 }

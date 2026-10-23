@@ -3,12 +3,12 @@
 #include "GameState/GameState.h"
 
 struct StatStageStruct02087b3c;
-int CanAdjustStatStageBit12(struct StatStageStruct02087b3c* p, int decrease);
+extern "C" int func_02087b3c(struct StatStageStruct02087b3c* p, int decrease);
 struct StatStageStruct02087b90;
-int SetStatStageBit12(struct StatStageStruct02087b90* p, int delta);
+extern "C" int func_02087b90(struct StatStageStruct02087b90* p, int delta);
 void UpdateCombatantMagicalMight(int unused, int combatantId);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 
 struct Params_021df284 {
     char pad0[0x24];
@@ -47,8 +47,8 @@ extern "C" ARM void* func_ov024_021df284(struct Obj_021df284* obj, short arg, in
         if (stage < -2) stage = -2;
         if (stage > 2) stage = 2;
         if (stage < 0) decrease = 1;
-        if (CanAdjustStatStageBit12((struct StatStageStruct02087b3c*)c->currentStats_, (unsigned char)decrease)) {
-            int result = SetStatStageBit12((struct StatStageStruct02087b90*)c->currentStats_, (signed char)stage);
+        if (func_02087b3c((struct StatStageStruct02087b3c*)c->currentStats_, (unsigned char)decrease)) {
+            int result = func_02087b90((struct StatStageStruct02087b90*)c->currentStats_, (signed char)stage);
             UpdateCombatantMagicalMight((int)obj->ctx, id);
             applied = true;
             sel = func_ov024_021e9904(obj, id, params, decrease, (signed char)result);
@@ -56,7 +56,7 @@ extern "C" ARM void* func_ov024_021df284(struct Obj_021df284* obj, short arg, in
         }
     }
     if (!applied && res == 0) {
-        sel = SelectByIndexRange0to3_021da644(id, params->firstSelector, params->secondSelector);
+        sel = func_ov024_021da644(id, params->firstSelector, params->secondSelector);
     }
     if (res != 0 && !applied) {
         sel = 0;
@@ -64,7 +64,7 @@ extern "C" ARM void* func_ov024_021df284(struct Obj_021df284* obj, short arg, in
     void* entry = func_ov000_0215e958(obj->ctx);
     if (!entry) return 0;
     func_ov024_021e8bf0(obj, obj->action, &sel);
-    AddEntryAndIncrementCount0215a88c(obj->ctx, entry, sel);
+    func_ov000_0215a88c(obj->ctx, entry, sel);
     func_ov000_0215cd44(obj->ctx, entry, c, 0, 0, 0, obj->action->flag != 0);
     return entry;
 }

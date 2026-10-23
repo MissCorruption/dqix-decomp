@@ -44,27 +44,27 @@ extern int data_ov000_02184294[3];
 extern int data_ov000_02184294[2];
 #define G02184294(i) data_ov000_02184294[i]
 #endif
-int GetField0x3acValue_020100a8(GameState*);
-int GetActiveScaledSum0205d794(Struct_0205c570*);
+extern "C" int func_020100a8(GameState*);
+extern "C" int func_0205d794(Struct_0205c570*);
 extern "C" BattleCommand* func_ov000_02161318(BattleMenuState*, int);
 extern "C" int func_ov000_0217c594(BattleMenuState*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" void func_ov000_02176e3c(BattleMenuState*, BattleCommand*, int, int, int, int);
 extern "C" void func_ov000_02170db0(BattleCommand*);
-int CheckFlagsOrField_0217c5f4_0217c5f4(void*);
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
+extern "C" int func_ov000_0217c5f4(void*);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
 extern "C" void func_ov000_0217c638(BattleMenuState*, int, int);
 extern "C" void func_ov000_02177038(BattleMenuState*, BattleCommand*, int, int, int);
 
 // USA: func_ov000_0217e870
 extern "C" ARM void func_ov000_0217e870(BattleMenuState* state, int first, int second) {
     state->flags |= 0x100;
-    state->current = GetActiveScaledSum0205d794((Struct_0205c570*)state->entries);
+    state->current = func_0205d794((Struct_0205c570*)state->entries);
     GameState* game = GameState::GetInstance();
-    PartyState* party = (PartyState*)GetPtrField0x2a04_02010828(game);
-    BattleCommand* command = func_ov000_02161318(state, GetField0x3acValue_020100a8(game));
+    PartyState* party = (PartyState*)func_02010828(game);
+    BattleCommand* command = func_ov000_02161318(state, func_020100a8(game));
     if (func_ov000_0217c594(state, 0)) {
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
         if (!command) return;
         func_ov000_02176e3c(state, command, state->commands[state->selected], G02184294(1), G02184294(0), 1);
         state->flags &= ~0x100;
@@ -81,16 +81,16 @@ extern "C" ARM void func_ov000_0217e870(BattleMenuState* state, int first, int s
                 func_ov000_02170db0(candidate);
             }
         }
-    } else if (CheckFlagsOrField_0217c5f4_0217c5f4(state)) {
+    } else if (func_ov000_0217c5f4(state)) {
         state->flags &= ~0x100;
-        ResetEntryList0205d6a0((Entry_0205d6a0*)state->entries, 0);
+        func_0205d6a0((Entry_0205d6a0*)state->entries, 0);
         state->commands[state->selected] = 0;
         state->selected--;
         state->current = -1;
         func_ov000_0217c638(state, first, second);
         GameState* game = GameState::GetInstance();
-        PartyState* party = (PartyState*)GetPtrField0x2a04_02010828(game);
-        BattleCommand* current = func_ov000_02161318(state, GetField0x3acValue_020100a8(game));
+        PartyState* party = (PartyState*)func_02010828(game);
+        BattleCommand* current = func_ov000_02161318(state, func_020100a8(game));
         if (!current) return;
         current->commands[current->selected] = 0x17;
         unsigned char count = party->count;

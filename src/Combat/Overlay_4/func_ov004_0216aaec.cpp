@@ -41,27 +41,27 @@ struct ToggleState;
 struct SetFlagStruct;
 
 extern "C" void* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
-int GetField5cbcValue_0201081c(char* state);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0201081c(char* state);
 extern "C" struct Allocated0216aaec* func_ov011_021845f8(void* ctx, int v);
 extern "C" void* func_ov011_021849c8(void* obj);
 extern "C" struct Node0216aaec* func_ov023_021f6880(void* list, int id);
 extern "C" int func_ov023_021f6f10(void* obj);
 extern "C" struct TableA68* func_ov023_021fa598(void* obj);
-struct StoreStruct* GetGlobalField0x1c020421a0(void);
+extern "C" struct StoreStruct* func_020421a0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* obj);
 extern "C" void func_02046380(struct StoreStruct* g);
-void StoreInArray0x8b0_020465c0(struct StoreStruct* s, int index, int value);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern "C" void func_020465c0(struct StoreStruct* s, int index, int value);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
 #if defined(jpn)
 extern "C" void func_02046608(struct StoreStruct* a, int b, void* c, void* d);
 #else
 extern "C" void func_02046608(struct StoreStruct* a, int b, void* c, void* d, int e, int f, int g);
 #endif
-void SetOffset100Fields_021f8960(char* base, short a, unsigned short b);
-void SetToggleState_02021410(struct ToggleState* s, int a, int b);
-void SetFlag0x9c6_020213fc(struct SetFlagStruct* p, int value);
+extern "C" void func_ov023_021f8960(char* base, short a, unsigned short b);
+extern "C" void func_02021410(struct ToggleState* s, int a, int b);
+extern "C" void func_020213fc(struct SetFlagStruct* p, int value);
 
 extern struct IdList0216aaec data_ov004_02170138;
 
@@ -73,11 +73,11 @@ extern "C" ARM int func_ov004_0216aaec(void* a) {
     unsigned char count = 0;
     int i;
     for (i = 0; i < 7; i++) {
-        if (TestBitInByteArray_0206dfb0((int)ctx, ctx->bits, list.ids[i])) {
+        if (func_0206dfb0((int)ctx, ctx->bits, list.ids[i])) {
             count++;
         }
     }
-    int key = GetField5cbcValue_0201081c((char*)state);
+    int key = func_0201081c((char*)state);
 
     struct Allocated0216aaec* alloc = func_ov011_021845f8(a, 4);
     if (alloc == 0) {
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov004_0216aaec(void* a) {
         return 0;
     }
     struct TableA68* table = func_ov023_021fa598(node);
-    struct StoreStruct* g = GetGlobalField0x1c020421a0();
+    struct StoreStruct* g = func_020421a0();
 #if !defined(jpn)
     void* buf = alloc->allocator.Allocate(4);
 #endif
@@ -105,11 +105,11 @@ extern "C" ARM int func_ov004_0216aaec(void* a) {
     }
     memset(buf, 0, kTextBytes);
     func_02046380(g);
-    StoreInArray0x8b0_020465c0(g, 0, count);
+    func_020465c0(g, 0, count);
 #if defined(jpn)
-    func_02046608(g, 0xc, FindEntryByKey_02072a68(table, (short)key), buf);
+    func_02046608(g, 0xc, func_02072a68(table, (short)key), buf);
 #else
-    func_02046608(g, 0xc, FindEntryByKey_02072a68(table, (short)key), buf, 0xd7, 0, 1);
+    func_02046608(g, 0xc, func_02072a68(table, (short)key), buf, 0xd7, 0, 1);
 #endif
 
     struct Node0216aaec* holder = func_ov023_021f6880(func_ov011_021849c8(a), 0x32);
@@ -119,11 +119,11 @@ extern "C" ARM int func_ov004_0216aaec(void* a) {
 
     struct Node0216aaec* panel = func_ov023_021f6880(func_ov011_021849c8(a), 0xc8);
     if (panel != 0 && func_ov023_021f6f10(panel) == 6) {
-        SetOffset100Fields_021f8960((char*)panel, 0, kPanelOffset);
+        func_ov023_021f8960((char*)panel, 0, kPanelOffset);
     }
 
     struct ToggleState* toggle = (struct ToggleState*)GetGameResources()->unknown_ptr_36d0;
-    SetToggleState_02021410(toggle, 1, 0);
-    SetFlag0x9c6_020213fc((struct SetFlagStruct*)toggle, 0);
+    func_02021410(toggle, 1, 0);
+    func_020213fc((struct SetFlagStruct*)toggle, 0);
     return 0;
 }

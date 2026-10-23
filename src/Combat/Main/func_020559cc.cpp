@@ -2,10 +2,10 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 
 struct S02055080;
-void* GetField0x4Field0x4OrNull_020550a8(struct S02055080* p);
+extern "C" void* func_020550a8(struct S02055080* p);
 
 struct Wrap020578e8;
-float ComputeSlope020578e8(Wrap020578e8* a, Wrap020578e8* b);
+extern "C" float func_020578e8(Wrap020578e8* a, Wrap020578e8* b);
 
 struct Sub020559cc {
     char pad0[0x24];
@@ -30,7 +30,7 @@ struct Obj020559cc {
 
 // USA: func_020559cc
 extern "C" ARM void func_020559cc(struct Obj020559cc* obj) {
-    struct Sub020559cc* sub = (struct Sub020559cc*)GetField0x4Field0x4OrNull_020550a8((struct S02055080*)obj->ptr30);
+    struct Sub020559cc* sub = (struct Sub020559cc*)func_020550a8((struct S02055080*)obj->ptr30);
 
     for (int i = 0; i < 3; i++) {
         unsigned char count = sub->counts24[i];
@@ -48,7 +48,7 @@ extern "C" ARM void func_020559cc(struct Obj020559cc* obj) {
         SignedAllocatorHeader* elem2 =
             ((SignedAllocatorList*)((char*)obj->ptr30 + 0x8 + i * 12))->GetNthElement(obj->counter88[i]);
         if (elem2 == NULL) continue;
-        obj->slope64[i] = ComputeSlope020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
+        obj->slope64[i] = func_020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
     }
 
     for (int i = 0; i < 3; i++) {
@@ -67,7 +67,7 @@ extern "C" ARM void func_020559cc(struct Obj020559cc* obj) {
         SignedAllocatorHeader* elem2 =
             ((SignedAllocatorList*)((char*)obj->ptr30 + 0x2c + i * 12))->GetNthElement(obj->counter8e[i]);
         if (elem2 == NULL) continue;
-        obj->slope70[i] = ComputeSlope020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
+        obj->slope70[i] = func_020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
     }
 
     for (int i = 0; i < 3; i++) {
@@ -86,6 +86,6 @@ extern "C" ARM void func_020559cc(struct Obj020559cc* obj) {
         SignedAllocatorHeader* elem2 =
             ((SignedAllocatorList*)((char*)obj->ptr30 + 0x50 + i * 12))->GetNthElement(obj->counter94[i]);
         if (elem2 == NULL) continue;
-        obj->slope7c[i] = ComputeSlope020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
+        obj->slope7c[i] = func_020578e8((Wrap020578e8*)elem, (Wrap020578e8*)elem2);
     }
 }

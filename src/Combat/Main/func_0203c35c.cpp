@@ -32,7 +32,7 @@ extern PaletteState0203c35c* data_02105244;
 #define data_020e78b0 data_020e81ec
 #define data_020e78a0 data_020e81dc
 #else
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 #endif
 extern PaletteColor0203c35c data_020e78c4[] __attribute__((aligned(4)));
 extern float data_020e78b0[];
@@ -51,7 +51,7 @@ extern "C" ARM void func_0203c35c(PaletteState0203c35c* state) {
 #if defined(jpn)
     palette = data_02105244->palette;
 #else
-    palette = ((PaletteWork0203c35c*)GetGlobalField0x1c020421a0())->palette;
+    palette = ((PaletteWork0203c35c*)func_020421a0())->palette;
 #endif
     unsigned short paletteBytes = 0xe0;
     memset(palette, 0, paletteBytes);

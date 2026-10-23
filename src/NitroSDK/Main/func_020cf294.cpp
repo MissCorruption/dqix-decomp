@@ -103,9 +103,9 @@ struct RtcStatics_02111818 {
 };
 extern RtcStatics_02111818 data_02111818;
 
-int BcdToBinary_020cf7e4(unsigned int bcd);
+extern "C" int func_020cf7e4(unsigned int bcd);
 extern "C" int func_020cfc00(RTCDate* date);
-int CheckEntry5For0x27_020cf8ac(void);
+extern "C" int func_020cf8ac(void);
 
 #define RTC_BUF ((RTCRawData*)0x027ffde8)
 
@@ -148,35 +148,35 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
             RTCDate* pDst = data_02111818.work.buffer[0].date;
             RTCRawDate* pSrc = &RTC_BUF->t.date;
 
-            pDst->year = BcdToBinary_020cf7e4(pSrc->year);
-            pDst->month = BcdToBinary_020cf7e4(pSrc->month);
-            pDst->day = BcdToBinary_020cf7e4(pSrc->day);
+            pDst->year = func_020cf7e4(pSrc->year);
+            pDst->month = func_020cf7e4(pSrc->month);
+            pDst->day = func_020cf7e4(pSrc->day);
             pDst->week = func_020cfc00(pDst);
         } break;
         case 1: {
             RTCTime* pDst = data_02111818.work.buffer[0].time;
             RTCRawTime* pSrc = &RTC_BUF->t.time;
 
-            pDst->hour = BcdToBinary_020cf7e4(pSrc->hour);
-            pDst->minute = BcdToBinary_020cf7e4(pSrc->minute);
-            pDst->second = BcdToBinary_020cf7e4(pSrc->second);
+            pDst->hour = func_020cf7e4(pSrc->hour);
+            pDst->minute = func_020cf7e4(pSrc->minute);
+            pDst->second = func_020cf7e4(pSrc->second);
         } break;
         case 2: {
             RTCDate* pDst = data_02111818.work.buffer[0].date;
             RTCRawDate* pSrc = &RTC_BUF->t.date;
 
-            pDst->year = BcdToBinary_020cf7e4(*(unsigned int*)pSrc & 0xff);
-            pDst->month = BcdToBinary_020cf7e4(pSrc->month);
-            pDst->day = BcdToBinary_020cf7e4(pSrc->day);
+            pDst->year = func_020cf7e4(*(unsigned int*)pSrc & 0xff);
+            pDst->month = func_020cf7e4(pSrc->month);
+            pDst->day = func_020cf7e4(pSrc->day);
             pDst->week = func_020cfc00(pDst);
         }
             {
                 RTCTime* pDst = data_02111818.work.buffer[1].time;
                 RTCRawTime* pSrc = &RTC_BUF->t.time;
 
-                pDst->hour = BcdToBinary_020cf7e4(pSrc->hour);
-                pDst->minute = BcdToBinary_020cf7e4(pSrc->minute);
-                pDst->second = BcdToBinary_020cf7e4(pSrc->second);
+                pDst->hour = func_020cf7e4(pSrc->hour);
+                pDst->minute = func_020cf7e4(pSrc->minute);
+                pDst->second = func_020cf7e4(pSrc->second);
             }
             break;
         case 3:
@@ -210,8 +210,8 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
             RTCRawAlarm* pSrc = &RTC_BUF->a.alarm;
 
             pDst->week = (int)pSrc->week;
-            pDst->hour = BcdToBinary_020cf7e4(pSrc->hour);
-            pDst->minute = BcdToBinary_020cf7e4(pSrc->minute);
+            pDst->hour = func_020cf7e4(pSrc->hour);
+            pDst->minute = func_020cf7e4(pSrc->minute);
             pDst->enable = 0;
             if (pSrc->we)
                 pDst->enable += 1;
@@ -228,7 +228,7 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
                     if (pSrc->intr_mode != 4) {
                         data_02111818.work.index++;
                         pSrc->intr_mode = 4;
-                        if (!CheckEntry5For0x27_020cf8ac()) {
+                        if (!func_020cf8ac()) {
                             data_02111818.work.index = 0;
                             result = 3;
                         }
@@ -237,7 +237,7 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
                     if (pSrc->intr_mode != 0) {
                         data_02111818.work.index++;
                         pSrc->intr_mode = 0;
-                        if (!CheckEntry5For0x27_020cf8ac()) {
+                        if (!func_020cf8ac()) {
                             data_02111818.work.index = 0;
                             result = 3;
                         }
@@ -255,7 +255,7 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
                     if (!pSrc->intr2_mode) {
                         data_02111818.work.index++;
                         pSrc->intr2_mode = 1;
-                        if (!CheckEntry5For0x27_020cf8ac()) {
+                        if (!func_020cf8ac()) {
                             data_02111818.work.index = 0;
                             result = 3;
                         }
@@ -264,7 +264,7 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
                     if (pSrc->intr2_mode) {
                         data_02111818.work.index++;
                         pSrc->intr2_mode = 0;
-                        if (!CheckEntry5For0x27_020cf8ac()) {
+                        if (!func_020cf8ac()) {
                             data_02111818.work.index = 0;
                             result = 3;
                         }

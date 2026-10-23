@@ -4,12 +4,12 @@
 
 struct Foo020bcbc4;
 
-void CallIfFlag0x24Bit0(Foo020bcbc4* stream);
-int AllocateFlagBit_020bbeb0();
-void PostEvent0x0E_020d2038(int channelNo, int format, int buffer, int loop, int loopStart, int length, int volume,
+extern "C" void func_020bcbc4(Foo020bcbc4* stream);
+extern "C" int func_020bbeb0();
+extern "C" void func_020d2038(int channelNo, int format, int buffer, int loop, int loopStart, int length, int volume,
                    int shift, int timer, int pan);
-void EnqueueEvent0x12_020d1f70(int alarmNo, int tick, int period, int callback, int arg);
-void Call020bcd30WithFlag1_020bcd20(void* arg);
+extern "C" void func_020d1f70(int alarmNo, int tick, int period, int callback, int arg);
+extern "C" void func_020bcd20(void* arg);
 extern "C" void func_020bcd30(void* stream, int status);
 
 struct StreamChannel020bc9d0 {
@@ -49,7 +49,7 @@ extern "C" ARM int func_020bc9d0(SoundStream020bc9d0* stream, int format, void* 
     int index;
 
     if (stream->activeFlag)
-        CallIfFlag0x24Bit0((Foo020bcbc4*)stream);
+        func_020bcbc4((Foo020bcbc4*)stream);
 
     bufferSize /= 32 * interval * stream->numChannels;
     stream->chBufLen = bufferSize * interval * 32;
@@ -59,7 +59,7 @@ extern "C" ARM int func_020bc9d0(SoundStream020bc9d0* stream, int format, void* 
         samples >>= 1;
     alarmTimer = timer * samples / interval;
 
-    stream->alarmNo = AllocateFlagBit_020bbeb0();
+    stream->alarmNo = func_020bbeb0();
     if (stream->alarmNo < 0)
         return 0;
 
@@ -68,11 +68,11 @@ extern "C" ARM int func_020bc9d0(SoundStream020bc9d0* stream, int format, void* 
         channel = &data_0210fcf4[channelNo];
         channel->buffer = (unsigned char*)buffer + stream->chBufLen * index;
         channel->volume = 0;
-        PostEvent0x0E_020d2038(channelNo, format, (int)channel->buffer, 1, 0, (int)(stream->chBufLen >> 2), 127, 0,
+        func_020d2038(channelNo, format, (int)channel->buffer, 1, 0, (int)(stream->chBufLen >> 2), 127, 0,
                       timer << 5, 64);
     }
 
-    EnqueueEvent0x12_020d1f70(stream->alarmNo, alarmTimer, alarmTimer, (int)Call020bcd30WithFlag1_020bcd20, (int)stream);
+    func_020d1f70(stream->alarmNo, alarmTimer, alarmTimer, (int)func_020bcd20, (int)stream);
     data_0210fca8.InsertAtEnd((SignedAllocatorHeader*)stream);
 
     stream->format = format;

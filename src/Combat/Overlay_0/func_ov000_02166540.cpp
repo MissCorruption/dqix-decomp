@@ -78,19 +78,19 @@ struct CombatantScaleEntry {
     unsigned char pad_00[0xc];
     short scale;
 };
-void ResetNameState02048614(unsigned char*);
+extern "C" void func_02048614(unsigned char*);
 extern "C" void func_02049c88(NameCombatant*, CombatantModelState*);
-void CopyObjectFields02048588(unsigned char*, unsigned char*);
-void BuildName020488ec(char*);
-char* SearchWithLow15Comparator02070fd0(Container02070e60*, int);
-void ReplaceEntryAndFormat0204887c(Obj0204887c*, char*);
-void SetSubstructFlag0x80_02048bb8(unsigned char*);
-void SetSubstructFlag0x200_02048bf8(unsigned char*);
-CombatantScaleEntry* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
-int SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void RegisterCombatantSlot_0200fd38(GameState*, int, GameObject*);
-void AllocateSlotAndConfigureField02166784(Struct5e00*, unsigned char*, unsigned char*);
-int FindOrAssignSlot02167c28(unsigned char*, int);
+extern "C" void func_02048588(unsigned char*, unsigned char*);
+extern "C" void func_020488ec(char*);
+extern "C" char* func_02070fd0(Container02070e60*, int);
+extern "C" void func_0204887c(Obj0204887c*, char*);
+extern "C" void func_02048bb8(unsigned char*);
+extern "C" void func_02048bf8(unsigned char*);
+extern "C" CombatantScaleEntry* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" int func_02033b88(Bytes02033b88*, int);
+extern "C" void func_0200fd38(GameState*, int, GameObject*);
+extern "C" void func_ov000_02166784(Struct5e00*, unsigned char*, unsigned char*);
+extern "C" int func_ov000_02167c28(unsigned char*, int);
 extern "C" void func_ov017_02191aac(void*, int, int, int);
 
 // USA: func_ov000_02166540
@@ -111,27 +111,27 @@ extern "C" ARM void func_ov000_02166540(Struct5e00* state, int slot, int id, uns
     if (!source) return;
     NameCombatant* combatant = &state->combatants[index];
     if (!combatant) return;
-    ResetNameState02048614((unsigned char*)combatant);
+    func_02048614((unsigned char*)combatant);
     CombatantModelState* model = &state->models[index];
     if (!model) return;
     func_02049c88(combatant, model);
     combatant->flags |= 0x20;
-    CopyObjectFields02048588((unsigned char*)source, (unsigned char*)combatant);
+    func_02048588((unsigned char*)source, (unsigned char*)combatant);
     combatant->object.SetField06(state->field_ec8);
     combatant->mode = mode;
     combatant->stats = &state->roster->stats[index];
-    BuildName020488ec((char*)combatant);
+    func_020488ec((char*)combatant);
     if (combatant->stats->name) {
-        char* name = SearchWithLow15Comparator02070fd0((Container02070e60*)state->roster->names, combatant->stats->name);
-        if (name) ReplaceEntryAndFormat0204887c((Obj0204887c*)combatant, name);
+        char* name = func_02070fd0((Container02070e60*)state->roster->names, combatant->stats->name);
+        if (name) func_0204887c((Obj0204887c*)combatant, name);
     }
     combatant->object.EnableFlag(8);
     SourceTraits* traits = source->traits;
     if (traits) {
-        if (!traits->flag28) SetSubstructFlag0x80_02048bb8((unsigned char*)combatant);
-        if (!traits->flag15) SetSubstructFlag0x200_02048bf8((unsigned char*)combatant);
+        if (!traits->flag28) func_02048bb8((unsigned char*)combatant);
+        if (!traits->flag15) func_02048bf8((unsigned char*)combatant);
     }
-    CombatantScaleEntry* entry = SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)roster->search, (short)id);
+    CombatantScaleEntry* entry = func_0206f4f0((BinarySearchByComparatorStruct*)roster->search, (short)id);
     if (entry) {
         int value = entry->scale << 2;
         unsigned int scale = 0x324;
@@ -140,10 +140,10 @@ extern "C" ARM void func_ov000_02166540(Struct5e00* state, int slot, int id, uns
         else if (value >= 0x2000) scale >>= 1;
         combatant->scale = scale;
     }
-    SetByte0xbeShiftPrev((Bytes02033b88*)combatant, 0);
-    RegisterCombatantSlot_0200fd38(game, slot, (GameObject*)combatant);
-    AllocateSlotAndConfigureField02166784(state, (unsigned char*)source, (unsigned char*)combatant);
-    FindOrAssignSlot02167c28((unsigned char*)state, slot);
+    func_02033b88((Bytes02033b88*)combatant, 0);
+    func_0200fd38(game, slot, (GameObject*)combatant);
+    func_ov000_02166784(state, (unsigned char*)source, (unsigned char*)combatant);
+    func_ov000_02167c28((unsigned char*)state, slot);
     GameObject* registered = game->GetCombatantByIndex(slot);
     if (registered) {
         struct CombatFlags { unsigned char pad_00[0x14]; unsigned int flags; };

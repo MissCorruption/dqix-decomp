@@ -65,11 +65,11 @@ struct DataTable02171034 {
 };
 
 struct Struct0200fb08;
-extern unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
-extern int CallFunc020e0434With02153694_020e51cc(int value);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
+extern "C" int func_020e51cc(int value);
 struct Obj_02184ad8;
-extern void SetField1c8True_02184ad8(struct Obj_02184ad8* obj);
-void* GetNodeIfType6_0216ae9c(void* a, int id);
+extern "C" void func_ov011_02184ad8(struct Obj_02184ad8* obj);
+extern "C" void* func_ov004_0216ae9c(void* a, int id);
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" VObjNode* func_ov023_021f6880(void* obj, int key);
@@ -169,8 +169,8 @@ extern "C" ARM int func_ov004_0216ba70(void* a) {
 
     {
     int flag = 0;
-    if (NormalizeField5_0200fb08((struct Struct0200fb08*)bs2) == 4 ||
-        NormalizeField5_0200fb08((struct Struct0200fb08*)bs2) == 2) {
+    if (func_0200fb08((struct Struct0200fb08*)bs2) == 4 ||
+        func_0200fb08((struct Struct0200fb08*)bs2) == 2) {
         flag = 2;
     }
     base = 0;
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov004_0216ba70(void* a) {
 
     VObjNode* node4 = func_ov023_021f6880(func_ov011_021849c8(a), 0x3a);
     if (node4) {
-        node4->field20 = (void*)CallFunc020e0434With02153694_020e51cc(0x3f3);
+        node4->field20 = (void*)func_020e51cc(0x3f3);
     }
 
     func_ov004_0216afb0(a, 0x47, 2, 0xd3, 0x3e7, 0xa1, base + 0x13, 8, 1);
@@ -203,7 +203,7 @@ extern "C" ARM int func_ov004_0216ba70(void* a) {
 
             VObjNode* node5 = func_ov023_021f6880(func_ov011_021849c8(a), idx3 + 0x3a);
             if (node5) {
-                node5->field20 = (void*)CallFunc020e0434With02153694_020e51cc(0x3f3);
+                node5->field20 = (void*)func_020e51cc(0x3f3);
             }
 
             func_ov004_0216afb0(a, i + 0x47, 2, 0xd3, msgBase, 0xa1, base + 0x13, 8, 1);
@@ -340,7 +340,7 @@ extern "C" ARM int func_ov004_0216ba70(void* a) {
     VObjNode* nc = func_ov023_021f6880(func_ov011_021849c8(a), 0x9c);
     if (nc) nc->MethodE0(w6);
 
-    void* node5 = GetNodeIfType6_0216ae9c(a, 0xd3);
+    void* node5 = func_ov004_0216ae9c(a, 0xd3);
     func_ov023_021f8120(node5);
 
     int fieldC = data_ov004_02171034.fieldC;
@@ -349,6 +349,6 @@ extern "C" ARM int func_ov004_0216ba70(void* a) {
         func_ov023_021f7eb8(node5, a, fieldC, 6, e->a, 0x1a, e->b, 0, 1, 0);
     }
 
-    SetField1c8True_02184ad8((struct Obj_02184ad8*)a);
+    func_ov011_02184ad8((struct Obj_02184ad8*)a);
     return 0;
 }

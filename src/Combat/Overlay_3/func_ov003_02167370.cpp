@@ -12,14 +12,14 @@ enum { kRegionValue60_30 = 0x60 };
 #endif
 
 struct Struct02074bf4;
-void ClearFlag0x11IfSet(struct Struct02074bf4* obj);
+extern "C" void func_02074bf4(struct Struct02074bf4* obj);
 extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 struct List0204afb4;
-void ResetRecordList0204afb4(struct List0204afb4* obj);
+extern "C" void func_0204afb4(struct List0204afb4* obj);
 struct Obj0204c754;
-void ResetObject0204c754(struct Obj0204c754* obj);
+extern "C" void func_0204c754(struct Obj0204c754* obj);
 
 // USA: func_ov003_02167370
 extern "C" ARM void func_ov003_02167370(char* obj) {
@@ -34,9 +34,9 @@ extern "C" ARM void func_ov003_02167370(char* obj) {
     p1[1] = 0;
 
     if (*(void**)(obj + 0x10) != 0) {
-        FlushNotifyEntries_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
+        func_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
     }
-    ClearFlag0x11IfSet((struct Struct02074bf4*)(obj + 0x1c));
+    func_02074bf4((struct Struct02074bf4*)(obj + 0x1c));
 
     volatile unsigned int* dispcnt = (volatile unsigned int*)0x4001000;
     *dispcnt = (*dispcnt & ~0x1f00) | (*(int*)(obj + kRegionValue60_30) << 8);
@@ -46,15 +46,15 @@ extern "C" ARM void func_ov003_02167370(char* obj) {
     MapVRAMBanksToSubObj(*(int*)(obj + 0x18));
 
     if (*(void**)(obj + 8) != 0) {
-        ResetRecordList0204afb4(*(struct List0204afb4**)(obj + 8));
+        func_0204afb4(*(struct List0204afb4**)(obj + 8));
         *(int*)(obj + 8) = 0;
     }
     if (*(void**)(obj + 0xc) != 0) {
-        ResetObject0204c754(*(struct Obj0204c754**)(obj + 0xc));
+        func_0204c754(*(struct Obj0204c754**)(obj + 0xc));
         *(int*)(obj + 0xc) = 0;
     }
     if (*(void**)(obj + 0x10) != 0) {
-        FlushNotifyEntries_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
+        func_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
         *(int*)(obj + 0x10) = 0;
     }
     if (*(int*)obj != 0) {

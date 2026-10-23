@@ -73,8 +73,8 @@ extern "C" ARM void func_ov012_02185cf8(ProfileEditor02185cf8* self)
     if (functions.functions[self->state_] != 0)
         (self->*functions.functions[self->state_])(self->text_, hidden);
 #if defined(jpn)
-    TryApplyElemFields0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0);
+    func_0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0);
 #else
-    TryApplyElemFields0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0, 0);
+    func_0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0, 0);
 #endif
 }

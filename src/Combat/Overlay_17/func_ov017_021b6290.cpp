@@ -32,20 +32,20 @@ extern "C" void func_0209c2e0(Actor0209c678*, int, int);
 extern "C" void func_0205e944(void*, int);
 extern "C" void func_02043124(void*);
 extern "C" int abs(int);
-void CancelPendingAction020397cc(Obj020397cc*, int);
-void DispatchContextByState0209c678(Actor0209c678*, int);
-int ListContainsId(ListHead02046b60*, int);
-void* GetGlobalField0x1c020421a0();
-RootEntries* GetGlobalPtr021075f4_0203cf4c();
-void SetOrClearBit0x10OnEntries_0203e5d8(RootEntries*, int);
-float GetIntAt0xc_020709ac(unsigned char*);
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-void EmptyStub02047198(Struct02046f84*);
-void ResetObjectAndAllocator02046f84(Struct02046f84*);
-void ConfigureModeByByte_0218d274_0218d274(void* controller);
-void ProcessCombatantsIfFlagged_0218f79c(void*);
-void ProcessSlotField58_021a2840(GameResources*);
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_0209c678(Actor0209c678*, int);
+extern "C" int func_02046b60(ListHead02046b60*, int);
+extern "C" void* func_020421a0();
+extern "C" RootEntries* func_0203cf4c();
+extern "C" void func_0203e5d8(RootEntries*, int);
+extern "C" float func_020709ac(unsigned char*);
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void func_02047198(Struct02046f84*);
+extern "C" void func_02046f84(Struct02046f84*);
+extern "C" void func_ov017_0218d274(void* controller);
+extern "C" void func_ov017_0218f79c(void*);
+extern "C" void func_ov017_021a2840(GameResources*);
 extern char data_ov017_021d7c10[];
 extern Actor0209c678 data_02109bf4;
 extern char data_02108760[];
@@ -59,11 +59,11 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* streamOwner = resources->unknown_ptr_3718;
     if (self->state == 0) {
-        CancelPendingAction020397cc(actor, 1);
+        func_020397cc(actor, 1);
         actor->field_b2 = 0;
         if (self->streamID >= 0) {
             self->task = loader->QueueLoadFile(data_ov017_021d7c10, 0);
-            DispatchContextByState0209c678(&data_02109bf4, 10);
+            func_0209c678(&data_02109bf4, 10);
         }
         if (self->streamID <= 0) self->delay = 0;
         if (self->flag8) func_02017c58(func_02012fe4());
@@ -82,11 +82,11 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
                 loader->GetLoadedFileByID(self->task, &data, &length);
                 BufferedScriptResult temporary;
                 BufferedScriptResult* result = &temporary;
-                if (ListContainsId((ListHead02046b60*)resources->unknown_ptr_array_36fc[0], 10)) {
+                if (func_02046b60((ListHead02046b60*)resources->unknown_ptr_array_36fc[0], 10)) {
                     void* overrideState = func_ov017_021b8478(streamOwner);
                     if (overrideState) result = (BufferedScriptResult*)((char*)overrideState + 0x10);
                 }
-                if (RunBufferedStream0207416c(result, self->streamID, data, length)) id = result->resultId;
+                if (func_0207416c(result, self->streamID, data, length)) id = result->resultId;
                 loader->RemoveTask(self->task);
                 self->task = BackgroundLoader::TaskStatus_Invalid;
             }
@@ -94,9 +94,9 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
             func_0209c2e0(&data_02109bf4, 127, 0);
             func_0205e944(data_02108760, 127);
             SetFlags04(resources, 0x40);
-            func_02043124(GetGlobalField0x1c020421a0());
-            SetOrClearBit0x10OnEntries_0203e5d8(GetGlobalPtr021075f4_0203cf4c(), 0);
-            if ((int)GetIntAt0xc_020709ac(timing) > 30 || abs(GetBrightness((GameResources*)resources, false)) == 16) {
+            func_02043124(func_020421a0());
+            func_0203e5d8(func_0203cf4c(), 0);
+            if ((int)func_020709ac(timing) > 30 || abs(GetBrightness((GameResources*)resources, false)) == 16) {
                 SetMainBrightness(resources, -16, 0);
                 if (GetBrightness((GameResources*)resources, true) == 0) {
                     SetSubBrightness(resources, -16, 15);
@@ -112,13 +112,13 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
             SetFlags04(resources, 16);
             SetFlags04(resources, 2);
             SetFlags00(resources, 4);
-            OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 1);
-            EmptyStub02047198(&self->action);
-            ResetObjectAndAllocator02046f84(&self->action);
-            ConfigureModeByByte_0218d274_0218d274(resources);
-            ProcessCombatantsIfFlagged_0218f79c(resources);
-            ProcessSlotField58_021a2840(resources);
-            SetOrClearBit0x10OnEntries_0203e5d8(GetGlobalPtr021075f4_0203cf4c(), 1);
+            func_020466e4(func_020d6c00(), 1);
+            func_02047198(&self->action);
+            func_02046f84(&self->action);
+            func_ov017_0218d274(resources);
+            func_ov017_0218f79c(resources);
+            func_ov017_021a2840(resources);
+            func_0203e5d8(func_0203cf4c(), 1);
             self->complete = 1;
         }
     }

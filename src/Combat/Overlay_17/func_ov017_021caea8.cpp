@@ -51,7 +51,7 @@ struct StatMessage021caea8 {
     StatFields021caea8 fields;
 };
 extern "C" void* func_ov017_021b8478(void*);
-void* GetData02100044_0202ae24();
+extern "C" void* func_0202ae24();
 extern "C" void func_0205e330(void*, void*, int);
 
 // USA: func_ov017_021caea8
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021caea8(StatContainer021caea8* self) {
     GameState::GetInstance();
     GameResources* resources = GetGameResources();
     StatState021caea8* state = (StatState021caea8*)func_ov017_021b8478(resources->unknown_ptr_3718);
-    void* data = GetData02100044_0202ae24();
+    void* data = func_0202ae24();
     for (int i = 0; i < self->count; i++) {
         StatEntry021caea8* entry = &self->entries[i];
         StatMessage021caea8 first;

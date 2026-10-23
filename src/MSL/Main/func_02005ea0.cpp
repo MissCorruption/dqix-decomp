@@ -38,7 +38,7 @@ static const double zero = 0.0, one = 1.0, two = 2.0, two53 = 9007199254740992.0
                     ivln2_h = 1.44269502162933349609e+00,
                     ivln2_l = 1.92596299112661746887e-08;
 
-// USA: func_02005ea0  (semantic: __ieee754_pow)
+// USA: func_02005ea0
 extern "C" ARM double func_02005ea0(double x, double y) {
     double z, ax, z_h, z_l, p_h, p_l;
     double y1, t1, t2, r, s, t, u, v, w;

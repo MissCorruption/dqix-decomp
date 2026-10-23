@@ -2,12 +2,12 @@
 
 extern "C" unsigned int _u32_div_f(unsigned int a, unsigned int b);
 void CleanCacheRange(const void* addr, unsigned int size);
-int EnqueueEvent0x1A_020d1fb0(int a, int b);
-void PostEvent0x0E_020d2038(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9);
-int EnqueueEvent0x12_020d1f70(int a, int b, int c, int d, int e);
-int EnqueueEvent0x0C_020d1ee4(int a, int b, int c, int d);
+extern "C" int func_020d1fb0(int a, int b);
+extern "C" void func_020d2038(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9);
+extern "C" int func_020d1f70(int a, int b, int c, int d, int e);
+extern "C" int func_020d1ee4(int a, int b, int c, int d);
 extern "C" void func_020d24c4(int);
-void IncCounter_0218bcc4(void);
+extern "C" void func_ov016_0218bcc4(void);
 
 struct StateBlock_0219d0c0 {
     #if defined(jpn)
@@ -32,15 +32,15 @@ extern "C" ARM void func_ov016_0218bce8(unsigned int id, unsigned int count) {
 
     CleanCacheRange(g->f30, prodShifted);
     CleanCacheRange(g->f2c, (g->f24 * count) << 1);
-    EnqueueEvent0x1A_020d1fb0(3, 0);
+    func_020d1fb0(3, 0);
 
-    PostEvent0x0E_020d2038(0, 1, (int)g->f30, 1,
+    func_020d2038(0, 1, (int)g->f30, 1,
         0, (g->f24 * count) >> 1, 0x7f, 0, divResult, 0);
 
-    PostEvent0x0E_020d2038(1, 1, (int)g->f2c, 1,
+    func_020d2038(1, 1, (int)g->f2c, 1,
         0, (g->f24 * count) >> 1, 0x7f, 0, divResult, 0x7f);
 
-    EnqueueEvent0x12_020d1f70(0, scaled, scaled, (int)IncCounter_0218bcc4, 0);
-    EnqueueEvent0x0C_020d1ee4(3, 0, 1, 0);
+    func_020d1f70(0, scaled, scaled, (int)func_ov016_0218bcc4, 0);
+    func_020d1ee4(3, 0, 1, 0);
     func_020d24c4(1);
 }

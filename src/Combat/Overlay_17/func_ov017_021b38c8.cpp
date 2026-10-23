@@ -28,13 +28,13 @@ struct Reload021b38c8 {
     unsigned char flags;
     char pad_c[4]; int tasks[11]; int animationTask; int field_40; int extraTask;
 };
-Container02083554* GetFieldAt0x150_02053c6c(unsigned char*);
-Scale021b38c8* GetField150Ptr0x488_02052e2c(Field150Holder02052e2c*);
-void InitSlotEntries020543ec(char*, char*);
+extern "C" Container02083554* func_02053c6c(unsigned char*);
+extern "C" Scale021b38c8* func_02052e2c(Field150Holder02052e2c*);
+extern "C" void func_020543ec(char*, char*);
 extern "C" void func_02072afc(int, int*, short*);
-Entry02083554* FindEntryByShortField02083554(Container02083554*, int);
+extern "C" Entry02083554* func_02083554(Container02083554*, int);
 extern "C" int func_02072e94(char*, int, int, Entry02083554*, Entry02083554*);
-void FormatAndAppendCombatMessage02072d58(int, char*, char*);
+extern "C" void func_02072d58(int, char*, char*);
 #if defined(jpn)
 #define data_ov017_021d7a38 data_ov017_021d8188
 #define data_ov017_021d7ace data_ov017_021d8210
@@ -50,13 +50,13 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
     Entry02083554* entries;
     GameState* game = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(game, self->combatant);
+    GameObject* combatant = func_0200ff1c(game, self->combatant);
     if (!combatant) return 0;
     BattleAssets021b38c8* assets = ((Combatant021b38c8*)combatant)->GetAssets();
     if (!assets) return 0;
-    Container02083554* data = GetFieldAt0x150_02053c6c((unsigned char*)combatant);
+    Container02083554* data = func_02053c6c((unsigned char*)combatant);
     if (!data) return 0;
-    Scale021b38c8* scale = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)combatant);
+    Scale021b38c8* scale = func_02052e2c((Field150Holder02052e2c*)combatant);
     if (!scale) return 0;
     if (!combatant->obj3D_.pModel_) {
         GameResources* resources = GetGameResources();
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
             ResourceSlots021b38c8* table = (ResourceSlots021b38c8*)resources->unknown_2cc;
             slot = table->party[assets->slot + 1].storage;
         }
-        InitSlotEntries020543ec((char*)assets, slot);
+        func_020543ec((char*)assets, slot);
     }
     int objectIds[11];
     short recordIds[12];
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
     self->flags &= ~1;
     int changed = 0;
     addFence = 1;
-    FindEntryByShortField02083554(data, recordIds[7]);
+    func_02083554(data, recordIds[7]);
     entries = data->entries;
     allocators = assets->allocators;
     for (int i = 0; i < 11; i++) {
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
         }
         object->obj3D_.unknown_2_ = recordIds[i];
         if (recordIds[i] < 0) continue;
-        Entry02083554* entry = FindEntryByShortField02083554(data, recordIds[i]);
+        Entry02083554* entry = func_02083554(data, recordIds[i]);
         if (!entry) continue;
         char path[0x80];
         if (!func_02072e94(path, self->combatant, i, entry, entries)) {
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
         char animation[0x28];
         char extra[0x28];
         char path[0x50];
-        FormatAndAppendCombatMessage02072d58(self->combatant, animation, extra);
+        func_02072d58(self->combatant, animation, extra);
         if (self->flags & 4) {
             animation[0] = 'm';
             sprintf(path, data_ov017_021d7ace, animation);

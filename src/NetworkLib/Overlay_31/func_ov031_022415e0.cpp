@@ -5,7 +5,7 @@ struct Field4Struct022415e0 {
 	int field4;
 };
 
-void CopyMemory_022415c8(void* dst, const void* src, unsigned int length);
+extern "C" void func_ov031_022415c8(void* dst, const void* src, unsigned int length);
 extern "C" int func_ov031_022414cc(Field4Struct022415e0* obj, int b, void* c, int d, int e);
 extern char data_ov031_02291a04[0x400];
 
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov031_022415e0(Field4Struct022415e0* a, int b, int* pos,
 		if (remaining <= chunk) {
 			chunk = remaining;
 		}
-		CopyMemory_022415c8(data_ov031_02291a04 + *pos, buf, chunk);
+		func_ov031_022415c8(data_ov031_02291a04 + *pos, buf, chunk);
 		buf += chunk;
 		*pos += chunk;
 		remaining -= chunk;

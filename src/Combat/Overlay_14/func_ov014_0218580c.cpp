@@ -81,22 +81,22 @@ extern Statics_02189800 data_ov014_02189800;
 extern char data_ov014_02189692[];
 extern char data_ov014_021896a7[];
 
-void ClearFields_021e20c0(void* layout);
+extern "C" void func_ov023_021e20c0(void* layout);
 extern "C" int func_ov023_021e20f0(void* layout, SafeAllocator* allocator, void* file, unsigned int size);
 extern "C" LayoutElement* func_ov014_021842a0(void* layout, short id);
-int CountActiveEntries(ActiveEntry02046900* pac);
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
 extern "C" void func_0205a528(SpriteRenderer* renderer, void* file, unsigned int size, SafeAllocator* allocator);
-void ComputeShortPair_021e2bdc(void* layout, int id, short* x, short* y);
-void* GetFieldIfFlag4_020100f8(char* gameState);
-void InitCombatController020a2010(void* camera);
-void SetFields0x10To0x18_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" void func_ov023_021e2bdc(void* layout, int id, short* x, short* y);
+extern "C" void* func_020100f8(char* gameState);
+extern "C" void func_020a2010(void* camera);
+extern "C" void func_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void func_0202e5d8(void* camera, int x, int y, int z);
 extern "C" void func_0202e0a4(void* camera);
-void SetField0x238False_020a27a0(void* camera);
-void SetField0x3b0Value_020100c4(GameState* gameState, int camera);
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
-void Set3DClearColor_020c5588(int, int, int, int, int);
+extern "C" void func_020a27a0(void* camera);
+extern "C" void func_020100c4(GameState* gameState, int camera);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c5588(int, int, int, int, int);
 
 #define HIDE_ELEMENT(layout, id)                                        \
     {                                                                   \
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
     }
 
     if (self->initStep_ == 1) {
-        ClearFields_021e20c0(self->layout_);
+        func_ov023_021e20c0(self->layout_);
         self->taskID_ = loader->QueueLoadFile(data_ov014_02189692, NULL);
         self->initStep_++;
     }
@@ -142,10 +142,10 @@ extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
         unsigned int size;
         int cellsSize;
         loader->GetLoadedFileByID(self->taskID_, &file, &size);
-        int numFiles = CountActiveEntries((ActiveEntry02046900*)file);
+        int numFiles = func_02046900((ActiveEntry02046900*)file);
         self->allocators_[5].Reset();
         for (int i = 0; i < numFiles; i++) {
-            void* cells = FindRecordByIndex((Rec020467f0*)file, i, &name, &cellsSize);
+            void* cells = func_020467f0((Rec020467f0*)file, i, &name, &cellsSize);
             if (cells != NULL)
                 func_0205a528(self->spriteRenderer_, cells, cellsSize, &self->allocators_[5]);
         }
@@ -154,20 +154,20 @@ extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
         short y = 0;
         Sprite* sprite;
         HIDE_ELEMENT(self->layout_, 0x1a);
-        ComputeShortPair_021e2bdc(self->layout_, 0x1a, &x, &y);
+        func_ov023_021e2bdc(self->layout_, 0x1a, &x, &y);
         sprite = &self->sprites_[0];
         sprite->x_ = x << 12;
         sprite->y_ = y << 12;
         sprite->unk_22 = 0x21;
         sprite->unk_26 = 0;
         HIDE_ELEMENT(self->layout_, 0x1b);
-        ComputeShortPair_021e2bdc(self->layout_, 0x1b, &x, &y);
+        func_ov023_021e2bdc(self->layout_, 0x1b, &x, &y);
         sprite = &self->sprites_[1];
         sprite->x_ = x << 12;
         sprite->y_ = y << 12;
         sprite->unk_22 = 0x22;
         sprite->unk_26 = 0;
-        ComputeShortPair_021e2bdc(self->layout_, 0x14, &x, &y);
+        func_ov023_021e2bdc(self->layout_, 0x14, &x, &y);
         sprite = &self->sprites_[2];
         sprite->x_ = x << 12;
         sprite->y_ = y << 12;
@@ -185,18 +185,18 @@ extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
         BG3CNT = (BG3CNT & ~BGCNT_MASK_PRIORITY) | 3;
         DISPCNT = (DISPCNT & ~0x1f00) | (0x13 << 8);
         GameState* gameState = GameState::GetInstance();
-        data_ov014_02189800.previousCamera = GetFieldIfFlag4_020100f8((char*)gameState);
-        InitCombatController020a2010(self->camera_);
-        SetFields0x10To0x18_0202e5c8((unsigned char*)self->camera_, 0, 0, 0);
+        data_ov014_02189800.previousCamera = func_020100f8((char*)gameState);
+        func_020a2010(self->camera_);
+        func_0202e5c8((unsigned char*)self->camera_, 0, 0, 0);
         func_0202e5d8(self->camera_, 0, 0, 0xa000);
         func_0202e0a4(self->camera_);
-        SetField0x238False_020a27a0(self->camera_);
-        SetField0x3b0Value_020100c4(gameState, (int)self->camera_);
+        func_020a27a0(self->camera_);
+        func_020100c4(gameState, (int)self->camera_);
         GameResources* resources = GetGameResources();
         SetFlags04(resources, 0x6093e);
         ClearFlags04(resources, 0x20);
-        SetFogState_020c54a4(0, 0, 0, 0);
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
         LightingManager::GetInstance()->fogEnabled_ = false;
         self->state_ = 1;
         self->initStep_ = 0;

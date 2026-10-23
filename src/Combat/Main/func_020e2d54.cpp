@@ -20,8 +20,8 @@ struct Output020e2d54 {
 };
 extern char data_020ee9b8[];
 extern int data_020ef0e8;
-void SetFields0x0_0x4_0x8_020e2fa8(int*, int, int, int);
-void* GetSubstructAt0x40OrNull020e2fb0(void*);
+extern "C" void func_020e2fa8(int*, int, int, int);
+extern "C" void* func_020e2fb0(void*);
 static inline int GetBoneScale020e2d54(Bone020e2d54* bone) { SDK_NULL_ASSERT(bone); return bone->scaleZ; }
 static inline int GetVectorZ020e2d54(Vector3fix* vector) { SDK_NULL_ASSERT(vector); return vector->z; }
 static inline int Divide020e2d54(int a, int b) { int value = fix32_Divide(a, b); return value; }
@@ -36,7 +36,7 @@ extern "C" ARM void func_020e2d54(int mode, RenderCommandHandler* entry, Output0
         REG_GXFIFO = 0x151110;
         REG_GXFIFO = 0;
         while (func_020c54fc(&matrix)) {}
-        SetFields0x0_0x4_0x8_020e2fa8(&scale.x, 0x1000, 0x1000, 0x1000);
+        func_020e2fa8(&scale.x, 0x1000, 0x1000, 0x1000);
         int correction = 0;
         if (mode == 1) {
             scale.x = Vector3fix_Length(&matrix.rows[0].xyz);
@@ -44,12 +44,12 @@ extern "C" ARM void func_020e2d54(int mode, RenderCommandHandler* entry, Output0
             scale.z = Vector3fix_Length(&matrix.rows[2].xyz);
         }
         if (mode == 1) {
-            SetFields0x0_0x4_0x8_020e2fa8(&offset.x, 0, 0, 0);
+            func_020e2fa8(&offset.x, 0, 0, 0);
             NSBXXInternalModel* model = entry->modelContext_->internalModel_;
-            NSBXXNameList* list = (NSBXXNameList*)GetSubstructAt0x40OrNull020e2fb0(model);
+            NSBXXNameList* list = (NSBXXNameList*)func_020e2fb0(model);
             int index = list ? NSBXXNameList_SearchIndex(list, data_020ee9b8) : -1;
             if (index >= 0) {
-                list = (NSBXXNameList*)GetSubstructAt0x40OrNull020e2fb0(model);
+                list = (NSBXXNameList*)func_020e2fb0(model);
                 Bone020e2d54* bone;
                 if (!list) goto missingBone;
                 {

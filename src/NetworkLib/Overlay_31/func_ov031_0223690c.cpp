@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 struct Obj0223bcc8;
-void SetEntryHalfword4Bits_0223bcc8(Obj0223bcc8* obj, int idx, int val);
-void* CallWithZeroExtra_0223e218(void* a, void* b, void* c, int d);
+extern "C" void func_ov031_0223bcc8(Obj0223bcc8* obj, int idx, int val);
+extern "C" void* func_ov031_0223e218(void* a, void* b, void* c, int d);
 
 struct TableEntry_02236a08 { unsigned short lo; unsigned short hi; };
 extern TableEntry_02236a08 data_ov031_0224926a[];
@@ -29,13 +29,13 @@ extern "C" ARM void func_ov031_0223690c(int idx) {
 	int i = 0;
 	do {
 		data_ov031_02290d04.p->items[i] = func_ov031_0223be70(1, *a++, 1);
-		SetEntryHalfword4Bits_0223bcc8((Obj0223bcc8*)data_ov031_02290d04.p->items[i], -1, 0);
+		func_ov031_0223bcc8((Obj0223bcc8*)data_ov031_02290d04.p->items[i], -1, 0);
 		TableEntry_02236a08* p = &data_ov031_0224926a[i];
 		func_ov031_0223bbd8(data_ov031_02290d04.p->items[i], -1, -42, p->hi);
 		func_ov031_0223bb58(data_ov031_02290d04.p->items[i], -1, 0, *b++);
 		i++;
 	} while (i < 5);
-	data_ov031_02290d04.p->f14 = CallWithZeroExtra_0223e218(0, (void*)func_ov031_02236a08, 0, 0x78);
+	data_ov031_02290d04.p->f14 = func_ov031_0223e218(0, (void*)func_ov031_02236a08, 0, 0x78);
 	func_ov031_022373b4(idx);
 	func_ov031_02236878(0xd);
 }

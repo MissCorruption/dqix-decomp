@@ -3,9 +3,9 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int unused, int id);
 struct S_bf3c_021f1440;
-int IsBitfield2Set_021f1440(struct S_bf3c_021f1440* obj);
+extern "C" int func_ov024_021f1440(struct S_bf3c_021f1440* obj);
 extern "C" int func_ov000_0215eb1c(int a, short* buf, int max, int start);
 
 struct Obj_021f1578 { int field0; };
@@ -23,11 +23,11 @@ struct BuffWord_021f1578 {
     signed int unkBuff21 : 3;
 };
 
-// USA: func_ov024_021f1578  (semantic: FindCombatantWithLowUnkBuff21_021f1578)
+// USA: func_ov024_021f1578
 extern "C" ARM int func_ov024_021f1578(struct Obj_021f1578* obj, short id, int unused2, int* outCount, void* outArr) {
-	GameObject* c0 = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, id);
+	GameObject* c0 = func_ov000_021536f8(obj->field0, id);
 	if (!c0) return 0;
-	if (!IsBitfield2Set_021f1440((struct S_bf3c_021f1440*)c0)) return 0;
+	if (!func_ov024_021f1440((struct S_bf3c_021f1440*)c0)) return 0;
 
 	struct Buf8_021f1578 buf = data_ov024_021fef5c;
 	int count = func_ov000_0215eb1c(obj->field0, buf.v, 8, 1);

@@ -1,0 +1,16 @@
+#include <globaldefs.h>
+
+extern "C" int func_020ac4c0(void* dst);
+extern "C" void func_ov017_021d6134(void*, int);
+
+struct Block94_021eab64 { unsigned short v0; unsigned char v2; };
+
+// USA: func_ov023_021eab64
+extern "C" ARM int func_ov023_021eab64(void* obj) {
+    char buf[0xb0];
+    func_020ac4c0(buf);
+    struct Block94_021eab64* p = (struct Block94_021eab64*)(buf + 0x94);
+    func_ov017_021d6134(obj, p->v0);
+    func_ov017_021d6134((char*)obj + 0x8, p->v2);
+    return 1;
+}

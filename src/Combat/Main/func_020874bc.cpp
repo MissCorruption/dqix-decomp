@@ -1,0 +1,23 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+struct S02037418;
+
+struct Party020874bc {
+    char pad[0xf78];
+    unsigned char ids[4];
+    unsigned char count;
+};
+
+// USA: func_020874bc
+extern "C" ARM void func_020874bc(struct Party020874bc* party, int val) {
+    GameState* bs = GameState::GetInstance();
+    unsigned char i;
+    for (i = 0; i < party->count; i++) {
+        GameObject* c = func_0200ff58(bs, party->ids[i]);
+        if (c != NULL) {
+            ((Object3D*)((struct S02037418*)c))->SetInheritedAlpha(val);
+        }
+    }
+}

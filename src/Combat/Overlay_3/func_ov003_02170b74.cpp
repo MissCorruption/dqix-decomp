@@ -9,7 +9,7 @@ struct Obj020827c4;
 
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" void VectorizedMemset(void* dst, int val, unsigned int len);
-void InitFlagsAndTimers020827c4(struct Obj020827c4* obj);
+extern "C" void func_020827c4(struct Obj020827c4* obj);
 
 struct Entry02170b74 {
     char name[0xb];
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov003_02170b74(struct Obj02170b74* self) {
         entry->field70_b = 300;
         entry->field70_c = 706;
         self->entries[i].field74 = 0;
-        InitFlagsAndTimers020827c4((struct Obj020827c4*)entry->timers);
+        func_020827c4((struct Obj020827c4*)entry->timers);
         VectorizedMemset(entry->field38, 0, 0x18);
         VectorizedMemset(entry->field50, 0, 0x1c);
     }

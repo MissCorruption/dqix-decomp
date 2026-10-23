@@ -15,11 +15,11 @@ struct DisplayJpn02066a6c {
     char pad1774[0x80]; unsigned char hasText; unsigned char visible;
     char pad17f6[0xe]; HolderJpn02066a6c holder;
 };
-void LoadStateBytePair0206b804(char*, int*, int*);
-void GetField440XY_02066cc0(Field440XYObj*, short*, short*);
+extern "C" void func_0206b804(char*, int*, int*);
+extern "C" void func_02066cc0(Field440XYObj*, short*, short*);
 struct Holder02042c24;
-void SetSubstructXY02042c24(Holder02042c24*, int, int);
-void EmitScaledField0x440_0202f404(void*, int, int);
+extern "C" void func_02042c24(Holder02042c24*, int, int);
+extern "C" void func_0202f404(void*, int, int);
 extern "C" void func_020681b4(GlyphJpn02066a6c*, int, int, short);
 extern "C" void func_020417b0(GlyphJpn02066a6c*, int, int, int);
 extern "C" void func_02066934(DisplayJpn02066a6c*, void*, GlyphJpn02066a6c*, int, int, int);
@@ -39,8 +39,8 @@ extern "C" ARM void func_02066a6c(DisplayJpn02066a6c* obj, int absolute) {
     if (text) {
         int offsetX, offsetY;
         short x, y;
-        LoadStateBytePair0206b804((char*)obj, &offsetX, &offsetY);
-        GetField440XY_02066cc0((Field440XYObj*)holder, &x, &y);
+        func_0206b804((char*)obj, &offsetX, &offsetY);
+        func_02066cc0((Field440XYObj*)holder, &x, &y);
         y -= 19;
         holder->transform = &obj->active;
         if (holder->transform) {
@@ -48,10 +48,10 @@ extern "C" ARM void func_02066a6c(DisplayJpn02066a6c* obj, int absolute) {
             holder->transform->scaleY = 4096;
         }
         if (holder->transform) holder->transform->mode = 2;
-        if (absolute) SetSubstructXY02042c24((Holder02042c24*)holder, x, y);
+        if (absolute) func_02042c24((Holder02042c24*)holder, x, y);
         else {
-            SetSubstructXY02042c24((Holder02042c24*)holder, (short)(x + offsetX), (short)(y + offsetY));
-            EmitScaledField0x440_0202f404(holder, 1, 0);
+            func_02042c24((Holder02042c24*)holder, (short)(x + offsetX), (short)(y + offsetY));
+            func_0202f404(holder, 1, 0);
         }
         short remainder = 8 - ((count * 10) & 7);
         x += (remainder + 18) >> 1;
@@ -95,12 +95,12 @@ struct Display02066a6c {
     char pad19c5[0x17]; unsigned char table;
     char pad19dd[3]; Holder02042c24 holder;
 };
-void LoadStateBytePair0206b804(char*, int*, int*);
-void GetField440XY_02066cc0(Field440XYObj*, short*, short*);
-void SetSubstructXY02042c24(Holder02042c24*, int, int);
-void EmitScaledField0x440_0202f404(void*, int, int);
-int GetWordFromTable02042648(int);
-void SetIntIntShortAt0xc_02066ce0(SetIntIntShortAt0xcStruct*, int, int, short);
+extern "C" void func_0206b804(char*, int*, int*);
+extern "C" void func_02066cc0(Field440XYObj*, short*, short*);
+extern "C" void func_02042c24(Holder02042c24*, int, int);
+extern "C" void func_0202f404(void*, int, int);
+extern "C" int func_02042648(int);
+extern "C" void func_02066ce0(SetIntIntShortAt0xcStruct*, int, int, short);
 extern "C" void func_020417b0(SetIntIntShortAt0xcStruct*, int, int, int);
 extern "C" void func_020654b8(Display02066a6c*, void*, SetIntIntShortAt0xcStruct*, int, int, int);
 
@@ -122,8 +122,8 @@ extern "C" ARM void func_02066a6c(Display02066a6c* obj, int absolute) {
     if (text) {
         int offsetX, offsetY;
         short x, y;
-        LoadStateBytePair0206b804((char*)obj, &offsetX, &offsetY);
-        GetField440XY_02066cc0((Field440XYObj*)holder, &x, &y);
+        func_0206b804((char*)obj, &offsetX, &offsetY);
+        func_02066cc0((Field440XYObj*)holder, &x, &y);
         y -= 19;
         holder->transform = &obj->active;
         if (holder->transform) {
@@ -131,15 +131,15 @@ extern "C" ARM void func_02066a6c(Display02066a6c* obj, int absolute) {
             holder->transform->scaleY = 4096;
         }
         if (holder->transform) holder->transform->mode = 2;
-        if (absolute) SetSubstructXY02042c24(holder, x, y);
+        if (absolute) func_02042c24(holder, x, y);
         else {
-            SetSubstructXY02042c24(holder, (short)(x + offsetX), (short)(y + offsetY));
-            EmitScaledField0x440_0202f404(holder, 1, 0);
+            func_02042c24(holder, (short)(x + offsetX), (short)(y + offsetY));
+            func_0202f404(holder, 1, 0);
         }
         short remainder = 8 - (obj->width & 7);
         x += (remainder + 18) >> 1;
         y += 5;
-        unsigned char fontWidth = GetWordFromTable02042648(obj->table);
+        unsigned char fontWidth = func_02042648(obj->table);
         for (i = 0; i < count; i++) {
             spacing = fontWidth + 1;
             unsigned short code = text[i];
@@ -150,7 +150,7 @@ extern "C" ARM void func_02066a6c(Display02066a6c* obj, int absolute) {
             glyph = &obj->glyphs[code];
             if (absolute) func_020654b8(obj, obj->context, glyph, x, y, 15);
             else {
-                SetIntIntShortAt0xc_02066ce0(glyph, x, y, 0);
+                func_02066ce0(glyph, x, y, 0);
                 func_020417b0(glyph, obj->font, 0, 31);
             }
             if (glyph->metrics) x += glyph->metrics->width + 1;

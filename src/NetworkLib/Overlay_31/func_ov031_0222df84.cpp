@@ -3,7 +3,7 @@
 extern unsigned char* data_ov031_02290c98;
 extern "C" ARM void func_ov031_0222df84(void);
 
-// USA: func_ov031_0222e1ac  (semantic: ResetSlotBytes_0222e1ac)
+// USA: func_ov031_0222e1ac
 extern "C" ARM void func_ov031_0222e1ac(void) {
 	unsigned char* row;
 	int i = 0;

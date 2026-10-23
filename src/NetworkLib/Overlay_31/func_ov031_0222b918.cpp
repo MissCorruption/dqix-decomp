@@ -24,7 +24,7 @@ extern Struct0222b918 data_ov031_02290c8c;
 extern const unsigned char data_ov031_02248eac[3];
 extern const unsigned char data_ov031_02248eb0[4];
 
-ARM OamAttr_0222b918* CallTailCallThenBdb0_0223be44(int a, int b);
+extern "C" ARM OamAttr_0222b918* func_ov031_0223be44(int a, int b);
 extern "C" int func_ov031_0223bdb0(int, int, void*);
 
 // USA: func_ov031_0222b918
@@ -36,8 +36,8 @@ extern "C" ARM void func_ov031_0222b918(void) {
 		n = 5;
 	}
 	for (i = 0; i < n; i++) {
-		data_ov031_02290c8c.field4->objA[i] = CallTailCallThenBdb0_0223be44(0, 0x2e);
-		data_ov031_02290c8c.field4->objB[i] = CallTailCallThenBdb0_0223be44(0, 0x18);
+		data_ov031_02290c8c.field4->objA[i] = func_ov031_0223be44(0, 0x2e);
+		data_ov031_02290c8c.field4->objB[i] = func_ov031_0223be44(0, 0x18);
 	}
 	for (i = 0; i < sizeof(data_ov031_02248eac); i++) {
 		func_ov031_0223bdb0(0, data_ov031_02248eac[i], data_ov031_02290c8c.field4->objA[0]);

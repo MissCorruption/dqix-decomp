@@ -4,13 +4,13 @@
 
 struct StatStageStruct02087a48;
 struct StatStageStruct02087a9c;
-int CanAdjustStatStageBit9(struct StatStageStruct02087a48* p, int decrease);
-int SetStatStageBit9(struct StatStageStruct02087a9c* p, int delta);
+extern "C" int func_02087a48(struct StatStageStruct02087a48* p, int decrease);
+extern "C" int func_02087a9c(struct StatStageStruct02087a9c* p, int delta);
 void UpdateCombatantCharm(int unused, int combatantId);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
 extern "C" void* func_ov000_0215e958(void* a0);
 extern "C" void func_ov024_021e8bf0(void* work, void* fieldC, unsigned short* sel);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct PackedPair_021e0380 {
@@ -35,8 +35,8 @@ extern "C" ARM void* func_ov024_021e0380(struct Obj_021e0380* obj, int unused, i
 		if (delta > 2) delta = 2;
 		int decrease = 0;
 		if (delta < 0) decrease = 1;
-		if (CanAdjustStatStageBit9((struct StatStageStruct02087a48*)c->currentStats_, (unsigned char)decrease)) {
-			stage = SetStatStageBit9((struct StatStageStruct02087a9c*)c->currentStats_, (signed char)delta);
+		if (func_02087a48((struct StatStageStruct02087a48*)c->currentStats_, (unsigned char)decrease)) {
+			stage = func_02087a9c((struct StatStageStruct02087a9c*)c->currentStats_, (signed char)delta);
 			UpdateCombatantCharm((int)obj->field0x10, id);
 			applied = 1;
 		}
@@ -45,12 +45,12 @@ extern "C" ARM void* func_ov024_021e0380(struct Obj_021e0380* obj, int unused, i
 	if (applied) {
 		if (range->stageDelta > 0 && stage == 2) sel = 0xf7;
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
 	func_ov024_021e8bf0(obj, obj->field0xc, &sel);
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	struct Flag_021e0380* fl = (struct Flag_021e0380*)((char*)obj->field0xc + 0x1c);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
 	return entry;

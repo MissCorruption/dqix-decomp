@@ -18,17 +18,17 @@ struct Node0218dd18 {
     Object3D* model;
 };
 
-extern "C" Vector3fix _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(Node0218dd18* node);
+extern "C" Vector3fix func_020406f8(Node0218dd18* node);
 struct S02040538;
-Info0218dd18* GetField0xc02040538(S02040538*);
+extern "C" Info0218dd18* func_02040538(S02040538*);
 struct Node02040774;
-void SetActiveChildFields02040774(Node02040774*, int, int, int);
-unsigned int IsFlag0x1ceBit0x8Set_02039dcc(unsigned char* obj);
+extern "C" void func_02040774(Node02040774*, int, int, int);
+extern "C" unsigned int func_02039dcc(unsigned char* obj);
 
 // USA: func_ov017_0218dd18
 extern "C" ARM int func_ov017_0218dd18(Object3D* self, Node0218dd18* node, int pushNode) {
     Vector3fix pos = self->position_;
-    Vector3fix target = _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(node);
+    Vector3fix target = func_020406f8(node);
     if (fix32abs(target.y - pos.y) >= 0x2000) {
         return 0;
     }
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* self, Node0218dd18* node, int p
     if (node->model != NULL) {
         nodeRadius = node->model->GetRadius() / 2;
     }
-    Bounds0218dd18* bounds = GetField0xc02040538((S02040538*)node)->bounds;
+    Bounds0218dd18* bounds = func_02040538((S02040538*)node)->bounds;
     if (bounds != NULL) {
         nodeRadius = bounds->radius;
         Vector3fix_Add(&target, &bounds->center, &target);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* self, Node0218dd18* node, int p
     if (node->flags & 0x40000) {
         return 0;
     }
-    if (!IsFlag0x1ceBit0x8Set_02039dcc((unsigned char*)self)) {
+    if (!func_02039dcc((unsigned char*)self)) {
         if (pushNode) {
             reach -= (int)(0.2f * (self->GetRadius() * 0.5f));
             if (reach < dist) {
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* self, Node0218dd18* node, int p
             Vector3fix_Subtract(&target, &pos, &delta);
             Vector3fixMultiplyScalar(&delta, fix32_Divide(reach, dist), &delta);
             Vector3fix_Add(&pos, &delta, &target);
-            SetActiveChildFields02040774((Node02040774*)node, target.x, target.y, target.z);
+            func_02040774((Node02040774*)node, target.x, target.y, target.z);
         } else {
             Vector3fix delta;
             Vector3fix_Subtract(&pos, &target, &delta);

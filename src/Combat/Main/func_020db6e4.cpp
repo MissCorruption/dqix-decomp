@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-int GetObjectValue020db2dc(int,int);
+extern "C" int func_020db2dc(int,int);
 struct TileObject {
  unsigned int position;
  union { unsigned short value; struct { unsigned short tile:10; unsigned short mode:2; unsigned short palette:4; } fields; } attribute;
@@ -7,7 +7,7 @@ struct TileObject {
 };
 // USA: func_020db6e4
 extern "C" ARM void func_020db6e4(unsigned char* object, unsigned short value) {
- TileObject* entries=(TileObject*)GetObjectValue020db2dc((int)object,object[0x3c]);
+ TileObject* entries=(TileObject*)func_020db2dc((int)object,object[0x3c]);
  value|=0xf800;
  for(int row=0;row<3;++row) {
   for(int col=0;col<4;++col) {

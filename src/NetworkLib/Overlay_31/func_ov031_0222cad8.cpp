@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_02236878(int);
 extern "C" void func_ov031_0222c7d8(void);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 
 struct CombatantCtx0222cad8 {
     unsigned char pad0[0x38];
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_0222cad8(void) {
         data_ov031_02290c8c.field4->field59 = 1;
     } else {
         func_ov031_02236878(0x13);
-        void* result = CallWithZeroExtra_0223e218((void*)0, (void*)func_ov031_0222c7d8, (void*)0, 0x78);
+        void* result = func_ov031_0223e218((void*)0, (void*)func_ov031_0222c7d8, (void*)0, 0x78);
         data_ov031_02290c8c.field4->field38 = (int)result;
     }
 }

@@ -35,12 +35,12 @@ struct LoadState021bdc34 {
     unsigned char stage;
     unsigned char mode;
 };
-LoadEntry021bdc34* FindNegativeEntry_021a11b4(S021a11b4*);
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char*);
-void BackupPairTables0207dfac(char*);
-void SetFieldndDispatch_021bdb78_021bdb78(int);
-void CallHelperIfCheckPasses_0218fcf8(int, int, int);
+extern "C" LoadEntry021bdc34* func_ov017_021a11b4(S021a11b4*);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char*);
+extern "C" void func_0207dfac(char*);
+extern "C" void func_ov017_021bdb78(int);
+extern "C" void func_ov017_0218fcf8(int, int, int);
 extern "C" void func_ov017_0218f5a4(void*, int, int, int, int);
 #if defined(jpn)
 extern const char data_ov017_021d85ec[], data_ov017_021d8606[], data_ov017_021d861e[];
@@ -56,9 +56,9 @@ extern "C" ARM void func_ov017_021bdc34(LoadState021bdc34* self) {
     GameState* game = GameState::GetInstance();
     LoadGlobals021bdc34* globals = (LoadGlobals021bdc34*)GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    CombatantRecovery* actor = (CombatantRecovery*)GetCombatantWithFlag0x100_0200ff1c(game, 0);
+    CombatantRecovery* actor = (CombatantRecovery*)func_0200ff1c(game, 0);
     if (actor == 0) return;
-    LoadEntry021bdc34* entry = FindNegativeEntry_021a11b4((S021a11b4*)globals);
+    LoadEntry021bdc34* entry = func_ov017_021a11b4((S021a11b4*)globals);
     if (entry == 0) {
         self->done = 1;
         return;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021bdc34(LoadState021bdc34* self) {
 #endif
                 for (int i = 0; i < 4; i++) {
                     allocators[i]->Reset();
-                    CopyInternalFields0207df50(pairs[i]);
+                    func_0207df50(pairs[i]);
                 }
             } else {
                 for (int i = 0; i < 4; i++) self->tasks[i] = -1;
@@ -129,10 +129,10 @@ extern "C" ARM void func_ov017_021bdc34(LoadState021bdc34* self) {
                     info.allocator = allocator;
                     info.unk_8 = length;
                     Foo0207df50* pair = pairs[i];
-                    RestorePairTables0207df90((char*)pair);
+                    func_0207df90((char*)pair);
                     object->Initialize();
                     object->LoadFromCCHROrCMOTArchive(&info, 0);
-                    BackupPairTables0207dfac((char*)pair);
+                    func_0207dfac((char*)pair);
                     switch (i) {
                     case 0: globals->first = object; break;
                     case 1: globals->second = object; break;
@@ -146,10 +146,10 @@ extern "C" ARM void func_ov017_021bdc34(LoadState021bdc34* self) {
         }
         if (!pending) self->stage = 2;
     } else if (self->stage == 2) {
-        if (self->mode == 1) SetFieldndDispatch_021bdb78_021bdb78(0);
+        if (self->mode == 1) func_ov017_021bdb78(0);
         else {
             actor->obj3D_.unknown_9c_ = 0;
-            CallHelperIfCheckPasses_0218fcf8((int)globals, 0, 0);
+            func_ov017_0218fcf8((int)globals, 0, 0);
         }
         if (globals->first != 0) {
 #if defined(jpn)

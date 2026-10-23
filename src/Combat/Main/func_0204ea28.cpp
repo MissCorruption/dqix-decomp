@@ -1,0 +1,10 @@
+#include <globaldefs.h>
+
+// USA: func_0204ea28
+extern "C" ARM int func_0204ea28(short x, short y, short minX, short minY, short maxX, short maxY) {
+    int result = 0;
+    if (minX <= x && x < maxX && minY <= y && y < maxY) {
+        result = 1;
+    }
+    return result;
+}

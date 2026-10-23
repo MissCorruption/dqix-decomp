@@ -4,12 +4,12 @@
 #include "GameState/GameState.h"
 
 struct EntryManager020e2490;
-void InitEntryManager020e2490(struct EntryManager020e2490* obj, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag);
+extern "C" void func_020e2490(struct EntryManager020e2490* obj, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag);
 struct List0204af64;
-void ResetList0204af64(struct List0204af64* obj);
+extern "C" void func_0204af64(struct List0204af64* obj);
 extern "C" void func_0204c684(void*);
 struct Struct0205a198;
-void Init0205a198(struct Struct0205a198*);
+extern "C" void func_0205a198(struct Struct0205a198*);
 
 struct CombatSubsystem0215376c {
     char pad0[4];
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_021544ec(struct Obj021544ec* obj, SafeAllocator* 
         obj->buf24 = (struct Struct0205a198*)alloc->Allocate(0x190);
         obj->buf28 = alloc->Allocate(8);
         obj->entryManager = (struct EntryManager020e2490*)alloc->Allocate(0x24);
-        InitEntryManager020e2490(obj->entryManager, 0, 1, obj->buf28, alloc, kEntryCount, 0x40);
+        func_020e2490(obj->entryManager, 0, 1, obj->buf28, alloc, kEntryCount, 0x40);
 
         AllocatorSizes021544ec sizes = data_ov003_0217f320;
         for (unsigned char i = 0; i < 8; i++) {
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov003_021544ec(struct Obj021544ec* obj, SafeAllocator* 
             allocators[i].Reset();
         }
         for (unsigned char i = 0; i < 2; i++) {
-            ResetList0204af64((struct List0204af64*)((char*)obj->lists + i * 0x20));
+            func_0204af64((struct List0204af64*)((char*)obj->lists + i * 0x20));
         }
         for (unsigned char i = 0; i < 3; i++) {
             func_0204c684(obj->buf14 + i * 0xe0);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov003_021544ec(struct Obj021544ec* obj, SafeAllocator* 
             obj->words[i] = 0;
         }
         for (unsigned char i = 0; i < 10; i++) {
-            Init0205a198((struct Struct0205a198*)((char*)obj->buf24 + i * 0x28));
+            func_0205a198((struct Struct0205a198*)((char*)obj->buf24 + i * 0x28));
         }
         GameState::GetInstance();
         struct CombatSubsystem0215376c* sub = obj->subsystem;

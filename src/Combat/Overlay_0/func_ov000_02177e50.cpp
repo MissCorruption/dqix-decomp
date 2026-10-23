@@ -10,7 +10,7 @@
 
 #include "std_library_functions.h"
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 
 extern "C" void func_ov000_0217c638(void* obj, int a, int b);
 extern "C" void func_ov000_02177f74(void* obj, void* buf);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov000_02177e50(void* objRaw, struct InStruct_02177e50* 
     *(unsigned char*)(s + 0xb1) = 6;
     void* buf;
     int savedField58 = *(int*)(s + 0x58);
-    buf = *(void**)((char*)GetGlobalField0x1c020421a0() + REGION_OFFSET_0);
+    buf = *(void**)((char*)func_020421a0() + REGION_OFFSET_0);
     memset(buf, 0, REGION_OFFSET_1);
     func_ov000_02177f74(obj, buf);
     int flag = (savedField58 > 1) ? 1 : 0;

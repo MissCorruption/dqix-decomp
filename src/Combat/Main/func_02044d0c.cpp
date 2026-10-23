@@ -6,7 +6,7 @@
 
 extern char data_02107800;
 
-void ResetList0204af64(struct List0204af64*);
+extern "C" void func_0204af64(struct List0204af64*);
 extern "C" void func_0204b174(void* list, void* rec, void* alloc, int size);
 extern "C" unsigned int GetMainBG1ScreenBase(void);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int a, int b, int c, int d);
@@ -39,7 +39,7 @@ extern "C" ARM void func_02044d0c(void) {
     char* rec = *(char**)((char*)GetGameResources() + 0x2c);
 
     struct List0204af64 local;
-    ResetList0204af64(&local);
+    func_0204af64(&local);
     local.b1c_lo = 0;
     local.b1c_hi = 3;
     func_0204b174(&local, rec, 0, 0);

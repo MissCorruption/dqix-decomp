@@ -1,0 +1,10 @@
+#include "Util/ElementIndexTable.h"
+#include <globaldefs.h>
+
+// USA: func_0201f2a4
+extern "C" ARM struct Element_1f2a4* func_0201f2a4(struct Manager_1f2a4* manager, int index) {
+    if (index < 0 || manager->count <= index) {
+        return 0;
+    }
+    return &manager->elements[index];
+}

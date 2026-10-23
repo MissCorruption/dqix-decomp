@@ -5,8 +5,8 @@ extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" void* func_ov023_021f6880(void* list, int value);
 extern "C" void* func_ov023_021fad18(void* obj);
 extern "C" int func_ov023_021f6c90(void* list, int elemIndex, int flag);
-void* GetEntryPtr_021fa854(char* obj, unsigned int idx);
-ARM void SetBitsInArray021f6bec(void* obj, int elemIndex, unsigned int startBit, unsigned int count);
+extern "C" void* func_ov023_021fa854(char* obj, unsigned int idx);
+extern "C" ARM void func_ov023_021f6bec(void* obj, int elemIndex, unsigned int startBit, unsigned int count);
 
 struct Obj021fad84 {
     char pad0[4];
@@ -59,7 +59,7 @@ struct Obj021fad84 {
 
 };
 
-// USA: func_ov023_021fad84  (semantic: InitObjAndRegisterListEntryB_021fad84)
+// USA: func_ov023_021fad84
 extern "C" ARM int func_ov023_021fad84(struct Obj021fad84* obj, void* ctx, int arg3, int arg4, int arg5, int arg6) {
     func_ov023_021f6ed8(obj);
     obj->f4 = 1;
@@ -88,12 +88,12 @@ extern "C" ARM int func_ov023_021fad84(struct Obj021fad84* obj, void* ctx, int a
     void* p = func_ov023_021fad18(node);
     unsigned char b = *(unsigned char*)((char*)p + 0x50);
     *(unsigned short*)((char*)obj + 0x22) = arg6;
-    void* entry = GetEntryPtr_021fa854((char*)p, *(unsigned short*)((char*)obj + 0x22));
+    void* entry = func_ov023_021fa854((char*)p, *(unsigned short*)((char*)obj + 0x22));
     unsigned short entryVal = *(unsigned short*)entry;
 
     int r = func_ov023_021f6c90(list, b, entryVal);
     *(unsigned short*)((char*)obj + 0x24) = r;
-    SetBitsInArray021f6bec(list, b, *(unsigned short*)((char*)obj + 0x24), entryVal);
+    func_ov023_021f6bec(list, b, *(unsigned short*)((char*)obj + 0x24), entryVal);
 
     obj->f26 = 0;
     obj->f28 = 0;

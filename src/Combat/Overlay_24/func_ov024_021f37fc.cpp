@@ -4,15 +4,15 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char* obj);
+extern "C" int func_020882f8(unsigned char* obj);
 struct FlagObj_021de25c;
-int IsFlagBit5Set_021de25c(struct FlagObj_021de25c* obj);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021de25c(struct FlagObj_021de25c* obj);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Buf8_021f37fc { short v[8]; };
 extern struct Buf8_021f37fc data_ov024_021fee0c;
 
-// USA: func_ov024_021f37fc  (semantic: SelectFlagOrState5AndMaybePick_021f37fc)
+// USA: func_ov024_021f37fc
 extern "C" ARM int func_ov024_021f37fc(int* a0, int a1, int a2, int* outCount, short* outArray) {
 	struct Buf8_021f37fc buf = data_ov024_021fee0c;
 
@@ -23,14 +23,14 @@ extern "C" ARM int func_ov024_021f37fc(int* a0, int a1, int a2, int* outCount, s
 	for (int i = 0; i < count; i++) {
 		GameObject* c = GetCombatantByID(*a0, buf.v[i]);
 		if (!c) continue;
-		if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)c->currentStats_) || IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)c)) {
+		if (func_020882f8((unsigned char*)c->currentStats_) || func_ov024_021de25c((struct FlagObj_021de25c*)c)) {
 			int idx = *outCount;
 			*outCount = idx + 1;
 			outArray[idx] = buf.v[i];
 		}
 	}
 	if (*outCount > 0) {
-		PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+		func_ov024_021ed890((struct Random**)a0, outCount, outArray);
 		return 1;
 	}
 	return 0;

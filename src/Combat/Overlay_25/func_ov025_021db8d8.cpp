@@ -79,18 +79,18 @@ struct Work021db8d8 {
 #endif
 };
 
-struct Slot021db8d8* GetSlotPtr02160f20(void*);
-void* GetSlotPtr02160f60(void*);
-unsigned int GetSubstructByte0x34_02049444(unsigned char*);
-int GetSubstructByte0x1e_020493ec(unsigned char*);
-int GetSubstructByte0x1d_020493c8(unsigned char*);
-void SetSubstructByte0x1e_020493dc(unsigned char*, unsigned char);
-void SetSubstructByte0x1c_02049390(unsigned char*, unsigned char);
-struct Node02169b04* FindNodeByKey02169b04(struct List02169b04*, int);
-struct Node02169b04* FindNode02169b54(struct Node02169b54*, int);
-struct Actor021db8d8* GetNodeAtIndex02160094(struct List02160094*, int);
-void RunFlagPassAndSetMode02167dd8_02167dd8(unsigned char*);
-void ApplyField41ToGatheredCombatants02163a7c(struct GatherObj02163a7c*);
+extern "C" struct Slot021db8d8* func_ov000_02160f20(void*);
+extern "C" void* func_ov000_02160f60(void*);
+extern "C" unsigned int func_02049444(unsigned char*);
+extern "C" int func_020493ec(unsigned char*);
+extern "C" int func_020493c8(unsigned char*);
+extern "C" void func_020493dc(unsigned char*, unsigned char);
+extern "C" void func_02049390(unsigned char*, unsigned char);
+extern "C" struct Node02169b04* func_ov000_02169b04(struct List02169b04*, int);
+extern "C" struct Node02169b04* func_ov000_02169b54(struct Node02169b54*, int);
+extern "C" struct Actor021db8d8* func_ov000_02160094(struct List02160094*, int);
+extern "C" void func_ov000_02167dd8(unsigned char*);
+extern "C" void func_ov000_02163a7c(struct GatherObj02163a7c*);
 extern "C" int func_ov025_021dfa9c(void* obj, void* battle);
 extern "C" void func_ov000_021626a0(void* obj, int a, int b);
 extern "C" int func_ov000_02153e40(void* battle, short* ids, int max, int start);
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
     game = GameState::GetInstance();
     battle = self->battle;
     struct Sub021db8d8* sub = (struct Sub021db8d8*)((char*)self + SUB_021db8d8);
-    struct Slot021db8d8* slot = GetSlotPtr02160f20(self);
+    struct Slot021db8d8* slot = func_ov000_02160f20(self);
     actorId = -1;
     if (slot->actor) {
         actorId = slot->actor->id;
@@ -137,26 +137,26 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
         targetId = slot->target->id;
     }
     int retreat = 0;
-    if (actor && GetSubstructByte0x34_02049444((unsigned char*)actor)) {
+    if (actor && func_02049444((unsigned char*)actor)) {
         retreat = 1;
     }
     int skip = 0;
     keys = self->keys;
     if (keys) {
-        struct Node02169b04* node = FindNodeByKey02169b04(keys, 0xc);
+        struct Node02169b04* node = func_ov000_02169b04(keys, 0xc);
         ok = 1;
-        a = FindNodeByKey02169b04(keys, 0x3d);
-        b = FindNodeByKey02169b04(keys, 7);
-        if (node && ((a && node == FindNode02169b54((struct Node02169b54*)a, 0xc)) ||
-                     (b && node == FindNode02169b54((struct Node02169b54*)b, 0xc)))) {
+        a = func_ov000_02169b04(keys, 0x3d);
+        b = func_ov000_02169b04(keys, 7);
+        if (node && ((a && node == func_ov000_02169b54((struct Node02169b54*)a, 0xc)) ||
+                     (b && node == func_ov000_02169b54((struct Node02169b54*)b, 0xc)))) {
             ok = 0;
         }
         if (ok) {
             if (node && node->kind != 0xa) {
                 skip = 1;
-            } else if (FindNodeByKey02169b04(keys, 0x20)) {
+            } else if (func_ov000_02169b04(keys, 0x20)) {
                 skip = 1;
-            } else if (FindNodeByKey02169b04(keys, 0x22)) {
+            } else if (func_ov000_02169b04(keys, 0x22)) {
                 skip = 1;
             }
         }
@@ -170,10 +170,10 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
         func_ov000_021626a0(self, 4, 1);
         near = 0;
         GameObject* target = game->GetCombatantByIndex(targetId);
-        if (target && GetSubstructByte0x1e_020493ec((unsigned char*)target) != 0xff) {
-            void* list = GetSlotPtr02160f60(self);
+        if (target && func_020493ec((unsigned char*)target) != 0xff) {
+            void* list = func_ov000_02160f60(self);
             if (list) {
-                struct Actor021db8d8* first = GetNodeAtIndex02160094((struct List02160094*)list, 0);
+                struct Actor021db8d8* first = func_ov000_02160094((struct List02160094*)list, 0);
                 if (first && first->id == targetId) {
                     near = 1;
                 }
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
             int any;
             for (int i = 0; i < count; i++) {
                 GameObject* c = game1->GetCombatantByIndex(ids[i]);
-                if (c && GetSubstructByte0x34_02049444((unsigned char*)c) >= 5) {
+                if (c && func_02049444((unsigned char*)c) >= 5) {
                     any = 1;
                     goto checked;
                 }
@@ -219,8 +219,8 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
             }
             row = pos = 0xff;
             if (obj) {
-                pos = GetSubstructByte0x1e_020493ec((unsigned char*)obj);
-                row = GetSubstructByte0x1d_020493c8((unsigned char*)obj);
+                pos = func_020493ec((unsigned char*)obj);
+                row = func_020493c8((unsigned char*)obj);
             }
             short ids[12];
             count2 = func_ov000_02153e40(battle, ids, 12, 0);
@@ -231,15 +231,15 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
                 }
             }
             if (obj) {
-                SetSubstructByte0x1e_020493dc((unsigned char*)obj, pos);
+                func_020493dc((unsigned char*)obj, pos);
                 if (pos != 0xff && row != 0xff) {
-                    SetSubstructByte0x1c_02049390((unsigned char*)obj, row);
+                    func_02049390((unsigned char*)obj, row);
                 }
             }
-            RunFlagPassAndSetMode02167dd8_02167dd8((unsigned char*)self);
+            func_ov000_02167dd8((unsigned char*)self);
             sub->slot = slot;
             func_ov000_0216e678(sub->camera, actorId, targetId, 0, 1);
-            ApplyField41ToGatheredCombatants02163a7c((struct GatherObj02163a7c*)self);
+            func_ov000_02163a7c((struct GatherObj02163a7c*)self);
             self->flags5951.pending = 0;
             retreat = 0;
             if (skip) {
@@ -250,7 +250,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
     quiet:
         sub->slot = slot;
         func_ov000_0216e678(sub->camera, actorId, targetId, 0, 0);
-        RunFlagPassAndSetMode02167dd8_02167dd8((unsigned char*)self);
+        func_ov000_02167dd8((unsigned char*)self);
     shown:
         started = 1;
         func_ov000_0216d464(sub->camera);

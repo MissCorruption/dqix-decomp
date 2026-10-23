@@ -2,9 +2,9 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void BackupPairTableToBuffer_020bb700(int* out);
-void ReadGlobalPair020bb910(int* dst);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_020bb700(int* out);
+extern "C" void func_020bb910(int* dst);
 extern "C" int func_020bb588(unsigned int size, int a, int b);
 extern "C" void func_0207de48(void* pObj, int a, int b);
 extern "C" void func_020542b4(void* a, void* b, void* c);
@@ -62,12 +62,12 @@ extern "C" ARM void func_ov017_021a02f0(Battle021a02f0* self) {
     unsigned int size;
 
     for (i = 0; (size = data_ov017_021d6984[i].size) != 0; i++) {
-        void* buf = AllocateAligned4_02012d88(&data_02114e20, size);
+        void* buf = func_02012d88(&data_02114e20, size);
         self->allocators[data_ov017_021d6984[i].index].CreateTypeA(buf, size);
     }
 
-    BackupPairTableToBuffer_020bb700(self->backups[0].table);
-    ReadGlobalPair020bb910(self->backups[0].pair);
+    func_020bb700(self->backups[0].table);
+    func_020bb910(self->backups[0].pair);
     func_020bb588(0x20000, 0, 0);
     func_020bb588(0x20000, 0, 0);
 
@@ -75,13 +75,13 @@ extern "C" ARM void func_ov017_021a02f0(Battle021a02f0* self) {
         func_0207de48(&self->slots[data_ov017_021d6924[i].index], data_ov017_021d6924[i].a,
                       data_ov017_021d6924[i].b);
         if (i == 1) {
-            BackupPairTableToBuffer_020bb700(self->backups[2].table);
-            ReadGlobalPair020bb910(self->backups[2].pair);
+            func_020bb700(self->backups[2].table);
+            func_020bb910(self->backups[2].pair);
         }
     }
 
-    BackupPairTableToBuffer_020bb700(self->backups[1].table);
-    ReadGlobalPair020bb910(self->backups[1].pair);
+    func_020bb700(self->backups[1].table);
+    func_020bb910(self->backups[1].pair);
 
     for (int j = 0; j < 4; j++) {
         func_020542b4(&self->groups[j], &self->allocators[j + 1], &self->slots[j + 1]);

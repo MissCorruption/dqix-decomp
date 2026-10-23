@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void ZeroFillLength_0223fb60(void*, unsigned int);
+extern "C" void func_ov031_0223fb60(void*, unsigned int);
 extern "C" void func_ov031_0221ae00(void*);
 extern "C" int func_ov031_0223fba4(void*, int, int, int);
 extern "C" void func_ov031_0223e454(void*, void*, int);
@@ -11,7 +11,7 @@ struct Buf0223e9d4 { int w0; int w1; char pad[0x14 - 8]; };
 extern "C" ARM int func_ov031_0223e9d4(void* p0, void* p1, int p2, int p3) {
 	Buf0223e9d4 buf;
 	unsigned char out[0x10];
-	ZeroFillLength_0223fb60(&buf, 0x14);
+	func_ov031_0223fb60(&buf, 0x14);
 	func_ov031_0221ae00(&buf);
 	unsigned long long v = *(unsigned long long*)&buf;
 	if (v == 0) return 0;

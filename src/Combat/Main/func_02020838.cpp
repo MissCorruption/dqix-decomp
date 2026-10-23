@@ -5,11 +5,11 @@
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void DisableSubObjVRAMBanks(void);
 extern "C" int DisableSubBGVRAMBanks(void);
-void SetSubBgMode_020c3984(unsigned int mode);
+extern "C" void func_020c3984(unsigned int mode);
 extern "C" void MapVRAMBanksToSubObj(unsigned short value);
 extern "C" void MapVRAMBanksToSubBG(int);
-void SetSubBg0Control02020968(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
-void SetSubBg1Control0202099c(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
+extern "C" void func_02020968(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
+extern "C" void func_0202099c(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
 
 // USA: func_02020838
 extern "C" ARM void func_02020838(MapDisplay* unusedContext) {
@@ -18,17 +18,17 @@ extern "C" ARM void func_02020838(MapDisplay* unusedContext) {
 
     DisableSubBGVRAMBanks();
     DisableSubObjVRAMBanks();
-    SetSubBgMode_020c3984(0);
+    func_020c3984(0);
     MapVRAMBanksToSubBG(0x80);
 
     if (state->unknown_c_low_ == 0) {
         *dispcnt = (*dispcnt & ~0x1f00) | 0x1100;
-        SetSubBg0Control02020968(0, 0, 0xf, 0, 0);
-        SetSubBg1Control0202099c(0, 0, 0x10, 0, 0);
+        func_02020968(0, 0, 0xf, 0, 0);
+        func_0202099c(0, 0, 0x10, 0, 0);
     } else {
         *dispcnt = (*dispcnt & ~0x1f00) | 0x1300;
-        SetSubBg0Control02020968(1, 0, 0xe, 0, 0);
-        SetSubBg1Control0202099c(0, 0, 0xd, 0, 0);
+        func_02020968(1, 0, 0xe, 0, 0);
+        func_0202099c(0, 0, 0xd, 0, 0);
     }
 
     MapVRAMBanksToSubObj(0x100);

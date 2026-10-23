@@ -36,11 +36,11 @@ struct LabelNode02064e88 {
 };
 
 extern "C" unsigned short* func_02012fe4(void);
-int GetTableValueMod100_02098284(int, int);
-int LookupTable020982a4(int, int);
-void ClearField0xcBits24To29(struct Elem020984b0*);
-int CollectEntriesByType020984dc(struct Entry020984dc*, int, struct Entry020984dc**);
-void* FindNodeByByteId_0206db20(void*, int);
+extern "C" int func_02098284(int, int);
+extern "C" int func_020982a4(int, int);
+extern "C" void func_020984b0(struct Elem020984b0*);
+extern "C" int func_020984dc(struct Entry020984dc*, int, struct Entry020984dc**);
+extern "C" void* func_0206db20(void*, int);
 extern "C" void __clear(void* buf, int size);
 extern "C" void func_02042764(struct Entry020984dc* entry, void* buf, int flag);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
@@ -90,14 +90,14 @@ extern "C" ARM int func_02064e88(struct LabelNode02064e88** head, void* nodeDb, 
 
     global = func_02012fe4();
     zone = *global;
-    base = LookupTable020982a4((int)((char*)global + kResourceOffset),
-                               GetTableValueMod100_02098284((int)((char*)global + kResourceOffset), zone));
-    ClearField0xcBits24To29((struct Elem020984b0*)((char*)global + kResourceOffset));
-    count = CollectEntriesByType020984dc((struct Entry020984dc*)((char*)global + kResourceOffset),
-                                         GetTableValueMod100_02098284((int)((char*)global + kResourceOffset), zone), entries);
+    base = func_020982a4((int)((char*)global + kResourceOffset),
+                               func_02098284((int)((char*)global + kResourceOffset), zone));
+    func_020984b0((struct Elem020984b0*)((char*)global + kResourceOffset));
+    count = func_020984dc((struct Entry020984dc*)((char*)global + kResourceOffset),
+                                         func_02098284((int)((char*)global + kResourceOffset), zone), entries);
     for (i = 0; i < count; i++) {
         id = i + 1 + base;
-        if (FindNodeByByteId_0206db20(nodeDb, id) == 0) {
+        if (func_0206db20(nodeDb, id) == 0) {
             continue;
         }
         node = (struct LabelNode02064e88*)allocator->Allocate(sizeof(LabelNode02064e88));

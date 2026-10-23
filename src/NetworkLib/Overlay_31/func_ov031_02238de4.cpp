@@ -49,9 +49,9 @@ struct ErrorInfo02238de4 {
 	unsigned short errcode;
 };
 
-unsigned short GetGlobal02290d14_0223911c(void);
-void SetGlobal02290d14_02239108(unsigned short v);
-void CallOv027IfFieldsMatch_02238db4(void);
+extern "C" unsigned short func_ov031_0223911c(void);
+extern "C" void func_ov031_02239108(unsigned short v);
+extern "C" void func_ov031_02238db4(void);
 extern "C" int func_ov031_02239188(int bitIdx);
 extern "C" void func_ov031_022389b0(int index);
 extern "C" void func_ov031_02238910(int index);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 	case 1:
 		break;
 	case 2: {
-		if (GetGlobal02290d14_0223911c() != 2) {
+		if (func_ov031_0223911c() != 2) {
 			break;
 		}
 		{
@@ -103,13 +103,13 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 			sMbpState.bootableChildBmp &= mask;
 			sMbpState.rebootChildBmp &= mask;
 			SetIRQInterruptState(oldIRQ);
-			CallOv027IfFieldsMatch_02238db4();
+			func_ov031_02238db4();
 		}
 		break;
 	case 4:
 		break;
 	case 10: {
-		if (GetGlobal02290d14_0223911c() != 2) {
+		if (func_ov031_0223911c() != 2) {
 			func_ov031_022389b0(aid);
 			break;
 		}
@@ -126,7 +126,7 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 	case 14:
 		sMbpState.requestChildBmp &= ~(1 << aid);
 		sMbpState.entryChildBmp |= 1 << aid;
-		if (GetGlobal02290d14_0223911c() == 3) {
+		if (func_ov031_0223911c() == 3) {
 			func_ov031_02238a88(aid);
 		}
 		break;
@@ -141,15 +141,15 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 	case 9:
 		sMbpState.bootableChildBmp &= ~(1 << aid);
 		sMbpState.rebootChildBmp |= 1 << aid;
-		CallOv027IfFieldsMatch_02238db4();
+		func_ov031_02238db4();
 		break;
 	case 11:
 		break;
 	case 12:
-		if (GetGlobal02290d14_0223911c() == 4) {
-			SetGlobal02290d14_02239108(5);
+		if (func_ov031_0223911c() == 4) {
+			func_ov031_02239108(5);
 		} else {
-			SetGlobal02290d14_02239108(0);
+			func_ov031_02239108(0);
 		}
 		{
 			struct Work02238de4* w = data_ov031_02290d14;
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 		case 1:
 		case 2:
 		case 9:
-			SetGlobal02290d14_02239108(7);
+			func_ov031_02239108(7);
 			break;
 		}
 		break;

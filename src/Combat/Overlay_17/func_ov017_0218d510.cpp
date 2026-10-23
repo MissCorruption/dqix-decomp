@@ -2,14 +2,14 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" unsigned short* func_02012fe4(void);
-int IsIdInRange020981e4(int a, int id);
+extern "C" int func_020981e4(int a, int id);
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void ResetTask020dbebc(void* a);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_020dbebc(void* a);
 struct Struct020dbd9c;
-void InitStruct020dbd9c(struct Struct020dbd9c* p);
+extern "C" void func_020dbd9c(struct Struct020dbd9c* p);
 struct BattleTask020dbf18;
-int BeginTask020dbf18(struct BattleTask020dbf18* task, int name, int alloc, int tables, int count);
+extern "C" int func_020dbf18(struct BattleTask020dbf18* task, int name, int alloc, int tables, int count);
 
 extern const char data_ov017_021d7383[];
 
@@ -42,14 +42,14 @@ extern "C" ARM int func_ov017_0218d510(struct BattleResources0218d510* self, Saf
         return -1;
     }
     unsigned short* run = func_02012fe4();
-    int inRange = IsIdInRange020981e4((int)(run + regionalOffset0), *run);
+    int inRange = func_020981e4((int)(run + regionalOffset0), *run);
     struct Foo0207df50* table = SelectPairTable(self->pairTables, inRange);
-    CopyInternalFields0207df50(table);
+    func_0207df50(table);
     if (self->task != NULL) {
-        ResetTask020dbebc(self->task);
+        func_020dbebc(self->task);
     }
     struct BattleTask020dbf18* task = self->task = (struct BattleTask020dbf18*)alloc->Allocate(0x18);
-    InitStruct020dbd9c((struct Struct020dbd9c*)task);
-    BeginTask020dbf18(task, (int)data_ov017_021d7383, (int)alloc, (int)table, 0x17);
+    func_020dbd9c((struct Struct020dbd9c*)task);
+    func_020dbf18(task, (int)data_ov017_021d7383, (int)alloc, (int)table, 0x17);
     return 0;
 }

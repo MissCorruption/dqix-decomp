@@ -6,30 +6,30 @@
 #include "NitroSDK/Graphics.h"
 
 struct Struct020dfc40;
-void ResetStruct020dfc40(Struct020dfc40* texts);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
 extern "C" void func_020dfec0(void* texts, SafeAllocator* allocator, void* file, unsigned int size);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* graphics, int value);
+extern "C" void func_0204b11c(unsigned char* graphics, int value);
 extern "C" void func_0204b5b4(void* graphics, int priority);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8* graphics, int a, int b);
-int SetBg1ControlBits_02199964(int size, int colorMode, int mapBase, int tileBase, int wrap);
-int SetBg2CntFull_021999b4(int screenSize, int colorMode, int screenBase, int charBase);
+extern "C" void func_0204b5e8(Obj0204b5e8* graphics, int a, int b);
+extern "C" int func_ov017_02199964(int size, int colorMode, int mapBase, int tileBase, int wrap);
+extern "C" int func_ov017_021999b4(int screenSize, int colorMode, int screenBase, int charBase);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900* pac);
+extern "C" int func_02046900(ActiveEntry02046900* pac);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
+extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
 extern "C" void func_0204b174(void* graphics, void* file, SafeAllocator* allocator, unsigned int size);
 struct Entry_02199684;
-void FillEntriesEncoded_02199684(Entry_02199684* arr, int count, int value);
-void ClearAndEncodeEntries_021996bc(Entry_02199684* arr, int count);
+extern "C" void func_ov017_02199684(Entry_02199684* arr, int count, int value);
+extern "C" void func_ov017_021996bc(Entry_02199684* arr, int count);
 extern "C" void func_0204bc74(void* graphics, int a, int b, int c, int d, int e, int f);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8* graphics, void* characters);
+extern "C" void func_0204b0e8(List0204b0e8* graphics, void* characters);
 struct Obj0204c7a8;
-void AllocateBuffer0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
+extern "C" void func_0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
 struct Struct_0205cf78;
 struct Elem_0205cf78;
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
+extern "C" void func_0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
 
 struct FieldMenu021999fc;
 extern "C" void func_ov017_0219a388(FieldMenu021999fc* self);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_021999fc(FieldMenu021999fc* self) {
     {
         self->allocator_.Reset();
         self->texts_ = (Struct020dfc40*)self->allocator_.Allocate(0x18);
-        ResetStruct020dfc40(self->texts_);
+        func_020dfc40(self->texts_);
 #if defined(jpn)
         self->task_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d73f8, NULL);
 #else
@@ -128,15 +128,15 @@ extern "C" ARM void func_ov017_021999fc(FieldMenu021999fc* self) {
         for (int i = 0; i < 2; i++)
         {
             background = &self->backgrounds_[i];
-            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+            func_0204b11c((unsigned char*)background, 0);
             background->unk_1c_0_ = 0;
             background->unk_1c_4_ = nibbles.values[i];
             func_0204b5b4(background, priorities.values[i]);
-            DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+            func_0204b5e8((Obj0204b5e8*)background, 0, 0);
         }
         DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-        SetBg1ControlBits_02199964(0, 0, 0x1d, 0, 0);
-        SetBg2CntFull_021999b4(0, 0, 0x1e, 0);
+        func_ov017_02199964(0, 0, 0x1d, 0, 0);
+        func_ov017_021999b4(0, 0, 0x1e, 0);
         ColorEffect_ConfigureAlphaBlend(0x04000050, 2, 1, 0xa, 6);
         self->task_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d7423, NULL);
         self->step_++;
@@ -152,10 +152,10 @@ extern "C" ARM void func_ov017_021999fc(FieldMenu021999fc* self) {
             unsigned int size;
             unsigned int sizes[2];
             loader->GetLoadedFileByID(self->task_, &file, &size);
-            int numFiles = CountActiveEntries((ActiveEntry02046900*)file);
+            int numFiles = func_02046900((ActiveEntry02046900*)file);
             for (int i = 0; i < numFiles; i++)
             {
-                files[i] = FindRecordByIndex((Rec020467f0*)file, i, &name, (int*)&sizes[i]);
+                files[i] = func_020467f0((Rec020467f0*)file, i, &name, (int*)&sizes[i]);
             }
             for (int i = 0; i < numFiles; i++)
             {
@@ -164,27 +164,27 @@ extern "C" ARM void func_ov017_021999fc(FieldMenu021999fc* self) {
             }
             loader->RemoveTask(self->task_);
             self->task_ = -1;
-            FillEntriesEncoded_02199684((Entry_02199684*)self->backgrounds_, 2, 0x800);
+            func_ov017_02199684((Entry_02199684*)self->backgrounds_, 2, 0x800);
             BackgroundGraphics021999fc* background;
             for (int i = 0; i < 2; i++)
             {
                 background = &self->backgrounds_[i];
                 func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-                FlushAndDispatchList0204b0e8((List0204b0e8*)background, NULL);
+                func_0204b0e8((List0204b0e8*)background, NULL);
             }
-            ClearAndEncodeEntries_021996bc((Entry_02199684*)self->backgrounds_, 2);
+            func_ov017_021996bc((Entry_02199684*)self->backgrounds_, 2);
             self->canvasPixels_ = self->allocator_.Allocate(0x400);
             Canvas021999fc* canvas;
             for (int i = 0; i < 4; i++)
             {
                 canvas = &self->canvases_[i];
-                AllocateBuffer0204c7a8((Obj0204c7a8*)canvas, &self->allocator_, (int)self->canvasPixels_, 0x40);
+                func_0204c7a8((Obj0204c7a8*)canvas, &self->allocator_, (int)self->canvasPixels_, 0x40);
                 canvas->background_ = &self->backgrounds_[1];
             }
             TextWindow021999fc* window = self->window_;
             window->background_ = &self->backgrounds_[0];
             window->unk_b2 = 2;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->window_, (Elem_0205cf78*)self->canvases_, 4);
+            func_0205cf78((Struct_0205cf78*)self->window_, (Elem_0205cf78*)self->canvases_, 4);
             BG0CNT = (BG0CNT & ~3) | 2;
             BG1CNT = (BG1CNT & ~3) | 1;
             BG2CNT = BG2CNT & ~3;

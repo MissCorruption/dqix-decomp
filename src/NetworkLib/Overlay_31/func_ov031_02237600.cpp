@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-ARM int CopyToBattleContextBuffer_020d4848(void* src);
-ARM int IssueBattleCommandSlot1_020d5004(int arg);
-ARM int IssueBattleCommandSlot2_020d503c(int arg);
-ARM int TailCallForward_0223e2e0(int arg0, void* arg1);
+extern "C" ARM int func_020d4848(void* src);
+extern "C" ARM int func_020d5004(int arg);
+extern "C" ARM int func_020d503c(int arg);
+extern "C" ARM int func_ov031_0223e2e0(int arg0, void* arg1);
 extern "C" ARM unsigned int func_ov031_0223cf70(void** a);
 extern "C" void func_ov031_022376fc(void);
 
@@ -23,23 +23,23 @@ namespace DuplicatePool {
 // USA: func_ov031_02237600
 extern "C" ARM int func_ov031_02237600(void) {
 	data_ov031_02290d0c->state = 1;
-	CopyToBattleContextBuffer_020d4848(&data_ov031_02290d0c->status);
+	func_020d4848(&data_ov031_02290d0c->status);
 
 	if (data_ov031_02290d0c->status != 2) {
-		if (IssueBattleCommandSlot1_020d5004((int)func_ov031_022376fc) != 2) {
+		if (func_020d5004((int)func_ov031_022376fc) != 2) {
 			return 0;
 		}
 		do {
-			CopyToBattleContextBuffer_020d4848(&data_ov031_02290d0c->status);
+			func_020d4848(&data_ov031_02290d0c->status);
 		} while (data_ov031_02290d0c->status != 2);
 	}
 
-	if (IssueBattleCommandSlot2_020d503c((int)func_ov031_022376fc) != 2) {
+	if (func_020d503c((int)func_ov031_022376fc) != 2) {
 		return 0;
 	}
 
 	if (data_ov031_02290d0c->pending != 0) {
-		TailCallForward_0223e2e0(0, data_ov031_02290d0c->pending);
+		func_ov031_0223e2e0(0, data_ov031_02290d0c->pending);
 	}
 
 	Link02237600* link = data_ov031_02290d0c;

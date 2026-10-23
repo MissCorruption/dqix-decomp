@@ -43,18 +43,18 @@ struct GrottoViewE468 {
 #endif
 extern AllocatorUnion data_02114e20; extern char data_ov017_021d7e80[]; extern char data_02108760[];
 extern "C" void func_0202ae18(); extern "C" void* func_02057924(); extern "C" unsigned char* func_02012fe4();
-void CancelPendingAction020397cc(Obj020397cc*,int); void SetOrClearBit_0201bf98(unsigned char*,int,int);
-int ListContainsId(ListHead02046b60*,int); extern "C" void func_02046b8c(void*,int); extern "C" void func_02046a8c(void*,void*);
-void EnqueueEventTag33_021d2738(unsigned char,unsigned char); int IsField0Null_02046b08(void**); 
-void* GetGlobal02109400_02094a00(); extern "C" void func_02094ab0(void*); extern "C" void func_020a0cc4(unsigned int);
-void* AllocateAligned4_02012d88(AllocatorUnion*,unsigned int); void CopyInternalFields0207df50(Foo0207df50*);
+extern "C" void func_020397cc(Obj020397cc*,int); extern "C" void func_0201bf98(unsigned char*,int,int);
+extern "C" int func_02046b60(ListHead02046b60*,int); extern "C" void func_02046b8c(void*,int); extern "C" void func_02046a8c(void*,void*);
+extern "C" void func_ov017_021d2738(unsigned char,unsigned char); extern "C" int func_02046b08(void**); 
+extern "C" void* func_02094a00(); extern "C" void func_02094ab0(void*); extern "C" void func_020a0cc4(unsigned int);
+extern "C" void* func_02012d88(AllocatorUnion*,unsigned int); extern "C" void func_0207df50(Foo0207df50*);
 extern "C" void func_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,Foo0207df50*);
-int IsMainBrightnessTransitionActive(GameResources*); void CopyCountedBytesToIntArray02010834(Base02010834*,int,int*,int*);
-void FindNodeAndProcess02057fb4(void*,int,void*); void SetForwardAndStore0205ebc0(void*,int,int); void DispatchIfField0xc4NonNeg_0205ebfc(void*,int,int);
-void SetBrightness(GameResources*,int,int);  void CallListIfFlagsSet_02197528();
-WorldE468* GetField0x3f8Address_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
-void InitAndResetHeader_0219e310(unsigned char*,int); void AppendNodeToTail(TailList020469b4*,TailNode020469b4*);
-void SetByteField0x253_020397c0(void*); extern "C" void func_ov017_021beb48(StateE468*); void ForwardField0xc0_0205ebec(void*);
+int IsMainBrightnessTransitionActive(GameResources*); extern "C" void func_02010834(Base02010834*,int,int*,int*);
+extern "C" void func_02057fb4(void*,int,void*); extern "C" void func_0205ebc0(void*,int,int); extern "C" void func_0205ebfc(void*,int,int);
+void SetBrightness(GameResources*,int,int);  extern "C" void func_ov017_02197528();
+extern "C" WorldE468* func_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
+extern "C" void func_ov017_0219e310(unsigned char*,int); extern "C" void func_020469b4(TailList020469b4*,TailNode020469b4*);
+extern "C" void func_020397c0(void*); extern "C" void func_ov017_021beb48(StateE468*); extern "C" void func_0205ebec(void*);
 
 // USA: func_ov017_021be468
 extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) {
@@ -63,13 +63,13 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
     GameObject* actor=game->GetUnknownGameObject();
     void* battle=func_02057924(); BackgroundLoader* loader=BackgroundLoader::GetInstance(); unsigned char* zone=func_02012fe4();
     if(self->state==0) {
-        CancelPendingAction020397cc((Obj020397cc*)actor,1); SetOrClearBit_0201bf98(zone,1,0);
-        if(ListContainsId(list,3)) func_02046b8c(list,3);
+        func_020397cc((Obj020397cc*)actor,1); func_0201bf98(zone,1,0);
+        if(func_02046b60(list,3)) func_02046b8c(list,3);
         else {
-            if(ListContainsId(list,0x34)) func_02046a8c(list,resources->unknown_ptr_array_3afc[28]);
-            if(ListContainsId(list,0x2e)) { func_02046a8c(list,resources->unknown_ptr_array_3afc[21]); EnqueueEventTag33_021d2738((unsigned char)actor->obj3D_.unknown_4_,0); }
-            if(IsField0Null_02046b08((void**)resources->unknown_ptr_array_36fc[1])) {
-                SetFlags00(resources, 0x10); func_02094ab0(GetGlobal02109400_02094a00()); func_020a0cc4(0x2800);
+            if(func_02046b60(list,0x34)) func_02046a8c(list,resources->unknown_ptr_array_3afc[28]);
+            if(func_02046b60(list,0x2e)) { func_02046a8c(list,resources->unknown_ptr_array_3afc[21]); func_ov017_021d2738((unsigned char)actor->obj3D_.unknown_4_,0); }
+            if(func_02046b08((void**)resources->unknown_ptr_array_36fc[1])) {
+                SetFlags00(resources, 0x10); func_02094ab0(func_02094a00()); func_020a0cc4(0x2800);
                 self->task=loader->QueueLoadFile(data_ov017_021d7e80,0); self->state++;
             }
         }
@@ -78,16 +78,16 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
             if(loader->GetDetailedTaskStatus(self->task)!=2) { loader->RemoveTask(self->task); self->done=1; }
             {
                 unsigned int length; void* file; loader->GetLoadedFileByID(self->task,&file,&length);
-                self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20,0x2800),0x2800); self->allocator.Reset();
+                self->allocator.CreateTypeA(func_02012d88(&data_02114e20,0x2800),0x2800); self->allocator.Reset();
                 Foo0207df50* source=&((ActorE468*)game->GetUnknownGameObject())->data->saved;
-                CopyInternalFields0207df50(source);
+                func_0207df50(source);
                 void* copy=self->allocator.Allocate(length); memcpy(copy,file,length);
                 func_02057e6c(battle,5,&self->allocator,copy,length,source); loader->RemoveTask(self->task); self->state++;
             }
         }
     } else if(self->state==2) {
         if(!IsMainBrightnessTransitionActive(resources)) {
-            int ids[5],count=0; CopyCountedBytesToIntArray02010834((Base02010834*)game,actor->obj3D_.unknown_4_,ids,&count);
+            int ids[5],count=0; func_02010834((Base02010834*)game,actor->obj3D_.unknown_4_,ids,&count);
             for(int i=0;i<count;i++) self->actors|=1<<ids[i];
             ParamsE468 params[5];
             for(int i=0;i<count;i++) {
@@ -100,13 +100,13 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
                 params[i].scale.x=0x1000; params[i].scale.y=0x1000; params[i].scale.z=0x1000;
                 ParamsE468* p=&params[i]; p->flags.bit0=0; p->flags.bit1=0; p->flags.bit2=1; p->flags.bit3=0; p->flags.bit4=0; p->flags.bit5=0; p->flags.bit6=0; p->flags.bit7=0;
                 p->position=member->obj3D_.position_; p->scale=member->obj3D_.GetScale();
-                FindNodeAndProcess02057fb4(battle,5,p);
+                func_02057fb4(battle,5,p);
             }
             self->state++;
         }
     } else if(self->state==3) {
         self->timer++;
-        if(self->timer==5) { SetForwardAndStore0205ebc0(data_02108760,0xb1,0xb1); DispatchIfField0xc4NonNeg_0205ebfc(data_02108760,0,0); }
+        if(self->timer==5) { func_0205ebc0(data_02108760,0xb1,0xb1); func_0205ebfc(data_02108760,0,0); }
         if(self->timer>25) {
             for(int i=0;i<5;i++) if(self->actors&(1<<i)) { GameObject* member=game->GetGameObjectByIndex(i); if(member!=NULL) member->obj3D_.EnableFlag(1); }
             self->state++;
@@ -117,13 +117,13 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
         self->timer++;
         if(self->timer>85) {
             for(int i=0;i<5;i++) if(self->actors&(1<<i)) { GameObject* member=game->GetGameObjectByIndex(i); if(member!=NULL) member->obj3D_.DisableFlag(1); }
-            ClearFlags00(resources, 0x10); CallListIfFlagsSet_02197528();
-            WorldE468* world=GetField0x3f8Address_0200fd0c(game); VectorizedMemset(world,0,0x70);
+            ClearFlags00(resources, 0x10); func_ov017_02197528();
+            WorldE468* world=func_0200fd0c(game); VectorizedMemset(world,0,0x70);
             world->field4=1; world->field8=1; world->field9=1; world->fieldb=-1;
             world->field20=-1; world->field24=-1; world->field28=-1; world->field2c=-1; world->field1e=-1; world->fieldc=0; world->field6c=-1;
             world->id=self->field1c; world->field7=1; world->field1c=0x3244; world->position=self->position;
             TailList020469b4* nodes=(TailList020469b4*)resources->unknown_ptr_array_36fc[0]; unsigned char* node=(unsigned char*)resources->unknown_ptr_array_36fc[4];
-            InitAndResetHeader_0219e310(node,0); AppendNodeToTail(nodes,(TailNode020469b4*)node);
+            func_ov017_0219e310(node,0); func_020469b4(nodes,(TailNode020469b4*)node);
             if(self->pending) {
                 GrottoViewE468* grotto=(GrottoViewE468*)game->GetGrottoStruct();
                 grotto->zone=self->zone; grotto->field6c=self->field3c;
@@ -132,8 +132,8 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
                 grotto->field83=self->field3e; grotto->field84=self->field3f; grotto->field86=self->field40;
                 grotto->rank=self->low; grotto->environment=self->high; grotto->field8=self->field48; grotto->pending=0; self->pending=0;
             }
-            self->done=1; SetByteField0x253_020397c0(actor); func_ov017_021beb48(self);
-            ForwardField0xc0_0205ebec(data_02108760);
+            self->done=1; func_020397c0(actor); func_ov017_021beb48(self);
+            func_0205ebec(data_02108760);
         }
     }
 }

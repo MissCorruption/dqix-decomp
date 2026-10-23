@@ -73,18 +73,18 @@ extern const char* data_020f285c;
 extern const char* data_020f2858;
 extern char data_ov009_0218aca0[];
 extern "C" void func_ov009_021847ec(NameSyntax*);
-void ResetStruct020dfc40(Struct020dfc40*);
-int ApplyNodeUpdater020e038c(void*, void*, int);
+extern "C" void func_020dfc40(Struct020dfc40*);
+extern "C" int func_020e038c(void*, void*, int);
 extern "C" int func_ov009_0218a420(ForbiddenWordFile*, ForbiddenWordPattern*);
 extern "C" void __clear(void*, unsigned int);
-CharacterInfo* FindEntryByKey0204254c(int, int);
-void ToUpperCopy0218a484(int, char*, char*);
-unsigned int GetLow12Bits020e0424(Header020e0424*);
-int GetFieldByKey020e0434(Container020e0310*, int);
-int FindEntryIndexByKey020424e4(int, int);
-CharacterInfo* GetBoundedEntry020425b4(int, int);
+extern "C" CharacterInfo* func_0204254c(int, int);
+extern "C" void func_ov009_0218a484(int, char*, char*);
+extern "C" unsigned int func_020e0424(Header020e0424*);
+extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020424e4(int, int);
+extern "C" CharacterInfo* func_020425b4(int, int);
 extern "C" int func_020426bc(const char*, unsigned char*, int);
-int FindMatch0218a4c8(int, int, int, int, int);
+extern "C" int func_ov009_0218a4c8(int, int, int, int, int);
 extern "C" int func_ov009_0218a518(NameSyntax*, const unsigned char*, const unsigned char*, int, int);
 
 static inline ForbiddenWordPattern* GetFilePatterns(const ForbiddenWordFile* file) { return file->patterns_; }
@@ -119,8 +119,8 @@ extern "C" ARM void func_ov009_02189a4c(CharacterCreation* self) {
     LoadFileIntoMemory(data_020f285c, data_0211e33c, &work_fileSize_[0]);
     unsigned int aligned = (work_fileSize_[0] + 511) & ~511;
     LoadFileIntoMemory(data_020f2858, data_0211e33c + aligned, &work_fileSize_[1]);
-    ResetStruct020dfc40(&self->syntax_.container_);
-    ApplyNodeUpdater020e038c((&self->syntax_), data_0211e33c + aligned, work_fileSize_[1]);
+    func_020dfc40(&self->syntax_.container_);
+    func_020e038c((&self->syntax_), data_0211e33c + aligned, work_fileSize_[1]);
     memset((&self->syntax_.file_), 0, 12);
     unsigned char* buffer = data_0211e33c;
     if (buffer) {
@@ -159,12 +159,12 @@ __clear(work_exactName_, 64);
     char* in = name;
     for (;;) {
         if (!*in) break;
-        CharacterInfo* entry = FindEntryByKey0204254c((int)in, 1);
+        CharacterInfo* entry = func_0204254c((int)in, 1);
         __clear(work_exactCharacter_, 12);
         int length = entry->length_;
         char* text = entry->text_;
         if (entry->uppercase_) {
-            ToUpperCopy0218a484((int)(&self->syntax_), text, work_exactCharacter_);
+            func_ov009_0218a484((int)(&self->syntax_), text, work_exactCharacter_);
             text = work_exactCharacter_;
         }
         memcpy(out, text, length);
@@ -173,9 +173,9 @@ __clear(work_exactName_, 64);
     }
     int length = strlen(work_exactName_);
     int exactIndex;
-    int count = GetLow12Bits020e0424(&self->syntax_.container_);
+    int count = func_020e0424(&self->syntax_.container_);
     for (exactIndex = 0; exactIndex < count; ++exactIndex) {
-        char* forbidden = (char*)GetFieldByKey020e0434(&self->syntax_.container_, (short)exactIndex);
+        char* forbidden = (char*)func_020e0434(&self->syntax_.container_, (short)exactIndex);
         if (forbidden && *forbidden) {
             int forbiddenLength = strlen(forbidden);
             if (forbiddenLength == length && strcmp(forbidden, work_exactName_) == 0) { exact = 1; goto exact_done; }
@@ -211,19 +211,19 @@ exact_done:
     char* out = work_normalized_;
     for (;;) {
         if (!*name) break;
-        int index = FindEntryIndexByKey020424e4((int)name, 1);
-        CharacterInfo* entry = GetBoundedEntry020425b4(index, 1);
+        int index = func_020424e4((int)name, 1);
+        CharacterInfo* entry = func_020425b4(index, 1);
         if (!entry) goto fallback_character;
         if (((index >= 8 && index <= 69) || index == 77 || index == 83 ||
                       (index >= 120 && index <= 169) || index == dollarId || index == atId ||
                       index == ampersandId || index == 107 || index == apostropheId)) {
             int advance = entry->length_;
-            if (index == 107) entry = GetBoundedEntry020425b4(slashId, 1);
+            if (index == 107) entry = func_020425b4(slashId, 1);
             __clear(work_character_, 12);
             int length = entry->length_;
             char* text = entry->text_;
             if (entry->uppercase_) {
-                ToUpperCopy0218a484((int)(&self->syntax_), text, work_character_);
+                func_ov009_0218a484((int)(&self->syntax_), text, work_character_);
                 text = work_character_;
             }
             if (index >= 120 && index <= 169) {
@@ -352,19 +352,19 @@ int count = pattern->count_;
         switch (type) {
         case 0:
             if (length != spanLength) { matched = 0; goto match_done; }
-            if (!FindMatch0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
             break;
         case 3:
             if (spanLength < length) { matched = 0; goto match_done; }
-            if (!FindMatch0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
             break;
         case 2:
             if (spanLength < length) { matched = 0; goto match_done; }
-            if (!FindMatch0218a4c8((int)(&self->syntax_), text, (int)(input + (matchSpan->begin_ + matchSpan->length_ - length)), length, 1)) { matched = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + (matchSpan->begin_ + matchSpan->length_ - length)), length, 1)) { matched = 0; goto match_done; }
             break;
         case 1:
             if (spanLength < length) { matched = 0; goto match_done; }
-            if (!FindMatch0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, positions)) { matched = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, positions)) { matched = 0; goto match_done; }
             break;
         case 4:
             if (length != spanLength) { matched = 0; goto match_done; }

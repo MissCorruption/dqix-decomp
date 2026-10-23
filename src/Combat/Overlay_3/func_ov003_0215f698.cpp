@@ -30,8 +30,8 @@ struct Record0215f698 {
 };
 
 extern "C" void* func_0202ae18(void);
-int GetField0xc_0202bae4(void* obj);
-struct Element0202bad4* GetElementAt0x10Stride0xc0(struct ElementArray0202bad4* base, int index);
+extern "C" int func_0202bae4(void* obj);
+extern "C" struct Element0202bad4* func_0202bad4(struct ElementArray0202bad4* base, int index);
 extern "C" int func_02001aec(void* a, void* b, int n);
 extern "C" void __clear(void* buf, int size);
 extern "C" void func_02042764(void* src, char* dst, int flag);
@@ -51,7 +51,7 @@ struct Record0215f89c {
 
 extern "C" ARM void func_ov003_0215f698(struct Record0215f89c* records, short* count) {
     void* ctx = func_0202ae18();
-    int n = GetField0xc_0202bae4(ctx);
+    int n = func_0202bae4(ctx);
 
     struct Record0215f89c* rec = records;
     for (short i = 0; i < 10; i++) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov003_0215f698(struct Record0215f89c* records, short* c
     }
 
     for (int k = 0; k < n; k++) {
-        struct Element0202bad4* elem = GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)ctx, k);
+        struct Element0202bad4* elem = func_0202bad4((struct ElementArray0202bad4*)ctx, k);
         int found = 0;
         for (short j = 0; j < *count; j++) {
             rec = &records[j];
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov003_0215f698(struct Record0215f89c* records, short* c
 #else
 extern "C" ARM void func_ov003_0215f698(struct Record0215f698* records, short* count) {
     void* ctx = func_0202ae18();
-    int n = GetField0xc_0202bae4(ctx);
+    int n = func_0202bae4(ctx);
 
     struct Record0215f698* rec = records;
     for (short i = 0; i < 10; i++) {
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov003_0215f698(struct Record0215f698* records, short* c
     }
 
     for (int k = 0; k < n; k++) {
-        struct Element0202bad4* elem = GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)ctx, k);
+        struct Element0202bad4* elem = func_0202bad4((struct ElementArray0202bad4*)ctx, k);
         int found = 0;
         for (short j = 0; j < *count; j++) {
             rec = &records[j];

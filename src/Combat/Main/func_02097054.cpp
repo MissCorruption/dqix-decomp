@@ -37,12 +37,12 @@ struct ForEachNode02097000Container;
 struct ForEachNode02097000Node;
 struct BinarySearch020971a8Container;
 struct BinarySearch020971a8Node;
-int ComputeAlignedBufferSize_02096fd8(ComputeAlignedBufferSizeHeader*);
-int ForEachNode02097000(ForEachNode02097000Container*, void (*)(ForEachNode02097000Container*, ForEachNode02097000Node*));
-BinarySearch020971a8Node* BinarySearch020971a8(BinarySearch020971a8Container*, int, int (*)(BinarySearch020971a8Node*));
-short GetShortAt0x4_02096f78(unsigned char*);
+extern "C" int func_02096fd8(ComputeAlignedBufferSizeHeader*);
+extern "C" int func_02097000(ForEachNode02097000Container*, void (*)(ForEachNode02097000Container*, ForEachNode02097000Node*));
+extern "C" BinarySearch020971a8Node* func_020971a8(BinarySearch020971a8Container*, int, int (*)(BinarySearch020971a8Node*));
+extern "C" short func_02096f78(unsigned char*);
 extern "C" char* func_02096f80(BufferHeader02097054*, unsigned int, int);
-char* AllocateStringCopy020da150(SafeAllocator*, const char*);
+extern "C" char* func_020da150(SafeAllocator*, const char*);
 
 // USA: func_02097054
 extern "C" ARM void func_02097054(BufferCopy02097054* dst, SafeAllocator* allocator, BufferBlob02097054* source, int unused, short key) {
@@ -52,14 +52,14 @@ extern "C" ARM void func_02097054(BufferCopy02097054* dst, SafeAllocator* alloca
     if (source != 0) {
         memcpy(&header, source, 8);
         header.nodes = source->nodes;
-        header.strings = (unsigned int*)((char*)source + (8 + ComputeAlignedBufferSize_02096fd8((ComputeAlignedBufferSizeHeader*)&header)));
+        header.strings = (unsigned int*)((char*)source + (8 + func_02096fd8((ComputeAlignedBufferSizeHeader*)&header)));
         if (header.ready == 0) {
-            ForEachNode02097000((ForEachNode02097000Container*)&header, 0);
+            func_02097000((ForEachNode02097000Container*)&header, 0);
             header.ready = 1;
             source->ready = 1;
         }
     }
-    BufferNode02097054* found = (BufferNode02097054*)BinarySearch020971a8((BinarySearch020971a8Container*)&header, key, (int (*)(BinarySearch020971a8Node*))GetShortAt0x4_02096f78);
+    BufferNode02097054* found = (BufferNode02097054*)func_020971a8((BinarySearch020971a8Container*)&header, key, (int (*)(BinarySearch020971a8Node*))func_02096f78);
     BufferNode02097054* copy = (BufferNode02097054*)allocator->Allocate(0x30);
     if (found == 0 || copy == 0) return;
     memcpy(copy, found, 0x30);
@@ -71,7 +71,7 @@ extern "C" ARM void func_02097054(BufferCopy02097054* dst, SafeAllocator* alloca
         unsigned int stringIndex = *input;
         input++;
         char* text = func_02096f80(&header, stringIndex, 0);
-        *output = AllocateStringCopy020da150(allocator, text);
+        *output = func_020da150(allocator, text);
         output++;
     }
     dst->count = 1;

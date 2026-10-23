@@ -34,20 +34,20 @@ struct Cont02158cfc {
     char pad387;
     unsigned char page;
 };
-Node02158cfc* FindNodeOrMark_02158d8c(void*, short);
-void FilterAndSortEntries02071ffc(Container02071ffc*, int, int, int, short, short*);
-void ComputeField_02158cac_02158cac(void*);
+extern "C" Node02158cfc* func_ov006_02158d8c(void*, short);
+extern "C" void func_02071ffc(Container02071ffc*, int, int, int, short, short*);
+extern "C" void func_ov006_02158cac(void*);
 struct Obj0205eaa0;
 extern Obj0205eaa0 data_02108760 __attribute__((aligned(4)));
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void Checkpoint02158cfc(Cont02158cfc*, Node02158cfc*);
-void ClearSublistEntriesFlag4_020804fc(void*, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_ov006_02158cfc(Cont02158cfc*, Node02158cfc*);
+extern "C" void func_020804fc(void*, int);
 extern "C" void func_ov006_0215f7e8(Cont02158cfc*);
 extern "C" void func_ov006_0215fcf0(Cont02158cfc*);
 
 // USA: func_ov006_02159c64
 extern "C" ARM void func_ov006_02159c64(Cont02158cfc* self) {
-    Node02158cfc* selected = FindNodeOrMark_02158d8c(self, self->selection - 0x29);
+    Node02158cfc* selected = func_ov006_02158d8c(self, self->selection - 0x29);
     if (!selected) return;
     if (!selected->enabled) {
         self->selection = -1;
@@ -56,11 +56,11 @@ extern "C" ARM void func_ov006_02159c64(Cont02158cfc* self) {
     }
     self->reverse = !self->reverse;
     short count = 0;
-    FilterAndSortEntries02071ffc(&self->filtered, self->filter, self->category, self->reverse, 16, &count);
+    func_02071ffc(&self->filtered, self->filter, self->category, self->reverse, 16, &count);
     self->checkpoint = self->head = self->filtered.head;
     if (!selected) selected = self->checkpoint;
-    ComputeField_02158cac_02158cac(self);
-    DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+    func_ov006_02158cac(self);
+    func_0205eaa0(&data_02108760, 1, 0);
     short index = 0;
     for (Node02158cfc* node = self->checkpoint; node; node = node->next) {
         if (node == selected) break;
@@ -68,9 +68,9 @@ extern "C" ARM void func_ov006_02159c64(Cont02158cfc* self) {
     }
     short row = index % 16;
     self->page = index / 16;
-    Checkpoint02158cfc(self, selected);
+    func_ov006_02158cfc(self, selected);
     self->selection = row + 0x29;
-    ClearSublistEntriesFlag4_020804fc(self->entries, 9);
+    func_020804fc(self->entries, 9);
     func_ov006_0215f7e8(self);
     func_ov006_0215fcf0(self);
 }

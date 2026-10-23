@@ -2,7 +2,7 @@
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
-void* SetFieldAndClearBufferIfType7_0216b1c4(void* a, int id);
+extern "C" void* func_ov004_0216b1c4(void* a, int id);
 extern "C" void func_ov004_0216afb0(void* obj, int a, int b, int c, int d, int e, int f, int g, int h);
 extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
 extern "C" int func_ov004_0216b7bc(void* obj, int a, int b, int c);
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov004_0216d820(void* a) {
     if (node) {
         *((unsigned char*)node + 0xc) |= 0x8;
     }
-    SetFieldAndClearBufferIfType7_0216b1c4(a, 0x12c);
+    func_ov004_0216b1c4(a, 0x12c);
 
     int v0c = data_ov004_02171034.val0c;
 

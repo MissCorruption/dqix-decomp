@@ -34,20 +34,20 @@ struct List021e244c;
 struct Node021e244c;
 
 #if defined(jpn)
-#define PushFrontNode021e23d0 func_ov000_02171720
-#define FindAndRemoveMin_021e23e8 func_ov000_02171738
-#define RemoveNode021e244c func_ov000_0217179c
-#define IsFieldZero_021e2494 func_ov000_021717e4
+#define func_ov025_021e23d0 func_ov000_02171720
+#define func_ov025_021e23e8 func_ov000_02171738
+#define func_ov025_021e244c func_ov000_0217179c
+#define func_ov025_021e2494 func_ov000_021717e4
 extern "C" void func_ov000_02171720(List021e23d0* list, Node021e23d0* node);
 extern "C" int func_ov000_021717e4(void* obj);
 extern "C" PathNode021e2148* func_ov000_02171738(List021e23e8* list);
 extern "C" void func_ov000_0217179c(List021e244c* list, Node021e244c* target);
 #endif
 
-void PushFrontNode021e23d0(List021e23d0* list, Node021e23d0* node);
-int IsFieldZero_021e2494(void* obj);
-PathNode021e2148* FindAndRemoveMin_021e23e8(List021e23e8* list);
-void RemoveNode021e244c(List021e244c* list, Node021e244c* target);
+extern "C" void func_ov025_021e23d0(List021e23d0* list, Node021e23d0* node);
+extern "C" int func_ov025_021e2494(void* obj);
+extern "C" PathNode021e2148* func_ov025_021e23e8(List021e23e8* list);
+extern "C" void func_ov025_021e244c(List021e244c* list, Node021e244c* target);
 extern "C" int func_ov025_021e24a8(PathList021e2148* list, PathNode021e2148* node);
 extern "C" void func_ov000_0216f82c(Neighbors021e2148* out, const int* cell);
 
@@ -86,18 +86,18 @@ extern "C" ARM int func_ov025_021e2148(PathGraph021e2148* graph, int start, int 
     node->parent = 0xff;
     node->next = NULL;
     node->blocked = 0;
-    PushFrontNode021e23d0((List021e23d0*)&open, (Node021e23d0*)node);
+    func_ov025_021e23d0((List021e23d0*)&open, (Node021e23d0*)node);
 
     PathNode021e2148* cur;
     while (true) {
-        if (IsFieldZero_021e2494(&open)) {
+        if (func_ov025_021e2494(&open)) {
             return 0;
         }
-        cur = FindAndRemoveMin_021e23e8((List021e23e8*)&open);
+        cur = func_ov025_021e23e8((List021e23e8*)&open);
         if (cur->id == goal) {
             break;
         }
-        PushFrontNode021e23d0((List021e23d0*)&closed, (Node021e23d0*)cur);
+        func_ov025_021e23d0((List021e23d0*)&closed, (Node021e23d0*)cur);
 
         Neighbors021e2148 nb;
         Neighbors021e2148 tmp;
@@ -129,13 +129,13 @@ extern "C" ARM int func_ov025_021e2148(PathGraph021e2148* graph, int start, int 
                 if (cost < next->cost) {
                     next->cost = cost;
                     next->parent = cur->id;
-                    RemoveNode021e244c((List021e244c*)&closed, (Node021e244c*)next);
-                    PushFrontNode021e23d0((List021e23d0*)&open, (Node021e23d0*)next);
+                    func_ov025_021e244c((List021e244c*)&closed, (Node021e244c*)next);
+                    func_ov025_021e23d0((List021e23d0*)&open, (Node021e23d0*)next);
                 }
             } else {
                 next->cost = cost;
                 next->parent = cur->id;
-                PushFrontNode021e23d0((List021e23d0*)&open, (Node021e23d0*)next);
+                func_ov025_021e23d0((List021e23d0*)&open, (Node021e23d0*)next);
             }
         }
     }

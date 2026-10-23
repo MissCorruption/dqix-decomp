@@ -24,16 +24,16 @@ extern "C" int func_ov031_0221b6f0(int, int, int);
 extern "C" int func_ov031_0221b780(int, int, int);
 extern "C" int func_ov031_0221b848();
 extern "C" void func_020c9be0();
-void GenCrc16Table_020d1ba0(unsigned short*, unsigned short);
-extern "C" unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
-int CheckAndCompare_0221b7fc(int, int, int, int);
+extern "C" void func_020d1ba0(unsigned short*, unsigned short);
+extern "C" unsigned short func_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
+extern "C" int func_ov031_0221b7fc(int, int, int, int);
 
 // USA: func_ov031_0221aed8
 extern "C" ARM int func_ov031_0221aed8(void* storage, SettingsWriteBuffer0221aed8* buffer) {
     int count;
     int address = data_ov031_0224e6a0.address;
     func_ov031_0221b8e4(storage);
-    GenCrc16Table_020d1ba0(buffer->crc_table, 0xa001);
+    func_020d1ba0(buffer->crc_table, 0xa001);
     count = 0;
     do {
         if (func_ov031_0221b6f0(address, 0x100, (int)buffer) == 0) {
@@ -41,10 +41,10 @@ extern "C" ARM int func_ov031_0221aed8(void* storage, SettingsWriteBuffer0221aed
             return 0;
         }
         VectorizedInvertedMemcpy(data_ov031_0224e6ac, buffer->signature, 14);
-        buffer->crc = Crc16Compute_020d1cc8(buffer->crc_table, buffer->data, 0xfe);
+        buffer->crc = func_020d1cc8(buffer->crc_table, buffer->data, 0xfe);
         do {
             func_ov031_0221b780(address, 0x100, (int)buffer);
-        } while (CheckAndCompare_0221b7fc((int)buffer, address, 0x100, (int)buffer->verification) == 0);
+        } while (func_ov031_0221b7fc((int)buffer, address, 0x100, (int)buffer->verification) == 0);
         count++;
         address += 0x100;
     } while (count < 2);

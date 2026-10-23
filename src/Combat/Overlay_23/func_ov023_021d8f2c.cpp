@@ -4,14 +4,14 @@
 #include "GameState/GameState.h"
 
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
 
-void InitBoxLayout_021d921c(void* obj, int unused, int w, int h);
+extern "C" void func_ov023_021d921c(void* obj, int unused, int w, int h);
 
 extern "C" void func_ov023_021d9290(void* obj, void* buf, unsigned char step);
 
 struct StructA0205d5d0;
-// USA: func_ov023_021d8f2c  (semantic: AdvanceScaleBoxState_021d8f2c)
+// USA: func_ov023_021d8f2c
 extern "C" ARM int func_ov023_021d8f2c(char* obj) {
 #if defined(jpn)
  enum {regionalOffset0=0x800};
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov023_021d8f2c(char* obj) {
     unsigned char step = *(unsigned char*)(obj + 0x11c);
 
     if (step == 0) {
-        ResetEntryList0205d6a0((struct Entry_0205d6a0*)(obj + 0x20), 1);
+        func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x20), 1);
         int next = *(unsigned char*)(obj + 0x11c) + 1;
         *(unsigned char*)(obj + 0x11c) = (unsigned char)next;
         return next;
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov023_021d8f2c(char* obj) {
         }
         memset(*(void**)(obj + 4), 0, regionalOffset0);
         func_ov023_021d9290(obj, *(void**)(obj + 4), *(unsigned char*)(obj + 0x118));
-        InitBoxLayout_021d921c(obj, *(int*)(obj + 4), 0x18, mode);
+        func_ov023_021d921c(obj, *(int*)(obj + 4), 0x18, mode);
         int next = *(unsigned char*)(obj + 0x11c) + 1;
         *(unsigned char*)(obj + 0x11c) = (unsigned char)next;
         return next;
@@ -79,9 +79,9 @@ extern "C" ARM int func_ov023_021d8f2c(char* obj) {
     memset(*(void**)(obj + 4), 0, regionalOffset0);
     func_ov023_021d9290(obj, *(void**)(obj + 4), *(unsigned char*)(obj + 0x118));
 #if defined(jpn)
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1);
+    func_0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1);
 #else
-    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1, 0);
+    func_0205d5d0((struct StructA0205d5d0*)(obj + 0x20), 0, *(int*)(obj + 4), 1, 0);
 #endif
 
     if (*(unsigned char*)(obj + 0x118) == 4) {

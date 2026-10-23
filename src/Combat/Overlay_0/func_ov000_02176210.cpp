@@ -10,13 +10,13 @@ struct Elem_0205d81c {
     short y;
 };
 
-struct Elem_0205d81c* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-void ApplyElemFields0205d904(unsigned char* obj);
+extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" void func_0205d904(unsigned char* obj);
 
 // USA: func_ov000_02176210
 extern "C" ARM void func_ov000_02176210(struct Struct_0205d81c* s, int key1, int key2) {
-    struct Elem_0205d81c* first = FindElementByC40205d81c(s, key1);
-    struct Elem_0205d81c* second = FindElementByC40205d81c(s, key2);
+    struct Elem_0205d81c* first = func_0205d81c(s, key1);
+    struct Elem_0205d81c* second = func_0205d81c(s, key2);
     if (first == NULL || second == NULL) return;
 
     short firstY = first->y;
@@ -31,5 +31,5 @@ extern "C" ARM void func_ov000_02176210(struct Struct_0205d81c* s, int key1, int
     if (secondY + secondHeight > 0x18) secondY = firstY - secondHeight;
     second->x = secondX;
     second->y = secondY;
-    ApplyElemFields0205d904((unsigned char*)s);
+    func_0205d904((unsigned char*)s);
 }

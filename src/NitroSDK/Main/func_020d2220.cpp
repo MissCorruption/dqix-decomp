@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-void WaitForSharedFlagBit7020d2820(void);
-void InitGridRowsAndFlushCache_020d2a48(void*);
+extern "C" void func_020d2820(void);
+extern "C" void func_020d2a48(void*);
 struct MsgNode020d248c;
-void EnqueueTailNode(MsgNode020d248c*);
+extern "C" void func_020d248c(MsgNode020d248c*);
 extern "C" int func_020d2404(int);
 extern "C" void func_020d24c4(int);
 
@@ -50,7 +50,7 @@ struct MsgNode020d2220 {
 extern "C" ARM void func_020d2220(void) {
     int i;
     struct MsgNode020d2220* node;
-    WaitForSharedFlagBit7020d2820();
+    func_020d2820();
     data_02112780.pool = data_02112a60;
     for (i = 0; i < 255; i++) {
         data_02112a60[i].next = &data_02112a60[i + 1];
@@ -65,11 +65,11 @@ extern "C" ARM void func_020d2220(void) {
     data_02112780.field20 = 1;
     data_02112780.field4 = 0;
     data_021142c0 = &data_021127e0;
-    InitGridRowsAndFlushCache_020d2a48(&data_021127e0);
+    func_020d2a48(&data_021127e0);
     node = (struct MsgNode020d2220*)func_020d2404(1);
     if (node == 0) return;
     node->kind = 0x1d;
     node->arg = data_021142c0;
-    EnqueueTailNode((MsgNode020d248c*)node);
+    func_020d248c((MsgNode020d248c*)node);
     func_020d24c4(1);
 }

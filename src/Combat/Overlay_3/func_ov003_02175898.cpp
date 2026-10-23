@@ -1,0 +1,19 @@
+#include <globaldefs.h>
+
+extern "C" int func_020de194(void* s);
+extern "C" unsigned int _u32_div_f(unsigned int a, unsigned int b);
+
+// USA: func_ov003_02175898
+extern "C" ARM unsigned int func_ov003_02175898(char* obj, void* s) {
+    if (s == NULL) {
+        return 0;
+    }
+    int v = func_020de194(s);
+#if defined(jpn)
+    enum { fieldOffset = 0x7e8 };
+#else
+    enum { fieldOffset = 0x86c };
+#endif
+    unsigned short field = *(unsigned short*)(obj + fieldOffset);
+    return _u32_div_f(field * v, 100);
+}

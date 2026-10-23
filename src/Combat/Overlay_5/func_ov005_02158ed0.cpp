@@ -51,8 +51,8 @@ extern "C" ARM void func_ov005_02158ed0(EquipmentMenu* self) {
     if (style == 1)
         func_ov005_02159a30(self, self->text_, touched);
 #if defined(jpn)
-    TryApplyElemFields0205d5d0((StructA0205d5d0*)&self->window_, style, (int)self->text_, 1);
+    func_0205d5d0((StructA0205d5d0*)&self->window_, style, (int)self->text_, 1);
 #else
-    TryApplyElemFields0205d5d0((StructA0205d5d0*)&self->window_, style, (int)self->text_, 1, 0);
+    func_0205d5d0((StructA0205d5d0*)&self->window_, style, (int)self->text_, 1, 0);
 #endif
 }

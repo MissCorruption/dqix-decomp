@@ -52,21 +52,21 @@ struct WorldState {
 };
 struct ZoneState { unsigned short zone_; };
 extern "C" ZoneState* func_02012fe4();
-void* GetEntryTableBase_02027ca4();
-MonsterDefinition* FindEntryByCurrentId02027cb0();
+extern "C" void* func_02027ca4();
+extern "C" MonsterDefinition* func_02027cb0();
 extern "C" void func_02076a8c(GameObject*);
-int ListContainsNode(ListHead02046b38*, ListNode02046b38*);
-PairStruct* FindCombatantByField2_021a2738(void*, int);
-void CopyPairAndStoreField_02072adc(PairStruct*, PairStruct*);
+extern "C" int func_02046b38(ListHead02046b38*, ListNode02046b38*);
+extern "C" PairStruct* func_ov017_021a2738(void*, int);
+extern "C" void func_02072adc(PairStruct*, PairStruct*);
 extern "C" int func_02018fbc(ZoneState*, Vector3i*);
-SubEntry0209be84* FindSubEntry0209be84(EntryTable0209bd94*, unsigned int, int);
-void SetVecYFromValue02033874(Obj02033874*, int);
-void SetField0x16c(S02076cc4*, int);
-void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void TrySetMode02076ccc(void*, int);
+extern "C" SubEntry0209be84* func_0209be84(EntryTable0209bd94*, unsigned int, int);
+extern "C" void func_02033874(Obj02033874*, int);
+extern "C" void func_02076cc4(S02076cc4*, int);
+extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_02076ccc(void*, int);
 extern "C" void func_0207964c(GameObject*);
-Src020795e8* FindNodeBySignedId_0206ef18(void*, int);
-void CopyBitFields020795e8(Dst020795e8*, Src020795e8*);
+extern "C" Src020795e8* func_0206ef18(void*, int);
+extern "C" void func_020795e8(Dst020795e8*, Src020795e8*);
 
 // USA: func_ov017_021d46a4
 extern "C" ARM void func_ov017_021d46a4(void*, MonsterUpdate* update) {
@@ -77,22 +77,22 @@ extern "C" ARM void func_ov017_021d46a4(void*, MonsterUpdate* update) {
     GameState* state = GameState::GetInstance();
     WorldState* world = (WorldState*)GetGameResources();
     ZoneState* zone = func_02012fe4();
-    GetEntryTableBase_02027ca4();
+    func_02027ca4();
     ListHead02046b38* list = world->list_;
     MonsterDefinition* definition;
     int index;
     GameObject* actor;
     ListNode02046b38* node = world->node_;
     if (update->zone_ != zone->zone_) return;
-    definition = FindEntryByCurrentId02027cb0();
+    definition = func_02027cb0();
     if (!definition) return;
     index = definition->category_ * 12 + 0x70 + update->slot_;
     actor = state->GetMaybeFieldMonsterByIndex(index);
     if (!actor) return;
     func_02076a8c(actor);
-    if (!ListContainsNode(list, node)) {
-        PairStruct* previous = FindCombatantByField2_021a2738(world, update->monsterId_);
-        if (previous) CopyPairAndStoreField_02072adc(previous, (PairStruct*)actor);
+    if (!func_02046b38(list, node)) {
+        PairStruct* previous = func_ov017_021a2738(world, update->monsterId_);
+        if (previous) func_02072adc(previous, (PairStruct*)actor);
     }
     Vector3i position;
     position.x = update->x_ << 7;
@@ -100,27 +100,27 @@ extern "C" ARM void func_ov017_021d46a4(void*, MonsterUpdate* update) {
     position.z = update->z_ << 7;
     if (update->zone_ == zone->zone_) position.y = func_02018fbc(zone, &position);
     int scale = 0x1000;
-    SubEntry0209be84* entry = FindSubEntry0209be84(&definition->entries_, update->monsterId_, update->variant_);
+    SubEntry0209be84* entry = func_0209be84(&definition->entries_, update->monsterId_, update->variant_);
     if (entry) scale = entry->scale_;
     scale = (scale * 266LL + 0x800) >> 12;
     actor->obj3D_.unknown_4_ = index;
     actor->obj3D_.unknown_2_ = update->monsterId_;
     actor->obj3D_.SetField06(update->zone_);
     actor->obj3D_.position_ = position;
-    SetVecYFromValue02033874((Obj02033874*)actor, update->angle_);
+    func_02033874((Obj02033874*)actor, update->angle_);
     actor->obj3D_.SetScale(scale, scale, scale);
     WorldResources* const resources = &world->resources_;
-    SetField0x16c((S02076cc4*)actor, (int)resources->field660_);
+    func_02076cc4((S02076cc4*)actor, (int)resources->field660_);
     MonsterFields* fields = (MonsterFields*)actor;
     fields->field16A_ = update->field4_;
     fields->variant_ = update->variant_;
-    SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
+    func_02033b88((Bytes02033b88*)actor, 0);
     fields->flags17D_ |= update->flagsC_;
     fields->fieldB8_ = update->fieldE_;
     fields->field164_ = update->field10_;
     fields->field166_ = update->fieldD_;
-    TrySetMode02076ccc(actor, update->mode_);
+    func_02076ccc(actor, update->mode_);
     func_0207964c(actor);
-    Src020795e8* saved = FindNodeBySignedId_0206ef18(definition->nodes_, (short)update->monsterId_);
-    if (saved) CopyBitFields020795e8((Dst020795e8*)actor, saved);
+    Src020795e8* saved = func_0206ef18(definition->nodes_, (short)update->monsterId_);
+    if (saved) func_020795e8((Dst020795e8*)actor, saved);
 }

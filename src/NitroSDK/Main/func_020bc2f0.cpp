@@ -54,15 +54,15 @@ struct SequencePlayer020bc2f0
     unsigned short pad3;
 };
 
-unsigned long ReadUncachedField4_020d29f4();
-int IsValuePassedWraparound020d2718(unsigned int tag);
+extern "C" unsigned long func_020d29f4();
+extern "C" int func_020d2718(unsigned int tag);
 extern "C" void func_020bc79c(SequencePlayer020bc2f0* seqPlayer);
-void AdvanceTweenStep020c0260(Tween020c0260* fader);
-int EvaluateTween020c022c(Tween020c0260* fader);
-void EnqueueEvent0x6Sub6_020d1e70(int playerNo, int volume);
-int CheckField8GeFieldC(State020c0278* fader);
-void DispatchType2Command020bc6fc(Obj020bc6fc* seqPlayer);
-void EnqueueEvent0x3_020d1e30(int playerNo);
+extern "C" void func_020c0260(Tween020c0260* fader);
+extern "C" int func_020c022c(Tween020c0260* fader);
+extern "C" void func_020d1e70(int playerNo, int volume);
+extern "C" int func_020c0278(State020c0278* fader);
+extern "C" void func_020bc6fc(Obj020bc6fc* seqPlayer);
+extern "C" void func_020d1e30(int playerNo);
 
 extern "C" SignedAllocatorList data_0210f3d8;
 extern "C" const short data_020ed82c[];
@@ -85,7 +85,7 @@ extern "C" ARM void func_020bc2f0()
     unsigned long status;
     int fader;
 
-    status = ReadUncachedField4_020d29f4();
+    status = func_020d29f4();
 
     seqPlayer = NextSeqPlayer(NULL);
     if (seqPlayer == NULL)
@@ -97,7 +97,7 @@ extern "C" ARM void func_020bc2f0()
 
         if (!seqPlayer->startFlag)
         {
-            if (IsValuePassedWraparound020d2718(seqPlayer->commandTag))
+            if (func_020d2718(seqPlayer->commandTag))
                 seqPlayer->startFlag = 1;
         }
 
@@ -110,11 +110,11 @@ extern "C" ARM void func_020bc2f0()
             }
         }
 
-        AdvanceTweenStep020c0260(&seqPlayer->fader);
+        func_020c0260(&seqPlayer->fader);
 
         fader = CalculateDecibel(seqPlayer->initVolume) + CalculateDecibel(seqPlayer->extVolume)
             + CalculateDecibel(seqPlayer->player->volume)
-            + CalculateDecibel(EvaluateTween020c022c(&seqPlayer->fader) >> 8);
+            + CalculateDecibel(func_020c022c(&seqPlayer->fader) >> 8);
 
         if (fader < -32768)
             fader = -32768;
@@ -123,19 +123,19 @@ extern "C" ARM void func_020bc2f0()
 
         if (fader != seqPlayer->volume)
         {
-            EnqueueEvent0x6Sub6_020d1e70(seqPlayer->playerNo, fader);
+            func_020d1e70(seqPlayer->playerNo, fader);
             seqPlayer->volume = (short)fader;
         }
 
         if (seqPlayer->status == 2)
         {
-            if (CheckField8GeFieldC((State020c0278*)&seqPlayer->fader))
-                DispatchType2Command020bc6fc((Obj020bc6fc*)seqPlayer);
+            if (func_020c0278((State020c0278*)&seqPlayer->fader))
+                func_020bc6fc((Obj020bc6fc*)seqPlayer);
         }
 
         if (seqPlayer->prepareFlag)
         {
-            EnqueueEvent0x3_020d1e30(seqPlayer->playerNo);
+            func_020d1e30(seqPlayer->playerNo);
             seqPlayer->prepareFlag = 0;
         }
     } while ((seqPlayer = next) != NULL);

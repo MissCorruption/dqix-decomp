@@ -48,12 +48,12 @@ struct Param021e4624 {
     short distance;
 };
 
-Node02160094* GetNodeAtIndex02160094(List02160094* list, int index);
-Node021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
-void ResetStruct_021e3158(struct Reset021e3158* p);
-void InitStruct02078484(struct InitStruct02078484Struct* p);
-int FindNodeAndProcess02057fb4(void*, int, void*);
-void ClearCombatantSlotIfValidId02057db8(void*, int);
+extern "C" Node02160094* func_ov000_02160094(List02160094* list, int index);
+extern "C" Node021600f8* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" void func_ov025_021e3158(struct Reset021e3158* p);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" int func_02057fb4(void*, int, void*);
+extern "C" void func_02057db8(void*, int);
 extern "C" void* func_02057924(void);
 
 extern struct Reset021e3158 data_ov025_021ef9a8;
@@ -63,20 +63,20 @@ extern struct Global021ef988 data_ov025_021ef988;
 extern "C" ARM int func_ov025_021e4624(struct Param021e4624* p, void* slot) {
     GameState* gs = GameState::GetInstance();
     void* list = func_02057924();
-    Node02160094* srcNode = GetNodeAtIndex02160094((List02160094*)slot, 0);
-    Node021600f8* dstNode = GetNodeAtIndex021600f8((List021600f8*)slot, 0);
+    Node02160094* srcNode = func_ov000_02160094((List02160094*)slot, 0);
+    Node021600f8* dstNode = func_ov000_021600f8((List021600f8*)slot, 0);
     int srcId = srcNode->id;
     int dstId = dstNode->targetId;
     GameObject* src = gs->GetGameObjectByIndex(srcId);
     GameObject* dst = gs->GetGameObjectByIndex(dstId);
     if (src == NULL || dst == NULL) {
-        ResetStruct_021e3158(&data_ov025_021ef9a8);
+        func_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 
     if (data_ov025_021ef988.state == 0) {
         struct InitStruct02078484Struct req;
-        InitStruct02078484(&req);
+        func_02078484(&req);
         Vector3fix from = src->obj3D_.position_;
         Vector3fix to = dst->obj3D_.position_;
         Vector3fix dir;
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov025_021e4624(struct Param021e4624* p, void* slot) {
         if (p->name != NULL) {
             strcpy(req.name, p->name);
         }
-        data_ov025_021ef988.objectId = FindNodeAndProcess02057fb4(list, p->effectId, &req);
+        data_ov025_021ef988.objectId = func_02057fb4(list, p->effectId, &req);
         data_ov025_021ef988.state++;
         return 0;
     }
@@ -99,7 +99,7 @@ extern "C" ARM int func_ov025_021e4624(struct Param021e4624* p, void* slot) {
     if (data_ov025_021ef988.state == 1) {
         GameObject* effect = gs->GetGameObjectByIndex(data_ov025_021ef988.objectId);
         if (effect == NULL) {
-            ResetStruct_021e3158(&data_ov025_021ef9a8);
+            func_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         Vector3fix a = dst->obj3D_.position_;
@@ -112,11 +112,11 @@ extern "C" ARM int func_ov025_021e4624(struct Param021e4624* p, void* slot) {
         if (dist >= range) {
             return 0;
         }
-        ClearCombatantSlotIfValidId02057db8(list, data_ov025_021ef988.objectId);
-        ResetStruct_021e3158(&data_ov025_021ef9a8);
+        func_02057db8(list, data_ov025_021ef988.objectId);
+        func_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
 
-    ResetStruct_021e3158(&data_ov025_021ef9a8);
+    func_ov025_021e3158(&data_ov025_021ef9a8);
     return 1;
 }

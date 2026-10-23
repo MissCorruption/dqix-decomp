@@ -35,9 +35,9 @@ struct Window0204c980 {
     void* tileMap;
 };
 
-void ClearFourRegions0204f0ec(char*);
-void* GetGlobalField0x1c020421a0();
-int GetTableEntry0204a5e4(int, int);
+extern "C" void func_0204f0ec(char*);
+extern "C" void* func_020421a0();
+extern "C" int func_0204a5e4(int, int);
 #if defined(jpn)
 extern "C" void func_020474a8(void*, unsigned char, const char*, char*);
 extern "C" short func_0204f6a0(Window0204c980*, char*, int, unsigned char, unsigned char);
@@ -49,7 +49,7 @@ extern "C" void func_0204cd60(Window0204c980*, char*, short, short);
 #endif
 typedef void (*Upload0204c980)(const void*, unsigned int, unsigned int);
 
-inline int GetUpload0204c980(int bank, int index) { return GetTableEntry0204a5e4(index, bank); }
+inline int GetUpload0204c980(int bank, int index) { return func_0204a5e4(index, bank); }
 
 inline int ReaduploadBank0204c980(WindowStyle0204c980* style) { return style->uploadBank; }
 
@@ -60,10 +60,10 @@ extern "C" ARM void func_0204d790(Window0204c980* window, const char* text, unsi
 extern "C" ARM void func_0204c980(Window0204c980* window, const char* text, unsigned int destination, int mode, unsigned char border, unsigned char fullWidth, unsigned char font) {
 #endif
     if (window->style && window->pixels && text) {
-        ClearFourRegions0204f0ec((char*)window);
+        func_0204f0ec((char*)window);
 #if defined(jpn)
         char buffer[0x800] = {};
-        func_020474a8(GetGlobalField0x1c020421a0(), window->fontHeight, text, buffer);
+        func_020474a8(func_020421a0(), window->fontHeight, text, buffer);
         short padding = func_0204f6a0(window, buffer, mode, border, fullWidth);
         func_0204daf8(window, buffer, padding);
 #else
@@ -71,7 +71,7 @@ extern "C" ARM void func_0204c980(Window0204c980* window, const char* text, unsi
         if (!(window->flags & 0x10)) width -= 4;
         if (fullWidth) width = 256;
         char buffer[0x800] = {};
-        func_02046608(GetGlobalField0x1c020421a0(), window->fontHeight, text, buffer, width, window->textX, font);
+        func_02046608(func_020421a0(), window->fontHeight, text, buffer, width, window->textX, font);
         short padding = func_0204e3e0(window, buffer, mode, border, fullWidth, font);
         func_0204cd60(window, buffer, padding, font);
 #endif

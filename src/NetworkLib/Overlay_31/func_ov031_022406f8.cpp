@@ -10,7 +10,7 @@ struct TextBuffer {
     BufferSegment* next;
     unsigned char bytes[1024];
 };
-void CopyMemory_022415c8(void* destination, const void* source, unsigned int size);
+extern "C" void func_ov031_022415c8(void* destination, const void* source, unsigned int size);
 
 // USA: func_ov031_022406f8
 extern "C" ARM int func_ov031_022406f8(TextBuffer* buffer, unsigned char* destination, int offset, int size) {
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov031_022406f8(TextBuffer* buffer, unsigned char* destin
             if (offset < 1024) {
                 int amount = 1024 - offset;
                 if (size <= amount) amount = size;
-                CopyMemory_022415c8(destination, buffer->bytes + offset, amount);
+                func_ov031_022415c8(destination, buffer->bytes + offset, amount);
                 offset += amount;
                 size -= amount;
                 destination += amount;
@@ -38,7 +38,7 @@ extern "C" ARM int func_ov031_022406f8(TextBuffer* buffer, unsigned char* destin
                 if (size != 0) do {
                     int amount = 512 - offset;
                     if (size <= amount) amount = size;
-                    CopyMemory_022415c8(destination, segment->bytes + offset, amount);
+                    func_ov031_022415c8(destination, segment->bytes + offset, amount);
                     offset = (offset + amount) & 511;
                     size -= amount;
                     destination += amount;

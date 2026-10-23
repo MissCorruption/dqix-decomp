@@ -66,8 +66,8 @@ extern "C" ARM int func_02075df4(OamCells02075df4* cells, int index, int x, int 
         Scale02075df4 scale = cells->scale;
         fix32_t cosine = CosineSample(angle >> 4);
         func_020c111c(&rotation, SineSample(angle >> 4), cosine);
-        ScalePairsByTwoFactors_020c1128(&rotation, &scaled, scale.x, scale.y);
-        ScalePairsByTwoFactors_020c1128(&rotation, &inverse, fix32_Divide(0x1000, scale.x),
+        func_020c1128(&rotation, &scaled, scale.x, scale.y);
+        func_020c1128(&rotation, &inverse, fix32_Divide(0x1000, scale.x),
                                         fix32_Divide(0x1000, scale.y));
         matrix = &scaled;
     }

@@ -2,7 +2,7 @@
 
 #pragma define_section initcode ".init" RX
 
-void ResetAndReturn02064d1c(void* obj);
+extern "C" void func_02064d1c(void* obj);
 
 extern float data_020f05ac[4];
 extern float data_02108830[5];
@@ -23,5 +23,5 @@ extern "C" __declspec(initcode) ARM void __sinit_020e5f0c(void) {
     data_02108830[1] = t;
     t = t + b;
     data_02108830[0] = t;
-    ResetAndReturn02064d1c(&data_02108844);
+    func_02064d1c(&data_02108844);
 }

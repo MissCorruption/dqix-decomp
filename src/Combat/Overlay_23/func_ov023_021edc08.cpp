@@ -67,43 +67,43 @@ extern const char data_ov023_021fd45c[];
 extern "C" void func_0204500c(TextRenderer*, const char*, int);
 #endif
 extern "C" void* func_0202ae18();
-TextRenderer* GetGlobalField0x1c020421a0();
-unsigned int* GetDataPtr02114e04_020d6c00();
-void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-void EnqueueEventTag86_021c9ad4(unsigned short);
+extern "C" TextRenderer* func_020421a0();
+extern "C" unsigned int* func_020d6c00();
+extern "C" void func_020466e4(unsigned int*, unsigned int);
+extern "C" void func_ov017_021c9ad4(unsigned short);
 extern "C" void func_ov017_021a23b0(GameResources*, int);
-void DispatchContextByState0209c678(Actor0209c678*, int);
+extern "C" void func_0209c678(Actor0209c678*, int);
 extern "C" void func_ov000_0216d370(void*, int, int, int);
 extern "C" void* func_02057924();
 extern "C" void func_02057f00(void*, int);
-void DestroyAllocatorAt0xa28(Obj020d6f0c*);
-void ConstructEntryManager020d6d18(Container020d6d18*);
-void ResetArrayAndEntry021823a4(char*);
-Container0203a54c* GetData02104b6c_02039e70();
-void ProcessAllSubObjects0203a54c(Container0203a54c*);
-void ClearFirstTwoWords0209a338(Pair0209a338*);
-void ClearField00209a804(int*);
-void ResetAndInit_021f52a0(void*);
-void Clear12Bytes0206efc4(void*);
-void PushInputLogB_020a1ef0(int);
-void InitAndDispatch_021f52f8(void*, void*);
+extern "C" void func_020d6f0c(Obj020d6f0c*);
+extern "C" void func_020d6d18(Container020d6d18*);
+extern "C" void func_ov000_021823a4(char*);
+extern "C" Container0203a54c* func_02039e70();
+extern "C" void func_0203a54c(Container0203a54c*);
+extern "C" void func_0209a338(Pair0209a338*);
+extern "C" void func_0209a804(int*);
+extern "C" void func_ov023_021f52a0(void*);
+extern "C" void func_0206efc4(void*);
+extern "C" void func_020a1ef0(int);
+extern "C" void func_ov023_021f52f8(void*, void*);
 extern "C" int func_0202c540(void*);
 extern "C" void func_02046380(TextRenderer*);
 extern "C" ZoneData* func_02012fe4();
-void Clear12Bytes020e46c4(void*);
-void* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" void func_020e46c4(void*);
+extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct*, int);
 extern "C" Words021edf38 func_ov023_021ed804(Words021edf38, void*);
-void SetWords_021edf38_021edf38(void*, Words021edf38*);
-const char* CallFunc020e0434With02153694_020e51cc(int);
+extern "C" void func_ov023_021edf38(void*, Words021edf38*);
+extern "C" const char* func_020e51cc(int);
 #if !defined(jpn)
 extern "C" void func_0204500c(TextRenderer*, const char*, int, int);
 #endif
-void ResetAndDispatchActorContext0209c6d8(void*, int);
+extern "C" void func_0209c6d8(void*, int);
 extern "C" int func_0202c508(void*);
-TagValueEntry020e385c* GetData02153660_020e3808();
-void ResetTaggedEntryAndNotifyOverlay020e3994(TagValueEntry020e385c*, int, int);
-void RegisterTaggedEntryAndNotifyOverlay020e392c(TagValueEntry020e385c*, int, int);
-void SetEntryBitUnlessMatching020e39d4(TagValueEntry020e385c*, int, int, int);
+extern "C" TagValueEntry020e385c* func_020e3808();
+extern "C" void func_020e3994(TagValueEntry020e385c*, int, int);
+extern "C" void func_020e392c(TagValueEntry020e385c*, int, int);
+extern "C" void func_020e39d4(TagValueEntry020e385c*, int, int, int);
 
 static inline SafeAllocator* GetAllocator(GameResources* resources, int index) {
     return &resources->allocator_array_38[index];
@@ -119,22 +119,22 @@ extern "C" ARM int func_ov023_021edc08(CombatScreen* self) {
 
     GameResources* resources = GetGameResources();
     void* mode = func_0202ae18();
-    TextRenderer* renderer = GetGlobalField0x1c020421a0();
-    OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0x20000);
-    EnqueueEventTag86_021c9ad4(self->battle_->event_);
+    TextRenderer* renderer = func_020421a0();
+    func_020466e4(func_020d6c00(), 0x20000);
+    func_ov017_021c9ad4(self->battle_->event_);
     func_ov017_021a23b0(resources, self->battle_->event_);
-    DispatchContextByState0209c678(&data_02109bf4, 0);
+    func_0209c678(&data_02109bf4, 0);
     func_ov000_0216d370(self->camera_, 0, 0, 1);
     void* sound = func_02057924();
     SoundIds sounds = data_ov023_021fd870;
     for (int* id = sounds.ids_; *id >= 0; ++id) func_02057f00(sound, *id);
     if (self->manager_) {
-        DestroyAllocatorAt0xa28(self->manager_);
-        ConstructEntryManager020d6d18((Container020d6d18*)self->manager_);
+        func_020d6f0c(self->manager_);
+        func_020d6d18((Container020d6d18*)self->manager_);
         self->manager_ = 0;
     }
-    ResetArrayAndEntry021823a4(self->entries_);
-    ProcessAllSubObjects0203a54c(GetData02104b6c_02039e70());
+    func_ov000_021823a4(self->entries_);
+    func_0203a54c(func_02039e70());
     SafeAllocator* const allocator = GetAllocator(resources, 5);
     allocator->Reset();
     CombatWork* work = (CombatWork*)allocator->Allocate(sizeof(CombatWork));
@@ -155,12 +155,12 @@ extern "C" ARM int func_ov023_021edc08(CombatScreen* self) {
     memset(&work->field6C_, 0, 4);
     memset(work->data_, 0, sizeof(work->data_));
     work->field2788_ = 0;
-    ClearFirstTwoWords0209a338(&work->pair_);
-    ClearField00209a804(&work->fieldF0_);
-    ResetAndInit_021f52a0(work->dispatch_);
-    Clear12Bytes0206efc4(&work->words_);
-    PushInputLogB_020a1ef0(1);
-    InitAndDispatch_021f52f8(_ZZ17GetGlobal021ffefcvE1s.work_->dispatch_, allocator);
+    func_0209a338(&work->pair_);
+    func_0209a804(&work->fieldF0_);
+    func_ov023_021f52a0(work->dispatch_);
+    func_0206efc4(&work->words_);
+    func_020a1ef0(1);
+    func_ov023_021f52f8(_ZZ17GetGlobal021ffefcvE1s.work_->dispatch_, allocator);
     if (func_0202c540(mode) && self->battle_->special_) {
 #if defined(jpn)
         GameObject* member = game->GetPartyMemberByIndex(0);
@@ -172,30 +172,30 @@ extern "C" ARM int func_ov023_021edc08(CombatScreen* self) {
         func_02046380(renderer);
         GrottoRewardView* rewards = (GrottoRewardView*)&func_02012fe4()->grotto_.GetDetailedData()->regular_;
         Words021edf38 words;
-        Clear12Bytes020e46c4(&words);
+        func_020e46c4(&words);
         BattleInfo* battle = self->battle_;
         for (int i = 0; i < 3; ++i) {
-            void* found = SearchWithComparator0206f4f0(&battle->rewards_, rewards->ids_[i]);
+            void* found = func_0206f4f0(&battle->rewards_, rewards->ids_[i]);
             if (found) {
                 const Words021edf38& copy = func_ov023_021ed804(words, found);
-                SetWords_021edf38_021edf38(&words, const_cast<Words021edf38*>(&copy));
+                func_ov023_021edf38(&words, const_cast<Words021edf38*>(&copy));
                 renderer->argument_ = &words;
                 break;
             }
         }
         char message[256];
-        sprintf(message, CallFunc020e0434With02153694_020e51cc(200));
+        sprintf(message, func_020e51cc(200));
         func_0204500c(renderer, message, 1, 0xe3);
 
 #endif
         renderer->active_ = 1;
-        ResetAndDispatchActorContext0209c6d8(&data_02109bf4, 0x36);
+        func_0209c6d8(&data_02109bf4, 0x36);
     }
     if (func_0202c508(mode) && self->battle_->type_ == 19) {
-        TagValueEntry020e385c* tags = GetData02153660_020e3808();
-        ResetTaggedEntryAndNotifyOverlay020e3994(tags, 1, -1);
-        RegisterTaggedEntryAndNotifyOverlay020e392c(tags, 1, 0x71e8);
-        SetEntryBitUnlessMatching020e39d4(tags, 0, 1, 0x71e8);
+        TagValueEntry020e385c* tags = func_020e3808();
+        func_020e3994(tags, 1, -1);
+        func_020e392c(tags, 1, 0x71e8);
+        func_020e39d4(tags, 0, 1, 0x71e8);
     }
     return 1;
 }

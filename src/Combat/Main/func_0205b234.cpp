@@ -4,10 +4,10 @@
 struct Rect0205b1ac;
 struct GlyphDestination0205b234 { unsigned char* pixels; Rect0205b1ac* rectangles; unsigned char rectangleCount; };
 
-int GetWordFromTable02042648(int);
-int FindEntryIndexByKey020424e4(int, int);
-int LookupKeyValue020425e4(int, int, int);
-FontCharacter* GetBoundedEntry020425b4(int index, int fontIndex);
+extern "C" int func_02042648(int);
+extern "C" int func_020424e4(int, int);
+extern "C" int func_020425e4(int, int, int);
+extern "C" FontCharacter* func_020425b4(int index, int fontIndex);
 extern "C" void func_0205b36c(GlyphDestination0205b234* destination, FontCharacter* glyph, short x, short y, unsigned char color, unsigned char font);
 
 // USA: func_0205b234
@@ -16,17 +16,17 @@ extern "C" ARM int func_0205b234(GlyphDestination0205b234* destination, short x,
     if (destination->rectangles == 0) return 0;
     if (destination->rectangleCount == 0) return 0;
     if (text == 0) return 0;
-    unsigned char fallbackWidth = GetWordFromTable02042648(font);
+    unsigned char fallbackWidth = func_02042648(font);
     int previousCharacter = 0xff;
     short cursorX = x;
     while (*text != 0) {
         int index;
         signed char advance = fallbackWidth + 1;
-        index = FindEntryIndexByKey020424e4((int)text, font) & 0xff;
-        cursorX += LookupKeyValue020425e4(previousCharacter, index, font);
+        index = func_020424e4((int)text, font) & 0xff;
+        cursorX += func_020425e4(previousCharacter, index, font);
         int length = 1;
         if (index != 0xff) {
-            FontCharacter* character = GetBoundedEntry020425b4(index, font);
+            FontCharacter* character = func_020425b4(index, font);
             func_0205b36c(destination, character, cursorX, y, color, font);
             advance = character->width + 1;
             length = character->byteLength;

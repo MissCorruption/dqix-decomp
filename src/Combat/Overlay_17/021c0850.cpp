@@ -96,77 +96,77 @@ struct SceneSwap021c0850 {
     unsigned char bbc;
 };
 
-void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
+extern "C" void func_020397cc(Obj020397cc* obj, int arg1);
 extern "C" void func_020a0cc4(unsigned int size);
 extern "C" void func_020a0c0c(void);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_020a1940(unsigned int id);
-void PushInputLogB_020a1ef0(int id);
+extern "C" void func_020a1ef0(int id);
 extern "C" void func_ov008_021843f8(void* scene);
 extern "C" void func_ov008_021842a0(void* scene, SafeAllocator* alloc);
 struct ShortField0xb8_0209cae8;
-int GetShortAt0xb8(ShortField0xb8_0209cae8*);
+extern "C" int func_0209cae8(ShortField0xb8_0209cae8*);
 struct Actor0209c678;
-void DispatchContextByState0209c678(Actor0209c678*, int);
+extern "C" void func_0209c678(Actor0209c678*, int);
 extern "C" void* func_02012fe4(void);
-extern void* GetGlobalPtr021075f4_0203cf4c(void);
+extern "C" void* func_0203cf4c(void);
 extern "C" void func_0203e0a0(void* g, unsigned short val);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_02074af4(void* obj);
-void BackupSubBgControlRegisters(SubBgControlBackup02074b64* backup);
-void BackupPairTableToBuffer_020bb700(int* buffer);
-void RestorePairTableFromBuffer_020bb740(int* buffer);
-void ReadGlobalPair020bb910(int* pair);
-unsigned short GetFieldAt0x7e_0201e830(S_e830* obj);
-void SetField0x3b0Value_020100c4(GameState* gs, int v);
+extern "C" void func_02074b64(SubBgControlBackup02074b64* backup);
+extern "C" void func_020bb700(int* buffer);
+extern "C" void func_020bb740(int* buffer);
+extern "C" void func_020bb910(int* pair);
+extern "C" unsigned short func_0201e830(S_e830* obj);
+extern "C" void func_020100c4(GameState* gs, int v);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
-void ConfigurePairMode020bb48c(unsigned int mode, int flag);
-void SetDispcntModeAndFlags020c391c(int a, int b, int c);
-void SetSubBgMode_020c3984(unsigned int mode);
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fog);
-void SetFogState_020c54a4(int enable, unsigned int mode, unsigned int shift, unsigned short offset);
+extern "C" void func_020bb48c(unsigned int mode, int flag);
+extern "C" void func_020c391c(int a, int b, int c);
+extern "C" void func_020c3984(unsigned int mode);
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fog);
+extern "C" void func_020c54a4(int enable, unsigned int mode, unsigned int shift, unsigned short offset);
 extern "C" void* func_0203bd08(void);
-void InitBattleContext0203bd24(char* ctx);
-int* GetGlobalPtr02105244_0203bd14(void);
+extern "C" void func_0203bd24(char* ctx);
+extern "C" int* func_0203bd14(void);
 extern "C" int func_0203be4c(void* ctx);
 extern "C" void func_0203c35c(int* ptr);
 extern "C" int func_ov017_021959b4(void);
-void SetFlagBit_02184a2c_02184a2c(char*);
+extern "C" void func_ov008_02184a2c(char*);
 extern "C" int func_ov008_02184754(void* obj);
-void ClearFlag0x10IfSet(Struct02074bd0* obj);
-void ClearFlag0x11IfSet(Struct02074bf4* obj);
+extern "C" void func_02074bd0(Struct02074bd0* obj);
+extern "C" void func_02074bf4(Struct02074bf4* obj);
 extern "C" void* func_ov008_021845ac(void* obj);
-void ProcessCombatantsIfFlagged_0218f79c(void* res);
+extern "C" void func_ov017_0218f79c(void* res);
 extern "C" void func_ov017_0219b624(GameResources* res);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_020421a0(void);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 extern "C" void func_020432c4(void* controller);
 extern "C" void func_ov017_0219bd1c(int a, int b, int c, int d);
-void InitAllocatorAndClearFields_021c0820(Obj021c0820*);
+extern "C" void func_ov017_021c0820(Obj021c0820*);
 struct Obj021c0334;
-void InitState40_021c0334(Obj021c0334*);
+extern "C" void func_ov017_021c0334(Obj021c0334*);
 struct Obj021b14a0;
-void InitState37_021b14a0(Obj021b14a0*);
-void SetByteField49_021b1d3c(void* obj, int v);
-void PrependNodeToHead(HeadList020469f8* list, HeadNode020469f8* node);
+extern "C" void func_ov017_021b14a0(Obj021b14a0*);
+extern "C" void func_ov017_021b1d3c(void* obj, int v);
+extern "C" void func_020469f8(HeadList020469f8* list, HeadNode020469f8* node);
 extern "C" void func_ov017_021c0580(void* self, int kind, const char* name, void* handler);
 extern "C" int func_0209cd50(int id);
 struct Actor0209c3b4;
-void SetStateAndDispatch0209c3b4(Actor0209c3b4*, int);
-void SetByteField0x253_020397c0(void* obj);
+extern "C" void func_0209c3b4(Actor0209c3b4*, int);
+extern "C" void func_020397c0(void* obj);
 extern "C" void func_ov017_021c07d0(void* self);
-int AllocateAndDispatch20_0215502c(SafeAllocator* alloc, int arg);
-int AllocateAndDispatch14_021560b0(SafeAllocator* alloc, int arg);
-int AllocateAndDispatch8_02156dc8(SafeAllocator* alloc, int arg);
-int AllocateAndCopyHandlerTable_021677b4(SafeAllocator* alloc, void* arg);
-int AllocateAndCopyBuf76_0216aa70(SafeAllocator* alloc, void* arg);
+extern "C" int func_ov004_0215502c(SafeAllocator* alloc, int arg);
+extern "C" int func_ov004_021560b0(SafeAllocator* alloc, int arg);
+extern "C" int func_ov004_02156dc8(SafeAllocator* alloc, int arg);
+extern "C" int func_ov004_021677b4(SafeAllocator* alloc, void* arg);
+extern "C" int func_ov004_0216aa70(SafeAllocator* alloc, void* arg);
 
 extern AllocatorUnion data_02114e20;
 extern int data_02109bf4;
@@ -199,11 +199,11 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
     GameState* gs = GameState::GetInstance();
     GameResources* res = GetGameResources();
     GameObject* leader = gs->GetUnknownGameObject();
-    CancelPendingAction020397cc((Obj020397cc*)leader, 1);
+    func_020397cc((Obj020397cc*)leader, 1);
 
     if (self->state == 0) {
         func_020a0cc4(kSceneHeapSize);
-        void* buffer = AllocateAligned4_02012d88(&data_02114e20, kSceneHeapSize);
+        void* buffer = func_02012d88(&data_02114e20, kSceneHeapSize);
         if (buffer == NULL) {
             func_020a0c0c();
             self->done = 1;
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
             return;
         }
         func_020a1940(OVERLAY_ID(8));
-        PushInputLogB_020a1ef0(1);
+        func_020a1ef0(1);
         func_ov008_021843f8(self->scene);
         func_ov008_021842a0(self->scene, &self->allocator);
         self->scene->b28 = self->b24;
@@ -233,12 +233,12 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         }
         if (self->bbc) {
             self->scene->flags |= 1;
-            if (GetShortAt0xb8((ShortField0xb8_0209cae8*)&data_02109bf4) != 0x29) {
-                DispatchContextByState0209c678((Actor0209c678*)&data_02109bf4, 0xf);
+            if (func_0209cae8((ShortField0xb8_0209cae8*)&data_02109bf4) != 0x29) {
+                func_0209c678((Actor0209c678*)&data_02109bf4, 0xf);
             }
         }
         unsigned short* id = (unsigned short*)func_02012fe4();
-        func_0203e0a0(GetGlobalPtr021075f4_0203cf4c(), *id);
+        func_0203e0a0(func_0203cf4c(), *id);
         if (GetBrightness((GameResources*)res, false) != -0x10
             || GetBrightness((GameResources*)res, true) != -0x10) {
             SetBrightness(res, -0x10, 0xf);
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         self->b3d = 0;
         func_02074af4(self->controlBackup);
         self->visiblePlanes = (DISPCNT & 0x1f00) >> 8;
-        BackupSubBgControlRegisters((SubBgControlBackup02074b64*)self->controlBackup);
+        func_02074b64((SubBgControlBackup02074b64*)self->controlBackup);
         self->subVisiblePlanes = (DISPCNTSUB & 0x1f00) >> 8;
         self->bgBanks = GetMainBGVRAMBanks();
         self->subBgBanks = GetSubBGVRAMBanks();
@@ -264,17 +264,17 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         self->paletteBanks = GetTexturePaletteVRAMBanks();
         self->textureSize = GetTextureImageAssignedVRAMSize();
         self->paletteSize = GetTexturePaletteAssignedVRAMSize();
-        BackupPairTableToBuffer_020bb700(self->pairTable);
-        ReadGlobalPair020bb910(self->globalPair);
+        func_020bb700(self->pairTable);
+        func_020bb910(self->globalPair);
         GXDispCnt dispCnt = GX_GetDispCnt();
         self->bgScrBase = dispCnt.bgScrBase;
         self->bgCharBase = dispCnt.bgCharBase;
         self->dispCntFlags = DISPCNT & 0x300010;
-        self->clearColor = GetFieldAt0x7e_0201e830((S_e830*)((char*)func_02012fe4() + kGlobalColorOffset));
+        self->clearColor = func_0201e830((S_e830*)((char*)func_02012fe4() + kGlobalColorOffset));
         self->word = GetFlags00(res);
         self->field4 = GetFlags04(res);
         self->field8 = GetFlags08(res);
-        self->fieldB8 = GetField0x3b0Value_020100bc(gs);
+        self->fieldB8 = func_020100bc(gs);
         self->state++;
     } else if (self->state == 2) {
         LockStagedTextureVRAMCopying();
@@ -283,14 +283,14 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         DisableTextureImageVRAMBanks();
         GX_SetDispSelect(0);
         MapVRAMBanksToTextureImage(1);
-        ConfigurePairMode020bb48c(1, 1);
+        func_020bb48c(1, 1);
         MapVRAMBanksToSubBG(4);
         MapVRAMBanksToSubObj(0x100);
         DISPCNTSUB = (DISPCNTSUB & 0xffcfffef) | 0x10;
         UpdateVRAMStagingVRAMBanks();
         UnlockStagedTextureVRAMCopying();
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1300;
-        SetDispcntModeAndFlags020c391c(1, 0, 1);
+        func_020c391c(1, 0, 1);
         BG1CNT = (BG1CNT & 0x43) | 0x1e00;
         BG0CNT = (BG0CNT & ~3) | 1;
         BG1CNT = (BG1CNT & ~3) | 2;
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         G2_SetBG3Priority(0);
         ColorEffect_ConfigureAlphaBlend(0x04000050, 1, 2, 0xf, 0x1f);
         GXS_SetVisiblePlane(0x13);
-        SetSubBgMode_020c3984(0);
+        func_020c3984(0);
         BG0CNTSUB = (BG0CNTSUB & 0x43) | 0xe00;
         BG1CNTSUB = (BG1CNTSUB & 0x43) | 0xf08;
         BG0CNTSUB = (BG0CNTSUB & ~3) | 1;
@@ -307,19 +307,19 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
         SetFlags00(res, 4);
         SetFlags04(res, 0x8de);
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
-        SetFogState_020c54a4(0, 0, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
         char* context = (char*)func_0203bd08();
-        InitBattleContext0203bd24(context);
+        func_0203bd24(context);
         *(int*)context = 0;
-        int* global = GetGlobalPtr02105244_0203bd14();
+        int* global = func_0203bd14();
         *global = func_0203be4c(context) + 0x200;
         func_0203c35c(global);
         global[kGlobalWordOffset / 4] = 0x7000;
         self->state++;
     } else if (self->state == 3) {
         if (func_ov017_021959b4()) {
-            SetFlagBit_02184a2c_02184a2c((char*)self->scene);
+            func_ov008_02184a2c((char*)self->scene);
         }
         if (func_ov008_02184754(self->scene)) {
             self->state++;
@@ -330,15 +330,15 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         DisableTextureImageVRAMBanks();
         MapVRAMBanksToSubBG(self->subBgBanks);
         MapVRAMBanksToTextureImage(self->textureBanks);
-        ConfigurePairMode020bb48c((unsigned short)(self->textureSize >> 17), 1);
-        RestorePairTableFromBuffer_020bb740(self->pairTable);
+        func_020bb48c((unsigned short)(self->textureSize >> 17), 1);
+        func_020bb740(self->pairTable);
         UpdateVRAMStagingVRAMBanks();
         UnlockStagedTextureVRAMCopying();
         DISPCNT = (DISPCNT & ~0x1f00) | (self->visiblePlanes << 8);
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (self->subVisiblePlanes << 8);
-        ClearFlag0x10IfSet((Struct02074bd0*)self->controlBackup);
-        ClearFlag0x11IfSet((Struct02074bf4*)self->controlBackup);
-        Set3DClearColor_020c5588(self->clearColor, 0x10, 0x7fff, 0, 0);
+        func_02074bd0((Struct02074bd0*)self->controlBackup);
+        func_02074bf4((Struct02074bf4*)self->controlBackup);
+        func_020c5588(self->clearColor, 0x10, 0x7fff, 0, 0);
         func_ov008_021845ac(self->scene);
         char blank[0x20];
         memset(blank, 0, 0x20);
@@ -350,8 +350,8 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         SetFlags00(res, self->word);
         SetFlags04(res, self->field4);
         SetFlags08(res, self->field8);
-        ProcessCombatantsIfFlagged_0218f79c(res);
-        SetField0x3b0Value_020100c4(gs, (int)self->fieldB8);
+        func_ov017_0218f79c(res);
+        func_020100c4(gs, (int)self->fieldB8);
         GameState* state = GameState::GetInstance();
         int index = 0x70;
         for (int i = 0; i < 0x30; i++) {
@@ -363,11 +363,11 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         }
         func_ov017_0219b624(res);
         char* fields = res->unknown_2cc;
-        void* controller = (void*)GetGlobalField0x1c020421a0();
-        CopyInternalFields0207df50((Foo0207df50*)(fields + 0x5b0));
-        RestorePairTables0207df90(fields + 0x5b0);
+        void* controller = (void*)func_020421a0();
+        func_0207df50((Foo0207df50*)(fields + 0x5b0));
+        func_0207df90(fields + 0x5b0);
         func_020432c4(controller);
-        BackupPairTables0207dfac(fields + 0x5b0);
+        func_0207dfac(fields + 0x5b0);
         if (self->scene->kind == 0) {
             func_ov017_0219bd1c(1, 0, 0, 0);
         }
@@ -376,7 +376,7 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         self->b3c = 0;
         self->b3d = 0;
         func_02074af4(self->controlBackup);
-        BackupSubBgControlRegisters((SubBgControlBackup02074b64*)self->controlBackup);
+        func_02074b64((SubBgControlBackup02074b64*)self->controlBackup);
         self->b25 = self->scene->b29;
         self->b26 = (self->scene->flags & 0x40000) != 0;
         self->x = self->scene->x;
@@ -386,39 +386,39 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         HeadNode020469f8* node;
         switch (self->scene->kind) {
         case 1:
-            InitAllocatorAndClearFields_021c0820((Obj021c0820*)self);
+            func_ov017_021c0820((Obj021c0820*)self);
             self->b24 = 0;
             node = (HeadNode020469f8*)res2->unknown_ptr_array_3afc[15];
-            InitState40_021c0334((Obj021c0334*)node);
-            PrependNodeToHead(list, node);
+            func_ov017_021c0334((Obj021c0334*)node);
+            func_020469f8(list, node);
             return;
         case 2:
-            func_ov017_021c0580(self, 1, data_ov017_021d7f00, (void*)AllocateAndDispatch20_0215502c);
+            func_ov017_021c0580(self, 1, data_ov017_021d7f00, (void*)func_ov004_0215502c);
             return;
         case 3:
-            func_ov017_021c0580(self, 2, data_ov017_021d7f07, (void*)AllocateAndDispatch14_021560b0);
+            func_ov017_021c0580(self, 2, data_ov017_021d7f07, (void*)func_ov004_021560b0);
             return;
         case 4:
-            InitAllocatorAndClearFields_021c0820((Obj021c0820*)self);
+            func_ov017_021c0820((Obj021c0820*)self);
             self->b24 = 3;
             node = (HeadNode020469f8*)res2->unknown_ptr_array_3afc[18];
-            InitState37_021b14a0((Obj021b14a0*)node);
-            SetByteField49_021b1d3c(node, 1);
-            PrependNodeToHead(list, node);
+            func_ov017_021b14a0((Obj021b14a0*)node);
+            func_ov017_021b1d3c(node, 1);
+            func_020469f8(list, node);
             return;
         case 5:
-            func_ov017_021c0580(self, 4, data_ov017_021d7f12, (void*)AllocateAndDispatch8_02156dc8);
+            func_ov017_021c0580(self, 4, data_ov017_021d7f12, (void*)func_ov004_02156dc8);
             return;
         case 6:
-            func_ov017_021c0580(self, 5, data_ov017_021d7f19, (void*)AllocateAndCopyHandlerTable_021677b4);
+            func_ov017_021c0580(self, 5, data_ov017_021d7f19, (void*)func_ov004_021677b4);
             return;
         case 7:
-            func_ov017_021c0580(self, 6, data_ov017_021d7f22, (void*)AllocateAndCopyBuf76_0216aa70);
+            func_ov017_021c0580(self, 6, data_ov017_021d7f22, (void*)func_ov004_0216aa70);
             return;
         case 0: {
             SetMainBrightness(res, 0, 0xf);
-            SetStateAndDispatch0209c3b4((Actor0209c3b4*)&data_02109bf4, func_0209cd50(*(unsigned short*)func_02012fe4()));
-            char* global = (char*)GetGlobalField0x1c020421a0();
+            func_0209c3b4((Actor0209c3b4*)&data_02109bf4, func_0209cd50(*(unsigned short*)func_02012fe4()));
+            char* global = (char*)func_020421a0();
             *(int*)(global + kGlobalStateOffset) = 0;
             *(unsigned char*)(global + kGlobalFlagOffset) = 1;
             break;
@@ -430,9 +430,9 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
             return;
         }
         if (self->scene->kind == 0) {
-            SetByteField0x253_020397c0(leader);
+            func_020397c0(leader);
         } else {
-            CancelPendingAction020397cc((Obj020397cc*)leader, 1);
+            func_020397cc((Obj020397cc*)leader, 1);
         }
         func_ov017_021c07d0(self);
         func_020a0c0c();

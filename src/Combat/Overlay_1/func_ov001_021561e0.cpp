@@ -44,41 +44,41 @@ struct CombatantFlags021561e0 { Object3D object; char field_ac[RG(0xe0, 0xd4)]; 
 struct EventFlags021561e0 { char field_0[0x8c]; unsigned char flags[1]; };
 struct Entry_02028bd0;
 struct Obj02028c64;
-int InitAndCheckField3c_02153994();
+extern "C" int func_ov001_02153994();
 extern "C" int* func_0202ae18();
 extern "C" void func_ov001_0215aac8();
-extern "C" void _Z36SetEntryCallbackAndDispatch_021d8c20iii(void*);
-void SetArrVal0215aaa8(int, int);
+extern "C" void func_ov027_021d8c20(void*);
+extern "C" void func_ov001_0215aaa8(int, int);
 extern "C" void func_ov001_02154974(void*);
-void TailForward02012da4(AllocatorUnion*, void*);
-void DestroyActiveAllocators_0215aa5c();
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern "C" void func_ov001_0215aa5c();
 extern "C" void* func_02012fe4();
-void* GetPointerFromArray0x3c_0201e838(unsigned char*, unsigned int);
-Entry_02028bd0* GetEntryTableBase_02027ca4();
-Obj02028c64* FindInlineEntryById(Entry_02028bd0*, int);
-void SetFlagBit02028c64(Obj02028c64*, int);
+extern "C" void* func_0201e838(unsigned char*, unsigned int);
+extern "C" Entry_02028bd0* func_02027ca4();
+extern "C" Obj02028c64* func_02028bd0(Entry_02028bd0*, int);
+extern "C" void func_02028c64(Obj02028c64*, int);
 extern "C" EventFlags021561e0* func_0205ec34();
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-int CheckField0NonZero_0202b7d8(int*);
+extern "C" int func_0202b7d8(int*);
 extern "C" int func_0202c508(void*);
 extern "C" void func_ov017_021d0490(int);
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov001_021561e0
 extern "C" ARM int func_ov001_021561e0(CleanupState021561e0* state) {
-    if (InitAndCheckField3c_02153994() != 1) return state->state;
+    if (func_ov001_02153994() != 1) return state->state;
     state->complete = 1;
-    if (!AlwaysTrue02094b4c(GetGlobal02109400_02094a00())) return 11;
+    if (!func_02094b4c(func_02094a00())) return 11;
     GameResources* resources = GetGameResources();
     GameState* game = GameState::GetInstance();
     int* manager = func_0202ae18();
     if (state->resetGameFlag) ((GameFlag021561e0*)game)->active = 0;
     func_ov001_0215aac8();
     if (state->allocation) {
-        _Z36SetEntryCallbackAndDispatch_021d8c20iii(state->allocation);
+        func_ov027_021d8c20(state->allocation);
         state->allocation = 0;
     }
-    if (state->flags & 4) SetArrVal0215aaa8(1, 0);
+    if (state->flags & 4) func_ov001_0215aaa8(1, 0);
     func_ov001_02154974(state);
     if ((state->flags & 2) || (state->flags & 8)) {
         SignedAllocatorHeader* buffer = state->childAllocator.GetSignedAllocator();
@@ -90,7 +90,7 @@ extern "C" ARM int func_ov001_021561e0(CleanupState021561e0* state) {
             SignedAllocatorHeader* external = state->externalAllocator->GetSignedAllocator();
             if (external) {
                 state->externalAllocator->Destroy();
-                TailForward02012da4(&data_02114e20, external);
+                func_02012da4(&data_02114e20, external);
                 state->externalAllocator = 0;
             }
         }
@@ -99,17 +99,17 @@ extern "C" ARM int func_ov001_021561e0(CleanupState021561e0* state) {
         SignedAllocatorHeader* buffer = state->allocator.GetSignedAllocator();
         if (buffer) {
             state->allocator.Destroy();
-            TailForward02012da4(&data_02114e20, buffer);
+            func_02012da4(&data_02114e20, buffer);
         }
-        DestroyActiveAllocators_0215aa5c();
+        func_ov001_0215aa5c();
     }
     Zone3D* area = (Zone3D*)func_02012fe4();
-    ZoneFeatures::Opcode6aEntry* node = (ZoneFeatures::Opcode6aEntry*)GetPointerFromArray0x3c_0201e838((unsigned char*)&area->substruct_6c_, 2);
+    ZoneFeatures::Opcode6aEntry* node = (ZoneFeatures::Opcode6aEntry*)func_0201e838((unsigned char*)&area->substruct_6c_, 2);
     while (node) {
         if (node->unk_2c.type2.unk_2_high & 0x200) {
-            int index = FindMatchingElementIndex02018bc4(area, node);
-            Obj02028c64* entry = FindInlineEntryById(GetEntryTableBase_02027ca4(), area->currentZoneID_);
-            if (entry) SetFlagBit02028c64(entry, index);
+            int index = func_02018bc4(area, node);
+            Obj02028c64* entry = func_02028bd0(func_02027ca4(), area->currentZoneID_);
+            if (entry) func_02028c64(entry, index);
             node->unk_2c.type2.unk_2_high &= ~0x200;
         }
         node = node->pNext;
@@ -119,13 +119,13 @@ extern "C" ARM int func_ov001_021561e0(CleanupState021561e0* state) {
         func_0206df6c(events, events->flags, 0x1142, 0);
     }
     for (int i = 0; i < 4; ++i) {
-        CombatantFlags021561e0* member = (CombatantFlags021561e0*)GetCombatantWithFlag0x100_0200ff1c(game, i);
+        CombatantFlags021561e0* member = (CombatantFlags021561e0*)func_0200ff1c(game, i);
         if (member) {
             member->object.DisableFlag(0x800000);
             member->flags &= ~2;
         }
     }
-    if (!CheckField0NonZero_0202b7d8(manager) || func_0202c508(manager)) return 10;
+    if (!func_0202b7d8(manager) || func_0202c508(manager)) return 10;
     func_ov017_021d0490(0);
     state->active = 0;
     state->pending = 0;

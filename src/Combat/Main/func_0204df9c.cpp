@@ -11,9 +11,9 @@ struct Obj0204df9c {
     short fieldAA;
 };
 
-void ClearTwoWordsAndByte_0205b20c(struct S_b20c* obj);
-void SetField0_0205b220(void* obj, int value);
-void SetFieldsAt0x4And0x8_0205b228(void* obj, int value, unsigned char flag);
+extern "C" void func_0205b20c(struct S_b20c* obj);
+extern "C" void func_0205b220(void* obj, int value);
+extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
 extern "C" void func_0205b36c(void* obj, short v1, int v2, int v3, unsigned char v4, unsigned char v5);
 
 // USA: func_0204df9c
@@ -28,8 +28,8 @@ extern "C" ARM void func_0204df9c(Obj0204df9c* obj, short v1, int v2, int v3, un
     buf.d = obj->fieldA8 << 3;
     buf.e = obj->fieldAA << 3;
     S_b20c localObj;
-    ClearTwoWordsAndByte_0205b20c(&localObj);
-    SetField0_0205b220(&localObj, obj->field8);
-    SetFieldsAt0x4And0x8_0205b228(&localObj, (int)&buf, 1);
+    func_0205b20c(&localObj);
+    func_0205b220(&localObj, obj->field8);
+    func_0205b228(&localObj, (int)&buf, 1);
     func_0205b36c(&localObj, v1, v2, v3, stackArg1, stackArg2);
 }

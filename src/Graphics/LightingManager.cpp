@@ -61,24 +61,24 @@ static LightingManager s_lightingManager;
 
 extern "C"
 {
-    void* _Z27GetField0x3b0Value_020100bcP9GameState(GameState*);
+    void* func_020100bc(GameState*);
 
-    void _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(void*, const Vector3fix*, int*, int*);
+    void func_0202ec84(void*, const Vector3fix*, int*, int*);
 
-    bool _Z27TestBitInByteArray_0206dfb0iPhi(void*, void*, int);
+    bool func_0206dfb0(void*, void*, int);
 
     char* func_0205ec34();
 
-    void _Z23GetVec3ByIndex_0207ba28P8Vec3BA28iPiS1_S1_(LightingInfo*, int, float*, float*, float*);
+    void func_0207ba28(LightingInfo*, int, float*, float*, float*);
 
-    void _Z20SetFogState_020c54a4ijjt(int, int, int, int);
-    void _Z28CallWithAddr4000330_020c555ci(unsigned short*);
-    void _Z28CallWithAddr4000360_020c5574i(void*);
+    void func_020c54a4(int, int, int, int);
+    void func_020c555c(unsigned short*);
+    void func_020c5574(void*);
 
-    extern "C" int _Z39GetCombatWorkFlags0x55f4_ov000_02160fd4Pvi(void*, int);
+    extern "C" int func_ov000_02160fd4(void*, int);
 
     void* func_ov017_021b8468(void*);
-    extern "C" void _Z34SetupCombatantAllocations_021901acv(GameResources*);
+    extern "C" void func_ov017_021901ac(GameResources*);
     void* func_ov017_021b8478(void*);
 }
 
@@ -409,7 +409,7 @@ void LightingManager::GetCurrentAdvancedLightingValues(unsigned short *outMaybeA
         if (ov17thing != NULL)
         {
             void* ov0thing = func_ov017_021b8468(ov17thing);
-            if (ov0thing != NULL && _Z39GetCombatWorkFlags0x55f4_ov000_02160fd4Pvi(ov0thing, 1 << 9))
+            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
                 unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17thing);
                 currentTimeType = overrideData[5];
@@ -640,7 +640,7 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
         return;
 
     int index;
-    if (zone->currentZoneID_ == 6401 && _Z27TestBitInByteArray_0206dfb0iPhi(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+    if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         index = 4;
     else
     {
@@ -669,7 +669,7 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     NSBXXNameList* meshList = model->GetMeshListSafe();
 
     lightingInfo->basic_.FillMissingEntries();
-    _Z23GetVec3ByIndex_0207ba28P8Vec3BA28iPiS1_S1_(lightingInfo, index, &redMix_2c_, &greenMix_30_, &blueMix_34_);
+    func_0207ba28(lightingInfo, index, &redMix_2c_, &greenMix_30_, &blueMix_34_);
     mixBrightness_ = lightingInfo->basic_.unk_70[index];
     mixContrast_ = lightingInfo->basic_.unk_54[index];
     mixContrast_ *= (mixContrast_ * mixContrast_);
@@ -679,7 +679,7 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     modelDiffuseColor_ = lightingInfo->basic_.modelDiffuseColor[index];
     edgeColor_ = lightingInfo->basic_.edgeColor[index];
     RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-    _Z34SetupCombatantAllocations_021901acv(GetGameResources());
+    func_ov017_021901ac(GetGameResources());
     tint_4a_ = modelDiffuseColor_;
 
     for (meshIndex = 0; meshIndex < model->numMeshes_; meshIndex++)
@@ -751,14 +751,14 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         info->advanced_.FillMissingEntries();
         info->fogList.FillMissingEntries();
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
+        func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     else if (info->maybeMode_ == 1)
     {
         info->basic_.FillMissingEntries();
 
-        if (zone->currentZoneID_ == 6401 && _Z27TestBitInByteArray_0206dfb0iPhi(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
+        if (zone->currentZoneID_ == 6401 && func_0206dfb0(struct0205ec34, struct0205ec34 + 0x8c, 0x2a))
         {
             index = 4;
         }
@@ -792,21 +792,21 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         spriteDiffuseColor_ = info->basic_.spriteDiffuseColor[index];
         modelDiffuseColor_ = info->basic_.modelDiffuseColor[index];
         edgeColor_ = info->basic_.edgeColor[index];
-        _Z20SetFogState_020c54a4ijjt(true, fog->type, fog->depthShift, fog->offset);
+        func_020c54a4(true, fog->type, fog->depthShift, fog->offset);
         GX_FOG_COLOR = fog->color | (fog->alpha << 16);
-        _Z28CallWithAddr4000360_020c5574i(fog->densityTable);
+        func_020c5574(fog->densityTable);
         unsigned short edgeColors[8] = {
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        _Z28CallWithAddr4000330_020c555ci(edgeColors);
+        func_020c555c(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
+        func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     else
     {
-        _Z20SetFogState_020c54a4ijjt(0, 0, 1, 0x5800);
+        func_020c54a4(0, 0, 1, 0x5800);
         maybePotBarrelDiffuseColor_ = 0x7fff;
         spriteDiffuseColor_ = 0x7fff;
         modelDiffuseColor_ = 0x7fff;
@@ -815,9 +815,9 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        _Z28CallWithAddr4000330_020c555ci(edgeColors);
+        func_020c555c(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
+        func_ov017_021901ac(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     RenderConfig::SetLightVector(0, 0, 0, 0);
@@ -930,9 +930,9 @@ void LightingManager::RecomputeAdvancedLighting()
     ComputeFogInfo(&fogInfo_);
     if (fogEnabled_)
     {
-        _Z20SetFogState_020c54a4ijjt(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
+        func_020c54a4(true, fogInfo_.type, fogInfo_.depthShift, fogInfo_.offset);
         GX_FOG_COLOR = (fogInfo_.color) | (fogInfo_.alpha << 16);
-        _Z28CallWithAddr4000360_020c5574i(fogInfo_.densityTable);
+        func_020c5574(fogInfo_.densityTable);
     }
 }
 
@@ -960,7 +960,7 @@ void LightingManager::SubmitToRenderConfig()
             edgeColor_, edgeColor_, edgeColor_, edgeColor_,
             edgeColor_, edgeColor_, edgeColor_, edgeColor_
         };
-        _Z28CallWithAddr4000330_020c555ci(edgeColors);
+        func_020c555c(edgeColors);
     }
 }
 
@@ -971,7 +971,7 @@ void LightingManager::ApplyAmbientColorToModel(NSBXXInternalModel* model)
 
 void LightingManager::MaybeComputeHorizonPosition()
 {
-    void* maybeCameraData = _Z27GetField0x3b0Value_020100bcP9GameState(GameState::GetInstance());
+    void* maybeCameraData = func_020100bc(GameState::GetInstance());
     Vector3fix* maybeCameraTarget = (Vector3fix*)((char*)maybeCameraData + 0x12c);
     Vector3fix* maybeCameraEye = (Vector3fix*)((char*)maybeCameraData + 0x120);
 
@@ -982,7 +982,7 @@ void LightingManager::MaybeComputeHorizonPosition()
     Vector3fix_Normalize(&cameraRay, &cameraRay);
     Vector3fixMultiplyScalar(&cameraRay, 2048 << 12, &cameraRay);
     int pixelX, pixelY;
-    _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(maybeCameraData, &cameraRay, &pixelX, &pixelY);
+    func_0202ec84(maybeCameraData, &cameraRay, &pixelX, &pixelY);
     if (pixelY < 192 && pixelY > 0)
     {
         gradientCenterNorm_ = fix32_Divide(pixelY << 12, 191 << 12);
@@ -1031,7 +1031,7 @@ void LightingManager::DrawBackgroundGradient()
         if (ov17inner != NULL)
         {
             void* ov0thing = func_ov017_021b8468(ov17inner);
-            if (ov0thing != NULL && _Z39GetCombatWorkFlags0x55f4_ov000_02160fd4Pvi(ov0thing, 1 << 9))
+            if (ov0thing != NULL && func_ov000_02160fd4(ov0thing, 1 << 9))
             {
                 unsigned char* overrideData = (unsigned char*)func_ov017_021b8478(ov17inner);
                 int index = overrideData[5];

@@ -15,12 +15,12 @@ static ResourceMutex s_resourceMutex;
 extern "C"
 {
     void func_020c745c();
-    extern "C" bool _Z30GetGlobalWord021112ec_020c75a4v();
+    extern "C" bool func_020c75a4();
 }
 
 void InitializeResourceMutex()
 {
-    if (!_Z30GetGlobalWord021112ec_020c75a4v())
+    if (!func_020c75a4())
         func_020c745c();
 
     ZeroInitializeMutex(&s_resourceMutex.mutex_);

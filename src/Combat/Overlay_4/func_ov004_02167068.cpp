@@ -36,22 +36,22 @@ extern char data_ov004_021705a5[];
 extern char data_ov004_021705c0[];
 extern char data_ov004_021705d2[];
 #endif
-int* GetGlobal02109418_02094d6c();
-int RunBufferedScript020957f4(void*, StreamHeader*, int);
-int InitObjWithAllocator02095e90(Obj02095e90*, SafeAllocator*);
-int RunOrPollScript02095ee0(Ctx02095ee0*);
+extern "C" int* func_02094d6c();
+extern "C" int func_020957f4(void*, StreamHeader*, int);
+extern "C" int func_02095e90(Obj02095e90*, SafeAllocator*);
+extern "C" int func_02095ee0(Ctx02095ee0*);
 extern "C" void func_ov004_02166198();
 extern "C" void func_ov011_021848a0(void*, int);
 extern "C" int func_ov004_02166b40(void*);
 extern "C" short func_ov004_021666bc(void*, char*);
-void* CheckTypeAndReturnNode_02165e70_02165e70(void*, int);
-void SetFieldD2IfChanged0208becc(Obj0208becc*, int, unsigned char);
+extern "C" void* func_ov004_02165e70(void*, int);
+extern "C" void func_0208becc(Obj0208becc*, int, unsigned char);
 
 // USA: func_ov004_02167068
 extern "C" ARM int func_ov004_02167068(void* self) {
     State02167068* state = (State02167068*)data_ov004_0217101c[MainIndex];
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int* global = GetGlobal02109418_02094d6c();
+    int* global = func_02094d6c();
     int result = 1;
     if (state->step == 0) {
 #if defined(jpn)
@@ -66,18 +66,18 @@ extern "C" ARM int func_ov004_02167068(void* self) {
             unsigned int size;
             loader->GetLoadedFileByID(state->task, &buffer, &size);
             if (buffer) {
-                state->script = RunBufferedScript020957f4(global, (StreamHeader*)buffer, size);
-                SetupHeaderAndRunBufferedScript0208d860(&state->stream, &state->allocator, buffer, size, NULL, 0, 1);
+                state->script = func_020957f4(global, (StreamHeader*)buffer, size);
+                func_0208d860(&state->stream, &state->allocator, buffer, size, NULL, 0, 1);
             }
             loader->RemoveTask(state->task);
             state->task = -1;
             state->step = 2;
         }
     } else if (state->step == 2) {
-        InitObjWithAllocator02095e90((Obj02095e90*)global, &state->allocator);
+        func_02095e90((Obj02095e90*)global, &state->allocator);
         state->step = 3;
     } else if (state->step == 3) {
-        if (RunOrPollScript02095ee0((Ctx02095ee0*)global) != 1) return result;
+        if (func_02095ee0((Ctx02095ee0*)global) != 1) return result;
 #if defined(jpn)
         state->task = loader->QueueLoadFile(data_ov004_02170e7d, 0);
 #else
@@ -110,8 +110,8 @@ extern "C" ARM int func_ov004_02167068(void* self) {
             func_ov011_021848a0(self, 0x12c);
         }
         unsigned char value = flag;
-        Node02167068* node = (Node02167068*)CheckTypeAndReturnNode_02165e70_02165e70(self, 7);
-        if (node) SetFieldD2IfChanged0208becc(&node->object, 0x270f, value);
+        Node02167068* node = (Node02167068*)func_ov004_02165e70(self, 7);
+        if (node) func_0208becc(&node->object, 0x270f, value);
     }
     return result;
 }

@@ -12,10 +12,10 @@ enum { kRegionValue410_428 = 0x410 };
 struct Cont0205d1e0;
 struct Cont0205d228;
 struct Cont0205d274;
-void ClearBuffers0204b010OverList0x98(Cont0205d1e0*);
-void CallFunc0204c8f0OverList0x9c(Cont0205d228*);
+extern "C" void func_0205d1e0(Cont0205d1e0*);
+extern "C" void func_0205d228(Cont0205d228*);
 extern "C" void func_0205da88(void*, int, int, int);
-void CallFunc0204b04cOverList0x98(Cont0205d274*);
+extern "C" void func_0205d274(Cont0205d274*);
 extern "C" void func_ov003_0216d990(void* obj);
 #if defined(jpn)
 extern "C" void func_ov003_0216dcf0(void* obj);
@@ -25,7 +25,7 @@ extern "C" void func_ov004_0216dcf0(void* obj);
 extern "C" void func_ov003_0216ddfc(void* obj);
 extern "C" void func_ov003_0217019c(void* obj);
 extern "C" void func_ov003_0215ca1c(void* obj);
-void ProcessCombatState_02173ea8(unsigned char* obj);
+extern "C" void func_ov003_02173ea8(unsigned char* obj);
 
 // USA: func_ov003_0216d468
 extern "C" ARM void func_ov003_0216d468(void* p) {
@@ -33,10 +33,10 @@ extern "C" ARM void func_ov003_0216d468(void* p) {
     if (*(void**)(obj + 0x1000 + kRegionValue2C0_150) != 0) {
         short f6 = *(short*)(obj + 6);
         if (f6 == 0 || f6 == 1 || *(short*)(obj + 4) == 2) {
-            ClearBuffers0204b010OverList0x98((Cont0205d1e0*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
-            CallFunc0204c8f0OverList0x9c((Cont0205d228*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
+            func_0205d1e0((Cont0205d1e0*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
+            func_0205d228((Cont0205d228*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
             func_0205da88(*(void**)(obj + 0x1000 + kRegionValue2C0_150), 2, 1, 1);
-            CallFunc0204b04cOverList0x98((Cont0205d274*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
+            func_0205d274((Cont0205d274*)*(void**)(obj + 0x1000 + kRegionValue2C0_150));
         }
     }
     func_ov003_0216d990(obj);
@@ -60,9 +60,9 @@ extern "C" ARM void func_ov003_0216d468(void* p) {
     }
     if (f4 == 5 && *(short*)(obj + 6) == 6) {
 #if defined(jpn)
-        ProcessCombatState_02173ea8((unsigned char*)(obj + 0xda0));
+        func_ov003_02173ea8((unsigned char*)(obj + 0xda0));
 #else
-        ProcessCombatState_02173ea8((unsigned char*)(obj + 0x31c + 0xc00));
+        func_ov003_02173ea8((unsigned char*)(obj + 0x31c + 0xc00));
 #endif
     }
 }

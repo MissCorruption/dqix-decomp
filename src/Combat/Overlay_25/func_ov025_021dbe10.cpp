@@ -65,23 +65,23 @@ extern char data_ov025_021ef40c[];
 extern char data_ov025_021ef424[];
 extern char data_ov025_021ef43c[];
 extern int data_ov025_021ef404;
-void CopyInternalFields0207df50(Foo0207df50*);
+extern "C" void func_0207df50(Foo0207df50*);
 extern "C" void func_ov025_021dee20(ActionState*);
-List02160094* GetSlotPtr02160f20(void*);
-BattleSource* GetNodeAtIndex02160094(List02160094*, int);
-void UpdateFlagAndDispatch_021dc0d8(void*);
-void* GetField0Result02169a58_02048ab4(void*, int);
+extern "C" List02160094* func_ov000_02160f20(void*);
+extern "C" BattleSource* func_ov000_02160094(List02160094*, int);
+extern "C" void func_ov025_021dc0d8(void*);
+extern "C" void* func_02048ab4(void*, int);
 extern "C" void* func_ov025_021dfa9c(ActionState*, char*);
-int ClassifyField0x81fe_ov000_0215fc60(char*);
+extern "C" int func_ov000_0215fc60(char*);
 extern "C" void* func_ov000_02169a58(void*, int);
 extern "C" void func_ov025_021e88d8(void*);
-void SetTwoFields_021e8a40(char*, int, int);
-void SetField_021e8a4c(char*, int);
+extern "C" void func_ov025_021e8a40(char*, int, int);
+extern "C" void func_ov025_021e8a4c(char*, int);
 extern "C" void func_ov025_021e8d20(char*, void*);
 extern "C" void func_ov025_021db8d8(ActionState*);
-ActionMetadata* SearchBothTables02079e2c(char*, int);
-void ProcessPairs_021d8a40(void*, S021d8a40*);
-void IncrementCounterAndReset_021def30(unsigned char*);
+extern "C" ActionMetadata* func_02079e2c(char*, int);
+extern "C" void func_ov025_021d8a40(void*, S021d8a40*);
+extern "C" void func_ov025_021def30(unsigned char*);
 static inline int IsPartyIndex(unsigned int id) { return id <= 3; }
 
 // USA: func_ov025_021dbe10
@@ -90,11 +90,11 @@ extern "C" ARM void func_ov025_021dbe10(ActionState* state) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     char* battle = state->battle;
     state->allocator.Reset();
-    CopyInternalFields0207df50((Foo0207df50*)state->tables);
+    func_0207df50((Foo0207df50*)state->tables);
     func_ov025_021dee20(state);
-    List02160094* list = GetSlotPtr02160f20(state);
+    List02160094* list = func_ov000_02160f20(state);
     if (!list) return;
-    BattleSource* source = GetNodeAtIndex02160094(list, 0);
+    BattleSource* source = func_ov000_02160094(list, 0);
     if (!source) return;
     state->state = 0;
     state->field6e4e = 0;
@@ -116,27 +116,27 @@ extern "C" ARM void func_ov025_021dbe10(ActionState* state) {
     state->slots[2] = 0xff;
     state->flags &= ~4;
     _ZZ16GetTimer021ef974vE1s.fieldc = 0;
-    UpdateFlagAndDispatch_021dc0d8(state);
+    func_ov025_021dc0d8(state);
     int reset = 1;
     GameObject* object = game->GetCombatantByIndex(source->id);
     if (object) {
         int kind = list->kind;
         if (kind == 0x3ae) reset = 0;
-        void* script = GetField0Result02169a58_02048ab4(object, kind);
+        void* script = func_02048ab4(object, kind);
         void* overrideScript = func_ov025_021dfa9c(state, state->battle);
         if (overrideScript) script = overrideScript;
-        if (ClassifyField0x81fe_ov000_0215fc60(battle) && source->id == 0)
+        if (func_ov000_0215fc60(battle) && source->id == 0)
             script = func_ov000_02169a58(state->specialCombatant, 0xdd);
         if (script) {
             func_ov025_021e88d8(state->script);
-            SetTwoFields_021e8a40(state->script, (int)&state->allocator, (int)state->tables);
-            SetField_021e8a4c(state->script, (int)state->battle);
+            func_ov025_021e8a40(state->script, (int)&state->allocator, (int)state->tables);
+            func_ov025_021e8a4c(state->script, (int)state->battle);
             func_ov025_021e8d20(state->script, script);
             func_ov025_021db8d8(state);
         } else {
-            ActionMetadata* metadata = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), (short)kind);
+            ActionMetadata* metadata = func_02079e2c((char*)func_020797dc(), (short)kind);
             if (metadata) {
-                if (metadata->category == 0x22) ProcessPairs_021d8a40(state, (S021d8a40*)list);
+                if (metadata->category == 0x22) func_ov025_021d8a40(state, (S021d8a40*)list);
                 else {
                     char path[0x50];
                     if (metadata->kind == 2) sprintf(path, data_ov025_021ef40c);
@@ -150,5 +150,5 @@ extern "C" ARM void func_ov025_021dbe10(ActionState* state) {
         }
     }
     if (reset) state->field6fd5 = 0;
-    if (state->phase == 1) IncrementCounterAndReset_021def30((unsigned char*)state);
+    if (state->phase == 1) func_ov025_021def30((unsigned char*)state);
 }

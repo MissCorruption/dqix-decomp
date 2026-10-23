@@ -36,15 +36,15 @@ struct Obj_021dd534 {
     unsigned char f75;
 };
 
-int CheckField0x14Bit0Clear02088840(unsigned char* obj);
-void SetFlag0x40AndBytes_02088854(unsigned char* obj);
+extern "C" int func_02088840(unsigned char* obj);
+extern "C" void func_02088854(unsigned char* obj);
 extern "C" int func_ov024_021e9198(struct Obj_021dd534* ctx, int id, short code, int mode);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-int IsFlagAllowedMask_021eb4b0(int a0, int flags, int mask);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" int func_ov024_021eb4b0(int a0, int flags, int mask);
 extern "C" void func_ov000_02159eac(void* world, unsigned long long* bits, int bit);
 extern "C" void* func_ov000_0215e958(void* world);
 extern "C" void func_ov024_021e8bf0(struct Obj_021dd534* obj, void* fieldC, unsigned short* sel);
-void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
+extern "C" void func_ov000_0215a88c(void* world, void* entry, int msg);
 extern "C" void func_ov000_0215cd44(void* world, void* entry, GameObject* c, int d, unsigned long long bits, int flag);
 
 // USA: func_ov024_021dd534
@@ -54,27 +54,27 @@ extern "C" ARM void* func_ov024_021dd534(struct Obj_021dd534* obj, int unused, i
     unsigned short sel = 0;
     unsigned long long bits = 0;
     int code = range->code;
-    if (CheckField0x14Bit0Clear02088840((unsigned char*)c->currentStats_) && flagArg) {
+    if (func_02088840((unsigned char*)c->currentStats_) && flagArg) {
         sel = func_ov024_021e9198(obj, id, code, 1);
         if (sel == 0) {
-            sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+            sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
         }
-        if (IsFlagAllowedMask_021eb4b0((int)obj, ((struct Stats_021dd534*)c->currentStats_)->flags, 0x40)) {
+        if (func_ov024_021eb4b0((int)obj, ((struct Stats_021dd534*)c->currentStats_)->flags, 0x40)) {
             func_ov000_02159eac(obj->f10, &bits, 0x2b);
         }
-        SetFlag0x40AndBytes_02088854((unsigned char*)c->currentStats_);
+        func_02088854((unsigned char*)c->currentStats_);
         ((struct Stats_021dd534*)c->currentStats_)->f22.code = (unsigned char)code;
     } else {
         sel = func_ov024_021e9198(obj, id, code, 0);
         if (sel == 0) {
-            sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+            sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
         }
         obj->f75 = 0;
     }
     void* entry = func_ov000_0215e958(obj->f10);
     if (!entry) return 0;
     func_ov024_021e8bf0(obj, obj->fc, &sel);
-    AddEntryAndIncrementCount0215a88c(obj->f10, entry, sel);
+    func_ov000_0215a88c(obj->f10, entry, sel);
     struct Flag_021dd534* fl = (struct Flag_021dd534*)((char*)obj->fc + 0x1c);
     func_ov000_0215cd44(obj->f10, entry, c, 0, bits, fl->flag != 0);
     return entry;

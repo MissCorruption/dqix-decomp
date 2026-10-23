@@ -4,7 +4,7 @@
 #include <NitroSDK/Cache.h>
 
 struct Obj020bf658;
-void UpdateAndDispatch020bf658(struct Obj020bf658* obj);
+extern "C" void func_020bf658(struct Obj020bf658* obj);
 
 struct AdpcmState020bf79c {
     struct {
@@ -315,7 +315,7 @@ extern "C" ARM void func_020bf79c(LoadCommand020bf79c* command) {
         restSize -= size;
 
         if (player->finishFlag && player->sndArcStrmCallback) {
-            UpdateAndDispatch020bf658((struct Obj020bf658*)player);
+            func_020bf658((struct Obj020bf658*)player);
         }
     }
 

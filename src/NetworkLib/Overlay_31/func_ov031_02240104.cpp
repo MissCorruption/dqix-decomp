@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-void* AcquireData022918a4_02240310(void);
-int ForwardGlobal022918bcZeroZero_022403f4(void);
-void ReleaseAllocatorRef_02240324(void);
+extern "C" void* func_ov031_02240310(void);
+extern "C" int func_ov031_022403f4(void);
+extern "C" void func_ov031_02240324(void);
 extern "C" ARM int func_ov031_02240104(void* obj);
 
 struct Session02240ee8 {
@@ -28,14 +28,14 @@ extern "C" ARM int func_ov031_02240ee8(Session02240ee8* obj) {
         data_ov031_02290fc0 = err;
         return err - 0xc;
     }
-    AcquireData022918a4_02240310();
+    func_ov031_02240310();
     int result = func_ov031_02240104(obj);
     if (result >= 0) {
         obj->field0 = 1;
-        ForwardGlobal022918bcZeroZero_022403f4();
+        func_ov031_022403f4();
     } else {
         data_ov031_02290fc0 = 1;
     }
-    ReleaseAllocatorRef_02240324();
+    func_ov031_02240324();
     return result;
 }

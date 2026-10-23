@@ -42,41 +42,41 @@ struct MenuWork {
     MenuData* data;
 };
 struct PartySlots { char pad_0[0xf78]; signed char slots[4]; unsigned char count; };
-void CancelPendingAction020397cc(Obj020397cc*, int);
-int GetWord0x0_0200fb8c(int*);
-int GetFieldIfFlag4_020100f8(char*);
-void SetFlagsAt0x244_020a28a0(unsigned char*, unsigned char);
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" int func_0200fb8c(int*);
+extern "C" int func_020100f8(char*);
+extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a0cc4(int);
-void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
+extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern AllocatorUnion data_02114e20;
 extern "C" void func_020a0c0c();
-void PushInputLogA_020a1df8(int);
+extern "C" void func_020a1df8(int);
 extern "C" void func_ov003_0215f9c0(MenuData*, int);
 extern "C" void func_ov003_0215f8cc(MenuData*, SafeAllocator*);
-void ClearIntAt0x23c_020a27b8(unsigned char*);
+extern "C" void func_020a27b8(unsigned char*);
 extern "C" int func_ov003_0215fce8(MenuData*, unsigned int);
 extern "C" void func_ov003_0215fb94(MenuData*);
 extern "C" void func_ov017_021b67d8(MenuWork*);
-int ListContainsId(ListHead02046b60*, int);
-void SetByteField0x253_020397c0(void*);
+extern "C" int func_02046b60(ListHead02046b60*, int);
+extern "C" void func_020397c0(void*);
 extern "C" int func_ov017_021959b4();
-void SetField0x23cTrue_020a27ac(void*);
-void ClearFlagBits_020a28b0(unsigned char*, int);
+extern "C" void func_020a27ac(void*);
+extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void* func_0205ec34();
-void* GetPtrField0x2a04_02010828(GameState*);
+extern "C" void* func_02010828(GameState*);
 extern "C" void func_0206e424(void*, int);
 
 // USA: func_ov017_021b688c
 extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
     GameState* game = GameState::GetInstance();
     Obj020397cc* object = (Obj020397cc*)game->GetUnknownGameObject();
-    CancelPendingAction020397cc(object, 1);
-    GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)game);
+    func_020397cc(object, 1);
+    GameResources* resources = (GameResources*)func_0200fb8c((int*)game);
     SetFlags04(resources, 0xc0);
-    SetFlagsAt0x244_020a28a0((unsigned char*)GetFieldIfFlag4_020100f8((char*)game), 1);
+    func_020a28a0((unsigned char*)func_020100f8((char*)game), 1);
     if (work->state == 0) {
         func_020a0cc4(0x1b800);
-        void* memory = AllocateAligned4_02012d88(&data_02114e20, 0x1b800);
+        void* memory = func_02012d88(&data_02114e20, 0x1b800);
         if (!memory) {
             func_020a0c0c();
             work->complete = 1;
@@ -90,22 +90,22 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
             work->complete = 1;
             return;
         }
-        PushInputLogA_020a1df8(3);
+        func_020a1df8(3);
         func_ov003_0215f9c0(work->data, work->mode);
         work->data->flags = work->flags;
         work->data->selection = work->selection;
         func_ov003_0215f8cc(work->data, &work->allocator);
-        ClearIntAt0x23c_020a27b8((unsigned char*)GetFieldIfFlag4_020100f8((char*)game));
+        func_020a27b8((unsigned char*)func_020100f8((char*)game));
         work->state++;
     } else if (work->state == 1) {
         if (!func_ov003_0215fce8(work->data, game->GetTickCount())) return;
-        FontBankLoader* global = GetGlobal02109400_02094a00();
-        BlankFunction02094b40(global);
+        FontBankLoader* global = func_02094a00();
+        func_02094b40(global);
         func_02094ab0(global);
-        BlankFunction02094b34(global, 0x6f, 0x1388, 1, 1);
+        func_02094b34(global, 0x6f, 0x1388, 1, 1);
         work->state++;
     } else if (work->state == 2) {
-        if (!AlwaysTrue02094b4c(GetGlobal02109400_02094a00())) return;
+        if (!func_02094b4c(func_02094a00())) return;
         func_ov003_0215fb94(work->data);
         work->state++;
     } else if (work->state == 3) {
@@ -114,18 +114,18 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
         func_ov017_021b67d8(work);
         work->complete = 1;
         ListHead02046b60* list = (ListHead02046b60*)resources->unknown_ptr_array_36fc[0];
-        if (ListContainsId(list, 4) || ListContainsId(list, 0x18)) {
-            CancelPendingAction020397cc(object, 1);
+        if (func_02046b60(list, 4) || func_02046b60(list, 0x18)) {
+            func_020397cc(object, 1);
             return;
         }
         ClearFlags04(resources, 0xc0);
-        SetByteField0x253_020397c0(object);
-        unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)game);
-        if (!func_ov017_021959b4()) SetField0x23cTrue_020a27ac(flags);
-        ClearFlagBits_020a28b0(flags, 2);
+        func_020397c0(object);
+        unsigned char* flags = (unsigned char*)func_020100f8((char*)game);
+        if (!func_ov017_021959b4()) func_020a27ac(flags);
+        func_020a28b0(flags, 2);
         void* party = func_0205ec34();
-        GetPtrField0x2a04_02010828(game);
-        PartySlots* slots = (PartySlots*)GetPtrField0x2a04_02010828(game);
+        func_02010828(game);
+        PartySlots* slots = (PartySlots*)func_02010828(game);
         for (int i = 0; i < slots->count; i++) func_0206e424(party, slots->slots[i]);
     }
 }

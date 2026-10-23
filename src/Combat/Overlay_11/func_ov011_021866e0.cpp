@@ -13,15 +13,15 @@ struct TaggedNumber02184c30 {
     union { int i; float f; } value;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
-int SetFieldsAndInit_021fba80(void*, int, int, int);
+extern "C" int func_ov023_021fba80(void*, int, int, int);
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern char data_ov023_021fef74;
 
@@ -37,8 +37,8 @@ struct MenuObject021866e0 {
 
 // USA: func_ov011_021866e0
 extern "C" ARM int func_ov011_021866e0(struct TaggedNumber02184c30* params, int count) {
-    int id = GetTaggedValueAsInt_02184c30(&params[0]);
-    int heapId = GetTaggedValueAsInt_02184c30(&params[1]);
+    int id = func_ov011_02184c30(&params[0]);
+    int heapId = func_ov011_02184c30(&params[1]);
     void* script = func_ov017_021b2164();
     MenuHeap021866e0* heap = (MenuHeap021866e0*)func_ov011_021845f8(script, heapId);
     if (heap == 0)
@@ -52,9 +52,9 @@ extern "C" ARM int func_ov011_021866e0(struct TaggedNumber02184c30* params, int 
     MenuObject021866e0 prototype;
     prototype.vtable = &data_ov023_021fef74;
     memcpy(object, &prototype, sizeof(MenuObject021866e0));
-    if (!SetFieldsAndInit_021fba80(object, (int)script, id, heapId))
+    if (!func_ov023_021fba80(object, (int)script, id, heapId))
         return 0;
 
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(script), (struct ListNode_021f67ac*)object);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(script), (struct ListNode_021f67ac*)object);
     return 1;
 }

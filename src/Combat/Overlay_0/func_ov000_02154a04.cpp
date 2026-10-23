@@ -19,22 +19,22 @@ struct TargetDefinition {
 };
 struct CombatantGroup { char pad[0x17c]; unsigned char group; };
 
-void* SearchBothTables02079e2c(char*, int);
+extern "C" void* func_02079e2c(char*, int);
 extern "C" int func_ov000_0215e9fc(Random*, short*, int, int);
 extern "C" short func_ov000_02154f30(Random*, short, int, short*);
-void PickRandomFromTable_02153d10(Random*, short*);
+extern "C" void func_ov000_02153d10(Random*, short*);
 extern "C" void func_ov000_02153d78(Random*, short, short*);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState*, int);
+extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_ov000_02153e78(Random*, short*, int, int, int);
 extern "C" int func_ov000_0215eb1c(Random*, short*, int, int);
-signed char PickTableValueWithRandomFill_0215fbe0(Random*, int);
+extern "C" signed char func_ov000_0215fbe0(Random*, int);
 extern short data_ov000_02182af4[8];
 
 // USA: func_ov000_02154a04
 extern "C" ARM int func_ov000_02154a04(Random* random, int combatantId, int actionId, short* targets) {
     int count = 0;
     GameState::GetInstance();
-    TargetDefinition* definition = (TargetDefinition*)SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), (short)actionId);
+    TargetDefinition* definition = (TargetDefinition*)func_02079e2c((char*)func_020797dc(), (short)actionId);
     if (!definition) return 0;
     unsigned int side = definition->side;
     unsigned int selection = definition->selection;
@@ -53,14 +53,14 @@ extern "C" ARM int func_ov000_02154a04(Random* random, int combatantId, int acti
     } else if (side == 2) {
         if (selection == 2) {
             short chosen = 0;
-            PickRandomFromTable_02153d10(random, &chosen);
+            func_ov000_02153d10(random, &chosen);
             targets[count++] = chosen;
         } else if (selection == 8) {
             short chosen = 0;
             func_ov000_02153d78(random, (short)combatantId, &chosen);
             targets[count++] = chosen;
         } else if (selection == 4) {
-            GameObject* combatant = GetCombatantWithFlag0x400_0200fea4(GameState::GetInstance(), (short)combatantId);
+            GameObject* combatant = func_0200fea4(GameState::GetInstance(), (short)combatantId);
             count = func_ov000_02153e78(random, targets, 8, ((CombatantGroup*)combatant)->group, 1);
         } else if (selection == 3) {
             count = func_ov000_0215eb1c(random, targets, 8, 1);
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov000_02154a04(Random* random, int combatantId, int acti
     unsigned short* destination = (unsigned short*)selected;
     do { *destination = *source++; destination++; } while (--copyCount);
     short* chosenTargets = selected;
-    int repetitions = PickTableValueWithRandomFill_0215fbe0(random, (signed char)definition->repetitions);
+    int repetitions = func_ov000_0215fbe0(random, (signed char)definition->repetitions);
     if (repetitions > 0) {
         for (int i = 0; i < repetitions; i++) chosenTargets[i] = targets[NextRandomMax(random, count)];
         memset(targets, 0, count * 2);

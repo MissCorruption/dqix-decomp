@@ -12,8 +12,8 @@ enum { NodeListOffset = 0x41c };
 #endif
 
 extern "C" void* func_0205ec34(void);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
-void CallLoop0206eb20(void* a, void* b, int c, int limit);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" void func_0206eb20(void* a, void* b, int c, int limit);
 extern "C" void func_0206ea8c(void* obj, unsigned char a, short b, int flag);
 
 struct SubElem_02017c58 {
@@ -38,7 +38,7 @@ extern "C" ARM void func_02017c58(void* obj) {
     if (gs == NULL) {
         return;
     }
-    char* f3f8 = (char*)GetField0x3f8Address_0200fd0c(gs);
+    char* f3f8 = (char*)func_0200fd0c(gs);
     if (f3f8 == NULL) {
         return;
     }
@@ -49,8 +49,8 @@ extern "C" ARM void func_02017c58(void* obj) {
 
     int i;
     for (i = 0; i < 2; i++) {
-        CallLoop0206eb20(ctx, (void*)(unsigned char)i, 0, 0x7f);
-        CallLoop0206eb20(ctx, (void*)(unsigned char)(unsigned int)i, 0x80, 0xff);
+        func_0206eb20(ctx, (void*)(unsigned char)i, 0, 0x7f);
+        func_0206eb20(ctx, (void*)(unsigned char)(unsigned int)i, 0x80, 0xff);
     }
 
     int count;

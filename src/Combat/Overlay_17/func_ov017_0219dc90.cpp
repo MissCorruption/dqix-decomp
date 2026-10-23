@@ -71,44 +71,44 @@ struct BattleOverlay0219dc90 {
 };
 
 extern "C" void* func_0202ae18(void);
-InlineEntry* GetEntryTableBase_02027ca4(void);
+extern "C" InlineEntry* func_02027ca4(void);
 extern "C" void* func_02012fe4(void);
-signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(SearchStruct0202c1a4* obj);
 extern "C" void func_020288e0(InlineEntry* table);
-void SetFlagsForFlaggedCombatants_0219e0ec(void* self);
+extern "C" void func_ov017_0219e0ec(void* self);
 extern "C" int func_02028a54(InlineEntry* base, int id);
 extern "C" void func_ov017_0219e180(BattleOverlay0219dc90* self, int id);
 struct Entry_02028bd0;
-InlineEntry* FindInlineEntryById(Entry_02028bd0*, int);
+extern "C" InlineEntry* func_02028bd0(Entry_02028bd0*, int);
 extern "C" unsigned short func_02028460(int* a, int* b);
-int IsInRange0201b588(int id);
+extern "C" int func_0201b588(int id);
 struct Struct021b46d8;
-void InitStruct_021b46d8(Struct021b46d8*);
+extern "C" void func_ov017_021b46d8(Struct021b46d8*);
 struct TailNode020469b4;
-void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
 struct Obj021b4760;
-void ClearFieldcIfSet_021b4760(Obj021b4760*);
+extern "C" void func_ov017_021b4760(Obj021b4760*);
 extern "C" void func_02046a8c(TailList020469b4* list, GrottoSlot* node);
 
 // USA: func_ov017_0219dc90
 extern "C" ARM void func_ov017_0219dc90(BattleOverlay0219dc90* self, int combatantIdx, int id, unsigned char kind, unsigned short value) {
     GameState* gs = GameState::GetInstance();
     void* search = func_0202ae18();
-    InlineEntry* table = GetEntryTableBase_02027ca4();
+    InlineEntry* table = func_02027ca4();
     func_02012fe4();
-    Combatant0219dc90* combatant = (Combatant0219dc90*)GetCombatantWithFlag0x100_0200ff1c(gs, combatantIdx);
-    if (GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search) != 0) return;
+    Combatant0219dc90* combatant = (Combatant0219dc90*)func_0200ff1c(gs, combatantIdx);
+    if (func_0202c1a4((SearchStruct0202c1a4*)search) != 0) return;
     func_020288e0(table);
-    SetFlagsForFlaggedCombatants_0219e0ec(self);
+    func_ov017_0219e0ec(self);
     if (combatant == NULL) return;
     int found = func_02028a54(table, id);
     func_ov017_0219e180(self, id);
-    InlineEntry* entry = FindInlineEntryById((Entry_02028bd0*)table, id);
+    InlineEntry* entry = func_02028bd0((Entry_02028bd0*)table, id);
     PendingGroup* pending = &self->pending;
     if (entry != NULL) {
         combatant->b8 = entry->f34 != 0 ? func_02028460(entry->vec18, combatant->vec44) : 0;
         signed char* grotto = (signed char*)gs->GetGrottoStruct();
-        if (IsInRange0201b588(id) && found) {
+        if (func_0201b588(id) && found) {
             entry->fd = grotto[8];
         }
         entry->f8 = 0;
@@ -120,19 +120,19 @@ extern "C" ARM void func_ov017_0219dc90(BattleOverlay0219dc90* self, int combata
             }
             GrottoSlot* slot = &self->slots[entry->slotIndex];
             if (slot->used == 0) {
-                InitStruct_021b46d8((Struct021b46d8*)slot);
+                func_ov017_021b46d8((Struct021b46d8*)slot);
                 slot->entry = entry;
                 slot->kind = kind;
                 slot->value = value;
-                AppendNodeToTail(self->slotList, (TailNode020469b4*)slot);
+                func_020469b4(self->slotList, (TailNode020469b4*)slot);
             } else {
-                ClearFieldcIfSet_021b4760((Obj021b4760*)slot);
+                func_ov017_021b4760((Obj021b4760*)slot);
                 func_02046a8c(self->slotList, slot);
-                InitStruct_021b46d8((Struct021b46d8*)slot);
+                func_ov017_021b46d8((Struct021b46d8*)slot);
                 slot->entry = entry;
                 slot->kind = kind;
                 slot->value = value;
-                AppendNodeToTail(self->slotList, (TailNode020469b4*)slot);
+                func_020469b4(self->slotList, (TailNode020469b4*)slot);
             }
         } else {
             combatant->c2 |= 0x40;

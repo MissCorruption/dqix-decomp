@@ -9,11 +9,11 @@
 #endif
 
 struct SearchStruct0202c1a4;
-int GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4*);
+extern "C" int func_0202c1a4(struct SearchStruct0202c1a4*);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_02012fe4(void);
 extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
-void SetOrClearBit2_0201bf84(unsigned char* obj, int set);
+extern "C" void func_0201bf84(unsigned char* obj, int set);
 
 struct Obj021cdb4c {
     char pad0[4];
@@ -25,7 +25,7 @@ struct Obj021cdb4c {
 
 // USA: func_ov017_021cdb4c
 extern "C" ARM void func_ov017_021cdb4c(void* unused0, struct Obj021cdb4c* obj, int unused2, int unused3, struct SearchStruct0202c1a4* search) {
-    if (obj->field4 >= 0 && obj->field4 != GetSearchStructCurrentArrEntry(search)) {
+    if (obj->field4 >= 0 && obj->field4 != func_0202c1a4(search)) {
         return;
     }
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021cdb4c(void* unused0, struct Obj021cdb4c* obj, 
         break;
     case 7:
         func_0206df6c(base, base + 0x8c, obj->field6 + 0x33e, obj->field8);
-        SetOrClearBit2_0201bf84(other, 1);
+        func_0201bf84(other, 1);
         break;
     default:
         break;

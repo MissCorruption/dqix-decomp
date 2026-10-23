@@ -4,8 +4,8 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Buf4_021f567c { short v[4]; };
 extern struct Buf4_021f567c data_ov024_021fec4c;
@@ -21,13 +21,13 @@ extern "C" ARM int func_ov024_021f567c(int* a0, int a1, int a2, int* outFlag, sh
         if (!c) continue;
         void* inner = c->currentStats_;
         if (*(unsigned short*)((char*)inner + 2) == 0) continue;
-        if (IsCombatantFlagMask512_021eda60(c)) continue;
+        if (func_ov024_021eda60(c)) continue;
         int n = *outFlag;
         *outFlag = n + 1;
         outArr[n] = buf.v[i];
     }
     if (*outFlag > 0) {
-        PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outFlag, outArr);
+        func_ov024_021ed890((struct Random**)a0, outFlag, outArr);
         return 1;
     }
     return 0;

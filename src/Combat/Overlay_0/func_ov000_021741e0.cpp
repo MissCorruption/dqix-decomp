@@ -17,7 +17,7 @@ struct Entry021741e0 {
     char pad3[0x28 - 0x27];
 };
 
-// USA: func_ov000_021741e0  (semantic: InitMovingSlotEntry_021741e0)
+// USA: func_ov000_021741e0
 extern "C" ARM void func_ov000_021741e0(void* obj, float maxSpeed, float speed, int x, int argE,
     unsigned char slotIdx, unsigned char byteG, unsigned char byteH, unsigned char byteI, unsigned char flagJ) {
     float minVal = maxSpeed;

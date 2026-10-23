@@ -11,8 +11,8 @@ struct Obj0204aa64;
 
 typedef void (*Cb0204b174)(const void*, int, unsigned int);
 
-int DeserializeAndDispatch(Rec0204a848* dst, Cb0204b174 cb, unsigned char* src, void* extra);
-int DeserializeAndAllocate(Rec0204acdc* dst, void* unused, unsigned char* src, SafeAllocator* alloc);
+extern "C" int func_0204a848(Rec0204a848* dst, Cb0204b174 cb, unsigned char* src, void* extra);
+extern "C" int func_0204acdc(Rec0204acdc* dst, void* unused, unsigned char* src, SafeAllocator* alloc);
 extern "C" int func_0204aa64(Obj0204aa64* obj, Cb0204b174 cb, unsigned char* src, void* src2);
 
 extern char data_020f0238;
@@ -45,7 +45,7 @@ extern "C" ARM int func_0204b174(struct Self0204b174* self, char* str, Cb0204b17
 
     if (func_02001aec(buf, &data_020f0238, 4) == 0) {
         Cb0204b174 fn = (Cb0204b174)data_020f01f8[self->lo][self->hi];
-        return DeserializeAndDispatch((Rec0204a848*)self, fn, (unsigned char*)str, (void*)cb);
+        return func_0204a848((Rec0204a848*)self, fn, (unsigned char*)str, (void*)cb);
     }
 
     if (func_02001aec(buf, &data_020f023d, 4) == 0) {
@@ -58,7 +58,7 @@ extern "C" ARM int func_0204b174(struct Self0204b174* self, char* str, Cb0204b17
             if (self->limit <= self->index) {
                 return 1;
             }
-            int r = DeserializeAndAllocate((Rec0204acdc*)((char*)self->f10 + self->index * 0x10),
+            int r = func_0204acdc((Rec0204acdc*)((char*)self->f10 + self->index * 0x10),
                                            (void*)(Cb0204b174)data_020f0218[self->lo][self->hi],
                                            (unsigned char*)str, (SafeAllocator*)cb);
             if (r != 0) {

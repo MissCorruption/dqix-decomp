@@ -50,17 +50,17 @@ struct Glyph_021f7eb8 {
 
 struct Obj0204fbf8;
 
-void SetField0xa0AndByte0xc4IfFlag0x1Clear_0204f160(unsigned char*, int, int);
+extern "C" void func_0204f160(unsigned char*, int, int);
 extern "C" void func_0204f174(Canvas_021f7eb8* canvas, short x, short y, short width, short height,
                               unsigned char frame, unsigned char a, unsigned char b, int);
 extern "C" void func_0204fae8(Canvas_021f7eb8* canvas);
-Glyph_021f7eb8* FindEntryByKey0204254c(int, int);
+extern "C" Glyph_021f7eb8* func_0204254c(int, int);
 extern "C" void func_0204f7e8(Canvas_021f7eb8* canvas, short x, short y, int value, unsigned char font,
                               unsigned char color, unsigned short* width, unsigned short* height, int, int, int, int);
 extern "C" void func_0204f41c(Canvas_021f7eb8* canvas, short x, short y, const char* text, unsigned char font,
                               unsigned char color, unsigned short* width, unsigned short* height, int);
 extern "C" void func_ov023_021f8240(MenuCanvas_021f7eb8* self, void* script);
-void InvokeHandlerAfterCacheFlush0204fbf8(Obj0204fbf8*);
+extern "C" void func_0204fbf8(Obj0204fbf8*);
 
 extern const char data_ov023_021fd91c[];
 #if defined(jpn)
@@ -72,7 +72,7 @@ extern "C" void func_02050678(Canvas_021f7eb8*, short, short, const char*, unsig
 extern "C" ARM void func_ov023_021f7eb8(MenuCanvas_021f7eb8* self, void* script, int value, short x, short y,
                                         short width, short height, unsigned char frame, unsigned char a,
                                         unsigned char b) {
-    SetField0xa0AndByte0xc4IfFlag0x1Clear_0204f160((unsigned char*)&self->canvas_, value, self->id_);
+    func_0204f160((unsigned char*)&self->canvas_, value, self->id_);
     func_0204f174(&self->canvas_, x, y, width, height, frame, a, b, 0);
     if (self->flags_ & 4) {
         if (self->pages_ > 1)
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov023_021f7eb8(MenuCanvas_021f7eb8* self, void* script,
         unsigned char color;
         int separatorWidth = 0;
         color = self->color_;
-        Glyph_021f7eb8* glyph = FindEntryByKey0204254c((int)data_ov023_021fd91c, 0);
+        Glyph_021f7eb8* glyph = func_0204254c((int)data_ov023_021fd91c, 0);
         if (glyph != NULL)
             separatorWidth = glyph->width;
         unsigned short textWidth;
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov023_021f7eb8(MenuCanvas_021f7eb8* self, void* script,
 #endif
     }
     func_ov023_021f8240(self, script);
-    InvokeHandlerAfterCacheFlush0204fbf8((Obj0204fbf8*)&self->canvas_);
+    func_0204fbf8((Obj0204fbf8*)&self->canvas_);
     self->x_ = x * 8;
     self->y_ = y * 8;
 }

@@ -9,9 +9,9 @@
 struct PackedNibbleArray0206e120;
 struct PackedNibbleArray0206e260;
 struct PackedNibbleArray0206e2dc;
-int GetPackedNibbleField(PackedNibbleArray0206e120* obj, int index);
-int GetPackedNibbleFlag0x4(PackedNibbleArray0206e260* obj, int index);
-int GetPackedNibbleFlag0x8(PackedNibbleArray0206e2dc* obj, int index);
+extern "C" int func_0206e120(PackedNibbleArray0206e120* obj, int index);
+extern "C" int func_0206e260(PackedNibbleArray0206e260* obj, int index);
+extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc* obj, int index);
 
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* p);
@@ -19,7 +19,7 @@ extern "C" void* func_0205ec34(void);
 extern "C" int func_ov017_021b9bcc(int id, const char* name);
 
 static inline int NibbleIs(PackedNibbleArray0206e120* nibbles, int slot, int value) {
-    return GetPackedNibbleField(nibbles, slot) == value;
+    return func_0206e120(nibbles, slot) == value;
 }
 
 struct Struct0130_021ba524 {
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov017_021ba524(Script::Parameter* params, int count) {
         if (!NibbleIs(nibbles, slot, 2)) return 1;
         break;
     case 1:
-        if (!GetPackedNibbleFlag0x4((PackedNibbleArray0206e260*)nibbles, slot)) return 1;
+        if (!func_0206e260((PackedNibbleArray0206e260*)nibbles, slot)) return 1;
         break;
     case 2:
         if (!NibbleIs(nibbles, slot, 3)) return 1;
@@ -87,7 +87,7 @@ extern "C" ARM int func_ov017_021ba524(Script::Parameter* params, int count) {
         if (!NibbleIs(nibbles, slot, 1)) return 1;
         break;
     case 4:
-        if (GetPackedNibbleFlag0x8((PackedNibbleArray0206e2dc*)nibbles, slot) && NibbleIs(nibbles, slot, 0)) {
+        if (func_0206e2dc((PackedNibbleArray0206e2dc*)nibbles, slot) && NibbleIs(nibbles, slot, 0)) {
         } else {
             return 1;
         }

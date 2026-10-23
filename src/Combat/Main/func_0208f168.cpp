@@ -8,7 +8,7 @@ extern "C" void* func_02057924(void);
 extern "C" int rand(void);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_02018fbc(int seed, void* v);
-int IsMatchingName0208e824(void* unused, char* str);
+extern "C" int func_0208e824(void* unused, char* str);
 
 struct Entry0208f168 {
     unsigned int low9 : 9;
@@ -65,7 +65,7 @@ extern "C" ARM void func_0208f168(struct Self0208f168* self, void* alloc) {
     if (name == 0) {
         return;
     }
-    if (IsMatchingName0208e824(h, name + 5) == 0) {
+    if (func_0208e824(h, name + 5) == 0) {
         return;
     }
 

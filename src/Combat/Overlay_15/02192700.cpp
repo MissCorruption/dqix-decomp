@@ -123,30 +123,30 @@ struct Obj02192700 {
 };
 
 extern "C" void __clear(void* buf, int n);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 struct Callback_0202a91c;
-void SetState0x6cAndInvoke(Callback_0202a91c*);
+extern "C" void func_0202a91c(Callback_0202a91c*);
 extern "C" void func_02029568(struct MenuList02192700* menu);
 extern "C" void func_020294cc(void* self, const char* src);
-void Init0202949c(char*);
-const char* CallFunc020e0434With02153694_020e51cc(int id);
+extern "C" void func_0202949c(char*);
+extern "C" const char* func_020e51cc(int id);
 struct ListHead0202a944;
 struct ListNode0202a944;
-void AppendNodeToList0202a944(ListHead0202a944*, ListNode0202a944*);
-struct Entry8_0218bb14* GetEntry8_0218bb14(struct List8_0218bb14* list, int idx);
+extern "C" void func_0202a944(ListHead0202a944*, ListNode0202a944*);
+extern "C" struct Entry8_0218bb14* func_ov015_0218bb14(struct List8_0218bb14* list, int idx);
 extern "C" struct MenuEntry02192700* func_ov015_02193160(struct Obj02192700* obj, int state, int* pIdx);
 struct BinarySearchByComparatorStruct;
-struct SearchResult02192700* SearchWithComparator0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" struct SearchResult02192700* func_0206f4f0(BinarySearchByComparatorStruct*, int);
 extern "C" int func_ov015_02190d08(struct Obj02192700* obj);
 struct Container020dedd0;
-struct Element020dedd0* FindElementByKey020dedd0(Container020dedd0*, int);
+extern "C" struct Element020dedd0* func_020dedd0(Container020dedd0*, int);
 struct Struct0219313c;
-void SetShortFields0219313c(Struct0219313c*, int, int);
+extern "C" void func_ov015_0219313c(Struct0219313c*, int, int);
 struct Struct02193150;
-void AddToShortField02193150(Struct02193150*, int);
+extern "C" void func_ov015_02193150(Struct02193150*, int);
 extern "C" void func_0202a6c4(struct MenuList02192700* menu);
-void Deactivate0202a8cc(char*, int);
+extern "C" void func_0202a8cc(char*, int);
 extern "C" struct HolderNode02192700* func_ov015_0218f344(void* obj);
 
 extern AllocatorUnion data_02114e20;
@@ -206,12 +206,12 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
     int count;
 
     if (obj->items != 0) {
-        TailForward02012da4(&data_02114e20, obj->items);
+        func_02012da4(&data_02114e20, obj->items);
         obj->items = 0;
     }
     obj->field354 = a1;
     __clear(title, 0x80);
-    SetState0x6cAndInvoke((Callback_0202a91c*)&obj->menu);
+    func_0202a91c((Callback_0202a91c*)&obj->menu);
     func_02029568(&obj->menu);
     obj->menu.flags |= 6;
 
@@ -354,35 +354,35 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                 count++;
             }
             if (count == 0) {
-                obj->items = (struct MenuItem02192700*)AllocateAligned4_02012d88(&data_02114e20, sizeof(struct MenuItem02192700));
+                obj->items = (struct MenuItem02192700*)func_02012d88(&data_02114e20, sizeof(struct MenuItem02192700));
             } else {
-                obj->items = (struct MenuItem02192700*)AllocateAligned4_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
+                obj->items = (struct MenuItem02192700*)func_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
             }
             if (count == 0) {
-                Init0202949c((char*)obj->items);
+                func_0202949c((char*)obj->items);
 #if defined(jpn)
                 func_020294cc(obj->items, data_ov015_021950f0);
 #else
-                func_020294cc(obj->items, CallFunc020e0434With02153694_020e51cc(1000));
+                func_020294cc(obj->items, func_020e51cc(1000));
 #endif
-                AppendNodeToList0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)obj->items);
+                func_0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)obj->items);
                 count = 1;
             } else {
                 struct ListNode02192700* node = obj->list;
                 for (count = 0; node != 0; count++) {
-                    Init0202949c((char*)&obj->items[count]);
+                    func_0202949c((char*)&obj->items[count]);
                     func_020294cc(&obj->items[count], GetName(node->value));
-                    AppendNodeToList0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
+                    func_0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
                     node = node->next;
                 }
             }
         } else if (obj->state == 40) {
-            obj->items = (struct MenuItem02192700*)AllocateAligned4_02012d88(&data_02114e20, obj->entries.count * sizeof(struct MenuItem02192700));
+            obj->items = (struct MenuItem02192700*)func_02012d88(&data_02114e20, obj->entries.count * sizeof(struct MenuItem02192700));
             for (; count < obj->entries.count; count++) {
-                struct Entry8_0218bb14* entry = GetEntry8_0218bb14(&obj->entries, count);
-                Init0202949c((char*)&obj->items[count]);
+                struct Entry8_0218bb14* entry = func_ov015_0218bb14(&obj->entries, count);
+                func_0202949c((char*)&obj->items[count]);
                 func_020294cc(&obj->items[count], entry->name);
-                AppendNodeToList0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
+                func_0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
             }
         } else {
             struct MenuEntry02192700* entry;
@@ -394,14 +394,14 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                 count++;
                 entry = func_ov015_02193160(obj, obj->state, &idx);
             }
-            obj->items = (struct MenuItem02192700*)AllocateAligned4_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
+            obj->items = (struct MenuItem02192700*)func_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
             count = 0;
             idx = 0;
             entry = func_ov015_02193160(obj, obj->state, &idx);
             while (entry != 0) {
-                Init0202949c((char*)&obj->items[count]);
+                func_0202949c((char*)&obj->items[count]);
                 if (obj->state == 6) {
-                    struct SearchResult02192700* found = SearchWithComparator0206f4f0((BinarySearchByComparatorStruct*)obj->search, entry->key);
+                    struct SearchResult02192700* found = func_0206f4f0((BinarySearchByComparatorStruct*)obj->search, entry->key);
                     if (found != 0) {
                         __clear(line, 0x100);
                         sprintf(line, data_ov015_02194508, found->f4 + 1, found->f0);
@@ -412,7 +412,7 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                         func_020294cc(&obj->items[count], data_ov015_0219450f);
                     }
                 } else if (func_ov015_02190d08(obj) != 0) {
-                    struct Element020dedd0* elem = FindElementByKey020dedd0((Container020dedd0*)obj->container, entry->key);
+                    struct Element020dedd0* elem = func_020dedd0((Container020dedd0*)obj->container, entry->key);
                     if (elem != 0) {
                         if (elem->name != 0) {
                             func_020294cc(&obj->items[count], elem->name);
@@ -454,16 +454,16 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                 } else {
                     func_020294cc(&obj->items[count], entry->name);
                 }
-                AppendNodeToList0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
+                func_0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[count]);
                 count++;
                 idx++;
                 entry = func_ov015_02193160(obj, obj->state, &idx);
             }
         }
-        SetShortFields0219313c((Struct0219313c*)&obj->menu, 0, count - 1);
-        AddToShortField02193150((Struct02193150*)&obj->menu, obj->cursors[obj->state]);
+        func_ov015_0219313c((Struct0219313c*)&obj->menu, 0, count - 1);
+        func_ov015_02193150((Struct02193150*)&obj->menu, obj->cursors[obj->state]);
         func_0202a6c4(&obj->menu);
-        Deactivate0202a8cc((char*)&obj->menu, 1);
+        func_0202a8cc((char*)&obj->menu, 1);
     } else {
         struct HolderNode02192700* it;
         struct HolderNode02192700* holder;
@@ -476,7 +476,7 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                 count += bcfg->GetNumAnimations();
             }
         }
-        obj->items = (struct MenuItem02192700*)AllocateAligned4_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
+        obj->items = (struct MenuItem02192700*)func_02012d88(&data_02114e20, count * sizeof(struct MenuItem02192700));
         holder = func_ov015_0218f344(obj->field30);
         idx = 0;
         for (; holder != 0; holder = holder->next) {
@@ -486,17 +486,17 @@ extern "C" ARM void func_ov015_02192700(struct Obj02192700* obj, int a1) {
                 for (int i = 0; i < num; i++) {
                     const char* name = (const char*)bcfg->GetAnimationRecord(i);
                     if (name != 0) {
-                        Init0202949c((char*)&obj->items[idx]);
+                        func_0202949c((char*)&obj->items[idx]);
                         func_020294cc(&obj->items[idx], name);
-                        AppendNodeToList0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[idx++]);
+                        func_0202a944((ListHead0202a944*)&obj->menu, (ListNode0202a944*)&obj->items[idx++]);
                     }
                 }
             }
         }
-        SetShortFields0219313c((Struct0219313c*)&obj->menu, 0, count - 1);
-        AddToShortField02193150((Struct02193150*)&obj->menu, 0);
+        func_ov015_0219313c((Struct0219313c*)&obj->menu, 0, count - 1);
+        func_ov015_02193150((Struct02193150*)&obj->menu, 0);
         func_0202a6c4(&obj->menu);
-        Deactivate0202a8cc((char*)&obj->menu, 1);
+        func_0202a8cc((char*)&obj->menu, 1);
     }
 
     int visible = obj->menu.visibleCount;

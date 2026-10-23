@@ -4,7 +4,7 @@
 ARM void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 struct Obj021f9eb4;
-void ClearFields0To3_021f9eb4(struct Obj021f9eb4* o);
+extern "C" void func_ov023_021f9eb4(struct Obj021f9eb4* o);
 
 struct Slot021fa108 {
     unsigned short field0;
@@ -71,6 +71,6 @@ extern "C" ARM void func_ov023_021fa108(void* unused, void* ctx, struct Slot021f
         node->v07(&slot->field10);
     }
     if (resetFlag) {
-        ClearFields0To3_021f9eb4((struct Obj021f9eb4*)slot);
+        func_ov023_021f9eb4((struct Obj021f9eb4*)slot);
     }
 }

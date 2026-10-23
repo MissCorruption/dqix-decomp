@@ -29,18 +29,18 @@ struct BattleUi0216258c {
     char gauges[1];
 };
 
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
 extern "C" HpMpGauge0216258c* func_ov000_02161318(void* obj, int index);
 extern "C" void func_ov000_0217f518(HpMpGauge0216258c* gauge);
-extern "C" void _Z24SetShortField0xC02176134P11Obj02176134s(HpMpGauge0216258c* gauge, unsigned short val);
-extern "C" void _Z24SetShortField0xE02176150P11Obj02176150s(HpMpGauge0216258c* gauge, unsigned short val);
+extern "C" void func_ov000_02176134(HpMpGauge0216258c* gauge, unsigned short val);
+extern "C" void func_ov000_02176150(HpMpGauge0216258c* gauge, unsigned short val);
 
 // USA: func_ov000_0216258c
 extern "C" ARM void func_ov000_0216258c(BattleUi0216258c* self) {
     GameState* bs = GameState::GetInstance();
     for (int i = 0; i < 4; i++) {
-        if (!TestBitAt0x34_020a35e0(self->activeBits, i & 0xff)) continue;
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, i);
+        if (!func_020a35e0(self->activeBits, i & 0xff)) continue;
+        GameObject* c = func_0200ff1c(bs, i);
         if (!c) continue;
         HpMpGauge0216258c* gauge = func_ov000_02161318(self->gauges, i);
         if (!gauge) continue;
@@ -48,10 +48,10 @@ extern "C" ARM void func_ov000_0216258c(BattleUi0216258c* self) {
             func_ov000_0217f518(gauge);
         }
         unsigned short hp = c->currentStats_->primaryStats.currHP;
-        _Z24SetShortField0xC02176134P11Obj02176134s(gauge, hp);
+        func_ov000_02176134(gauge, hp);
         gauge->currHP = hp;
         unsigned short mp = c->currentStats_->primaryStats.currMP;
-        _Z24SetShortField0xE02176150P11Obj02176150s(gauge, mp);
+        func_ov000_02176150(gauge, mp);
         gauge->currMP = mp;
         gauge->maxHP = c->baseStats_->primaryStats.maxHP;
         gauge->maxMP = c->baseStats_->primaryStats.maxMP;

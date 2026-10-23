@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-int FindFirstDigitAndParse_02068200(signed char* s);
-int FormatAbsIntToString02042658(void* obj, int value);
+extern "C" int func_02068200(signed char* s);
+extern "C" int func_02042658(void* obj, int value);
 extern "C" int sprintf(char* buf, const char* fmt, ...);
 
 extern char data_020f08df;
@@ -19,12 +19,12 @@ struct Msg02068238 {
 
 // USA: func_02068238
 extern "C" ARM void func_02068238(signed char* s, char** buf, struct Msg02068238* m) {
-    int idx = FindFirstDigitAndParse_02068200(s) - 1;
+    int idx = func_02068200(s) - 1;
     int val = m->args[idx];
     unsigned char flag = m->flag[idx];
     unsigned char mode = m->mode[idx];
     if (flag != 0) {
-        int w = (flag << 3) - FormatAbsIntToString02042658(0, val);
+        int w = (flag << 3) - func_02042658(0, val);
         switch (mode) {
             case 0:
                 *buf += sprintf(*buf, &data_020f08df, val, w);

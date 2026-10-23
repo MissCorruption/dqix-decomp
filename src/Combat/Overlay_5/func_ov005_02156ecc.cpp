@@ -68,13 +68,13 @@ struct EquipmentMenu {
 
 extern unsigned char data_ov005_0215cd48[8];
 
-MemberScreen* GetField1c_021a193c(int* p);
-void CopyThreeFields02157174(Dst02157174* dst, Src02157174* src);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" void func_ov005_02157174(Dst02157174* dst, Src02157174* src);
 extern "C" void func_ov005_02157b74(EquipmentMenu* self, int item, int keep);
 extern "C" int func_ov005_02155670(EquipmentMenu* self, int x, int y);
-void* GetPtrField0x2a04_02010828(GameState* gs);
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char* obj, unsigned int index);
-signed char* GetPointerAt0xbf0_0207c60c(void* obj, unsigned int index);
+extern "C" void* func_02010828(GameState* gs);
+extern "C" short* func_0207c5f8(unsigned char* obj, unsigned int index);
+extern "C" signed char* func_0207c60c(void* obj, unsigned int index);
 extern "C" void func_ov005_021555c0(EquipmentMenu* self);
 extern "C" void func_ov005_021579ec(EquipmentMenu* self, unsigned int state, unsigned char slot);
 extern "C" void func_0205bb04(void* cursor, int index);
@@ -84,11 +84,11 @@ extern "C" ARM void func_ov005_02156ecc(EquipmentMenu* self, int x, int y) {
     if (self->dragged_ < 0)
         return;
     GameState::GetInstance();
-    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     Vector3fix position = self->dragModel_.position_;
     MenuModel* model = self->slots_[self->dragged_].model_;
     position.z = 0;
-    CopyThreeFields02157174((Dst02157174*)model, (Src02157174*)&position);
+    func_ov005_02157174((Dst02157174*)model, (Src02157174*)&position);
     model->unk_82 = 0;
     if (self->dragged_ >= 0 && self->dragged_ < 8)
         model->unk_82 = 0x1f;
@@ -105,9 +105,9 @@ extern "C" ARM void func_ov005_02156ecc(EquipmentMenu* self, int x, int y) {
         int slot = func_ov005_02155670(self, x, y);
         if (slot >= 8 && slot < 24 && self->slot_ != slot) {
             short index = (slot - 8) + self->page_ * 16;
-            char* party = (char*)GetPtrField0x2a04_02010828(GameState::GetInstance());
-            short* items = GetPointerFromArray0xbd0_0207c5f8((unsigned char*)party + 0x1d4, data_ov005_0215cd48[self->kind_]);
-            signed char* counts = GetPointerAt0xbf0_0207c60c(party + 0x1d4, data_ov005_0215cd48[self->kind_]);
+            char* party = (char*)func_02010828(GameState::GetInstance());
+            short* items = func_0207c5f8((unsigned char*)party + 0x1d4, data_ov005_0215cd48[self->kind_]);
+            signed char* counts = func_0207c60c(party + 0x1d4, data_ov005_0215cd48[self->kind_]);
             short swapped = self->swapped_;
             short item = items[swapped];
             signed char count = counts[swapped];

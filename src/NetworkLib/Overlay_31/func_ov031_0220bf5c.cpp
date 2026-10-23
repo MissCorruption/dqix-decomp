@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-int TrimTrailingZeroShorts_0220bb24(unsigned short*, int);
-void PropagateCarryFromIndex_0220be04(unsigned short*, int, int, int);
+extern "C" int func_ov031_0220bb24(unsigned short*, int);
+extern "C" void func_ov031_0220be04(unsigned short*, int, int, int);
 
 // USA: func_ov031_0220bf5c
 extern "C" ARM void func_ov031_0220bf5c(unsigned short* output, unsigned short* input, int count) {
@@ -12,7 +12,7 @@ extern "C" ARM void func_ov031_0220bf5c(unsigned short* output, unsigned short* 
     int outer;
     unsigned int product;
     int length;
-    length = TrimTrailingZeroShorts_0220bb24(input, count);
+    length = func_ov031_0220bb24(input, count);
     if (count > length * 2) VectorizedMemset(output + length * 2, 0, (count - length * 2) * 2);
     for (i = 0; i < length; i++) {
         position = i * 2;
@@ -26,10 +26,10 @@ extern "C" ARM void func_ov031_0220bf5c(unsigned short* output, unsigned short* 
         for (inner = outer + 1; inner < length && (position = outer + inner) < count; inner++) {
             product = input[inner] * input[outer];
             if (product <= 0x7fff8000u) {
-                PropagateCarryFromIndex_0220be04(output, product * 2, position, count);
+                func_ov031_0220be04(output, product * 2, position, count);
             } else {
-                PropagateCarryFromIndex_0220be04(output, product, position, count);
-                PropagateCarryFromIndex_0220be04(output, product, position, count);
+                func_ov031_0220be04(output, product, position, count);
+                func_ov031_0220be04(output, product, position, count);
             }
         }
     }

@@ -7,64 +7,64 @@
 extern "C" void* func_0203bd08(void);
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int banks);
-char* GetGlobalPtr02105244_0203bd14();
+extern "C" char* func_0203bd14();
 struct Struct020dfc40;
-void ResetStruct020dfc40(Struct020dfc40*);
+extern "C" void func_020dfc40(Struct020dfc40*);
 extern "C" void func_020dfec0(void* dest, void* allocator, void* fileData, unsigned int size);
-void ZeroInit020de848(void* obj);
+extern "C" void func_020de848(void* obj);
 extern "C" void func_020dea64(void* list, void* alloc, void* data, unsigned int size, const void* entries, int count);
 extern "C" void __clear(void* dst, unsigned int size);
 extern "C" char* func_ov017_021b8478(void* obj);
 struct List02070f98;
-struct Elem021729ac* GetElementIfInBounds(List02070f98*, int);
+extern "C" struct Elem021729ac* func_02070f98(List02070f98*, int);
 struct Struct02070fe4;
-int GetElementCount02070fe4(Struct02070fe4*);
+extern "C" int func_02070fe4(Struct02070fe4*);
 extern "C" int func_020de9a4(void* list, void* alloc, void* data, unsigned int size, void* entries, unsigned short count);
 struct Container020e0310;
-char* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" char* func_020e0434(Container020e0310*, int);
 struct Obj0203c108;
-void SwapGlobalEntry0203c108(Obj0203c108*, char*);
-void* GetGlobalField0x1c020421a0();
-void Clear12Bytes020e46c4(void* buf);
+extern "C" void func_0203c108(Obj0203c108*, char*);
+extern "C" void* func_020421a0();
+extern "C" void func_020e46c4(void* buf);
 extern "C" void func_02046380(void* g);
 extern "C" void func_02046608(void* a, int b, char* c, void* d, int e, int f, int g);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900*);
+extern "C" int func_02046900(ActiveEntry02046900*);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0205a528(void* a, void* ptr, int val, void* d);
-void WrapAddByteField0x22_0205aed0(void*, char*, unsigned int, int);
-void SetBitfieldStoreBytes0205af38(int, char*, int, int);
-int* GetData02105254_0203b628();
-void SetupBankModeAndTransfer_0203b678(int* obj, int a, int b);
-void TailForward0203b66c(char*);
-void ClearThreeRegions0203b634(char*);
-void ConfigureSubBg0Control_02172944(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
-void ConfigureSubBg1Control_02172978(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" void func_0205aed0(void*, char*, unsigned int, int);
+extern "C" void func_0205af38(int, char*, int, int);
+extern "C" int* func_0203b628();
+extern "C" void func_0203b678(int* obj, int a, int b);
+extern "C" void func_0203b66c(char*);
+extern "C" void func_0203b634(char*);
+extern "C" void func_ov000_02172944(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
+extern "C" void func_ov000_02172978(int screenSize, int colorMode, int screenBase, int charBase, int bit13);
+extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(void* obj, int value);
 struct AllocTarget0204b12c;
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
 struct Foo0204af38;
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
 extern "C" void func_0204c684(void* obj);
-char* CallFunc020e0434With02153694_020e51cc(int key);
+extern "C" char* func_020e51cc(int key);
 extern "C" void func_0204f914(void* obj, int a, short x0, short y0, short x1, short y1);
 extern "C" void func_0204f41c(void* obj, short x, short y, void* str, int d, int e, short* outA, short* outB, int zero);
 extern "C" void func_0204b174(void* obj, void* data, SafeAllocator* alloc, int size);
 struct Obj0204b8d0;
-void DispatchEntry0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0204b8d0(Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
 extern "C" void func_0204bc74(void* obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
 struct Obj0204c7a8;
-void AllocateBuffer0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
+extern "C" void func_0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
 struct Elem_0205cf78;
 struct Struct_0205cf78;
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
+extern "C" void func_0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned char);
 extern "C" void func_020dc7e8(int a, int b);
 struct Canvas0204e998;
-void InitAndFillIndexBuffer0204c964(Canvas0204e998*);
+extern "C" void func_0204c964(Canvas0204e998*);
 
 struct Triple021729ac {
     short value;
@@ -233,9 +233,9 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
         *(int*)func_0203bd08() = 0;
 
 #if defined(jpn)
-        *(int*)(GetGlobalPtr02105244_0203bd14() + 0x608) = 0x1d000;
+        *(int*)(func_0203bd14() + 0x608) = 0x1d000;
 #else
-        *(int*)(GetGlobalPtr02105244_0203bd14() + 0x508) = 0x18000;
+        *(int*)(func_0203bd14() + 0x508) = 0x18000;
 #endif
 
 #if defined(jpn)
@@ -250,7 +250,7 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
             loader->GetLoadedFileByID(self->handle, &file1, &len1);
             if (file1 != 0) {
                 self->allocs[1].Reset();
-                ResetStruct020dfc40((Struct020dfc40*)self->container);
+                func_020dfc40((Struct020dfc40*)self->container);
                 func_020dfec0(self->container, &self->allocs[1], file1, len1);
             }
             loader->RemoveTask(self->handle);
@@ -269,10 +269,10 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
             loader->GetLoadedFileByID(self->handle, &file2, &len2);
             if (file2 != 0) {
                 self->allocs[4].Reset();
-                ZeroInit020de848(self->desc[0]);
+                func_020de848(self->desc[0]);
                 func_020dea64(self->desc[0], &self->allocs[4], file2, len2, data_ov000_02183302, 3);
                 self->allocs[5].Reset();
-                ZeroInit020de848(self->desc[1]);
+                func_020de848(self->desc[1]);
                 __clear(codes, sizeof(codes));
                 unsigned short n = 0;
 
@@ -284,11 +284,11 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
 
                 if (src != 0) {
                     void* list = src->list;
-                    for (int i = 0; i < GetElementCount02070fe4((Struct02070fe4*)list); i++) {
+                    for (int i = 0; i < func_02070fe4((Struct02070fe4*)list); i++) {
                         if (n > sizeof(codes) / sizeof(codes[0])) {
                             break;
                         }
-                        Elem021729ac* elem = GetElementIfInBounds((List02070f98*)list, i);
+                        Elem021729ac* elem = func_02070f98((List02070f98*)list, i);
                         if (elem != 0) {
                             codes[n++] = elem->f4;
                             codes[n++] = elem->f6;
@@ -299,26 +299,26 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
             }
             loader->RemoveTask(self->handle);
             self->handle = -1;
-            SwapGlobalEntry0203c108((Obj0203c108*)self->entries[0], GetFieldByKey020e0434((Container020e0310*)self->container, 0x754e));
-            SwapGlobalEntry0203c108((Obj0203c108*)self->entries[1], GetFieldByKey020e0434((Container020e0310*)self->container, 0x7550));
+            func_0203c108((Obj0203c108*)self->entries[0], func_020e0434((Container020e0310*)self->container, 0x754e));
+            func_0203c108((Obj0203c108*)self->entries[1], func_020e0434((Container020e0310*)self->container, 0x7550));
 
 #if defined(jpn)
             for (int i = 0; i < 5; i++) {
-                SwapGlobalEntry0203c108((Obj0203c108*)self->labels[i], GetFieldByKey020e0434((Container020e0310*)self->container, data_ov000_02183418[i]));
+                func_0203c108((Obj0203c108*)self->labels[i], func_020e0434((Container020e0310*)self->container, data_ov000_02183418[i]));
             }
 #else
-            void* g = GetGlobalField0x1c020421a0();
+            void* g = func_020421a0();
             for (int i = 0; i < 9; i++) {
                 __clear(text, sizeof(text));
-                Clear12Bytes020e46c4(&param);
+                func_020e46c4(&param);
                 if (i >= 5) {
                     param.mode = 1;
                 }
                 func_02046380(g);
                 int key = data_ov000_02183418[i];
                 *(void**)g = &param;
-                func_02046608(g, 0xa, GetFieldByKey020e0434((Container020e0310*)self->container, key), text, 0x100, 0, 0);
-                SwapGlobalEntry0203c108((Obj0203c108*)self->labels[i], text);
+                func_02046608(g, 0xa, func_020e0434((Container020e0310*)self->container, key), text, 0x100, 0, 0);
+                func_0203c108((Obj0203c108*)self->labels[i], text);
             }
 
 #endif
@@ -355,73 +355,73 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
     } else if (self->state == 4) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file4, &len4);
-            int count = CountActiveEntries((ActiveEntry02046900*)file4);
+            int count = func_02046900((ActiveEntry02046900*)file4);
             self->allocs[0].Reset();
             for (int i = 0; i < count; i++) {
-                void* rec = FindRecordByIndex((Rec020467f0*)file4, i, &recData4, &recSize4);
+                void* rec = func_020467f0((Rec020467f0*)file4, i, &recData4, &recSize4);
                 if (rec != 0) {
                     func_0205a528(self->records, rec, recSize4, &self->allocs[0]);
                 }
             }
 
 #if defined(jpn)
-            WrapAddByteField0x22_0205aed0(self->records, self->f170, (unsigned short)count, 0x40);
+            func_0205aed0(self->records, self->f170, (unsigned short)count, 0x40);
 #else
-            WrapAddByteField0x22_0205aed0(self->records, self->f170, (unsigned short)count, 0x44);
+            func_0205aed0(self->records, self->f170, (unsigned short)count, 0x44);
 #endif
 
-            SetBitfieldStoreBytes0205af38((int)self->records, self->f170 + 0x2a8, 1, 1);
-            SetBitfieldStoreBytes0205af38((int)self->records, self->f170 + 0x2d0, 1, 1);
+            func_0205af38((int)self->records, self->f170 + 0x2a8, 1, 1);
+            func_0205af38((int)self->records, self->f170 + 0x2d0, 1, 1);
             loader->RemoveTask(self->handle);
             self->handle = -1;
             self->state++;
         }
     } else if (self->state == 5) {
-        int* bank = GetData02105254_0203b628();
-        SetupBankModeAndTransfer_0203b678(bank, 1, 0);
-        SetupBankModeAndTransfer_0203b678(bank, 1, 1);
-        TailForward0203b66c((char*)bank);
-        ClearThreeRegions0203b634((char*)bank);
-        ConfigureSubBg0Control_02172944(0, self->bg0.colorMode, 5, self->bg0.charBase, self->bg1.bit13);
-        ConfigureSubBg1Control_02172978(0, self->bg1.colorMode, 6, self->bg1.charBase, self->bg1.bit13);
+        int* bank = func_0203b628();
+        func_0203b678(bank, 1, 0);
+        func_0203b678(bank, 1, 1);
+        func_0203b66c((char*)bank);
+        func_0203b634((char*)bank);
+        func_ov000_02172944(0, self->bg0.colorMode, 5, self->bg0.charBase, self->bg1.bit13);
+        func_ov000_02172978(0, self->bg1.colorMode, 6, self->bg1.charBase, self->bg1.bit13);
         *(volatile unsigned short*)0x400100c = (*(volatile unsigned short*)0x400100c & 0x43) | 0x704;
         self->allocs[3].Reset();
 
         List021729ac* list = &self->lists[0];
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)list, 0);
+        func_0204b11c((unsigned char*)list, 0);
         list->lo = 1;
         list->hi = 0;
         func_0204b5b4(list, 2);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
+        func_0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
 
         list = &self->lists[1];
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)list, 0);
+        func_0204b11c((unsigned char*)list, 0);
         list->lo = 1;
         list->hi = 1;
         func_0204b5b4(list, 3);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
+        func_0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
 
 #if defined(jpn)
-        AllocateArray0204af38((Foo0204af38*)list, 29, &self->allocs[3]);
+        func_0204af38((Foo0204af38*)list, 29, &self->allocs[3]);
 #else
-        AllocateArray0204af38((Foo0204af38*)list, 10, &self->allocs[3]);
+        func_0204af38((Foo0204af38*)list, 10, &self->allocs[3]);
 #endif
 
         list = &self->lists[2];
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)list, 0);
+        func_0204b11c((unsigned char*)list, 0);
         list->lo = 1;
         list->hi = 2;
         func_0204b5b4(list, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
+        func_0204b12c((AllocTarget0204b12c*)list, &self->allocs[3]);
 
         self->handle = loader->QueueLoadFile(data_ov000_02184046, 0);
         self->state++;
     } else if (self->state == 6) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file6, &len6);
-            int count = CountActiveEntries((ActiveEntry02046900*)file6);
+            int count = func_02046900((ActiveEntry02046900*)file6);
             for (int i = 0; i < count; i++) {
-                void* rec = FindRecordByIndex((Rec020467f0*)file6, i, &recData6, &recSize6);
+                void* rec = func_020467f0((Rec020467f0*)file6, i, &recData6, &recSize6);
                 if (rec != 0) {
 #if !defined(jpn)
                     if (i == 0) {
@@ -430,8 +430,8 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
                         canvas.height = 0x20;
                         canvas.text = (char*)rec + 0x10;
                         char* label1;
-                        char* label0 = CallFunc020e0434With02153694_020e51cc(0xc9);
-                        label1 = CallFunc020e0434With02153694_020e51cc(0xca);
+                        char* label0 = func_020e51cc(0xc9);
+                        label1 = func_020e51cc(0xca);
                         short x;
                         short y0;
                         short y1;
@@ -455,22 +455,22 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
                     func_0204b174(target, rec, &self->allocs[3], recSize6);
                 }
             }
-            DispatchEntry0204b8d0((Obj0204b8d0*)&self->lists[1], 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[1], 0);
+            func_0204b8d0((Obj0204b8d0*)&self->lists[1], 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+            func_0204b0e8((List0204b0e8*)&self->lists[1], 0);
             func_0204bc74(&self->lists[0], 0, 0, 0, 0x20, 0x19, 0);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[0], 0);
-            DispatchEntry0204b8d0((Obj0204b8d0*)&self->lists[2], 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-            FlushAndDispatchList0204b0e8((List0204b0e8*)&self->lists[2], 0);
+            func_0204b0e8((List0204b0e8*)&self->lists[0], 0);
+            func_0204b8d0((Obj0204b8d0*)&self->lists[2], 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+            func_0204b0e8((List0204b0e8*)&self->lists[2], 0);
 
             self->allocs[2].Reset();
             self->buffer = self->allocs[2].Allocate(0x5c00);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[0], &self->allocs[2], (int)self->buffer, 0x30c);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[1], &self->allocs[2], (int)self->buffer, 0x240);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[2], &self->allocs[2], (int)self->buffer, 0x240);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[3], &self->allocs[2], (int)self->buffer, 0x200);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[4], &self->allocs[2], (int)self->buffer, 0x200);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[5], &self->allocs[2], (int)self->buffer, 0x200);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)&self->elems[6], &self->allocs[2], (int)self->buffer, 0x200);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[0], &self->allocs[2], (int)self->buffer, 0x30c);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[1], &self->allocs[2], (int)self->buffer, 0x240);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[2], &self->allocs[2], (int)self->buffer, 0x240);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[3], &self->allocs[2], (int)self->buffer, 0x200);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[4], &self->allocs[2], (int)self->buffer, 0x200);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[5], &self->allocs[2], (int)self->buffer, 0x200);
+            func_0204c7a8((Obj0204c7a8*)&self->elems[6], &self->allocs[2], (int)self->buffer, 0x200);
             for (int j = 0; j < 7; j++) {
                 self->elems[j].list = &self->lists[2];
             }
@@ -478,7 +478,7 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
             self->handle = -1;
             self->linkList = &self->lists[2];
             self->linkFlag = 1;
-            LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->linkHead, (Elem_0205cf78*)self->elems, 7);
+            func_0205cf78((Struct_0205cf78*)self->linkHead, (Elem_0205cf78*)self->elems, 7);
             self->state++;
             self->f1d72 |= 0x40;
         }
@@ -486,7 +486,7 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
         func_020dc7e8(0, -1);
         *(volatile unsigned int*)0x4001000 = (*(volatile unsigned int*)0x4001000 & ~0x1f00) | 0x1700;
         *(volatile unsigned short*)0x4001050 = 0;
-        InitAndFillIndexBuffer0204c964((Canvas0204e998*)&self->elems[0]);
+        func_0204c964((Canvas0204e998*)&self->elems[0]);
         return 1;
     }
     return 0;

@@ -4,8 +4,8 @@
 #include "std_library_functions.h"
 
 extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char* obj);
-int IsCombatantFlagMask512_021eda60(GameObject* combatant);
+extern "C" int func_020882f8(unsigned char* obj);
+extern "C" int func_ov024_021eda60(GameObject* combatant);
 
 extern unsigned short data_ov024_021feaac;
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov024_021f0810(int* a0, int a1, int a2, int* outCount, v
     int found = 0;
     for (int i = 0; i < count; i++) {
         GameObject* c = GetCombatantByID(*a0, *(short*)&buf[i]);
-        if (c && !CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)c->currentStats_) && !IsCombatantFlagMask512_021eda60(c)) {
+        if (c && !func_020882f8((unsigned char*)c->currentStats_) && !func_ov024_021eda60(c)) {
             int flag47 = *((unsigned char*)c->currentStats_ + 0x47);
             if (flag47 > 0) found++;
         }

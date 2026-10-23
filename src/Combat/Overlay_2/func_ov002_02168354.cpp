@@ -8,22 +8,22 @@ struct Container020e0310;
 struct List020727d8;
 
 extern "C" unsigned char func_ov013_021847c4(void *obj, int a);
-char *GetGlobalField0x1c020421a0();
-int GetField110ArrayValue021574d4(void *self, int index);
+extern "C" char *func_020421a0();
+extern "C" int func_ov002_021574d4(void *self, int index);
 extern "C" void func_ov013_02184c8c(void *menu, void *member);
 extern "C" void *memset(void *dst, int value, unsigned int length);
 extern "C" unsigned char func_0209a678(char *table, void *member, unsigned short *skills);
 extern "C" void *func_0202ae18();
-int CheckField0NonZero_0202b7d8(int *p);
+extern "C" int func_0202b7d8(int *p);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 extern "C" void func_ov017_021ccc34(int id);
 extern "C" void func_ov017_021cd0d8(int id, unsigned short *skills, int count);
-const char *GetFieldByKey020e0434(Container020e0310 *texts, int id);
-void ResetListHeader020727d8(List020727d8 *list);
+extern "C" const char *func_020e0434(Container020e0310 *texts, int id);
+extern "C" void func_020727d8(List020727d8 *list);
 extern "C" void func_020728ac(void *list, void *alloc, void *buffer, unsigned int length, int a4, int a5, int a6);
-void Zero4Bytes_020e526c(void *reader);
+extern "C" void func_020e526c(void *reader);
 extern "C" void func_020e5604(void *reader, void *alloc, void *buffer, unsigned int length);
-void *GetFieldAt0x150_02053c6c(unsigned char *member);
+extern "C" void *func_02053c6c(unsigned char *member);
 extern "C" void func_02083e28(void *model, int arg);
 
 extern "C" const char data_ov002_0216d300[];
@@ -37,11 +37,11 @@ extern "C" ARM void func_ov002_02168354(char *self) {
         return;
     }
     GameState *gs = GameState::GetInstance();
-    GetGlobalField0x1c020421a0();
+    func_020421a0();
     *(unsigned int *) (self + 0x247c) &= ~4;
     if (*(unsigned char *) (self + 0x2455) == 0) {
         char *member =
-            (char *) GetCombatantWithFlag0x100_0200ff1c(gs, GetField110ArrayValue021574d4(self, *(short *) (self + 0x1c08)));
+            (char *) func_0200ff1c(gs, func_ov002_021574d4(self, *(short *) (self + 0x1c08)));
         if (member != 0) {
             func_ov013_02184c8c(self + 0xd70 + 0x1000, member);
         }
@@ -51,8 +51,8 @@ extern "C" ARM void func_ov002_02168354(char *self) {
             memset(*(void **) (self + 0x2450), 0, 0x6e);
             *(unsigned char *) (self + 0x2455) =
                 func_0209a678(self + 0x3c + 0x2400, member, *(unsigned short **) (self + 0x2450));
-            if (CheckField0NonZero_0202b7d8((int *) func_0202ae18())) {
-                int id = GetField110ArrayValue021574d4(self, *(short *) (self + 0x1c08));
+            if (func_0202b7d8((int *) func_0202ae18())) {
+                int id = func_ov002_021574d4(self, *(short *) (self + 0x1c08));
                 func_ov017_021c9e00(id, 0, 0, 0);
                 func_ov017_021ccc34(id);
                 func_ov017_021cd0d8(id, *(unsigned short **) (self + 0x2450), *(unsigned char *) (self + 0x2455));
@@ -63,22 +63,22 @@ extern "C" ARM void func_ov002_02168354(char *self) {
             }
             BackgroundLoader::AddLockGlobal();
             BackgroundLoader::FreeAllocationsGlobal();
-            const char *inner = GetFieldByKey020e0434((Container020e0310 *) (self + 0x20), 0x65);
+            const char *inner = func_020e0434((Container020e0310 *) (self + 0x20), 0x65);
             void *file        = ExtractFileFromGP2(
-                GetFieldByKey020e0434((Container020e0310 *) (self + 0x20), 0x64), inner, &size);
+                func_020e0434((Container020e0310 *) (self + 0x20), 0x64), inner, &size);
             *(void **) (self + 0x2448) = ((SafeAllocator *) (self + 0x64 + 0x800))->Allocate(8);
-            ResetListHeader020727d8(*(List020727d8 **) (self + 0x2448));
+            func_020727d8(*(List020727d8 **) (self + 0x2448));
             if (file != 0) {
                 func_020728ac(*(void **) (self + 0x2448), self + 0x64 + 0x800, file, size, 0, 0, 0);
             }
             file                       = ExtractFileFromGP2(data_ov002_0216d300, data_ov002_0216d315, &size);
             *(void **) (self + 0x244c) = ((SafeAllocator *) (self + 0x64 + 0x800))->Allocate(0xc);
-            Zero4Bytes_020e526c(*(void **) (self + 0x244c));
+            func_020e526c(*(void **) (self + 0x244c));
             if (file != 0) {
                 func_020e5604(*(void **) (self + 0x244c), self + 0x64 + 0x800, file, size);
             }
             BackgroundLoader::RemoveLockGlobal();
-            func_02083e28(GetFieldAt0x150_02053c6c((unsigned char *) member), 0);
+            func_02083e28(func_02053c6c((unsigned char *) member), 0);
         }
     }
     *(int *) (self + 0x1bc0) += 1;

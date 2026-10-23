@@ -3,7 +3,7 @@
 
 #if !defined(jpn)
 
-int LookupKeyValue020425e4(int a, int b, int fontIndex);
+extern "C" int func_020425e4(int a, int b, int fontIndex);
 extern "C" void func_020654b8(void* obj, void* context, MessageGlyphSlot* glyph, short x, short y, int mode);
 extern "C" void func_020417b0(MessageGlyphSlot* glyph, int color, void* palette, int alpha);
 
@@ -70,7 +70,7 @@ extern "C" ARM void func_02045f3c(Renderer02045f3c* renderer, unsigned short* te
             break;
         }
         unsigned char characterIndex = glyph->characterIndex;
-        cx += LookupKeyValue020425e4(previousCharacter, characterIndex, fontIndex);
+        cx += func_020425e4(previousCharacter, characterIndex, fontIndex);
         previousCharacter = characterIndex;
         glyph->x = cx;
         glyph->y = y;

@@ -13,14 +13,14 @@ struct Entry0207d9bc {
     signed char bytes[4];
 };
 
-void* FindEntryByFlagByte_0207d9f4(unsigned char* arr, int offset);
-void InitStruct0207d7c0(struct Init0207d7c0* o);
-struct Entry0207d9bc* FindEntryByHalfword(struct Entry0207d9bc* arr, unsigned short key);
+extern "C" void* func_0207d9f4(unsigned char* arr, int offset);
+extern "C" void func_0207d7c0(struct Init0207d7c0* o);
+extern "C" struct Entry0207d9bc* func_0207d9bc(struct Entry0207d9bc* arr, unsigned short key);
 extern "C" void* func_0202ae18(void);
-int TestBitBySignedByteIndex_0202c1c0(struct SearchStruct* obj, int value);
-int CheckEntryBytes0207d978(struct Entry0207d9bc* arr, unsigned short key);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-int GetSignedByte0x2d0_020546a8(void* obj);
+extern "C" int func_0202c1c0(struct SearchStruct* obj, int value);
+extern "C" int func_0207d978(struct Entry0207d9bc* arr, unsigned short key);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" int func_020546a8(void* obj);
 
 // USA: func_0207d7f4
 extern "C" ARM int func_0207d7f4(struct Entry0207d9bc* entries, unsigned short id, int charId, int flag,
@@ -33,31 +33,31 @@ extern "C" ARM int func_0207d7f4(struct Entry0207d9bc* entries, unsigned short i
     int i;
 
     if (flag != 0) {
-        entry = (struct Entry0207d9bc*)FindEntryByFlagByte_0207d9f4((unsigned char*)entries, charId);
+        entry = (struct Entry0207d9bc*)func_0207d9f4((unsigned char*)entries, charId);
         if (entry != NULL && entry->id != id) {
-            InitStruct0207d7c0((struct Init0207d7c0*)entry);
+            func_0207d7c0((struct Init0207d7c0*)entry);
         }
     }
-    entry = FindEntryByHalfword(entries, id);
+    entry = func_0207d9bc(entries, id);
     if (entry == NULL) {
-        entry = FindEntryByHalfword(entries, 0);
+        entry = func_0207d9bc(entries, 0);
         if (entry == NULL) return 0;
-        InitStruct0207d7c0((struct Init0207d7c0*)entry);
+        func_0207d7c0((struct Init0207d7c0*)entry);
         entry->id = id;
         search = (struct SearchStruct*)func_0202ae18();
         for (i = 0; i < 4; i++) {
-            if (!TestBitBySignedByteIndex_0202c1c0(search, i) || game->GetPartyMemberByIndex(i) == NULL)
+            if (!func_0202c1c0(search, i) || game->GetPartyMemberByIndex(i) == NULL)
                 entry->bytes[i] = 0;
         }
     } else if (game->GetGameObjectByIndex(charId) == NULL) {
         entry->bytes[charId] = 0;
-        return CheckEntryBytes0207d978(entries, id);
+        return func_0207d978(entries, id);
     }
     v = (signed char)flag;
     entry->bytes[charId] = v;
     for (i = 0; i < 4; i++) {
-        combatant = GetCombatantWithFlag0x1000_0200ff58(game, i);
-        if (combatant != NULL && GetSignedByte0x2d0_020546a8(combatant) == charId)
+        combatant = func_0200ff58(game, i);
+        if (combatant != NULL && func_020546a8(combatant) == charId)
             entry->bytes[i] = v;
     }
     if (flag != 0 && entry->field4 < 0 && field4 >= 0) {
@@ -65,5 +65,5 @@ extern "C" ARM int func_0207d7f4(struct Entry0207d9bc* entries, unsigned short i
         entry->field2 = field2;
         entry->field5 = field5;
     }
-    return CheckEntryBytes0207d978(entries, id);
+    return func_0207d978(entries, id);
 }

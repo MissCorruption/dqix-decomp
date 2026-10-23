@@ -28,8 +28,8 @@ enum {
 #endif
 #include "GameState/GameState.h"
 
-unsigned char GetTableByte0207ca94(int index);
-int ComputePositiveCount_02175f90(void *obj);
+extern "C" unsigned char func_0207ca94(int index);
+extern "C" int func_ov003_02175f90(void *obj);
 struct S_a0b8c {
     short* keys;
     signed char* values;
@@ -49,16 +49,16 @@ struct Inventory02177dd4 {
     signed char values[152];
     PoolTables0207c258 categories;
 };
-int CountNonZeroValues020a0b8c(struct S_a0b8c *p);
+extern "C" int func_020a0b8c(struct S_a0b8c *p);
 struct Obj2081;
-void ClearElementFlag0x20_02080c20(struct Obj2081 *obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void *obj, int id, int value);
-void ClearSublistEntriesFlag1_02080bac(void *obj, int id);
-void ClearSublistEntriesFlag2_0208065c(void *obj, int id);
-void SetOrClearEntryFlag0x102081130(void *obj, int id, int set);
-void AddSublistEntryFlag2_020806b0(void *obj, int id);
-int SetEntryFlagById02080b2c(void *obj, int id);
-int FindNthPositiveShort0207c6b8(unsigned char *obj, unsigned int index, int target);
+extern "C" void func_02080c20(struct Obj2081 *obj, int key);
+extern "C" void func_02080c68(void *obj, int id, int value);
+extern "C" void func_02080bac(void *obj, int id);
+extern "C" void func_0208065c(void *obj, int id);
+extern "C" void func_02081130(void *obj, int id, int set);
+extern "C" void func_020806b0(void *obj, int id);
+extern "C" int func_02080b2c(void *obj, int id);
+extern "C" int func_0207c6b8(unsigned char *obj, unsigned int index, int target);
 struct Element020de650;
 struct Container020dedd0 {
     unsigned short count;
@@ -73,15 +73,15 @@ struct Element020de650 {
     char pad8[0x1a - 8];
     unsigned short count;
 };
-struct Element020de650 *FindElementByKey020dedd0(struct Container020dedd0 *c, int key);
-short GetNthPositiveEntryValue_0207c72c(void *obj, unsigned int index, short n);
+extern "C" struct Element020de650 *func_020dedd0(struct Container020dedd0 *c, int key);
+extern "C" short func_0207c72c(void *obj, unsigned int index, short n);
 extern "C" void func_ov003_0217818c(void *self, struct Element020de650 *elem, int id, int value);
-void Forward0207f7acObjPlus4Size0x40_020805f4(void *obj, int value);
+extern "C" void func_020805f4(void *obj, int value);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(struct Container02080f8c *obj, int id, int value);
+extern "C" void func_02080f8c(struct Container02080f8c *obj, int id, int value);
 struct Container02080fa8;
-void SetEntryFirstField02080fa8(struct Container02080fa8 *obj, int id, int value);
-int LookupValueByEntryKey02081010(void *obj, int key);
+extern "C" void func_02080fa8(struct Container02080fa8 *obj, int id, int value);
+extern "C" int func_02081010(void *obj, int key);
 extern "C" void func_020813ec(void *obj, int key);
 
 struct ListMenu_02177dd4 {
@@ -101,7 +101,7 @@ struct ListMenu_02177dd4 {
 // JPN: func_ov003_02177dd4 (02176d60)
 // USA: func_ov003_02177dd4
 extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
-    Inventory02177dd4* inventory = static_cast<Inventory02177dd4*>(GetPtrField0x2a04_02010828(GameState::GetInstance()));
+    Inventory02177dd4* inventory = static_cast<Inventory02177dd4*>(func_02010828(GameState::GetInstance()));
     unsigned int table  = 0;
     short hdr;
     short idD;
@@ -125,8 +125,8 @@ extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
 
     if (self->mode == 0x77) {
         short tableIndex = self->tableCursor - 0x11e;
-        table            = GetTableByte0207ca94(tableIndex);
-        count            = ComputePositiveCount_02175f90(self);
+        table            = func_0207ca94(tableIndex);
+        count            = func_ov003_02175f90(self);
         self->pageCount  = (count + 4) / 5;
         if (self->pageCount == 0) {
             self->pageCount = 1;
@@ -143,28 +143,28 @@ extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
         pageCountId = 0x141;
         perPage     = 5;
     } else {
-        count = CountNonZeroValues020a0b8c(&inventory->list);
+        count = func_020a0b8c(&inventory->list);
         keys  = inventory->keys;
         vals  = inventory->values;
         key   = 0x7a;
     }
 
-    ClearElementFlag0x20_02080c20(elemObj, group);
-    SetEntryLowNibbleAndElement02080c68(elemObj, group, 0);
-    ClearSublistEntriesFlag1_02080bac(elemObj, group);
-    ClearSublistEntriesFlag2_0208065c(elemObj, group);
-    SetOrClearEntryFlag0x102081130(elemObj, group, perPage < count);
+    func_02080c20(elemObj, group);
+    func_02080c68(elemObj, group, 0);
+    func_02080bac(elemObj, group);
+    func_0208065c(elemObj, group);
+    func_02081130(elemObj, group, perPage < count);
 
     short i              = self->page * perPage;
     short end            = i + perPage;
     for (; i < end; i++) {
         if (count <= i) {
-            AddSublistEntryFlag2_020806b0(elemObj, idA);
-            SetEntryFlagById02080b2c(elemObj, idA);
-            SetEntryFlagById02080b2c(elemObj, idB);
-            SetEntryFlagById02080b2c(elemObj, idC);
-            SetEntryFlagById02080b2c(elemObj, idD);
-            SetEntryFlagById02080b2c(elemObj, idE);
+            func_020806b0(elemObj, idA);
+            func_02080b2c(elemObj, idA);
+            func_02080b2c(elemObj, idB);
+            func_02080b2c(elemObj, idC);
+            func_02080b2c(elemObj, idD);
+            func_02080b2c(elemObj, idE);
         } else {
             int value = 0;
             int num   = 0;
@@ -172,9 +172,9 @@ extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
             if (keys != 0) {
                 k = keys[i];
             } else {
-                k = FindNthPositiveShort0207c6b8(((unsigned char*)(&inventory->categories)), table, i);
+                k = func_0207c6b8(((unsigned char*)(&inventory->categories)), table, i);
             }
-            struct Element020de650 *elem = FindElementByKey020dedd0(&self->container, k);
+            struct Element020de650 *elem = func_020dedd0(&self->container, k);
             if (elem != NULL) {
                 value = elem->value;
                 num   = elem->count;
@@ -183,15 +183,15 @@ extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
             if (vals != 0) {
                 extra = vals[i];
             } else {
-                extra = GetNthPositiveEntryValue_0207c72c(&inventory->categories, table, i);
+                extra = func_0207c72c(&inventory->categories, table, i);
             }
             func_ov003_0217818c(self, elem, idB, idC);
 #if !defined(jpn)
-            Forward0207f7acObjPlus4Size0x40_020805f4(elemObj, idA);
+            func_020805f4(elemObj, idA);
 #endif
-            SetEntryFirstField02080f8c((struct Container02080f8c *) elemObj, idA, value);
-            SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, idB, num);
-            SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, idE, extra);
+            func_02080f8c((struct Container02080f8c *) elemObj, idA, value);
+            func_02080fa8((struct Container02080fa8 *) elemObj, idB, num);
+            func_02080fa8((struct Container02080fa8 *) elemObj, idE, extra);
         }
         idA++;
         idB++;
@@ -200,8 +200,8 @@ extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
         idE++;
     }
 
-    SetEntryFirstField02080f8c((struct Container02080f8c *) elemObj, hdr, LookupValueByEntryKey02081010(elemObj, key));
-    SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, pageId, self->page + 1);
-    SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, pageCountId, self->pageCount);
+    func_02080f8c((struct Container02080f8c *) elemObj, hdr, func_02081010(elemObj, key));
+    func_02080fa8((struct Container02080fa8 *) elemObj, pageId, self->page + 1);
+    func_02080fa8((struct Container02080fa8 *) elemObj, pageCountId, self->pageCount);
     func_020813ec(elemObj, group);
 }

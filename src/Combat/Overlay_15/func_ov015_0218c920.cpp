@@ -7,7 +7,7 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-void* ResetObjectState02079a3c(void* obj);
+extern "C" void* func_02079a3c(void* obj);
 extern "C" void* __clear(void* dst, int bytes);
 extern char data_ov015_02194094[27] __attribute__((aligned(4)));
 extern char data_ov015_021940af[9];
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov015_0218c920(void* context, int unused) {
     unsigned char* buffer = data_0211e33c;
     unsigned int room = 0x30000;
     GPCReadPair pair;
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine,
             data_ov015_02194094, buffer, size, room, false, 0)) {
         buffer += size;

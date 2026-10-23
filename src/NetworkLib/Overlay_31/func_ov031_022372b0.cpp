@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Header_0223bd28;
-void ExtractPackedHiLo_0223bd28(Header_0223bd28* h, int index, unsigned int* outHi, unsigned int* outLo);
+extern "C" void func_ov031_0223bd28(Header_0223bd28* h, int index, unsigned int* outHi, unsigned int* outLo);
 
 struct TableEntry_02236a08 { unsigned short lo; unsigned short hi; };
 extern TableEntry_02236a08 data_ov031_0224926a[];
@@ -20,7 +20,7 @@ extern void* data_ov031_02290d08;
 extern "C" ARM void func_ov031_022372b0(void* obj) {
 	int hi;
 	unsigned int lo;
-	ExtractPackedHiLo_0223bd28((Header_0223bd28*)data_ov031_02290d04.p->items[0], 0, (unsigned int*)&hi, &lo);
+	func_ov031_0223bd28((Header_0223bd28*)data_ov031_02290d04.p->items[0], 0, (unsigned int*)&hi, &lo);
 	hi -= 8;
 	int i = 0;
 	do {

@@ -4,16 +4,16 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char* obj);
+extern "C" int func_020882f8(unsigned char* obj);
 struct FlagObj_021da9b0;
-int IsFlagBit8Set_021da9b0(struct FlagObj_021da9b0* obj);
+extern "C" int func_ov024_021da9b0(struct FlagObj_021da9b0* obj);
 struct FlagObj_021de25c;
-int IsFlagBit5Set_021de25c(struct FlagObj_021de25c* obj);
+extern "C" int func_ov024_021de25c(struct FlagObj_021de25c* obj);
 struct FlagObj_021da9c8;
-int IsFlagBit19Set_021da9c8(struct FlagObj_021da9c8* obj);
+extern "C" int func_ov024_021da9c8(struct FlagObj_021da9c8* obj);
 struct FlagObj_021dd260;
-int IsFlagBit24Set_021dd260(struct FlagObj_021dd260* obj);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021dd260(struct FlagObj_021dd260* obj);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Buf8_021f36cc { short v[8]; };
 extern struct Buf8_021f36cc data_ov024_021fedec;
@@ -30,16 +30,16 @@ extern "C" ARM int func_ov024_021f36cc(int* a0, int selfId, int a2, int* outCoun
 		if (selfId == buf.v[i]) continue;
 		GameObject* member = GetCombatantByID(*a0, buf.v[i]);
 		if (!member) continue;
-		if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)member->currentStats_)) continue;
-		if (IsFlagBit8Set_021da9b0((struct FlagObj_021da9b0*)member)) continue;
-		if (IsFlagBit5Set_021de25c((struct FlagObj_021de25c*)member)) continue;
-		if (IsFlagBit19Set_021da9c8((struct FlagObj_021da9c8*)member)) continue;
-		if (IsFlagBit24Set_021dd260((struct FlagObj_021dd260*)member)) continue;
+		if (func_020882f8((unsigned char*)member->currentStats_)) continue;
+		if (func_ov024_021da9b0((struct FlagObj_021da9b0*)member)) continue;
+		if (func_ov024_021de25c((struct FlagObj_021de25c*)member)) continue;
+		if (func_ov024_021da9c8((struct FlagObj_021da9c8*)member)) continue;
+		if (func_ov024_021dd260((struct FlagObj_021dd260*)member)) continue;
 		int idx = *outCount;
 		*outCount = idx + 1;
 		outArray[idx] = buf.v[i];
 	}
 	if (*outCount <= 0) return 0;
-	PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+	func_ov024_021ed890((struct Random**)a0, outCount, outArray);
 	return 1;
 }

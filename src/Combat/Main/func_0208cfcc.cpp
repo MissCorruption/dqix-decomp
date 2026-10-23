@@ -37,17 +37,17 @@ extern char data_020f11eb[];
 extern char data_020f11fe[];
 extern char data_02108760[];
 void SetSubBrightness(GameResources*, int, int);
-void SetFieldD20208bf28(Obj0208bf28*, int, unsigned char);
-int CountActiveEntries(ActiveEntry02046900*);
-void InitStruct0205a444(char*);
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" void func_0208bf28(Obj0208bf28*, int, unsigned char);
+extern "C" int func_02046900(ActiveEntry02046900*);
+extern "C" void func_0205a444(char*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0205a528(TransitionList0208cfcc*, void*, int, SafeAllocator*);
-void WrapAddByteField0x22_0205aed0(void*, char*, unsigned int, int);
-void SetBitfieldStoreBytes0205af38(int, char*, int, int);
+extern "C" void func_0205aed0(void*, char*, unsigned int, int);
+extern "C" void func_0205af38(int, char*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-void SetForwardAndStore0205eb54(void*, int, int);
-void DispatchIfField0xc4NonNeg_0205eb90(void*, int, int);
-void ForwardField0xc0_0205eb80(void*);
+extern "C" void func_0205eb54(void*, int, int);
+extern "C" void func_0205eb90(void*, int, int);
+extern "C" void func_0205eb80(void*);
 
 static inline int NoShortDelay0208cfcc(Obj0208bf28* obj) { return (obj->flags & 0x100) == 0; }
 
@@ -71,7 +71,7 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
 #endif
             obj->state++;
         } else {
-            SetFieldD20208bf28(obj, obj->value, 0);
+            func_0208bf28(obj, obj->value, 0);
             obj->flags |= 4;
             obj->counter = 0;
             obj->field_d7 = 0;
@@ -85,17 +85,17 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
             void* file;
             unsigned int length;
             loader->GetLoadedFileByID(obj->task, &file, &length);
-            int count = CountActiveEntries((ActiveEntry02046900*)file);
-            InitStruct0205a444((char*)&obj->list);
+            int count = func_02046900((ActiveEntry02046900*)file);
+            func_0205a444((char*)&obj->list);
             obj->list.active = 1;
             obj->list.entries = obj->entries;
             obj->list.type = 3;
             for (int i = 0; i < count; i++) {
                 int size;
-                void* entry = FindRecordByIndex((Rec020467f0*)file, i, &record, &size);
+                void* entry = func_020467f0((Rec020467f0*)file, i, &record, &size);
                 func_0205a528(&obj->list, entry, size, &owner->allocator);
             }
-            WrapAddByteField0x22_0205aed0(&obj->list, (char*)obj->entries, 3, 64);
+            func_0205aed0(&obj->list, (char*)obj->entries, 3, 64);
             loader->RemoveTask(obj->task);
             obj->task = -1;
             obj->flags |= 4;
@@ -105,8 +105,8 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
         }
     } else if (obj->state == 2) {
         if (!IsSubBrightnessTransitionActive(GetGameResources())) {
-            SetBitfieldStoreBytes0205af38((int)&obj->list, (char*)&obj->entries[0], 1, 1);
-            SetBitfieldStoreBytes0205af38((int)&obj->list, (char*)&obj->entries[1], 1, 1);
+            func_0205af38((int)&obj->list, (char*)&obj->entries[0], 1, 1);
+            func_0205af38((int)&obj->list, (char*)&obj->entries[1], 1, 1);
             obj->field_d8 = 0;
             obj->blend = 0;
             obj->flags &= ~1;
@@ -117,8 +117,8 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
         if (obj->blend < 1.0f) obj->blend += 0.2f;
         else {
             obj->blend = 1.0f;
-            SetForwardAndStore0205eb54(data_02108760, 110, 110);
-            DispatchIfField0xc4NonNeg_0205eb90(data_02108760, 0, 0);
+            func_0205eb54(data_02108760, 110, 110);
+            func_0205eb90(data_02108760, 0, 0);
             obj->state++;
             obj->delay = 30;
         }
@@ -134,7 +134,7 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
             }
         }
     } else if (obj->state == 6 && obj->delay == 0) {
-        ForwardField0xc0_0205eb80(data_02108760);
+        func_0205eb80(data_02108760);
         obj->complete = 1;
         obj->state = 0;
     }

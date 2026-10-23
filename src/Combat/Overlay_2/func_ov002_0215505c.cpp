@@ -16,21 +16,21 @@ struct Flags0215505c {
     unsigned char rest : 7;
 };
 
-void *Clear12Bytes020e46c4(void *p);
+extern "C" void *func_020e46c4(void *p);
 struct Obj021e1318;
-void ClearObj_021e1318(Obj021e1318*);
-void ResetStruct020dfc40(struct Struct020dfc40 *s);
+extern "C" void func_ov023_021e1318(Obj021e1318*);
+extern "C" void func_020dfc40(struct Struct020dfc40 *s);
 extern "C" void func_02074af4(void *state);
-void InitStruct0205cfd4(struct InitTarget0205cfd4 *t);
-void ResetList0204af64(struct List0204af64 *l);
+extern "C" void func_0205cfd4(struct InitTarget0205cfd4 *t);
+extern "C" void func_0204af64(struct List0204af64 *l);
 extern "C" void func_0204c684(void *p);
 extern "C" void *memset(void *dst, int value, unsigned int length);
-int CopyOutRegion0x5718_02011494(char *obj, void *dst);
+extern "C" int func_02011494(char *obj, void *dst);
 extern "C" char *func_0205ec34(void);
-unsigned short BuildBitmask0206e384(unsigned char *obj);
-short GetShortFromTable0206e3d4(int unused, int index);
+extern "C" unsigned short func_0206e384(unsigned char *obj);
+extern "C" short func_0206e3d4(int unused, int index);
 extern "C" void func_ov002_0215b234(char *self);
-void ClearStruct020a9ea4(struct Struct020a9ea4 *s);
+extern "C" void func_020a9ea4(struct Struct020a9ea4 *s);
 extern "C" void func_ov016_0218b5c0(int a, int b);
 extern "C" void func_ov002_0215b814(char *base);
 
@@ -53,9 +53,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x7a0);
     RESET(0x78c);
     RESET(0x774);
-    ClearObj_021e1318((Obj021e1318*)(self + 0x768));
+    func_ov023_021e1318((Obj021e1318*)(self + 0x768));
     RESET(0x804);
-    ResetStruct020dfc40((struct Struct020dfc40 *) (self + 0x8));
+    func_020dfc40((struct Struct020dfc40 *) (self + 0x8));
     U8(0x30) = 0;
     U8(0x31) = 0;
     func_02074af4(self + 0x20);
@@ -64,9 +64,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     for (int i = 0; i < 5; i++) {
         *(int *) (self + i * 4 + 0x1a6c) = -1;
     }
-    InitStruct0205cfd4((struct InitTarget0205cfd4 *) (self + 0xe20));
+    func_0205cfd4((struct InitTarget0205cfd4 *) (self + 0xe20));
     for (int i = 0; i < 3; i++) {
-        ResetList0204af64((struct List0204af64 *) (self + 0xedc + i * 0x20));
+        func_0204af64((struct List0204af64 *) (self + 0xedc + i * 0x20));
     }
     for (int i = 0; i < 12; i++) {
         func_0204c684(self + 0xf3c + i * 0xe0);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x1b3f)                              = 0;
     S8(0x1b37)                              = 0;
     GameState *gs                           = GameState::GetInstance();
-    S32(0x1afc)                             = CopyOutRegion0x5718_02011494((char *) gs, buf);
+    S32(0x1afc)                             = func_02011494((char *) gs, buf);
     for (int i = 0; i < S32(0x1afc); i++) {
         *(int *) (self + i * 4 + 0x1b00) = buf[i];
         GameObject *m                    = gs->GetPartyMemberByIndex(buf[i]);
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
             S8(0x1b37)++;
         }
     }
-    S32(0x1b14) = CopyOutRegion0x5718_02011494((char *) gs, buf);
+    S32(0x1b14) = func_02011494((char *) gs, buf);
     for (int i = 0; i < S32(0x1b14); i++) {
         *(int *) (self + i * 4 + 0x1b18) = buf[i];
     }
@@ -195,11 +195,11 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x22a8)        = 0;
     U8(0x22aa)        = 0;
     char *x           = func_0205ec34();
-    unsigned int bits = (BuildBitmask0206e384((unsigned char *) x) << 16) | 0xffff;
+    unsigned int bits = (func_0206e384((unsigned char *) x) << 16) | 0xffff;
     S32(0x22b0)       = 0;
     for (int i = 0; i < 0x20; i++) {
         if (bits & 1) {
-            short n = GetShortFromTable0206e3d4((int) x, (short) (i + 1));
+            short n = func_0206e3d4((int) x, (short) (i + 1));
             *(unsigned int *) (self + 0x22b0) |= 1 << (n - 1);
         }
         bits >>= 1;
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x7c8);
     RESET(0x7dc);
     RESET(0x7f0);
-    ClearStruct020a9ea4((struct Struct020a9ea4 *) (self + 0x22c8));
+    func_020a9ea4((struct Struct020a9ea4 *) (self + 0x22c8));
     for (unsigned char j = 0; j < 0x20; j++) {
         *(int *) (self + j * 4 + 0x22d0) = 0;
     }
@@ -242,8 +242,8 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     func_ov002_0215b814(self);
 #else
     unsigned char buf[4];
-    Clear12Bytes020e46c4(self + 8);
-    Clear12Bytes020e46c4(self + 0x14);
+    func_020e46c4(self + 8);
+    func_020e46c4(self + 0x14);
     RESET(0x88c);
     RESET(0x878);
     RESET(0x850);
@@ -251,9 +251,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x83c);
     RESET(0x828);
     RESET(0x810);
-    ClearObj_021e1318((Obj021e1318*)(self + 0x804));
+    func_ov023_021e1318((Obj021e1318*)(self + 0x804));
     RESET(0x8a0);
-    ResetStruct020dfc40((struct Struct020dfc40 *) (self + 0x20));
+    func_020dfc40((struct Struct020dfc40 *) (self + 0x20));
     U8(0x48) = 0;
     U8(0x49) = 0;
     func_02074af4(self + 0x38);
@@ -262,9 +262,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     for (int i = 0; i < 5; i++) {
         *(int *) (self + i * 4 + 0x1ba4) = -1;
     }
-    InitStruct0205cfd4((struct InitTarget0205cfd4 *) (self + 0x2c8 + 0xc00));
+    func_0205cfd4((struct InitTarget0205cfd4 *) (self + 0x2c8 + 0xc00));
     for (int i = 0; i < 3; i++) {
-        ResetList0204af64((struct List0204af64 *) (self + 0x384 + 0xc00 + i * 0x20));
+        func_0204af64((struct List0204af64 *) (self + 0x384 + 0xc00 + i * 0x20));
     }
     for (int i = 0; i < 12; i++) {
         func_0204c684(self + 0x3e4 + 0xc00 + i * 0xe0);
@@ -377,7 +377,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x1c7b)                              = 0;
     S8(0x1c73)                              = 0;
     GameState *gs                           = GameState::GetInstance();
-    S32(0x1c38)                             = CopyOutRegion0x5718_02011494((char *) gs, buf);
+    S32(0x1c38)                             = func_02011494((char *) gs, buf);
     for (int i = 0; i < S32(0x1c38); i++) {
         *(int *) (self + i * 4 + 0x1c3c) = buf[i];
         GameObject *m                    = gs->GetPartyMemberByIndex(buf[i]);
@@ -386,7 +386,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
             S8(0x1c73)++;
         }
     }
-    S32(0x1c50) = CopyOutRegion0x5718_02011494((char *) gs, buf);
+    S32(0x1c50) = func_02011494((char *) gs, buf);
     for (int i = 0; i < S32(0x1c50); i++) {
         *(int *) (self + i * 4 + 0x1c54) = buf[i];
     }
@@ -396,11 +396,11 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x2478)        = 0;
     U8(0x247a)        = 0;
     char *x           = func_0205ec34();
-    unsigned int bits = (BuildBitmask0206e384((unsigned char *) x) << 16) | 0xffff;
+    unsigned int bits = (func_0206e384((unsigned char *) x) << 16) | 0xffff;
     S32(0x2480)       = 0;
     for (int i = 0; i < 0x20; i++) {
         if (bits & 1) {
-            short n = GetShortFromTable0206e3d4((int) x, (short) (i + 1));
+            short n = func_0206e3d4((int) x, (short) (i + 1));
             *(unsigned int *) (self + 0x2480) |= 1 << (n - 1);
         }
         bits >>= 1;
@@ -431,7 +431,7 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x864);
     RESET(0x878);
     RESET(0x88c);
-    ClearStruct020a9ea4((struct Struct020a9ea4 *) (self + 0x98 + 0x2400));
+    func_020a9ea4((struct Struct020a9ea4 *) (self + 0x98 + 0x2400));
     for (unsigned char j = 0; j < 0x20; j++) {
         *(int *) (self + j * 4 + 0x24a0) = 0;
     }

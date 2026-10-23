@@ -53,24 +53,24 @@ struct HttpState {
 };
 
 extern "C" void func_ov031_02217f44(void*);
-int Wrapper02217f9c(void*);
-void InitSessionFields_0220321c();
-int ClearHighBit15_02218798(int);
-void RegisterNamedEntry_02207d60(void*, void*);
-void SetActiveContextByte9_0220aa68(unsigned char);
-void UpdateObjFromContext_022031bc(int, unsigned short, unsigned int);
+extern "C" int func_ov031_02217f9c(void*);
+extern "C" void func_ov031_0220321c();
+extern "C" int func_ov031_02218798(int);
+extern "C" void func_ov031_02207d60(void*, void*);
+extern "C" void func_ov031_0220aa68(unsigned char);
+extern "C" void func_ov031_022031bc(int, unsigned short, unsigned int);
 extern "C" int func_ov031_02203358();
-void ZeroField164_02203250();
-void ClearField164_02203178();
+extern "C" void func_ov031_02203250();
+extern "C" void func_ov031_02203178();
 extern "C" int func_ov031_02203a84(void*, int);
-void ClearField60_02203b8c();
-int TryProcessAndSleep_02217ecc(char*);
+extern "C" void func_ov031_02203b8c();
+extern "C" int func_ov031_02217ecc(char*);
 extern "C" int func_ov031_02203b1c();
 extern "C" int func_ov031_0220357c(unsigned int*);
 extern "C" int func_ov031_02217fb0(void*);
 extern "C" void func_ov031_02203670(int);
 extern "C" void func_ov031_022033e8();
-void UpdateAndWaitOnContext_02203424();
+extern "C" void func_ov031_02203424();
 extern char data_ov031_02249d84[];
 extern int data_ov031_0224c9d0;
 
@@ -85,27 +85,27 @@ extern "C" ARM void func_ov031_02218098(HttpState* state) {
     if (timeout <= 0)
         timeout = 60000;
     func_ov031_02217f44(state);
-    unsigned int address = Wrapper02217f9c(state);
+    unsigned int address = func_ov031_02217f9c(state);
     if (!address) {
         state->network.status = 2;
         return;
     }
     state->network.address = address;
-    InitSessionFields_0220321c();
+    func_ov031_0220321c();
     int received;
     if (state->network.mode == 1) {
         VectorizedMemset(request, 0, 0x830);
-        request->callback = ClearHighBit15_02218798;
+        request->callback = func_ov031_02218798;
         request->handle = state->network.handle;
         configuration->request = request;
-        RegisterNamedEntry_02207d60(data_ov031_02249d84, (void*)12);
-        SetActiveContextByte9_0220aa68(1);
+        func_ov031_02207d60(data_ov031_02249d84, (void*)12);
+        func_ov031_0220aa68(1);
     }
-    UpdateObjFromContext_022031bc(0, state->network.port, address);
+    func_ov031_022031bc(0, state->network.port, address);
     if (func_ov031_02203358()) {
         state->network.status = 3;
-        ZeroField164_02203250();
-        ClearField164_02203178();
+        func_ov031_02203250();
+        func_ov031_02203178();
         return;
     }
     char* url = state->network.url;
@@ -114,8 +114,8 @@ extern "C" ARM void func_ov031_02218098(HttpState* state) {
         state->network.status = 5;
         goto cleanup;
     }
-    ClearField60_02203b8c();
-    if (!TryProcessAndSleep_02217ecc((char*)state)) {
+    func_ov031_02203b8c();
+    if (!func_ov031_02217ecc((char*)state)) {
         state->network.status = 7;
         goto cleanup;
     }
@@ -161,20 +161,20 @@ extern "C" ARM void func_ov031_02218098(HttpState* state) {
             state->network.status = 6;
             goto cleanup;
         }
-        if (!TryProcessAndSleep_02217ecc((char*)state)) {
+        if (!func_ov031_02217ecc((char*)state)) {
             state->network.status = 7;
             goto cleanup;
         }
     }
     func_ov031_022033e8();
-    UpdateAndWaitOnContext_02203424();
-    ZeroField164_02203250();
-    ClearField164_02203178();
+    func_ov031_02203424();
+    func_ov031_02203250();
+    func_ov031_02203178();
     state->network.status = 8;
     return;
 cleanup:
     func_ov031_022033e8();
-    UpdateAndWaitOnContext_02203424();
-    ZeroField164_02203250();
-    ClearField164_02203178();
+    func_ov031_02203424();
+    func_ov031_02203250();
+    func_ov031_02203178();
 }

@@ -7,9 +7,9 @@ enum { queueOffset = 0x1d60, countOffset = 0x1d68, flagsOffset = 0x1d72 };
 #include "std_library_functions.h"
 
 struct Entry_0205d6a0;
-void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
-int HasAnyFlags_021719f8_021719f8(int* obj);
-void ResetElem2081Entry_0204c804(void* obj);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
+extern "C" int func_ov000_021719f8(int* obj);
+extern "C" void func_0204c804(void* obj);
 
 struct Combatant02174c14 {
     char pad0[0xc];
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov000_02174c14(char* obj) {
     struct Combatant02174c14* c;
     int i;
 
-    ResetEntryList0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 1);
+    func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 1);
     memset(obj + queueOffset, 0, 8);
     *(signed char*)(obj + countOffset) = 0;
     (obj + *(signed char*)(obj + countOffset))[queueOffset] = 1;
@@ -49,13 +49,13 @@ extern "C" ARM void func_ov000_02174c14(char* obj) {
         c = (struct Combatant02174c14*)(obj + 0x958) + *(signed char*)(obj + 0x6c + i);
         if (c->field4c < 0) continue;
         if (c->fieldC == 0) continue;
-        if (HasAnyFlags_021719f8_021719f8((int*)c)) continue;
+        if (func_ov000_021719f8((int*)c)) continue;
         if (c->field87 == 0) continue;
 
         struct Elem02174c14* elem = (struct Elem02174c14*)(obj + 0x284);
         int x = c->posX;
         int y = c->posY;
-        ResetElem2081Entry_0204c804(elem);
+        func_0204c804(elem);
         elem->x = (x >> 3) + 9;
         elem->y = y >> 3;
         elem->fieldC2 = 0;

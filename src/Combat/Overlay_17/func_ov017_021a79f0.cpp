@@ -1,0 +1,35 @@
+#include <globaldefs.h>
+#include "Resource/FontBankLoader.h"
+#include "Memory/SafeAllocator.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
+
+extern "C" void func_020a0c0c(void);
+extern "C" void func_02012da4(AllocatorUnion*, void*);
+extern AllocatorUnion data_02114e20;
+
+struct Obj021a79f0 {
+    unsigned char pad0[0x1c];
+    int field1c;
+#if defined(jpn)
+    unsigned char pad2[0x1ec - 0x20];
+#else
+    unsigned char pad2[0x25c - 0x20];
+#endif
+    SafeAllocator allocator;
+};
+
+// USA: func_ov017_021a79f0
+extern "C" ARM void func_ov017_021a79f0(struct Obj021a79f0* self) {
+    FontBankLoader* g = func_02094a00();
+    func_02094b38(g, 0x205);
+    func_02094ab0(g);
+
+    void* handle = self->allocator.GetSignedAllocator();
+    if (handle != NULL) {
+        self->allocator.Destroy();
+        func_02012da4(&data_02114e20, handle);
+    }
+
+    func_020a0c0c();
+    *(volatile unsigned int*)0x4000000 = (*(volatile unsigned int*)0x4000000 & ~0x1f00) | (self->field1c << 8);
+}

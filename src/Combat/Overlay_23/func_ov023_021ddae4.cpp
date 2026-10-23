@@ -21,9 +21,9 @@ struct InfoWindowLoad021ddae4 {
 };
 
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900* entry);
+extern "C" int func_02046900(ActiveEntry02046900* entry);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0* rec, int index, void** out, int* out44);
+extern "C" void* func_020467f0(Rec020467f0* rec, int index, void** out, int* out44);
 extern "C" int func_0205a528(void* renderer, void* data, int kind, int allocator);
 
 // USA: func_ov023_021ddae4
@@ -42,9 +42,9 @@ extern "C" ARM void func_ov023_021ddae4(void* obj) {
     if (file != 0 && length != 0)
 #endif
     {
-        int count = CountActiveEntries((ActiveEntry02046900*)file);
+        int count = func_02046900((ActiveEntry02046900*)file);
         for (int i = 0; i < count; i++) {
-            void* data = FindRecordByIndex((Rec020467f0*)file, i, &record, &kind);
+            void* data = func_020467f0((Rec020467f0*)file, i, &record, &kind);
             func_0205a528(&view->renderer, data, kind, (int)view->allocator);
         }
     }

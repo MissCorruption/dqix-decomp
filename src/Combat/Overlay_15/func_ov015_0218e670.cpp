@@ -28,7 +28,7 @@ struct CameraOutputs0218e670
 };
 
 extern CameraOutputs0218e670 data_ov015_02194564;
-ViewerCamera0218e670* GetFieldIfFlag2_020100cc(char*);
+extern "C" ViewerCamera0218e670* func_020100cc(char*);
 extern "C" void func_020c5414();
 extern "C" void func_0202eab8(ViewerCamera0218e670*);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov015_0218e670(ViewerCameraState0218e670* self)
     GameState* game = GameState::GetInstance();
     if (game == NULL)
         return;
-    ViewerCamera0218e670* camera = GetFieldIfFlag2_020100cc((char*)game);
+    ViewerCamera0218e670* camera = func_020100cc((char*)game);
     if (camera == NULL)
         return;
     bool update = false;

@@ -7,12 +7,12 @@
 #endif
 
 struct Struct_0205c570;
-int GetGlobalField0x1c020421a0(void);
-int GetActiveScaledSum0205c570(struct Struct_0205c570* s);
-void SetField0x1e20_02042b10(void* obj, void* value);
-void EmitScaledField0x440_0202f404(void* obj, int a, int b);
-void InitSelfPointer_02042b1c(unsigned char* base);
-int CheckGlobalObjState2AndInit0205cde8(unsigned char* p);
+extern "C" int func_020421a0(void);
+extern "C" int func_0205c570(struct Struct_0205c570* s);
+extern "C" void func_02042b10(void* obj, void* value);
+extern "C" void func_0202f404(void* obj, int a, int b);
+extern "C" void func_02042b1c(unsigned char* base);
+extern "C" int func_0205cde8(unsigned char* p);
 #if defined(jpn)
 extern "C" void func_02046c78(void* ctx, void* ptr, int x, int y, int color, int a, int b, int flag);
 #else
@@ -27,8 +27,8 @@ struct Entry0205a3d0 {
     char pad8[0xd];
     unsigned char f15;
 };
-void SetEntryFlag2ByKey0205a370(struct Container0205a3d0* c, int key);
-struct Entry0205a3d0* FindEntryByHalfword0205a3d0(struct Container0205a3d0* c, int key);
+extern "C" void func_0205a370(struct Container0205a3d0* c, int key);
+extern "C" struct Entry0205a3d0* func_0205a3d0(struct Container0205a3d0* c, int key);
 extern "C" void func_0205ae8c(void* obj);
 
 static inline int GetCursorColumn(unsigned char* obj) { return *(int*)(obj + 0x88); }
@@ -57,9 +57,9 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
         return;
     }
 
-    ctx = (unsigned char*)GetGlobalField0x1c020421a0();
+    ctx = (unsigned char*)func_020421a0();
     cursor = *(int*)(obj + 0x50);
-    sum = GetActiveScaledSum0205c570((struct Struct_0205c570*)(obj + 0x1c));
+    sum = func_0205c570((struct Struct_0205c570*)(obj + 0x1c));
     color = 0x7fff;
     if (obj[RG(0x234, 0x1c4)] == 0) {
         color = 0x3def;
@@ -67,12 +67,12 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
 
     if (flag == 0) {
         *(short*)(obj + 0xcc) = color;
-        SetField0x1e20_02042b10(ctx, obj + 0xb4);
-        EmitScaledField0x440_0202f404(ctx + RG(0x19e0, 0x1804), 1, 1);
-        InitSelfPointer_02042b1c(ctx);
+        func_02042b10(ctx, obj + 0xb4);
+        func_0202f404(ctx + RG(0x19e0, 0x1804), 1, 1);
+        func_02042b1c(ctx);
     }
 
-    if (CheckGlobalObjState2AndInit0205cde8(obj) == 0) {
+    if (func_0205cde8(obj) == 0) {
         return;
     }
 
@@ -113,12 +113,12 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
         return;
     }
 
-    SetEntryFlag2ByKey0205a370(entries, key);
-    entry = FindEntryByHalfword0205a3d0(entries, key);
+    func_0205a370(entries, key);
+    entry = func_0205a3d0(entries, key);
     if (entry != NULL) {
         entry->f15 |= 8;
     }
-    entry = FindEntryByHalfword0205a3d0(entries, key);
+    entry = func_0205a3d0(entries, key);
     if (entry != NULL) {
         entry->f4 = x;
         entry->f6 = y;

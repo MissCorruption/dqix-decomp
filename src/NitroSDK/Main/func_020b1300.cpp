@@ -28,7 +28,7 @@ struct BitReader020b29f8 {
     u8 padding_[2];
 };
 
-u32 ReadBits020b29f8(BitReader020b29f8* reader, int nBits);
+extern "C" u32 func_020b29f8(BitReader020b29f8* reader, int nBits);
 
 static inline void NNSi_G2dBitReaderInit(BitReader020b29f8* reader, const void* src) {
     reader->availableBits = 0;
@@ -86,10 +86,10 @@ extern "C" ARM void func_020b1300(LC_INFO* i) {
                 u32 out_line = *pDst;
 
                 NNSi_G2dBitReaderInit(&reader, pSrc + offset / 8);
-                (void)ReadBits020b29f8(&reader, (int)offset % 8);
+                (void)func_020b29f8(&reader, (int)offset % 8);
 
                 for (x = x_st; x < x_ed; x += 4) {
-                    u32 bits = ReadBits020b29f8(&reader, srcBpp);
+                    u32 bits = func_020b29f8(&reader, srcBpp);
 
                     if (bits != 0) {
                         out_line = (out_line & ~(0xF << x)) | ((cl + bits) << x);
@@ -111,10 +111,10 @@ extern "C" ARM void func_020b1300(LC_INFO* i) {
                 u32 out_line_1 = *(pDst + 1);
 
                 NNSi_G2dBitReaderInit(&reader, pSrc + offset / 8);
-                (void)ReadBits020b29f8(&reader, (int)offset % 8);
+                (void)func_020b29f8(&reader, (int)offset % 8);
 
                 for (x = x_st; x < x_ed; x += 8) {
-                    u32 bits = ReadBits020b29f8(&reader, srcBpp);
+                    u32 bits = func_020b29f8(&reader, srcBpp);
 
                     if (bits != 0) {
                         if (x < 32) {

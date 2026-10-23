@@ -7,14 +7,14 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" int func_ov023_021f98e0(void*, void*);
-unsigned int GetShort28_021f9bb0(struct Obj021f9bb0* obj);
-unsigned short GetField2a_021f9bc0(struct Obj021f9bc0* o);
-unsigned int GetTableEntry_021f9b6c(struct Obj9b6c* obj, unsigned int a, unsigned int b);
-void* GetLinkedNodeIfKind6_021f9cb8(void* unused, void* other, void* node);
+extern "C" unsigned int func_ov023_021f9bb0(struct Obj021f9bb0* obj);
+extern "C" unsigned short func_ov023_021f9bc0(struct Obj021f9bc0* o);
+extern "C" unsigned int func_ov023_021f9b6c(struct Obj9b6c* obj, unsigned int a, unsigned int b);
+extern "C" void* func_ov023_021f9cb8(void* unused, void* other, void* node);
 extern "C" void func_ov023_021f88b8(void* obj, void* param1, int id);
 extern "C" void func_ov004_0215534c(void*);
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern struct Obj0205eaa0 data_02108760;
 
 struct S10021707c4 { char pad[0x10]; unsigned char toggle; };
@@ -41,10 +41,10 @@ public:
 };
 
 struct ListHead_021e1da4 { void* first; };
-short FindIndexByField8_021e1da4(struct ListHead_021e1da4* head, int val);
+extern "C" short func_ov023_021e1da4(struct ListHead_021e1da4* head, int val);
 
 struct Obj021f9bdc;
-void DivModField26_021f9bdc(struct Obj021f9bdc* o, int divisor);
+extern "C" void func_ov023_021f9bdc(struct Obj021f9bdc* o, int divisor);
 
 struct Entry5c02155bbc {
     char pad[0x5c];
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov004_02155bbc(void* a1) {
     void* listHead = ((VObj02155bbc*)node)->Methodec();
     if (!listHead) return 0;
 
-    short idx = FindIndexByField8_021e1da4((struct ListHead_021e1da4*)listHead, *(short*)((char*)r4 + 0x18));
+    short idx = func_ov023_021e1da4((struct ListHead_021e1da4*)listHead, *(short*)((char*)r4 + 0x18));
     if (idx < 0) return 0;
 
     void* base2 = func_ov011_021849c8(a1);
@@ -83,19 +83,19 @@ extern "C" ARM int func_ov004_02155bbc(void* a1) {
     e->field5e = savedHi;
     short remSigned = (short)(idx % 16);
     unsigned short remUnsigned = (unsigned short)remSigned;
-    DivModField26_021f9bdc((struct Obj021f9bdc*)node2, remUnsigned);
+    func_ov023_021f9bdc((struct Obj021f9bdc*)node2, remUnsigned);
 
     func_ov023_021f98e0(node2, a1);
 
-    unsigned int v1 = GetShort28_021f9bb0((struct Obj021f9bb0*)node2);
-    unsigned short v2 = GetField2a_021f9bc0((struct Obj021f9bc0*)node2);
-    unsigned int entry = GetTableEntry_021f9b6c((struct Obj9b6c*)node2, v1, v2);
+    unsigned int v1 = func_ov023_021f9bb0((struct Obj021f9bb0*)node2);
+    unsigned short v2 = func_ov023_021f9bc0((struct Obj021f9bc0*)node2);
+    unsigned int entry = func_ov023_021f9b6c((struct Obj9b6c*)node2, v1, v2);
 
     void* base3 = func_ov011_021849c8(a1);
     void* node3 = func_ov023_021f6880(base3, entry);
     if (node3) {
         if (func_ov023_021f6f10(node3) == 8) {
-            void* res = GetLinkedNodeIfKind6_021f9cb8(node2, a1, node3);
+            void* res = func_ov023_021f9cb8(node2, a1, node3);
             if (res) {
                 func_ov023_021f88b8(res, a1, 0x8000);
             }
@@ -103,6 +103,6 @@ extern "C" ARM int func_ov004_02155bbc(void* a1) {
     }
 
     func_ov004_0215534c(a1);
-    DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+    func_0205eaa0(&data_02108760, 1, 0);
     return 0;
 }

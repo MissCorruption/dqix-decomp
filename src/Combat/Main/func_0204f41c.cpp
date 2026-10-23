@@ -13,8 +13,8 @@ struct Glyph0204f41c {
 
 extern "C" int func_0204fc40(Window0204f41c* window, const char** cursor, const char* tag, short* out, int count);
 extern "C" void func_0204df9c(Window0204f41c* window, Glyph0204f41c* glyph, short x, short y, unsigned char color, int font);
-Glyph0204f41c* FindEntryByKey0204254c(int key, int tableIdx);
-Glyph0204f41c* GetBoundedEntry020425b4(int idx, int tableIdx);
+extern "C" Glyph0204f41c* func_0204254c(int key, int tableIdx);
+extern "C" Glyph0204f41c* func_020425b4(int idx, int tableIdx);
 
 extern const unsigned char data_020e7bd8[];
 extern const char data_020f0248[];
@@ -94,7 +94,7 @@ extern "C" ARM void func_0204f41c(Window0204f41c* window, short x, short y, cons
             p--;
         }
         unsigned char advance = data_020e7bd8[font] + 1;
-        Glyph0204f41c* glyph = FindEntryByKey0204254c((int)p, font);
+        Glyph0204f41c* glyph = func_0204254c((int)p, font);
         if (glyph != NULL) {
             func_0204df9c(window, glyph, x, y, curColor, font);
             advance = glyph->width + 1;
@@ -105,7 +105,7 @@ extern "C" ARM void func_0204f41c(Window0204f41c* window, short x, short y, cons
             p += glyph->length;
         } else {
             if (*p != ' ') {
-                func_0204df9c(window, GetBoundedEntry020425b4(0, font), x, y, curColor, font);
+                func_0204df9c(window, func_020425b4(0, font), x, y, curColor, font);
             }
             p++;
         }

@@ -20,7 +20,7 @@ struct BattleEquipmentList {
     int partyIndex;
 };
 
-BattleEquipmentEntry* FindElementByKey020dedd0(Container020dedd0* c, int key);
+extern "C" BattleEquipmentEntry* func_020dedd0(Container020dedd0* c, int key);
 extern "C" unsigned char data_ov000_02183388[8];
 
 // USA: func_ov000_02171d90
@@ -28,7 +28,7 @@ extern "C" ARM BattleEquipmentEntry* func_ov000_02171d90(BattleEquipmentList* li
     if (itemId < 0) {
         return NULL;
     }
-    char* actor = (char*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), list->partyIndex);
+    char* actor = (char*)func_0200ff1c(GameState::GetInstance(), list->partyIndex);
     if (actor) {
         unsigned char equipmentOrder[8];
         unsigned int bytes = sizeof(equipmentOrder);
@@ -55,5 +55,5 @@ extern "C" ARM BattleEquipmentEntry* func_ov000_02171d90(BattleEquipmentList* li
             }
         }
     }
-    return FindElementByKey020dedd0(list->inventory, itemId);
+    return func_020dedd0(list->inventory, itemId);
 }

@@ -19,11 +19,11 @@ extern "C" void func_ov031_02223614(void* buf, int n);
 extern "C" void func_ov031_02222b0c(int);
 extern "C" void func_ov031_02237448(void* fn);
 extern "C" void func_ov031_02236878(int);
-extern void SetField_022274c0_022274c0(int);
+extern "C" void func_ov031_022274c0(int);
 extern "C" ARM void func_ov031_02234cac(void);
 extern "C" ARM void func_ov031_02234a08(void);
 
-// USA: func_ov031_022348cc  (semantic: InitAndScheduleTransfer_022348cc)
+// USA: func_ov031_022348cc
 extern "C" ARM void func_ov031_022348cc(void) {
 	unsigned char buf[0x6c];
 	data_ov031_02290ce4 = 0;
@@ -38,5 +38,5 @@ extern "C" ARM void func_ov031_022348cc(void) {
 	func_ov031_02222b0c(0);
 	func_ov031_02237448((void*)func_ov031_02234cac);
 	func_ov031_02236878(0xb);
-	SetField_022274c0_022274c0((int)func_ov031_02234a08);
+	func_ov031_022274c0((int)func_ov031_02234a08);
 }

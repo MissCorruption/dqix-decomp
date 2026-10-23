@@ -1,6 +1,6 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define _Z22SetupBattleTag02189d68Pc func_ov012_0218a804
+#define func_ov012_02189d68 func_ov012_0218a804
 #define data_ov009_0218ac04 data_ov009_0218bb6c
 #define data_ov013_02187d94 data_ov013_02188cd0
 #define func_ov008_02187b20 func_ov008_021888fc
@@ -16,7 +16,7 @@
 
 struct Struct021847c4 { int a, b, c, d, e, f, g, h; };
 
-void ResetFields021847c4(struct Struct021847c4 *s);
+extern "C" void func_ov009_021847c4(struct Struct021847c4 *s);
 
 extern const short data_ov009_0218ac04[] = {
 	1, 64, 48, 128, 32, 0, 48, 1, 2,
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov009_02188d9c(void *self) {
 	int *out = (int*)((char*)self + R(0xbf0,0xc2c));
 	int i;
 
-	ResetFields021847c4((struct Struct021847c4*)out);
+	func_ov009_021847c4((struct Struct021847c4*)out);
 
 	i = 0;
 	while (data_ov009_0218ac04[i] >= 0) {

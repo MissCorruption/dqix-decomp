@@ -5,9 +5,9 @@
 struct ClearTarget0205a234;
 struct EntryManager020e2490;
 
-void Init0205a198(Struct0205a198* s);
-void ClearField0And40205a234(ClearTarget0205a234* t);
-void InitEntryManager020e2490(EntryManager020e2490* mgr, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag);
+extern "C" void func_0205a198(Struct0205a198* s);
+extern "C" void func_0205a234(ClearTarget0205a234* t);
+extern "C" void func_020e2490(EntryManager020e2490* mgr, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag);
 
 struct Obj02158a84 {
     SafeAllocator alloc0;
@@ -34,15 +34,15 @@ extern "C" ARM void func_ov003_02158a84(Obj02158a84* self, SafeAllocator* alloc)
     self->alloc50.CreateTypeA(alloc->Allocate(0x200), 0x200);
     self->entries = (Struct0205a198*)alloc->Allocate(0x230);
     for (int i = 0; i < 14; i++) {
-        Init0205a198(&self->entries[i]);
+        func_0205a198(&self->entries[i]);
     }
     self->clearTarget = (ClearTarget0205a234*)alloc->Allocate(8);
-    ClearField0And40205a234(self->clearTarget);
+    func_0205a234(self->clearTarget);
     self->alloc50.Reset();
     self->entryManager = (EntryManager020e2490*)self->alloc50.Allocate(0x24);
 #if defined(jpn)
-    InitEntryManager020e2490(self->entryManager, 0, 1, self->clearTarget, &self->alloc50, 3, 0x40);
+    func_020e2490(self->entryManager, 0, 1, self->clearTarget, &self->alloc50, 3, 0x40);
 #else
-    InitEntryManager020e2490(self->entryManager, 0, 1, self->clearTarget, &self->alloc50, 4, 0x40);
+    func_020e2490(self->entryManager, 0, 1, self->clearTarget, &self->alloc50, 4, 0x40);
 #endif
 }

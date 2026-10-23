@@ -1,0 +1,24 @@
+#include <globaldefs.h>
+#include "Resource/GameResources.h"
+
+struct GameResources;
+void Stub(GameResources*);
+void UpdateBrightnessTransitions(GameResources*);
+void ApplyBrightness(GameResources*);
+
+struct Struct020db814 {
+    char pad[0x28];
+    unsigned char field0x28;
+};
+
+// USA: func_020db814
+extern "C" ARM void func_020db814(void*) {
+    struct Struct020db814* obj = (struct Struct020db814*)GetGameResources();
+    if (obj == NULL) {
+        return;
+    }
+    obj->field0x28 = 1;
+    Stub((GameResources*)obj);
+    UpdateBrightnessTransitions((GameResources*)obj);
+    ApplyBrightness((GameResources*)obj);
+}

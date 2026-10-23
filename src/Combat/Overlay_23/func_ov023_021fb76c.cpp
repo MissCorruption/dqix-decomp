@@ -18,7 +18,7 @@ struct Obj021fb76c {
     int field1c;
 };
 
-// USA: func_ov023_021fb76c  (semantic: DispatchOrReturnField1c_021fb76c)
+// USA: func_ov023_021fb76c
 extern "C" ARM int func_ov023_021fb76c(struct Obj021fb76c* obj, void* ctx) {
     void* node = func_ov011_021849c8(ctx);
     int listPtr = (int)BackgroundLoader::GetInstance();

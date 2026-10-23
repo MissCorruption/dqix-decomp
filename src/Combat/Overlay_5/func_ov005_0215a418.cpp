@@ -19,9 +19,9 @@
 
 extern "C" void func_020c51a4(int cmd);
 
-char* GetField1c_021a193c(int*);
+extern "C" char* func_ov017_021a193c(int*);
 struct Field150Holder02052e14;
-short* GetField150Ptr0x488(Field150Holder02052e14*);
+extern "C" short* func_02052e14(Field150Holder02052e14*);
 extern "C" void func_02047554(void* obj, int val, int param1);
 
 extern const unsigned char data_ov005_0215cc1c[];
@@ -51,8 +51,8 @@ struct Scene0215a418 {
 extern "C" ARM void func_ov005_0215a418(Scene0215a418* self) {
     GameState* gs = GameState::GetInstance();
     GameResources* res = GetGameResources();
-    char* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
-    short* tbl = GetField150Ptr0x488((Field150Holder02052e14*)(GetCombatantWithFlag0x100_0200ff1c(gs,*(int*)(holder + LOW_REGION(0x4f8, 0x4fc)))));
+    char* holder = func_ov017_021a193c((int*)res->unknown_ptr_array_36fc[3]);
+    short* tbl = func_02052e14((Field150Holder02052e14*)(func_0200ff1c(gs,*(int*)(holder + LOW_REGION(0x4f8, 0x4fc)))));
     if (self->mode != 0) return;
 
     for (int i = 0; i < 8; i++) {

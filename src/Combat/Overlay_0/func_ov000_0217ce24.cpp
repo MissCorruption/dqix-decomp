@@ -24,18 +24,18 @@ struct UnitState {char p[0x56b];unsigned char low:4,high:4;};
 struct UnitView {char p[unitStateOffset];UnitState* state;};
 struct Struct_0205c570;struct Obj0205eaa0;struct Struct0217f8c0;struct TableEntry0217f8c0;
 struct Struct_0205d81c;struct Entry_0205d6a0;struct Obj02092aa4;
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*,int,int);
-void* GetPtrField0x2a04_02010828(GameState*);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*,int);
-TableEntry0217f8c0* FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
-int GetField0x3acValue_020100a8(GameState*);
-int CountSetBitsLow12_0x68_ov000_0218155c(void*);
-void SetElementStateIfLess0217a9d0(int,int,int,Struct_0205d81c*);
-void InitObj02092aa4(Obj02092aa4*, int);
-void CreateTypeAFromAllocator_02092a74(SafeAllocator*,SafeAllocator*);
-int CheckFlagsOrField_0217c5f4_0217c5f4(void*);
-void ResetEntryList0205d6a0(Entry_0205d6a0*,int);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_0205eaa0(Obj0205eaa0*,int,int);
+extern "C" void* func_02010828(GameState*);
+extern "C" GameObject* func_0200ff1c(GameState*,int);
+extern "C" TableEntry0217f8c0* func_ov000_0217f8c0(Struct0217f8c0*);
+extern "C" int func_020100a8(GameState*);
+extern "C" int func_ov000_0218155c(void*);
+extern "C" void func_ov000_0217a9d0(int,int,int,Struct_0205d81c*);
+extern "C" void func_02092aa4(Obj02092aa4*, int);
+extern "C" void func_02092a74(SafeAllocator*,SafeAllocator*);
+extern "C" int func_ov000_0217c5f4(void*);
+extern "C" void func_0205d6a0(Entry_0205d6a0*,int);
 extern Obj0205eaa0 data_02108760;
 extern "C" {
 void func_02012fe4();int func_ov000_0217c594(void*,int);
@@ -52,19 +52,19 @@ extern "C" ARM void func_ov000_0217ce24(Root* self,int a,int b)
 {
     func_02012fe4();
     self->flags|=0x100;
-    int mode=GetActiveScaledSum0205d794((Struct_0205c570*)self->updateState);
+    int mode=func_0205d794((Struct_0205c570*)self->updateState);
     if(mode<0)mode=0;
     self->mode=mode;
     if(func_ov000_0217c594(self,5)){
         self->flag956=0;
-        DispatchWithShortB4_0205eaa0(&data_02108760,1,0);
+        func_0205eaa0(&data_02108760,1,0);
         GameState* game=GameState::GetInstance();
-        Party* party=(Party*)GetPtrField0x2a04_02010828(game);
+        Party* party=(Party*)func_02010828(game);
         signed char count=0;bool active=false;
         unsigned char i=0;unsigned char total=party->count;
         for(;i<total;i++){
             int member=party->members[i];
-            UnitView* unit=(UnitView*)GetCombatantWithFlag0x100_0200ff1c(game,member);
+            UnitView* unit=(UnitView*)func_0200ff1c(game,member);
             if(unit){
                 bool stateActive=unit->state?unit->state->low!=0:false;
                 if(stateActive)active=true;
@@ -78,17 +78,17 @@ extern "C" ARM void func_ov000_0217ce24(Root* self,int a,int b)
             func_ov000_02177038(self,0,self->commands[self->index],a,b);
             if(party->count==1||active||self->force||count==1){
                 self->count=0;self->index++;self->commands[self->index]=12;
-                func_ov000_02176634(self,FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self),12,a,b);
+                func_ov000_02176634(self,func_ov000_0217f8c0((Struct0217f8c0*)self),12,a,b);
             }else{
                 self->count=0;self->index++;self->commands[self->index]=3;
-                func_ov000_02176634(self,FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self),3,a,b);
+                func_ov000_02176634(self,func_ov000_0217f8c0((Struct0217f8c0*)self),3,a,b);
             }
             break;
         case 1:
             func_ov000_02177038(self,0,self->commands[self->index],a,b);
             self->special=0;self->count=0;self->index++;self->commands[self->index]=5;
             if(party->count==1||active||count==1){
-                int member=(signed char)GetField0x3acValue_020100a8(game);
+                int member=(signed char)func_020100a8(game);
                 self->mask=func_020dd3cc(member);
                 self->mask=func_ov000_0217c514(member,self->mask);
                 self->commands[self->index]=6;
@@ -98,28 +98,28 @@ extern "C" ARM void func_ov000_0217ce24(Root* self,int a,int b)
                     break;
                 }
             }
-            {TableEntry0217f8c0* entry=FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self);
+            {TableEntry0217f8c0* entry=func_ov000_0217f8c0((Struct0217f8c0*)self);
             func_ov000_02176634(self,entry,self->commands[self->index],a,b);}
-            SetElementStateIfLess0217a9d0(6,CountSetBitsLow12_0x68_ov000_0218155c(self),4,(Struct_0205d81c*)self->updateState);
+            func_ov000_0217a9d0(6,func_ov000_0218155c(self),4,(Struct_0205d81c*)self->updateState);
             break;
         case 2:
             self->limit=count;
             func_ov000_02177038(self,0,self->commands[self->index],a,b);
             self->count=0;self->index++;self->commands[self->index]=8;
-            func_ov000_02176634(self,FindMatchingTableEntry0217f8c0((Struct0217f8c0*)self),8,a,b);
+            func_ov000_02176634(self,func_ov000_0217f8c0((Struct0217f8c0*)self),8,a,b);
             break;
         case 3:
             func_ov000_02176e3c(self,0,self->commands[self->index],a,b,1);
             self->index++;self->commands[self->index]=9;
             self->allocator.Reset();
-            InitObj02092aa4((Obj02092aa4*)&self->firstAllocator, (signed char)self->member);
-            CreateTypeAFromAllocator_02092a74(&self->firstAllocator,&self->allocator);
+            func_02092aa4((Obj02092aa4*)&self->firstAllocator, (signed char)self->member);
+            func_02092a74(&self->firstAllocator,&self->allocator);
             self->flagB3|=8;
             break;
         }
-    }else if(CheckFlagsOrField_0217c5f4_0217c5f4(self)){
+    }else if(func_ov000_0217c5f4(self)){
         self->flag956=0;
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->updateState,0);
+        func_0205d6a0((Entry_0205d6a0*)self->updateState,0);
         self->commands[self->index]=0;self->index--;
         func_ov000_0217c638(self,a,b);
     }

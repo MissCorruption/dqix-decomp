@@ -156,46 +156,46 @@ extern "C" void func_02073864(void*, void*, const char*, int, int, int);
 extern "C" void func_0204500c(void*, const char*, int);
 #endif
 
-MessageWork* GetGlobalField0x1c020421a0();
-int GetWord0x0_0200fb8c(int* obj);
+extern "C" MessageWork* func_020421a0();
+extern "C" int func_0200fb8c(int* obj);
 extern "C" void* func_02012fe4(void);
-void* GetDataPtr02114e04_020d6c00();
-void* GetPtrField0x2a04_02010828(GameState* gameState);
+extern "C" void* func_020d6c00();
+extern "C" void* func_02010828(GameState* gameState);
 extern "C" void* func_0202ae18(void);
-void SetField0x5729Value_0201075c(char* obj, unsigned char value);
-unsigned char GetField0x5729Value_02010750(char* obj);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" void func_0201075c(char* obj, unsigned char value);
+extern "C" unsigned char func_02010750(char* obj);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_0202b7d8(int* obj);
 extern "C" void func_ov017_021d2400(void);
-void DispatchContextByState0209c678(Actor0209c678* actor, int arg);
-void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
-void ClearFlags020466f4(FlagWord020466f4* word, unsigned int mask);
-void ResetListHeader020727d8(List020727d8* list);
+extern "C" void func_0209c678(Actor0209c678* actor, int arg);
+extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" void func_020466f4(FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_020727d8(List020727d8* list);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath,
                                     unsigned int* outSize);
 extern "C" void func_020728ac(void* list, void* alloc, void* buffer, int length, int a4, int a5,
                               int a6);
-void SetFieldForListedCombatants021f50fc();
+extern "C" void func_ov023_021f50fc();
 extern "C" int func_ov000_02163c80(void* work, int mode);
-GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
-void EnqueueEventTag87_021c9b20(int a, int b);
-int TrySetMode02076ccc(void* obj, int mode);
+extern "C" GameObject* func_ov017_021a278c(void* unused, int val);
+extern "C" void func_ov017_021c9b20(int a, int b);
+extern "C" int func_02076ccc(void* obj, int mode);
 extern "C" void func_ov017_021a23b0(void* base, int v);
-unsigned char CopyOutRegion0x571d_020114ec(char* obj, void* dst);
+extern "C" unsigned char func_020114ec(char* obj, void* dst);
 extern "C" void func_ov000_0216d370(void* obj, int flagA, int flagB, int flagC);
-void* FindEntryByKey_02072a68(TableA68* table, int key);
+extern "C" void* func_02072a68(TableA68* table, int key);
 extern "C" int sprintf(char* buffer, const char* format, ...);
 #if !defined(jpn)
 extern "C" void func_0204500c(void* obj, const char* text, int mode, int tag);
 #endif
-void ResetAndDispatchActorContext0209c6d8(void* actor, int arg);
+extern "C" void func_0209c6d8(void* actor, int arg);
 extern "C" int func_ov017_021959b4(void);
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* s, int val);
-void EnqueueEventTag129_021cbfb8(unsigned short a, unsigned char b);
-void StopAndReset0209c7fc(void* obj);
-void ReinitController02043204(char* obj);
+extern "C" int func_02086ef0(ArrayContainsByteStruct* s, int val);
+extern "C" void func_ov017_021cbfb8(unsigned short a, unsigned char b);
+extern "C" void func_0209c7fc(void* obj);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_02043124(void* obj);
-void SetFieldsAndSignalData02184220_ov000_02160d80(void* p, int val);
+extern "C" void func_ov000_02160d80(void* p, int val);
 
 // USA: func_ov023_021f4c04
 extern "C" ARM void func_ov023_021f4c04(BattleWork* self) {
@@ -206,39 +206,39 @@ extern "C" ARM void func_ov023_021f4c04(BattleWork* self) {
 #endif
 
     GameState* gs = GameState::GetInstance();
-    MessageWork* ctrl = GetGlobalField0x1c020421a0();
-    int res = GetWord0x0_0200fb8c((int*)gs);
+    MessageWork* ctrl = func_020421a0();
+    int res = func_0200fb8c((int*)gs);
     func_02012fe4();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    FlagWord020466f4* flags = (FlagWord020466f4*)GetDataPtr02114e04_020d6c00();
-    void* battle = GetPtrField0x2a04_02010828(gs);
+    FlagWord020466f4* flags = (FlagWord020466f4*)func_020d6c00();
+    void* battle = func_02010828(gs);
     void* owner = func_0202ae18();
 
     GetGlobal021ffefc().elapsed += gs->GetEffectiveDeltaTime();
     int state = self->state;
 
     if (state == 0) {
-        SetField0x5729Value_0201075c((char*)gs, 1);
+        func_0201075c((char*)gs, 1);
         for (int i = 0; i < 4; i++) {
             GameObject* member = gs->GetPartyMemberByIndex(i);
             if (member == NULL) continue;
             if (((Combatant021f4c04*)member)->stats->flags & 1) continue;
-            if (TestBitAt0x34_020a35e0((unsigned char*)self->party, i)) continue;
-            SetField0x5729Value_0201075c((char*)gs, 0);
+            if (func_020a35e0((unsigned char*)self->party, i)) continue;
+            func_0201075c((char*)gs, 0);
         }
-        if (GetField0x5729Value_02010750((char*)gs) != 0 && CheckField0NonZero_0202b7d8((int*)owner) != 0) {
+        if (func_02010750((char*)gs) != 0 && func_0202b7d8((int*)owner) != 0) {
             func_ov017_021d2400();
         }
-        DispatchContextByState0209c678(&data_02109bf4, 0x1e);
-        SetCombatWorkFlags0x55f4_ov000_02160fa8(self, 0x800000);
-        ClearFlags020466f4(flags, 0x40000);
+        func_0209c678(&data_02109bf4, 0x1e);
+        func_ov000_02160fa8(self, 0x800000);
+        func_020466f4(flags, 0x40000);
         GetGlobal021ffefc().elapsed = 0;
         self->state = 1;
     } else if (state == 1) {
         if (GetGlobal021ffefc().elapsed < 1000) return;
         if (loader->GetNumQueuedTasks() > 0) return;
         ((SafeAllocator*)self->alloc)->Reset();
-        ResetListHeader020727d8((List020727d8*)self->rosterList);
+        func_020727d8((List020727d8*)self->rosterList);
 #if defined(jpn)
         func_02073864(self->rosterList, self->alloc, data_ov023_021fd49e, 0, 0, 0);
 #else
@@ -250,27 +250,27 @@ extern "C" ARM void func_ov023_021f4c04(BattleWork* self) {
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
-        SetFieldForListedCombatants021f50fc();
+        func_ov023_021f50fc();
         int id = self->party->id;
         if (func_ov000_02163c80(self, 1)) {
-            GameObject* target = FindCombatantByField16a_021a278c((void*)res, id);
+            GameObject* target = func_ov017_021a278c((void*)res, id);
             if (target != NULL) {
-                EnqueueEventTag87_021c9b20((unsigned short)id, 1);
-                TrySetMode02076ccc(target, 1);
+                func_ov017_021c9b20((unsigned short)id, 1);
+                func_02076ccc(target, 1);
                 *(unsigned char*)((char*)target + 0x17d) &= ~0x80;
             }
         } else {
-            EnqueueEventTag87_021c9b20((unsigned short)id, 0);
+            func_ov017_021c9b20((unsigned short)id, 0);
             func_ov017_021a23b0((void*)res, id);
         }
 #if !defined(jpn)
-        unsigned char count = CopyOutRegion0x571d_020114ec((char*)gs, ids);
+        unsigned char count = func_020114ec((char*)gs, ids);
         unsigned char numMembers = 0;
         unsigned char numAlive = 0;
         for (int j = 0; j < count; j++) {
             GameObject* member = gs->GetCombatantByIndex(ids[j]);
             if (member == NULL) continue;
-            if (!TestBitAt0x34_020a35e0((unsigned char*)self->party, ids[j])) continue;
+            if (!func_020a35e0((unsigned char*)self->party, ids[j])) continue;
             numMembers++;
             if ((((Combatant021f4c04*)member)->stats->flags & 1) == 0) numAlive++;
         }
@@ -280,27 +280,27 @@ extern "C" ARM void func_ov023_021f4c04(BattleWork* self) {
         func_ov000_0216d370(self->view, 0, 0, 1);
 #if defined(jpn)
         int value = *(int*)((char*)gs->GetProtagonist() + 0x134);
-        sprintf(text, (const char*)FindEntryByKey_02072a68((TableA68*)self->rosterList, 0x14), value);
+        sprintf(text, (const char*)func_02072a68((TableA68*)self->rosterList, 0x14), value);
         func_0204500c(ctrl, text, 1);
 #else
         gs->GetProtagonist();
-        sprintf(text, (const char*)FindEntryByKey_02072a68((TableA68*)self->rosterList, 0x14));
+        sprintf(text, (const char*)func_02072a68((TableA68*)self->rosterList, 0x14));
         func_0204500c(ctrl, text, 1, 0xe3);
 #endif
         ctrl->busy = 1;
-        ResetAndDispatchActorContext0209c6d8(&data_02109bf4, 0x3a);
+        func_0209c6d8(&data_02109bf4, 0x3a);
         self->state = 2;
     } else if (state == 2) {
         if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)gs + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
             if (ctrl->busy != 0) return;
         }
-        if (ArrayContainsByte_02086ef0((ArrayContainsByteStruct*)battle, self->party->kind)) {
-            EnqueueEventTag129_021cbfb8(self->party->id, 1);
+        if (func_02086ef0((ArrayContainsByteStruct*)battle, self->party->kind)) {
+            func_ov017_021cbfb8(self->party->id, 1);
         }
         *(unsigned char*)((char*)gs + REGION_LAYOUT(0x54c8, 0x5728)) = 0;
-        StopAndReset0209c7fc(&data_02109bf4);
-        ReinitController02043204((char*)ctrl);
+        func_0209c7fc(&data_02109bf4);
+        func_02043204((char*)ctrl);
         func_02043124(ctrl);
-        SetFieldsAndSignalData02184220_ov000_02160d80(self, 4);
+        func_ov000_02160d80(self, 4);
     }
 }

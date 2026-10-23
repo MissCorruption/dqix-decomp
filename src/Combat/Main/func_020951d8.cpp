@@ -38,7 +38,7 @@ struct Owner02095910 {
     unsigned char pad[0xa4];
     void* slot;
 };
-void SetSlotA4(struct Owner02095910* owner, struct Node02095910* node);
+extern "C" void func_02095910(struct Owner02095910* owner, struct Node02095910* node);
 
 // USA: func_020951d8
 extern "C" ARM int func_020951d8(struct Variant02030b0c* arr, int b) {
@@ -86,6 +86,6 @@ extern "C" ARM int func_020951d8(struct Variant02030b0c* arr, int b) {
     }
     node->count = smallCount;
     node->bigCount = bigCount;
-    SetSlotA4((struct Owner02095910*)&data_02109418, node);
+    func_02095910((struct Owner02095910*)&data_02109418, node);
     return 1;
 }

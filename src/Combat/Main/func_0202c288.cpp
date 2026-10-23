@@ -11,16 +11,16 @@ struct SearchStruct {
     struct CounterBlk blk;
 };
 
-void PushInterruptDisableState_020d8654(void);
+extern "C" void func_020d8654(void);
 extern "C" void func_020d8694(void);
-int TestBitBySignedByteIndex_0202c1c0(struct SearchStruct* obj, int value);
-void StoreValidCombatantCount0202c3e0(void* obj);
-void UpdatePlayClocks020ac4f8(int flag);
+extern "C" int func_0202c1c0(struct SearchStruct* obj, int value);
+extern "C" void func_0202c3e0(void* obj);
+extern "C" void func_020ac4f8(int flag);
 unsigned long long GetCurrentTimestamp(void);
 
 // USA: func_0202c288
 extern "C" ARM void func_0202c288(struct SearchStruct* obj) {
-    PushInterruptDisableState_020d8654();
+    func_020d8654();
     int flag = (*(int*)obj != 0);
     unsigned char saved = obj->blk.count;
 
@@ -30,18 +30,18 @@ extern "C" ARM void func_0202c288(struct SearchStruct* obj) {
         obj->blk.count = 0;
         int i;
         for (i = 0; i < 4; i++) {
-            if (TestBitBySignedByteIndex_0202c1c0(obj, i)) {
+            if (func_0202c1c0(obj, i)) {
                 (*((unsigned char*)obj + 0x100d))++;
             }
         }
-        StoreValidCombatantCount0202c3e0(obj);
+        func_0202c3e0(obj);
     }
 
     if (*(int*)obj == 5) {
         unsigned char cur = obj->blk.count;
         if (cur == 1) {
             if (saved > 1) {
-                UpdatePlayClocks020ac4f8(1);
+                func_020ac4f8(1);
                 goto done;
             }
         }

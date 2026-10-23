@@ -4,14 +4,14 @@
     .data       start:0x0218bc20 end:0x0218bca0 kind:data align:32
     .bss        start:0x0218bca0 end:0x0218bca0 kind:bss align:32
 
-src/Combat/Overlay_9/ResetFields021847c4.cpp:
+src/Combat/Overlay_9/func_ov009_021847c4.cpp:
     complete
     .text start:0x02185828 end:0x02185850
 
 src/Combat/Overlay_9/func_ov009_02184a18.cpp:
     .text start:0x02185aac end:0x02185c58
 
-src/Combat/Overlay_9/ResetAndReinitCombatState_02184848.cpp:
+src/Combat/Overlay_9/func_ov009_02184848.cpp:
     .text start:0x021858e4 end:0x02185aac
 
 src/Combat/Overlay_9/func_ov009_02187b34.cpp:
@@ -26,7 +26,7 @@ src/Combat/Overlay_9/func_ov009_0218454c.cpp:
     complete
     .text start:0x021855a8 end:0x02185828
 
-src/Combat/Overlay_9/DecrementCounterD96ClampZero_0218a930.cpp:
+src/Combat/Overlay_9/func_ov009_0218a930.cpp:
     complete
     .text start:0x0218b908 end:0x0218b934
 
@@ -34,7 +34,7 @@ src/Combat/Overlay_9/func_ov009_02184bbc.cpp:
     complete
     .text start:0x02185ee8 end:0x02185f5c
 
-src/Combat/Overlay_9/SetStatValue021855dc.cpp:
+src/Combat/Overlay_9/func_ov009_021855dc.cpp:
     complete
     .text start:0x021867bc end:0x02186814
 
@@ -42,7 +42,7 @@ src/Combat/Overlay_9/func_ov009_021847ec.cpp:
     complete
     .text start:0x02185850 end:0x02185888
 
-src/Combat/Overlay_9/SyncEntryPairAndRefreshFlags_02188454.cpp:
+src/Combat/Overlay_9/func_ov009_02188454.cpp:
     complete
     .text start:0x02189214 end:0x02189378
 
@@ -51,27 +51,27 @@ src/Combat/Overlay_9/func_ov009_02188604.cpp:
     .text start:0x021893c4 end:0x02189704
 
 
-src/Combat/Overlay_9/AdvanceListStep_021883cc.cpp:
+src/Combat/Overlay_9/func_ov009_021883cc.cpp:
     complete
     .text start:0x0218918c end:0x02189214
 
 
-src/Combat/Overlay_9/GetPriorityGroupIndex_02188b14.cpp:
+src/Combat/Overlay_9/func_ov009_02188b14.cpp:
     complete
     .text start:0x021898cc end:0x021899b0
 
 
-src/Combat/Overlay_9/SyncCombatantAndFlushMatrix_02184c30.cpp:
+src/Combat/Overlay_9/func_ov009_02184c30.cpp:
     complete
     .text start:0x02185f5c end:0x02185fd0
 
 
-src/Combat/Overlay_9/UpdateCombatantState_02184d70.cpp:
+src/Combat/Overlay_9/func_ov009_02184d70.cpp:
     complete
     .text start:0x02186098 end:0x02186158
 
 
-src/Combat/Overlay_9/UpdateFlag021885b8.cpp:
+src/Combat/Overlay_9/func_ov009_021885b8.cpp:
     complete
     .text start:0x02189378 end:0x021893c4
 
@@ -81,22 +81,22 @@ src/Combat/Overlay_9/func_ov009_02184ca4.cpp:
     .text start:0x02185fd0 end:0x02186098
 
 
-src/Combat/Overlay_9/AdvanceStatStep_021865dc.cpp:
+src/Combat/Overlay_9/func_ov009_021865dc.cpp:
     complete
     .text start:0x02187708 end:0x0218781c
 
 
-src/Combat/Overlay_9/AdvanceStatStep_021868c4.cpp:
+src/Combat/Overlay_9/func_ov009_021868c4.cpp:
     complete
     .text start:0x021879f0 end:0x02187b04
 
 
-src/Combat/Overlay_9/DispatchTypeAndInitPair_02188c2c.cpp:
+src/Combat/Overlay_9/func_ov009_02188c2c.cpp:
     complete
     .text start:0x02189af0 end:0x02189c60
 
 
-src/Combat/Overlay_9/GetEntryPair02188bf8.cpp:
+src/Combat/Overlay_9/func_ov009_02188bf8.cpp:
     complete
     .text start:0x021899b0 end:0x02189af0
 
@@ -147,11 +147,11 @@ src/Combat/Overlay_9/func_ov009_02188ee8.cpp:
     complete
     .text start:0x02189e04 end:0x0218a8b4
 
-src/Combat/Overlay_9/ApplyNameKeyboardChoice_0218aab0.cpp:
+src/Combat/Overlay_9/func_ov009_0218aab0.cpp:
     complete
     .text start:0x0218aab0 end:0x0218ad0c
 
-src/Combat/Overlay_9/SelectRandomName_0218b850.cpp:
+src/Combat/Overlay_9/func_ov009_0218b850.cpp:
     complete
     .text start:0x0218b850 end:0x0218b908
 

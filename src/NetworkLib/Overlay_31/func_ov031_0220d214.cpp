@@ -3,7 +3,7 @@
 
 extern "C" void func_ov031_0220da1c(int);
 extern "C" void func_ov031_0220e694(void*);
-extern int SetSlot0x13Value020d5cc8(int value);
+extern "C" int func_020d5cc8(int value);
 extern void* data_ov031_0224e53c;
 
 // USA: func_ov031_0220d214
@@ -32,7 +32,7 @@ case9:
 		goto ret3;
 	}
 	{
-		int r = SetSlot0x13Value020d5cc8((int)func_ov031_0220e694);
+		int r = func_020d5cc8((int)func_ov031_0220e694);
 		switch (r) {
 		case 2:
 			func_ov031_0220da1c(0xa);

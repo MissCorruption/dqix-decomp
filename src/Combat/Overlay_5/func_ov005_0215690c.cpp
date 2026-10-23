@@ -88,23 +88,23 @@ extern unsigned char data_ov005_0215cd58[8];
 extern unsigned char data_ov005_0215cd50[8];
 extern int data_02108760;
 
-MemberScreen* GetField1c_021a193c(int* p);
+extern "C" MemberScreen* func_ov017_021a193c(int* p);
 extern "C" int func_ov005_02157ae8(EquipmentMenu* self, int member);
 struct Obj021e4e20;
-Body* RunIfPtr_021e4e20(Obj021e4e20*);
+extern "C" Body* func_ov023_021e4e20(Obj021e4e20*);
 extern "C" int func_ov005_02155670(EquipmentMenu* self, int x, int y);
-int ComputeTwoFromVec3_0202ec84(void* obj, Vec3copy0202ec84* src, int* out1, int* out2);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gs, int id);
+extern "C" int func_0202ec84(void* obj, Vec3copy0202ec84* src, int* out1, int* out2);
+extern "C" GameObject* func_0200ff1c(GameState* gs, int id);
 extern "C" double func_0200b454(double x);
-short GetHalfwordEntryFromField150(Field150Holder02052df8* obj, int index);
+extern "C" short func_02052df8(Field150Holder02052df8* obj, int index);
 extern "C" int func_ov005_02158560(EquipmentMenu* self, unsigned char kind, int silent);
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
 extern "C" void func_ov005_021579ec(EquipmentMenu* self, unsigned int state, unsigned char slot);
 extern "C" void func_ov005_021555c0(EquipmentMenu* self);
-void* GetPtrField0x2a04_02010828(GameState* gs);
-short* GetPointerFromArray0xbd0_0207c5f8(unsigned char* obj, unsigned int index);
+extern "C" void* func_02010828(GameState* gs);
+extern "C" short* func_0207c5f8(unsigned char* obj, unsigned int index);
 extern "C" void func_0205bb04(void* cursor, int index);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
 
 // USA: func_ov005_0215690c
 extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
@@ -112,11 +112,11 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
     Body* body;
     gameState = GameState::GetInstance();
     unsigned char page;
-    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     unsigned int member = screen->member_;
     if (!func_ov005_02157ae8(self, member))
         return;
-    body = RunIfPtr_021e4e20((Obj021e4e20*)screen);
+    body = func_ov023_021e4e20((Obj021e4e20*)screen);
     func_ov005_02155670(self, x, y);
     short item = -1;
     unsigned char kind = 0xff;
@@ -125,16 +125,16 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
         void* camera;
         int dx;
         int screenY[8];
-        camera = GetField0x3b0Value_020100bc(gameState);
+        camera = func_020100bc(gameState);
         int count;
         Matrix4x3 matrix;
         Vector3fix positions[8];
         matrix = RotationMatrixY(body->rotation_.y);
         for (int i = 0; i < 8; i++) {
             Mat4x3_ApplyToVector(&data_ov005_0215cc84[i], &matrix, &positions[i]);
-            ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)&positions[i], &screenX[i], &screenY[i]);
+            func_0202ec84(camera, (Vec3copy0202ec84*)&positions[i], &screenX[i], &screenY[i]);
         }
-        GameObject* partyMember = GetCombatantWithFlag0x100_0200ff1c(gameState, member);
+        GameObject* partyMember = func_0200ff1c(gameState, member);
         count = 0;
         float radii[8];
         int touched[8];
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
             int equipped[8];
             for (int i = 0; i < count; i++) {
                 int part = touched[i];
-                if (GetHalfwordEntryFromField150((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[part]) > 0) {
+                if (func_02052df8((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[part]) > 0) {
                     equipped[equippedCount] = part;
                     found = 1;
                     equippedCount++;
@@ -168,7 +168,7 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
                     }
                 }
                 kind = data_ov005_0215cd58[best];
-                item = GetHalfwordEntryFromField150((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[best]);
+                item = func_02052df8((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[best]);
             } else {
                 int best = touched[0];
                 int bestZ = positions[best].z;
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
         func_ov005_02158560(self, kind, 1);
         self->flags_ |= 0x100;
     }
-    short* items = GetPointerFromArray0xbd0_0207c5f8((unsigned char*)GetPtrField0x2a04_02010828(gameState) + 0x1d4, data_ov005_0215cd50[self->kind_]);
+    short* items = func_0207c5f8((unsigned char*)func_02010828(gameState) + 0x1d4, data_ov005_0215cd50[self->kind_]);
     int empty = -1;
     int index = -1;
     for (short i = 0; i < self->itemCounts_[self->kind_]; i++) {
@@ -235,7 +235,7 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
     func_0205bb04(self->cursor_, self->dragged_);
     self->unk_3dc0 = 1;
     self->flags_ |= 0x80;
-    DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 2, 0);
+    func_0205eaa0((Obj0205eaa0*)&data_02108760, 2, 0);
     screen->flags_ &= ~1;
     screen->flags_ &= ~0x80;
     self->flags_ &= ~4;

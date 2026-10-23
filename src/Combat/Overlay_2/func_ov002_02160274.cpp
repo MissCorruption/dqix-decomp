@@ -19,12 +19,12 @@ struct Elem_0205d81c {
     short fac;
     short fae;
 };
-struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
+extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
+extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
-void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int a, int b);
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int a, int b);
+extern "C" void func_0205deb4(struct Struct_0205d81c *s, int a, int b);
+extern "C" void func_0205def8(struct Struct_0205def8 *s, int a, int b);
 
 struct BufOv02160274 {
     char pad[0xbd0];
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov002_02160274(char *base) {
     func_ov002_02157480(base, ids);
     int n = 0;
     for (int i = 0; i < 4; i++) {
-        if (InRange02160274(ids[i]) && GetCombatantWithFlag0x100_0200ff1c(gs, ids[i]) != NULL) {
+        if (InRange02160274(ids[i]) && func_0200ff1c(gs, ids[i]) != NULL) {
             n++;
         }
     }
@@ -61,20 +61,20 @@ extern "C" ARM void func_ov002_02160274(char *base) {
     func_ov002_021605d4(base, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0);
     func_0205d304(base + 0xec8, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0, 0, 1, 0, 0);
 
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + 0xec8), 0, 2);
+    func_0205de24((struct Struct0205de24 *) (base + 0xec8), 0, 2);
     func_ov002_0215be00(base, ((struct FieldOv02160274 *) (base + 0x1000))->field & 0xff, 0x10, 8);
     memset(((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0x960);
     func_ov002_0216049c(base, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0);
     func_0205d304(base + 0xec8, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 1, 0, 1, 0, 0);
 
-    SetElementFieldC2_0205deb4((struct Struct_0205d81c *) (base + 0xec8), 0x20, 0);
-    SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) (base + 0xec8), 0, 0x29);
+    func_0205deb4((struct Struct_0205d81c *) (base + 0xec8), 0x20, 0);
+    func_0205def8((struct Struct_0205def8 *) (base + 0xec8), 0, 0x29);
     struct Elem_0205d81c *elem =
-        FindElementByC40205d81c((struct Struct_0205d81c *) (base + 0xec8), 0x15);
+        func_0205d81c((struct Struct_0205d81c *) (base + 0xec8), 0x15);
     if (elem != NULL) {
         int x = elem->fac + elem->fa8;
         for (int i = 0; i < 2; i++) {
-            struct Elem_0205d81c *e = FindElementByC40205d81c(
+            struct Elem_0205d81c *e = func_0205d81c(
                 (struct Struct_0205d81c *) (base + 0x2c8 + 0xc00), data_ov002_0216c9f9[i]);
             if (e != NULL) {
                 SetPos02160274(e, x, e->fae);

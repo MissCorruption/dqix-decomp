@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/HMRFAllocator.h"
 
-void ProcessCurrentContext020bdc60();
+extern "C" void func_020bdc60();
 extern "C" int func_020bdc24(void* objPtr);
 
 struct Obj020bd99c {
@@ -35,7 +35,7 @@ extern "C" ARM int func_020bd99c(struct Obj020bd99c* obj) {
     }
     obj->allocator->Free(3);
     if (anyInvoked) {
-        ProcessCurrentContext020bdc60();
+        func_020bdc60();
     }
     return func_020bdc24(obj);
 }

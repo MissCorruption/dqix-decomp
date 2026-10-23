@@ -25,17 +25,17 @@ struct ScaledPair020dfbc0;
 
 typedef int (*ElementCallback020dfa68)(struct Container020dfa68 *, struct Element020dfa68 *);
 
-extern int GetScaledFieldSum(struct ScaledPair020dfbc0 *);
+extern "C" int func_020dfbc0(struct ScaledPair020dfbc0 *);
 extern "C" int func_020df77c(struct Container020dfa68 *, struct Element020dfa68 *);
-extern int ForEachElement020dfa68(struct Container020dfa68 *, ElementCallback020dfa68);
-extern int MergeContainer020dfabc(struct MergedContainer020dfabc *, struct MergedContainer020dfabc *, char *, ElementCallback020dfa68);
+extern "C" int func_020dfa68(struct Container020dfa68 *, ElementCallback020dfa68);
+extern "C" int func_020dfabc(struct MergedContainer020dfabc *, struct MergedContainer020dfabc *, char *, ElementCallback020dfa68);
 
 struct Container020dfb48;
 typedef int (*Comparator020dfb48)(void *);
-extern void *BinarySearchByComparator020dfb48(struct Container020dfb48 *, int, Comparator020dfb48);
+extern "C" void *func_020dfb48(struct Container020dfb48 *, int, Comparator020dfb48);
 
-char *AllocateStringCopy020da150(SafeAllocator *, const char *);
-short GetShortAt0x0_020df774(short *);
+extern "C" char *func_020da150(SafeAllocator *, const char *);
+extern "C" short func_020df774(short *);
 
 // USA: func_020df850
 extern "C" ARM int func_020df850(struct MergedContainer020dfabc *self, SafeAllocator *alloc,
@@ -55,7 +55,7 @@ extern "C" ARM int func_020df850(struct MergedContainer020dfabc *self, SafeAlloc
     if (mode < 0) {
         if (alloc != NULL && src != NULL) {
             memcpy(self, src, 8);
-            size = GetScaledFieldSum((struct ScaledPair020dfbc0 *)self);
+            size = func_020dfbc0((struct ScaledPair020dfbc0 *)self);
             mask = self->pad4a;
             if (size)
                 self->elements = alloc->Allocate(size);
@@ -64,20 +64,20 @@ extern "C" ARM int func_020df850(struct MergedContainer020dfabc *self, SafeAlloc
             self->end = mask ? alloc->Allocate(mask) : NULL;
             if (self->elements != NULL) memcpy(self->elements, (char *)src + 8, size);
             if (self->end != NULL)
-                memcpy(self->end, (char *)src + (GetScaledFieldSum((struct ScaledPair020dfbc0 *)self) + 8), mask);
-            if ((ElementCallback020dfa68)func_020df77c) ForEachElement020dfa68((struct Container020dfa68 *)self, (ElementCallback020dfa68)func_020df77c);
+                memcpy(self->end, (char *)src + (func_020dfbc0((struct ScaledPair020dfbc0 *)self) + 8), mask);
+            if ((ElementCallback020dfa68)func_020df77c) func_020dfa68((struct Container020dfa68 *)self, (ElementCallback020dfa68)func_020df77c);
             self->doneFlag = 1;
         }
     } else {
         memset(&local, 0, 0x10);
-        MergeContainer020dfabc(&local, src, &flag, func_020df77c);
-        elem = (struct Element020df850 *)BinarySearchByComparator020dfb48(
-            (struct Container020dfb48 *)&local, mode, (Comparator020dfb48)GetShortAt0x0_020df774);
+        func_020dfabc(&local, src, &flag, func_020df77c);
+        elem = (struct Element020df850 *)func_020dfb48(
+            (struct Container020dfb48 *)&local, mode, (Comparator020dfb48)func_020df774);
         if (elem != NULL) {
             memset(self, 0, 0x10);
             self->count = 1;
             self->pad2 = elem->b;
-            self->elements = alloc->Allocate(GetScaledFieldSum((struct ScaledPair020dfbc0 *)self));
+            self->elements = alloc->Allocate(func_020dfbc0((struct ScaledPair020dfbc0 *)self));
             if (self->elements != NULL) {
                 memcpy(self->elements, elem, 8);
                 dst = (struct Element020df850 *)self->elements;
@@ -91,7 +91,7 @@ extern "C" ARM int func_020df850(struct MergedContainer020dfabc *self, SafeAlloc
                     dstArr = (struct Element020df850 *)((struct Element020df850 *)self->elements)->c;
                     memcpy(dstArr, srcArr, n * 8);
                     for (i = 0; i < n; i++, dstArr++, srcArr++) {
-                        dstArr->c = (int)AllocateStringCopy020da150(alloc, (const char *)srcArr->c);
+                        dstArr->c = (int)func_020da150(alloc, (const char *)srcArr->c);
                     }
                 }
             }

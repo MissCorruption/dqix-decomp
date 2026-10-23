@@ -39,10 +39,10 @@ struct PartySlots { char pad0[0xf78]; signed char ids[4]; unsigned char count; }
 struct CombatCommand { char pad0[0x10]; unsigned char commands[8]; signed char index; };
 extern "C" void __clear(void*, unsigned long);
 extern "C" void func_ov000_021757ac(Struct0217f8c0*, unsigned short);
-int GetField0x3acValue_020100a8(GameState*);
+extern "C" int func_020100a8(GameState*);
 extern "C" CombatCommand* func_ov000_02161318(Struct0217f8c0*, int);
-void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
-int FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
+extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
+extern "C" int func_ov000_0217f8c0(Struct0217f8c0*);
 extern "C" void func_ov000_02176634(Struct0217f8c0*, int, int, int, int);
 extern unsigned short data_ov000_0218342a[];
 extern int data_ov000_02184288[3];
@@ -71,19 +71,19 @@ extern "C" ARM void func_ov000_02175808(Struct0217f8c0* self) {
     }
     if (!count) return;
     GameState* current = GameState::GetInstance();
-    self->protagonist = GetField0x3acValue_020100a8(current);
+    self->protagonist = func_020100a8(current);
     func_ov000_021757ac(self, 0);
-    PartySlots* party = (PartySlots*)GetPtrField0x2a04_02010828(current);
+    PartySlots* party = (PartySlots*)func_02010828(current);
     unsigned char slots = party->count;
     for (unsigned char i = 0; i < slots; ++i) {
         CombatCommand* command = func_ov000_02161318(self, party->ids[i]);
         if (command) command->commands[command->index] = 13;
     }
-    ResetEntryList0205d6a0(&self->list, 1);
+    func_0205d6a0(&self->list, 1);
     self->step = 0;
     ++self->commandIndex;
     self->commands[self->commandIndex] = 0x17;
-    int entry = FindMatchingTableEntry0217f8c0(self);
+    int entry = func_ov000_0217f8c0(self);
     func_ov000_02176634(self, entry, 0x17, data_ov000_02183ff0, data_ov000_02184288[1]);
     self->state = 0;
 }

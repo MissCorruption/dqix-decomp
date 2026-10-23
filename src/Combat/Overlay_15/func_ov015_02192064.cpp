@@ -7,13 +7,13 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Struct021931b4;
-void PushArrayValue021931b4(struct Struct021931b4* s, int v);
+extern "C" void func_ov015_021931b4(struct Struct021931b4* s, int v);
 extern "C" void func_ov015_02192700(void* obj, int a1);
 extern "C" void func_ov015_0218f0c4(void* p);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 
 struct Owner_021931cc;
-int Pop021931cc(struct Owner_021931cc* obj);
+extern "C" int func_ov015_021931cc(struct Owner_021931cc* obj);
 
 extern AllocatorUnion data_02114e20;
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov015_02192064(struct Obj02192064* obj, int mode) {
     }
     switch (mode) {
     case 0: {
-        PushArrayValue021931b4((struct Struct021931b4*)obj, obj->field1a4);
+        func_ov015_021931b4((struct Struct021931b4*)obj, obj->field1a4);
         obj->field1a4 = 0x27;
         func_ov015_02192700(obj, 0);
         return;
@@ -58,8 +58,8 @@ extern "C" ARM void func_ov015_02192064(struct Obj02192064* obj, int mode) {
         if (node != 0) {
             struct ListNode02192064* next = node->next;
             func_ov015_0218f0c4(node->value);
-            TailForward02012da4(&data_02114e20, node->value);
-            TailForward02012da4(&data_02114e20, node);
+            func_02012da4(&data_02114e20, node->value);
+            func_02012da4(&data_02114e20, node);
             if (prev != 0) {
                 prev->next = next;
             } else {
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov015_02192064(struct Obj02192064* obj, int mode) {
         }
 
         obj->field2b0 = 0;
-        obj->field1a4 = Pop021931cc((struct Owner_021931cc*)obj);
+        obj->field1a4 = func_ov015_021931cc((struct Owner_021931cc*)obj);
         func_ov015_02192700(obj, 0);
         break;
     }

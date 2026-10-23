@@ -54,7 +54,7 @@ struct CharacterViewer
     char menuList_[0x80];
 };
 
-MessageSystem0219050c* GetGlobalField0x1c020421a0();
+extern "C" MessageSystem0219050c* func_020421a0();
 extern "C" void func_02069fec(MessageSystem0219050c* system, const char* text, char* converted);
 #if defined(jpn)
 extern "C" int func_02045d14(MessageSystem0219050c* system, const char* converted, unsigned short* line, int unk);
@@ -66,11 +66,11 @@ extern "C" void func_02046c78(MessageSystem0219050c* system, unsigned short* lin
 #else
 extern "C" void func_02045f3c(MessageSystem0219050c* system, unsigned short* line, int x, int y, int color, int a, int b, int c, int d, int e);
 #endif
-void* GetNodeAtIndex(IndexList_0202a9ac* list, int index);
-void* GetSubstructAt0x4_02029560(void* item);
+extern "C" void* func_0202a9ac(IndexList_0202a9ac* list, int index);
+extern "C" void* func_02029560(void* item);
 extern "C" AnimationRecord0219050c* func_ov015_0218f39c(ViewObject* self, void* name);
-float GetRatio0218f3c4(Obj0218f3c4* obj);
-float GetRatio0218f408(Obj0218f408* obj);
+extern "C" float func_ov015_0218f3c4(Obj0218f3c4* obj);
+extern "C" float func_ov015_0218f408(Obj0218f408* obj);
 extern "C" void func_ov015_0218f794(ViewObject* self);
 
 extern const char data_ov015_02194256[];
@@ -84,7 +84,7 @@ extern const char data_ov015_02194295[];
 #define PREPARE_TEXT()                                                    \
     {                                                                     \
         memset(line, 0, sizeof(line));                                    \
-        MessageSystem0219050c* system = GetGlobalField0x1c020421a0();     \
+        MessageSystem0219050c* system = func_020421a0();     \
         char converted[0x40] = {};                                        \
         func_02069fec(system, text, converted);                           \
         func_02045d14(system, converted, line, PrepareLineMode);          \
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov015_0219050c(CharacterViewer* self)
     char text[0x20];
     unsigned short line[0x20];
 
-    MessageSystem0219050c* messages = GetGlobalField0x1c020421a0();
+    MessageSystem0219050c* messages = func_020421a0();
     sprintf(text, data_ov015_02194256, (double)(self->fps_));
     PREPARE_TEXT();
     DRAW_LINE(0, 0xa0, 0x7fff);
@@ -139,10 +139,10 @@ extern "C" ARM void func_ov015_0219050c(CharacterViewer* self)
 #endif
     if (self->menu_ == 1)
     {
-        void* item = GetNodeAtIndex((IndexList_0202a9ac*)&self->menuList_, self->current_->motion_);
+        void* item = func_0202a9ac((IndexList_0202a9ac*)&self->menuList_, self->current_->motion_);
         if (item == NULL)
             return;
-        AnimationRecord0219050c* record = func_ov015_0218f39c(self->current_, GetSubstructAt0x4_02029560(item));
+        AnimationRecord0219050c* record = func_ov015_0218f39c(self->current_, func_02029560(item));
         if (record == NULL)
             return;
         sprintf(text, data_ov015_02194273, record->name);
@@ -151,10 +151,10 @@ extern "C" ARM void func_ov015_0219050c(CharacterViewer* self)
         sprintf(text, data_ov015_0219427b, (double)(record->frameRate / 4096.0f));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xa0, 0x7fff);
-        sprintf(text, data_ov015_02194288, (double)(GetRatio0218f3c4((Obj0218f3c4*)self->current_)));
+        sprintf(text, data_ov015_02194288, (double)(func_ov015_0218f3c4((Obj0218f3c4*)self->current_)));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xaa, 0x7fff);
-        sprintf(text, data_ov015_02194295, (double)(GetRatio0218f408((Obj0218f408*)self->current_)));
+        sprintf(text, data_ov015_02194295, (double)(func_ov015_0218f408((Obj0218f408*)self->current_)));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xb4, 0x7fff);
     }

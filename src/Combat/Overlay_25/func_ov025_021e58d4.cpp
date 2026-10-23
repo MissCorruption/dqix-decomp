@@ -1,0 +1,10 @@
+#include <globaldefs.h>
+#include "Resource/GameResources.h"
+
+struct GameResources;
+int IsBrightnessTransitionActive(GameResources*);
+
+// USA: func_ov025_021e58d4
+extern "C" ARM int func_ov025_021e58d4(void) {
+    return IsBrightnessTransitionActive(GetGameResources()) == 0;
+}

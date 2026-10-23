@@ -4,7 +4,7 @@
 #include "NitroSDK/Mutex.h"
 
 extern "C" int func_020a1bb4(unsigned int id);
-void DispatchByFlag020d9834(int flag);
+extern "C" void func_020d9834(int flag);
 bool LoadCompressedOverlay(const OverlayMetadata& overlay);
 void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay);
 
@@ -37,7 +37,7 @@ extern "C" ARM int func_020a1940(int id) {
         if (mappedOverlay != id) {
             func_020a1bb4(mappedOverlay);
             while (data_01ffd340 != 0) {
-                DispatchByFlag020d9834(0);
+                func_020d9834(0);
             }
             data_01ffd340 = 1;
             LockResourceMutex();

@@ -53,21 +53,21 @@ struct BattleE558 {
     unsigned char padding1d74[5];
     unsigned char field1d79;
 };
-int GetActiveScaledSum0205d794(Struct_0205c570*);
-void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
-void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
-GameResources* GetWord0x0_0200fb8c(int*);
+extern "C" int func_0205d794(Struct_0205c570*);
+extern "C" void func_0205def8(Struct_0205def8*, int, int);
+extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
+extern "C" GameResources* func_0200fb8c(int*);
 extern "C" ResourceE558* func_ov017_021b8468(void*);
 extern "C" int func_ov000_0217c594(BattleE558*, int);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" ActorE558* func_ov000_02161318(BattleE558*, int);
 extern "C" void func_ov000_02170db0(ActorE558*);
 
-ActionRecordE558* SearchBothTables02079e2c(char*, int);
+extern "C" ActionRecordE558* func_02079e2c(char*, int);
 extern "C" void func_ov000_02175b54(BattleE558*);
-int GetField0x3acValue_020100a8(GameState*);
+extern "C" int func_020100a8(GameState*);
 extern "C" void func_ov000_02176e3c(BattleE558*, int, int, int, int, int);
-int FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
+extern "C" int func_ov000_0217f8c0(Struct0217f8c0*);
 extern "C" void func_ov000_02176634(BattleE558*, int, int, int, int);
 extern Obj0205eaa0 data_02108760;
 extern int data_ov000_02184294[3];
@@ -82,18 +82,18 @@ extern int data_ov000_02184294[3];
 // USA: func_ov000_0217e558
 extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) {
     battle->flags |= 0x100;
-    battle->selected = GetActiveScaledSum0205d794(&battle->list.sums);
-    SetElementFlag0x20ByKey0205def8(&battle->list.flags, 1, 0x18);
-    SetElementFieldC2_0205deb4(&battle->list.fields, 0x18, 0);
+    battle->selected = func_0205d794(&battle->list.sums);
+    func_0205def8(&battle->list.flags, 1, 0x18);
+    func_0205deb4(&battle->list.fields, 0x18, 0);
     GameState* game = GameState::GetInstance();
-    GameResources* data = GetWord0x0_0200fb8c((int*)game);
+    GameResources* data = func_0200fb8c((int*)game);
     if (func_ov017_021b8468(PTR3718(data))->selected != -1 || !func_ov000_0217c594(battle, 5)) return;
     battle->field956 = 0;
-    DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+    func_0205eaa0(&data_02108760, 1, 0);
     if ((unsigned short)battle->keys[battle->selected] == 0) {
         battle->actionIndex++;
         battle->actions[battle->actionIndex] = 100;
-        PartyEffectsE558* party = (PartyEffectsE558*)GetPtrField0x2a04_02010828(game);
+        PartyEffectsE558* party = (PartyEffectsE558*)func_02010828(game);
         unsigned char count = party->count;
         for (unsigned char i = 0; i < count; i++) {
             ActorE558* actor = func_ov000_02161318(battle, party->members[i]);
@@ -106,14 +106,14 @@ extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) 
             }
         }
     } else {
-        ActionDataTables* tables = GetData02108e10_020797dc();
+        ActionDataTables* tables = func_020797dc();
         if (!tables) return;
-        ActionRecordE558* entry = SearchBothTables02079e2c((char*)tables, battle->keys[battle->selected]);
+        ActionRecordE558* entry = func_02079e2c((char*)tables, battle->keys[battle->selected]);
         if (!entry) return;
         func_ov000_02175b54(battle);
         GameState* game = GameState::GetInstance();
-        PartyEffectsE558* party = (PartyEffectsE558*)GetPtrField0x2a04_02010828(game);
-        ActorE558* current = func_ov000_02161318(battle, GetField0x3acValue_020100a8(game));
+        PartyEffectsE558* party = (PartyEffectsE558*)func_02010828(game);
+        ActorE558* current = func_ov000_02161318(battle, func_020100a8(game));
         if (!current) return;
         switch (battle->actions[battle->actionIndex]) {
         case 14: battle->actions[battle->actionIndex] = 25; battle->field1d79 = 0; break;
@@ -140,6 +140,6 @@ extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) 
     if (battle->actions[battle->actionIndex] != 25) return;
     func_ov000_02176e3c(battle, 0, 23, G02184294(1), G02184294(0), 1);
     battle->field1c = 0;
-    int match = FindMatchingTableEntry0217f8c0((Struct0217f8c0*)battle);
+    int match = func_ov000_0217f8c0((Struct0217f8c0*)battle);
     func_ov000_02176634(battle, match, 25, arg1, arg2);
 }

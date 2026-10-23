@@ -18,7 +18,7 @@ struct Entry02175258 {
 
 static inline int HasBit4(Entry02175258* e) { return (e->field24 & 4) != 0; }
 
-// USA: func_ov000_02175258  (semantic: SyncCombatantReadyFlags_02175258)
+// USA: func_ov000_02175258
 extern "C" ARM void func_ov000_02175258(char* obj) {
     for (int i = 0; i < 4; i++) {
         struct Entry02175258* table = (struct Entry02175258*)(obj + 0x958);

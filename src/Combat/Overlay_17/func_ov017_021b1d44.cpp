@@ -10,7 +10,7 @@ enum { RegionOffset26c = 0x26c };
 #include "NitroSDK/Memory.h"
 
 struct ByteHeader0204693c;
-void ResetByteHeader(struct ByteHeader0204693c* p);
+extern "C" void func_0204693c(struct ByteHeader0204693c* p);
 
 struct BitField5d00c_021b1d44 { char pad[0xc]; unsigned short lo13 : 13; unsigned short hi3 : 3; };
 struct Outer26c_021b1d44 { char pad[0x5d00]; struct BitField5d00c_021b1d44 area; };
@@ -19,7 +19,7 @@ struct Obj021b1d44 { unsigned char pad0[0x3c]; int arr[8]; };
 
 // USA: func_ov017_021b1d44
 extern "C" ARM int func_ov017_021b1d44(unsigned char* self, int flags, int clearSlots) {
-    ResetByteHeader((struct ByteHeader0204693c*)self);
+    func_0204693c((struct ByteHeader0204693c*)self);
     self[0] = 0x2c;
     *(int*)(self + 8) = 0;
     self[0x20] = 0;

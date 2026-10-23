@@ -13,16 +13,16 @@ enum { kOffset89c = 0x89c };
 #include "GameState/GameState.h"
 
 struct Obj2081;
-void ClearElementFlag0x20_02080c20(struct Obj2081* obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void* obj, int id, int value);
+extern "C" void func_02080c20(struct Obj2081* obj, int key);
+extern "C" void func_02080c68(void* obj, int id, int value);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(struct Container02080f8c* obj, int id, int value);
+extern "C" void func_02080f8c(struct Container02080f8c* obj, int id, int value);
 struct Container02080cc0;
-void SetEntryHighNibble0x13(struct Container02080cc0* obj, int id, int value);
+extern "C" void func_02080cc0(struct Container02080cc0* obj, int id, int value);
 extern "C" int func_020dcc98(int combatantId);
 extern "C" void func_020813ec(void* obj, int key);
 
-// USA: func_ov003_02177300  (semantic: RecomputeElementTierAndDispatch_02177300)
+// USA: func_ov003_02177300
 #pragma opt_common_subs off
 extern "C" ARM void func_ov003_02177300(char* self) {
     GameState* battle = GameState::GetInstance();
@@ -48,21 +48,21 @@ extern "C" ARM void func_ov003_02177300(char* self) {
         return;
     }
 
-    ClearElementFlag0x20_02080c20(elemObj, key1);
-    SetEntryLowNibbleAndElement02080c68(elemObj, key1, 0);
+    func_02080c20(elemObj, key1);
+    func_02080c68(elemObj, key1, 0);
 
     int hp;
     unsigned char i;
     for (i = 0; i < *(int*)(self + kOffset1030); i++) {
         hp = 0;
-        GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(battle, *(int*)(self + kOffset101c + i * 4));
+        GameObject* combatant = func_0200ff1c(battle, *(int*)(self + kOffset101c + i * 4));
         if (combatant != 0) {
             hp = *(int*)((char*)combatant + 0x134);
         }
-        SetEntryFirstField02080f8c((struct Container02080f8c*)elemObj, key2, hp);
+        func_02080f8c((struct Container02080f8c*)elemObj, key2, hp);
 
         int tier = func_020dcc98((signed char)*(int*)(self + kOffset101c + i * 4));
-        SetEntryHighNibble0x13((struct Container02080cc0*)elemObj, key2, tier);
+        func_02080cc0((struct Container02080cc0*)elemObj, key2, tier);
 
         key2 = (short)(key2 + 1);
     }

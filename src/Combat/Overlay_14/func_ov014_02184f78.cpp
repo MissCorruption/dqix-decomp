@@ -62,7 +62,7 @@ struct MonsterInfoScreen {
     unsigned char unk_94;
 };
 
-bool ResetHandle_02188d10(HandleState_02188d10* s);
+extern "C" bool func_ov014_02188d10(HandleState_02188d10* s);
 
 // USA: func_ov014_02184f78
 extern "C" ARM void func_ov014_02184f78(MonsterInfoScreen* self, MonsterListEntry* monster, MonsterRecord* record, bool loadModel) {
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov014_02184f78(MonsterInfoScreen* self, MonsterListEntr
             self->taskIDs_[i] = -1;
         }
     }
-    ResetHandle_02188d10(&self->habitats_);
+    func_ov014_02188d10(&self->habitats_);
     self->loadStep_ = 0;
     self->page_ = 0;
     self->monster_ = monster;

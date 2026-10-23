@@ -2,14 +2,14 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-int CheckField0x14Bit0Clear02088890(unsigned char* obj);
+extern "C" int func_02088890(unsigned char* obj);
 struct FlagObj_021dd010;
-int IsFlagBit8Set_021dd010(struct FlagObj_021dd010* obj);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-void SetFlag0x100AndBytes_020888a4(unsigned char* obj);
+extern "C" int func_ov024_021dd010(struct FlagObj_021dd010* obj);
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" void func_020888a4(unsigned char* obj);
 extern "C" void* func_ov000_0215e958(void* a0);
 extern "C" void func_ov024_021e8bf0(void* work, void* fieldC, unsigned short* sel);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct PackedPair_021dced0 {
@@ -27,21 +27,21 @@ extern "C" ARM void* func_ov024_021dced0(struct Obj_021dced0* obj, int unused, i
 	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
 	if (!c) return 0;
 	unsigned short sel = 0;
-	if (CheckField0x14Bit0Clear02088890((unsigned char*)c->currentStats_) && flagArg) {
-		if (IsFlagBit8Set_021dd010((struct FlagObj_021dd010*)c)) {
-			sel = SelectByIndexRange0to3_021da644(id, 0x19, 0x1a);
+	if (func_02088890((unsigned char*)c->currentStats_) && flagArg) {
+		if (func_ov024_021dd010((struct FlagObj_021dd010*)c)) {
+			sel = func_ov024_021da644(id, 0x19, 0x1a);
 		} else {
-			sel = SelectByIndexRange0to3_021da644(id, range->f20.c, range->f24.a);
+			sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
 		}
-		SetFlag0x100AndBytes_020888a4((unsigned char*)c->currentStats_);
+		func_020888a4((unsigned char*)c->currentStats_);
 	} else {
-		sel = SelectByIndexRange0to3_021da644(id, range->f24.b, range->f24.c);
+		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
 		obj->field0x75 = 0;
 	}
 	void* entry = func_ov000_0215e958(obj->field0x10);
 	if (!entry) return 0;
 	func_ov024_021e8bf0(obj, obj->field0xc, &sel);
-	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, sel);
+	func_ov000_0215a88c(obj->field0x10, entry, sel);
 	struct Flag_021dced0* fl = (struct Flag_021dced0*)((char*)obj->field0xc + 0x1c);
 	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
 	return entry;

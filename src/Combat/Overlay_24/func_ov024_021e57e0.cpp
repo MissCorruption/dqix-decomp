@@ -30,14 +30,14 @@ struct Act_021e57e0 {
 
 struct OutStruct0215ccbc;
 
-struct Node_021e57e0* GetNodeAtIndex021600f8(struct List021600f8* list, int index);
+extern "C" struct Node_021e57e0* func_ov000_021600f8(struct List021600f8* list, int index);
 extern "C" short func_ov000_0215a004(void* world, int id1, int id2, int value, unsigned long long* bits, struct Rec_021e57e0* rec, int a6, int a7);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* world);
 extern "C" int func_ov000_02159f18(void* world, unsigned long long bits, int bit);
-void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" void func_ov000_0215a88c(void* world, void* entry, int msg);
+extern "C" void func_ov000_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
-void AppendToChainAndIncCount0215fe84(void* chain, void* node, int idx);
+extern "C" void func_ov000_0215fe84(void* chain, void* node, int idx);
 
 static inline short GetCurrentMP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currMP; }
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov024_021e57e0(struct Act_021e57e0* self, int id, struc
     GameObject* c = GetCombatantByID((int)self->f10, id);
     if (!c) return;
     if (rec->f4.id == 0xaf) {
-        struct Node_021e57e0* node = GetNodeAtIndex021600f8(self->f4, 0);
+        struct Node_021e57e0* node = func_ov000_021600f8(self->f4, 0);
         for (int i = 1; i < node->slotCount; i++) {
             if (node->slots[i] == 3) return;
         }
@@ -66,9 +66,9 @@ extern "C" ARM void func_ov024_021e57e0(struct Act_021e57e0* self, int id, struc
     if (func_ov000_02159f18(self->f10, bits, 2)) {
         if (rec->f4.id == 0xaf) msg2 = 0x1b3; else msg2 = 0x117;
     }
-    if (msg1) AddEntryAndIncrementCount0215a88c(self->f10, entry, msg1);
-    if (msg2) AddEntryAndIncrementCount0215a88c(self->f10, entry, msg2);
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)self->f10, entry, c, value, result, GetCurrentMP(c), bits, 0);
-    AppendToChainAndIncCount0215fe84(self->f8, entry, 2);
+    if (msg1) func_ov000_0215a88c(self->f10, entry, msg1);
+    if (msg2) func_ov000_0215a88c(self->f10, entry, msg2);
+    func_ov000_0215ccbc((int)self->f10, entry, c, value, result, GetCurrentMP(c), bits, 0);
+    func_ov000_0215fe84(self->f8, entry, 2);
     ((unsigned char*)self->f10)[0x8e02]++;
 }

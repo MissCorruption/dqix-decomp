@@ -7,7 +7,7 @@ typedef char* va_list;
 #define va_arg(ap, type) (*(type*)(((ap) += __va_align(sizeof(type))) - __va_align(sizeof(type))))
 #define va_end(ap) ((void)0)
 
-int GetBattleStateCode_020d41e8();
+extern "C" int func_020d41e8();
 
 struct WMStatus
 {
@@ -31,7 +31,7 @@ extern WMSystemState data_021142e0;
 // USA: func_020d424c
 extern "C" ARM int func_020d424c(int paramNum, ...)
 {
-    int result = GetBattleStateCode_020d41e8();
+    int result = func_020d41e8();
     unsigned short state;
     va_list args;
     if (result != 0)

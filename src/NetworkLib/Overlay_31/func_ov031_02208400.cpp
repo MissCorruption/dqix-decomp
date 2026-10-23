@@ -17,10 +17,10 @@ struct SignatureState {
 	int signatureLength;
 };
 
-void BytesToShortArrayBE_0220c8d0(unsigned short*, unsigned char*, int, int);
-void ShortArrayToBytesBE_0220c92c(unsigned char*, unsigned short*, int, int);
-unsigned int SwapActiveContextPriority_02207cf0();
-void SetActiveContextPriorityIfValid_02207d3c(unsigned int);
+extern "C" void func_ov031_0220c8d0(unsigned short*, unsigned char*, int, int);
+extern "C" void func_ov031_0220c92c(unsigned char*, unsigned short*, int, int);
+extern "C" unsigned int func_ov031_02207cf0();
+extern "C" void func_ov031_02207d3c(unsigned int);
 extern "C" void func_ov031_0220c2bc(unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern "C" int func_02001aec(void*, void*, int);
 extern void* (*data_ov031_0224c994)(unsigned int);
@@ -47,14 +47,14 @@ extern "C" ARM int func_ov031_02208400(SignatureState* state, KeyEntry* key) {
 	message = workspace + words;
 	exponent = message + words;
 	modulus = exponent + words;
-	BytesToShortArrayBE_0220c8d0(message, state->signature, state->signatureLength, words);
-	BytesToShortArrayBE_0220c8d0(exponent, key->exponent, key->exponentLength, words);
-	BytesToShortArrayBE_0220c8d0(modulus, key->modulus, key->modulusLength, words);
-	unsigned int priority = SwapActiveContextPriority_02207cf0();
+	func_ov031_0220c8d0(message, state->signature, state->signatureLength, words);
+	func_ov031_0220c8d0(exponent, key->exponent, key->exponentLength, words);
+	func_ov031_0220c8d0(modulus, key->modulus, key->modulusLength, words);
+	unsigned int priority = func_ov031_02207cf0();
 	func_ov031_0220c2bc(workspace, message, exponent, words, modulus);
-	SetActiveContextPriorityIfValid_02207d3c(priority);
+	func_ov031_02207d3c(priority);
 	decoded = (unsigned char*)message;
-	ShortArrayToBytesBE_0220c92c(decoded, workspace, key->modulusLength, words);
+	func_ov031_0220c92c(decoded, workspace, key->modulusLength, words);
 	result = 0;
 	if (decoded[0] != 0 || decoded[1] != 1) {
 		result = 2;

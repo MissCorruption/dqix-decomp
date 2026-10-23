@@ -79,14 +79,14 @@ extern const unsigned char data_ov031_022489bc[4];
 extern const unsigned char data_ov031_022489b4[2];
 extern unsigned short* data_ov031_0224b430[3];
 extern "C" void* func_ov031_0223cf4c(unsigned int, int);
-GXOamAttr02223c08* CallTailCallThenBdb0_0223be44(int, int);
+extern "C" GXOamAttr02223c08* func_ov031_0223be44(int, int);
 extern "C" Obj0223bcc8* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bab4(Obj0223bcc8*, int, int, int);
-void SetEntryHalfword4Bits_0223bcc8(Obj0223bcc8*, int, int);
+extern "C" void func_ov031_0223bcc8(Obj0223bcc8*, int, int);
 extern "C" Window02223c08* func_ov031_0223c458(int, int, int, int, int*, int);
 extern "C" void func_ov031_0223c980(Window02223c08*, int, int, int, int, int, unsigned long, const unsigned short*);
 extern "C" Obj0223bcc8* func_ov031_0223b8c4(int, int, int);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02223ff8(void*);
 
@@ -105,19 +105,19 @@ extern "C" ARM void func_ov031_02223c08() {
     data_ov031_02250bfc->canDelete = 1;
     data_ov031_02250bfc->canType = 1;
     for (i = 0; i < 47; ++i) {
-        data_ov031_02250bfc->keys[i] = CallTailCallThenBdb0_0223be44(0, 0x34);
+        data_ov031_02250bfc->keys[i] = func_ov031_0223be44(0, 0x34);
         SetEffect02223c08(data_ov031_02250bfc->keys[i], EffectNoDisplay02223c08, 0);
         SetPriority02223c08(data_ov031_02250bfc->keys[i], 3);
     }
     for (i = 0; i < 4; ++i) {
-        data_ov031_02250bfc->extraKeys[i] = CallTailCallThenBdb0_0223be44(0, data_ov031_022489bc[i]);
+        data_ov031_02250bfc->extraKeys[i] = func_ov031_0223be44(0, data_ov031_022489bc[i]);
         SetEffect02223c08(data_ov031_02250bfc->extraKeys[i], EffectNoDisplay02223c08, 0);
         SetPriority02223c08(data_ov031_02250bfc->extraKeys[i], 3);
     }
     for (i = 0; i < 2; ++i) {
         data_ov031_02250bfc->buttons[i] = func_ov031_0223be70(0, data_ov031_022489b4[i], 1);
         func_ov031_0223bab4(data_ov031_02250bfc->buttons[i], -1, 0x200, 0);
-        SetEntryHalfword4Bits_0223bcc8(data_ov031_02250bfc->buttons[i], -1, 3);
+        func_ov031_0223bcc8(data_ov031_02250bfc->buttons[i], -1, 3);
     }
     buf[1] = 0;
     for (i = 0; i < 3; ++i) {
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov031_02223c08() {
     }
     data_ov031_02250bfc->cursor = func_ov031_0223be70(0, 0x40, 1);
     func_ov031_0223bab4(data_ov031_02250bfc->cursor, -1, 0x200, 0);
-    SetEntryHalfword4Bits_0223bcc8(data_ov031_02250bfc->cursor, -1, 2);
-    data_ov031_02250bfc->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
+    func_ov031_0223bcc8(data_ov031_02250bfc->cursor, -1, 2);
+    data_ov031_02250bfc->task = func_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
     func_ov031_02224ca4(data_ov031_02250bfc->page, 0, 0xc0);
 }

@@ -1,3 +1,3 @@
 #pragma once
 
-int IsValueEqual3_02208aa0(int major, int minor);
+extern "C" int func_ov031_02208aa0(int major, int minor);

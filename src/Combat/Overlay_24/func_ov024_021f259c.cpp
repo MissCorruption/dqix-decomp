@@ -8,11 +8,11 @@ extern "C" void func_ov024_021ed8c0(void* context, int id, int recordAddress, in
 
 struct FlagInner_021da9c8 { char unk[0x14]; int flags; };
 struct FlagObj_021da9c8 { char unk[0x138]; struct FlagInner_021da9c8* inner; };
-int IsFlagBit19Set_021da9c8(struct FlagObj_021da9c8* obj);
+extern "C" int func_ov024_021da9c8(struct FlagObj_021da9c8* obj);
 
 extern unsigned short data_ov024_021febd4;
 
-// USA: func_ov024_021f259c  (semantic: CollectUnflaggedIDs_021f259c)
+// USA: func_ov024_021f259c
 extern "C" ARM int func_ov024_021f259c(int* a0, int a1, int a2, int* a3, short* a4) {
 	short buf[4];
 	short* d = buf;
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov024_021f259c(int* a0, int a1, int a2, int* a3, short* 
 	*a3 = 0;
 	for (int i = 0; i < count; i++) {
 		GameObject* c = GetCombatantByID(*a0, buf[i]);
-		if (c && !IsFlagBit19Set_021da9c8((struct FlagObj_021da9c8*)c)) {
+		if (c && !func_ov024_021da9c8((struct FlagObj_021da9c8*)c)) {
 			int idx = *a3;
 			*a3 = idx + 1;
 			a4[idx] = buf[i];

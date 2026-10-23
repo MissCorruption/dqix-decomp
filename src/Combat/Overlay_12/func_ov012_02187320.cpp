@@ -58,28 +58,28 @@ struct Obj0205eaa0;
 struct Struct_0205c570;
 struct Obj021e6e20;
 
-Messages02187320* GetGlobalField0x1c020421a0();
-const char* FindEntryByKey_02072a68(TableA68* table, int key);
+extern "C" Messages02187320* func_020421a0();
+extern "C" const char* func_02072a68(TableA68* table, int key);
 #if defined(jpn)
 extern "C" void func_0204500c(Messages02187320* messages, const char* text, int a);
 #else
 extern "C" void func_0204500c(Messages02187320* messages, const char* text, int a, int b);
 #endif
-void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
-void FindAndLinkMatchingEntry0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
+extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
+extern "C" void func_0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
 extern "C" void func_ov023_021e6e60(ProfileEditor02187320* self);
-void BuildMessageD_02189f38(char* self);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
-int GetActiveScaledSum0205d794(Struct_0205c570* window);
+extern "C" void func_ov012_02189f38(char* self);
+extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
+extern "C" int func_0205d794(Struct_0205c570* window);
 extern "C" int func_ov023_021e6de4(ProfileEditor02187320* self);
-int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20* self);
+extern "C" int func_ov023_021e6e20(Obj021e6e20* self);
 extern "C" void func_ov012_02185bf0(ProfileEditor02187320* self, unsigned char item, int selected);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(ProfileEditor02187320* self, int animate, int design);
 #else
 extern "C" void func_ov012_0218adac(ProfileEditor02187320* self, int animate, int design, int keepPage);
 #endif
-void ReinitController02043204(char* messages);
+extern "C" void func_02043204(char* messages);
 extern "C" void func_ov012_0218943c(ProfileEditor02187320* self);
 extern "C" int func_020457e0(Messages02187320* messages);
 
@@ -93,19 +93,19 @@ static inline Profile02187320* GetProfile02187320(GameState* gameState)
 // USA: func_ov012_02187320
 extern "C" ARM void func_ov012_02187320(ProfileEditor02187320* self)
 {
-    Messages02187320* messages = GetGlobalField0x1c020421a0();
+    Messages02187320* messages = func_020421a0();
     int windowState = messages->unk_9a0;
     if (windowState == 3)
         messages->unk_19ae = 0;
     if (self->step_ == 0)
     {
 #if defined(jpn)
-        func_0204500c(messages, FindEntryByKey_02072a68((TableA68*)self->strings_, 0xf), 0);
+        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 0xf), 0);
 #else
-        func_0204500c(messages, FindEntryByKey_02072a68((TableA68*)self->strings_, 0xf), 0, 0xe3);
+        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 0xf), 0, 0xe3);
 #endif
         messages->busy_ = 1;
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         self->step_ = 10;
         return;
     }
@@ -119,22 +119,22 @@ extern "C" ARM void func_ov012_02187320(ProfileEditor02187320* self)
     {
         self->unk_13a0 = 0;
         self->unk_13f8 = 0;
-        FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->window_, 0, 2);
+        func_0205de24((Struct0205de24*)self->window_, 0, 2);
         func_ov023_021e6e60(self);
-        BuildMessageD_02189f38((char*)self);
-        DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 5, 0);
+        func_ov012_02189f38((char*)self);
+        func_0205eaa0((Obj0205eaa0*)data_02108760, 5, 0);
         self->step_++;
         return;
     }
     else if (self->step_ == 3)
     {
         self->unk_13a0 = 1;
-        self->unk_13f8 = GetActiveScaledSum0205d794((Struct_0205c570*)self->window_);
+        self->unk_13f8 = func_0205d794((Struct_0205c570*)self->window_);
         int done = 0;
-        if (func_ov023_021e6de4(self) || TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)self))
+        if (func_ov023_021e6de4(self) || func_ov023_021e6e20((Obj021e6e20*)self))
         {
             func_ov012_02185bf0(self, self->state_, 1);
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             Profile02187320* profile = GetProfile02187320(GameState::GetInstance());
             switch (self->unk_13f8)
             {
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov012_02187320(ProfileEditor02187320* self)
                     profile->showBirthday_ = 0;
                     break;
             }
-            if (TestFlagsAndActiveElement2_021e6e20((Obj021e6e20*)self))
+            if (func_ov023_021e6e20((Obj021e6e20*)self))
                 profile->showBirthday_ = 1;
 #if defined(jpn)
             func_ov012_0218adac(self, 0, -1);
@@ -160,11 +160,11 @@ extern "C" ARM void func_ov012_02187320(ProfileEditor02187320* self)
         }
         if (!done)
             return;
-        Messages02187320* system = GetGlobalField0x1c020421a0();
+        Messages02187320* system = func_020421a0();
         int busy = system->busy_ == 0 ? 1 : 0;
         if (!busy)
-            ReinitController02043204((char*)system);
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+            func_02043204((char*)system);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         self->step_++;
         return;
     }
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov012_02187320(ProfileEditor02187320* self)
 #else
         func_ov012_0218adac(self, 0, -1, 0);
 #endif
-        ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
+        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
         self->step_ = 5;
     }
 }

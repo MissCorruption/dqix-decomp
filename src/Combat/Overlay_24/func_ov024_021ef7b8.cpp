@@ -4,7 +4,7 @@
 #include "Util/Random.h"
 
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 struct Buf8_021ef7b8 { short v[8]; };
 extern struct Buf8_021ef7b8 data_ov024_021fedfc;
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov024_021ef7b8(int* a0, int a1, int a2, int* outCount, s
 		outArray[idx] = buf.v[i];
 	}
 	if (*outCount > 0) {
-		PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+		func_ov024_021ed890((struct Random**)a0, outCount, outArray);
 		return 1;
 	}
 	return 0;

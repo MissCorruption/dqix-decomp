@@ -23,9 +23,9 @@ struct SessionMessage0220f814 {
 extern NetworkContext0220f814* data_ov031_0224e580;
 extern "C" int func_ov031_0220fe44(int (*)(int*));
 extern "C" int func_ov031_0220f770(int*);
-int IsField0Unchanged_0220ff18(void*);
-void WaitForField2CNonZero_0220fea0();
-void ClearField28SetField2C_0220fed8();
+extern "C" int func_ov031_0220ff18(void*);
+extern "C" void func_ov031_0220fea0();
+extern "C" void func_ov031_0220fed8();
 
 // USA: func_ov031_0220f814
 extern "C" ARM void func_ov031_0220f814() {
@@ -39,9 +39,9 @@ extern "C" ARM void func_ov031_0220f814() {
     message->unknown_10 = context->session->unknown_10;
     message->unknown_14 = context->session->unknown_14;
     if (func_ov031_0220fe44(func_ov031_0220f770)) {
-        if (IsField0Unchanged_0220ff18(storage)) {
-            WaitForField2CNonZero_0220fea0();
+        if (func_ov031_0220ff18(storage)) {
+            func_ov031_0220fea0();
         }
     }
-    ClearField28SetField2C_0220fed8();
+    func_ov031_0220fed8();
 }

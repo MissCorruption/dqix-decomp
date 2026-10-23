@@ -23,7 +23,7 @@ extern Coord022381c8 data_ov031_02249364[][2];
 extern const Coord022381c8 data_ov031_0224934c[6];
 extern "C" void func_ov031_0223bbd8(void*, int, int, int);
 extern "C" void func_ov031_02238370(void*, int);
-void FillFourShorts_0223cb1c(int, int, int, int, FourShorts_0223cb1c*);
+extern "C" void func_ov031_0223cb1c(int, int, int, int, FourShorts_0223cb1c*);
 extern "C" void func_ov031_0223cc18(int, int, const FourShorts_0223cb1c*);
 
 // USA: func_ov031_022381c8
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov031_022381c8(int y) {
         y1 = y0 + data_ov031_0224934c[data_ov031_02290d10->type].y;
     }
     if (y1 > 192) y1 = 192;
-    FillFourShorts_0223cb1c(data_ov031_02249334[data_ov031_02290d10->type].x,
+    func_ov031_0223cb1c(data_ov031_02249334[data_ov031_02290d10->type].x,
         y0, data_ov031_02249334[data_ov031_02290d10->type].x
             + data_ov031_0224934c[data_ov031_02290d10->type].x, y1, &rectangle);
     func_ov031_0223cc18(0, 0, &rectangle);

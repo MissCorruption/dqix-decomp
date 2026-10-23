@@ -14,8 +14,8 @@ struct StructX0222e0f8 {
 };
 extern StructX0222e0f8* data_ov031_02290c98;
 
-void GetFields181c_02227520(int* a, int* b);
-void SetField_022274c0_022274c0(int v);
+extern "C" void func_ov031_02227520(int* a, int* b);
+extern "C" void func_ov031_022274c0(int v);
 extern "C" void func_ov031_0222d9a4(void);
 extern "C" void func_ov031_0222dee0(void);
 
@@ -28,13 +28,13 @@ extern "C" ARM void func_ov031_0222e0f8(void) {
 	StructX0222e0f8* ptr = data_ov031_02290c98;
 	if (ptr->field15 == 0) {
 		*ptr->field4 &= 0xc1fffcff;
-		SetField_022274c0_022274c0((int)func_ov031_0222d9a4);
+		func_ov031_022274c0((int)func_ov031_0222d9a4);
 		return;
 	}
 
 	int idx;
-	GetFields181c_02227520(&idx, NULL);
+	func_ov031_02227520(&idx, NULL);
 	ptr = data_ov031_02290c98;
 	table.h[idx]((char*)ptr + 8);
-	SetField_022274c0_022274c0((int)func_ov031_0222dee0);
+	func_ov031_022274c0((int)func_ov031_0222dee0);
 }

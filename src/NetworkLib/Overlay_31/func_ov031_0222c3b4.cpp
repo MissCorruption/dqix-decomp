@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" int FastIntDivide(int numer, unsigned int denom);
-extern "C" void CallVTableField14_0223ca40(void* obj, int unused);
-void SetFlagIfMatchesElem0_0223caec(void* ptr);
+extern "C" void func_ov031_0223ca40(void* obj, int unused);
+extern "C" void func_ov031_0223caec(void* ptr);
 extern "C" void func_ov031_0222c45c(int, int);
 extern "C" void func_ov031_0222c5d4(int, int);
 extern "C" void func_ov031_0222c660(void);
@@ -24,7 +24,7 @@ extern Struct0222c3b4 data_ov031_02290c8c;
 extern "C" ARM void func_ov031_0222c3b4(void) {
     int count = FastIntDivide(data_ov031_02290c8c.field2, 0x1c);
     int n = data_ov031_02290c8c.field4->field0x51;
-    CallVTableField14_0223ca40(data_ov031_02290c8c.field4->field0xc, 0);
+    func_ov031_0223ca40(data_ov031_02290c8c.field4->field0xc, 0);
     if (n > 5) n = 5;
 
     int a = count;
@@ -46,6 +46,6 @@ extern "C" ARM void func_ov031_0222c3b4(void) {
         } while (j < n);
     }
 
-    SetFlagIfMatchesElem0_0223caec(data_ov031_02290c8c.field4->field0xc);
+    func_ov031_0223caec(data_ov031_02290c8c.field4->field0xc);
     func_ov031_0222c660();
 }

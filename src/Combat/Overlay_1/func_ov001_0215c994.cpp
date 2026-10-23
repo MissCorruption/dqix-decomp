@@ -7,7 +7,7 @@ extern "C" const char* func_ov017_021d612c(void* obj);
 extern "C" int func_ov001_0215ab20(int index);
 extern "C" void func_ov001_0215a364(void* ctx, EventVec3 v, int e, int f, const char* g);
 
-// USA: func_ov001_0215c994  (semantic: EnqueueVectorEventForCombatant_0215c994)
+// USA: func_ov001_0215c994
 extern "C" ARM int func_ov001_0215c994(void* self, int mode) {
     // `label` is DECLARED first on purpose even though it is DEFINED last. Declaration order
     // participates in callee-saved colouring: with `id` declared first, `id` took r4 and the `mode`

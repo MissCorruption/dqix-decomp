@@ -25,11 +25,11 @@ struct Container02070e60;
 struct Element02070e60;
 struct Element02070ee0;
 struct Struct020709c8;
-int GetListDataSize(Struct02070af4*);
-int ForEachElement02070b0c(Container02070b0c*, void (*)(Container02070b0c*, Element02070b0c*));
-Element02070e60* BinarySearch02070e60(Container02070e60*, int, int (*)(Element02070e60*));
-Element02070ee0* CopyElement02070ee0(Element02070ee0*, Element02070ee0*);
-int GetLow15BitField020709c8(Struct020709c8*);
+extern "C" int func_02070af4(Struct02070af4*);
+extern "C" int func_02070b0c(Container02070b0c*, void (*)(Container02070b0c*, Element02070b0c*));
+extern "C" Element02070e60* func_02070e60(Container02070e60*, int, int (*)(Element02070e60*));
+extern "C" Element02070ee0* func_02070ee0(Element02070ee0*, Element02070ee0*);
+extern "C" int func_020709c8(Struct020709c8*);
 
 // USA: func_02070b6c
 extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, List02070b6c* source, unsigned int sourceSize, short* ids, short countArg) {
@@ -41,9 +41,9 @@ extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, 
     if (source) {
         memcpy(&list, source, 4);
         list.elements = (ListEntry02070b6c*)((char*)source + 4);
-        list.extra = (char*)source + (GetListDataSize((Struct02070af4*)&list) + 4);
+        list.extra = (char*)source + (func_02070af4((Struct02070af4*)&list) + 4);
         if (!list.resolved) {
-            ForEachElement02070b0c((Container02070b0c*)&list, 0);
+            func_02070b0c((Container02070b0c*)&list, 0);
             list.resolved = 1;
             source->resolved = 1;
         }
@@ -51,7 +51,7 @@ extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, 
     short* id = ids;
     int foundCount = 0;
     for (int idCount = countArg, i = 0; i < idCount; i++, id++) {
-        if (BinarySearch02070e60((Container02070e60*)&list, *id, (int (*)(Element02070e60*))GetLow15BitField020709c8)) foundCount++;
+        if (func_02070e60((Container02070e60*)&list, *id, (int (*)(Element02070e60*))func_020709c8)) foundCount++;
     }
     self->elements = (ListEntry02070b6c*)allocator->Allocate(foundCount * sizeof(ListEntry02070b6c));
     if (self->elements) {
@@ -60,7 +60,7 @@ extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, 
         id = ids;
         out = self->elements;
         for (int copyIndex = 0; copyIndex < countArg; copyIndex++, id++) {
-            ListEntry02070b6c* entry = (ListEntry02070b6c*)BinarySearch02070e60((Container02070e60*)&list, *id, (int (*)(Element02070e60*))GetLow15BitField020709c8);
+            ListEntry02070b6c* entry = (ListEntry02070b6c*)func_02070e60((Container02070e60*)&list, *id, (int (*)(Element02070e60*))func_020709c8);
             if (entry) {
                 memcpy(out, entry, sizeof(*out));
                 out++;
@@ -86,8 +86,8 @@ extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, 
             if (entry->header.id > entry[1].header.id) {
                 swapped = pos;
                 forwardTemp = *entry;
-                CopyElement02070ee0((Element02070ee0*)entry, (Element02070ee0*)(entry + 1));
-                CopyElement02070ee0((Element02070ee0*)(entry + 1), (Element02070ee0*)&forwardTemp);
+                func_02070ee0((Element02070ee0*)entry, (Element02070ee0*)(entry + 1));
+                func_02070ee0((Element02070ee0*)(entry + 1), (Element02070ee0*)&forwardTemp);
             }
         }
         if (swapped == -1) break;
@@ -99,8 +99,8 @@ extern "C" ARM void func_02070b6c(List02070b6c* self, SafeAllocator* allocator, 
             if (prev->header.id > reverseEntry->header.id) {
                 backSwap = swapped;
                 reverseTemp = *reverseEntry;
-                CopyElement02070ee0((Element02070ee0*)reverseEntry, (Element02070ee0*)prev);
-                CopyElement02070ee0((Element02070ee0*)prev, (Element02070ee0*)&reverseTemp);
+                func_02070ee0((Element02070ee0*)reverseEntry, (Element02070ee0*)prev);
+                func_02070ee0((Element02070ee0*)prev, (Element02070ee0*)&reverseTemp);
             }
             reverseEntry = prev;
         }

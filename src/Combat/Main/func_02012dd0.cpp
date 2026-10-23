@@ -1,0 +1,12 @@
+#include <globaldefs.h>
+#include "NitroSDK/Memory/HPXEAllocator.h"
+
+struct Struct02012dd0 {
+    void* unk0;
+    HPXEAllocator* alloc;
+};
+
+// USA: func_02012dd0
+extern "C" ARM unsigned int func_02012dd0(Struct02012dd0* self) {
+    return self->alloc->GetMaxPossibleAllocation(4);
+}

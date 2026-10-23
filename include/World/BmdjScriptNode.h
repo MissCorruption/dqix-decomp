@@ -70,13 +70,13 @@ struct GrottoTileMapRecord {
     Vector3i position;
 };
 
-BmdjScriptNode* GetNodeAtDepth020196fc(Zone3D* zone, int depth);
-void Reset02013490(GrottoTileMapRecord* record);
-void InitStruct02013454(BmdjScriptNode* node);
-void ResetTrackerState_0201f01c(BmdjScriptState* state);
-void ProcessNode0201aedc(Zone3D* zone);
-TileFeaturePlacementData* FindEntryByNameSubstr0201e434(ZoneFeatures* features, const char* name);
-TileFeaturePlacementData* CopyStruct02019f24(TileFeaturePlacementData* destination, const TileFeaturePlacementData* source);
+extern "C" BmdjScriptNode* func_020196fc(Zone3D* zone, int depth);
+extern "C" void func_02013490(GrottoTileMapRecord* record);
+extern "C" void func_02013454(BmdjScriptNode* node);
+extern "C" void func_0201f01c(BmdjScriptState* state);
+extern "C" void func_0201aedc(Zone3D* zone);
+extern "C" TileFeaturePlacementData* func_0201e434(ZoneFeatures* features, const char* name);
+extern "C" TileFeaturePlacementData* func_02019f24(TileFeaturePlacementData* destination, const TileFeaturePlacementData* source);
 extern "C" int func_02019728(Zone3D* zone, int unused, ZoneFeatures* features, TileFeaturePlacementData* grid, FloorMap* map);
 
 typedef char BmdjSceneElementSizeCheck[sizeof(BmdjSceneElement) == 0x70 ? 1 : -1];

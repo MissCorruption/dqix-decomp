@@ -10,7 +10,7 @@ struct Node020409b0 {
     void* f14;
     void* f18;
 };
-extern int DispatchOnActiveChild020409b0(struct Node020409b0* obj, int arg);
+extern "C" int func_020409b0(struct Node020409b0* obj, int arg);
 
 struct Table02040f48 {
     Vector3i v[4];
@@ -91,5 +91,5 @@ extern "C" ARM void func_02040f48(struct Obj02040f48* self, Vector3i* ref) {
 
     int idx = rand() % n;
     Vector3fix_Add((const Vector3fix*)&pos, (const Vector3fix*)&cand[idx], (Vector3fix*)&pos);
-    DispatchOnActiveChild020409b0((struct Node020409b0*)self, (int)&pos);
+    func_020409b0((struct Node020409b0*)self, (int)&pos);
 }

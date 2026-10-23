@@ -6,19 +6,19 @@ struct OutStruct0215ccbc;
 struct EffectWords_021e2950 { int lo; int hi; };
 
 struct FlagObj_021da9b0;
-int IsFlagBit8Set_021da9b0(struct FlagObj_021da9b0* obj);
-void ClearFlag0x14Bit0x8AndBytes_020882dc(void* obj);
+extern "C" int func_ov024_021da9b0(struct FlagObj_021da9b0* obj);
+extern "C" void func_020882dc(void* obj);
 struct Combatant_20885b4;
-int CheckFlag0x2AndKind1_020885b4(struct Combatant_20885b4* obj);
+extern "C" int func_020885b4(struct Combatant_20885b4* obj);
 struct S88514;
-int CheckFlag0x2AndState2_02088514(struct S88514* obj);
+extern "C" int func_02088514(struct S88514* obj);
 struct Combatant_2088644;
-void ClearFlag0x2AndKind_02088644(struct Combatant_2088644* obj);
-short ApplyHPDelta0215a16c(void* unused, int id, int delta, short* outApplied);
+extern "C" void func_02088644(struct Combatant_2088644* obj);
+extern "C" short func_ov000_0215a16c(void* unused, int id, int delta, short* outApplied);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* ctx);
-void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
+extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_02159eac(void* ctx, struct EffectWords_021e2950* words, int effect);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
+extern "C" void func_ov000_0215ccbc(
     int unused, struct OutStruct0215ccbc* out, GameObject* combatant, short valC, short valA, short valB,
     struct EffectWords_021e2950 words, unsigned char byteE);
 
@@ -33,11 +33,11 @@ struct Bit3b_021e2950 { unsigned char bit0 : 1; unsigned char rest : 7; };
 
 static inline unsigned short GetMaxHP(GameObject* c) { return c->currentStats_->primaryStats.maxHP; }
 
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char*);
-void ClearBattleFlag0x14Bit4_02088390(void*);
+extern "C" int func_020882f8(unsigned char*);
+extern "C" void func_02088390(void*);
 struct FlagObj_021de25c;
-int IsFlagBit5Set_021de25c(FlagObj_021de25c*);
-void ClearFlag0x20AndBytes_020883fc(void*);
+extern "C" int func_ov024_021de25c(FlagObj_021de25c*);
+extern "C" void func_020883fc(void*);
 // USA: func_ov024_021e2950
 extern "C" ARM struct OutStruct0215ccbc* func_ov024_021e2950(struct Obj_021e2950* obj, int unused, int id, int unused2, int amount) {
     GameObject* c = GetCombatantByID((int)obj->ctx, id);
@@ -51,42 +51,42 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021e2950(struct Obj_021e2950
     short applied = 0;
     unsigned short maxHP = GetMaxHP(c);
     if (c->currentStats_->primaryStats.currHP < maxHP) {
-        hp = ApplyHPDelta0215a16c(obj->ctx, id, amount, &applied);
+        hp = func_ov000_0215a16c(obj->ctx, id, amount, &applied);
         func_ov000_02159eac(obj->ctx, &words, 0x25);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x16);
+        func_ov000_0215a88c(obj->ctx, entry, 0x16);
         obj->count++;
     }
-    if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)c->currentStats_)) {
-        ClearBattleFlag0x14Bit4_02088390(c->currentStats_);
+    if (func_020882f8((unsigned char*)c->currentStats_)) {
+        func_02088390(c->currentStats_);
         ((struct Bit3b_021e2950*)((char*)c->currentStats_ + 0x3b))->bit0 = 1;
         func_ov000_02159eac(obj->ctx, &words, 0x10);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x40);
+        func_ov000_0215a88c(obj->ctx, entry, 0x40);
         obj->count++;
     }
-    if (IsFlagBit8Set_021da9b0((struct FlagObj_021da9b0*)c)) {
-        ClearFlag0x14Bit0x8AndBytes_020882dc(c->currentStats_);
+    if (func_ov024_021da9b0((struct FlagObj_021da9b0*)c)) {
+        func_020882dc(c->currentStats_);
         ((struct Bit3b_021e2950*)((char*)c->currentStats_ + 0x3b))->bit0 = 1;
         func_ov000_02159eac(obj->ctx, &words, 0x1a);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x1f9);
+        func_ov000_0215a88c(obj->ctx, entry, 0x1f9);
         obj->count++;
     }
-    if (IsFlagBit5Set_021de25c((FlagObj_021de25c*)c)) {
-        ClearFlag0x20AndBytes_020883fc(c->currentStats_);
+    if (func_ov024_021de25c((FlagObj_021de25c*)c)) {
+        func_020883fc(c->currentStats_);
         ((struct Bit3b_021e2950*)((char*)c->currentStats_ + 0x3b))->bit0 = 1;
         func_ov000_02159eac(obj->ctx, &words, 0x19);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x16f);
+        func_ov000_0215a88c(obj->ctx, entry, 0x16f);
         obj->count++;
     }
-    if (CheckFlag0x2AndKind1_020885b4((struct Combatant_20885b4*)c->currentStats_) || CheckFlag0x2AndState2_02088514((struct S88514*)c->currentStats_)) {
-        ClearFlag0x2AndKind_02088644((struct Combatant_2088644*)c->currentStats_);
+    if (func_020885b4((struct Combatant_20885b4*)c->currentStats_) || func_02088514((struct S88514*)c->currentStats_)) {
+        func_02088644((struct Combatant_2088644*)c->currentStats_);
         func_ov000_02159eac(obj->ctx, &words, 0x11);
-        AddEntryAndIncrementCount0215a88c(obj->ctx, entry, 0x54);
+        func_ov000_0215a88c(obj->ctx, entry, 0x54);
         obj->count++;
     }
     unsigned short mp = c->currentStats_->primaryStats.currMP;
     unsigned char flag;
     if (obj->action->flag) flag = 1; else flag = 0;
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)obj->ctx, entry, c, -applied,
+    func_ov000_0215ccbc((int)obj->ctx, entry, c, -applied,
         hp, mp, words, flag);
     return entry;
 }

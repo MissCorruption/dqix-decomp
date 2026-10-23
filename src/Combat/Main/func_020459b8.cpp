@@ -17,7 +17,7 @@ extern const unsigned char data_020e7a8c[];
 extern const short data_020e7aa6[];
 extern const short data_020e7ab0[];
 
-void InitState0204166c020416e0(State0204166c*, unsigned char, int, int, int, int, unsigned char);
+extern "C" void func_020416e0(State0204166c*, unsigned char, int, int, int, int, unsigned char);
 extern "C" void func_02045864(int x, int y, FontCharacter* glyph, unsigned char* dst, int width, int height,
                               unsigned char color, unsigned char font);
 
@@ -34,7 +34,7 @@ extern "C" ARM int func_020459b8(MessageSystem* sys, unsigned char charIndex, Fo
     unsigned char* pixels = data_02107800.glyphPixels;
     unsigned char* refs = sys->glyphReferences;
     State0204166c* slots = sys->glyphs;
-    int bitmapIndex = sys->FindAndSetFirstFreeBit_02042a90(sys->bitmapAllocationBits, 4);
+    int bitmapIndex = sys->func_02042a90(sys->bitmapAllocationBits, 4);
     if (bitmapIndex < 0) {
         return 0;
     }
@@ -61,7 +61,7 @@ extern "C" ARM int func_020459b8(MessageSystem* sys, unsigned char charIndex, Fo
                         func_02045864(1, 1, character, buf, 16, 16, 0xf, font);
                     }
                 }
-                InitState0204166c020416e0(slot, charIndex, (int)character, (int)buf, bitmapIndex,
+                func_020416e0(slot, charIndex, (int)character, (int)buf, bitmapIndex,
                                           (i << 7) + GetVramOffset(sys->encoder), font);
                 if (shadow) {
                     slot->renderFlag2 = 1;

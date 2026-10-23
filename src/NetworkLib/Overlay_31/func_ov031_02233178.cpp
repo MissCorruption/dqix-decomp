@@ -7,7 +7,7 @@ struct HighlightState02233178 { unsigned char selection; unsigned char padding[3
 extern HighlightMaps02233178 data_ov031_02249064;
 extern HighlightState02233178 data_ov031_02290cc0;
 extern "C" void func_ov031_02234ff8(void*, int, int);
-int GetFieldE7ByIndex_0223607c(int);
+extern "C" int func_ov031_0223607c(int);
 extern "C" void func_ov031_0223bb58(void*, int, int, int);
 
 // USA: func_ov031_02233178
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov031_02233178() {
     int value = colors[data_ov031_02290cc0.selection];
     func_ov031_02234ff8(data_ov031_02290cc0.objects->first, value, value);
     if (data_ov031_02290cc0.selection == 3) return;
-    int index = GetFieldE7ByIndex_0223607c(data_ov031_02290cc0.selection);
+    int index = func_ov031_0223607c(data_ov031_02290cc0.selection);
     if (index > 2) index = 3;
     func_ov031_0223bb58(data_ov031_02290cc0.objects->entries[data_ov031_02290cc0.selection], -1, 0, detail.entries[index]);
 }

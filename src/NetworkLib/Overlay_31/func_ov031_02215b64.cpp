@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-int DecodeBase64Char_02215af4(unsigned int);
+extern "C" int func_ov031_02215af4(unsigned int);
 
 // USA: func_ov031_02215b64
 extern "C" ARM int func_ov031_02215b64(const unsigned char* input, unsigned char* output, unsigned int count, unsigned int capacity) {
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov031_02215b64(const unsigned char* input, unsigned char
     for (i = 0; i < whole; i += 4) {
         acc = 0;
         for (j = 0; j < 4; j++) {
-            acc |= DecodeBase64Char_02215af4(input[i + j]) << ((3 - j) * 6);
+            acc |= func_ov031_02215af4(input[i + j]) << ((3 - j) * 6);
         }
         tmp = acc;
         for (k = 0; k < 3; k++) {
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov031_02215b64(const unsigned char* input, unsigned char
         tail = 0;
         acc = 0;
         for (j = 0; j < remain; j++) {
-            acc |= DecodeBase64Char_02215af4(input[whole + j]) << ((3 - j) * 6);
+            acc |= func_ov031_02215af4(input[whole + j]) << ((3 - j) * 6);
             tail |= acc;
         }
         for (k = 0; k < remain; k++) {

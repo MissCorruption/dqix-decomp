@@ -53,13 +53,13 @@ struct Rgb02070900 { int red; int green; int blue; };
 struct EffectParam02070900;
 struct Timer020707c8;
 struct EventFlags0215657c { char field_0[0x8c]; unsigned char flags[1]; };
-char* GetFieldIfFlag4_020100f8(char*);
+extern "C" char* func_020100f8(char*);
 extern "C" EventFlags0215657c* func_0205ec34();
-int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
+extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned short* func_02012fe4();
-Obj02046574* GetGlobalField0x1c020421a0();
-void SetIndexedName02046574(Obj02046574*, int, char*);
-int CallFunc020e0434With02153694_020e51cc(int);
+extern "C" Obj02046574* func_020421a0();
+extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" int func_020e51cc(int);
 extern "C" void func_02046608(Obj02046574*, int, int, char*, int, int, int);
 #if defined(jpn)
 extern "C" void func_0204500c(Obj02046574*, char*, int);
@@ -68,14 +68,14 @@ extern "C" void func_0204500c(Obj02046574*, char*, int, int);
 #endif
 void SetMainBrightness(GameResources*, int, int);
 extern "C" EffectParam02070900* func_020704fc();
-void SetColoredEffectParam02070900(EffectParam02070900*, Rgb02070900*, unsigned int);
-void UpdateInterpTimer020707c8(Timer020707c8*);
+extern "C" void func_02070900(EffectParam02070900*, Rgb02070900*, unsigned int);
+extern "C" void func_020707c8(Timer020707c8*);
 extern "C" void func_0209c2e0(void*, int, int);
 extern "C" void func_02046a8c(void*, void*);
-void ClearFields_021bb0c4(unsigned char*);
+extern "C" void func_ov017_021bb0c4(unsigned char*);
 void SetBrightness(GameResources*, int, int);
-void SetField0x238True_020a2794(void*);
-void ApplyVecFromField0x246_020a2718(char*);
+extern "C" void func_020a2794(void*);
+extern "C" void func_020a2718(char*);
 extern "C" void func_ov017_021bb27c(void*);
 extern int data_02109bf4 __attribute__((aligned(4)));
 
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
     GameState* game = GameState::GetInstance();
     GameResources* resources = GetGameResources();
     game->GetUnknownGameObject();
-    char* field = GetFieldIfFlag4_020100f8((char*)game);
+    char* field = func_020100f8((char*)game);
     int blocked = 0;
     int sameArea = 0;
     void* node = resources->unknown_ptr_3718;
@@ -93,14 +93,14 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
     else if (transition->currentKind == transition->targetKind) blocked = 1;
     else {
         EventFlags0215657c* flags = func_0205ec34();
-        if (TestBitInByteArray_0206dfb0((int)flags, flags->flags, transition->flag + 0x38e)) blocked = 1;
+        if (func_0206dfb0((int)flags, flags->flags, transition->flag + 0x38e)) blocked = 1;
         else if (transition->area == *func_02012fe4()) sameArea = 1;
     }
     if (blocked) {
         GameState* state = GameState::GetInstance();
         GameResources* display = GetGameResources();
-        Obj02046574* message = GetGlobalField0x1c020421a0();
-        GameObject* member = GetCombatantWithFlag0x100_0200ff1c(state, 0);
+        Obj02046574* message = func_020421a0();
+        GameObject* member = func_0200ff1c(state, 0);
         if (member) {
             char* name = (char*)member->baseStats_;
 #if defined(jpn)
@@ -108,9 +108,9 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
             sprintf(text, data_ov001_021661e8, name);
             func_0204500c(message, text, 0);
 #else
-            SetIndexedName02046574(message, 0, name);
+            func_02046574(message, 0, name);
             char text[0x100];
-            int messageId = CallFunc020e0434With02153694_020e51cc(0x34);
+            int messageId = func_020e51cc(0x34);
             func_02046608(message, 12, messageId, text, 0xe3, 0, 1);
             func_0204500c(message, text, 0, 0xe3);
 #endif
@@ -121,20 +121,20 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
         SetMainBrightness(display, 0, 1);
         EffectParam02070900* effect = func_020704fc();
         Rgb02070900 color = {};
-        SetColoredEffectParam02070900(effect, &color, 0);
-        UpdateInterpTimer020707c8((Timer020707c8*)effect);
+        func_02070900(effect, &color, 0);
+        func_020707c8((Timer020707c8*)effect);
         return 5;
     }
     if (sameArea) {
         transition->destination = transition->targetId;
         func_0209c2e0(&data_02109bf4, transition->context, 0);
         func_02046a8c(list, node);
-        ClearFields_021bb0c4((unsigned char*)transition);
+        func_ov017_021bb0c4((unsigned char*)transition);
         return 0;
     }
     SetBrightness(resources, 0, 30);
-    SetField0x238True_020a2794(field);
-    ApplyVecFromField0x246_020a2718(field);
+    func_020a2794(field);
+    func_020a2718(field);
     func_0209c2e0(&data_02109bf4, transition->context, 0);
     func_ov017_021bb27c(transition);
     transition->done = 1;

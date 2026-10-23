@@ -21,9 +21,9 @@ struct ZoneLoadState {
     int unknown20;
 };
 
-void *GetField0x3f8Address_0200fd0c(GameState *state);
-void FormatFilenameAndSetExtension02014d18(int id, char *extension, char *buffer);
-void RestorePairTables0207df90(char *tables);
-void BackupPairTables0207dfac(char *tables);
+extern "C" void *func_0200fd0c(GameState *state);
+extern "C" void func_02014d18(int id, char *extension, char *buffer);
+extern "C" void func_0207df90(char *tables);
+extern "C" void func_0207dfac(char *tables);
 extern char data_020ef1e8[];
 extern const ZoneAnimationResources data_020e6f48;

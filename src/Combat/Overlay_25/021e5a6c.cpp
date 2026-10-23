@@ -19,14 +19,14 @@ struct Obj021e5a6c {
 struct List021600f8;
 struct ListNode021600f8;
 
-struct ListNode021600f8* GetNodeAtIndex021600f8(struct List021600f8* list, int index);
+extern "C" struct ListNode021600f8* func_ov000_021600f8(struct List021600f8* list, int index);
 struct Vector3i;
-void* GetActiveCombatWork_ov000_02160130(void);
+extern "C" void* func_ov000_02160130(void);
 
 // USA: func_ov025_021e5a6c
 extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List021600f8* list) {
     GameState* bs = GameState::GetInstance();
-    void* f = GetField0x3b0Value_020100bc(bs);
+    void* f = func_020100bc(bs);
     unsigned char mode = obj->mode;
     if (mode == 0) {
         if (f != 0) {
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List02160
         }
     } else if (mode == 2) {
         int height = 1;
-        struct ListNode021600f8* node = GetNodeAtIndex021600f8(list, 0);
+        struct ListNode021600f8* node = func_ov000_021600f8(list, 0);
         if (node != 0) {
             GameObject* c = bs->GetCombatantByIndex(*(short*)((char*)node + 0xe));
             if (c != 0) {
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List02160
             *(Vector3i*)((int*)((char*)f + 0x10)) = *(Vector3i const*)((int*)&sum);
         }
     }
-    void* work = GetActiveCombatWork_ov000_02160130();
+    void* work = func_ov000_02160130();
     if (work != 0) {
         *(unsigned char*)((char*)work + WorkFlag) = 1;
     }

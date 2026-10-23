@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-int GetFieldAt0x150_02053c6c(unsigned char* member);
-int TestBitInArray0x8ec_02083b00(unsigned char* arr, int bit);
-void SetBitInArray0x8ec_02083acc(unsigned char* arr, int bit);
+extern "C" int func_02053c6c(unsigned char* member);
+extern "C" int func_02083b00(unsigned char* arr, int bit);
+extern "C" void func_02083acc(unsigned char* arr, int bit);
 
 struct SkillEntry {
 #if defined(jpn)
@@ -26,7 +26,7 @@ struct Field150 {
 
 // USA: func_0209a678
 extern "C" ARM int func_0209a678(char* table, void* member, unsigned short* skills) {
-    unsigned char* field = (unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)member);
+    unsigned char* field = (unsigned char*)func_02053c6c((unsigned char*)member);
     int index = 0;
     int count = 0;
     int slot;
@@ -58,8 +58,8 @@ extern "C" ARM int func_0209a678(char* table, void* member, unsigned short* skil
 #else
             unsigned short id = (*(SkillEntry**)table)[i].id;
 #endif
-            if (TestBitInArray0x8ec_02083b00(field, id) == 0) {
-                SetBitInArray0x8ec_02083acc(field, id);
+            if (func_02083b00(field, id) == 0) {
+                func_02083acc(field, id);
                 skills[count] = id;
                 count++;
             }

@@ -39,7 +39,7 @@ struct TextWorkspace {
     char* textBuffer;
 };
 
-TextWorkspace* GetGlobalField0x1c020421a0();
+extern "C" TextWorkspace* func_020421a0();
 
 extern "C" void func_ov000_0217c638(struct Owner_021784d4* obj, int a, int b);
 extern "C" void func_ov000_02178648(struct Owner_021784d4* obj, void* textBuffer);
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov000_021784d4(struct Owner_021784d4* obj, struct InStr
     }
     int x = in->x;
     int y = in->y;
-    GetPtrField0x2a04_02010828(GameState::GetInstance());
+    func_02010828(GameState::GetInstance());
     unsigned char memberCount = obj->memberCount;
     func_ov000_0217c638(obj, arg2, arg3);
     struct Panel_021784d4* panel = &obj->panel;
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_021784d4(struct Owner_021784d4* obj, struct InStr
         panel->field_0xae = 0xb;
     }
     panel->field_0xb1 = 8;
-    char* textBuffer = GetGlobalField0x1c020421a0()->textBuffer;
+    char* textBuffer = func_020421a0()->textBuffer;
 #if defined(jpn)
     memset(textBuffer, 0, 0x800);
 #else

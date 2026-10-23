@@ -17,7 +17,7 @@ src/NitroSDK/itcm/DMA_ITCM.cpp:
     complete
     .text start:0x01ff8480 end:0x01ff85b8
 
-src/System/itcm/CRC32ITCM.cpp:
+src/System/itcm/func_01ff85b8.cpp:
     complete
     .text start:0x01ff85b8 end:0x01ff8640
 

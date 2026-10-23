@@ -42,9 +42,9 @@ struct EquipmentMenu {
 
 extern "C" const unsigned char data_ov005_0215cc0c[];
 
-int GetHalfwordEntryFromField150(Field150Holder02052df8* member, int part);
-PartEntry* FindElementByKey020dedd0(Container020dedd0* items, int id);
-PartyMemberData* GetFieldAt0x150_02053c6c(unsigned char* member);
+extern "C" int func_02052df8(Field150Holder02052df8* member, int part);
+extern "C" PartEntry* func_020dedd0(Container020dedd0* items, int id);
+extern "C" PartyMemberData* func_02053c6c(unsigned char* member);
 extern "C" void func_02052d7c(Field150Holder02052df8* member, int part, short item);
 extern "C" void func_0208358c(PartyMemberData* data, PartEntry* item, int unk);
 extern "C" void func_02083738(PartyMemberData* data, int category);
@@ -53,15 +53,15 @@ extern "C" int func_0207c378(void* lists, int item, int count, int list);
 // USA: func_ov005_0215840c
 extern "C" ARM int func_ov005_0215840c(EquipmentMenu* self, int member) {
     GameState* gameState = GameState::GetInstance();
-    Field150Holder02052df8* partyMember = (Field150Holder02052df8*)GetCombatantWithFlag0x100_0200ff1c(gameState, member);
+    Field150Holder02052df8* partyMember = (Field150Holder02052df8*)func_0200ff1c(gameState, member);
     if (partyMember == NULL)
         return 0;
     int removed = 0;
     unsigned int female = partyMember->data_->female_;
     for (int i = 0; i < 7; i++) {
         unsigned char part = data_ov005_0215cc0c[i];
-        int current = GetHalfwordEntryFromField150(partyMember, part);
-        PartEntry* entry = FindElementByKey020dedd0(self->items_, current);
+        int current = func_02052df8(partyMember, part);
+        PartEntry* entry = func_020dedd0(self->items_, current);
         if (entry == NULL)
             continue;
         unsigned int wearable[2];
@@ -76,13 +76,13 @@ extern "C" ARM int func_ov005_0215840c(EquipmentMenu* self, int member) {
             replacement = 1000;
         }
         func_02052d7c(partyMember, part, -1);
-        PartyMemberData* data = GetFieldAt0x150_02053c6c((unsigned char*)partyMember);
-        PartEntry* replacementEntry = FindElementByKey020dedd0(self->items_, replacement);
+        PartyMemberData* data = func_02053c6c((unsigned char*)partyMember);
+        PartEntry* replacementEntry = func_020dedd0(self->items_, replacement);
         if (replacementEntry != NULL)
             func_0208358c(data, replacementEntry, unk);
         else
             func_02083738(data, entry->category_);
-        func_0207c378((char*)GetPtrField0x2a04_02010828(gameState) + 0x1d4, current, 1, entry->category_);
+        func_0207c378((char*)func_02010828(gameState) + 0x1d4, current, 1, entry->category_);
         removed = 1;
     }
     return removed;

@@ -2,8 +2,8 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-void DestroyActiveAllocators_0215aa5c(void);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_ov001_0215aa5c(void);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern int data_02114e20;
 
 // USA: func_ov017_021bb108
@@ -15,7 +15,7 @@ extern "C" ARM void func_ov017_021bb108(char* self) {
 #endif
 	void* p1 = ((SafeAllocator*)(self + regionalOffset0))->GetSignedAllocator();
 	if (p1 != NULL) {
-		DestroyActiveAllocators_0215aa5c();
+		func_ov001_0215aa5c();
 		void* p2 = ((SafeAllocator*)(self + regionalOffset1))->GetSignedAllocator();
 		if (p2 != NULL) {
 			((SafeAllocator*)(self + regionalOffset1))->Destroy();
@@ -23,12 +23,12 @@ extern "C" ARM void func_ov017_021bb108(char* self) {
 		}
 		void* p3 = ((SafeAllocator*)(self + regionalOffset0))->GetSignedAllocator();
 		((SafeAllocator*)(self + regionalOffset0))->Destroy();
-		TailForward02012da4((AllocatorUnion*)&data_02114e20, p3);
+		func_02012da4((AllocatorUnion*)&data_02114e20, p3);
 	}
 	if (*(SafeAllocator**)(self + regionalOffset2) == NULL) return;
 	void* p4 = (*(SafeAllocator**)(self + regionalOffset2))->GetSignedAllocator();
 	if (p4 == NULL) return;
 	(*(SafeAllocator**)(self + regionalOffset2))->Destroy();
-	TailForward02012da4((AllocatorUnion*)&data_02114e20, p4);
+	func_02012da4((AllocatorUnion*)&data_02114e20, p4);
 	*(SafeAllocator**)(self + regionalOffset2) = NULL;
 }

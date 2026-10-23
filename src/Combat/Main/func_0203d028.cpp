@@ -45,8 +45,8 @@ struct BattleStruct {
 };
 
 struct Struct_020652b4 { int field0; };
-int IsListEmpty_020652b4(struct Struct_020652b4* p);
-int IsField0Zero_0206dda4(int* p);
+extern "C" int func_020652b4(struct Struct_020652b4* p);
+extern "C" int func_0206dda4(int* p);
 
 struct Pool020401fc {
     unsigned int count;
@@ -55,9 +55,9 @@ struct Pool020401fc {
     unsigned char pad6[2];
     void* elements;
 };
-void InitPool020401fc(struct Pool020401fc* pool, unsigned int count, SafeAllocator* alloc);
+extern "C" void func_020401fc(struct Pool020401fc* pool, unsigned int count, SafeAllocator* alloc);
 
-int GetFieldAt0x0020652c8(int* obj);
+extern "C" int func_020652c8(int* obj);
 
 struct Sub1840_02012fe4 {
     char pad0[0xb5c];
@@ -70,12 +70,12 @@ struct Global02012fe4 {
     struct Sub1840_02012fe4* GetSub1840() { return &sub1840; }
 };
 extern "C" struct Global02012fe4* func_02012fe4(void);
-unsigned int* GetDataPtr02114e04_020d6c00(void);
+extern "C" unsigned int* func_020d6c00(void);
 
-int IsIdInRange020981e4(int a, int id);
-int IsIdInSet02098210(int a, int id);
+extern "C" int func_020981e4(int a, int id);
+extern "C" int func_02098210(int a, int id);
 
-void Init020404c0(int* obj);
+extern "C" void func_020404c0(int* obj);
 
 struct NodeInfo0203d028 {
     char pad0[0xa];
@@ -96,10 +96,10 @@ struct NodeInfo0203d028 {
     int field54;
     int field58;
 };
-struct NodeInfo0203d028* FindNodeByByteId_0206db20(void* base, int key);
+extern "C" struct NodeInfo0203d028* func_0206db20(void* base, int key);
 
-void SetField0x8_02040520(int* obj, int value);
-void SetField0xc_02040530(int* obj, int value);
+extern "C" void func_02040520(int* obj, int value);
+extern "C" void func_02040530(int* obj, int value);
 
 struct State02041244 {
     char pad_00[0xac];
@@ -115,7 +115,7 @@ struct State02041244 {
     int field_d0;
     unsigned char flags_d4;
 };
-void ResetState02041244(struct State02041244* obj);
+extern "C" void func_02041244(struct State02041244* obj);
 
 struct Struct_203dafc {
     int field0;
@@ -127,22 +127,22 @@ struct Struct_203dafc {
     int field18;
     int field1c;
 };
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 
 struct Entry0209854c;
-struct Entry0209854c* FindEntryByFieldC0209854c(struct Entry0209854c* list, int target);
+extern "C" struct Entry0209854c* func_0209854c(struct Entry0209854c* list, int target);
 
 extern "C" void* func_020daf90(void);
-int GetField0x50_020db2d4(void* obj);
-void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
+extern "C" int func_020db2d4(void* obj);
+extern "C" void func_020daf9c(int a, int b, int c, int d);
 
 void SetMainBrightness(GameResources*, int, int);
-void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
-int IsPowcntBit0Set_020cede0(void);
-int DispatchIfEquals1_020cedc0(int a);
+extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" int func_020cede0(void);
+extern "C" int func_020cedc0(int a);
 
 extern "C" void func_ov017_0218f064(void* mgr, int a, int b, int c, int d);
 
@@ -154,29 +154,29 @@ extern "C" void _ZN8Object3D10SetField06Et(struct U16Field0x6_020375f0* obj, int
 extern "C" int* func_ov017_021a4658(void* mgr, int a);
 
 struct Ctx021a3498;
-void ClearIfMatchAndFinalize_021a3498(struct Ctx021a3498* ctx);
+extern "C" void func_ov017_021a3498(struct Ctx021a3498* ctx);
 
 struct HeadNode02046b24 { signed char id; };
-int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
+extern "C" int func_02046b24(struct HeadNode02046b24** obj);
 
-void InitializeRandomMotion0203c794(void* obj);
-void StoreValueViaField0x14_0203db24(unsigned char* obj, int val);
+extern "C" void func_0203c794(void* obj);
+extern "C" void func_0203db24(unsigned char* obj, int val);
 
 struct Obj0203f02c;
-void UpdateElementStream0203f02c(struct Obj0203f02c* obj, int param1, int param2, char* param3, int param5, int param6);
+extern "C" void func_0203f02c(struct Obj0203f02c* obj, int param1, int param2, char* param3, int param5, int param6);
 
 extern "C" void func_0203f138(void* obj, int b);
 
 extern "C" void func_0203e8f8(void* a, void* b, void* c);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df50(struct Foo0207df50* p);
 
 struct GameState;
-void ClearCombatantSlot_0200fd48(GameState*, int);
+extern "C" void func_0200fd48(GameState*, int);
 
 struct FlagWord020466f4 { unsigned int flags; };
-void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
 
 struct FieldsA02040774 { char pad4[4]; int a; int b; int c; };
 struct Node02040774 {
@@ -185,7 +185,7 @@ struct Node02040774 {
     void* f18;
     void* f1c;
 };
-void SetActiveChildFields02040774(struct Node02040774* obj, int a, int b, int c);
+extern "C" void func_02040774(struct Node02040774* obj, int a, int b, int c);
 
 struct State0xcda8;
 struct Obj0204085c {
@@ -194,7 +194,7 @@ struct Obj0204085c {
     unsigned char* field18;
     unsigned char* field1c;
 };
-void HandleObjEvent0204085c(struct Obj0204085c* obj, int a, int b, int c);
+extern "C" void func_0204085c(struct Obj0204085c* obj, int a, int b, int c);
 
 struct Struct_203cec4;
 struct S02037418;
@@ -208,7 +208,7 @@ struct Obj02040540 {
     struct Struct_203cec4* b;
     struct S02037418* c;
 };
-void ApplyFlagsToTarget02040540(struct Obj02040540* obj);
+extern "C" void func_02040540(struct Obj02040540* obj);
 
 struct ObjectArchiveLoadInfo;
 
@@ -221,7 +221,7 @@ struct Node020408c8 {
     void* f18;
     void* f1c;
 };
-void SetActiveChildShorts020408c8(struct Node020408c8* obj, short a, short b, short c);
+extern "C" void func_020408c8(struct Node020408c8* obj, short a, short b, short c);
 
 struct Obj02041598 {
     char pad_00[0xc4];
@@ -229,21 +229,21 @@ struct Obj02041598 {
     char pad_c5[0xb];
     int field_d0;
 };
-int SetByteC4AndDispatch02041598(struct Obj02041598* obj, int value, int z);
+extern "C" int func_02041598(struct Obj02041598* obj, int value, int z);
 
-void StoreVec3AtField0x50_0203db34(unsigned char* obj, int a, int b, int c);
+extern "C" void func_0203db34(unsigned char* obj, int a, int b, int c);
 
 struct Obj020415b0 {
     char pad_00[0xcc];
     int field_cc;
     int field_d0;
 };
-int SetWordCCAndDispatch020415b0(Obj020415b0*, int, int);
+extern "C" int func_020415b0(Obj020415b0*, int, int);
 
 extern "C" void func_0203db44(void* a, void* b, void* c);
 
-void SetByte0x2e8AndDispatch02041628(void* obj, int v, int z);
-void SetWord0x2f4AndDispatch02041640(void* obj, int v, int z);
+extern "C" void func_02041628(void* obj, int v, int z);
+extern "C" void func_02041640(void* obj, int v, int z);
 struct Vector3i;
 
 extern "C" int func_02018fbc(void* globalStruct, int* vec3);
@@ -257,7 +257,7 @@ struct Obj02040bfc {
     struct TargetB02040bfc* b;
     struct TargetC02040bfc* c;
 };
-void StoreToFirstNonNull02040bfc(struct Obj02040bfc* obj, int value);
+extern "C" void func_02040bfc(struct Obj02040bfc* obj, int value);
 
 struct RegNode0203d028 {
     unsigned short id;
@@ -325,16 +325,16 @@ static inline void SetX90_0203d028(void* motion, int v)
 // USA: func_0203d028
 extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, SafeAllocator* sb, char* fp)
 {
-    if (IsListEmpty_020652b4((struct Struct_020652b4*)&self->listHead) ||
-        IsField0Zero_0206dda4((int*)&self->nodeTableBase))
+    if (func_020652b4((struct Struct_020652b4*)&self->listHead) ||
+        func_0206dda4((int*)&self->nodeTableBase))
     {
-        InitPool020401fc(&self->pool, 0xc, sb);
+        func_020401fc(&self->pool, 0xc, sb);
         return;
     }
 
     struct BattleStruct* battleStruct = (BattleStruct*)GameState::GetInstance();
     GameResources* mgr = GetGameResources();
-    struct RegNode0203d028* entry = (struct RegNode0203d028*)GetFieldAt0x0020652c8(&self->listHead);
+    struct RegNode0203d028* entry = (struct RegNode0203d028*)func_020652c8(&self->listHead);
     struct Global02012fe4* globalStruct = func_02012fe4();
 #if defined(jpn)
     char* sub860 = (char*)globalStruct + 0x860;
@@ -342,15 +342,15 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
 #else
 #define GLOBAL_SUB ((char*)globalStruct + 0x840)
 #endif
-    unsigned int* dataFlags = GetDataPtr02114e04_020d6c00();
+    unsigned int* dataFlags = func_020d6c00();
     unsigned int idVal = *(unsigned short*)globalStruct;
     void* childModelPtr = 0;
     unsigned int loopIndex = 0;
     int assignedFlag = 0;
-    InitPool020401fc(&self->pool, 0xc, sb);
+    func_020401fc(&self->pool, 0xc, sb);
 
-    if (IsIdInRange020981e4((int)GLOBAL_SUB, idVal) &&
-        IsIdInSet02098210((int)GLOBAL_SUB, idVal) == 0) {
+    if (func_020981e4((int)GLOBAL_SUB, idVal) &&
+        func_02098210((int)GLOBAL_SUB, idVal) == 0) {
         self->pool.field5 = 1;
     } else {
         self->pool.field5 = 0;
@@ -362,10 +362,10 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
     while (entry != 0) {
         struct Node0203d028* node = (struct Node0203d028*)sb->Allocate(0x20);
         if (node == 0) goto abort_unlock;
-        Init020404c0((int*)node);
-        struct NodeInfo0203d028* info = FindNodeByByteId_0206db20(&self->nodeTableBase, entry->id);
-        SetField0x8_02040520((int*)node, (int)entry);
-        SetField0xc_02040530((int*)node, (int)info);
+        func_020404c0((int*)node);
+        struct NodeInfo0203d028* info = func_0206db20(&self->nodeTableBase, entry->id);
+        func_02040520((int*)node, (int)entry);
+        func_02040530((int*)node, (int)info);
 
         if (battleStruct->GetSub7e78()->field6 != 0xff && info != 0 && info->field1f != 0) {
             node->flags |= 0x40000;
@@ -387,19 +387,19 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
         if (entry->type == 2) {
             node->state = (struct State02041244*)sb->Allocate(0xd8);
             if (node->state == 0) goto abort_unlock;
-            ResetState02041244(node->state);
+            func_02041244(node->state);
             char pathBuf[40];
             sprintf(pathBuf, &data_020efdc4, entry->name);
             void* loadedPtr = LoadFileIntoNewAllocation(pathBuf, *sb, &outLen);
             if (loadedPtr == 0) goto abort_unlock;
             struct Struct_203dafc params;
-            ClearEightWords_0203dafc(&params);
-            RestorePairTables0207df90(fp);
+            func_0203dafc(&params);
+            func_0207df90(fp);
             params.fieldc = (int)sb;
             params.field4 = (int)loadedPtr;
             params.field8 = (int)outLen;
             ((Object3D*)node->state)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-            BackupPairTables0207dfac(fp);
+            func_0207dfac(fp);
         }
         else if (entry->type == 4) {
 #if defined(jpn)
@@ -408,16 +408,16 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             unsigned char* table = globalStruct->GetSub1840()->tableB5c;
 #endif
             int slot = 5;
-            struct Entry0209854c* found = FindEntryByFieldC0209854c((struct Entry0209854c*)GLOBAL_SUB, entry->id);
+            struct Entry0209854c* found = func_0209854c((struct Entry0209854c*)GLOBAL_SUB, entry->id);
             if (found != 0) {
                 {
-                    if (GetField0x50_020db2d4(func_020daf90()) == 0) {
-                        DispatchWithGlobalContext020daf9c(1, 0, 1, 0);
+                    if (func_020db2d4(func_020daf90()) == 0) {
+                        func_020daf9c(1, 0, 1, 0);
                         SetMainBrightness(mgr, ~0xf, 0);
                     }
-                    OrBitsIntoField0_020466e4(dataFlags, 0x400000);
-                    if (!IsPowcntBit0Set_020cede0()) {
-                        while (DispatchIfEquals1_020cedc0(1) == 0) {
+                    func_020466e4(dataFlags, 0x400000);
+                    if (!func_020cede0()) {
+                        while (func_020cedc0(1) == 0) {
                         }
                         SleepCurrentContext(1);
                     }
@@ -443,29 +443,29 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
 #endif
                     BackgroundLoader* instance = BackgroundLoader::GetInstance();
 
-                    while (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)ctxA) == 0x13) {
+                    while (func_02046b24((struct HeadNode02046b24**)ctxA) == 0x13) {
                         instance->RemoveAllLocks();
-                        ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)ctxA);
-                        if (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)ctxB) == 0x14) {
-                            ClearIfMatchAndFinalize_021a3498((struct Ctx021a3498*)ctxB);
+                        func_ov017_021a3498((struct Ctx021a3498*)ctxA);
+                        if (func_02046b24((struct HeadNode02046b24**)ctxB) == 0x14) {
+                            func_ov017_021a3498((struct Ctx021a3498*)ctxB);
                         }
                     }
 
                     node->stateB = sb->Allocate(0x9c);
                     if (node->stateB == 0) goto abort_unlock;
-                    InitializeRandomMotion0203c794(node->stateB);
-                    StoreValueViaField0x14_0203db24((unsigned char*)node, (int)self);
+                    func_0203c794(node->stateB);
+                    func_0203db24((unsigned char*)node, (int)self);
 
                     const char* motName = &data_020efdda;
                     if (node->stateB != 0) {
-                        UpdateElementStream0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)motName, (int)sb, fp, 0, 0);
+                        func_0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)motName, (int)sb, fp, 0, 0);
                     }
                     if (node->stateB != 0) {
                         func_0203f138(node->stateB, 1);
                     }
                     Set2e0203d028(node->stateB, 0x3d);
                     Set95_0203d028(node->stateB, 1);
-                    StoreValueViaField0x14_0203db24((unsigned char*)node, (int)self);
+                    func_0203db24((unsigned char*)node, (int)self);
 
                     SafeAllocator* savedAlloc = &GetResourceAllocator(mgr, 8);
                     savedAlloc->Reset();
@@ -476,16 +476,16 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
                     char* buf930 = &GetResourceBuffer(mgr, 0x930);
                     entry->type = 0;
                     alloc3->Reset();
-                    CopyInternalFields0207df50((struct Foo0207df50*)buf930);
-                    ClearCombatantSlot_0200fd48((GameState*)battleStruct, 5);
-                    ClearFlags020466f4((struct FlagWord020466f4*)dataFlags, 0x400000);
+                    func_0207df50((struct Foo0207df50*)buf930);
+                    func_0200fd48((GameState*)battleStruct, 5);
+                    func_020466f4((struct FlagWord020466f4*)dataFlags, 0x400000);
                 }
             }
         }
         else if (entry->type == 5) {
             node->state = (struct State02041244*)sb->Allocate(0xd8);
             if (node->state == 0) goto abort_unlock;
-            ResetState02041244(node->state);
+            func_02041244(node->state);
             BackgroundLoader::FreeAllocationsGlobal();
 
             GPCReadPair pair;
@@ -529,13 +529,13 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             decompressed = DecompressLZ77FileIntoAllocatedSpace(*sb, filePtr, decompSize);
 
             struct Struct_203dafc params;
-            ClearEightWords_0203dafc(&params);
-            RestorePairTables0207df90(fp);
+            func_0203dafc(&params);
+            func_0207df90(fp);
             params.fieldc = (int)sb;
             params.field4 = (int)decompressed;
             params.field8 = (int)decompSize;
             ((Object3D*)node->state)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-            BackupPairTables0207dfac(fp);
+            func_0207dfac(fp);
 
             node->state->flags_d4 |= 2;
             pair.Reset();
@@ -545,8 +545,8 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
         else {
             node->stateB = sb->Allocate(0x9c);
             if (node->stateB == 0) goto abort_unlock;
-            InitializeRandomMotion0203c794(node->stateB);
-            StoreValueViaField0x14_0203db24((unsigned char*)node, (int)self);
+            func_0203c794(node->stateB);
+            func_0203db24((unsigned char*)node, (int)self);
 
             if (entry->name[0] != 0 && entry->type == 0) {
                 int successFlag = 0;
@@ -566,7 +566,7 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
                     sprintf(pathBuf, &data_020efe27, entry->name);
                 }
                 if (node->stateB != 0) {
-                    UpdateElementStream0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)pathBuf, (int)sb, fp, 0, 0);
+                    func_0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)pathBuf, (int)sb, fp, 0, 0);
                 }
                 if (node->stateB != 0) {
                     func_0203f138(node->stateB, 1);
@@ -581,9 +581,9 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
         }
 
         if (info != 0) {
-            SetActiveChildFields02040774((struct Node02040774*)node, info->field10, info->field14, info->field18);
-            HandleObjEvent0204085c((struct Obj0204085c*)node, 0, info->field1c, 0);
-            ApplyFlagsToTarget02040540((struct Obj02040540*)node);
+            func_02040774((struct Node02040774*)node, info->field10, info->field14, info->field18);
+            func_0204085c((struct Obj0204085c*)node, 0, info->field1c, 0);
+            func_02040540((struct Obj02040540*)node);
 
             if (handledFlag == 0 && info->field54 != 0) {
                 char buf[60];
@@ -618,13 +618,13 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
                     mdlPtr = LoadFileIntoNewAllocation(&data_020efe38, *sb, &mdlOutLen);
                     if (mdlPtr != 0) {
                         struct Struct_203dafc mdlParams;
-                        ClearEightWords_0203dafc(&mdlParams);
-                        RestorePairTables0207df90(fp);
+                        func_0203dafc(&mdlParams);
+                        func_0207df90(fp);
                         mdlParams.field4 = (int)mdlPtr;
                         mdlParams.field8 = (int)mdlOutLen;
                         mdlParams.fieldc = (int)sb;
                         ((Object3D*)((int)childModelPtr))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&mdlParams));
-                        BackupPairTables0207dfac(fp);
+                        func_0207dfac(fp);
                     }
                     ((Object3D*)((struct Shorts5c_374e0*)childModelPtr))->SetScale(0x10a, 0x10a, 0x10a);
                     ((Object3D*)((unsigned char*)childModelPtr))->SetFlag16();
@@ -643,18 +643,18 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             }
 
             if (node->stateB != 0) {
-                SetActiveChildShorts020408c8((struct Node020408c8*)node, 0x8f, 0x8f, 0x8f);
+                func_020408c8((struct Node020408c8*)node, 0x8f, 0x8f, 0x8f);
             }
             else if (node->state != 0) {
                 ((Object3D*)((struct Shorts5c_374e0*)node->state))->SetScale(0x10a, 0x10a, 0x10a);
-                SetByteC4AndDispatch02041598((struct Obj02041598*)node->state, info->field1e, 0);
+                func_02041598((struct Obj02041598*)node->state, info->field1e, 0);
                 if (node->flags & 0x800) {
                     ((Object3D*)((unsigned char*)node->state))->SetFlag16();
                     ((Object3D*)((unsigned char*)node->state))->EnableFlag(0x2000000);
-                    StoreVec3AtField0x50_0203db34((unsigned char*)node->state, 0x4b5c, info->field1c, 0);
+                    func_0203db34((unsigned char*)node->state, 0x4b5c, info->field1c, 0);
                 }
                 if (info->field58 != 0) {
-                    SetWordCCAndDispatch020415b0((struct Obj020415b0*)node->state, info->field58, 0);
+                    func_020415b0((struct Obj020415b0*)node->state, info->field58, 0);
                 }
                 if (info->flag7) {
                     func_0203db44(self, node, sb);
@@ -662,20 +662,20 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             }
             else if (node->combatant != 0) {
                 ((Object3D*)((struct Shorts5c_374e0*)node->combatant))->SetScale(0x10a, 0x10a, 0x10a);
-                SetByte0x2e8AndDispatch02041628(node->combatant, info->field1e, 0);
+                func_02041628(node->combatant, info->field1e, 0);
                 if (node->flags & 0x800) {
                     ((Object3D*)((unsigned char*)node->combatant))->SetFlag16();
-                    StoreVec3AtField0x50_0203db34((unsigned char*)node->combatant, 0x4b5c, info->field1c, 0);
+                    func_0203db34((unsigned char*)node->combatant, 0x4b5c, info->field1c, 0);
                 }
                 if (info->field58 != 0) {
-                    SetWord0x2f4AndDispatch02041640(node->combatant, info->field58, 0);
+                    func_02041640(node->combatant, info->field58, 0);
                 }
                 int localVec3[3];
                 *(Vector3i*)localVec3 = *(Vector3i const*)((int*)((char*)node->combatant + 0x44));
                 localVec3[1] = func_02018fbc(globalStruct, localVec3);
                 *(Vector3i*)((int*)((char*)node->combatant + 0x44)) = *(Vector3i const*)localVec3;
             }
-            StoreToFirstNonNull02040bfc((struct Obj02040bfc*)node, info->field38);
+            func_02040bfc((struct Obj02040bfc*)node, info->field38);
 
             SetX90_0203d028(node->stateB, info->field3c);
         }

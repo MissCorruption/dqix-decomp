@@ -5,7 +5,7 @@ extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count,
 
 extern unsigned short data_ov024_021feafc;
 
-// USA: func_ov024_021ee3e8  (semantic: CopyTableIfPositiveResult_021ee3e8)
+// USA: func_ov024_021ee3e8
 extern "C" ARM int func_ov024_021ee3e8(int* a0, int a1, int a2, int* out, void* dst) {
 	unsigned short buf[4];
 	unsigned short* d = buf;

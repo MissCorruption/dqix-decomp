@@ -30,7 +30,7 @@ extern struct Item02037af8 data_02107870[3];
 extern struct Item02037af8 data_021078a8;
 extern struct Item02037af8 data_021078e0;
 
-// USA: func_0204a4ac  (semantic: RefreshNameNodes0204a4ac)
+// USA: func_0204a4ac
 extern "C" ARM void func_0204a4ac(struct Holder0204a4ac* self) {
     struct Struct0207ea38* text;
 

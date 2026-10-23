@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void FilterSlotsWithFlag0x800020dc4d0(signed char*, signed char*);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState*, int);
-int GetSignedByte0x2d0_020546a8(void*);
+extern "C" void func_020dc4d0(signed char*, signed char*);
+extern "C" GameObject* func_0200ff58(GameState*, int);
+extern "C" int func_020546a8(void*);
 static inline int ValidPartyIndex(int index) { return index >= 0 && index <= 3; }
 
 // USA: func_020dc548
@@ -11,7 +11,7 @@ extern "C" ARM void func_020dc548(int index, signed char* out, signed char* outC
     if (!ValidPartyIndex(index)) { *outCount = 0; return; }
     GameState* game = GameState::GetInstance();
     signed char slots[4], count;
-    FilterSlotsWithFlag0x800020dc4d0(slots, &count);
+    func_020dc4d0(slots, &count);
     signed char groups[4][4];
     int leader = -1;
     signed char member = 0;
@@ -19,9 +19,9 @@ extern "C" ARM void func_020dc548(int index, signed char* out, signed char* outC
     signed char groupCounts[4] = {};
     for (signed char i = 0; i < count; ++i) {
         int slot = slots[i];
-        GameObject* object = GetCombatantWithFlag0x1000_0200ff58(game, slot);
+        GameObject* object = func_0200ff58(game, slot);
         if (object) {
-            if (leader == GetSignedByte0x2d0_020546a8(object)) {
+            if (leader == func_020546a8(object)) {
                 groups[group][member] = slot;
                 ++groupCounts[group];
                 ++member;

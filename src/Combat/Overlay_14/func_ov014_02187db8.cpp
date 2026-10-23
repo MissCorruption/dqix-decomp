@@ -76,12 +76,12 @@ struct Obj0205eaa0;
 struct Obj0208203c;
 struct ListHeadStruct021874f8;
 
-short FindMappedMemberId02080468(void* obj, int id);
-void ResetWithSub0208203c(Obj0208203c*);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
-int CheckFlagAndPointInElement_02186ff0(char*);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-short CountLinkedListNodes_021874f8(ListHeadStruct021874f8*);
+extern "C" short func_02080468(void* obj, int id);
+extern "C" void func_0208203c(Obj0208203c*);
+extern "C" void func_0207fdcc(Obj2081*, int);
+extern "C" int func_ov014_02186ff0(char*);
+extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" short func_ov014_021874f8(ListHeadStruct021874f8*);
 
 extern "C" {
 MonsterListEntry* func_020974b0(MonsterList* list, int family, int, bool sort, int, short* outCount);
@@ -101,7 +101,7 @@ extern "C" ARM void func_ov014_02187db8(MonsterListScreen* self)
         {
             self->group_ = 2;
             if (self->familyCursor_ < 0)
-                self->familyCursor_ = FindMappedMemberId02080468(self->menu_, self->group_);
+                self->familyCursor_ = func_02080468(self->menu_, self->group_);
             func_020813ec(self->menu_, self->group_);
             self->family_ = self->familyCursor_ - 0xb;
             short count = 0;
@@ -124,20 +124,20 @@ extern "C" ARM void func_ov014_02187db8(MonsterListScreen* self)
         }
         if (func_ov014_02186f10(self))
         {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->repeat_);
-            if (CountLinkedListNodes_021874f8((ListHeadStruct021874f8*)self) != 0)
+            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->repeat_);
+            if (func_ov014_021874f8((ListHeadStruct021874f8*)self) != 0)
             {
-                CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+                func_0207fdcc((Obj2081*)self->menu_, self->group_);
                 self->cursor_ = NULL;
                 self->listState_ = 4;
                 self->listStep_ = 0;
                 self->listFlags_ |= 0x10;
             }
         }
-        else if (CheckFlagAndPointInElement_02186ff0((char*)self))
+        else if (func_ov014_02186ff0((char*)self))
         {
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->familyCursor_ = -1;
             self->family_ = -1;
             self->listState_ = 2;
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov014_02187db8(MonsterListScreen* self)
         }
         else if (g_keyManager.TestKeysPressed(0x800))
         {
-            CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
+            func_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->familyCursor_ = -1;
             self->family_ = -1;
             self->listState_ = 5;

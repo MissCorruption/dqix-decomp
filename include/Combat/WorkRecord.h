@@ -45,7 +45,7 @@ struct Rec0206bf2c {
     Rec0206bf2c *field70;
 };
 
-void ClearWorkRecord0206bf2c(Rec0206bf2c *obj);
+extern "C" void func_0206bf2c(Rec0206bf2c *obj);
 extern "C" void func_0206db48(void *receiver, Rec0206bf2c *record);
 
 #endif

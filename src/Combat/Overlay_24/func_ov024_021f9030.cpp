@@ -99,12 +99,12 @@ struct SkillIds_021f9030 {
 };
 
 extern "C" void __clear(void* dst, int size);
-void* GetFieldAt0x150_02053c6c(unsigned char* obj);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gameState, int combatantId);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
-int IsCombatantFlag2Mask8192_021e6798(GameObject* combatant);
-Command_021f9030* GetField0x19cOrNull(S02053dc0* p);
-Skill_021f9030* SearchBothTables02079e2c(char* table, int id);
+extern "C" void* func_02053c6c(unsigned char* obj);
+extern "C" GameObject* func_0200ff1c(GameState* gameState, int combatantId);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_ov024_021e6798(GameObject* combatant);
+extern "C" Command_021f9030* func_02053dc0(S02053dc0* p);
+extern "C" Skill_021f9030* func_02079e2c(char* table, int id);
 extern "C" int func_ov000_02155f9c(Battle_021f9030* battle, int combatantId, int checkSubFlag);
 extern "C" void func_ov024_021f7478(Planner_021f9030* obj);
 extern "C" int func_ov024_021f8874(Planner_021f9030* obj, Skill_021f9030* skill, GameObject* combatant, int* cost);
@@ -118,9 +118,9 @@ extern SkillIds_021f9030 data_ov024_021fefc2;
 // USA: func_ov024_021f9030
 extern "C" ARM void func_ov024_021f9030(Planner_021f9030* obj, Battle_021f9030* owner, int id, unsigned short* state) {
     GameState* gameState = GameState::GetInstance();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(gameState, id);
-    Field_021f9030* field = (Field_021f9030*)GetFieldAt0x150_02053c6c((unsigned char*)combatant);
-    ActionDataTables* database = GetData02108e10_020797dc();
+    GameObject* combatant = func_0200ff1c(gameState, id);
+    Field_021f9030* field = (Field_021f9030*)func_02053c6c((unsigned char*)combatant);
+    ActionDataTables* database = func_020797dc();
     unsigned char mode = (signed char)field->mode;
     if (mode >= 5) {
         return;
@@ -158,15 +158,15 @@ extern "C" ARM void func_ov024_021f9030(Planner_021f9030* obj, Battle_021f9030* 
     reviving = 0;
     buffing = 0;
     for (i = 0; i < 4; i++) {
-        GameObject* ally = GetCombatantWithFlag0x100_0200ff1c(gameState, i);
+        GameObject* ally = func_0200ff1c(gameState, i);
         if (ally == 0) continue;
-        if (!TestBitAt0x34_020a35e0(obj->owner->party, i)) continue;
-        if (IsCombatantFlag2Mask8192_021e6798(ally)) continue;
+        if (!func_020a35e0(obj->owner->party, i)) continue;
+        if (func_ov024_021e6798(ally)) continue;
         if (*ally->status & 1) continue;
         if (ally->stats->flags18 & 0x800) {
             disabled = 1;
         }
-        Command_021f9030* command = GetField0x19cOrNull((S02053dc0*)ally);
+        Command_021f9030* command = func_02053dc0((S02053dc0*)ally);
         if (command == 0) continue;
         unsigned short action = command->action;
         if (action == 0x201) {
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov024_021f9030(Planner_021f9030* obj, Battle_021f9030* 
     }
     for (i = 0; i < obj->count; i++) {
         SkillSlot_021f9030* slot = &obj->skills[i];
-        Skill_021f9030* skill = SearchBothTables02079e2c((char*)database, slot->id);
+        Skill_021f9030* skill = func_02079e2c((char*)database, slot->id);
         int cost = 0;
         if (skill->type == 2) {
             if (func_ov024_021f8874(obj, skill, combatant, &cost)) {
@@ -205,7 +205,7 @@ extern "C" ARM void func_ov024_021f9030(Planner_021f9030* obj, Battle_021f9030* 
             float weight = obj->weight;
             if (obj->target != obj->id && obj->ratio[obj->target] < weight) goto skipRevive;
         }
-        Command_021f9030* command = GetField0x19cOrNull((S02053dc0*)combatant);
+        Command_021f9030* command = func_02053dc0((S02053dc0*)combatant);
         command->action = 0x201;
         *state = 0x201;
         command->side = 0;
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov024_021f9030(Planner_021f9030* obj, Battle_021f9030* 
 skipRevive:
     if (found[1] && obj->targetCount <= 1 && (isMode0 || isMode14 || isMode2)) {
         GameObject* target = obj->targets[0];
-        obj->selectedSkill = SearchBothTables02079e2c((char*)database, 0x45);
+        obj->selectedSkill = func_02079e2c((char*)database, 0x45);
         obj->selectedCost = obj->selectedSkill->cost;
         float hi;
         float lo;
@@ -227,7 +227,7 @@ skipRevive:
         index = -1;
         func_ov024_021fa7ec(obj, &hi, &lo, &avg, &index, 0, 0, 0, target, 0);
         if (lo > target->stats->currHP) {
-            Command_021f9030* command = GetField0x19cOrNull((S02053dc0*)combatant);
+            Command_021f9030* command = func_02053dc0((S02053dc0*)combatant);
             command->action = 0x45;
             *state = 0x45;
             command->side = target->side;
@@ -240,7 +240,7 @@ skipRevive:
         if (found[5]) {
             action = 0x87;
         }
-        Command_021f9030* command = GetField0x19cOrNull((S02053dc0*)combatant);
+        Command_021f9030* command = func_02053dc0((S02053dc0*)combatant);
         command->action = (unsigned short)action;
         *state = (unsigned short)action;
         command->side = 0;
@@ -268,7 +268,7 @@ skipRevive:
         action = 0xb6;
     }
     if (action == 0) return;
-    Command_021f9030* command = GetField0x19cOrNull((S02053dc0*)combatant);
+    Command_021f9030* command = func_02053dc0((S02053dc0*)combatant);
     command->action = (unsigned short)action;
     *state = (unsigned short)action;
     command->side = 0;

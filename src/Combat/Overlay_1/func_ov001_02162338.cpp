@@ -8,12 +8,12 @@ extern "C" int func_ov017_021d60f4(void* obj);
 extern "C" int func_ov029_021d8e94(void* invoker, void* callback, int arg);
 extern "C" int func_ov029_021d8f84(void* invoker, void* callback, int arg);
 extern "C" int func_ov029_021d9074(void* invoker, void* callback, int arg);
-int InvokeCallbackReturn1bf27f_0215a6fc(void (*callback)());
-int InvokeCallbackReturn1befcb_0215a718(void (*callback)());
-int InvokeCallbackReturn1beb10_0215a734(void (*callback)());
-void IncrementCounterBy1_021622f0();
-void IncrementCounterBy2_02162308();
-void IncrementCounterBy3_02162320();
+extern "C" int func_ov001_0215a6fc(void (*callback)());
+extern "C" int func_ov001_0215a718(void (*callback)());
+extern "C" int func_ov001_0215a734(void (*callback)());
+extern "C" void func_ov001_021622f0();
+extern "C" void func_ov001_02162308();
+extern "C" void func_ov001_02162320();
 extern char data_ov001_02165880;
 
 static inline int Passes(int result, int expected) {
@@ -34,9 +34,9 @@ extern "C" ARM int func_ov001_02162338(void* obj, int count) {
     unsigned int id = OVERLAY_ID(29);
     func_020a1940(id);
     *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
-    if (data_ov029_021d9c40_fake(IncrementCounterBy1_021622f0)
-        && data_ov029_0216398c_fake(IncrementCounterBy2_02162308)
-        && data_ov029_0216399c_fake(IncrementCounterBy3_02162320)
+    if (data_ov029_021d9c40_fake(func_ov001_021622f0)
+        && data_ov029_0216398c_fake(func_ov001_02162308)
+        && data_ov029_0216399c_fake(func_ov001_02162320)
         && *(unsigned int*)(&data_ov001_02165880 + 0x28) >= 6) {
         func_ov017_021d6134(obj, 0);
     }
@@ -53,9 +53,9 @@ extern "C" ARM int func_ov001_02162338(void* obj, int count) {
 #else
     if (count > 1 && func_ov017_021d60f4((char*)obj + 8) == 1) {
 #endif
-        if (Passes(func_ov029_021d8e94(InvokeCallbackReturn1bf27f_0215a6fc, IncrementCounterBy1_021622f0, 0), 0x1bf27f)
-            && Passes(func_ov029_021d8f84(InvokeCallbackReturn1befcb_0215a718, IncrementCounterBy2_02162308, 0), 0x1befcb)
-            && Passes(func_ov029_021d9074(InvokeCallbackReturn1beb10_0215a734, IncrementCounterBy3_02162320, 0), 0x1beb10)
+        if (Passes(func_ov029_021d8e94(func_ov001_0215a6fc, func_ov001_021622f0, 0), 0x1bf27f)
+            && Passes(func_ov029_021d8f84(func_ov001_0215a718, func_ov001_02162308, 0), 0x1befcb)
+            && Passes(func_ov029_021d9074(func_ov001_0215a734, func_ov001_02162320, 0), 0x1beb10)
             && *(unsigned int*)(&data_ov001_02165880 + 0x28) >= 6) {
             func_ov017_021d6134(obj, 0);
         }

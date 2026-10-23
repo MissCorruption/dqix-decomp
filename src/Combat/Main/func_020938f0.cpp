@@ -21,14 +21,14 @@ struct Obj020938f0 {
     unsigned char field3cd;
 };
 
-void ClearRegion02093980(char* obj);
+extern "C" void func_02093980(char* obj);
 
 // USA: func_020938f0
 extern "C" ARM void func_020938f0(char* obj) {
     int i;
     for (i = 0; i < 8; i++) {
-        ClearRegion02093980(obj + i * (IS_JPN ? 0x10 : 0x34));
-        ClearRegion02093980(obj + (IS_JPN ? 0x80 : 0x1a0) + i * (IS_JPN ? 0x10 : 0x34));
+        func_02093980(obj + i * (IS_JPN ? 0x10 : 0x34));
+        func_02093980(obj + (IS_JPN ? 0x80 : 0x1a0) + i * (IS_JPN ? 0x10 : 0x34));
     }
     struct Obj020938f0* p = (struct Obj020938f0*)obj;
     p->handle340 = -1;

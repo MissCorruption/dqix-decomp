@@ -3,7 +3,7 @@
 
 extern "C" int func_ov031_0221aae4(unsigned char* source, unsigned int length, char* out, unsigned int capacity);
 extern "C" int func_ov031_0221883c(void* self, void* buf, int extra);
-int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
+extern "C" int func_020c7170(char* destination, unsigned long capacity, const char* format, ...);
 
 extern const char data_ov031_02249edc[];
 extern const char data_ov031_02249ee0[];
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_02218604(Printer_02218604* self, const char* name,
         cur = buf->cur;
         avail = buf->end - cur;
     }
-    written = VariadicForward020c7170(cur, avail, fmt, name);
+    written = func_020c7170(cur, avail, fmt, name);
     buf->cur = buf->cur + written;
     if (func_ov031_0221aae4(static_cast<unsigned char*>(value), length, buf->cur, buf->end - buf->cur - 1) >= 0) {
         buf->cur = buf->cur + len;

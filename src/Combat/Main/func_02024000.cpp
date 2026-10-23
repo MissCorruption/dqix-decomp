@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 
 extern "C" void *func_02012fe4(void);
-int IsInRange0201b588(int zoneId);
-int IsInRange0201b5b0(int zoneId);
-void SetElementFields0202756c(void *receiver, int x, int y, int elementIndex, unsigned char image, unsigned char palette,
+extern "C" int func_0201b588(int zoneId);
+extern "C" int func_0201b5b0(int zoneId);
+extern "C" void func_0202756c(void *receiver, int x, int y, int elementIndex, unsigned char image, unsigned char palette,
                               unsigned short tile, unsigned char flags, int scaleX, int scaleY);
 
 #if defined(jpn)
@@ -64,11 +64,11 @@ extern "C" ARM void func_02024000(void *receiver) {
     GameState *game = GameState::GetInstance();
     ZoneRecord *zone = static_cast<ZoneRecord *>(func_02012fe4());
     unsigned short zoneId = zone->zoneId;
-    if (!IsInRange0201b588(zoneId)) {
+    if (!func_0201b588(zoneId)) {
         return;
     }
-    SetElementFields0202756c(receiver, 0xbc000, 0x3000, 26, 0x42, 0, 0xff, 0xff, 0x1000, 0x1000);
-    if (!IsInRange0201b5b0(zoneId)) {
+    func_0202756c(receiver, 0xbc000, 0x3000, 26, 0x42, 0, 0xff, 0xff, 0x1000, 0x1000);
+    if (!func_0201b5b0(zoneId)) {
         return;
     }
     unsigned char *visited = reinterpret_cast<unsigned char *>(game) + regionalVisited + (zoneId % 20 - 1) * 32;
@@ -100,12 +100,12 @@ extern "C" ARM void func_02024000(void *receiver) {
     if (upVisited) {
         int y = MultiplyFixed(upStair->worldZ, state->scale) - (state->offsetY << 12) + 0x5c000;
         int x = MultiplyFixed(upStair->worldX, state->scale) - (state->offsetX << 12) + 0x7c000;
-        SetElementFields0202756c(receiver, x, y, 24, 0x40, 1, 0xff, 0xff, 0x1000, 0x1000);
+        func_0202756c(receiver, x, y, 24, 0x40, 1, 0xff, 0xff, 0x1000, 0x1000);
     }
     if (!downVisited && !state->showDownStair) {
         return;
     }
     int y = MultiplyFixed(downStair->worldZ, state->scale) - (state->offsetY << 12) + 0x5c000;
     int x = MultiplyFixed(downStair->worldX, state->scale) - (state->offsetX << 12) + 0x7c000;
-    SetElementFields0202756c(receiver, x, y, 25, 0x41, 1, 0xff, 0xff, 0x1000, 0x1000);
+    func_0202756c(receiver, x, y, 25, 0x41, 1, 0xff, 0xff, 0x1000, 0x1000);
 }

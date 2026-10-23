@@ -40,10 +40,10 @@ extern int data_ov004_02170854[];
 extern char data_ov004_0217052d[];
 extern unsigned char data_0211e33c[0x30000];
 
-unsigned char CopyOutRegion0x571d_020114ec(char* obj, void* dst);
+extern "C" unsigned char func_020114ec(char* obj, void* dst);
 extern "C" MapAllocatorNode* func_ov011_021845f8(void*, int);
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-int InitAndRunScript0208274c(void* ctx, StreamHeader* script, int size, int arg3);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_0208274c(void* ctx, StreamHeader* script, int size, int arg3);
 
 static inline Slot02162dd8* GetSlot(int vocation, Slot02162dd8* slots, int member) {
     int row = member * 12;
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov004_02162dd8(void* param) {
     data_ov004_021707e8.running = 1;
     GameState* gs = GameState::GetInstance();
     unsigned char ids[4];
-    int count = CopyOutRegion0x571d_020114ec((char*)gs, ids);
+    int count = func_020114ec((char*)gs, ids);
     data_ov004_021707e8.entries = 0;
     data_ov004_021707e8.entries = (Slot02162dd8*)func_ov011_021845f8(param, 4)->allocator.Allocate(0x480);
     if (data_ov004_021707e8.entries != 0) {
@@ -84,11 +84,11 @@ extern "C" ARM int func_ov004_02162dd8(void* param) {
                     ResourceScriptEntry script;
                     sprintf(path, data_ov004_0217052d, data_ov004_02170854[j]);
                     if (LoadFileIntoMemory(path, &data_0211e33c, &size) != 0) {
-                        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, ids[i]);
+                        GameObject* c = func_0200ff1c(gs, ids[i]);
                         if (c != 0) {
-                            unsigned char* f = (unsigned char*)GetFieldAt0x150_02053c6c((unsigned char*)c);
+                            unsigned char* f = (unsigned char*)func_02053c6c((unsigned char*)c);
                             if (f != 0) {
-                                InitAndRunScript0208274c(&script, (StreamHeader*)&data_0211e33c, size, *(unsigned short*)(f + data_ov004_02170854[j] * 2 + 0x16c));
+                                func_0208274c(&script, (StreamHeader*)&data_0211e33c, size, *(unsigned short*)(f + data_ov004_02170854[j] * 2 + 0x16c));
                                 Slot02162dd8* slot = GetSlot(data_ov004_02170854[j], data_ov004_021707e8.entries, ids[i]);
                                 slot->t[0].low = GetLow(&script.initial.value8);
                                 slot->t[0].middle = GetMiddle(&script.initial.value8) & 0x3ff;

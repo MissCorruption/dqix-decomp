@@ -48,12 +48,12 @@ struct SelectionScreen {
     int selected1_; int selected2_; int selected3_; int selected4_; int selected5_;
     int selected10_; int selected11_; int selected12_; int selected13_; int selected6_;
 };
-void ClearChannelAFlag0205cf10(void*);
-void ClearFlagByte0205cf1c(Struct0205cf1c*);
-void InitChannelPair0205c53c(Struct_0205c53c*);
-void SetupPointerTable0205ba68(Struct_0205ba68*, int, int, int);
-void SetField0AndPropagate0205bacc(Node0205bacc*, int);
-void SetIndexIfValid0205bcdc(Struct_0205bcdc*, int);
+extern "C" void func_0205cf10(void*);
+extern "C" void func_0205cf1c(Struct0205cf1c*);
+extern "C" void func_0205c53c(Struct_0205c53c*);
+extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
+extern "C" void func_0205bacc(Node0205bacc*, int);
+extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
 extern "C" void func_0205bb04(Struct_0205bcdc*, int);
 
 // USA: func_ov023_021e6e60
@@ -91,18 +91,18 @@ extern "C" ARM void func_ov023_021e6e60(SelectionScreen* self) {
         selected = self->selected12_; break;
     case 13: columns = 1; rows = 8; pages = 1; count = 8; selected = self->selected13_; break;
     default:
-        ClearChannelAFlag0205cf10(&self->channels_);
-        ClearFlagByte0205cf1c((Struct0205cf1c*)&self->channels_);
+        func_0205cf10(&self->channels_);
+        func_0205cf1c((Struct0205cf1c*)&self->channels_);
         return;
     }
-    InitChannelPair0205c53c(&self->channels_);
-    SetupPointerTable0205ba68((Struct_0205ba68*)&self->channels_.selection_, columns, rows, wrap);
-    SetupPointerTable0205ba68((Struct_0205ba68*)&self->channels_.scrolling_, columns, rows, wrap);
-    SetField0AndPropagate0205bacc((Node0205bacc*)&self->channels_.selection_, count);
-    SetField0AndPropagate0205bacc((Node0205bacc*)&self->channels_.scrolling_, count);
+    func_0205c53c(&self->channels_);
+    func_0205ba68((Struct_0205ba68*)&self->channels_.selection_, columns, rows, wrap);
+    func_0205ba68((Struct_0205ba68*)&self->channels_.scrolling_, columns, rows, wrap);
+    func_0205bacc((Node0205bacc*)&self->channels_.selection_, count);
+    func_0205bacc((Node0205bacc*)&self->channels_.scrolling_, count);
     self->channels_.selection_.pages_ = pages;
     self->channels_.scrolling_.pages_ = pages;
-    SetIndexIfValid0205bcdc(&self->channels_.selection_, selected);
+    func_0205bcdc(&self->channels_.selection_, selected);
     func_0205bb04(&self->channels_.scrolling_, selected);
     self->channels_.scrolling_.firstFlag_ = 1;
     self->channels_.scrolling_.secondFlag_ = 1;

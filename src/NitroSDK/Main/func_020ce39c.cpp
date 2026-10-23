@@ -2,8 +2,8 @@
 
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
-int TryAcquireLock_020ce128(void);
-void RetryHelperUntilZero_020ce870(int cmd);
+extern "C" int func_020ce128(void);
+extern "C" void func_020ce870(int cmd);
 extern "C" void func_020c976c(int);
 extern "C" void func_020ce234(int value, int* ptr);
 
@@ -23,13 +23,13 @@ struct PMStatics {
 
 extern PMStatics data_021117ec;
 
-// USA: func_020ce39c  (semantic: SendRetriedArm7CommandsAndWait020ce39c)
+// USA: func_020ce39c
 extern "C" ARM void func_020ce39c(int* arr, int count) {
     volatile int result;
     int i;
     for (;;) {
         unsigned irq = DisableIRQInterrupts();
-        if (!TryAcquireLock_020ce128()) {
+        if (!func_020ce128()) {
             SetIRQInterruptState(irq);
             continue;
         }
@@ -37,7 +37,7 @@ extern "C" ARM void func_020ce39c(int* arr, int count) {
         data_021117ec.work.callback = func_020ce234;
         data_021117ec.work.callbackArg = (void*)&result;
         for (i = 0; i < count; i++) {
-            RetryHelperUntilZero_020ce870(arr[i]);
+            func_020ce870(arr[i]);
         }
         SetIRQInterruptState(irq);
         while (result == -0x10000) {

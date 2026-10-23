@@ -32,15 +32,15 @@ enum { kRegion20c = 0x20c };
 
 extern "C" void func_ov023_021eb26c(void* obj);
 struct Struct02074bd0;
-void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
+extern "C" void func_02074bd0(struct Struct02074bd0* obj);
 struct Obj0207fcb8;
-void ClearAllBuffers0207fcb8(struct Obj0207fcb8* obj);
+extern "C" void func_0207fcb8(struct Obj0207fcb8* obj);
 struct Cont0207fd44;
-void CallFunc0204b04cOverList0x2c(struct Cont0207fd44* obj);
+extern "C" void func_0207fd44(struct Cont0207fd44* obj);
 struct Cont0207fd88;
-void CallFunc0204b088OverList0x2c(struct Cont0207fd88* obj);
+extern "C" void func_0207fd88(struct Cont0207fd88* obj);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
-void ReinitController02043204(char* obj);
+extern "C" void func_02043204(char* obj);
 extern "C" void func_02043124(void* self);
 
 struct Controller020421a0 {
@@ -51,7 +51,7 @@ struct Controller020421a0 {
     char pad2e7[kRegion998 - kRegion2e7];
     int active;
 };
-Controller020421a0* GetGlobalField0x1c020421a0(void);
+extern "C" Controller020421a0* func_020421a0(void);
 
 struct Ctrl021549a8 {
     SafeAllocator* allocs;
@@ -87,14 +87,14 @@ extern "C" ARM void func_ov003_021549a8(Ctrl021549a8* self) {
     unsigned int* reg = (unsigned int*)0x4000000;
     *reg = (*reg & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    ClearFlag0x10IfSet((struct Struct02074bd0*)self->flags160);
+    func_02074bd0((struct Struct02074bd0*)self->flags160);
 
     Manager0207f7f0* list = self->list;
     if (list != NULL) {
-        ClearAllBuffers0207fcb8((struct Obj0207fcb8*)list);
-        CallFunc0204b04cOverList0x2c((struct Cont0207fd44*)list);
-        CallFunc0204b088OverList0x2c((struct Cont0207fd88*)list);
-        FlushNotifyEntries_0207f8bc(list);
+        func_0207fcb8((struct Obj0207fcb8*)list);
+        func_0207fd44((struct Cont0207fd44*)list);
+        func_0207fd88((struct Cont0207fd88*)list);
+        func_0207f8bc(list);
     }
 
     if (self->charBuf != NULL) {
@@ -104,9 +104,9 @@ extern "C" ARM void func_ov003_021549a8(Ctrl021549a8* self) {
     }
     self->charBuf = NULL;
 
-    Controller020421a0* g = GetGlobalField0x1c020421a0();
+    Controller020421a0* g = func_020421a0();
     if (g->active != 0) {
-        ReinitController02043204((char*)g);
+        func_02043204((char*)g);
         func_02043124(g);
     }
     g->field_0x2d8 = 0;

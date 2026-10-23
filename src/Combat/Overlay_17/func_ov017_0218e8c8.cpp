@@ -26,13 +26,13 @@ struct OvCtx0218e8c8 {
 };
 
 extern "C" char* func_02012fe4(void);
-int IsIdInRange020981e4(int, int);
-unsigned short GetField6b4_021b8480(void* obj);
+extern "C" int func_020981e4(int, int);
+extern "C" unsigned short func_ov017_021b8480(void* obj);
 extern "C" unsigned char* func_ov017_021b8478(void* obj);
-int GetByteAtPtrOrZero_02191b58(void*, int);
-int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_ov017_02191b58(void*, int);
+extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
 extern "C" void func_ov017_0218eafc(OvCtx0218e8c8* ov, int idx);
-int CheckFlag0x1ceBit2Set_02039d68(unsigned char* obj);
+extern "C" int func_02039d68(unsigned char* obj);
 extern "C" int func_02032fdc(void* obj, int a, int b);
 extern "C" void func_ov017_0218dba0(int id);
 
@@ -46,18 +46,18 @@ extern "C" ARM void func_ov017_0218e8c8(OvCtx0218e8c8* ov, int id, int mode) {
     GameState* gs = GameState::GetInstance();
     char* base = func_02012fe4();
     int inRange = 0;
-    if (IsIdInRange020981e4((int)(base + regionalOffset0), id)) {
+    if (func_020981e4((int)(base + regionalOffset0), id)) {
         inRange = 1;
     }
 
     unsigned char* mask = NULL;
-    if ((ov->table->active != 0 && GetField6b4_021b8480(ov->table) == 0) ||
+    if ((ov->table->active != 0 && func_ov017_021b8480(ov->table) == 0) ||
         (ov->state->active != 0 && ov->table->enabled != 0)) {
         mask = func_ov017_021b8478(ov->table);
     }
 
     for (int i = 0; i < 4; i++) {
-        unsigned char b = GetByteAtPtrOrZero_02191b58(ov, i) | 2;
+        unsigned char b = func_ov017_02191b58(ov, i) | 2;
         if (mode == 1) {
             if (b != 0) continue;
         } else if (mode == 2 && b == 0) {
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_0218e8c8(OvCtx0218e8c8* ov, int id, int mode) {
         }
 
         int skip = 0;
-        GameObject* c = GetCombatantWithFlag0x100_0200ff1c(gs, i);
+        GameObject* c = func_0200ff1c(gs, i);
         GameObject* obj = gs->GetGameObjectByIndex(i * 0xc + 0x14);
         if (c == NULL) continue;
 
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_0218e8c8(OvCtx0218e8c8* ov, int id, int mode) {
             if (id != c->obj3D_.GetField06()) continue;
         }
 
-        if (mask != NULL && TestBitAt0x34_020a35e0(mask, i) == 0) continue;
+        if (mask != NULL && func_020a35e0(mask, i) == 0) continue;
 
         if (inRange && obj != NULL) {
             if (obj->obj3D_.unknown_2_ == 0x2347 || obj->obj3D_.unknown_2_ == 0x2348 ||
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_0218e8c8(OvCtx0218e8c8* ov, int id, int mode) {
     }
 
     GameObject* member = gs->GetPartyMemberByIndex(0xce);
-    if (member != NULL && !CheckFlag0x1ceBit2Set_02039d68((unsigned char*)member) && func_02032fdc(member, 1, 0)) {
+    if (member != NULL && !func_02039d68((unsigned char*)member) && func_02032fdc(member, 1, 0)) {
         func_ov017_0218dba0(0xce);
     }
 }

@@ -8,12 +8,12 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
-char* GetGlobalField0x1c020421a0(void);
+extern "C" char* func_020421a0(void);
 struct Foo0207df50;
-void CopyInternalFields0207df50(Foo0207df50*);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
-void CallFunc0202f310AtField0x19e0_020440b8(char* base, void* alloc, void* data);
+extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
+extern "C" void func_020440b8(char* base, void* alloc, void* data);
 
 extern char data_ov017_021d7504[];
 extern char data_ov017_021d7510[];
@@ -29,14 +29,14 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* res, int skipModels) {
     unsigned int fileSize;
     unsigned int length;
     unsigned int size;
-    char* controller = GetGlobalField0x1c020421a0();
+    char* controller = func_020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     SafeAllocator* alloc = &res->allocator_array_38[6];
     char* tables = res->unknown_2cc + 0x2a0;
     loader->AddLockGlobal();
     alloc->Reset();
-    CopyInternalFields0207df50((Foo0207df50*)tables);
-    RestorePairTables0207df90(tables);
+    func_0207df50((Foo0207df50*)tables);
+    func_0207df90(tables);
 
     char path[0x50];
     sprintf(path, data_ov017_021d7504, data_ov017_021d7510);
@@ -50,10 +50,10 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* res, int skipModels) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    CallFunc0202f310AtField0x19e0_020440b8(controller, alloc, data_0211e33c);
+    func_020440b8(controller, alloc, data_0211e33c);
     if (skipModels) {
         narc.Destroy();
-        BackupPairTables0207dfac(tables);
+        func_0207dfac(tables);
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov017_0219ba0c(GameResources* res, int skipModels) {
         info.unk_10 = 1;
         ((Object3D*)res->unknown_ptr_36cc)->LoadFromCHRArchive(&info);
     }
-    BackupPairTables0207dfac(tables);
+    func_0207dfac(tables);
 
     if (!LoadFileIntoMemory(data_ov017_021d758d, data_0211e33c, &size)) {
         BackgroundLoader::RemoveLockGlobal();

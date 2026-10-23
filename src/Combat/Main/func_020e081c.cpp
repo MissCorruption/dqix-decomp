@@ -39,26 +39,26 @@ struct Script020e081c {
 
 extern "C" void* func_02012fe4();
 extern "C" char* func_0203bd08();
-char* GetData02105254_0203b628();
-void SetFlag0x9c6_020213fc(SetFlagStruct*, int);
+extern "C" char* func_0203b628();
+extern "C" void func_020213fc(SetFlagStruct*, int);
 extern "C" void func_02021428(void*, int);
-void InitSubScreenDisplay_020209d0(void* context);
-void TailForward0203b66c(char*);
-void InitBattleContext0203bd24(char*);
-void Init0205a198(Struct0205a198*);
-void InitStruct0205a444(char*);
-int ProcessRecords0205a498(void*, Rec020467f0*, int, void*);
-void* GetGlobalPtr02105244_0203bd14();
+extern "C" void func_020209d0(void* context);
+extern "C" void func_0203b66c(char*);
+extern "C" void func_0203bd24(char*);
+extern "C" void func_0205a198(Struct0205a198*);
+extern "C" void func_0205a444(char*);
+extern "C" int func_0205a498(void*, Rec020467f0*, int, void*);
+extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(char*);
 extern "C" void func_020c9be0();
-void DelayThenSyncBit0_020c9820();
+extern "C" void func_020c9820();
 #if defined(jpn)
-void FinalizeRecordListDisplay02020cb8(void*, int);
+extern "C" void func_02020cb8(void*, int);
 #else
-void FinalizeRecordListDisplay02020cb8(void*, int*);
+extern "C" void func_02020cb8(void*, int*);
 #endif
-void ReleaseHandle02022b90(void*, int*);
-void SetToggleState_02021410(ToggleState*, int, int);
+extern "C" void func_02022b90(void*, int*);
+extern "C" void func_02021410(ToggleState*, int, int);
 extern const char data_020f2b78[];
 
 static inline SafeAllocator* GetResourceAllocator(GameResources* resources, int index) {
@@ -73,18 +73,18 @@ extern "C" ARM void func_020e081c(char* self) {
     func_02012fe4();
     GameResources* resources = GetGameResources();
     char* battle = func_0203bd08();
-    char* table = GetData02105254_0203b628();
+    char* table = func_0203b628();
     SafeAllocator* allocator = GetResourceAllocator(resources, 12);
     if (*(signed char*)(self + kStage) == 0) {
-        SetFlag0x9c6_020213fc((SetFlagStruct*)self, 0);
+        func_020213fc((SetFlagStruct*)self, 0);
         func_02021428(self, 0x19);
-        InitSubScreenDisplay_020209d0(self);
+        func_020209d0(self);
         allocator->Reset();
-        TailForward0203b66c(table);
-        InitBattleContext0203bd24(battle);
+        func_0203b66c(table);
+        func_0203bd24(battle);
         for (int i = 0; i < 28; ++i)
-            Init0205a198(&((Struct0205a198*)(self + 0xe8))[i]);
-        InitStruct0205a444(self + 0x94);
+            func_0205a198(&((Struct0205a198*)(self + 0xe8))[i]);
+        func_0205a444(self + 0x94);
         Script020e081c* script = (Script020e081c*)(self + 0x94);
         script->active = 1;
         script->records = (Struct0205a198*)(self + 0xe8);
@@ -105,24 +105,24 @@ extern "C" ARM void func_020e081c(char* self) {
         void* file = 0;
         unsigned int length = 0;
         loader->GetLoadedFileByID(*(int*)(self + kObjectTask), &file, &length);
-        ProcessRecords0205a498(self + 0x94, (Rec020467f0*)file, length, allocator);
-        *(int*)((char*)GetGlobalPtr02105244_0203bd14() + kDisplayWidth) = 0x2800;
+        func_0205a498(self + 0x94, (Rec020467f0*)file, length, allocator);
+        *(int*)((char*)func_0203bd14() + kDisplayWidth) = 0x2800;
         void* display = (char*)func_0203be4c(func_0203bd08()) + kDisplay;
-        *(void**)GetGlobalPtr02105244_0203bd14() = display;
+        *(void**)func_0203bd14() = display;
         if (!*(SafeAllocator**)(self + kBackupAllocator)) func_020c9be0();
         if (*(SafeAllocator**)(self + kBackupAllocator) && *(void**)(self + kBackupBuffer))
             (*(SafeAllocator**)(self + kBackupAllocator))->Free(*(void**)(self + kBackupBuffer));
         *(unsigned int*)(self + kBackupSize) = kBackupBytes;
         *(void**)(self + kBackupBuffer) = (*(SafeAllocator**)(self + kBackupAllocator))->Allocate(*(unsigned int*)(self + kBackupSize));
         VectorizedInvertedMemcpy((const void*)0x06600000, *(void**)(self + kBackupBuffer), *(unsigned int*)(self + kBackupSize));
-        DelayThenSyncBit0_020c9820();
+        func_020c9820();
 #if defined(jpn)
-        FinalizeRecordListDisplay02020cb8(self, *(int*)(self + kBaseTask));
+        func_02020cb8(self, *(int*)(self + kBaseTask));
 #else
-        FinalizeRecordListDisplay02020cb8(self, (int*)(self + kBaseTask));
+        func_02020cb8(self, (int*)(self + kBaseTask));
 #endif
-        ReleaseHandle02022b90(self, (int*)(self + kObjectTask));
-        SetToggleState_02021410((ToggleState*)self, 1, 3);
+        func_02022b90(self, (int*)(self + kObjectTask));
+        func_02021410((ToggleState*)self, 1, 3);
         *(unsigned char*)(self + kActive) = 0;
         ++*(signed char*)(self + kStage);
     }

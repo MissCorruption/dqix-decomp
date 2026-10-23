@@ -84,10 +84,10 @@ struct Obj02186df0;
 struct Obj0207fc6c;
 struct ListHeadStruct021874f8;
 
-void ResetBattlerNav_02186df0(Obj02186df0*);
-void CallFunc0204c87cOverEntries0207fc6c(Obj0207fc6c*, int);
-short CountLinkedListNodes_021874f8(ListHeadStruct021874f8*);
-void ClearSublistEntriesFlag4_020804fc(void*, int);
+extern "C" void func_ov014_02186df0(Obj02186df0*);
+extern "C" void func_0207fc6c(Obj0207fc6c*, int);
+extern "C" short func_ov014_021874f8(ListHeadStruct021874f8*);
+extern "C" void func_020804fc(void*, int);
 
 extern "C" {
 bool func_ov017_021959b4();
@@ -110,21 +110,21 @@ extern "C" ARM bool func_ov014_02186bc8(MonsterListScreen* self, int ticks)
         ticks = 1;
     self->ticks_ = ticks;
     if (func_ov017_021959b4())
-        ResetBattlerNav_02186df0((Obj02186df0*)self);
+        func_ov014_02186df0((Obj02186df0*)self);
     if (self->listState_ != 0)
     {
-        CallFunc0204c87cOverEntries0207fc6c((Obj0207fc6c*)self->menu_, self->ticks_);
+        func_0207fc6c((Obj0207fc6c*)self->menu_, self->ticks_);
         if (self->cursor_ != NULL)
         {
             func_02081f20(self->repeat_, self->ticks_);
             self->prevCursor_ = *self->cursor_;
             bool scrolls = false;
             if (self->listState_ == 4)
-                scrolls = CountLinkedListNodes_021874f8((ListHeadStruct021874f8*)self) > 16;
+                scrolls = func_ov014_021874f8((ListHeadStruct021874f8*)self) > 16;
             self->menuEvents_ = func_020800fc(self->menu_, self->cursor_, self->prevCursor_, self->repeatButtons_, self->unk_15a, scrolls);
             self->menu_->cursor_ = *self->cursor_;
             if (self->menuEvents_ != 0)
-                ClearSublistEntriesFlag4_020804fc(self->menu_, self->group_);
+                func_020804fc(self->menu_, self->group_);
             if (self->prevCursor_ != *self->cursor_)
                 func_020813ec(self->menu_, self->group_);
         }

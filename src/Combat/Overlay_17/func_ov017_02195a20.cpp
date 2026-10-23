@@ -9,19 +9,19 @@ struct FlagWord02046708;
 struct HeadNode02046b24;
 
 unsigned long long GetCurrentTimestamp(void);
-FlagWord02046708* GetDataPtr02114e04_020d6c00();
-int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" FlagWord02046708* func_020d6c00();
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
 extern "C" void* func_0202ae18(void);
-void ResetGxEngineState020c52e8();
+extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
 extern "C" void func_ov017_02195ecc(unsigned char* obj, int mode);
-void MaybeUpdateOrDispatchEntry_021959ec(void* obj);
-void SetActiveDmaChannel020c3a0c(int ch);
+extern "C" void func_ov017_021959ec(void* obj);
+extern "C" void func_020c3a0c(int ch);
 extern "C" void func_ov017_02195bbc(unsigned char* obj);
-int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
+extern "C" int func_02046b24(struct HeadNode02046b24** obj);
 extern "C" int func_0202c508(void* obj);
 extern "C" int func_0202c540(void* obj);
-void DispatchByFlag020d9834(int flag);
+extern "C" void func_020d9834(int flag);
 extern "C" void func_ov017_021960b8(unsigned char* obj);
 
 // USA: func_ov017_02195a20
@@ -32,9 +32,9 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* obj) {
  enum {regionalFlag=0x448a,regionalList=0x36fc};
 #endif
     GetCurrentTimestamp();
-    FlagWord02046708* flags = GetDataPtr02114e04_020d6c00();
+    FlagWord02046708* flags = func_020d6c00();
     void* search = func_0202ae18();
-    ResetGxEngineState020c52e8();
+    func_020c52e8();
     func_020c5414();
     RenderConfig::Reset();
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 8;
@@ -47,20 +47,20 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* obj) {
     if (obj[regionalFlag] == 0) {
         func_ov017_02195ecc(obj, 1);
     }
-    MaybeUpdateOrDispatchEntry_021959ec(obj);
+    func_ov017_021959ec(obj);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
     LightingManager::GetInstance()->SubmitToRenderConfig();
 
-    int useDma = TestFlags02046708(flags, 0x800000);
+    int useDma = func_02046708(flags, 0x800000);
     if (useDma) {
-        SetActiveDmaChannel020c3a0c(-1);
+        func_020c3a0c(-1);
     }
     func_ov017_02195bbc(obj);
     if (useDma) {
-        SetActiveDmaChannel020c3a0c(0);
+        func_020c3a0c(0);
     }
-    if (GetHeadNodeIdOrMinusOne(*(HeadNode02046b24***)(obj + regionalList)) == 0x16) {
+    if (func_02046b24(*(HeadNode02046b24***)(obj + regionalList)) == 0x16) {
         func_ov017_02195ecc(obj, 2);
     }
     if (useDma) {
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* obj) {
             int line = VCOUNT;
             if (func_0202c508(search) && line < 0xd2) break;
             if (func_0202c540(search) && (line < 0xbe || line > 0xf0)) break;
-            DispatchByFlag020d9834(0);
+            func_020d9834(0);
         }
     }
     func_ov017_021960b8(obj);

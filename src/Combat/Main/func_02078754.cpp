@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-int CheckField0NonZero_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* obj);
 
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 
 struct Vec3 {
     int x;
@@ -16,10 +16,10 @@ struct Vec3 {
 extern "C" struct Vec3 func_02034104(GameObject* combatant);
 
 struct Obj02033834;
-void SetVecYByMode02033834(struct Obj02033834* obj, int arg);
+extern "C" void func_02033834(struct Obj02033834* obj, int arg);
 
 struct Obj02033b68;
-void SetByteIfChanged02033b68(struct Obj02033b68* obj, int newVal);
+extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
 
 struct S02037418;
 
@@ -57,16 +57,16 @@ extern "C" ARM int func_02078754(struct Entity02078754* self) {
     Vector3fix_Subtract((const Vector3fix*)&posCopy, (const Vector3fix*)&self->f44, (Vector3fix*)&delta);
     Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
     int angle = fix32_Atan2(delta.x, delta.z);
-    SetVecYByMode02033834((struct Obj02033834*)self, angle);
+    func_02033834((struct Obj02033834*)self, angle);
 
     self->fb2 = 0;
-    SetByteIfChanged02033b68((struct Obj02033b68*)self, 0);
+    func_02033b68((struct Obj02033b68*)self, 0);
     ((Object3D*)((unsigned char*)self))->EnableFlag(0x80);
     ((Object3D*)((struct S02037418*)self))->SetInheritedAlpha(0x1f);
     self->f17a = 0;
 
     void* g = func_0202ae18();
-    if (CheckField0NonZero_0202b7d8((int*)g) && GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g) == 0) {
+    if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
         int c1 = ((Object3D*)((struct U16Field0x6_020375f8*)self))->GetField06();
         int f2val = self->f2;
         struct Vec3* p44 = &self->f44;

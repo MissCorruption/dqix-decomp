@@ -6,7 +6,7 @@ extern "C" void __clear(void*, unsigned int);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 extern "C" void func_0204a9c4(Object0204b4c0*, unsigned int, unsigned int, const void*);
 extern "C" void func_0204ac60(void*, unsigned int, const void*);
-void ClearRecordFields(Record0204acb0*);
+extern "C" void func_0204acb0(Record0204acb0*);
 extern "C" void func_0204ade8(Record0204acb0*, unsigned int, unsigned int, const void*);
 extern char data_020f0238[];
 extern char data_020f023d[];
@@ -24,7 +24,7 @@ extern "C" ARM void func_0204b4c0(Object0204b4c0* object, const void* data) {
     } else if (func_02001aec(header, data_020f023d, 4) == 0) {
         func_0204ac60(object->fieldc, object->kindLow, data);
     } else if (func_02001aec(header, data_020f0242, 4) == 0) {
-        ClearRecordFields(&record);
+        func_0204acb0(&record);
         func_0204ade8(&record, object->kindLow, object->kindHigh, data);
     }
 }

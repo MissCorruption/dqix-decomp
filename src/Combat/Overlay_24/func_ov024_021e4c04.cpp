@@ -71,48 +71,48 @@ struct Ctx_021e9320;
 struct Ctx_021e939c;
 struct Ctx_021e9464;
 
-int TestBit7At0x2f4_020851ac(unsigned char*);
-int TestBit26At0x2f4_02085644(unsigned char*);
-int TestBit27At0x2f4_02085670(unsigned char*);
-int TestBit28At0x2f4_0208569c(unsigned char*);
-int TestBit29At0x2f4_020856c8(unsigned char*);
-int TestBit30At0x2f4_020856f4(unsigned char*);
-int TestBit31At0x2f4_02085720(unsigned char*);
-int TestBit0At0x2f8_02085768(unsigned char*);
-int TestBit1At0x2f8_02085794(unsigned char*);
-int TestBit2At0x2f8_020857c0(unsigned char*);
-int TestBit3At0x2f8_020857ec(unsigned char*);
-short IsFlagBit8388608Set_021da998(FlagObj_021da998*);
-int IsFlagBit24Set_021dd260(FlagObj_021dd260*);
-int IsFlagBit22Set_021e47dc(FlagObj_021e47dc*);
-int IsFlagBit8Set_021dd010(FlagObj_021dd010*);
-void DecrementCounter0x24UpdateFlag0x14_02087704(void*);
-void AddEntryAndIncrementCount0215a88c(void*, void*, int);
-int CheckField0x14Bit0Clear02088840(unsigned char*);
-int CheckField0x14Flags0x9Clear_0208830c(unsigned char*);
-int CheckField0x14FlagsClear_020883ac(unsigned char*);
-int CheckFlag0x1ClearAndFlag0x1000000Clear_02088540(unsigned char*);
-int CheckField0x14FlagsClear0208824c(unsigned char*);
-void SetFlag0x40AndBytes_02088854(unsigned char*);
-void ResetStateFields02088338(unsigned char*);
-void ClearFlag0x400000AndBytes_02088b34(unsigned char*);
-void ResetStateFields0x18_020883cc(unsigned char*);
-void SetFlag0x100AndBytes_020888a4(unsigned char*);
-int IsValidTargetCombatant(TargetObj02088418*, int, int);
-void ResetTargetFlags02088474(void*, int, int);
-void ResetAndSetFlag0x2AndBits_02088560(unsigned char*);
-void ResetStateFields0208826c(unsigned char*);
-int CanAdjustField0x58_0208776c(void*, int);
-int CanAdjustStatStageBit3(StatStageStruct02087860*, unsigned char);
+extern "C" int func_020851ac(unsigned char*);
+extern "C" int func_02085644(unsigned char*);
+extern "C" int func_02085670(unsigned char*);
+extern "C" int func_0208569c(unsigned char*);
+extern "C" int func_020856c8(unsigned char*);
+extern "C" int func_020856f4(unsigned char*);
+extern "C" int func_02085720(unsigned char*);
+extern "C" int func_02085768(unsigned char*);
+extern "C" int func_02085794(unsigned char*);
+extern "C" int func_020857c0(unsigned char*);
+extern "C" int func_020857ec(unsigned char*);
+extern "C" short func_ov024_021da998(FlagObj_021da998*);
+extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
+extern "C" int func_ov024_021e47dc(FlagObj_021e47dc*);
+extern "C" int func_ov024_021dd010(FlagObj_021dd010*);
+extern "C" void func_02087704(void*);
+extern "C" void func_ov000_0215a88c(void*, void*, int);
+extern "C" int func_02088840(unsigned char*);
+extern "C" int func_0208830c(unsigned char*);
+extern "C" int func_020883ac(unsigned char*);
+extern "C" int func_02088540(unsigned char*);
+extern "C" int func_0208824c(unsigned char*);
+extern "C" void func_02088854(unsigned char*);
+extern "C" void func_02088338(unsigned char*);
+extern "C" void func_02088b34(unsigned char*);
+extern "C" void func_020883cc(unsigned char*);
+extern "C" void func_020888a4(unsigned char*);
+extern "C" int func_02088418(TargetObj02088418*, int, int);
+extern "C" void func_02088474(void*, int, int);
+extern "C" void func_02088560(unsigned char*);
+extern "C" void func_0208826c(unsigned char*);
+extern "C" int func_0208776c(void*, int);
+extern "C" int func_02087860(StatStageStruct02087860*, unsigned char);
 void UpdateCombatantAttack(int, int);
 void UpdateCombatantDefense(int, int);
-int SelectMessageByFlags_021e929c(Ctx_021e929c*, int, int);
-int SelectResultCode_021e9320(Ctx_021e9320*, int, int);
-int SelectMessageByFlags2_021e939c(Ctx_021e939c*, int, int, int);
-int SelectResultCode_021e9464(Ctx_021e9464*, int, int);
-void AppendToChainAndIncCount0215ffc4(void*, void*, int);
+extern "C" int func_ov024_021e929c(Ctx_021e929c*, int, int);
+extern "C" int func_ov024_021e9320(Ctx_021e9320*, int, int);
+extern "C" int func_ov024_021e939c(Ctx_021e939c*, int, int, int);
+extern "C" int func_ov024_021e9464(Ctx_021e9464*, int, int);
+extern "C" void func_ov000_0215ffc4(void*, void*, int);
 struct SlotArrayStruct_021eb4e4;
-void SetFirstEmptySlot48_021eb4e4(SlotArrayStruct_021eb4e4*, int);
+extern "C" void func_ov024_021eb4e4(SlotArrayStruct_021eb4e4*, int);
 extern "C" void* func_ov000_0215e958(void*);
 extern "C" void func_ov000_02159eac(void*, void*, int);
 extern "C" int func_ov000_02156068(void*, int, int, int);
@@ -153,12 +153,12 @@ extern "C" ARM void func_ov024_021e4c04(Self_021e4c04* self, int attackerId, int
     int roll = NextRandomMax((Random*)self->battle, 100);
     if (rec->flags & 0x80000) {
         if (!IsPartyMember(attackerId)) return;
-        Attacker_021e4c04* attacker = (Attacker_021e4c04*)GetCombatantWithFlag0x100_0200ff1c(gs, attackerId);
+        Attacker_021e4c04* attacker = (Attacker_021e4c04*)func_0200ff1c(gs, attackerId);
         if (!attacker) return;
 
-        if (TestBit7At0x2f4_020851ac(attacker->traits)
-            && (IsFlagBit8388608Set_021da998((FlagObj_021da998*)target) || IsFlagBit24Set_021dd260((FlagObj_021dd260*)target))) {
-            DecrementCounter0x24UpdateFlag0x14_02087704(target->currentStats_);
+        if (func_020851ac(attacker->traits)
+            && (func_ov024_021da998((FlagObj_021da998*)target) || func_ov024_021dd260((FlagObj_021dd260*)target))) {
+            func_02087704(target->currentStats_);
             count = StatsOf(target)->count;
             switch (count) {
             case 0: msg = 0x17f; break;
@@ -168,51 +168,51 @@ extern "C" ARM void func_ov024_021e4c04(Self_021e4c04* self, int attackerId, int
             }
             func_ov000_02159eac(self->battle, &effects, 0x1d);
             if (count == 3) func_ov000_02159eac(self->battle, &effects, 8);
-            AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+            func_ov000_0215a88c(self->battle, entry, msg);
             any = 1;
         }
 
-        if (TestBit26At0x2f4_02085644(attacker->traits)
-            && CheckField0x14Bit0Clear02088840((unsigned char*)target->currentStats_)
+        if (func_02085644(attacker->traits)
+            && func_02088840((unsigned char*)target->currentStats_)
             && (int)StatsOf(target)->rate46 > 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 20.0f)) {
                 int msg = func_ov024_021e9198(self, targetId, 1, 1);
                 if (!msg) msg = 0x25;
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                SetFlag0x40AndBytes_02088854((unsigned char*)target->currentStats_);
+                func_02088854((unsigned char*)target->currentStats_);
                 StatsOf(target)->code = 1;
             }
         }
 
-        if (TestBit27At0x2f4_02085670(attacker->traits)
-            && CheckField0x14Flags0x9Clear_0208830c((unsigned char*)target->currentStats_)
+        if (func_02085670(attacker->traits)
+            && func_0208830c((unsigned char*)target->currentStats_)
             && (int)StatsOf(target)->rate47 > 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 20.5f)) {
-                special = IsFlagBit8388608Set_021da998((FlagObj_021da998*)target);
-                int msg = SelectMessageByFlags_021e929c((Ctx_021e929c*)self, targetId, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                special = func_ov024_021da998((FlagObj_021da998*)target);
+                int msg = func_ov024_021e929c((Ctx_021e929c*)self, targetId, 1);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                ResetStateFields02088338((unsigned char*)target->currentStats_);
+                func_02088338((unsigned char*)target->currentStats_);
             }
         }
 
-        if (TestBit28At0x2f4_0208569c(attacker->traits)) {
+        if (func_0208569c(attacker->traits)) {
             chance = 10.5f;
             if (func_ov000_02156068(self->battle, targetId, 0, 1) == 0 && StatsOf(target)->rate48 == 0) chance = 0.0f;
             if ((float)roll < chance) {
                 GameObject* victim = GetCombatantByID((int)self->battle, targetId);
-                if (IsFlagBit22Set_021e47dc((FlagObj_021e47dc*)victim)) {
+                if (func_ov024_021e47dc((FlagObj_021e47dc*)victim)) {
                     func_ov000_02159eac(self->battle, &effects, 0x29);
-                    ClearFlag0x400000AndBytes_02088b34((unsigned char*)victim->currentStats_);
+                    func_02088b34((unsigned char*)victim->currentStats_);
                     func_ov000_0215a004(self->battle, attackerId, targetId, GetHP(victim) - 1, &effects, rec, self->action->forced != 0, 0);
-                    AddEntryAndIncrementCount0215a88c(self->battle, entry, 200);
+                    func_ov000_0215a88c(self->battle, entry, 200);
                 } else {
                     func_ov000_0215a004(self->battle, attackerId, targetId, 0xffff, &effects, rec, self->action->forced != 0, 8);
                     effects.low = 0;
                     effects.high = 0;
                     func_ov000_02159eac(self->battle, &effects, 0xd);
-                    AddEntryAndIncrementCount0215a88c(self->battle, entry, 0x257);
+                    func_ov000_0215a88c(self->battle, entry, 0x257);
                 }
                 self->action->value0 = 0;
                 self->action->byte18 = 0;
@@ -222,102 +222,102 @@ extern "C" ARM void func_ov024_021e4c04(Self_021e4c04* self, int attackerId, int
             }
         }
 
-        if (TestBit29At0x2f4_020856c8(attacker->traits)
-            && CheckField0x14FlagsClear_020883ac((unsigned char*)target->currentStats_)
+        if (func_020856c8(attacker->traits)
+            && func_020883ac((unsigned char*)target->currentStats_)
             && StatsOf(target)->rate4a != 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 10.5f)) {
-                int msg = SelectResultCode_021e9320((Ctx_021e9320*)self, targetId, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                int msg = func_ov024_021e9320((Ctx_021e9320*)self, targetId, 1);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                ResetStateFields0x18_020883cc((unsigned char*)target->currentStats_);
+                func_020883cc((unsigned char*)target->currentStats_);
             }
         }
 
-        if (TestBit30At0x2f4_020856f4(attacker->traits)
-            && IsFlagBit8Set_021dd010((FlagObj_021dd010*)target)
+        if (func_020856f4(attacker->traits)
+            && func_ov024_021dd010((FlagObj_021dd010*)target)
             && StatsOf(target)->rate4b != 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 25.0f)) {
                 int msg = 0x18;
-                if (IsFlagBit8Set_021dd010((FlagObj_021dd010*)target)) msg = 0x1a;
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                if (func_ov024_021dd010((FlagObj_021dd010*)target)) msg = 0x1a;
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                SetFlag0x100AndBytes_020888a4((unsigned char*)target->currentStats_);
+                func_020888a4((unsigned char*)target->currentStats_);
             }
         }
 
-        if (TestBit31At0x2f4_02085720(attacker->traits)
-            && IsValidTargetCombatant((TargetObj02088418*)target->currentStats_, 5, 0)
+        if (func_02085720(attacker->traits)
+            && func_02088418((TargetObj02088418*)target->currentStats_, 5, 0)
             && StatsOf(target)->rate4c != 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 12.5f)) {
-                special = IsFlagBit8388608Set_021da998((FlagObj_021da998*)target);
+                special = func_ov024_021da998((FlagObj_021da998*)target);
                 int msg = 0x5e;
                 if (StatsOf(target)->kind == 5) msg = 0x60;
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                ResetTargetFlags02088474(target->currentStats_, 5, 0);
+                func_02088474(target->currentStats_, 5, 0);
             }
         }
 
-        if (TestBit0At0x2f8_02085768(attacker->traits)
-            && CheckFlag0x1ClearAndFlag0x1000000Clear_02088540((unsigned char*)target->currentStats_)
+        if (func_02085768(attacker->traits)
+            && func_02088540((unsigned char*)target->currentStats_)
             && StatsOf(target)->rate4d != 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 12.5f)) {
-                int msg = SelectMessageByFlags2_021e939c((Ctx_021e939c*)self, targetId, 1, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                int msg = func_ov024_021e939c((Ctx_021e939c*)self, targetId, 1, 1);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                ResetAndSetFlag0x2AndBits_02088560((unsigned char*)target->currentStats_);
+                func_02088560((unsigned char*)target->currentStats_);
             }
         }
 
-        if (TestBit1At0x2f8_02085794(attacker->traits)
-            && CheckField0x14FlagsClear0208824c((unsigned char*)target->currentStats_)
+        if (func_02085794(attacker->traits)
+            && func_0208824c((unsigned char*)target->currentStats_)
             && StatsOf(target)->rate4e != 0) {
             if ((float)roll < (self->action->forced ? 100.0f : 10.0f)) {
-                special = IsFlagBit8388608Set_021da998((FlagObj_021da998*)target);
-                int msg = SelectResultCode_021e9464((Ctx_021e9464*)self, targetId, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                special = func_ov024_021da998((FlagObj_021da998*)target);
+                int msg = func_ov024_021e9464((Ctx_021e9464*)self, targetId, 1);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
-                ResetStateFields0208826c((unsigned char*)target->currentStats_);
+                func_0208826c((unsigned char*)target->currentStats_);
             }
         }
 
-        if (TestBit2At0x2f8_020857c0(attacker->traits)
-            && CanAdjustField0x58_0208776c(target->currentStats_, 1)
+        if (func_020857c0(attacker->traits)
+            && func_0208776c(target->currentStats_, 1)
             && StatsOf(target)->rate4f != 0) {
             chance = 20.0f;
             if ((float)roll < chance) {
                 int result = func_020877c0(target->currentStats_, -1);
                 UpdateCombatantAttack((int)self->battle, targetId);
                 int msg = func_ov024_021e94c4(self, targetId, rec, 1, (signed char)result, 1, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
             }
         }
 
-        if (TestBit3At0x2f8_020857ec(attacker->traits)
-            && CanAdjustStatStageBit3((StatStageStruct02087860*)target->currentStats_, 1)
+        if (func_020857ec(attacker->traits)
+            && func_02087860((StatStageStruct02087860*)target->currentStats_, 1)
             && StatsOf(target)->rate50 != 0) {
             chance = 20.0f;
             if ((float)roll < chance) {
                 int result = func_020878b4(target->currentStats_, -1);
                 UpdateCombatantDefense((int)self->battle, targetId);
                 int msg = func_ov024_021e95d4(self, targetId, rec, 1, (signed char)result, 1, 1);
-                AddEntryAndIncrementCount0215a88c(self->battle, entry, msg);
+                func_ov000_0215a88c(self->battle, entry, msg);
                 any = 1;
             }
         }
     }
     if (any) {
         func_ov000_0215cd44(self->battle, entry, target, 0, effects.value, 0);
-        AppendToChainAndIncCount0215ffc4(self->action, entry, 2);
+        func_ov000_0215ffc4(self->action, entry, 2);
         self->battle->entryCount++;
-        SetFirstEmptySlot48_021eb4e4((SlotArrayStruct_021eb4e4*)self, (int)self->action);
+        func_ov024_021eb4e4((SlotArrayStruct_021eb4e4*)self, (int)self->action);
     }
     if (special) {
         void* extra = func_ov000_0215e958(self->battle);
         if (!extra) return;
-        AddEntryAndIncrementCount0215a88c(self->battle, extra, 0x25c);
-        AppendToChainAndIncCount0215ffc4(self->action, extra, 2);
+        func_ov000_0215a88c(self->battle, extra, 0x25c);
+        func_ov000_0215ffc4(self->action, extra, 2);
         self->battle->entryCount++;
         func_ov000_0215cd44(self->battle, extra, target, 0, 0, 0);
     }

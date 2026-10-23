@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void* GetData02100044_0202ae24(void);
+extern "C" void* func_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
-void DispatchWithZeroExtras_02193428(void* a, void* b);
+extern "C" void func_ov017_02193428(void* a, void* b);
 
 struct Obj021c4854 {
 	unsigned short field0;
@@ -29,7 +29,7 @@ struct Src021c4854 {
 // USA: func_ov017_021c4854
 extern "C" ARM void func_ov017_021c4854(struct Obj021c4854* obj, unsigned char byteArg, unsigned short shortArg, struct Arr3_021c4854* arr, short arg5, unsigned char arg6) {
 	unsigned short v0 = obj->field0;
-	void* p = GetData02100044_0202ae24();
+	void* p = func_0202ae24();
 	unsigned char buf[0x14];
 	buf[0] = 0x37;
 	Src021c4854* s = (Src021c4854*)(buf + 4);
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov017_021c4854(struct Obj021c4854* obj, unsigned char b
 	GameState* battle = GameState::GetInstance();
 	GameObject* c = battle->GetUnknownGameObject();
 	((Object3D*)((unsigned char*)c))->EnableFlag(0x4000000);
-	DispatchWithZeroExtras_02193428(c, 0);
+	func_ov017_02193428(c, 0);
 }

@@ -40,10 +40,10 @@ extern "C" int func_020d59bc(WMCallbackFunc callback, void* arg, const unsigned 
                              unsigned short sendDataSize, unsigned short destBitmap, unsigned short port,
                              unsigned short prio);
 extern "C" void func_020d6318(void* callback);
-unsigned short GetBattleContextField0x150_020d46cc();
-unsigned short GetBattleContextField0x14cLow16_020d46fc();
-void ClearAndSetBlockFlag020d6610(Obj020d6610* dsInfo, int aid, int data);
-void AdvanceBattleBlockQueue020d66dc(Obj020d66dc* dsInfo, int delayed);
+extern "C" unsigned short func_020d46cc();
+extern "C" unsigned short func_020d46fc();
+extern "C" void func_020d6610(Obj020d6610* dsInfo, int aid, int data);
+extern "C" void func_020d66dc(Obj020d66dc* dsInfo, int delayed);
 
 // USA: func_020d5fd0
 extern "C" ARM int func_020d5fd0(WMDataSharingInfo* dsInfo, const unsigned short* sendData, WMDataSet* receiveData)
@@ -61,9 +61,9 @@ extern "C" ARM int func_020d5fd0(WMDataSharingInfo* dsInfo, const unsigned short
         return 6;
     if (receiveData == NULL)
         return 6;
-    aid = GetBattleContextField0x150_020d46cc();
+    aid = func_020d46cc();
     if (aid == 0)
-        connectedAIDs = GetBattleContextField0x14cLow16_020d46fc();
+        connectedAIDs = func_020d46fc();
     state = dsInfo->state;
     if (state == 5)
         return 1;
@@ -106,12 +106,12 @@ extern "C" ARM int func_020d5fd0(WMDataSharingInfo* dsInfo, const unsigned short
             else
                 delayed = false;
         }
-        AdvanceBattleBlockQueue020d66dc((Obj020d66dc*)dsInfo, false);
+        func_020d66dc((Obj020d66dc*)dsInfo, false);
         if (sendFlag)
         {
-            ClearAndSetBlockFlag020d6610((Obj020d6610*)dsInfo, 0, (int)sendData);
+            func_020d6610((Obj020d6610*)dsInfo, 0, (int)sendData);
             if (dsInfo->doubleMode == false)
-                AdvanceBattleBlockQueue020d66dc((Obj020d66dc*)dsInfo, delayed);
+                func_020d66dc((Obj020d66dc*)dsInfo, delayed);
         }
     }
     else

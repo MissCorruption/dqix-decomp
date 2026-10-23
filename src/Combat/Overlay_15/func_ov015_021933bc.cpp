@@ -44,7 +44,7 @@ struct S02190c2c
 };
 
 extern "C" void func_ov015_0218f0c4(ViewObject* object);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_ov015_0218b828(ViewerConfig* config);
 
 extern AllocatorUnion data_02114e20;
@@ -56,34 +56,34 @@ extern "C" ARM void func_ov015_021933bc(S02190c2c* self)
     while (node != NULL)
     {
         func_ov015_0218f0c4(node->object_);
-        TailForward02012da4(&data_02114e20, node->object_);
+        func_02012da4(&data_02114e20, node->object_);
         ViewObjectNode* next = node;
         node = node->next_;
-        TailForward02012da4(&data_02114e20, next);
+        func_02012da4(&data_02114e20, next);
     }
     for (int i = 0; i < 4; i++)
     {
         if (self->playerSlots_[i].states_ != NULL)
-            TailForward02012da4(&data_02114e20, self->playerSlots_[i].states_);
+            func_02012da4(&data_02114e20, self->playerSlots_[i].states_);
         if (self->dollSlots_[i].states_ != NULL)
-            TailForward02012da4(&data_02114e20, self->dollSlots_[i].states_);
+            func_02012da4(&data_02114e20, self->dollSlots_[i].states_);
         if (self->slots_[i].states_ != NULL)
-            TailForward02012da4(&data_02114e20, self->slots_[i].states_);
+            func_02012da4(&data_02114e20, self->slots_[i].states_);
     }
-    TailForward02012da4(&data_02114e20, self->partsAllocator_.GetSignedAllocator());
-    TailForward02012da4(&data_02114e20, self->monstersAllocator_.GetSignedAllocator());
-    TailForward02012da4(&data_02114e20, self->soundsAllocator_.GetSignedAllocator());
+    func_02012da4(&data_02114e20, self->partsAllocator_.GetSignedAllocator());
+    func_02012da4(&data_02114e20, self->monstersAllocator_.GetSignedAllocator());
+    func_02012da4(&data_02114e20, self->soundsAllocator_.GetSignedAllocator());
     self->partsAllocator_.Destroy();
     self->monstersAllocator_.Destroy();
     self->soundsAllocator_.Destroy();
     func_ov015_0218b828(&self->config_);
     if (self->buffer_ != NULL)
     {
-        TailForward02012da4(&data_02114e20, self->buffer_);
+        func_02012da4(&data_02114e20, self->buffer_);
         self->buffer_ = NULL;
     }
     if (self->items_ == NULL)
         return;
-    TailForward02012da4(&data_02114e20, self->items_);
+    func_02012da4(&data_02114e20, self->items_);
     self->items_ = NULL;
 }

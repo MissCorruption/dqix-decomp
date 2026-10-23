@@ -8,7 +8,7 @@ struct Obj021e8a20 {
     unsigned char e;
 };
 
-void Init021e8a20(struct Obj021e8a20* obj);
+extern "C" void func_ov025_021e8a20(struct Obj021e8a20* obj);
 
 // USA: func_ov025_021eb3e0
 extern "C" ARM void* func_ov025_021eb3e0(void* obj) {
@@ -16,7 +16,7 @@ extern "C" ARM void* func_ov025_021eb3e0(void* obj) {
     unsigned char i = 0;
     while (i < 4) {
         if (rec->e == 0) {
-            Init021e8a20(rec);
+            func_ov025_021e8a20(rec);
             return rec;
         }
         i++;

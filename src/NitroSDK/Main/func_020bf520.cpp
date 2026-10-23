@@ -32,8 +32,8 @@ extern SignedAllocatorList data_02110a40;
 extern StrmThread020bf520 data_02110560;
 extern Statics020bf520 data_021103b0;
 
-SignedAllocatorHeader* PopFirstFromGlobalList020bf418(void);
-void InsertAllocatorHeaderLocked_020bf458(SignedAllocatorHeader* header);
+extern "C" SignedAllocatorHeader* func_020bf418(void);
+extern "C" void func_020bf458(SignedAllocatorHeader* header);
 
 // USA: func_020bf520
 extern "C" ARM void func_020bf520(int status, int numChannels, void* buffer[], unsigned int len, int format, void* arg) {
@@ -55,10 +55,10 @@ extern "C" ARM void func_020bf520(int status, int numChannels, void* buffer[], u
 
         data_02110a40.Remove((SignedAllocatorHeader*)command);
         player->commandCount--;
-        InsertAllocatorHeaderLocked_020bf458((SignedAllocatorHeader*)command);
+        func_020bf458((SignedAllocatorHeader*)command);
     }
 
-    command = (LoadCommand020bf520*)PopFirstFromGlobalList020bf418();
+    command = (LoadCommand020bf520*)func_020bf418();
 
     command->player = player;
     command->status = status;

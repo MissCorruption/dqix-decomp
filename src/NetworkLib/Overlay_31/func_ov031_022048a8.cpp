@@ -21,10 +21,10 @@ struct NetworkContext022048a8 { unsigned char unknown0[0x48]; int (*cancelled)()
 extern NetworkContext022048a8 data_ov031_0224c980;
 extern "C" void func_ov031_02203a84(void*, int);
 extern "C" int func_ov031_02203b1c();
-void DispatchContext02200264();
+extern "C" void func_ov031_02200264();
 extern "C" DnsResponse022048a8* func_ov031_0220357c(unsigned int*);
 extern "C" void func_ov031_02203670(unsigned int);
-char* SkipControlSeq_02204878(char*);
+extern "C" char* func_ov031_02204878(char*);
 
 #define CPS_GETUSHORT1(p) ((unsigned short)(((unsigned char*)(p))[0] << 8 | ((unsigned char*)(p))[1]))
 #define CPS_GETULONG1(p) (((unsigned long)CPS_GETUSHORT1(p) << 16) | CPS_GETUSHORT1((p) + 2))
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov031_022048a8(const unsigned char* name, unsigned int t
     unsigned int start = GetCurrentTimestamp() >> 16;
     while (data_ov031_0224c980.cancelled() && !result &&
            (int)((unsigned int)(GetCurrentTimestamp() >> 16) - start) < 15) {
-        if (!func_ov031_02203b1c()) DispatchContext02200264();
+        if (!func_ov031_02203b1c()) func_ov031_02200264();
         else {
             DnsResponse022048a8* response = func_ov031_0220357c(&length);
             if (length > 12 && identifier == (unsigned short)((response->identifier >> 8) | (response->identifier << 8))) {
@@ -82,10 +82,10 @@ extern "C" ARM int func_ov031_022048a8(const unsigned char* name, unsigned int t
                     char* position = (char*)(response + 1);
                     int remaining = (unsigned short)(response->questionCount[1] | (response->questionCount[0] << 8));
                     while (remaining--) {
-                        position = SkipControlSeq_02204878(position) + 4;
+                        position = func_ov031_02204878(position) + 4;
                     }
                     if ((unsigned char*)position < end) do {
-                        DnsRecordHeader022048a8* record = (DnsRecordHeader022048a8*)SkipControlSeq_02204878(position);
+                        DnsRecordHeader022048a8* record = (DnsRecordHeader022048a8*)func_ov031_02204878(position);
                         unsigned short dataLength = CPS_GETUSHORT1(record->length);
                         if (type == CPS_GETUSHORT1(record->type)) {
                             if (type != 12) {

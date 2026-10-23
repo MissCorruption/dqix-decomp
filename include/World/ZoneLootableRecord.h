@@ -37,9 +37,9 @@ struct ZoneLootableRecord
     unsigned char tail338[0x30];
 };
 
-void CopyFieldsWithFlags02048004(Foo02048004* src, Foo02048004* dst);
-void MaybeInvoke0204719c_02047230(Foo02048004* obj);
-void ClearNameTable(NameTable02048080* table);
+extern "C" void func_02048004(Foo02048004* src, Foo02048004* dst);
+extern "C" void func_02047230(Foo02048004* obj);
+extern "C" void func_02048080(NameTable02048080* table);
 extern "C" void func_0204719c(void* obj);
 
 typedef char Foo02048004SizeMustBe88[(sizeof(Foo02048004) == 0x88) ? 1 : -1];

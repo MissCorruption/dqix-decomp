@@ -7,15 +7,15 @@ struct TableA68;
 struct Struct0200fb08;
 struct Obj_02184ad8;
 
-void SetModeClamped0209ca70(void* obj, int val);
-void SetStateAndDispatch0205e9f4(struct Obj0205e9f4* obj, int state);
-void SetStateAndDispatch0209c3b4(struct Actor0209c3b4* actor, int val);
-void SetByte0x7f70_02012028(void* obj, unsigned char value);
-void* SetFieldAndClearBufferIfType7_0216b1c4(void* a, int id);
-void* GetNodeIfType6_0216ae9c(void* a, int id);
-unsigned char NormalizeField5_0200fb08(struct Struct0200fb08* obj);
-void SetField1c8True_02184ad8(struct Obj_02184ad8* obj);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern "C" void func_0209ca70(void* obj, int val);
+extern "C" void func_0205e9f4(struct Obj0205e9f4* obj, int state);
+extern "C" void func_0209c3b4(struct Actor0209c3b4* actor, int val);
+extern "C" void func_02012028(void* obj, unsigned char value);
+extern "C" void* func_ov004_0216b1c4(void* a, int id);
+extern "C" void* func_ov004_0216ae9c(void* a, int id);
+extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
+extern "C" void func_ov011_02184ad8(struct Obj_02184ad8* obj);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
 
 class UiNode0216c810 {
 public:
@@ -72,7 +72,7 @@ extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
 extern "C" void func_ov004_0216b20c(void* a0, int key, int b, int c);
 extern "C" void func_ov023_021f9ba8(void* node, unsigned short count);
 extern "C" struct TableA68* func_ov023_021fa598(void* node);
-MessageWindow0216c810* GetGlobalField0x1c020421a0();
+extern "C" MessageWindow0216c810* func_020421a0();
 extern "C" void func_0204500c(MessageWindow0216c810* win, void* entry, int a, int b);
 extern "C" void func_ov023_021f8120(void* node);
 extern "C" void func_ov023_021f7eb8(void* node, void* a, int buf, int mode, int a5, int a6, int a7, int a8, int a9, int a10);
@@ -92,16 +92,16 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
     int msg;
     UiNode0216c810* node;
 
-    SetModeClamped0209ca70(data_02109bf4, 3);
-    SetStateAndDispatch0205e9f4(&data_02108760, 3);
+    func_0209ca70(data_02109bf4, 3);
+    func_0205e9f4(&data_02108760, 3);
     data_ov004_02171034.byte4 = 3;
     data_ov004_02171034.byte1 = 3;
     data_ov004_02171034.messageId = 0;
     if (data_ov004_02171034.state3 != 4) {
-        SetStateAndDispatch0209c3b4((struct Actor0209c3b4*)data_02109bf4, 2);
+        func_0209c3b4((struct Actor0209c3b4*)data_02109bf4, 2);
     }
     gs = GameState::GetInstance();
-    GetPtrField0x2a04_02010828(gs);
+    func_02010828(gs);
     mode = 0;
     sub = 0;
     data_ov004_02171034.flag2 = 0;
@@ -117,7 +117,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
         mode = 1;
         sub = 0;
         msg = 0x12e;
-        SetFieldAndClearBufferIfType7_0216b1c4(a, msg);
+        func_ov004_0216b1c4(a, msg);
         data_ov004_02171034.messageId = msg;
         func_ov004_0216b498(a, mode, sub);
         for (int i = 0; i < 3; i++) {
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
         mode = 2;
         sub = 0;
         msg = 0x12d;
-        SetFieldAndClearBufferIfType7_0216b1c4(a, msg);
+        func_ov004_0216b1c4(a, msg);
         data_ov004_02171034.messageId = msg;
         func_ov004_0216b498(a, mode, sub);
         for (int i = 0; i < 2; i++) {
@@ -176,7 +176,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
     } else if (data_ov004_02171034.state3 == 3) {
         mode = 3;
         msg = 0x12c;
-        SetFieldAndClearBufferIfType7_0216b1c4(a, msg);
+        func_ov004_0216b1c4(a, msg);
         data_ov004_02171034.messageId = msg;
         func_ov004_0216b498(a, mode, sub);
         func_ov004_0216b2c8(a, msg, 0x32, sub);
@@ -186,7 +186,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
             node->SetColor(8);
         }
     } else if (data_ov004_02171034.state3 == 4) {
-        SetByte0x7f70_02012028(gs, 0);
+        func_02012028(gs, 0);
         func_ov011_021848a0(a, 0x190);
         return 0;
     } else if (data_ov004_02171034.state3 == 5) {
@@ -195,7 +195,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
         mode = 1;
         sub = 0;
         msg = 0x12e;
-        SetFieldAndClearBufferIfType7_0216b1c4(a, msg);
+        func_ov004_0216b1c4(a, msg);
         data_ov004_02171034.messageId = msg;
         func_ov004_0216b498(a, mode, sub);
         for (int i = 0; i < 3; i++) {
@@ -213,7 +213,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
             node->SetColor(0xa);
         }
     } else if (data_ov004_02171034.state3 == 6) {
-        SetByte0x7f70_02012028(gs, 0);
+        func_02012028(gs, 0);
         void* list = func_ov011_021849c8(a);
         UiNode0216c810* box = func_ov023_021f6880(list, 1);
         if (box == 0) return 0;
@@ -223,25 +223,25 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
         if (text == 0) return 0;
         if (func_ov023_021f6f10(text) != 4) return 0;
         struct TableA68* table = func_ov023_021fa598(text);
-        MessageWindow0216c810* win = GetGlobalField0x1c020421a0();
+        MessageWindow0216c810* win = func_020421a0();
         win->busy = 1;
-        func_0204500c(win, FindEntryByKey_02072a68(table, 0x5dc), 0, 0xe3);
+        func_0204500c(win, func_02072a68(table, 0x5dc), 0, 0xe3);
         win->flag19ca = 0;
         win->flag19af = 0;
-        SetByte0x7f70_02012028(gs, 0);
+        func_02012028(gs, 0);
         return 0;
     } else if (data_ov004_02171034.state3 == 7) {
-        SetByte0x7f70_02012028(gs, 0);
+        func_02012028(gs, 0);
         func_ov011_021848a0(a, 0x258);
         return 0;
     }
 
-    SetField1c8True_02184ad8((struct Obj_02184ad8*)a);
+    func_ov011_02184ad8((struct Obj_02184ad8*)a);
     int y;
-    void* panel = GetNodeIfType6_0216ae9c(a, 0xd2);
+    void* panel = func_ov004_0216ae9c(a, 0xd2);
     func_ov023_021f8120(panel);
     y = 0x60;
-    unsigned char kind = NormalizeField5_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
+    unsigned char kind = func_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
     Bytes6 rows = data_ov004_02170174;
     int n;
     switch (mode) {
@@ -274,7 +274,7 @@ extern "C" ARM int func_ov004_0216c810(void* a) {
         break;
     }
     data_ov004_02171034.cursorY = y;
-    SetField1c8True_02184ad8((struct Obj_02184ad8*)a);
+    func_ov011_02184ad8((struct Obj_02184ad8*)a);
     if (mode == 1 && data_ov004_02171034.state3 != 5) {
         func_ov004_0216ba70(a);
     }

@@ -61,24 +61,24 @@ struct StateBits5ccc_11544;
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
 extern "C" int func_02075910(int, void*, unsigned int, int);
-int VerifyBuffer020a94f8(Buf020a94f8*, int);
-int VerifyAndApplySaveBuffer_020ac864(int);
-void SetFlag0x5cccBit0_02011544(StateBits5ccc_11544*);
+extern "C" int func_020a94f8(Buf020a94f8*, int);
+extern "C" int func_020ac864(int);
+extern "C" void func_02011544(StateBits5ccc_11544*);
 extern "C" int func_01ff85b8(void*, int);
 extern "C" void* func_0205ec34();
-Globals020ab314* GetGlobal02109418_02094d6c();
-void* GetSlotEntry020108d8(char*, int);
+extern "C" Globals020ab314* func_02094d6c();
+extern "C" void* func_020108d8(char*, int);
 #if defined(jpn)
 extern "C" int func_020a95a4(void*, void*);
 #else
 extern "C" int func_020a95a4(void*, void*, unsigned char*);
 #endif
 extern "C" int func_020a9a50(void*, void*, int);
-void LoadBattleRegion0x5cdc_020a9af8(unsigned char*);
+extern "C" void func_020a9af8(unsigned char*);
 extern "C" void func_020a9b2c(void*);
-void CopyBlobIntoBattleStruct020a9ba4(void*);
+extern "C" void func_020a9ba4(void*);
 extern "C" void func_020a9c14(void*);
-void CopyBlobIntoBattleStruct020a9d78(void*);
+extern "C" void func_020a9d78(void*);
 extern "C" void func_020a9e30(void*);
 
 // USA: func_020ab314
@@ -98,9 +98,9 @@ extern "C" ARM int func_020ab314(int* output, int unused, int alternate) {
     VectorizedMemset(buffer, 0, 0x8000);
     if (!func_02075910(0, buffer, 0x10, 0)) valid = 0;
     Buf020a94f8 header;
-    if (!VerifyBuffer020a94f8(&header, alternate != 0)) valid = 0;
+    if (!func_020a94f8(&header, alternate != 0)) valid = 0;
     VectorizedInvertedMemcpy(&header, &buffer->header, 0x14);
-    VerifyAndApplySaveBuffer_020ac864(alternate ? 1 : 0);
+    func_020ac864(alternate ? 1 : 0);
     VectorizedInvertedMemcpy(saveState->globals, buffer->globals, 0x54);
     if (!func_02075910(id, &buffer->body, 0x6f60, 0)) valid = 0;
     SaveBody020ab314* body = &buffer->body;
@@ -111,31 +111,31 @@ extern "C" ARM int func_020ab314(int* output, int unused, int alternate) {
         }
     }
     if (!valid) {
-        SetFlag0x5cccBit0_02011544((StateBits5ccc_11544*)state);
+        func_02011544((StateBits5ccc_11544*)state);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
     void* context = func_0205ec34();
-    Globals020ab314* globals = GetGlobal02109418_02094d6c();
+    Globals020ab314* globals = func_02094d6c();
 #if defined(jpn)
-    func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0));
+    func_020a95a4(body->actorData, func_020108d8((char*)state, 0));
 #else
     unsigned char status = 0;
-    func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0), &status);
+    func_020a95a4(body->actorData, func_020108d8((char*)state, 0), &status);
 #endif
     func_020a9a50(body->context, context, 0);
     memcpy(globals, body->globalData, 0xa0);
-    memcpy(GetGlobal02109418_02094d6c()->extra, body->globalExtra, 0x330);
-    LoadBattleRegion0x5cdc_020a9af8(body->region);
+    memcpy(func_02094d6c()->extra, body->globalExtra, 0x330);
+    func_020a9af8(body->region);
     memcpy(saveState->state75f0, body->state75f0, 0x4d0);
     memcpy(saveState->state7ac0, body->state7ac0, 0x3b4);
     memcpy(saveState->state7504, body->state7504, 0xec);
     func_020a9b2c(body->load3ec4);
-    CopyBlobIntoBattleStruct020a9ba4(body->battle5a04);
+    func_020a9ba4(body->battle5a04);
     func_020a9c14(body->battle5e08);
     memcpy(((SaveState020ab314*)GameState::GetInstance())->state569c, body->state569c, 0x7c);
     if (alternate) {
-        CopyBlobIntoBattleStruct020a9d78(body->extra695c);
+        func_020a9d78(body->extra695c);
         func_020a9e30(body->extra6d4c);
     }
     memcpy(((SaveState020ab314*)GameState::GetInstance())->state71fc, body->state71fc, 0x2c4);

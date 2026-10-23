@@ -4,10 +4,10 @@
 extern "C" void* func_0206a3c0(void* ctx, int msgId);
 extern "C" int func_02005a94(char* str);
 
-char* FindUnescapedAngleBracket_020424ac(char* str);
-int IsPrefixMatch020d857c(signed char* a, signed char* b);
-int StringStartsWithCI020d85dc(const char* str, const char* prefix);
-int StringLength_020d2ff0(const char* s);
+extern "C" char* func_020424ac(char* str);
+extern "C" int func_020d857c(signed char* a, signed char* b);
+extern "C" int func_020d85dc(const char* str, const char* prefix);
+extern "C" int func_020d2ff0(const char* s);
 
 struct TagEntry02069fec {
     const char* name;
@@ -70,14 +70,14 @@ extern "C" ARM void func_02069fec(struct Ctx02069fec* ctx, int msgId, char* outA
             continue;
         }
         if (c == '<') {
-            char* close = FindUnescapedAngleBracket_020424ac(src);
+            char* close = func_020424ac(src);
             if (close != 0) {
                 char* arg = src + 1;
                 int matched = 0;
                 struct TagEntry02069fec* e = data_020e7f84;
                 while (e->name != 0 && e->fn != 0) {
-                    if (StringStartsWithCI020d85dc(arg, e->name)) {
-                        int len = StringLength_020d2ff0(e->name);
+                    if (func_020d85dc(arg, e->name)) {
+                        int len = func_020d2ff0(e->name);
                         int n = e->fn(&out, arg + len);
                         out += n;
                         src = close + 1;
@@ -92,7 +92,7 @@ extern "C" ARM void func_02069fec(struct Ctx02069fec* ctx, int msgId, char* outA
                     struct NameList02069fec names = data_020e7e74;
                     char** np = names.p;
                     while (*np != 0) {
-                        if (IsPrefixMatch020d857c((signed char*)src, (signed char*)*np)) {
+                        if (func_020d857c((signed char*)src, (signed char*)*np)) {
                             while (*src != '>') { src++; }
                             src++;
                             break;
@@ -101,7 +101,7 @@ extern "C" ARM void func_02069fec(struct Ctx02069fec* ctx, int msgId, char* outA
                     }
                 }
 
-                if (IsPrefixMatch020d857c((signed char*)src, (signed char*)data_020f091b)) {
+                if (func_020d857c((signed char*)src, (signed char*)data_020f091b)) {
                     int r7 = 0xe;
                     int id = func_02005a94(src + 0xe);
                     while (src[r7] != '>') {
@@ -116,7 +116,7 @@ extern "C" ARM void func_02069fec(struct Ctx02069fec* ctx, int msgId, char* outA
                     depth = (unsigned short)(depth + 1) & 3;
                     continue;
                 }
-                if (IsPrefixMatch020d857c((signed char*)src, (signed char*)data_020f092a)) {
+                if (func_020d857c((signed char*)src, (signed char*)data_020f092a)) {
                     int r7 = 4;
                     int val = func_02005a94(src + 4);
                     while (src[r7] != '>') {
@@ -129,7 +129,7 @@ extern "C" ARM void func_02069fec(struct Ctx02069fec* ctx, int msgId, char* outA
                     out += 2;
                     continue;
                 }
-                if (IsPrefixMatch020d857c((signed char*)src, (signed char*)data_020f092f)) {
+                if (func_020d857c((signed char*)src, (signed char*)data_020f092f)) {
                     int r7 = 4;
                     int val = func_02005a94(src + 4);
                     while (src[r7] != '>') {

@@ -34,23 +34,23 @@ struct Obj_021e62cc {
 };
 struct Entry_021e62cc { int id; int total; };
 
-int IsFlag10088Set_02010088(struct S_10088* obj);
-int ClassifyField0x81fe_ov000_0215fc60(char*);
+extern "C" int func_02010088(struct S_10088* obj);
+extern "C" int func_ov000_0215fc60(char*);
 extern "C" int func_ov000_0215ffa0(struct Node_021e62cc* node);
-struct Node_021e62cc* GetNodeAtIndex021600f8(struct List021600f8* list, int index);
-struct Depth_021e62cc* FindNodeAtDepth0215fff4(void* obj, int limit, int idx);
-int IsCombatantFlag2Mask8192_021e6798(GameObject* c);
-int IsCombatantFlag2Mask32_021e67b0(GameObject* c);
-int AnySlotHasBit17At0x2f4_02085400(unsigned char* p);
+extern "C" struct Node_021e62cc* func_ov000_021600f8(struct List021600f8* list, int index);
+extern "C" struct Depth_021e62cc* func_ov000_0215fff4(void* obj, int limit, int idx);
+extern "C" int func_ov024_021e6798(GameObject* c);
+extern "C" int func_ov024_021e67b0(GameObject* c);
+extern "C" int func_02085400(unsigned char* p);
 extern "C" int func_ov000_02156068(void* battle, int id, int kind, int mode);
 extern "C" short func_ov000_0215a004(void* world, int id1, int id2, int value, unsigned long long* bits, struct Skill_021e62cc* rec, int a6, int a7);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* world);
 extern "C" int func_ov000_02159f18(void* world, unsigned long long bits, int bit);
-unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" void func_ov000_0215a88c(void* world, void* entry, int msg);
+extern "C" void func_ov000_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
-void AppendToChainAndIncCount0215fe84(void* chain, void* node, int idx);
+extern "C" void func_ov000_0215fe84(void* chain, void* node, int idx);
 
 static inline short GetCurrentMP(ModifiableCombatStats* s) {
     return s->primaryStats.currMP;
@@ -59,17 +59,17 @@ static inline short GetCurrentMP(ModifiableCombatStats* s) {
 // USA: func_ov024_021e62cc
 extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struct Skill_021e62cc* skill) {
     GameState* gs = GameState::GetInstance();
-    if (ClassifyField0x81fe_ov000_0215fc60((char*)self->ctx) != 0) return;
+    if (func_ov000_0215fc60((char*)self->ctx) != 0) return;
     if (!(skill->flags & 0x80)) return;
     GameObject* attacker = GetCombatantByID((int)self->ctx, id);
     if (!attacker) return;
-    if (IsFlag10088Set_02010088((struct S_10088*)attacker)) return;
+    if (func_02010088((struct S_10088*)attacker)) return;
 
     int count = 0;
     struct Entry_021e62cc entries[8];
     memset(entries, count, sizeof(entries));
     for (int i = 0; i < self->list->count; i++) {
-        struct Node_021e62cc* node = GetNodeAtIndex021600f8(self->list, i);
+        struct Node_021e62cc* node = func_ov000_021600f8(self->list, i);
         if (!node) continue;
         int found = 0;
         for (int j = 1; j < node->slotCount; j++) {
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
             if (owner == entries[k].id) {
                 dup = 1;
                 for (int d = 0; d < node->depth; d++) {
-                    struct Depth_021e62cc* p = FindNodeAtDepth0215fff4(node, d, 0);
+                    struct Depth_021e62cc* p = func_ov000_0215fff4(node, d, 0);
                     if (p) entries[k].total += p->value;
                 }
             }
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
         if (dup) continue;
         entries[count].id = owner;
         for (int d = 0; d < node->depth; d++) {
-            struct Depth_021e62cc* p = FindNodeAtDepth0215fff4(node, d, 0);
+            struct Depth_021e62cc* p = func_ov000_0215fff4(node, d, 0);
             if (p) entries[count].total += p->value;
         }
         count++;
@@ -100,21 +100,21 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
     for (int k = 0; k < count; k++) {
         GameObject* target = GetCombatantByID((int)self->ctx, (short)entries[k].id);
         if (!target) continue;
-        if (IsFlag10088Set_02010088((struct S_10088*)target)) continue;
-        if (IsCombatantFlag2Mask8192_021e6798(target)) continue;
+        if (func_02010088((struct S_10088*)target)) continue;
+        if (func_ov024_021e6798(target)) continue;
         if (entries[k].total <= 0) continue;
         float rate = 0.25f;
         int party = 0;
         if (entries[k].id >= 0 && entries[k].id <= 3) party = 1;
         if (party) {
-            GameObject* ally = GetCombatantWithFlag0x100_0200ff1c(gs, entries[k].id);
+            GameObject* ally = func_0200ff1c(gs, entries[k].id);
             if (!ally) continue;
             struct Random* rnd = (struct Random*)self->ctx;
             int ok = 0;
-            if (IsCombatantFlag2Mask32_021e67b0(ally)) {
+            if (func_ov024_021e67b0(ally)) {
                 rate = 0.25f;
                 ok = 1;
-            } else if (AnySlotHasBit17At0x2f4_02085400(((struct Ally_021e62cc*)ally)->ext)) {
+            } else if (func_02085400(((struct Ally_021e62cc*)ally)->ext)) {
                 if (NextRandomMax(rnd, 100) < 50) {
                     rate = 0.2f;
                     ok = 1;
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
             }
             if (!ok) continue;
         } else {
-            if (!IsCombatantFlag2Mask32_021e67b0(target)) continue;
+            if (!func_ov024_021e67b0(target)) continue;
         }
         int dmg = rate * entries[k].total;
         if (func_ov000_02156068(self->ctx, id, 0, 1)) {
@@ -133,16 +133,16 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
         short result = func_ov000_0215a004(self->ctx, ((struct Combatant_021e62cc*)target)->id, id, dmg, &bits, skill, 0, 0);
         struct OutStruct0215ccbc* entry = func_ov000_0215e958(self->ctx);
         if (!entry) return;
-        AddEntryAndIncrementCount0215a88c(self->ctx, entry, SelectByIndexRange0to3_021da644(id, 0x1b4, 0x22b));
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)self->ctx, entry, attacker, dmg, result, GetCurrentMP(attacker->currentStats_), bits, 0);
-        AppendToChainAndIncCount0215fe84(self->chain, entry, 4);
+        func_ov000_0215a88c(self->ctx, entry, func_ov024_021da644(id, 0x1b4, 0x22b));
+        func_ov000_0215ccbc((int)self->ctx, entry, attacker, dmg, result, GetCurrentMP(attacker->currentStats_), bits, 0);
+        func_ov000_0215fe84(self->chain, entry, 4);
         ((unsigned char*)self->ctx)[0x8e02]++;
         if (func_ov000_02159f18(self->ctx, bits, 2)) {
             entry = func_ov000_0215e958(self->ctx);
             if (!entry) return;
-            AddEntryAndIncrementCount0215a88c(self->ctx, entry, SelectByIndexRange0to3_021da644(id, 0x1b3, 0x22a));
-            _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)self->ctx, entry, attacker, 0, result, GetCurrentMP(attacker->currentStats_), 0, 0);
-            AppendToChainAndIncCount0215fe84(self->chain, entry, 4);
+            func_ov000_0215a88c(self->ctx, entry, func_ov024_021da644(id, 0x1b3, 0x22a));
+            func_ov000_0215ccbc((int)self->ctx, entry, attacker, 0, result, GetCurrentMP(attacker->currentStats_), 0, 0);
+            func_ov000_0215fe84(self->chain, entry, 4);
             ((unsigned char*)self->ctx)[0x8e02]++;
         }
         if (func_ov000_02159f18(self->ctx, bits, 2)) return;

@@ -29,11 +29,11 @@ struct Struct020a9304 {
 typedef void (*IterFn020a8f70)(void*, void*);
 typedef int (*CmpFn020a9288)(void*);
 
-int GetElementsByteSize020a8f60(struct Obj020a8f60* obj);
-int ForEachElement020a8f70(struct Obj020a8f70* obj, IterFn020a8f70 fn);
-void* BinarySearchByComparator020a9288(struct Obj020a9288* obj, int key, CmpFn020a9288 cmp);
-struct Struct020a9304* CopyStruct020a9304(struct Struct020a9304* dst, struct Struct020a9304* src);
-unsigned short GetU16At0x0(struct U16Field0x0_020a8e80* obj);
+extern "C" int func_020a8f60(struct Obj020a8f60* obj);
+extern "C" int func_020a8f70(struct Obj020a8f70* obj, IterFn020a8f70 fn);
+extern "C" void* func_020a9288(struct Obj020a9288* obj, int key, CmpFn020a9288 cmp);
+extern "C" struct Struct020a9304* func_020a9304(struct Struct020a9304* dst, struct Struct020a9304* src);
+extern "C" unsigned short func_020a8e80(struct U16Field0x0_020a8e80* obj);
 
 struct Table020a8fd0 {
     unsigned int count : 12;
@@ -45,8 +45,8 @@ struct Table020a8fd0 {
 
 static inline void SwapElements(struct Struct020a9304* a, struct Struct020a9304* b) {
     struct Struct020a9304 tmp = *a;
-    CopyStruct020a9304(a, b);
-    CopyStruct020a9304(b, &tmp);
+    func_020a9304(a, b);
+    func_020a9304(b, &tmp);
 }
 
 // USA: func_020a8fd0
@@ -74,9 +74,9 @@ extern "C" ARM void func_020a8fd0(struct Table020a8fd0* obj, SafeAllocator* allo
     if (file != 0) {
         memcpy(&src, file, 4);
         src.elems = (struct Struct020a9304*)((char*)file + 4);
-        src.extra = (char*)file + (GetElementsByteSize020a8f60((struct Obj020a8f60*)&src) + 4);
+        src.extra = (char*)file + (func_020a8f60((struct Obj020a8f60*)&src) + 4);
         if (!src.flag) {
-            ForEachElement020a8f70((struct Obj020a8f70*)&src, 0);
+            func_020a8f70((struct Obj020a8f70*)&src, 0);
             src.flag = 1;
             ((struct Table020a8fd0*)file)->flag = 1;
         }
@@ -85,7 +85,7 @@ extern "C" ARM void func_020a8fd0(struct Table020a8fd0* obj, SafeAllocator* allo
     p = ids;
     num = count;
     for (i = 0; i < num; i++, p++) {
-        if (BinarySearchByComparator020a9288((struct Obj020a9288*)&src, *p, (CmpFn020a9288)GetU16At0x0) != 0) {
+        if (func_020a9288((struct Obj020a9288*)&src, *p, (CmpFn020a9288)func_020a8e80) != 0) {
             n++;
         }
     }
@@ -95,7 +95,7 @@ extern "C" ARM void func_020a8fd0(struct Table020a8fd0* obj, SafeAllocator* allo
         p = ids;
         dst = obj->elems;
         for (k = 0; k < num; k++, p++) {
-            void* found = BinarySearchByComparator020a9288((struct Obj020a9288*)&src, *p, (CmpFn020a9288)GetU16At0x0);
+            void* found = func_020a9288((struct Obj020a9288*)&src, *p, (CmpFn020a9288)func_020a8e80);
             if (found != 0) {
                 memcpy(dst, found, sizeof(struct Struct020a9304));
                 dst++;
@@ -126,8 +126,8 @@ extern "C" ARM void func_020a8fd0(struct Table020a8fd0* obj, SafeAllocator* allo
             if (prev->a > f->a) {
                 last2 = m;
                 struct Struct020a9304 tmp = *f;
-                CopyStruct020a9304(f, prev);
-                CopyStruct020a9304(prev, &tmp);
+                func_020a9304(f, prev);
+                func_020a9304(prev, &tmp);
             }
             f = prev;
         }

@@ -35,10 +35,10 @@ extern "C" ARM void func_0206cdcc(void* context, int* outA, int* outB) {
 #else
 
 extern "C" int func_0206b37c(void* obj, void* p);
-int IsHighByteFF0206ac6c(void* obj, void* p);
-bool IsCommandInRange02067a9c(void* obj, void* p);
-int IsHalfwordInRange02067ad8(int unused, void* p);
-int Func0206abf8(void* a, void* p);
+extern "C" int func_0206ac6c(void* obj, void* p);
+extern "C" bool func_02067a9c(void* obj, void* p);
+extern "C" int func_02067ad8(int unused, void* p);
+extern "C" int func_0206abf8(void* a, void* p);
 
 struct Entry0204254c {
     int val;
@@ -48,7 +48,7 @@ struct Entry0204254c {
     char pad6[2];
 };
 
-struct Entry0204254c* FindEntryByKey0204254c(int key, int tableIdx);
+extern "C" struct Entry0204254c* func_0204254c(int key, int tableIdx);
 
 // USA: func_0206b528
 extern "C" ARM int func_0206b528(unsigned char* obj, int* outA, int* outB) {
@@ -65,21 +65,21 @@ extern "C" ARM int func_0206b528(unsigned char* obj, int* outA, int* outB) {
     for (;;) {
         signed char c = *(signed char*)p;
         if (c == 0) return c;
-        if (IsHighByteFF0206ac6c(obj, p)) {
-            bool stop = IsCommandInRange02067a9c(obj, p);
+        if (func_0206ac6c(obj, p)) {
+            bool stop = func_02067a9c(obj, p);
             if (stop) return stop;
-            if (IsHalfwordInRange02067ad8((int)obj, p)) {
+            if (func_02067ad8((int)obj, p)) {
                 p += 2;
                 outA[i] = base - (func_0206b37c(obj, p) >> 1);
                 outB[i] = 0;
                 i++;
             } else {
-                p = (p + 2) + Func0206abf8(obj, p) * 2;
+                p = (p + 2) + func_0206abf8(obj, p) * 2;
                 goto again;
             }
         } else {
             int adv = 1;
-            struct Entry0204254c* e = FindEntryByKey0204254c((int)p, (obj + 0x1000)[0x9dc]);
+            struct Entry0204254c* e = func_0204254c((int)p, (obj + 0x1000)[0x9dc]);
             if (e) adv = e->field5;
             p += adv;
         }

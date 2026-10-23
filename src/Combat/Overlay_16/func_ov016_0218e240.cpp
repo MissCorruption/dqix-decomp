@@ -12,10 +12,10 @@ struct Glyph0218e240 {
 extern "C" char data_ov016_0219d06d[];
 extern "C" char data_ov016_0219d06f[];
 
-int GetWordFromTable02042648(int idx);
-int FindEntryIndexByKey020424e4(int key, int tableIdx);
-struct Glyph0218e240* GetBoundedEntry020425b4(int idx, int tableIdx);
-int LookupKeyValue020425e4(int a, int b, int tableIdx);
+extern "C" int func_02042648(int idx);
+extern "C" int func_020424e4(int key, int tableIdx);
+extern "C" struct Glyph0218e240* func_020425b4(int idx, int tableIdx);
+extern "C" int func_020425e4(int a, int b, int tableIdx);
 extern "C" void* __clear(void* dst, int count);
 extern "C" int func_020420e8(char* str, int id);
 extern "C" int func_02001aec(unsigned char* a, unsigned char* b, int n);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* dst, char* text, unsigne
     int line;
     int y = y0;
     short prev = 0xff;
-    int font = GetWordFromTable02042648(1) & 0xff;
+    int font = func_02042648(1) & 0xff;
     int adv;
     int xs[3];
     xs[0] = x;
@@ -81,16 +81,16 @@ extern "C" ARM void func_ov016_0218e240(unsigned short* dst, char* text, unsigne
 
                 int wide = font + 1;
         adv = 1;
-        unsigned char code = FindEntryIndexByKey020424e4((int)text, 1);
+        unsigned char code = func_020424e4((int)text, 1);
         if (code != 0xff) {
-                        glyph = GetBoundedEntry020425b4(code, 1);
+                        glyph = func_020425b4(code, 1);
             if (outline != 0) {
                 func_ov016_0218e17c(dst, x - 1, y, glyph, 0, 1);
                 func_ov016_0218e17c(dst, x + 1, y, glyph, 0, 1);
                 func_ov016_0218e17c(dst, x, y - 1, glyph, 0, 1);
                 func_ov016_0218e17c(dst, x, y + 1, glyph, 0, 1);
             }
-            x += LookupKeyValue020425e4(prev, code, 1);
+            x += func_020425e4(prev, code, 1);
             func_ov016_0218e17c(dst, x, y, glyph, color, 1);
             prev = code;
                         wide = glyph->width + 1;

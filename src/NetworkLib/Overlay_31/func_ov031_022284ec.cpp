@@ -8,7 +8,7 @@ extern short data_ov031_02248da0;
 extern short data_ov031_02248da2;
 extern short data_ov031_02248da4;
 
-// USA: func_ov031_022284ec  (semantic: ToggleFlagAndDispatchRow_022284ec)
+// USA: func_ov031_022284ec
 extern "C" ARM void func_ov031_022284ec(int type) {
     if (type == 1 || type == 3) {
         return;

@@ -47,61 +47,61 @@ struct Actor0209c3b4;
 struct Obj0203bdb0;
 struct AllocGroup0218d8d8;
 
-void DelayThenSyncBit0_020c9820();
+extern "C" void func_020c9820();
 extern "C" void func_020c39a0(short* out, int value);
-int GetWord0x7f6c_0201201c(void* obj);
-void SetWord0x7f6c_02012010(void* obj, int value);
-unsigned char GetByte0x4_0200fb9c(char* obj);
-void SetByte0x4_0200fb94(char* obj, unsigned char value);
-void SetByte0x7f70_02012028(void* obj, unsigned char value);
-void RestoreDisplayMode_020c38d4();
-void UpdateFieldGroup4e8_0218d7ac(FieldGroup4e8_0218d7ac* obj, int target, int frames);
-void UpdateFieldGroup4f4_0218d800(FieldGroup4f4_0218d800* obj, int target, int frames);
-void WriteControlAndToggle020d86d0(int a, int b);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void InitStruct0205cfd4(InitTarget0205cfd4* obj);
-void ResetList0204af64(List0204af64* list);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char* obj, int value);
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c* obj, SafeAllocator* alloc);
-void DispatchViaTable0204b5e8(Obj0204b5e8* obj, int a, int b);
-int CountActiveEntries(ActiveEntry02046900* entries);
-void* FindRecordByIndex(Rec020467f0* recs, int index, void** outField, int* outSize);
-void FlushAndDispatchList0204b0e8(List0204b0e8* list, void* arg);
-void AllocateBuffer0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int buf, unsigned int size);
-void LinkArrayPrevPointers0205cf78(Struct_0205cf78* obj, Elem_0205cf78* elems, unsigned char flag);
-char* GetGlobalField0x1c020421a0();
-int AppendXYTag_02041a90(char* text, int x, int y);
-int AppendString02042058(char* text, const char* str);
-int AppendDotLeaderLabel02042084(char* text, char* label, int width, int flags);
-void CallFunc0204c8f0OverList0x9c(Cont0205d228* obj);
-void CallFunc0204b04cOverList0x98(Cont0205d274* obj);
-void InitEntries0205d2bc(Obj0205d2bc* obj);
-void ProcessRingJobs020bbcb4();
-void InitCombatSubsystems02012efc();
+extern "C" int func_0201201c(void* obj);
+extern "C" void func_02012010(void* obj, int value);
+extern "C" unsigned char func_0200fb9c(char* obj);
+extern "C" void func_0200fb94(char* obj, unsigned char value);
+extern "C" void func_02012028(void* obj, unsigned char value);
+extern "C" void func_020c38d4();
+extern "C" void func_ov020_0218d7ac(FieldGroup4e8_0218d7ac* obj, int target, int frames);
+extern "C" void func_ov020_0218d800(FieldGroup4f4_0218d800* obj, int target, int frames);
+extern "C" void func_020d86d0(int a, int b);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* obj);
+extern "C" void func_0204af64(List0204af64* list);
+extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b12c(AllocTarget0204b12c* obj, SafeAllocator* alloc);
+extern "C" void func_0204b5e8(Obj0204b5e8* obj, int a, int b);
+extern "C" int func_02046900(ActiveEntry02046900* entries);
+extern "C" void* func_020467f0(Rec020467f0* recs, int index, void** outField, int* outSize);
+extern "C" void func_0204b0e8(List0204b0e8* list, void* arg);
+extern "C" void func_0204c7a8(Obj0204c7a8* obj, SafeAllocator* alloc, int buf, unsigned int size);
+extern "C" void func_0205cf78(Struct_0205cf78* obj, Elem_0205cf78* elems, unsigned char flag);
+extern "C" char* func_020421a0();
+extern "C" int func_02041a90(char* text, int x, int y);
+extern "C" int func_02042058(char* text, const char* str);
+extern "C" int func_02042084(char* text, char* label, int width, int flags);
+extern "C" void func_0205d228(Cont0205d228* obj);
+extern "C" void func_0205d274(Cont0205d274* obj);
+extern "C" void func_0205d2bc(Obj0205d2bc* obj);
+extern "C" void func_020bbcb4();
+extern "C" void func_02012efc();
 void LockStagedTextureVRAMCopying();
-void ConfigurePairMode020bb48c(unsigned int mode, int installHandlers);
-void InitGlobalStateAndInstallHandlers020bb780(void* arg, int flag);
+extern "C" void func_020bb48c(unsigned int mode, int installHandlers);
+extern "C" void func_020bb780(void* arg, int flag);
 void UpdateVRAMStagingVRAMBanks();
 void UnlockStagedTextureVRAMCopying();
-void TailForward020440a4(void* obj);
-void CopyInternalFields0207df50(Foo0207df50* obj);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
-void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
-void InitCombatSlots02045cac(CombatSlots02045cac* slots);
-void InitBigStruct0205c790(char* obj);
-int CheckSaveBufferStatus_020ab9c0(int flag);
-void ProcessCombatEntry0205cb74(char* obj, int entry);
-void Forward0204359c(void* obj, int value);
-void SetIndexIfValid0205bcdc(Struct_0205bcdc* obj, int index);
-void InitBattleContext0203bd24(char* ctx);
-void RefreshDisplayState0205e8ec(Obj_0205e8ec* obj);
-void SetStateAndDispatch0209c3b4(Actor0209c3b4* actor, int state);
-void ResetGxEngineState020c52e8();
-void CleanInvalidateOamBuffers0203bd88(void* oam);
-void SyncMainSubOam0203bdb0(Obj0203bdb0* obj);
-void ResetAllocatorAndDispatchState_0218d8d8(AllocGroup0218d8d8* obj);
+extern "C" void func_020440a4(void* obj);
+extern "C" void func_0207df50(Foo0207df50* obj);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
+extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+extern "C" void func_02045cac(CombatSlots02045cac* slots);
+extern "C" void func_0205c790(char* obj);
+extern "C" int func_020ab9c0(int flag);
+extern "C" void func_0205cb74(char* obj, int entry);
+extern "C" void func_0204359c(void* obj, int value);
+extern "C" void func_0205bcdc(Struct_0205bcdc* obj, int index);
+extern "C" void func_0203bd24(char* ctx);
+extern "C" void func_0205e8ec(Obj_0205e8ec* obj);
+extern "C" void func_0209c3b4(Actor0209c3b4* actor, int state);
+extern "C" void func_020c52e8();
+extern "C" void func_0203bd88(void* oam);
+extern "C" void func_0203bdb0(Obj0203bdb0* obj);
+extern "C" void func_ov020_0218d8d8(AllocGroup0218d8d8* obj);
 
 extern "C" int func_ov020_0218d898(void* obj);
 extern "C" void func_ov020_0218d644(void* obj);
@@ -233,47 +233,47 @@ static inline int IsTimerActive(Sequence0218b710* self) { return self->timer > 0
 static inline int IsFadeActive(Sequence0218b710* self) { return self->fadeTimer > 0; }
 
 #define START_FADE(self, target, frames)                                               \
-    UpdateFieldGroup4e8_0218d7ac((FieldGroup4e8_0218d7ac*)(self), (target), (frames)); \
-    UpdateFieldGroup4f4_0218d800((FieldGroup4f4_0218d800*)(self), (target), (frames))
+    func_ov020_0218d7ac((FieldGroup4e8_0218d7ac*)(self), (target), (frames)); \
+    func_ov020_0218d800((FieldGroup4f4_0218d800*)(self), (target), (frames))
 
 #define WAIT_FADE(self)                          \
     for (;;) {                                   \
         if (!IsFadeActive(self)) break;          \
         func_ov020_0218d644(self);               \
-        DelayThenSyncBit0_020c9820();                     \
-        InitCombatSubsystems02012efc();          \
-        WriteControlAndToggle020d86d0(0, 1);     \
+        func_020c9820();                     \
+        func_02012efc();          \
+        func_020d86d0(0, 1);     \
     }
 
 #define WAIT_TIMER(self)                         \
     for (;;) {                                   \
         if (!IsTimerActive(self)) break;         \
         func_ov020_0218d854(self);               \
-        DelayThenSyncBit0_020c9820();                     \
-        InitCombatSubsystems02012efc();          \
-        WriteControlAndToggle020d86d0(0, 1);     \
+        func_020c9820();                     \
+        func_02012efc();          \
+        func_020d86d0(0, 1);     \
     }
 
 // USA: func_ov020_0218b710
 extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
     GameState* gs = GameState::GetInstance();
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
-    if (GetWord0x7f6c_0201201c(gs) == 1) {
+    if (func_0201201c(gs) == 1) {
         func_020c39a0((short*)0x400006c, 16);
         func_020c39a0((short*)0x400106c, 16);
     }
-    RestoreDisplayMode_020c38d4();
+    func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
 
-    if (GetWord0x7f6c_0201201c(gs) == 1) {
+    if (func_0201201c(gs) == 1) {
         START_FADE(self, -16, 2000);
         for (;;) {
             if (!func_ov020_0218d898(self)) break;
             func_ov020_0218d644(self);
-            DelayThenSyncBit0_020c9820();
-            WriteControlAndToggle020d86d0(0, 1);
+            func_020c9820();
+            func_020d86d0(0, 1);
         }
     }
 
@@ -282,26 +282,26 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
     volatile unsigned short* bgcnt = (volatile unsigned short*)0x4000008;
     bgcnt[0] = bgcnt[0] & ~0x3;
     bgcnt[1] = (bgcnt[1] & ~0x3) | 0x1;
-    DelayThenSyncBit0_020c9820();
-    RestoreDisplayMode_020c38d4();
+    func_020c9820();
+    func_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
 
-    if (GetByte0x4_0200fb9c((char*)gs) != 6) {
-        self->alloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x10000), 0x10000);
+    if (func_0200fb9c((char*)gs) != 6) {
+        self->alloc.CreateTypeA(func_02012d88(&data_02114e20, 0x10000), 0x10000);
         self->alloc.Reset();
-        InitStruct0205cfd4((InitTarget0205cfd4*)self->textCont);
-        ResetList0204af64((List0204af64*)self->list);
+        func_0205cfd4((InitTarget0205cfd4*)self->textCont);
+        func_0204af64((List0204af64*)self->list);
         func_0204c684(self->tiles);
         MapVRAMBanksToMainBG(4);
         func_ov020_0218c7bc(0, 0, 1, 1, 0);
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)self->list, 0);
+        func_0204b11c((unsigned char*)self->list, 0);
         self->listFlags.low = 0;
         self->listFlags.high = 1;
         func_0204b5b4(self->list, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)self->list, &self->alloc);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)self->list, 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)self->list, &self->alloc);
+        func_0204b5e8((Obj0204b5e8*)self->list, 0, 0);
 
         int task;
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -313,23 +313,23 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 void* file;
                 unsigned int fileLen;
                 loader->GetLoadedFileByID(task, &file, &fileLen);
-                int count = CountActiveEntries((ActiveEntry02046900*)file);
+                int count = func_02046900((ActiveEntry02046900*)file);
                 for (int i = 0; i < count; i++) {
                     int recSize;
-                    void* rec = FindRecordByIndex((Rec020467f0*)file, i, &recField, &recSize);
+                    void* rec = func_020467f0((Rec020467f0*)file, i, &recField, &recSize);
                     if (rec != 0) {
                         func_0204b174(self->list, rec, &self->alloc, recSize);
                     }
                 }
                 loader->RemoveTask(task);
                 func_0204bc74(self->list, 0, 0, 0, 0x20, 0x19, 0);
-                FlushAndDispatchList0204b0e8((List0204b0e8*)self->list, 0);
+                func_0204b0e8((List0204b0e8*)self->list, 0);
                 self->buf498 = self->alloc.Allocate(0x8000);
-                AllocateBuffer0204c7a8((Obj0204c7a8*)self->tiles, &self->alloc, (int)self->buf498, 0x800);
+                func_0204c7a8((Obj0204c7a8*)self->tiles, &self->alloc, (int)self->buf498, 0x800);
                 self->list394 = self->list;
                 self->list34c = self->list;
                 self->b366 = 1;
-                LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->textCont, (Elem_0205cf78*)self->tiles, 1);
+                func_0205cf78((Struct_0205cf78*)self->textCont, (Elem_0205cf78*)self->tiles, 1);
                 break;
             }
             loader->RemoveAllLocks();
@@ -348,48 +348,48 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         self->b36a = 1;
 
 #if defined(jpn)
-        char* text = *(char**)(GetGlobalField0x1c020421a0() + 0x28);
+        char* text = *(char**)(func_020421a0() + 0x28);
         memset(text, 0, 0x800);
 #else
-        char* text = *(char**)(GetGlobalField0x1c020421a0() + 0x5c);
+        char* text = *(char**)(func_020421a0() + 0x5c);
         memset(text, 0, 0x960);
 #endif
         char buf[0x80] = {0};
-        AppendXYTag_02041a90(text, 4, 0x68);
+        func_02041a90(text, 4, 0x68);
         sprintf(buf, data_ov020_0218dbef, data_ov020_0218dbf5, data_ov020_0218dbfc);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0x74);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0x74);
         sprintf(buf, data_ov020_0218dc08, 4, 2, 0x7539);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0x80);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0x80);
         sprintf(buf, data_ov020_0218dc1b, 0x13242d6);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0x8c);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0x8c);
         sprintf(buf, data_ov020_0218dc2b, 2, 1, 0x7533);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0x98);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0x98);
         sprintf(buf, data_ov020_0218dc3f, 2, 1, 0x7533);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0xa4);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0xa4);
         sprintf(buf, data_ov020_0218dc55, 3, 1, 0x7536);
-        AppendString02042058(text, buf);
-        AppendXYTag_02041a90(text, 4, 0xb0);
+        func_02042058(text, buf);
+        func_02041a90(text, 4, 0xb0);
         sprintf(buf, data_ov020_0218dc65, 3, 0, 0x7531);
-        AppendString02042058(text, buf);
+        func_02042058(text, buf);
 #if defined(jpn)
-        AppendXYTag_02041a90(text, 0x4e, 0x28);
-        AppendString02042058(text, data_ov020_0218dc72);
-        AppendXYTag_02041a90(text, 0x4b, 0x36);
-        AppendString02042058(text, data_ov020_0218dc82);
-        AppendXYTag_02041a90(text, 0x4b, 0x50);
-        AppendString02042058(text, data_ov020_0218dc91);
+        func_02041a90(text, 0x4e, 0x28);
+        func_02042058(text, data_ov020_0218dc72);
+        func_02041a90(text, 0x4b, 0x36);
+        func_02042058(text, data_ov020_0218dc82);
+        func_02041a90(text, 0x4b, 0x50);
+        func_02042058(text, data_ov020_0218dc91);
 #else
-        AppendXYTag_02041a90(text, 0, 0x28);
-        AppendDotLeaderLabel02042084(text, data_ov020_0218dc72, 0x100, 0);
-        AppendXYTag_02041a90(text, 0, 0x36);
-        AppendDotLeaderLabel02042084(text, data_ov020_0218dc82, 0x100, 0);
-        AppendXYTag_02041a90(text, 0, 0x50);
-        AppendDotLeaderLabel02042084(text, data_ov020_0218dc91, 0x100, 0);
+        func_02041a90(text, 0, 0x28);
+        func_02042084(text, data_ov020_0218dc72, 0x100, 0);
+        func_02041a90(text, 0, 0x36);
+        func_02042084(text, data_ov020_0218dc82, 0x100, 0);
+        func_02041a90(text, 0, 0x50);
+        func_02042084(text, data_ov020_0218dc91, 0x100, 0);
 #endif
 
 #if defined(jpn)
@@ -399,35 +399,35 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
 #endif
         func_0205d0e0(self->textCont, 1);
         func_0205d0e0(self->textCont, 1);
-        CallFunc0204c8f0OverList0x9c((Cont0205d228*)self->textCont);
-        CallFunc0204b04cOverList0x98((Cont0205d274*)self->textCont);
-        InitEntries0205d2bc((Obj0205d2bc*)self->textCont);
-        WriteControlAndToggle020d86d0(0, 1);
-        DelayThenSyncBit0_020c9820();
-        RestoreDisplayMode_020c38d4();
+        func_0205d228((Cont0205d228*)self->textCont);
+        func_0205d274((Cont0205d274*)self->textCont);
+        func_0205d2bc((Obj0205d2bc*)self->textCont);
+        func_020d86d0(0, 1);
+        func_020c9820();
+        func_020c38d4();
         volatile unsigned int* dispcnt = (volatile unsigned int*)0x4000000;
         *dispcnt = (*dispcnt & ~0x1f00) | 0x200;
-        ProcessRingJobs020bbcb4();
-        WriteControlAndToggle020d86d0(0, 1);
+        func_020bbcb4();
+        func_020d86d0(0, 1);
 
         while (self->state != -1) {
-            InitCombatSubsystems02012efc();
+            func_02012efc();
             if (g_keyManager.TestKeysPressed(1) || g_keyManager.TestKeysPressed(2) ||
                 g_keyManager.TestKeysPressed(0x400) || g_keyManager.TestKeysPressed(0x800) ||
                 g_touchInput.pressed_ != 0) {
                 break;
             }
-            DelayThenSyncBit0_020c9820();
+            func_020c9820();
             func_020c39a0((short*)0x400006c, 0);
-            WriteControlAndToggle020d86d0(0, 1);
+            func_020d86d0(0, 1);
         }
 
         void* signedAlloc = self->alloc.GetSignedAllocator();
         self->alloc.Destroy();
-        TailForward02012da4(&data_02114e20, signedAlloc);
+        func_02012da4(&data_02114e20, signedAlloc);
     }
 
-    DelayThenSyncBit0_020c9820();
+    func_020c9820();
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
     volatile unsigned short* mainBg = (volatile unsigned short*)0x4000008;
@@ -443,42 +443,42 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
 
     LockStagedTextureVRAMCopying();
     MapVRAMBanksToTextureImage(1);
-    ConfigurePairMode020bb48c(1, 1);
+    func_020bb48c(1, 1);
     MapVRAMBanksToTexturePalette(0x60);
-    InitGlobalStateAndInstallHandlers020bb780((void*)0x8000, 1);
+    func_020bb780((void*)0x8000, 1);
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
 
-    self->alloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x10000), 0x10000);
+    self->alloc.CreateTypeA(func_02012d88(&data_02114e20, 0x10000), 0x10000);
     func_0207de48(self->pairTables, 0x4000, 0x400);
-    char* g = GetGlobalField0x1c020421a0();
+    char* g = func_020421a0();
     func_02042c68(g);
     func_02043124(g);
-    TailForward020440a4(g);
+    func_020440a4(g);
 #if defined(jpn)
     *(char**)(g + 0x1c4c) = self->pairTables;
 #else
     *(char**)(g + 0x1e28) = self->pairTables;
 #endif
-    CopyInternalFields0207df50((Foo0207df50*)self->pairTables);
-    RestorePairTables0207df90(self->pairTables);
+    func_0207df50((Foo0207df50*)self->pairTables);
+    func_0207df90(self->pairTables);
     func_020432c4(g);
-    BackupPairTables0207dfac(self->pairTables);
+    func_0207dfac(self->pairTables);
     self->state = 100;
     self->frame = -1;
 
-    if (GetByte0x4_0200fb9c((char*)gs) == 6) {
-        if (GetWord0x7f6c_0201201c(gs) == 0) {
+    if (func_0200fb9c((char*)gs) == 6) {
+        if (func_0201201c(gs) == 0) {
 #if defined(jpn)
             func_ov020_0218cf8c(self);
-            RestoreDisplayMode_020c38d4();
+            func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             self->timer = 2000;
             for (;;) {
                 if (!IsTimerActive(self)) break;
                 func_ov020_0218d854(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
             START_FADE(self, 0, 1500);
             self->timer = 7000;
@@ -486,14 +486,14 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 if (!func_ov020_0218d898(self)) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
-                    InitCombatSubsystems02012efc();
+                    func_02012efc();
                     if (self->timer <= 2500) {
                         if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
                     }
                 }
                 func_ov020_0218d644(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
             START_FADE(self, -16, 1000);
             WAIT_FADE(self)
@@ -501,29 +501,29 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             WAIT_TIMER(self)
 
             func_ov020_0218d32c(self, 0);
-            RestoreDisplayMode_020c38d4();
+            func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
-            UpdateFieldGroup4f4_0218d800((FieldGroup4f4_0218d800*)(self), 0, 1500);
+            func_ov020_0218d800((FieldGroup4f4_0218d800*)(self), 0, 1500);
             self->timer = 6000;
             for (;;) {
                 if (!IsFadeActive(self)) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
-                    InitCombatSubsystems02012efc();
+                    func_02012efc();
                     if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
-            UpdateFieldGroup4f4_0218d800((FieldGroup4f4_0218d800*)(self), -16, 1000);
+            func_ov020_0218d800((FieldGroup4f4_0218d800*)(self), -16, 1000);
             WAIT_FADE(self)
             self->timer = 1000;
             WAIT_TIMER(self)
 #else
-            Set3DClearColor_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
+            func_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
             func_ov020_0218cd98(self);
-            RestoreDisplayMode_020c38d4();
+            func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             self->timer = 2000;
             WAIT_TIMER(self)
@@ -534,11 +534,11 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 if (!IsFadeActive(self)) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
-                    InitCombatSubsystems02012efc();
+                    func_02012efc();
                 }
                 func_ov020_0218d644(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
             START_FADE(self, -16, 500);
             WAIT_FADE(self)
@@ -546,7 +546,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             WAIT_TIMER(self)
 
             func_ov020_0218cf8c(self);
-            RestoreDisplayMode_020c38d4();
+            func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             START_FADE(self, 0, 1500);
             self->timer = 7000;
@@ -554,14 +554,14 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 if (!func_ov020_0218d898(self)) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
-                    InitCombatSubsystems02012efc();
+                    func_02012efc();
                     if (self->timer <= 2500) {
                         if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                     }
                 }
                 func_ov020_0218d644(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
             START_FADE(self, -16, 1000);
             WAIT_FADE(self)
@@ -569,7 +569,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             WAIT_TIMER(self)
 
             func_ov020_0218d32c(self, 0);
-            RestoreDisplayMode_020c38d4();
+            func_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
             START_FADE(self, 0, 1500);
             self->timer = 6000;
@@ -577,46 +577,46 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 if (!IsFadeActive(self)) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
-                    InitCombatSubsystems02012efc();
+                    func_02012efc();
                     if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(self);
-                DelayThenSyncBit0_020c9820();
-                WriteControlAndToggle020d86d0(0, 1);
+                func_020c9820();
+                func_020d86d0(0, 1);
             }
             START_FADE(self, -16, 1000);
             WAIT_FADE(self)
             self->timer = 1000;
             WAIT_TIMER(self)
-            Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
+            func_020c5588(0, 0x1f, 0x7fff, 0, 0);
 #endif
         }
-        SetWord0x7f6c_02012010(gs, 5);
-        SetByte0x4_0200fb94((char*)gs, 0);
-        SetByte0x7f70_02012028(gs, 1);
+        func_02012010(gs, 5);
+        func_0200fb94((char*)gs, 0);
+        func_02012028(gs, 1);
     } else {
-        SetWord0x7f6c_02012010(gs, 0);
+        func_02012010(gs, 0);
         func_ov020_0218c98c(self);
-        RestoreDisplayMode_020c38d4();
+        func_020c38d4();
         *(volatile unsigned int*)0x4001000 |= 0x10000;
-        InitCombatSlots02045cac((CombatSlots02045cac*)g);
-        InitBigStruct0205c790(self->big);
+        func_02045cac((CombatSlots02045cac*)g);
+        func_0205c790(self->big);
         self->flagBd = 1;
         self->flagBc = 1;
 #if defined(jpn)
-        if (CheckSaveBufferStatus_020ab9c0(1) == 4) {
+        if (func_020ab9c0(1) == 4) {
             Entries8_0218b710 entries = *(Entries8_0218b710*)data_ov020_0218da90;
             for (int i = 0; i < 8; i++) {
-                ProcessCombatEntry0205cb74(self->big, (int)(entries.d + i * 0x20));
-                Forward0204359c(g, 0x80);
+                func_0205cb74(self->big, (int)(entries.d + i * 0x20));
+                func_0204359c(g, 0x80);
                 func_020439b0(g, 0);
             }
             func_ov020_0218c7f0(self->big, 1, 8);
         } else {
             Entries7_0218b710 entries = *(Entries7_0218b710*)data_ov020_0218d9b0;
             for (int i = 0; i < 7; i++) {
-                ProcessCombatEntry0205cb74(self->big, (int)(entries.d + i * 0x20));
-                Forward0204359c(g, 0x80);
+                func_0205cb74(self->big, (int)(entries.d + i * 0x20));
+                func_0204359c(g, 0x80);
                 func_020439b0(g, 0);
             }
             func_ov020_0218c7f0(self->big, 1, 7);
@@ -625,17 +625,17 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         self->posY = 0x28;
         func_0205dfa8(self->big);
 #else
-        if (CheckSaveBufferStatus_020ab9c0(1) == 4) {
+        if (func_020ab9c0(1) == 4) {
             for (int i = 0; i < 8; i++) {
-                ProcessCombatEntry0205cb74(self->big, (int)(data_ov020_0218da90 + i * 0x20));
-                Forward0204359c(g, 0x10);
+                func_0205cb74(self->big, (int)(data_ov020_0218da90 + i * 0x20));
+                func_0204359c(g, 0x10);
                 func_020439b0(g, 0);
             }
             func_ov020_0218c7f0(self->big, 1, 8);
         } else {
             for (int i = 0; i < 7; i++) {
-                ProcessCombatEntry0205cb74(self->big, (int)(data_ov020_0218d9b0 + i * 0x20));
-                Forward0204359c(g, 0x10);
+                func_0205cb74(self->big, (int)(data_ov020_0218d9b0 + i * 0x20));
+                func_0204359c(g, 0x10);
                 func_020439b0(g, 0);
             }
             func_ov020_0218c7f0(self->big, 1, 7);
@@ -647,12 +647,12 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         self->posY = y;
         func_0205cc50(self->big, 0, -4);
 #endif
-        SetIndexIfValid0205bcdc((Struct_0205bcdc*)self->sub2c, 0);
+        func_0205bcdc((Struct_0205bcdc*)self->sub2c, 0);
         func_0205bb04(self->sub7c, 0);
         MapVRAMBanksToMainObj(2);
 
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        char* global = GetGlobalField0x1c020421a0();
+        char* global = func_020421a0();
         for (;;) {
             func_02043368(global);
 #if defined(jpn)
@@ -664,15 +664,15 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         }
 
         char* ctx = func_0203bd08();
-        InitBattleContext0203bd24(ctx);
-        RefreshDisplayState0205e8ec((Obj_0205e8ec*)data_02108760);
-        SetStateAndDispatch0209c3b4((Actor0209c3b4*)data_02109bf4, 2);
+        func_0203bd24(ctx);
+        func_0205e8ec((Obj_0205e8ec*)data_02108760);
+        func_0209c3b4((Actor0209c3b4*)data_02109bf4, 2);
         while (self->state != -1) {
-            InitCombatSubsystems02012efc();
+            func_02012efc();
             if (++self->frame >= 0xffffff) {
                 self->frame = 1;
             }
-            ResetGxEngineState020c52e8();
+            func_020c52e8();
             func_020c5414();
             *(volatile unsigned short*)0x4000060 &= 0xcfdf;
             switch (self->state) {
@@ -683,25 +683,25 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                 self->state = -1;
                 break;
             }
-            WriteControlAndToggle020d86d0(0, 1);
-            CleanInvalidateOamBuffers0203bd88(ctx);
-            DelayThenSyncBit0_020c9820();
-            SyncMainSubOam0203bdb0((Obj0203bdb0*)ctx);
-            ProcessRingJobs020bbcb4();
+            func_020d86d0(0, 1);
+            func_0203bd88(ctx);
+            func_020c9820();
+            func_0203bdb0((Obj0203bdb0*)ctx);
+            func_020bbcb4();
             func_020bbd9c();
             func_020c39a0((short*)0x400006c, 0);
             func_020c39a0((short*)0x400106c, 0);
         }
 
-        if (GetByte0x4_0200fb9c((char*)gs) == 0) {
-            SetWord0x7f6c_02012010(gs, 6);
-        } else if (GetByte0x4_0200fb9c((char*)gs) == 5) {
-            SetWord0x7f6c_02012010(gs, 6);
+        if (func_0200fb9c((char*)gs) == 0) {
+            func_02012010(gs, 6);
+        } else if (func_0200fb9c((char*)gs) == 5) {
+            func_02012010(gs, 6);
         }
     }
 
-    ResetAllocatorAndDispatchState_0218d8d8((AllocGroup0218d8d8*)self);
-    CopyInternalFields0207df50((Foo0207df50*)self->pairTables);
+    func_ov020_0218d8d8((AllocGroup0218d8d8*)self);
+    func_0207df50((Foo0207df50*)self->pairTables);
     func_020c39a0((short*)0x400006c, -16);
     func_020c39a0((short*)0x400106c, -16);
 }

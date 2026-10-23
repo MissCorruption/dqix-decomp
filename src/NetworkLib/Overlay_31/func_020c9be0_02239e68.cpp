@@ -26,7 +26,7 @@ extern "C" ARM void func_ov031_02239368(int v);
 extern "C" ARM unsigned short func_ov031_02239ee0(unsigned short v);
 extern void* data_ov031_0224c464;
 
-// USA: func_ov031_02239e68  (semantic: RefreshField5c_02239e68)
+// USA: func_ov031_02239e68
 extern "C" ARM unsigned short func_ov031_02239e68(void) {
 	if (data_ov031_02290d18.field4->field40 != 7) {
 		func_020c9be0();

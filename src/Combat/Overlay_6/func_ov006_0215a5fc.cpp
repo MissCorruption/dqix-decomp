@@ -36,76 +36,76 @@ extern char data_ov006_0216032e[];
 extern char data_ov006_02160340[];
 extern char data_ov006_02160359[];
 
-int GetWord0x0_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* obj);
 struct Actor0209c3b4;
-int SetStateAndDispatch0209c3b4(Actor0209c3b4*, int);
-void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
-void Set3DClearColor_020c5588(int, int, int, int, int);
+extern "C" int func_0209c3b4(Actor0209c3b4*, int);
+extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
+extern "C" void func_020c5588(int, int, int, int, int);
 struct Struct020dfc40;
-void ResetStruct020dfc40(Struct020dfc40*);
+extern "C" void func_020dfc40(Struct020dfc40*);
 extern "C" void func_020dfec0(void*, void*, void*, unsigned int);
 struct Struct02071be8;
-void ClearListHeader(Struct02071be8*);
+extern "C" void func_02071be8(Struct02071be8*);
 struct StreamHeader;
-void RunBufferedStream02071c00(int, int, StreamHeader*, int);
+extern "C" void func_02071c00(int, int, StreamHeader*, int);
 extern "C" void* GetSubBG0ScreenBase();
 extern "C" void* memset(void*, int, unsigned int);
 struct List0204af64;
-void ResetList0204af64(List0204af64*);
-void SetWord0x18ClearByte0x1f_0204b11c(unsigned char*, int);
+extern "C" void func_0204af64(List0204af64*);
+extern "C" void func_0204b11c(unsigned char*, int);
 extern "C" void func_0204b5b4(void*, int);
 struct Obj0204b5e8;
-void DispatchViaTable0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
 struct AllocTarget0204b12c;
-void AllocateAndClearBuffer0204b12c(AllocTarget0204b12c*, SafeAllocator*);
+extern "C" void func_0204b12c(AllocTarget0204b12c*, SafeAllocator*);
 struct Foo0204af38;
 struct SafeAllocator;
-void AllocateArray0204af38(Foo0204af38*, int, SafeAllocator*);
+extern "C" void func_0204af38(Foo0204af38*, int, SafeAllocator*);
 struct ActiveEntry02046900;
-int CountActiveEntries(ActiveEntry02046900*);
+extern "C" int func_02046900(ActiveEntry02046900*);
 struct Rec020467f0;
-void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
+extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
 extern "C" void func_0204b174(void*, void*, void*, unsigned int);
 struct List0204b0e8;
-void FlushAndDispatchList0204b0e8(List0204b0e8*, void*);
+extern "C" void func_0204b0e8(List0204b0e8*, void*);
 extern "C" void func_0204c684(void*);
 struct Obj0204c7a8;
-void AllocateBuffer0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
-void ClearFields_021e20c0(void*);
+extern "C" void func_0204c7a8(Obj0204c7a8*, SafeAllocator*, int, unsigned int);
+extern "C" void func_ov023_021e20c0(void*);
 extern "C" void func_ov023_021e20f0(void*, void*, void*, unsigned int);
 extern "C" void* func_ov006_02157368(void*, int);
 extern "C" void func_0205a528(void*, void*, void*, void*);
-void InitStruct0205a444(char*);
-void Zero4Bytes_020e526c(void*);
+extern "C" void func_0205a444(char*);
+extern "C" void func_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
 struct Obj0207f914;
-void SetFieldsFromFormattedValue0207f914(Obj0207f914*, int, int, int);
+extern "C" void func_0207f914(Obj0207f914*, int, int, int);
 extern "C" int func_0207f9f4(void*);
-void DispatchEntryOp0x10_020810a0(void*, int);
+extern "C" void func_020810a0(void*, int);
 struct Manager0207f7f0;
 struct Node0207f7f0;
-void InitNodeChain0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
-void DispatchEntryOp0x8_0208108c(void*, int);
+extern "C" void func_0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
+extern "C" void func_0208108c(void*, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int*, int, int, int, int);
 extern "C" void func_ov006_02158de0(void*);
 extern "C" void func_ov006_02153744(void*, void*, void*, int);
 struct Container02071ffc;
-void FilterAndSortEntries02071ffc(Container02071ffc*, int, int, int, short, short*);
-void ComputeField_02158cac_02158cac(void*);
+extern "C" void func_02071ffc(Container02071ffc*, int, int, int, short, short*);
+extern "C" void func_ov006_02158cac(void*);
 extern "C" void func_ov006_02153c60(void*, int, unsigned short);
 extern "C" void func_ov006_0215373c(void*, void*);
 struct StatusOwner02081164;
-void SetEntryFlag0x2ByShortId(StatusOwner02081164*, int, int);
+extern "C" void func_02081164(StatusOwner02081164*, int, int);
 extern "C" void func_020813ec(void*, int);
 struct Obj2081;
-void* FindElementByByte0xc4_02081da8(Obj2081*, int);
+extern "C" void* func_02081da8(Obj2081*, int);
 extern "C" void __clear(void*, int);
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 struct Container020e0310;
-void* GetFieldByKey020e0434(Container020e0310*, int);
+extern "C" void* func_020e0434(Container020e0310*, int);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
 struct Container02080f8c;
-void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
+extern "C" void func_02080f8c(Container02080f8c*, int, int);
 
 struct Canvas {
     unsigned char pad[0xb8];
@@ -195,23 +195,23 @@ struct Frame {
 // USA: func_ov006_0215a5fc
 extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
     Frame f;
-    GetWord0x0_0200fb8c((int*)GameState::GetInstance());
+    func_0200fb8c((int*)GameState::GetInstance());
     void* loader = BackgroundLoader::GetInstance();
     unsigned char st = obj->f390;
 
     if (st == 0) {
         if ((obj->f394 & 2) == 0) {
-            SetStateAndDispatch0209c3b4((Actor0209c3b4*)&data_02109bf4, 8);
+            func_0209c3b4((Actor0209c3b4*)&data_02109bf4, 8);
         }
-        SetFogState_020c54a4(0, 0, 0, 0);
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
-        FontBankLoader* g = GetGlobal02109400_02094a00();
-        BlankFunction02094b40(g);
-        BlankFunction02094b34(g, 0x6c, 0x1fd, 0, 0);
+        func_020c54a4(0, 0, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
+        FontBankLoader* g = func_02094a00();
+        func_02094b40(g);
+        func_02094b34(g, 0x6c, 0x1fd, 0, 0);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 1) {
-        if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()) != 0) {
+        if (func_02094b4c(func_02094a00()) != 0) {
             obj->f390 = obj->f390 + 1;
         }
     }
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c3d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x14))->Reset();
-                ResetStruct020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)));
+                func_020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)));
                 func_020dfec0((char*)obj + REGIONAL_OFFSET(0x14c, 0x158), (char*)alloc + 0x14, f.c3d, f.c3s);
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
@@ -243,8 +243,8 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c5d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)alloc)->Reset();
-                ClearListHeader((Struct02071be8*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)));
-                RunBufferedStream02071c00((int)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), (unsigned int)alloc, (StreamHeader*)f.c5d, (int)f.c5s);
+                func_02071be8((Struct02071be8*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)));
+                func_02071c00((int)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), (unsigned int)alloc, (StreamHeader*)f.c5d, (int)f.c5s);
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
@@ -260,14 +260,14 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         memset(GetSubBG0ScreenBase(), 0, 0x800);
         *(volatile unsigned int*)0x04001010 = 0;
         ((SafeAllocator*)((char*)obj->alloc + 0x3c))->Reset();
-        ResetList0204af64((List0204af64*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)));
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
+        func_0204af64((List0204af64*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)));
+        func_0204b11c((unsigned char*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
         obj->f70 = (unsigned char)((obj->f70 & ~0xf) | 1);
         obj->f70 = (unsigned char)((obj->f70 & ~0xf0) | 0x30);
         func_0204b5b4((char*)obj + REGIONAL_OFFSET(0x4c, 0x54), 3);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), (SafeAllocator*)((char*)obj->alloc + 0x3c));
-        AllocateArray0204af38((Foo0204af38*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), REGIONAL_OFFSET(3, 7), (SafeAllocator*)((char*)obj->alloc + 0x3c));
+        func_0204b5e8((Obj0204b5e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0, 0);
+        func_0204b12c((AllocTarget0204b12c*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), (SafeAllocator*)((char*)obj->alloc + 0x3c));
+        func_0204af38((Foo0204af38*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), REGIONAL_OFFSET(3, 7), (SafeAllocator*)((char*)obj->alloc + 0x3c));
         obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFile(data_ov006_021602bb, (SafeAllocator*)0);
         obj->f390 = obj->f390 + 1;
     }
@@ -275,23 +275,23 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         if (((BackgroundLoader*)loader)->GetTaskStatus(obj->f354) != 0) {
             ((BackgroundLoader*)loader)->GetLoadedFileByID(obj->f354, &f.c7d, &f.c7s);
             void* rec;
-            int n = CountActiveEntries((ActiveEntry02046900*)f.c7d);
+            int n = func_02046900((ActiveEntry02046900*)f.c7d);
             int i;
             for (i = 0; i < n; i++) {
-                rec = FindRecordByIndex((Rec020467f0*)f.c7d, i, &f.r7d, &f.r7s);
+                rec = func_020467f0((Rec020467f0*)f.c7d, i, &f.r7d, &f.r7s);
                 if (rec != 0) {
                 if (i == 0) {
                     int j;
                     for (j = 0; j < 2; j++) {
                         unsigned char* o = (unsigned char*)obj->f1c + (j << 5);
-                        ResetList0204af64((List0204af64*)o);
-                        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)o, 0);
+                        func_0204af64((List0204af64*)o);
+                        func_0204b11c((unsigned char*)o, 0);
                         Nib* nib = (Nib*)(o + 0x1c);
                         nib->lo = 1;
                         nib->hi = (unsigned char)(j + 1);
-                        DispatchViaTable0204b5e8((Obj0204b5e8*)o, 0, 0);
+                        func_0204b5e8((Obj0204b5e8*)o, 0, 0);
                         func_0204b5b4(o, j + 1);
-                        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)o, (SafeAllocator*)((char*)obj->alloc + 0x3c));
+                        func_0204b12c((AllocTarget0204b12c*)o, (SafeAllocator*)((char*)obj->alloc + 0x3c));
                         func_0204b174(o, rec, (char*)obj->alloc + 0x3c, f.r7s);
                     }
                 }
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
                 }
                 }
             }
-            FlushAndDispatchList0204b0e8((List0204b0e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
+            func_0204b0e8((List0204b0e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
             obj->f390 = obj->f390 + 1;
@@ -313,7 +313,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         for (i = 0; i < 7; i = (i + 1) & 0xff) {
             void* o = (char*)obj->f20 + i * 0xe0;
             func_0204c684(o);
-            AllocateBuffer0204c7a8((Obj0204c7a8*)o, (SafeAllocator*)((char*)alloc + 0x50), (int)obj->f08, 0x600);
+            func_0204c7a8((Obj0204c7a8*)o, (SafeAllocator*)((char*)alloc + 0x50), (int)obj->f08, 0x600);
             *(unsigned int*)((char*)o + 4) = (unsigned int)obj->f1c;
         }
         obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_021602d2, data_ov006_021602e7, data_ov006_02161617);
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c9d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x78))->Reset();
-                ClearFields_021e20c0((char*)obj + REGIONAL_OFFSET(0xf8, 0x100));
+                func_ov023_021e20c0((char*)obj + REGIONAL_OFFSET(0xf8, 0x100));
                 func_ov023_021e20f0((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), (char*)alloc + 0x78, f.c9d, f.c9s);
                 unsigned char* e = (unsigned char*)func_ov006_02157368((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), 1);
                 if (e != 0) {
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 0xa) {
-        InitStruct0205a444((char*)((char*)obj + REGIONAL_OFFSET(0xa4, 0xac)));
+        func_0205a444((char*)((char*)obj + REGIONAL_OFFSET(0xa4, 0xac)));
         obj->ffc = 1;
         obj->fec = (int)obj->f24;
         obj->ff8 = 0x1d;
@@ -358,12 +358,12 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         if (((BackgroundLoader*)loader)->GetTaskStatus(obj->f354) != 0) {
             ((BackgroundLoader*)loader)->GetLoadedFileByID(obj->f354, &f.cbd, &f.cbs);
             void* alloc;
-            int n = CountActiveEntries((ActiveEntry02046900*)f.cbd);
+            int n = func_02046900((ActiveEntry02046900*)f.cbd);
             alloc = obj->alloc;
             ((SafeAllocator*)((char*)alloc + 0x8c))->Reset();
             int i;
             for (i = 0; i < n; i++) {
-                void* rec = FindRecordByIndex((Rec020467f0*)f.cbd, i, &f.rbd, &f.rbs);
+                void* rec = func_020467f0((Rec020467f0*)f.cbd, i, &f.rbd, &f.rbs);
                 if (rec != 0) {
                 func_0205a528((char*)obj + REGIONAL_OFFSET(0xa4, 0xac), rec, (void*)f.rbs, (char*)alloc + 0x8c);
                 }
@@ -388,10 +388,10 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x28))->Reset();
 #if defined(jpn)
-                ResetStruct020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x164, 0x170)));
+                func_020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x164, 0x170)));
                 func_020dfec0((char*)obj + REGIONAL_OFFSET(0x164, 0x170), (char*)alloc + 0x28, f.cd, f.cs);
 #else
-                Zero4Bytes_020e526c((char*)obj + REGIONAL_OFFSET(0x164, 0x170));
+                func_020e526c((char*)obj + REGIONAL_OFFSET(0x164, 0x170));
                 func_020e5604((char*)obj + REGIONAL_OFFSET(0x164, 0x170), (char*)alloc + 0x28, f.cd, f.cs);
 #endif
             }
@@ -407,7 +407,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
 #if defined(jpn)
         func_02080654((Obj0207f914*)obj->f14, (unsigned int)alloc + 0x64, (int)data_ov006_02161657);
 #else
-        SetFieldsFromFormattedValue0207f914((Obj0207f914*)obj->f14, (unsigned int)alloc + 0x64, (int)data_ov006_02160340, (int)data_ov006_02160359);
+        func_0207f914((Obj0207f914*)obj->f14, (unsigned int)alloc + 0x64, (int)data_ov006_02160340, (int)data_ov006_02160359);
 #endif
         obj->f390 = obj->f390 + 1;
     }
@@ -421,17 +421,17 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 0x10) {
-        DispatchEntryOp0x10_020810a0(obj->f14, 1);
+        func_020810a0(obj->f14, 1);
         {
             Manager0207f7f0* n2 = obj->f14;
             n2->lists = obj->f1c;
             n2->mode = 2;
         }
-        InitNodeChain0207f7f0(obj->f14, obj->f20, 7);
+        func_0207f7f0(obj->f14, obj->f20, 7);
         obj->f14->active = 1;
 #if !defined(jpn)
-        DispatchEntryOp0x8_0208108c(obj->f14, 0x20);
-        DispatchEntryOp0x8_0208108c(obj->f14, 0x3e);
+        func_0208108c(obj->f14, 0x20);
+        func_0208108c(obj->f14, 0x3e);
 #endif
         volatile unsigned short* bg = (volatile unsigned short*)0x04001008;
         bg[0] = bg[0] & ~3;
@@ -444,34 +444,34 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         obj->f38f = 1;
         obj->f390 = 0;
         func_ov006_02153744((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), (char*)obj + REGIONAL_OFFSET(0x140, 0x14c), (void*)obj->f38, 0x1d8 - 1);
-        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), -1, -1, 0, 0, (short*)((char*)obj + 0x35c));
+        func_02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), -1, -1, 0, 0, (short*)((char*)obj + 0x35c));
         f.sel = 0;
-        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), obj->f384, obj->f385, obj->f386, 0x10, &f.sel);
+        func_02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), obj->f384, obj->f385, obj->f386, 0x10, &f.sel);
         int v = obj->f14c;
         obj->f2c = v;
         obj->f30 = v;
-        ComputeField_02158cac_02158cac(obj);
+        func_ov006_02158cac(obj);
         func_ov006_02153c60((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), obj->f38, 0x1d7);
         func_ov006_0215373c((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), (char*)obj + REGIONAL_OFFSET(0x140, 0x14c));
         if ((obj->f394 & 2) == 0) {
-            SetEntryFlag0x2ByShortId((StatusOwner02081164*)obj->f14, 0, 1);
-            SetEntryFlag0x2ByShortId((StatusOwner02081164*)obj->f14, 1, 1);
+            func_02081164((StatusOwner02081164*)obj->f14, 0, 1);
+            func_02081164((StatusOwner02081164*)obj->f14, 1, 1);
             func_020813ec(obj->f14, 0);
             func_020813ec(obj->f14, 1);
-            Canvas* cv = (Canvas*)FindElementByByte0xc4_02081da8((Obj2081*)obj->f14, 1);
+            Canvas* cv = (Canvas*)func_02081da8((Obj2081*)obj->f14, 1);
             if (cv != 0) {
                 cv->fb8 = 0xc;
                 cv->fba = 0x10;
             }
 #if defined(jpn)
-            void* r = GetFieldByKey020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
-            SetEntryFirstField02080f8c((Container02080f8c*)obj->f14, 1, (int)r);
+            void* r = func_020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
+            func_02080f8c((Container02080f8c*)obj->f14, 1, (int)r);
 #else
             __clear(f.buf, 0x400);
-            void* g = GetGlobalField0x1c020421a0();
-            void* r = GetFieldByKey020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
+            void* g = func_020421a0();
+            void* r = func_020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
             func_02046608(g, 0xc, r, f.buf, 0xe3, 0, 1);
-            SetEntryFirstField02080f8c((Container02080f8c*)obj->f14, 1, (int)f.buf);
+            func_02080f8c((Container02080f8c*)obj->f14, 1, (int)f.buf);
 #endif
             func_020813ec(obj->f14, 1);
         }

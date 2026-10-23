@@ -18,14 +18,14 @@ enum { Field105 = 0x105, Field2cc = 0x2cc };
 extern "C" void func_020c9be0(void);
 extern "C" void* func_02012fe4(void);
 extern "C" void func_020a1940(unsigned int id);
-void PushInputLogB_020a1ef0(int value);
-void PushInputLogA_020a1df8(int value);
+extern "C" void func_020a1ef0(int value);
+extern "C" void func_020a1df8(int value);
 extern "C" void func_ov011_0218438c(char* obj);
 extern "C" void func_ov011_02184550(char* obj, SafeAllocator* allocator, void* data, unsigned int length);
-void InitAndCreateTypeB021845c8(char* obj, void* buffer, unsigned int size);
-void InitEntry02184640(char* obj, char* entry);
+extern "C" void func_ov011_021845c8(char* obj, void* buffer, unsigned int size);
+extern "C" void func_ov011_02184640(char* obj, char* entry);
 extern "C" void func_ov011_02184694(char* obj);
-void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
+extern "C" void func_020c5588(int a, int b, int c, int d, int e);
 
 struct Flags021b24d0 {
     char pad[Field105];
@@ -80,8 +80,8 @@ extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
         func_020c9be0();
     }
     func_020a1940(OVERLAY_ID(11));
-    PushInputLogB_020a1ef0(1);
-    PushInputLogA_020a1df8(4);
+    func_020a1ef0(1);
+    func_020a1df8(4);
     data_ov017_021d83f0.scene = (char*)task->allocator.Allocate(0x1e0);
     if (data_ov017_021d83f0.scene == NULL) {
         func_020c9be0();
@@ -92,8 +92,8 @@ extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
         task->onAllocate(&task->allocator, data_ov017_021d83f0.scene);
     }
     unsigned int size = task->allocator.GetMaxPossibleAllocation();
-    InitAndCreateTypeB021845c8(data_ov017_021d83f0.scene, task->allocator.Allocate(size), size);
-    InitEntry02184640(data_ov017_021d83f0.scene, ((Region2cc*)((char*)res + Field2cc))->entry);
+    func_ov011_021845c8(data_ov017_021d83f0.scene, task->allocator.Allocate(size), size);
+    func_ov011_02184640(data_ov017_021d83f0.scene, ((Region2cc*)((char*)res + Field2cc))->entry);
     loader->RemoveTask(task->taskId);
 #if !defined(jpn)
     task->taskId = -1;
@@ -102,6 +102,6 @@ extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
     if (!task->keepField4Bits) {
         SetFlags04(res, 0x609fe);
     }
-    Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
+    func_020c5588(0, 0, 0x7fff, 0, 0);
     return 2;
 }

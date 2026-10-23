@@ -3,9 +3,9 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Filesystem/NarcHandle.h"
 
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
-void LoadEightEntriesFromTable_0202f310(char*, void*, void*);
+extern "C" void func_0202f310(char*, void*, void*);
 
 extern AllocatorUnion data_02114e20;
 extern char data_020ef7ac[];
@@ -17,12 +17,12 @@ struct EntryTable0202f24c {
     class SafeAllocator* alloc;
 };
 
-// USA: func_0202f24c  (semantic: InitIconArchiveAndLoadEntries_0202f24c)
+// USA: func_0202f24c
 extern "C" ARM void func_0202f24c(struct EntryTable0202f24c* obj) {
     if (obj->alloc == 0) {
-        obj->alloc = (class SafeAllocator*)AllocateAligned4_02012d88(&data_02114e20, 0x14);
+        obj->alloc = (class SafeAllocator*)func_02012d88(&data_02114e20, 0x14);
         obj->alloc->ResetAllocatorPointer();
-        void* buf = AllocateAligned4_02012d88(&data_02114e20, 0xf08);
+        void* buf = func_02012d88(&data_02114e20, 0xf08);
         obj->alloc->CreateTypeA(buf, 0xf08);
         obj->alloc->Reset();
     } else {
@@ -35,7 +35,7 @@ extern "C" ARM void func_0202f24c(struct EntryTable0202f24c* obj) {
     if (fileData != 0) {
         NarcHandle handle;
         if (handle.Initialize(data_020ef7c0, (const unsigned char*)fileData)) {
-            LoadEightEntriesFromTable_0202f310((char*)obj, obj->alloc, fileData);
+            func_0202f310((char*)obj, obj->alloc, fileData);
             handle.Destroy();
         }
     }

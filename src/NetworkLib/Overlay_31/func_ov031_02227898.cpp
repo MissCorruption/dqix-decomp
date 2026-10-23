@@ -7,8 +7,8 @@
 typedef void (*Callback02227898)(int);
 
 extern "C" void func_ov031_0223a794(void);
-void GetFieldsAndUpdateA91_0223ab18(unsigned char* out0, unsigned char* out1);
-void* TailCallOv027Func_0223ab5c(void);
+extern "C" void func_ov031_0223ab18(unsigned char* out0, unsigned char* out1);
+extern "C" void* func_ov031_0223ab5c(void);
 extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" void func_ov031_0223e2c0(int idx, void* obj);
 extern "C" unsigned int func_ov031_0223cf70(void** a);
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_02227898(void* task) {
 		return;
 	}
 
-	GetFieldsAndUpdateA91_0223ab18(&state, &changed);
+	func_ov031_0223ab18(&state, &changed);
 	switch (state) {
 	case 1:
 	case 2:
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov031_02227898(void* task) {
 	case 5:
 		if (changed) {
 			char* dst = data_ov031_02290c44 + 0x1e280;
-			void* src = TailCallOv027Func_0223ab5c();
+			void* src = func_ov031_0223ab5c();
 			func_020ca3b8(src, dst, 0x16);
 			Notify_02227898(0);
 		}

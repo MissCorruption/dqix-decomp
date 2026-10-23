@@ -13,7 +13,7 @@ struct Struct02030b7c {
     void* field4;
 };
 
-int StringLength_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* s);
 
 struct Struct0215e498 {
     short f0;
@@ -26,7 +26,7 @@ struct Struct0215e498 {
     unsigned char ff;
     short f10;
 };
-void ResetStruct_0215e498(struct Struct0215e498* s);
+extern "C" void func_ov003_0215e498(struct Struct0215e498* s);
 
 struct Entry0215e790 {
     short f0;
@@ -42,7 +42,7 @@ struct Entry0215e790 {
     unsigned char f13;
 };
 struct Self0215e790;
-void AppendEntryToArray_0215e790(struct Self0215e790* self, struct Entry0215e790* src);
+extern "C" void func_ov003_0215e790(struct Self0215e790* self, struct Entry0215e790* src);
 
 struct Args0215e510 {
     struct Variant02030b0c v0;
@@ -61,10 +61,10 @@ struct Globals02180cb8 {
 };
 extern struct Globals02180cb8 data_ov003_02180cb8;
 
-// USA: func_ov003_0215e510  (semantic: BuildAndAppendLogEntry_0215e510)
+// USA: func_ov003_0215e510
 extern "C" ARM int func_ov003_0215e510(struct Args0215e510* obj) {
     struct Entry0215e790 local;
-    ResetStruct_0215e498((struct Struct0215e498*)&local);
+    func_ov003_0215e498((struct Struct0215e498*)&local);
 
     local.f10 = (short)((Script::Parameter*)&obj->v0)->ToInt();
     local.f0 = (short)((Script::Parameter*)&obj->v1)->ToInt();
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov003_0215e510(struct Args0215e510* obj) {
 
     char* text1 = (char*)(void*)((Script::Parameter*)&obj->v3)->ToString();
     if (text1 != NULL) {
-        int len1 = StringLength_020d2ff0(text1);
+        int len1 = func_020d2ff0(text1);
         if (len1 != 0) {
             char* buf1 = (char*)((SafeAllocator*)data_ov003_02180cb8.allocator)->Allocate(len1 + 1);
             local.f4 = (int)buf1;
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov003_0215e510(struct Args0215e510* obj) {
 
     char* text2 = (char*)(void*)((Script::Parameter*)&obj->v4)->ToString();
     if (text2 != NULL) {
-        int len2 = StringLength_020d2ff0(text2);
+        int len2 = func_020d2ff0(text2);
         if (len2 != 0) {
             char* buf2 = (char*)((SafeAllocator*)data_ov003_02180cb8.allocator)->Allocate(len2 + 1);
             local.f8 = (int)buf2;
@@ -94,6 +94,6 @@ extern "C" ARM int func_ov003_0215e510(struct Args0215e510* obj) {
     local.fd = (unsigned char)((Script::Parameter*)&obj->v6)->ToInt();
     local.fe = (unsigned char)((Script::Parameter*)&obj->v7)->ToInt();
 
-    AppendEntryToArray_0215e790(data_ov003_02180cb8.target, &local);
+    func_ov003_0215e790(data_ov003_02180cb8.target, &local);
     return 1;
 }

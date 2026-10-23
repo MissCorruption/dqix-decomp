@@ -3,14 +3,14 @@
 struct ObjectStatePrefix;
 
 struct Bytes02033b88;
-void ClearSubstructFlag0x100_02048c50(unsigned char*);
-void ClearStateFlags0203400c(ObjectStatePrefix*);
-void ClearFlagBit_020d76d8(unsigned char* base, int bit);
+extern "C" void func_02048c50(unsigned char*);
+extern "C" void func_0203400c(ObjectStatePrefix*);
+extern "C" void func_020d76d8(unsigned char* base, int bit);
 extern "C" int func_ov000_02159f18(void* unused, unsigned long long bits, unsigned int bit);
-void SetByte0xbeShiftPrev(Bytes02033b88* obj, int v);
-void SetBits0x40000AndFlag0x2_02033fec(ObjectStatePrefix*);
-void SetSubstructFlag0x100_02048c38(unsigned char*);
-void ResetCombatantSlot020d7334(unsigned char*, int);
+extern "C" void func_02033b88(Bytes02033b88* obj, int v);
+extern "C" void func_02033fec(ObjectStatePrefix*);
+extern "C" void func_02048c38(unsigned char*);
+extern "C" void func_020d7334(unsigned char*, int);
 extern "C" void func_020d6f9c(void* param0, int combatantId, int reason);
 
 #if defined(jpn)
@@ -62,10 +62,10 @@ extern "C" ARM void func_ov000_02162dc4(Battle02162dc4* self, Combatant02162dc4*
     int id;
     if (actor == NULL || (slots = self->slots) == NULL) return;
     id = actor->id;
-    ClearSubstructFlag0x100_02048c50((unsigned char*)actor);
-    ClearStateFlags0203400c((ObjectStatePrefix*)actor);
+    func_02048c50((unsigned char*)actor);
+    func_0203400c((ObjectStatePrefix*)actor);
     if (flags & 1) {
-        ClearFlagBit_020d76d8(slots, id);
+        func_020d76d8(slots, id);
         return;
     }
     status = self->field29c;
@@ -91,22 +91,22 @@ extern "C" ARM void func_ov000_02162dc4(Battle02162dc4* self, Combatant02162dc4*
     if (CheckStatus(self, mask, flags, 8, 0x1a, 0x18) && allow) {
         if (reason == REASON_NONE) reason = REASON_3;
         actor->kind = 0;
-        if (notify) SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
-        SetBits0x40000AndFlag0x2_02033fec((ObjectStatePrefix*)actor);
-        SetSubstructFlag0x100_02048c38((unsigned char*)actor);
+        if (notify) func_02033b88((Bytes02033b88*)actor, 0);
+        func_02033fec((ObjectStatePrefix*)actor);
+        func_02048c38((unsigned char*)actor);
     }
     if (CheckStatus(self, mask, flags, 0x10, 0x10, 0xe)) {
         if (kind == KIND_NONE) kind = KIND_2;
         if (reason == REASON_NONE) reason = REASON_1;
-        SetSubstructFlag0x100_02048c38((unsigned char*)actor);
-        if (IsMonsterSlot(id)) SetBits0x40000AndFlag0x2_02033fec((ObjectStatePrefix*)actor);
+        func_02048c38((unsigned char*)actor);
+        if (IsMonsterSlot(id)) func_02033fec((ObjectStatePrefix*)actor);
     } else if (actor->kind == 2) {
         actor->kind = 0;
     }
     if (CheckStatus(self, mask, flags, 0x20, 0x19, 0x17) && allow) {
         if (reason == REASON_NONE) reason = REASON_4;
         actor->kind = kind;
-        if (notify) SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
+        if (notify) func_02033b88((Bytes02033b88*)actor, 0);
     }
     if (CheckStatus(self, mask, flags, 2, 0x11, 0xf)) {
         if (reason == REASON_NONE) reason = REASON_0;
@@ -132,24 +132,24 @@ extern "C" ARM void func_ov000_02162dc4(Battle02162dc4* self, Combatant02162dc4*
         }
         if (kind == KIND_NONE) {
             actor->kind = 0;
-            if (notify) SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
+            if (notify) func_02033b88((Bytes02033b88*)actor, 0);
         }
-        SetSubstructFlag0x100_02048c38((unsigned char*)actor);
+        func_02048c38((unsigned char*)actor);
     } else {
         CombatKind02162dc4 current = (CombatKind02162dc4)actor->kind;
         if ((unsigned int)(current - KIND_3) <= KIND_5 - KIND_3) actor->kind = 0;
     }
     if (reason == REASON_NONE) {
-        ResetCombatantSlot020d7334(slots, id);
+        func_020d7334(slots, id);
     } else {
         func_020d6f9c(slots, id, reason);
     }
     if (kind != KIND_NONE) actor->kind = kind;
     if (notify) {
         if (lead == NULL) {
-            SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
+            func_02033b88((Bytes02033b88*)actor, 0);
         } else if (lead != actor) {
-            SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
+            func_02033b88((Bytes02033b88*)actor, 0);
         }
     }
 }

@@ -121,28 +121,28 @@ struct AlchemyMenu {
     unsigned char closeRequested_;
 };
 
-Recipe* FindNode_02158d50(Obj02158d50* self, short page);
-void ClearSublistEntriesFlag1_02080bac(void* menu, int id);
-void ClearSublistEntriesFlag2_0208065c(void* menu, int id);
-void SetEntryFirstField02080fa8(Container02080fa8* menu, int id, int value);
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void SetEntryFirstField02080f8c(Container02080f8c* menu, int id, int text);
-void SetEntryHighNibble0x13(Container02080cc0* menu, int id, int value);
+extern "C" Recipe* func_ov006_02158d50(Obj02158d50* self, short page);
+extern "C" void func_02080bac(void* menu, int id);
+extern "C" void func_0208065c(void* menu, int id);
+extern "C" void func_02080fa8(Container02080fa8* menu, int id, int value);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_02080f8c(Container02080f8c* menu, int id, int text);
+extern "C" void func_02080cc0(Container02080cc0* menu, int id, int value);
 extern "C" RecipeRecord* func_ov006_02153c6c(void* ingredients, short id);
-const char** CallFunc020e52a0_020e5294(void* names, int item);
+extern "C" const char** func_020e5294(void* names, int item);
 extern "C" void* memset(void* buffer, int value, unsigned int size);
 extern "C" void func_020e4864(const char* source, char* output, int, int, int, int);
-void Forward0207f7acObjPlus4Size0x40_020805f4(void* menu, int id);
-void AddSublistEntryFlag2_020806b0(void* menu, int id);
-void SetEntryFlagById02080b2c(void* menu, int id);
-void SetEntryLowNibbleAndElement02080c68(void* menu, int id, int value);
-void SetElementFlag0x40_02081ea4(Obj2081* menu, int id, int value);
-void SetOrClearEntryFlag0x102081130(void* menu, int id, int value);
+extern "C" void func_020805f4(void* menu, int id);
+extern "C" void func_020806b0(void* menu, int id);
+extern "C" void func_02080b2c(void* menu, int id);
+extern "C" void func_02080c68(void* menu, int id, int value);
+extern "C" void func_02081ea4(Obj2081* menu, int id, int value);
+extern "C" void func_02081130(void* menu, int id, int value);
 extern "C" void func_020813ec(void* menu, int id);
 
 // USA: func_ov006_0215f7e8
 extern "C" ARM void func_ov006_0215f7e8(AlchemyMenu* self) {
-    Recipe* recipe = FindNode_02158d50((Obj02158d50*)self, self->page_);
+    Recipe* recipe = func_ov006_02158d50((Obj02158d50*)self, self->page_);
     self->pageStart_ = recipe;
     if (recipe == 0)
         return;
@@ -150,31 +150,31 @@ extern "C" ARM void func_ov006_0215f7e8(AlchemyMenu* self) {
     if (self->pages_ > 1)
         self->flags_ |= 4;
     void* menu = self->menu_;
-    ClearSublistEntriesFlag1_02080bac(menu, 9);
-    ClearSublistEntriesFlag2_0208065c(menu, 9);
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 0x3a, self->page_ + 1);
-    SetEntryFirstField02080fa8((Container02080fa8*)menu, 0x3b, self->pages_);
+    func_02080bac(menu, 9);
+    func_0208065c(menu, 9);
+    func_02080fa8((Container02080fa8*)menu, 0x3a, self->page_ + 1);
+    func_02080fa8((Container02080fa8*)menu, 0x3b, self->pages_);
     Recipe* entry = self->pageStart_;
-    const char* unknown = GetFieldByKey020e0434((Container020e0310*)self->menuTexts_, 0x25);
+    const char* unknown = func_020e0434((Container020e0310*)self->menuTexts_, 0x25);
     short item = 0x29;
     for (unsigned char i = 0; i < 0x10; i++)
     {
         if (entry != 0)
         {
-            SetEntryFirstField02080f8c((Container02080f8c*)menu, item, (int)unknown);
-            SetEntryHighNibble0x13((Container02080cc0*)menu, item, 3);
+            func_02080f8c((Container02080f8c*)menu, item, (int)unknown);
+            func_02080cc0((Container02080cc0*)menu, item, 3);
             RecipeRecord* record = func_ov006_02153c6c(self->ingredients_, entry->id_);
             if (record != 0)
             {
                 const char* text = unknown;
 #if defined(jpn)
                 if (record->made_)
-                    text = GetFieldByKey020e0434((Container020e0310*)self->itemNames_, entry->item_);
-                SetEntryFirstField02080f8c((Container02080f8c*)menu, item, (int)text);
+                    text = func_020e0434((Container020e0310*)self->itemNames_, entry->item_);
+                func_02080f8c((Container02080f8c*)menu, item, (int)text);
 #else
                 if (record->made_)
                 {
-                    const char** name = CallFunc020e52a0_020e5294(self->itemNames_, entry->item_);
+                    const char** name = func_020e5294(self->itemNames_, entry->item_);
                     if (name != 0)
                     {
                         memset(self->texts_[i], 0, 4);
@@ -182,22 +182,22 @@ extern "C" ARM void func_ov006_0215f7e8(AlchemyMenu* self) {
                         text = self->texts_[i];
                     }
                 }
-                SetEntryFirstField02080f8c((Container02080f8c*)menu, item, (int)text);
-                Forward0207f7acObjPlus4Size0x40_020805f4(menu, item);
+                func_02080f8c((Container02080f8c*)menu, item, (int)text);
+                func_020805f4(menu, item);
 #endif
-                SetEntryHighNibble0x13((Container02080cc0*)menu, item, 0xf);
+                func_02080cc0((Container02080cc0*)menu, item, 0xf);
             }
             entry = entry->next_;
         }
         else
         {
-            AddSublistEntryFlag2_020806b0(menu, item);
-            SetEntryFlagById02080b2c(menu, item);
+            func_020806b0(menu, item);
+            func_02080b2c(menu, item);
         }
         item++;
     }
-    SetEntryLowNibbleAndElement02080c68(menu, 9, 0);
-    SetElementFlag0x40_02081ea4((Obj2081*)menu, 9, 0);
-    SetOrClearEntryFlag0x102081130(menu, 9, (self->flags_ & 4) ? 1 : 0);
+    func_02080c68(menu, 9, 0);
+    func_02081ea4((Obj2081*)menu, 9, 0);
+    func_02081130(menu, 9, (self->flags_ & 4) ? 1 : 0);
     func_020813ec(menu, 9);
 }

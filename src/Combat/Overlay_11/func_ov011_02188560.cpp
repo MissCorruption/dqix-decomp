@@ -7,7 +7,7 @@ struct TaggedNumber02184c30 {
     union { int i; float f; } value;
 };
 
-int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 
 struct TaggedInput02188560 {
     TaggedNumber02184c30 a;
@@ -24,11 +24,11 @@ extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
 
 struct Obj0RowEvent021fa298;
-int InitEvent4_021fa298(struct Obj0RowEvent021fa298* obj, int p1, int p2, int p3, int p4, int p5, int p6);
+extern "C" int func_ov023_021fa298(struct Obj0RowEvent021fa298* obj, int p1, int p2, int p3, int p4, int p5, int p6);
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
 
 extern int data_ov024_021fea34;
 
@@ -36,8 +36,8 @@ struct Buf02188560 { void* vtable; char pad[0x30 - 4]; };
 
 // USA: func_ov011_02188560
 extern "C" ARM int func_ov011_02188560(struct TaggedInput02188560* obj) {
-    int tag0 = GetTaggedValueAsInt_02184c30(&obj->a);
-    int tag8 = GetTaggedValueAsInt_02184c30(&obj->b);
+    int tag0 = func_ov011_02184c30(&obj->a);
+    int tag8 = func_ov011_02184c30(&obj->b);
 
     int extra1;
     if (obj->mode1 == 2) extra1 = obj->extra1;
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov011_02188560(struct TaggedInput02188560* obj) {
     void* node = func_ov011_021845f8(ctx, tag8);
     if (node == 0) return 0;
 
-    int tag20 = GetTaggedValueAsInt_02184c30(&obj->c);
+    int tag20 = func_ov011_02184c30(&obj->c);
 
     ((SafeAllocator*)((char*)node + 4))->GetSizeWithLargestBlockRemoved();
     void* block = ((SafeAllocator*)((char*)node + 4))->Allocate(0x30);
@@ -63,8 +63,8 @@ extern "C" ARM int func_ov011_02188560(struct TaggedInput02188560* obj) {
     local.vtable = &data_ov024_021fea34;
     memcpy(block, &local, sizeof(Buf02188560));
 
-    if (InitEvent4_021fa298((struct Obj0RowEvent021fa298*)block, (int)ctx, tag0, tag8, extra1, extra2, tag20) == 0) return 0;
+    if (func_ov023_021fa298((struct Obj0RowEvent021fa298*)block, (int)ctx, tag0, tag8, extra1, extra2, tag20) == 0) return 0;
 
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
     return 1;
 }

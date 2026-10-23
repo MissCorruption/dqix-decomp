@@ -17,24 +17,24 @@ struct Group021cc388 {
 	unsigned char kinds[3];
 };
 
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState* battleStruct, int combatantId);
-GameObject* GetCombatantWithFlag0x200_0200fee0(GameState* battleStruct, int combatantId);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200fee0(GameState* battleStruct, int combatantId);
 
 extern "C" void func_ov017_02190264(unsigned char* ov, int combatantId);
 extern "C" void func_ov017_021905b8(unsigned char* ov, int combatantId, int mode);
 extern "C" void func_ov017_0218f064(unsigned char* ov, int combatantId, int flag, int c, int d);
 
-extern "C" void _Z25EnqueueEventTag8_021cc4b8hhi(unsigned char combatantId, int tag, int value);
-ARM void SetBit020263b0(unsigned char* bits, unsigned int index);
+extern "C" void func_ov017_021cc4b8(unsigned char combatantId, int tag, int value);
+extern "C" ARM void func_020263b0(unsigned char* bits, unsigned int index);
 
 extern "C" void func_0202c288(struct SearchStruct* search);
 
-// USA: func_ov017_021cc388  (semantic: EnqueueGroupEventsAndSetBits_021cc388)
+// USA: func_ov017_021cc388
 extern "C" ARM void func_ov017_021cc388(int tag, Group021cc388* group, GameState* battleStruct,
                                         unsigned char* ov, struct SearchStruct* search) {
 	if (group->ownerId >= 0) {
-		if (group->ownerId != GetField0x3acValue_020100a8(battleStruct)) return;
+		if (group->ownerId != func_020100a8(battleStruct)) return;
 	}
 
 	unsigned char* bits = *(unsigned char**)(ov + 0x3000 + kRegionalFieldOffset);
@@ -45,9 +45,9 @@ extern "C" ARM void func_ov017_021cc388(int tag, Group021cc388* group, GameState
 		unsigned char idByte = group->ids[i];
 		int id = idByte;
 		int kind = group->kinds[i];
-		if (GetCombatantWithFlag0x1000_0200ff58(battleStruct, id)) {
+		if (func_0200ff58(battleStruct, id)) {
 			func_ov017_02190264(ov, id);
-		} else if (GetCombatantWithFlag0x200_0200fee0(battleStruct, id)) {
+		} else if (func_0200fee0(battleStruct, id)) {
 			func_ov017_021905b8(ov, id, 1);
 		}
 		if (kind == 0) {
@@ -58,8 +58,8 @@ extern "C" ARM void func_ov017_021cc388(int tag, Group021cc388* group, GameState
 			value = 0x3ff;
 		}
 		func_ov017_0218f064(ov, id, flag, 0, 0);
-		_Z25EnqueueEventTag8_021cc4b8hhi(idByte, tag, value);
-		SetBit020263b0(bits, id);
+		func_ov017_021cc4b8(idByte, tag, value);
+		func_020263b0(bits, id);
 	}
 	func_0202c288(search);
 }

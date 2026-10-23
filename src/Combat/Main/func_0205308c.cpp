@@ -21,7 +21,7 @@ struct Obj0205308c {
     int f194;
 };
 
-short* GetField150Ptr0x488_02052e2c(struct Field150Holder02052e2c*);
+extern "C" short* func_02052e2c(struct Field150Holder02052e2c*);
 extern "C" void* func_02012fe4(void);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
@@ -40,7 +40,7 @@ struct EntryBits0205308c {
 extern "C" ARM void func_0205308c(void* obj, int val) {
     struct Obj0205308c* self = (struct Obj0205308c*)obj;
     char buf[0x50];
-    short* entries = GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)obj);
+    short* entries = func_02052e2c((struct Field150Holder02052e2c*)obj);
     BackgroundLoader* loader;
     int flag;
 

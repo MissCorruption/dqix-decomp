@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-int GetField16_02222e0c(void);
-void ClearField18_02222e80(void);
-void SetField_022274c0_022274c0(int v);
-void RunThreeInitSteps_02234a90(void);
+extern "C" int func_ov031_02222e0c(void);
+extern "C" void func_ov031_02222e80(void);
+extern "C" void func_ov031_022274c0(int v);
+extern "C" void func_ov031_02234a90(void);
 
-// USA: func_ov031_02234a68  (semantic: SetHandlerIfNotNegTwo_02234a68)
+// USA: func_ov031_02234a68
 extern "C" ARM void func_ov031_02234a68(void) {
-	if (GetField16_02222e0c() == -2) return;
-	ClearField18_02222e80();
-	SetField_022274c0_022274c0((int)RunThreeInitSteps_02234a90);
+	if (func_ov031_02222e0c() == -2) return;
+	func_ov031_02222e80();
+	func_ov031_022274c0((int)func_ov031_02234a90);
 }

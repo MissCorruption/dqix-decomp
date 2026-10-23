@@ -21,12 +21,12 @@ struct Obj021eb6fc {
     unsigned int flags;
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetSlotPtr02160f20(void* obj);
-Entry021eb6fc* SearchBothTables02079e2c(char* p, int key);
-int IsMatchingID02163690(int id);
-unsigned char* GetNodeAtIndex02160094(List02160094*, int);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f20(void* obj);
+extern "C" Entry021eb6fc* func_02079e2c(char* p, int key);
+extern "C" int func_ov000_02163690(int id);
+extern "C" unsigned char* func_ov000_02160094(List02160094*, int);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov025_021eb6fc
@@ -34,15 +34,15 @@ extern "C" ARM void func_ov025_021eb6fc(Obj021eb6fc* obj, int force) {
     if ((obj->flags & 8) && force == 0) {
         return;
     }
-    short* slot = (short*)GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
-    Entry021eb6fc* entry = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), *slot);
-    if (IsMatchingID02163690(*(unsigned short*)slot)) {
+    short* slot = (short*)func_ov000_02160f20(func_ov000_02160130());
+    Entry021eb6fc* entry = func_02079e2c((char*)func_020797dc(), *slot);
+    if (func_ov000_02163690(*(unsigned short*)slot)) {
         force = 1;
     } else if (entry != 0 && entry->kind == 1 && entry->subKind == 1 && entry->mode != 2) {
         force = 1;
     }
     if (force != 0) {
-        unsigned char* node = GetNodeAtIndex02160094((List02160094*)slot, 0);
+        unsigned char* node = func_ov000_02160094((List02160094*)slot, 0);
         if (node != 0) {
             int id = *(unsigned short*)(node + 0x20);
             int inRange;
@@ -52,9 +52,9 @@ extern "C" ARM void func_ov025_021eb6fc(Obj021eb6fc* obj, int force) {
                 inRange = 0;
             }
             if (inRange) {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 7, 0);
+                func_0205eaa0(&data_02108760, 7, 0);
             } else {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 8, 0);
+                func_0205eaa0(&data_02108760, 8, 0);
             }
         }
     }

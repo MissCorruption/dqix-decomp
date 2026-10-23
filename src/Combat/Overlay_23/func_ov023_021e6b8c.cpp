@@ -50,9 +50,9 @@ struct LabelState021e6b8c {
     unsigned char padding_1372[10];
     void* buffer;
 };
-void ClearTwoWordsAndByte_0205b20c(S_b20c*);
-void SetField0_0205b220(void*, int);
-void SetFieldsAt0x4And0x8_0205b228(void*, int, unsigned char);
+extern "C" void func_0205b20c(S_b20c*);
+extern "C" void func_0205b220(void*, int);
+extern "C" void func_0205b228(void*, int, unsigned char);
 extern "C" {
 void func_ov003_0215ec68(int, short*, short*);
 void func_0205b890(WeightedEntry021e6b8c*, int, SpriteEntry021e6b8c*);
@@ -97,9 +97,9 @@ extern "C" ARM void func_ov023_021e6b8c(LabelState021e6b8c* self, unsigned short
     if (label->mode == 0 && (mode != 0 || (flags & 2) != 0)) text = label->alternate;
     int center = (x - func_020420e8(text, 1)) >> 1;
     S_b20c destination;
-    ClearTwoWordsAndByte_0205b20c(&destination);
-    SetField0_0205b220(&destination, (int)self->buffer);
-    SetFieldsAt0x4And0x8_0205b228(&destination, (int)entries, 3);
+    func_0205b20c(&destination);
+    func_0205b220(&destination, (int)self->buffer);
+    func_0205b228(&destination, (int)entries, 3);
     func_0205b734(&destination, 9, 9, (short)(x + 7), (short)(y + 7), 9);
     func_0205b234(&destination, (short)(center + 8), 10, text, 2, 1);
     CleanInvalidateCacheRange(self->buffer, size);

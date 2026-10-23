@@ -9,10 +9,10 @@ extern "C" {
 }
 
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
+extern "C" int func_0200fb08(Struct0200fb08*);
 
 struct Obj02079808;
-void* ResetObjectState02079a3c(void* obj);
+extern "C" void* func_02079a3c(void* obj);
 
 extern unsigned char data_0211e33c[0x30000];
 extern const char data_020f0e02[];
@@ -28,7 +28,7 @@ extern "C" ARM void func_02079cf8(ActionDataTables* obj, SafeAllocator* a1, Safe
     base = data_0211e33c;
     unsigned int capacity = sizeof(data_0211e33c);
     GPCReadPair pair;
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
 
     unsigned int sizeOut;
 
@@ -43,14 +43,14 @@ extern "C" ARM void func_02079cf8(ActionDataTables* obj, SafeAllocator* a1, Safe
         char buf[0x20];
         __clear(buf, sizeof(buf));
 
-        int language = NormalizeField5_0200fb08((Struct0200fb08*)battle);
+        int language = func_0200fb08((Struct0200fb08*)battle);
         StringReplaceLanguageTag(data_020f0e17, buf, language);
 
         DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, base + len,
             outSize2, capacity, buf);
 
         func_02079a58(&obj->alternateActions, a1, base + len,
-            RelocateOffsets02079808, 0, a2);
+            func_02079808, 0, a2);
 
         DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, base + len,
             outSize2, capacity, data_020f0e28);

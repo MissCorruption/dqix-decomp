@@ -1,0 +1,37 @@
+#include <globaldefs.h>
+#include "GameState/GameState.h"
+#include "Combat/Overlay_1/EventArgs.h"
+
+extern "C" void* func_02012fe4(void);
+extern "C" int func_02018fbc(int seed, EventVec3* v);
+struct Entry_02028bd0;
+extern "C" struct Entry_02028bd0* func_02027cb0(void);
+struct Vector3i;
+
+struct U16Field0x6_020375f8;
+
+struct PtrWithU16_021a3338 { unsigned short field0; };
+struct EntryField2_021a3338 { unsigned char pad0[2]; unsigned short field2 : 2; unsigned short pad3 : 14; };
+
+// USA: func_ov017_021a3338
+extern "C" ARM void func_ov017_021a3338(void*) {
+    GameState* battleStruct = GameState::GetInstance();
+    struct PtrWithU16_021a3338* ptr = (struct PtrWithU16_021a3338*)func_02012fe4();
+    unsigned short value = ptr->field0;
+    struct Entry_02028bd0* entry = func_02027cb0();
+    if (entry == NULL) return;
+
+    int i;
+    for (i = 0; i < 0xc; i++) {
+        int idx = ((struct EntryField2_021a3338*)entry)->field2;
+        int base = idx * 0xc + 0x70;
+        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(i + base);
+        if (combatant) {
+            if (value == ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06()) {
+                EventVec3 v = *(EventVec3*)((char*)combatant + 0x44);
+                v.b = func_02018fbc((int)ptr, &v);
+                *(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)&v);
+            }
+        }
+    }
+}

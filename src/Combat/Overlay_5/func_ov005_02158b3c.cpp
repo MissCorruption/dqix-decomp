@@ -10,15 +10,15 @@
 #include <Resource/GameResources.h>
 #include <Resource/CharacterCreationUI.h>
 
-void* GetGlobalField0x1c020421a0();
+extern "C" void* func_020421a0();
 extern "C" void func_02046380(void* global);
-int* GetField1c_021a193c(int* p);
-void InitObjFromCombatantId020e4bf4(void* obj, int combatantId);
+extern "C" int* func_ov017_021a193c(int* p);
+extern "C" void func_020e4bf4(void* obj, int combatantId);
 extern "C" void* __clear(void* dst, int count);
-void Clear12Bytes020e46c4(void* p);
-short GetTableByte0215a930(void* obj, int index);
-void DispatchIfCountPositive020dcf7c(int count, void* buf);
-char* GetFieldByKey020e0434(Container020e0310* c, int key);
+extern "C" void func_020e46c4(void* p);
+extern "C" short func_ov005_0215a930(void* obj, int index);
+extern "C" void func_020dcf7c(int count, void* buf);
+extern "C" char* func_020e0434(Container020e0310* c, int key);
 extern "C" void func_02046608(void* a, unsigned char b, const char* c, char* d, int e, int f, unsigned char g);
 
 struct CombatantTail {
@@ -83,42 +83,42 @@ struct Menu_02158b3c {
 
 #if defined(jpn)
 extern "C" void func_020de968(int value, char* text);
-extern "C" void _Z22SetIndexedName02046574P11Obj02046574iPc(void*, int, char*);
+extern "C" void func_02046574(void*, int, char*);
 #endif
 
 // USA: func_ov005_02158b3c
 extern "C" ARM int func_ov005_02158b3c(void* object, void* buffer) {
     if (buffer == 0) return 0;
-    Global_02158b3c* g = (Global_02158b3c*)GetGlobalField0x1c020421a0();
+    Global_02158b3c* g = (Global_02158b3c*)func_020421a0();
     func_02046380(g);
     GameState* game = GameState::GetInstance();
 #if defined(jpn)
-    int id = ((CombatantTail*)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->index;
+    int id = ((CombatantTail*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->index;
 #else
-    CombatantTail* tail = (CombatantTail*)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    CombatantTail* tail = (CombatantTail*)func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int id = tail->index;
 #endif
-    Combatant_02158b3c* combatant = (Combatant_02158b3c*)GetCombatantWithFlag0x100_0200ff1c(game, id);
+    Combatant_02158b3c* combatant = (Combatant_02158b3c*)func_0200ff1c(game, id);
     if (combatant == 0) return 0;
 
 #if defined(jpn)
-    _Z22SetIndexedName02046574P11Obj02046574iPc(g, 1, *(char**)((char*)combatant + 0x134));
+    func_02046574(g, 1, *(char**)((char*)combatant + 0x134));
 #else
     Local12_02158b3c obj;
-    InitObjFromCombatantId020e4bf4(&obj, id);
+    func_020e4bf4(&obj, id);
     g->field10_ = &obj;
     Buffers_02158b3c bufs;
     __clear(bufs.bufB_, 0x80);
     __clear(bufs.bufA_, 0x80);
     Local12_02158b3c s;
-    Clear12Bytes020e46c4(&s);
+    func_020e46c4(&s);
     s.a_ = bufs.bufB_;
     s.b_ = bufs.bufA_;
 
 #endif
     Menu_02158b3c* menu = (Menu_02158b3c*)object;
     if (menu->flags_ & 0x8000) {
-        unsigned char pick = GetTableByte0215a930(object, menu->kind_);
+        unsigned char pick = func_ov005_0215a930(object, menu->kind_);
         Entry_02158b3c* e = (Entry_02158b3c*)((char*)combatant->field150_ + 0x194) + pick;
         if (e) {
             func_02046380(g);
@@ -126,9 +126,9 @@ extern "C" ARM int func_ov005_02158b3c(void* object, void* buffer) {
             char name[0x40];
             __clear(name, 0x40);
             func_020de968(e->count_, name);
-            _Z22SetIndexedName02046574P11Obj02046574iPc(g, 0, name);
+            func_02046574(g, 0, name);
 #else
-            DispatchIfCountPositive020dcf7c(e->count_, &s);
+            func_020dcf7c(e->count_, &s);
             g->field18_ = &s;
 #endif
         }
@@ -140,9 +140,9 @@ extern "C" ARM int func_ov005_02158b3c(void* object, void* buffer) {
         char name[0x40];
         __clear(name, 0x40);
         func_020de968(value, name);
-        _Z22SetIndexedName02046574P11Obj02046574iPc(g, 0, name);
+        func_02046574(g, 0, name);
 #else
-        DispatchIfCountPositive020dcf7c(value, &s);
+        func_020dcf7c(value, &s);
         g->field18_ = &s;
 #endif
     }
@@ -170,7 +170,7 @@ extern "C" ARM int func_ov005_02158b3c(void* object, void* buffer) {
     }
 
     if (v >= 0) {
-        sprintf((char*)buffer, GetFieldByKey020e0434(&menu->messages, v));
+        sprintf((char*)buffer, func_020e0434(&menu->messages, v));
     }
 #if !defined(jpn)
     char text[0x800];

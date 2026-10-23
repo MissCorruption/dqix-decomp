@@ -4,11 +4,11 @@
 #include "Util/Random.h"
 
 struct StatStageStruct020877c0;
-int CanAdjustField0x58_0208776c(void* obj, int dir);
+extern "C" int func_0208776c(void* obj, int dir);
 extern "C" int func_020877c0(struct StatStageStruct020877c0* p, int delta);
 void UpdateCombatantAttack(int a, int id);
 struct Obj_021e8ca0;
-void* AddEntryToListAndIncCount_021e8ca0(struct Obj_021e8ca0* obj, int id);
+extern "C" void* func_ov024_021e8ca0(struct Obj_021e8ca0* obj, int id);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 struct Flag_021e2ebc { unsigned char pad : 7; unsigned char flag : 1; };
@@ -40,14 +40,14 @@ extern "C" ARM unsigned long long func_ov024_021e2ebc(struct Obj_021e2ebc* obj, 
     }
     int changed = 0;
     int result = 0;
-    if (CanAdjustField0x58_0208776c(c->currentStats_, (unsigned char)decrease)) {
+    if (func_0208776c(c->currentStats_, (unsigned char)decrease)) {
         result = func_020877c0((struct StatStageStruct020877c0*)c->currentStats_, (signed char)delta);
         UpdateCombatantAttack((int)obj->field0x10, id);
         changed = 1;
     }
     if (changed) {
         int sel = func_ov024_021e94c4(obj, id, params, decrease, (signed char)result, 1, 1);
-        void* entry = AddEntryToListAndIncCount_021e8ca0((struct Obj_021e8ca0*)obj, sel);
+        void* entry = func_ov024_021e8ca0((struct Obj_021e8ca0*)obj, sel);
         if (entry) {
             func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, 0);
         }

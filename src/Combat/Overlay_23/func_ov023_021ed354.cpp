@@ -2,12 +2,12 @@
 #include "std_library_functions.h"
 
 struct Struct0205de24;
-void FindAndLinkMatchingEntry0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
-int GetGlobalField0x1c020421a0(void);
+extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+extern "C" int func_020421a0(void);
 extern "C" ARM void func_02046608(void* a, int b, int c, void* d, int e, int f, int g);
 #if defined(jpn)
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
-void AppendString02042058(char*, const char*);
+extern "C" void func_02042058(char*, const char*);
 #else
 extern "C" ARM void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
 #endif
@@ -17,7 +17,7 @@ extern "C" ARM void func_0205d304(void* a, void* b, int c, int d, int e, int f, 
 extern "C" ARM void func_ov023_021ed354(char* obj) {
     struct Bits0205de24 { unsigned char low4 : 4; unsigned char high4 : 4; };
     unsigned char keyLow = ((Bits0205de24*)(obj + 0xa0))->low4;
-    FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)(obj + 0xc4), keyLow, 3);
+    func_0205de24((struct Struct0205de24*)(obj + 0xc4), keyLow, 3);
 
     *(unsigned short*)(obj + 0x164) = 0x1e;
 #if defined(jpn)
@@ -60,10 +60,10 @@ extern "C" ARM void func_ov023_021ed354(char* obj) {
 #if defined(jpn)
     char* elem = *(char**)(obj + 0x20) + *(unsigned char*)(obj + 0x28) * 0x15c;
     memset(*(void**)(obj + 0x1c), 0, 0x800);
-    AppendString02042058(*(char**)(obj + 0x1c), *(char**)(elem + 4));
+    func_02042058(*(char**)(obj + 0x1c), *(char**)(elem + 4));
 
 #else
-    void* g = (void*)GetGlobalField0x1c020421a0();
+    void* g = (void*)func_020421a0();
     memset(*(void**)(obj + 0x1c), 0, 0x960);
 
     void* base = *(void**)(obj + 0x20);

@@ -81,15 +81,15 @@ struct Bits2f4_021fb490 { unsigned int bit0 : 1; unsigned int bit1 : 1; };
 struct FlagObj_021da998;
 struct FlagObj_021dd260;
 
-int GetFieldAt0x150_02053c6c(unsigned char*);
-void* GetData02108e10_020797dc();
-void* LookupElementByKey02079ee0(void*, int);
-float LookupTableD0Clamped_02074948(int);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" void* func_020797dc();
+extern "C" void* func_02079ee0(void*, int);
+extern "C" float func_02074948(int);
 extern "C" float _fmul(float, float);
 extern "C" int _fgeq(float, float);
-int IsFlagBit8388608Set_021da998(FlagObj_021da998*);
-int IsFlagBit24Set_021dd260(FlagObj_021dd260*);
-void AddEntryIfUnderLimit16_021f6a1c(AddEntryList_021f6a1c*, void*);
+extern "C" int func_ov024_021da998(FlagObj_021da998*);
+extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
+extern "C" void func_ov024_021f6a1c(AddEntryList_021f6a1c*, void*);
 extern "C" void func_ov024_021f8938(void*, float*, float*, int, void*, void*);
 extern "C" void func_ov024_021fa7ec(void*, float*, float*, float*, int*, float, float, void*, void*, int);
 extern "C" void func_ov024_021f8d80(void*, int*, void*, void*, int, float*, float*, int, void*);
@@ -121,8 +121,8 @@ extern "C" ARM void func_ov024_021fb490(Context_021fb490* context) {
     unsigned char* actor;
     Unit_021fb490** units;
     actor = context->actor;
-    GetFieldAt0x150_02053c6c(context->actor);
-    data = GetData02108e10_020797dc();
+    func_02053c6c(context->actor);
+    data = func_020797dc();
     action = context->work.action;
     int scaling = context->work.scaling;
     if (action->mode == 2) return;
@@ -135,7 +135,7 @@ extern "C" ARM void func_ov024_021fb490(Context_021fb490* context) {
     func_ov024_021f8938(context, &value, &spread, scaling, action, actor);
     units = context->units;
     total = context->count;
-    element = LookupElementByKey02079ee0(data, action->key);
+    element = func_02079ee0(data, action->key);
     for (int j = 0; j < total; j++) {
         lo[j] = 0;
         avg[j] = 0;
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov024_021fb490(Context_021fb490* context) {
             if (unit->stats[0x14 / 4] & 0x200) flag = 1;
         }
         if (kind != 2 && (context->work.action->flags & 0x20000)) {
-            avg[i] = _fmul(avg[i], LookupTableD0Clamped_02074948((signed char)lookups));
+            avg[i] = _fmul(avg[i], func_02074948((signed char)lookups));
             lookups++;
         }
         Entry_021fb490 entry;
@@ -204,9 +204,9 @@ extern "C" ARM void func_ov024_021fb490(Context_021fb490* context) {
         entry.index = i;
         entry.flags9.weight = weight;
         entry.flags9.flag = carry;
-        AddEntryIfUnderLimit16_021f6a1c(&list, &entry);
-        if (hi[i] >= 0.1f && !IsFlagBit8388608Set_021da998((FlagObj_021da998*)actor) &&
-            !IsFlagBit24Set_021dd260((FlagObj_021dd260*)actor)) {
+        func_ov024_021f6a1c(&list, &entry);
+        if (hi[i] >= 0.1f && !func_ov024_021da998((FlagObj_021da998*)actor) &&
+            !func_ov024_021dd260((FlagObj_021dd260*)actor)) {
             context->work.list = &list;
             func_ov024_021f6a4c(&context->work.savedEntry, &entry);
             context->work.target = unit;

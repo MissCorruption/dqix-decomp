@@ -8,17 +8,17 @@ struct Obj2081 {
 #endif
     short selected;
 };
-int HasElementByByte0xc4_020811d0(struct Obj2081* obj, int key);
-short FindMappedMemberId02080468(void* obj, int id);
+extern "C" int func_020811d0(struct Obj2081* obj, int key);
+extern "C" short func_02080468(void* obj, int id);
 extern "C" void func_020813ec(void* obj, int key);
-void SetEntryLowNibbleAndElement02080c68(void* obj, int id, int value);
-void CallFunc0204c804OnMatchingKey_0207fdcc(struct Obj2081* obj, int key);
+extern "C" void func_02080c68(void* obj, int id, int value);
+extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
 
 struct Obj0208203c;
-void ResetWithSub0208203c(struct Obj0208203c* obj);
+extern "C" void func_0208203c(struct Obj0208203c* obj);
 
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern struct Obj0205eaa0 data_02108760;
 
 extern "C" int func_ov003_021765b4(void* self);
@@ -56,29 +56,29 @@ extern "C" ARM void func_ov003_0217a280(struct Menu_0217a280* self) {
     struct Obj2081* menu = self->menu;
     if (self->step == 0) {
         self->key = 2;
-        if (HasElementByByte0xc4_020811d0(menu, self->key) == 0) {
+        if (func_020811d0(menu, self->key) == 0) {
             if (self->member1004 < 0) {
-                self->member1004 = FindMappedMemberId02080468(menu, self->key);
+                self->member1004 = func_02080468(menu, self->key);
             }
             menu->selected = self->member1004;
             func_020813ec(menu, self->key);
-            SetEntryLowNibbleAndElement02080c68(menu, self->key, 1);
+            func_02080c68(menu, self->key, 1);
             self->prevKey = self->key;
         }
         self->key = 0x10;
         if (self->member100c < 0) {
-            self->member100c = FindMappedMemberId02080468(menu, self->key);
+            self->member100c = func_02080468(menu, self->key);
         }
         menu->selected = self->member100c;
         func_020813ec(menu, self->key);
-        ResetWithSub0208203c((struct Obj0208203c*)self->repeat);
+        func_0208203c((struct Obj0208203c*)self->repeat);
         self->cursor = 0;
         self->step++;
     } else if (self->step == 1) {
         self->cursor = &self->member100c;
         if (func_ov003_021765b4(self)) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetWithSub0208203c((struct Obj0208203c*)self->repeat);
+            func_0205eaa0(&data_02108760, 1, 0);
+            func_0208203c((struct Obj0208203c*)self->repeat);
             self->cursor = 0;
             switch (self->member100c) {
             case 0x76:
@@ -98,12 +98,12 @@ extern "C" ARM void func_ov003_0217a280(struct Menu_0217a280* self) {
                 break;
             }
         } else if (func_ov003_021766e8(self)) {
-            ResetWithSub0208203c((struct Obj0208203c*)self->repeat);
+            func_0208203c((struct Obj0208203c*)self->repeat);
             self->cursor = 0;
             self->nextState = 0xa;
             self->mode = 1;
             self->step = 0;
-            CallFunc0204c804OnMatchingKey_0207fdcc(menu, self->key);
+            func_0207fdcc(menu, self->key);
         }
     }
 }

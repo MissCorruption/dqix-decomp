@@ -16,11 +16,11 @@ struct Scene0217c2bc {
     unsigned char timer;
 };
 
-void DispatchIfField0xc4NonNeg_0205ebfc(void *obj, int a, int b);
+extern "C" void func_0205ebfc(void *obj, int a, int b);
 extern "C" void func_ov003_0217cb3c(Scene0217c2bc *self, int mainScreen, int alternate);
-void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
+extern "C" void func_020c5588(int a, int b, int c, int d, int e);
 extern "C" void func_ov003_0217c974(Scene0217c2bc *self);
-void SetValueAndActivate0209c830(Struct0209c830*, int);
+extern "C" void func_0209c830(Struct0209c830*, int);
 
 extern int data_02108760;
 extern struct Struct0209c830 data_02109bf4;
@@ -34,10 +34,10 @@ extern "C" ARM void func_ov003_0217c2bc(Scene0217c2bc *self) {
         self->state++;
     } else if (self->state == 1) {
         if (--self->timer != 0) return;
-        DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 0, 0);
+        func_0205ebfc(&data_02108760, 0, 0);
         func_ov003_0217cb3c(self, 1, 0);
         ((Object3D*)self->object)->MakeVisible();
-        Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
+        func_020c5588(0, 0, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x300;
         SetBrightness(resources, 0x10, 0xa);
         self->state++;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov003_0217c2bc(Scene0217c2bc *self) {
         self->state++;
     } else if (self->state == 7) {
         if (IsBrightnessTransitionActive(resources)) return;
-        Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
+        func_020c5588(0, 0x1f, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
         self->allocA.Reset();
         ((Object3D*)self->object)->Initialize();
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov003_0217c2bc(Scene0217c2bc *self) {
         self->state++;
     } else if (self->state == 12) {
         if (IsBrightnessTransitionActive(resources)) return;
-        SetValueAndActivate0209c830(&data_02109bf4, 0x43);
+        func_0209c830(&data_02109bf4, 0x43);
         SetBrightness(resources, 0, 0x3c);
         func_ov003_0217cb3c(self, 0, 1);
         self->state++;

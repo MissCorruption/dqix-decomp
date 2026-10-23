@@ -10,7 +10,7 @@ struct Struct021c90b4 {
 	unsigned short g;
 	unsigned short h;
 };
-void CopyStruct021c90b4(Struct021c90b4* dst, Struct021c90b4* src);
+extern "C" void func_ov017_021c90b4(Struct021c90b4* dst, Struct021c90b4* src);
 
 struct Entry_021d451c {
 	unsigned char flags;
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_021d451c(Entry_021d451c* arr, Struct021c90b4* rec
 		}
 	}
 	if (found != NULL) {
-		CopyStruct021c90b4(&found->data, rec);
+		func_ov017_021c90b4(&found->data, rec);
 		found->id = rec->a;
 		found->flags |= 0x1;
 		func_ov017_021d46a4(arr, found);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021d451c(Entry_021d451c* arr, Struct021c90b4* rec
 	if (freeSlot == NULL) {
 		return;
 	}
-	CopyStruct021c90b4(&freeSlot->data, rec);
+	func_ov017_021c90b4(&freeSlot->data, rec);
 	freeSlot->id = rec->a;
 	freeSlot->flags |= 0x1;
 	func_ov017_021d46a4(arr, freeSlot);

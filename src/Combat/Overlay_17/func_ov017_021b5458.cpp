@@ -4,7 +4,7 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" void __clear(void* buf, int size);
-void Clear12Bytes020a8e88(void* p);
+extern "C" void func_020a8e88(void* p);
 extern "C" void func_020a8fd0(void* obj, void* arg, void* file, unsigned int size, short* ids, int count);
 extern "C" void func_ov017_021b5648(void* obj);
 
@@ -25,7 +25,7 @@ struct GetRowByIndexRow {
     struct RowEntryB_021b5458 entriesB[6];
 };
 
-struct GetRowByIndexRow* GetRowByIndex_0209b9c0(struct GetRowByIndexRow* base, int i);
+extern "C" struct GetRowByIndexRow* func_0209b9c0(struct GetRowByIndexRow* base, int i);
 
 struct Sub021b5458 {
     char pad0[0x10];
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_021b5458(struct Obj021b5458* obj) {
             short count = 0;
             sub = obj->sub;
             for (int i = 0; i < 6; i++) {
-                struct GetRowByIndexRow* row = GetRowByIndex_0209b9c0(sub->rows, i);
+                struct GetRowByIndexRow* row = func_0209b9c0(sub->rows, i);
                 if (row == 0) {
                     continue;
                 }
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021b5458(struct Obj021b5458* obj) {
                 }
             }
             sub = obj->sub;
-            Clear12Bytes020a8e88(sub->field30c);
+            func_020a8e88(sub->field30c);
             func_020a8fd0(sub->field30c, obj->sub->field10, file, size, ids, count);
         }
     }

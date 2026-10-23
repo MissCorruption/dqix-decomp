@@ -15,14 +15,14 @@ struct Party020874bc;
 struct Manager020a8b0c { char pad[kManagerPrefix]; HeadNode02046b24** head; };
 struct Obj020397cc;
 struct Obj02033874;
-Field020a8b0c* GetField0x3f8Address_0200fd0c(GameState*);
-void CancelPendingAction020397cc(Obj020397cc*, int);
-int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-void ForwardField0xc0_0205eb80(void*);
-void SetForwardAndStore0205eb54(void*, int, int);
-void DispatchIfField0xc4NonNeg_0205eb90(void*, int, int);
-void SetVecYFromValue02033874(Obj02033874*, int);
-void ApplyToListedCombatants020874bc(Party020874bc*, int);
+extern "C" Field020a8b0c* func_0200fd0c(GameState*);
+extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" void func_0205eb80(void*);
+extern "C" void func_0205eb54(void*, int, int);
+extern "C" void func_0205eb90(void*, int, int);
+extern "C" void func_02033874(Obj02033874*, int);
+extern "C" void func_020874bc(Party020874bc*, int);
 int fix32abs(int);
 extern char data_02108760;
 // USA: func_020a8b0c
@@ -30,30 +30,30 @@ extern "C" ARM void func_020a8b0c(Obj020a8b0c* self, int index) {
     if (!(self->mask & (1<<index))) return;
     GameState* state = GameState::GetInstance();
     Actor020a8b0c* actor = (Actor020a8b0c*)state->GetPartyMemberByIndex(index);
-    Field020a8b0c* field = GetField0x3f8Address_0200fd0c(state);
+    Field020a8b0c* field = func_0200fd0c(state);
     Party020874bc* party;
     HeadNode02046b24** head = ((Manager020a8b0c*)GetGameResources())->head;
-    party = (Party020874bc*)GetPtrField0x2a04_02010828(state);
+    party = (Party020874bc*)func_02010828(state);
     int height = actor->height;
     field->flag = 0;
-    CancelPendingAction020397cc((Obj020397cc*)actor, 1);
+    func_020397cc((Obj020397cc*)actor, 1);
     self->progress+=self->step;
     if (self->limit < self->progress) self->progress = self->limit;
     int difference;
-    if (GetHeadNodeIdOrMinusOne(head) == 3) { difference = -3686; actor->obj.DisableFlag(0x8000100); }
+    if (func_02046b24(head) == 3) { difference = -3686; actor->obj.DisableFlag(0x8000100); }
     else {
         difference = height-self->progress;
         if (fix32abs(difference) < 40) {
-            ForwardField0xc0_0205eb80(&data_02108760);
-            SetForwardAndStore0205eb54(&data_02108760, 114, 114);
-            DispatchIfField0xc4NonNeg_0205eb90(&data_02108760, 3, 0);
+            func_0205eb80(&data_02108760);
+            func_0205eb54(&data_02108760, 114, 114);
+            func_0205eb90(&data_02108760, 3, 0);
         }
     }
     actor->height = difference;
     if (difference < 0) {
         int y = actor->y;
-        SetVecYFromValue02033874((Obj02033874*)actor, y+labs(difference));
-        ApplyToListedCombatants020874bc(party, self->count);
+        func_02033874((Obj02033874*)actor, y+labs(difference));
+        func_020874bc(party, self->count);
         int count = self->count;
         if (count > 0) count--;
         self->count = count;

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov031_0224046c  (semantic: ReadStreamChunkByte_0224046c)
+// USA: func_ov031_0224046c
 extern "C" ARM signed char func_ov031_0224046c(void* obj, void** chain, int* counter) {
 	if (*chain == 0) {
 		if (*counter < 0x400) {

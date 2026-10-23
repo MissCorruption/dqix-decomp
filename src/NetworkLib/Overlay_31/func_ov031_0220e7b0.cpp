@@ -20,7 +20,7 @@ extern BattleContext0220e7b0 *data_ov031_0224e53c;
 extern "C" void func_ov031_0220da1c(int);
 extern "C" void func_ov031_0220d984(short, int, int, int);
 extern "C" int func_020d54d0(int, LenHeader020d54d0 *, const void *, int, unsigned short);
-int IssueBattleCommandSlot6_020d4f3c(int);
+extern "C" int func_020d4f3c(int);
 extern "C" void func_ov031_0220e258();
 extern "C" void func_ov031_0220dc40();
 
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov031_0220e7b0(BattleCompletion0220e7b0 *event) {
             func_ov031_0220d984(0, (int)&data_ov031_0224e53c->header, 0, 0x93c);
             return;
         case 13: {
-            int status = IssueBattleCommandSlot6_020d4f3c((int)func_ov031_0220dc40);
+            int status = func_020d4f3c((int)func_ov031_0220dc40);
             if (status == 2) return;
             if (status == 3) goto failCommand;
             if (status != 8) goto failCommand;

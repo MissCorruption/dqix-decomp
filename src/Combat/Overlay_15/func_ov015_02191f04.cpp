@@ -35,7 +35,7 @@ struct S02190c2c
 };
 
 extern "C" int func_ov015_02191284(DebugMenu* menu);
-void* GetNodeAtIndex(IndexList_0202a9ac* menu, int index);
+extern "C" void* func_0202a9ac(IndexList_0202a9ac* menu, int index);
 extern "C" void func_020294cc(void* item, const char* text);
 
 extern char data_ov015_0219432e[];
@@ -56,7 +56,7 @@ extern char data_ov015_02194ec3[];
 extern "C" ARM void func_ov015_02191f04(S02190c2c* self)
 {
     int index = func_ov015_02191284(&self->menuList_);
-    void* item = GetNodeAtIndex((IndexList_0202a9ac*)&self->menuList_, self->menuList_.cursor_);
+    void* item = func_0202a9ac((IndexList_0202a9ac*)&self->menuList_, self->menuList_.cursor_);
     switch (index)
     {
     case 0:

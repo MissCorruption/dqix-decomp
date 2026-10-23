@@ -51,8 +51,8 @@ struct NNSG2dFontInformation {
 
 struct Hdr02b0288;
 extern "C" void func_020c9be0(void);
-void PatchFontResourceBlocks_020b291c(void* base);
-NNSG2dBinaryBlockHeader* FindChunkById_020b0288(struct Hdr02b0288* h, unsigned int kind);
+extern "C" void func_020b291c(void* base);
+extern "C" NNSG2dBinaryBlockHeader* func_020b0288(struct Hdr02b0288* h, unsigned int kind);
 
 static inline BOOL NNSi_G2dIsBinFileSignatureValid(const NNSG2dBinaryFileHeader* pBinFile, u32 binFileSig) {
     if (pBinFile != NULL) {
@@ -94,9 +94,9 @@ extern "C" ARM BOOL func_020b27c8(void* pNftrFile, NNSG2dFontInformation** ppRes
         NNSG2dBinaryFileHeader* pBinFile = (NNSG2dBinaryFileHeader*)pNftrFile;
         NNSG2dBinaryBlockHeader* pBinBlock;
 
-        PatchFontResourceBlocks_020b291c(pBinFile);
+        func_020b291c(pBinFile);
 
-        pBinBlock = FindChunkById_020b0288((struct Hdr02b0288*)pBinFile, NNS_G2D_BINBLK_SIG_FINFDATA);
+        pBinBlock = func_020b0288((struct Hdr02b0288*)pBinFile, NNS_G2D_BINBLK_SIG_FINFDATA);
 
         if (pBinBlock == NULL) {
             *ppRes = NULL;

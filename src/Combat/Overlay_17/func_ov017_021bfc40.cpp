@@ -5,18 +5,18 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-int HasNonZeroByteAtOfField498_0218d75c_0218d75c(void* obj);
-int GetByteField0x252_02039820(void* obj);
-void SetByteField0x253_020397c0(void* obj);
-int GetFieldIfFlag4_020100f8(char* obj);
-void SetField0x23cTrue_020a27ac(void* obj);
-int GetGlobalField0x1c020421a0(void);
+extern "C" int func_ov017_0218d75c(void* obj);
+extern "C" int func_02039820(void* obj);
+extern "C" void func_020397c0(void* obj);
+extern "C" int func_020100f8(char* obj);
+extern "C" void func_020a27ac(void* obj);
+extern "C" int func_020421a0(void);
 
 struct Vec3copy0202ec84 { unsigned int v[3]; };
-int ComputeTwoFromVec3_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
+extern "C" int func_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
 
 struct StructAt020473c8;
-void RenderFlaggedIndexedEntry(struct StructAt020473c8* obj, int param1);
+extern "C" void func_020473c8(struct StructAt020473c8* obj, int param1);
 
 struct Obj021bfc40 {
     char pad0[0x8];
@@ -40,16 +40,16 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
 
     if (self->skip != 0) {
         GameResources* res2 = GetGameResources();
-        if (HasNonZeroByteAtOfField498_0218d75c_0218d75c(res2) != 0) {
+        if (func_ov017_0218d75c(res2) != 0) {
             return 4;
         }
         GameObject* combatant = battle->GetUnknownGameObject();
-        if (combatant != NULL && GetByteField0x252_02039820(combatant) == 0) {
-            SetByteField0x253_020397c0(combatant);
+        if (combatant != NULL && func_02039820(combatant) == 0) {
+            func_020397c0(combatant);
         }
-        int flag = GetFieldIfFlag4_020100f8((char*)battle);
+        int flag = func_020100f8((char*)battle);
         if (flag != 0) {
-            SetField0x23cTrue_020a27ac((void*)flag);
+            func_020a27ac((void*)flag);
         }
         if (res2 != NULL) {
             ClearFlags04(res2, 0x80);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
     }
 
     GameState* state = GameState::GetInstance();
-    void* ptr3b0 = GetField0x3b0Value_020100bc(state);
+    void* ptr3b0 = func_020100bc(state);
     struct Vec3copy0202ec84 vecBuf = self->pos;
 
     if (self->angle < 0x191e) {
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
     int screenY;
     int screenX;
     if (ptr3b0 != NULL) {
-        ComputeTwoFromVec3_0202ec84(ptr3b0, &vecBuf, &screenX, &screenY);
+        func_0202ec84(ptr3b0, &vecBuf, &screenX, &screenY);
     }
 
     int x = (screenX - 0xc) << 0xc;
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
     *(int*)(sprite + 0x1c) = x;
     *(int*)(sprite + 0x20) = y;
     *(int*)(sprite + 0x24) = 0;
-    RenderFlaggedIndexedEntry((struct StructAt020473c8*)sprite, 1);
+    func_020473c8((struct StructAt020473c8*)sprite, 1);
 
     short level = self->countdown;
     if (level > 0x1f) {
@@ -98,19 +98,19 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
 
     if (self->timer == 0) {
         GameObject* combatant = battle->GetUnknownGameObject();
-        if (combatant != NULL && GetByteField0x252_02039820(combatant) == 0) {
-            SetByteField0x253_020397c0(combatant);
+        if (combatant != NULL && func_02039820(combatant) == 0) {
+            func_020397c0(combatant);
         }
-        int flag = GetFieldIfFlag4_020100f8((char*)battle);
+        int flag = func_020100f8((char*)battle);
         if (flag != 0) {
-            SetField0x23cTrue_020a27ac((void*)flag);
+            func_020a27ac((void*)flag);
         }
         if (res != NULL) {
             ClearFlags04(res, 0x80);
         }
     }
 
-    GetGlobalField0x1c020421a0();
+    func_020421a0();
     if (ticks < self->countdown) {
         self->countdown -= ticks;
     } else {

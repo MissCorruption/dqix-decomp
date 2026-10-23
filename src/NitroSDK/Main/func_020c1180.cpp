@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_020c1180  (semantic: MTX_Identity33_)
+// USA: func_020c1180
 //
 // PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/fx/fx_mtx33.c — MTX_Identity33_. NitroSDK
 // fixed-point 3x3 identity matrix store, byte-identical asm.

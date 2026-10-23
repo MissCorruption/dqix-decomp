@@ -6,8 +6,8 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "GameState/GameState.h"
 #include "Resource/ActionDataTables.h"
 struct Struct0200fb08;
-unsigned char NormalizeField5_0200fb08(Struct0200fb08*);
-void* ResetObjectState02079a3c(void*);
+extern "C" unsigned char func_0200fb08(Struct0200fb08*);
+extern "C" void* func_02079a3c(void*);
 extern "C" void __clear(void*, unsigned int);
 #if defined(jpn)
 #define data_020f0dcc data_020f0e94
@@ -24,7 +24,7 @@ extern "C" ARM void func_02079900(ActionDataTables* tables, SafeAllocator* alloc
     unsigned int offset = 0;
     unsigned char* buffer = data_0211e33c;
     int capacity = 0x30000;
-    ResetObjectState02079a3c(&pair);
+    func_02079a3c(&pair);
     unsigned int length;
     if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine, data_020f0dcc, buffer, length, capacity, false, 0)) {
         offset = length;
@@ -35,7 +35,7 @@ extern "C" ARM void func_02079900(ActionDataTables* tables, SafeAllocator* alloc
         GameState* game = GameState::GetInstance();
         char filename[0x20];
         __clear(filename, 0x20);
-        StringReplaceLanguageTag(data_020f0de1, filename, NormalizeField5_0200fb08((Struct0200fb08*)game));
+        StringReplaceLanguageTag(data_020f0de1, filename, func_0200fb08((Struct0200fb08*)game));
 #else
         const char* filename = data_020f0de1;
 #endif
@@ -43,7 +43,7 @@ extern "C" ARM void func_02079900(ActionDataTables* tables, SafeAllocator* alloc
 #if defined(jpn)
         ActionRecordRelocator relocate = &func_0207a6fc;
 #else
-        ActionRecordRelocator relocate = &RelocateOffsets02079808;
+        ActionRecordRelocator relocate = &func_02079808;
 #endif
         func_02079a58(&tables->actions, alloc, payload, relocate, NULL
 #if !defined(jpn)

@@ -33,9 +33,9 @@ struct Ctx02094030 {
     unsigned char flags;
 };
 
-void ClearRegion02093980(char* obj);
-void CopyRecord_02093b54(struct CopyableRecord* dst, struct CopyableRecord* src);
-int ClassifyByTenThousands_0209372c(int x);
+extern "C" void func_02093980(char* obj);
+extern "C" void func_02093b54(struct CopyableRecord* dst, struct CopyableRecord* src);
+extern "C" int func_0209372c(int x);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* obj);
 
@@ -52,7 +52,7 @@ extern "C" ARM int func_02094030(struct Ctx02094030* queue, int requestId, int u
     if (queue->count >= 8) return 1;
 
     struct CopyableRecord* request = &queue->records[queue->count];
-    ClearRegion02093980((char*)request);
+    func_02093980((char*)request);
 
     if (combatant == 0 || requestId == 3) {
         char* name = cachedNames->partyNames[slot];
@@ -68,16 +68,16 @@ extern "C" ARM int func_02094030(struct Ctx02094030* queue, int requestId, int u
         queue->flags |= 1;
     }
 
-    unsigned int category = (unsigned int)ClassifyByTenThousands_0209372c(request->requestId);
+    unsigned int category = (unsigned int)func_0209372c(request->requestId);
     queue->count++;
 
     int i;
     for (i = queue->count - 1; i >= 2; i--) {
-        if (ClassifyByTenThousands_0209372c(queue->records[i - 1].requestId) <= category) break;
+        if (func_0209372c(queue->records[i - 1].requestId) <= category) break;
         struct CopyableRecord tmp;
-        CopyRecord_02093b54(&tmp, &queue->records[i]);
-        CopyRecord_02093b54(&queue->records[i], &queue->records[i - 1]);
-        CopyRecord_02093b54(&queue->records[i - 1], &tmp);
+        func_02093b54(&tmp, &queue->records[i]);
+        func_02093b54(&queue->records[i], &queue->records[i - 1]);
+        func_02093b54(&queue->records[i - 1], &tmp);
     }
     return 0;
 }

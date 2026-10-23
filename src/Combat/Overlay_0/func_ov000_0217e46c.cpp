@@ -25,12 +25,12 @@ struct Cont0205d1e0;
 struct Cont0205d274;
 struct Obj0205d2bc;
 struct Entry_0205d6a0;
-void ClearBuffers0204b010OverList0x98(struct Cont0205d1e0*);
-void CallFunc0204b04cOverList0x98(struct Cont0205d274*);
-void InitEntries0205d2bc(struct Obj0205d2bc*);
-void ResetEntryList0205d6a0(struct Entry_0205d6a0*, int);
+extern "C" void func_0205d1e0(struct Cont0205d1e0*);
+extern "C" void func_0205d274(struct Cont0205d274*);
+extern "C" void func_0205d2bc(struct Obj0205d2bc*);
+extern "C" void func_0205d6a0(struct Entry_0205d6a0*, int);
 
-// USA: func_ov000_0217e46c  (semantic: InitCombatEncounterState_0217e46c)
+// USA: func_ov000_0217e46c
 extern "C" ARM void func_ov000_0217e46c(char* obj) {
     if (g_keyManager.TestKeysPressed(0x802) == 0) {
         if (g_touchInput.pressed_ == 0) {
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov000_0217e46c(char* obj) {
     signed char sel = *(signed char*)(obj + REGION_OFFSET_0 + REGION_OFFSET_4);
     *(unsigned char*)(obj + sel + 0x1000 + REGION_OFFSET_2) = 1;
 
-    ClearBuffers0204b010OverList0x98((struct Cont0205d1e0*)(obj + 0x188));
-    CallFunc0204b04cOverList0x98((struct Cont0205d274*)(obj + 0x188));
-    InitEntries0205d2bc((struct Obj0205d2bc*)(obj + 0x188));
-    ResetEntryList0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 1);
+    func_0205d1e0((struct Cont0205d1e0*)(obj + 0x188));
+    func_0205d274((struct Cont0205d274*)(obj + 0x188));
+    func_0205d2bc((struct Obj0205d2bc*)(obj + 0x188));
+    func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 1);
 
     *(unsigned short*)(obj + REGION_OFFSET_0 + REGION_OFFSET_1) |= 0x2;
 }

@@ -24,19 +24,19 @@ extern "C" ARM void func_02013d24(Zone3D* zone)
         int type = container->containerType;
         if (type == 1)
         {
-            CopyFieldsWithFlags02048004(zone->lootableTemplates_[0], &entry->primary[0]);
-            CopyFieldsWithFlags02048004(zone->lootableTemplates_[1], &entry->primary[1]);
+            func_02048004(zone->lootableTemplates_[0], &entry->primary[0]);
+            func_02048004(zone->lootableTemplates_[1], &entry->primary[1]);
             Foo02048004* fields = entry->fragments;
             for (int j = 0; j < 4; ++j)
-                CopyFieldsWithFlags02048004(zone->lootableTemplates_[2], fields + j);
+                func_02048004(zone->lootableTemplates_[2], fields + j);
         }
         else if (type == 2)
         {
-            CopyFieldsWithFlags02048004(zone->lootableTemplates_[3], &entry->primary[0]);
-            CopyFieldsWithFlags02048004(zone->lootableTemplates_[4], &entry->primary[1]);
+            func_02048004(zone->lootableTemplates_[3], &entry->primary[0]);
+            func_02048004(zone->lootableTemplates_[4], &entry->primary[1]);
             Foo02048004* fields = entry->fragments;
             for (int j = 0; j < 4; ++j)
-                CopyFieldsWithFlags02048004(zone->lootableTemplates_[5], fields + j);
+                func_02048004(zone->lootableTemplates_[5], fields + j);
         }
     }
 }

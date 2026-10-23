@@ -5,14 +5,14 @@
 #include "Resource/Brightness.h"
 
 extern "C" {
-void _Z17CopyState0207dfc8P13State0207dfc8S0_(void *, void *);
+void func_0207dfc8(void *, void *);
 void _ZN13SafeAllocator5ResetEv(void *);
-void _Z26CopyInternalFields0207df50P11Foo0207df50(void *);
-void _Z25RestorePairTables0207df90Pc(void *);
-void _Z24BackupPairTables0207dfacPc(void *);
-void _Z19CopyVec3ToField0x44P14Target02059f38P13Vec3_02059f38(void *, void *);
-void _Z13SetFields0x44P14Fields020407b4iii(void *, int, int, int);
-int _Z17IsIdInSet02098210ii(int, int);
+void func_0207df50(void *);
+void func_0207df90(void *);
+void func_0207dfac(void *);
+void func_02059f38(void *, void *);
+void func_020407b4(void *, int, int, int);
+int func_02098210(int, int);
 unsigned short *func_02012fe4(void);
 }
 
@@ -71,10 +71,10 @@ extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
         unsigned int size = 0;
         loader->GetLoadedFileByID(self->task, &file, &size);
         char *res = (char *) GetGameResources();
-        _Z17CopyState0207dfc8P13State0207dfc8S0_(res + regionalOffset0, self->st210);
+        func_0207dfc8(res + regionalOffset0, self->st210);
         _ZN13SafeAllocator5ResetEv((char *) self->alloc + 0x8c);
-        _Z26CopyInternalFields0207df50P11Foo0207df50(self->st210);
-        _Z25RestorePairTables0207df90Pc(self->st210);
+        func_0207df50(self->st210);
+        func_0207df90(self->st210);
         Object3D *obj = (Object3D *) self->obj280;
         obj->Initialize();
         ObjectArchiveLoadInfo info;
@@ -90,20 +90,20 @@ extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
         unsigned int id       = d[0];
         if (pm->IsVisible() && pm->GetInheritedAlpha() != 0 && id != 10000) {
             if (TestFlags04((GameResources*)res, 4) == 0 || ((struct PM02158754 *) pm)->f4 == 0) {
-                _Z19CopyVec3ToField0x44P14Target02059f38P13Vec3_02059f38(obj, (char *) pm + 0x44);
+                func_02059f38(obj, (char *) pm + 0x44);
                 const Vector3fix &sc2 = pm->GetScale();
                 obj->SetScale(&sc2);
                 obj->MaybeSetRegularAnimation(data_ov003_0217fe16, 9);
                 obj->EnableFlag(0x40000);
             } else {
-                if (go != 0 && _Z17IsIdInSet02098210ii((int) ((char *) d + regionalOffset1), id) != 0) {
+                if (go != 0 && func_02098210((int) ((char *) d + regionalOffset1), id) != 0) {
                     if (go->f2 == 0x2347 || go->f2 == 0x2348 || go->f2 == 0x2349) {
                         if (go->f2 == 0x2347) {
-                            _Z13SetFields0x44P14Fields020407b4iii(obj, 0x2347 - 0x2200, 0x266, -13230);
+                            func_020407b4(obj, 0x2347 - 0x2200, 0x266, -13230);
                         } else if (go->f2 == 0x2348) {
-                            _Z13SetFields0x44P14Fields020407b4iii(obj, -7823, 0x266, -13230);
+                            func_020407b4(obj, -7823, 0x266, -13230);
                         } else if (go->f2 == 0x2349) {
-                            _Z13SetFields0x44P14Fields020407b4iii(obj, 0x2d70, 0x266, -13230);
+                            func_020407b4(obj, 0x2d70, 0x266, -13230);
                         }
                         const Vector3fix &sc = pm->GetScale();
                         obj->SetScale(&sc);
@@ -115,7 +115,7 @@ extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
         } else {
             obj->EnableFlag(1);
         }
-        _Z24BackupPairTables0207dfacPc(self->st210);
+        func_0207dfac(self->st210);
         self->f32c = 1;
         loader->RemoveTask(self->task);
         self->task  = -1;

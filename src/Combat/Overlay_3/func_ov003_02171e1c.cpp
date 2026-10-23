@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-int AllBytesZero_02171df0(unsigned char* arr);
+extern "C" int func_ov003_02171df0(unsigned char* arr);
 extern "C" int func_02001aec(void* a, void* b, int n);
 
 struct KeyEntry_02171e1c {
@@ -20,7 +20,7 @@ struct KeyList_02171e1c {
 // USA: func_ov003_02171e1c
 extern "C" ARM void func_ov003_02171e1c(KeyList_02171e1c* list, unsigned char* key) {
     if (key == 0) return;
-    if (AllBytesZero_02171df0(key) != 0) return;
+    if (func_ov003_02171df0(key) != 0) return;
     {
         KeyEntry_02171e1c* found = 0;
         int foundAge = 0;

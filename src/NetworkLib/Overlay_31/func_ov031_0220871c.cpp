@@ -95,7 +95,7 @@ struct CertificateDate0220871c {
     unsigned long day;
     int week;
 };
-int RegisterSlotA020cf0fc(int);
+extern "C" int func_020cf0fc(int);
 extern "C" int func_ov031_02207f10(CPSSslConnection*, unsigned char**, int, int, int);
 extern "C" int func_ov031_022085a8(CPSSslConnection*);
 extern "C" int func_ov031_022086b0(const char*, const char*);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov031_0220871c(CPSSslConnection* context, unsigned char
     remaining = data[2] + (((data[0] << 8) + data[1]) << 8);
     data += 3;
     context->pub_algorithm = -1;
-    RegisterSlotA020cf0fc((int)&date);
+    func_020cf0fc((int)&date);
     context->cur_date = ((date.year + 2000) << 16) + (date.month << 8) + date.day;
     code = 0;
     context->subject[0] = 0;

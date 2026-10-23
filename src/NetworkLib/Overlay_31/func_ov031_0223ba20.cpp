@@ -15,7 +15,7 @@ extern "C" void func_ov031_0223d8a0(void* obj);
 extern "C" void func_ov031_0223bf48(int val, void* obj);
 extern void* data_ov031_02290d28;
 
-// USA: func_ov031_0223ba20  (semantic: ClearAllFlagsThenSelectAndDispatch_0223ba20)
+// USA: func_ov031_0223ba20
 extern "C" ARM void func_ov031_0223ba20(void* obj) {
     Obj0223ba20* self = (Obj0223ba20*)obj;
     int index = 0;

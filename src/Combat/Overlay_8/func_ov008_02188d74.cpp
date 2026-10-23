@@ -41,11 +41,11 @@ struct SpriteRenderer
     }
 };
 
-const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
-void InitStruct0205a444(char* renderer);
-void Init0205a198(Struct0205a198* sprite);
-int CountActiveEntries(ActiveEntry02046900* archive);
-void* FindRecordByIndex(Rec020467f0* archive, int index, void** name, int* size);
+extern "C" const char* func_020e0434(Container020e0310* texts, int id);
+extern "C" void func_0205a444(char* renderer);
+extern "C" void func_0205a198(Struct0205a198* sprite);
+extern "C" int func_02046900(ActiveEntry02046900* archive);
+extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
 extern "C" void func_0205a528(SpriteRenderer* renderer, void* file, unsigned int size, SafeAllocator* allocator);
 
 struct BattleRecords
@@ -75,13 +75,13 @@ extern "C" ARM int func_ov008_02188d74(BattleRecords* self)
         self->iconAllocator_.Reset();
         self->iconRenderer_ = (SpriteRenderer*)self->iconAllocator_.Allocate(sizeof(SpriteRenderer));
         self->iconSprite_ = (Sprite*)self->iconAllocator_.Allocate(sizeof(Sprite));
-        InitStruct0205a444((char*)self->iconRenderer_);
+        func_0205a444((char*)self->iconRenderer_);
         self->iconRenderer_->unk_50 = 1;
         SpriteRenderer* renderer = self->iconRenderer_;
         renderer->SetSprites(self->iconSprite_, 1);
         for (int i = 0; i < 1; i++)
-            Init0205a198((Struct0205a198*)&self->iconSprite_[i]);
-        self->task_ = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)&self->texts_, LOW_REGION(4, 7)), NULL);
+            func_0205a198((Struct0205a198*)&self->iconSprite_[i]);
+        self->task_ = loader->QueueLoadFile(func_020e0434((Container020e0310*)&self->texts_, LOW_REGION(4, 7)), NULL);
         self->loadStep_++;
     }
     if (step == 1 && loader->GetTaskStatus(self->task_))
@@ -90,11 +90,11 @@ extern "C" ARM int func_ov008_02188d74(BattleRecords* self)
         void* archive;
         unsigned int archiveSize;
         loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-        int count = CountActiveEntries((ActiveEntry02046900*)archive);
+        int count = func_02046900((ActiveEntry02046900*)archive);
         for (int i = 0; i < count; i++)
         {
             unsigned int size;
-            void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, (int*)&size);
+            void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, (int*)&size);
             if (file != NULL)
                 func_0205a528(self->iconRenderer_, file, size, &self->iconAllocator_);
         }

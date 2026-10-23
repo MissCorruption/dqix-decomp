@@ -23,11 +23,11 @@ struct KeyedList0207c484;
 struct KeyMap020a0a08;
 struct Slots0208386c;
 
-int DecrementKeyedStackAmount0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
-short FindMappedMemberId02080468(void* obj, int id);
-struct Slots0208386c* GetFieldAt0x150_02053c6c(unsigned char* obj);
-void RemoveSlotShiftDown0208386c(struct Slots0208386c* s, int idx);
-int DecrementKeyValue020a0a08(struct KeyMap020a0a08* map, int key, int amount);
+extern "C" int func_0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
+extern "C" short func_02080468(void* obj, int id);
+extern "C" struct Slots0208386c* func_02053c6c(unsigned char* obj);
+extern "C" void func_0208386c(struct Slots0208386c* s, int idx);
+extern "C" int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount);
 
 struct Owner02175df4 {
     char unk_0[0x8];
@@ -54,9 +54,9 @@ struct Ctx02175df4 {
 // USA: func_ov003_02175df4
 extern "C" ARM int func_ov003_02175df4(Ctx02175df4* self) {
     GameState* bs = GameState::GetInstance();
-    char* bag = (char*)GetPtrField0x2a04_02010828(bs);
+    char* bag = (char*)func_02010828(bs);
     if (self->mode_ == 0x77) {
-        return DecrementKeyedStackAmount0207c484((struct KeyedList0207c484*)(bag + 0x1d4), self->key_, self->amount_, self->owner_->category_);
+        return func_0207c484((struct KeyedList0207c484*)(bag + 0x1d4), self->key_, self->amount_, self->owner_->category_);
     }
     int id;
     switch (self->kind_) {
@@ -73,16 +73,16 @@ extern "C" ARM int func_ov003_02175df4(Ctx02175df4* self) {
         id = 0x14;
         break;
     }
-    short idx = self->index_ - FindMappedMemberId02080468(self->members_, id);
+    short idx = self->index_ - func_02080468(self->members_, id);
     if (self->kind_ > idx) {
         GameObject* member = bs->GetPartyMemberByIndex(self->memberIds_[idx]);
         if (member == NULL) {
             return 0;
         }
-        short slot = self->slot_ - FindMappedMemberId02080468(self->members_, 0x15);
-        RemoveSlotShiftDown0208386c(GetFieldAt0x150_02053c6c((unsigned char*)member), (signed char)slot);
+        short slot = self->slot_ - func_02080468(self->members_, 0x15);
+        func_0208386c(func_02053c6c((unsigned char*)member), (signed char)slot);
         return 1;
     }
-    DecrementKeyValue020a0a08((struct KeyMap020a0a08*)bag, self->key_, self->amount_);
+    func_020a0a08((struct KeyMap020a0a08*)bag, self->key_, self->amount_);
     return 1;
 }

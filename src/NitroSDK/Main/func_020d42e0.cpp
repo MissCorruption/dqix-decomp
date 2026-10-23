@@ -17,8 +17,8 @@
 extern "C" void func_020c9be0();
 extern "C" void func_020ca390(unsigned short value, void* dst, unsigned long size);
 extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
-int ClearBattleSaveContext020d3fdc();
-void ClearBit0At027FFF96_020d468c();
+extern "C" int func_020d3fdc();
+extern "C" void func_020d468c();
 
 typedef void (*WMCallbackFunc)(void* arg);
 
@@ -202,7 +202,7 @@ extern "C" ARM void func_020d42e0(unsigned int command, unsigned int data, unsig
         if (callback->apiid == 2 && callback->errcode == 0)
         {
             const WMCallbackFunc func = w9b->CallbackTable[callback->apiid];
-            ClearBattleSaveContext020d3fdc();
+            func_020d3fdc();
             if (func != NULL)
                 func(callback);
             return;
@@ -286,7 +286,7 @@ extern "C" ARM void func_020d42e0(unsigned int command, unsigned int data, unsig
         }
     }
     InvalidateDataCacheRange(w9b->fifo7to9, 0x100);
-    ClearBit0At027FFF96_020d468c();
+    func_020d468c();
     if ((unsigned long)callback != (unsigned long)w9b->fifo7to9)
     {
         callback->apiid |= 0x8000;

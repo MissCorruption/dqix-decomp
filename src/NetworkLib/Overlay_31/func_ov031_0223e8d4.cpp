@@ -20,7 +20,7 @@ extern ConnectionPacket data_ov031_02249408;
 AccessPointInfo0223e8d4 data_ov031_02290e4c;
 extern "C" int func_ov031_02212274(void* object);
 extern "C" void func_ov031_0223fb98(char* destination, unsigned int value);
-void CopyBytesSwapped_0223fb74(void* destination, const void* source, unsigned int size);
+extern "C" void func_ov031_0223fb74(void* destination, const void* source, unsigned int size);
 extern "C" int func_ov031_0223e454(unsigned char* destination, const signed char* source, int size);
 
 // USA: func_ov031_0223e8d4
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov031_0223e8d4(unsigned char* destination) {
             value = data_ov031_02290e4c.area;
             if (value >= 0 && value < 10)
                 packet.connectionIndex = value + '0';
-            CopyBytesSwapped_0223fb74(packet.networkId, data_ov031_02290e4c.spotInfo, 9);
+            func_ov031_0223fb74(packet.networkId, data_ov031_02290e4c.spotInfo, 9);
         }
         func_ov031_0223e454(destination, (const signed char*)&packet, sizeof(packet));
         return 1;

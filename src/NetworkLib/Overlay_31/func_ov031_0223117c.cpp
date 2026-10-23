@@ -7,7 +7,7 @@ extern "C" extern int LoadToMainBG2ScreenData(int arg0, int arg1, unsigned int a
 
 extern int data_ov031_0224bbd0;
 
-// USA: func_ov031_0223117c  (semantic: FlushAndSetBgPrioritiesToBack_0223117c)
+// USA: func_ov031_0223117c
 extern "C" ARM void func_ov031_0223117c(void) {
     func_ov031_022234d8((int)&data_ov031_0224bbd0, (Callback_022234d8)LoadToMainBG2ScreenData);
     volatile unsigned short* subBg0 = (volatile unsigned short*)0x4001008;

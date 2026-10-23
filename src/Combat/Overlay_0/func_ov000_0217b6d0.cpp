@@ -6,15 +6,15 @@ struct Struct_0205c570;
 struct Struct_0205def8;
 struct Obj0205eaa0;
 
-int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
-void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8* s, int clear, int key);
+extern "C" int func_0205d794(struct Struct_0205c570* s);
+extern "C" void func_0205def8(struct Struct_0205def8* s, int clear, int key);
 struct Obj_0205da38;
-int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-int IsBitFlagSet0217c4e8(void* obj, int bit);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+extern "C" int func_ov000_0217c4e8(void* obj, int bit);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern "C" void func_ov000_021716d0(void* obj);
-void* GetFieldAt0x150_02053c6c(unsigned char* obj);
-int CheckFlagsOrField_0217ab48_0217ab48(void* obj);
+extern "C" void* func_02053c6c(unsigned char* obj);
+extern "C" int func_ov000_0217ab48(void* obj);
 extern "C" void func_ov000_0217629c(void* obj);
 extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
 extern "C" void func_ov000_02176e3c(void* ctx, void* obj, int sel, int a, int b, int c);
@@ -95,26 +95,26 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
     Selection cur;
     data_ov000_02184294.ctx->flags |= 0x100;
     const short prev = obj->GetSelection();
-    cur = (Selection)(short)GetActiveScaledSum0205d794((struct Struct_0205c570*)obj->window);
+    cur = (Selection)(short)func_0205d794((struct Struct_0205c570*)obj->window);
     obj->selected = cur;
     {
     ctx = data_ov000_02184294.GetWindow();
-    SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)ctx->list, 1, 0x23);
+    func_0205def8((struct Struct_0205def8*)ctx->list, 1, 0x23);
     if (prev != cur) {
         return -1;
     }
     int t = g_keyManager.TestKeysPressed(0x601);
-    bool active = (t | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
+    bool active = (t | func_0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field444 != 0) {
-        if (!IsBitFlagSet0217c4e8(obj, cur)) {
+        if (!func_ov000_0217c4e8(obj, cur)) {
             return obj->selections[obj->depth];
         }
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)ctx->list, 0, 0x23);
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
+        func_0205def8((struct Struct_0205def8*)ctx->list, 0, 0x23);
+        func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
         func_ov000_021716d0(obj);
         GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(obj->memberIndex);
         if (member != NULL) {
-            MemberInfo_0217b6d0* info = (MemberInfo_0217b6d0*)GetFieldAt0x150_02053c6c((unsigned char*)member);
+            MemberInfo_0217b6d0* info = (MemberInfo_0217b6d0*)func_02053c6c((unsigned char*)member);
             if (info != NULL) {
                 info->lastSpell = obj->actionId;
             }
@@ -124,7 +124,7 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
         }
         return obj->selections[obj->depth];
     }
-    if (CheckFlagsOrField_0217ab48_0217ab48(obj)) {
+    if (func_ov000_0217ab48(obj)) {
         func_ov000_0217629c(obj);
         obj->selections[obj->depth] = 0;
         obj->depth--;
@@ -143,25 +143,25 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
     short cur;
     data_ov000_02184294.ctx->flags |= 0x100;
     short prev = obj->selected;
-    cur = GetActiveScaledSum0205d794((struct Struct_0205c570*)obj->window);
+    cur = func_0205d794((struct Struct_0205c570*)obj->window);
     obj->selected = cur;
     ctx = data_ov000_02184294.ctx;
-    SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)ctx->list, 1, 0x23);
+    func_0205def8((struct Struct_0205def8*)ctx->list, 1, 0x23);
     if (prev != cur) {
         return -1;
     }
     int t = g_keyManager.TestKeysPressed(0x601);
-    int active = (t | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
+    int active = (t | func_0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field444 != 0) {
-        if (!IsBitFlagSet0217c4e8(obj, cur)) {
+        if (!func_ov000_0217c4e8(obj, cur)) {
             return obj->selections[obj->depth];
         }
-        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8*)ctx->list, 0, 0x23);
-        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
+        func_0205def8((struct Struct_0205def8*)ctx->list, 0, 0x23);
+        func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
         func_ov000_021716d0(obj);
         GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(obj->memberIndex);
         if (member != NULL) {
-            MemberInfo_0217b6d0* info = (MemberInfo_0217b6d0*)GetFieldAt0x150_02053c6c((unsigned char*)member);
+            MemberInfo_0217b6d0* info = (MemberInfo_0217b6d0*)func_02053c6c((unsigned char*)member);
             if (info != NULL) {
                 info->lastSpell = obj->actionId;
             }
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
         }
         return obj->selections[obj->depth];
     }
-    if (CheckFlagsOrField_0217ab48_0217ab48(obj)) {
+    if (func_ov000_0217ab48(obj)) {
         func_ov000_0217629c(obj);
         obj->selections[obj->depth] = 0;
         obj->depth--;

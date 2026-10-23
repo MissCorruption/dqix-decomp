@@ -12,7 +12,7 @@ extern "C" unsigned short func_ov027_021dab38(unsigned short* data, int len);
 extern "C" void func_020ca390(int val, void* dst, unsigned int size);
 extern "C" void func_020ca3b8(int src, void* dst, int size);
 extern "C" void func_ov027_021db124(void);
-int IssueBattleCommandSlot24_020d69cc(int a0, int a1, int a2, int a3, unsigned short a4, unsigned char a5);
+extern "C" int func_020d69cc(int a0, int a1, int a2, int a3, unsigned short a4, unsigned char a5);
 
 struct Record021db154 { unsigned char data[0x16]; };
 
@@ -64,7 +64,7 @@ extern unsigned short data_ov027_021dd988;
 extern unsigned char data_ov027_021dd990[0x58];
 extern unsigned char data_ov027_021dd9e8[8];
 
-// USA: func_ov027_021db154  (semantic: PublishBattleSnapshot_021db154)
+// USA: func_ov027_021db154
 extern "C" ARM void func_ov027_021db154(int a0, unsigned short a1, unsigned char a2) {
     if (data_ov027_021dd940.f26 != data_ov027_021dd940.f1c->f4b4) {
         func_ov027_021db124();
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov027_021db154(int a0, unsigned short a1, unsigned char
         data_ov027_021dd940.f24 = 1;
     }
 
-    IssueBattleCommandSlot24_020d69cc(0, (int)&data_ov027_021dd980, 0x70, a0, a1, (unsigned char)(a2 | 3));
+    func_020d69cc(0, (int)&data_ov027_021dd980, 0x70, a0, a1, (unsigned char)(a2 | 3));
 
     if (data_ov027_021dd940.f10 != 1) return;
     if (data_ov027_021dd940.f14 == 0) return;

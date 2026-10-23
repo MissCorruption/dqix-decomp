@@ -86,22 +86,22 @@ struct Battle02174114 {
     unsigned char b104f_;
 };
 
-Global020421a0 *GetGlobalField0x1c020421a0(void);
+extern "C" Global020421a0 *func_020421a0(void);
 #if defined(jpn)
 extern "C" void func_0204500c(Global020421a0 *, int, int);
 #else
 extern "C" void func_0204500c(Global020421a0 *, int, int, int);
 #endif
-void ResetStruct020dfc40(Struct020dfc40 *);
+extern "C" void func_020dfc40(Struct020dfc40 *);
 extern "C" void func_02074af4(void *);
 extern "C" void func_ov023_021dc134(void *, int, int);
-void InitStruct0205a444(char *);
-void InitObj02174408(InitStruct02174408 *);
-void InitWithSub02081ee4(Obj02081ee4 *, Sub02081ee4 *);
-void ResetList0204af64(List0204af64 *);
+extern "C" void func_0205a444(char *);
+extern "C" void func_ov003_02174408(InitStruct02174408 *);
+extern "C" void func_02081ee4(Obj02081ee4 *, Sub02081ee4 *);
+extern "C" void func_0204af64(List0204af64 *);
 extern "C" void func_0204c684(void *);
-unsigned char CopyOutRegion0x5718_02011494(char *, void *);
-GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *, int);
+extern "C" unsigned char func_02011494(char *, void *);
+extern "C" GameObject *func_0200ff1c(GameState *, int);
 
 #if defined(jpn)
 #define FIGHTER_OFF_02174114 0x144
@@ -111,7 +111,7 @@ GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *, int);
 
 // USA: func_ov003_02174114
 extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
-    Global020421a0 *g = GetGlobalField0x1c020421a0();
+    Global020421a0 *g = func_020421a0();
     int p             = g->p5c_;
     self->fff0_       = g->f99c_;
 #if defined(jpn)
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
 
     self->f4_ = 0;
     self->f8_ = 0;
-    ResetStruct020dfc40((Struct020dfc40 *) (self->s0c_));
+    func_020dfc40((Struct020dfc40 *) (self->s0c_));
     self->b34_ = 0;
     self->b35_ = 0;
     func_02074af4(self->s24_);
@@ -134,13 +134,13 @@ extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
     v                          = *reg;
     *reg                       = (v & ~0x1f00u) | 0x100u;
     func_ov023_021dc134((char *) self + 0x3c, -1, 0);
-    InitStruct0205a444(self->s7d8_);
+    func_0205a444(self->s7d8_);
     self->f830_ = 0;
-    InitObj02174408((InitStruct02174408 *) self->s834_);
-    InitWithSub02081ee4((Obj02081ee4 *) self->s88c_, (Sub02081ee4 *) self->s898_);
+    func_ov003_02174408((InitStruct02174408 *) self->s834_);
+    func_02081ee4((Obj02081ee4 *) self->s88c_, (Sub02081ee4 *) self->s898_);
     self->f89c_ = 0;
     for (int i = 0; i < 2; i++)
-        ResetList0204af64((List0204af64 *) (self->lists_ + i * 32));
+        func_0204af64((List0204af64 *) (self->lists_ + i * 32));
     for (int j = 0; j < 8; j++)
         func_0204c684(self->slots_ + j * 0xe0);
 
@@ -194,14 +194,14 @@ extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
 
     GameState *gs = GameState::GetInstance();
     unsigned char buf[8];
-    int n = CopyOutRegion0x5718_02011494((char *) gs, buf);
+    int n = func_02011494((char *) gs, buf);
     for (int m = 0; m < n; m++)
         self->ids_[m] = buf[m];
     self->count_ = n;
 
     int r = 0;
     while (r < self->count_) {
-        GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, self->ids_[r]);
+        GameObject *c = func_0200ff1c(gs, self->ids_[r]);
         if (c) {
             Fighter02174114 *f = *(Fighter02174114 **) ((char *) c + FIGHTER_OFF_02174114);
             bool alive         = f ? (f->lo_ != 0) : false;

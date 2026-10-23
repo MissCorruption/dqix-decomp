@@ -16,33 +16,33 @@ struct View6759c {
 struct Entry6759c { char pad[8]; unsigned int size; void* data; };
 extern "C" {
 void* __clear(void*, int);
-void _Z17ResetList0204af64P12List0204af64(void*);
-void _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(void*, int);
+void func_0204af64(void*);
+void func_0204b11c(void*, int);
 void func_0204b5b4(void*, int);
-void _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(void*,SafeAllocator*);
-void _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(void*,int,int);
-void _Z21AllocateArray0204af38P11Foo0204af38iP13SafeAllocator(void*,int,SafeAllocator*);
+void func_0204b12c(void*,SafeAllocator*);
+void func_0204b5e8(void*,int,int);
+void func_0204af38(void*,int,SafeAllocator*);
 void DisableSubBGVRAMBanks();
 void MapVRAMBanksToSubBG(int);
-int _Z18CountActiveEntriesP19ActiveEntry02046900(void*);
-void* _Z17FindRecordByIndexP11Rec020467f0iPPvPi(void*,int,void**,int*);
+int func_02046900(void*);
+void* func_020467f0(void*,int,void**,int*);
 void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
-void _Z28FlushAndDispatchList0204b0e8P12List0204b0e8Pv(void*,void*);
-Entry6759c* _Z25GetEntryByIndexStride0x10P17EntryList0204af14j(void*,unsigned int);
+void func_0204b0e8(void*,void*);
+Entry6759c* func_0204af14(void*,unsigned int);
 void _Z25CleanInvalidateCacheRangePKvj(const void*,unsigned int);
 void LoadToSubBG1ScreenData(void*,int,unsigned int);
 void func_0204c684(void*);
-void _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(void*,SafeAllocator*,int,unsigned int);
+void func_0204c7a8(void*,SafeAllocator*,int,unsigned int);
 #if defined(jpn)
 void func_02080654(void*,SafeAllocator*,const char*);
 #else
-void _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii(void*,SafeAllocator*,const char*,const char*);
+void func_0207f914(void*,SafeAllocator*,const char*,const char*);
 #endif
 int func_0207f9f4(void*);
 void LoadToSubBGStandardPalette(const void*,unsigned int,unsigned int);
 void _Z15CleanCacheRangePKvj(const void*,unsigned int);
-void _Z28CallFunc0204c804OverAllElemsP12Cont0207fe44(void*);
+void func_0207fe44(void*);
 void func_ov003_02167a5c(void*,int,int);
 }
 extern char data_ov003_021800a4[];
@@ -69,15 +69,15 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
         List0204af64* list;
         for (int i=0; i<2; i++) {
             list = self->lists+i;
-            _Z17ResetList0204af64P12List0204af64(list);
-            _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(list, words[i]);
+            func_0204af64(list);
+            func_0204b11c(list, words[i]);
             list->b1c_lo=1;
             list->b1c_hi=i;
             func_0204b5b4(list,i);
-            _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(list,alloc);
-            _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(list,0,0);
+            func_0204b12c(list,alloc);
+            func_0204b5e8(list,0,0);
         }
-        _Z21AllocateArray0204af38P11Foo0204af38iP13SafeAllocator(self->lists+1,1,alloc);
+        func_0204af38(self->lists+1,1,alloc);
         DisableSubBGVRAMBanks();
         MapVRAMBanksToSubBG(0x80);
         *(volatile unsigned short*)0x4001008 = (*(volatile unsigned short*)0x4001008 & 0x43) | 0xe00;
@@ -91,11 +91,11 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
         if (loader->GetTaskStatus(self->task) != 0) {
             void* out; void* data; unsigned int size; int value;
             loader->GetLoadedFileByID(self->task,&data,&size);
-            int count = _Z18CountActiveEntriesP19ActiveEntry02046900(data);
+            int count = func_02046900(data);
             SafeAllocator* alloc=self->alloc;
             List0204af64* list=self->lists;
             for (int i=0;i<count;i++) {
-                void* record=_Z17FindRecordByIndexP11Rec020467f0iPPvPi(data,i,&out,&value);
+                void* record=func_020467f0(data,i,&out,&value);
                 if (record) {
                     func_0204b174(list,record,alloc,value);
                     list=self->lists+1;
@@ -105,8 +105,8 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
             self->task=-1;
             list=self->lists;
             func_0204bc74(list,0,0,0,0x20,0x19,0);
-            _Z28FlushAndDispatchList0204b0e8P12List0204b0e8Pv(list,0);
-            Entry6759c* entry=_Z25GetEntryByIndexStride0x10P17EntryList0204af14j(self->lists+1,0);
+            func_0204b0e8(list,0);
+            Entry6759c* entry=func_0204af14(self->lists+1,0);
             if (entry) {
                 void* data; unsigned int size=entry->size; data=entry->data;
                 _Z25CleanInvalidateCacheRangePKvj(data,size);
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
             for (result=0;result<4;result++) {
                 Node0207f7f0* obj=self->objects+result;
                 func_0204c684(obj);
-                _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(obj,alloc+1,self->value,0x600);
+                func_0204c7a8(obj,alloc+1,self->value,0x600);
                 obj->lists=self->lists;
             }
             self->stage++;
@@ -136,7 +136,7 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
 #if defined(jpn)
         func_02080654(self->manager,alloc+2,data_ov003_0217e87f);
 #else
-        _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii(self->manager,alloc+2,data_ov003_021800bb,data_ov003_021800d5);
+        func_0207f914(self->manager,alloc+2,data_ov003_021800bb,data_ov003_021800d5);
 #endif
         self->stage++;
         result=0;
@@ -157,7 +157,7 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
         _Z25CleanInvalidateCacheRangePKvj(data_ov003_0217f4dc,2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
-        InitNodeChain0207f7f0(self->manager,self->objects,4);
+        func_0207f7f0(self->manager,self->objects,4);
         Manager0207f7f0* manager=self->manager;
         manager->lists=self->lists;
         manager->mode=1;
@@ -165,7 +165,7 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
         self->ready=1;
         self->stage=0;
         if (self->selected != 0 && self->pending>=0) {
-            _Z28CallFunc0204c804OverAllElemsP12Cont0207fe44(self->manager);
+            func_0207fe44(self->manager);
             signed char index=self->pending;
             self->pending=-1;
             func_ov003_02167a5c(self,self->selected,index);

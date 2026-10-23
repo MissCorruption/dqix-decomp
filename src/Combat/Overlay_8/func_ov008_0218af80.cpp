@@ -11,8 +11,8 @@
 extern "C" void func_020a1940(unsigned int id);
 extern "C" void func_ov008_021843f8(void* obj);
 extern "C" void func_ov008_021842a0(void* obj, void* arg);
-void SetByteB10AndClearB11_02184a3c(char* obj, unsigned char value);
-void OrGlobalFlag0x40_020dc2bc();
+extern "C" void func_ov008_02184a3c(char* obj, unsigned char value);
+extern "C" void func_020dc2bc();
 
 struct Manager0218af80 {
     char pad0[0x228];
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov008_0218af80(Manager0218af80* self) {
         func_ov008_021843f8(self->f2a8);
         self->dcc = 1;
         func_ov008_021842a0(self->f2a8, self->f228);
-        SetByteB10AndClearB11_02184a3c(self->f2a8, 1);
+        func_ov008_02184a3c(self->f2a8, 1);
         self->de4 = self->f288;
         char* first = self->ebc;
         char* second;
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov008_0218af80(Manager0218af80* self) {
         return;
     }
     if (self->e9c == 1 && self->bit1 && self->bit2) {
-        OrGlobalFlag0x40_020dc2bc();
+        func_020dc2bc();
         SetSubBrightness(res, -16, 15);
         self->e9b = 1;
         self->e9c = 0;

@@ -1,0 +1,24 @@
+#include <globaldefs.h>
+#if defined(jpn)
+#define data_020e8a9e data_020e8bc4
+#endif
+#include "GameState/GameState.h"
+
+extern short data_020e8a9e[];
+
+extern "C" int func_02083b00(unsigned char* obj, int index);
+extern "C" int func_0201137c(char* base, int id);
+
+// USA: func_02086314
+extern "C" ARM int func_02086314(unsigned char* obj) {
+    GameState* bs = GameState::GetInstance();
+    int total = 0;
+    unsigned char i;
+    short idx;
+    for (i = 0; (idx = data_020e8a9e[i]) != -1; i++) {
+        if (func_02083b00(obj, idx)) {
+            total += func_0201137c((char*)bs, idx);
+        }
+    }
+    return total;
+}

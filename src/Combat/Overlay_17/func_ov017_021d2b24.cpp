@@ -12,11 +12,11 @@ struct Vec3_021c3f68 {
     int y;
     int z;
 };
-void SetVec3_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
-unsigned short GetField6b4_021b8480(void* obj);
-void ClearBytesAndZeroBlock02039d24(unsigned char* obj);
+extern "C" void func_ov017_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
+extern "C" unsigned short func_ov017_021b8480(void* obj);
+extern "C" void func_02039d24(unsigned char* obj);
 struct Fields020407b4;
-void SetFields0x44(struct Fields020407b4* dst, int a, int b, int c);
+extern "C" void func_020407b4(struct Fields020407b4* dst, int a, int b, int c);
 struct Vector3i;
 
 struct Evt021d2b24 {
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov017_021d2b24(void* unused0, struct Evt021d2b24* evt, 
     GameState* battle = GameState::GetInstance();
 
     if (evt->id == 0xce) {
-        SetVec3_021c3f68((struct Vec3_021c3f68*)((char*)battle + RegionOffset7f60), evt->field8, evt->fieldc, evt->field10);
+        func_ov017_021c3f68((struct Vec3_021c3f68*)((char*)battle + RegionOffset7f60), evt->field8, evt->fieldc, evt->field10);
     }
 
     GameObject* combatant = battle->GetPartyMemberByIndex(evt->id);
@@ -56,16 +56,16 @@ extern "C" ARM void func_ov017_021d2b24(void* unused0, struct Evt021d2b24* evt, 
     }
 
     void* ptr718 = *(void**)(ctx + 0x3000 + RegionOffset718);
-    if (*(unsigned char*)((char*)ptr718 + 0x2) != 0 && GetField6b4_021b8480(ptr718) == 0) {
+    if (*(unsigned char*)((char*)ptr718 + 0x2) != 0 && func_ov017_021b8480(ptr718) == 0) {
         return;
     }
 
-    ClearBytesAndZeroBlock02039d24((unsigned char*)combatant);
-    SetFields0x44((struct Fields020407b4*)combatant, evt->field8, evt->fieldc, evt->field10);
+    func_02039d24((unsigned char*)combatant);
+    func_020407b4((struct Fields020407b4*)combatant, evt->field8, evt->fieldc, evt->field10);
 
     if (evt->flag5 != 0) {
         struct Vec3_021c3f68 tmp;
-        SetVec3_021c3f68(&tmp, evt->field8, evt->fieldc, evt->field10);
+        func_ov017_021c3f68(&tmp, evt->field8, evt->fieldc, evt->field10);
         *(Vector3i*)((int*)((char*)combatant + 0xd4)) = *(Vector3i const*)((int*)&tmp);
         *(unsigned char*)((char*)combatant + 0xe0) |= 0x20;
     }
@@ -73,6 +73,6 @@ extern "C" ARM void func_ov017_021d2b24(void* unused0, struct Evt021d2b24* evt, 
     *(unsigned short*)((char*)combatant + 0xac) = 0;
 
     if (evt->id == 0xce) {
-        SetFields0x44((struct Fields020407b4*)combatant, evt->field8, evt->fieldc, evt->field10);
+        func_020407b4((struct Fields020407b4*)combatant, evt->field8, evt->fieldc, evt->field10);
     }
 }

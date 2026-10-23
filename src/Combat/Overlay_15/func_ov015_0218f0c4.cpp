@@ -3,10 +3,10 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern AllocatorUnion data_02114e20;
-void TailForward02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
 
 struct ResetStruct0218eef0;
-void InitCombatFieldStruct0218eef0(struct ResetStruct0218eef0* s);
+extern "C" void func_ov015_0218eef0(struct ResetStruct0218eef0* s);
 
 struct FieldStruct0218f0c4 {
     unsigned int f00;
@@ -33,24 +33,24 @@ extern "C" ARM void func_ov015_0218f0c4(void* p) {
             for (int i = 0; i < 10; i++, arr = (SafeAllocator*)((char*)arr + 0x14)) {
                 void* signedAlloc = arr->GetSignedAllocator();
                 arr->Destroy();
-                TailForward02012da4(&data_02114e20, signedAlloc);
+                func_02012da4(&data_02114e20, signedAlloc);
             }
         } else {
             void* signedAlloc = s->f08->GetSignedAllocator();
             s->f08->Destroy();
-            TailForward02012da4(&data_02114e20, signedAlloc);
+            func_02012da4(&data_02114e20, signedAlloc);
         }
-        TailForward02012da4(&data_02114e20, s->f08);
+        func_02012da4(&data_02114e20, s->f08);
     }
 
-    if (s->f20 != 0) TailForward02012da4(&data_02114e20, s->f20);
-    if (s->f14 != 0) TailForward02012da4(&data_02114e20, s->f14);
-    if (s->f24 != 0) TailForward02012da4(&data_02114e20, s->f24);
-    if (s->f28 != 0) TailForward02012da4(&data_02114e20, s->f28);
+    if (s->f20 != 0) func_02012da4(&data_02114e20, s->f20);
+    if (s->f14 != 0) func_02012da4(&data_02114e20, s->f14);
+    if (s->f24 != 0) func_02012da4(&data_02114e20, s->f24);
+    if (s->f28 != 0) func_02012da4(&data_02114e20, s->f28);
 
     if (s->f04 != 0) {
         *((unsigned char*)s->f04 + 4) = 0;
     }
 
-    InitCombatFieldStruct0218eef0((struct ResetStruct0218eef0*)s);
+    func_ov015_0218eef0((struct ResetStruct0218eef0*)s);
 }

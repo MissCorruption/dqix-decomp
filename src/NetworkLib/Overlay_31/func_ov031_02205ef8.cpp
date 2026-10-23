@@ -35,7 +35,7 @@ struct Allocator02205ef8 {
 };
 
 extern Allocator02205ef8* data_ov031_022496a4;
-int IsNotInList0224e22c_02207180(void*);
+extern "C" int func_ov031_02207180(void*);
 
 // USA: func_ov031_02205ef8
 extern "C" ARM int func_ov031_02205ef8(Socket02205ef8* socket, void* buffer, int length,
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov031_02205ef8(Socket02205ef8* socket, void* buffer, int
                 break;
             }
             BlockCurrentContext(&queue->waiters);
-            if (!IsNotInList0224e22c_02207180(socket)) {
+            if (!func_ov031_02207180(socket)) {
                 int valid = 0;
                 if (socket != NULL) valid = (socket->flags & 1) != 0;
                 if (valid) {

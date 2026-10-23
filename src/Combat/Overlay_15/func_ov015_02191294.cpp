@@ -57,14 +57,14 @@ struct S02190c2c
 };
 
 extern "C" int func_ov015_021925a8(S02190c2c* self);
-void SetField18_0219011c(Obj0219011c* object, int step);
+extern "C" void func_ov015_0219011c(Obj0219011c* object, int step);
 extern "C" int func_ov015_02191284(DebugMenu* menu);
-void* GetNodeAtIndex(IndexList_0202a9ac* menu, int index);
-const char* GetSubstructAt0x4_02029560(void* item);
+extern "C" void* func_0202a9ac(IndexList_0202a9ac* menu, int index);
+extern "C" const char* func_02029560(void* item);
 extern "C" void func_ov015_0218f364(ViewObject* object, const char* name);
-void UpdateField4c021900dc(Obj021900dc* object);
+extern "C" void func_ov015_021900dc(Obj021900dc* object);
 extern "C" void func_ov015_02192700(S02190c2c* self, int unk);
-void AdjustSubstructField_0219015c_0219015c(S0219015c* object, int step);
+extern "C" void func_ov015_0219015c(S0219015c* object, int step);
 
 // USA: func_ov015_02191294
 extern "C" ARM void func_ov015_02191294(S02190c2c* self)
@@ -109,28 +109,28 @@ extern "C" ARM void func_ov015_02191294(S02190c2c* self)
                 current->loop_ = 0;
             }
         }
-        SetField18_0219011c((Obj0219011c*)self->current_, self->current_->step_);
+        func_ov015_0219011c((Obj0219011c*)self->current_, self->current_->step_);
         self->current_->motion_ = func_ov015_02191284(&self->menuList_);
-        void* item = GetNodeAtIndex((IndexList_0202a9ac*)&self->menuList_, func_ov015_02191284(&self->menuList_));
+        void* item = func_0202a9ac((IndexList_0202a9ac*)&self->menuList_, func_ov015_02191284(&self->menuList_));
         if (item != NULL)
         {
             if (self->syncMotion_)
             {
                 for (ViewObjectNode* node = self->objects_; node != NULL; node = node->next_)
-                    func_ov015_0218f364(node->object_, GetSubstructAt0x4_02029560(item));
+                    func_ov015_0218f364(node->object_, func_02029560(item));
             }
             else
             {
-                func_ov015_0218f364(self->current_, GetSubstructAt0x4_02029560(item));
+                func_ov015_0218f364(self->current_, func_02029560(item));
             }
         }
-        UpdateField4c021900dc((Obj021900dc*)self->current_);
+        func_ov015_021900dc((Obj021900dc*)self->current_);
         self->redraw_ = 1;
         return;
     }
     if (g_keyManager.TestKeysPressed(2))
     {
-        SetField18_0219011c((Obj0219011c*)self->current_, self->current_->step_);
+        func_ov015_0219011c((Obj0219011c*)self->current_, self->current_->step_);
         self->current_->playing_ = 0;
         self->current_->motion_ = -1;
         self->current_->loop_ = 0;
@@ -149,7 +149,7 @@ extern "C" ARM void func_ov015_02191294(S02190c2c* self)
     {
         if (g_keyManager.TestKeysHeld(0x100))
         {
-            AdjustSubstructField_0219015c_0219015c((S0219015c*)self->current_, -0x28);
+            func_ov015_0219015c((S0219015c*)self->current_, -0x28);
         }
         else
         {
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov015_02191294(S02190c2c* self)
     {
         if (g_keyManager.TestKeysHeld(0x100))
         {
-            AdjustSubstructField_0219015c_0219015c((S0219015c*)self->current_, 0x28);
+            func_ov015_0219015c((S0219015c*)self->current_, 0x28);
         }
         else
         {
@@ -190,7 +190,7 @@ extern "C" ARM void func_ov015_02191294(S02190c2c* self)
         }
         self->repeatTimer_ = 0;
         self->repeatDelay_ -= 10;
-        AdjustSubstructField_0219015c_0219015c((S0219015c*)self->current_, -0x28);
+        func_ov015_0219015c((S0219015c*)self->current_, -0x28);
         self->redraw_ = 1;
         return;
     }
@@ -205,6 +205,6 @@ extern "C" ARM void func_ov015_02191294(S02190c2c* self)
     }
     self->repeatTimer_ = 0;
     self->repeatDelay_ -= 10;
-    AdjustSubstructField_0219015c_0219015c((S0219015c*)self->current_, 0x28);
+    func_ov015_0219015c((S0219015c*)self->current_, 0x28);
     self->redraw_ = 1;
 }

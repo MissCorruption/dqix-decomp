@@ -42,16 +42,16 @@ struct Tbl8_021eaa50 {
 
 extern Tbl8_021eaa50 data_ov024_021fe748;
 
-GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int, int);
+extern "C" GameObject* func_ov000_021536f8(int, int);
 extern "C" int func_ov000_02153e78(Battle_02153e78*, short*, int, int, int);
-int IsSpecialStateValue_02159c58(void*, int);
+extern "C" int func_ov000_02159c58(void*, int);
 extern "C" int func_ov000_0215e9fc(char*, short*, int, unsigned int);
 extern "C" int func_ov000_02159cb4(void*, int);
-int IsCombatantFlag2Mask512_021eadfc(GameObject*);
-unsigned int AdjustValueByFieldFlag_020dd290(void*, unsigned int);
-int IsFlagBit8Set_021dd010(FlagObj_021dd010*);
-int IsIdOrEffectMatchTarget0215fd24(int, int);
-GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState*, int);
+extern "C" int func_ov024_021eadfc(GameObject*);
+extern "C" unsigned int func_020dd290(void*, unsigned int);
+extern "C" int func_ov024_021dd010(FlagObj_021dd010*);
+extern "C" int func_ov000_0215fd24(int, int);
+extern "C" GameObject* func_0200ff58(GameState*, int);
 
 static inline int IsPartyMember(int id) {
     return id >= 0 && id <= 3;
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
     Tbl8_021eaa50 tbl = data_ov024_021fe748;
 
     if (*(unsigned short*)sb == 0x153) {
-        GameObject* c = GetCombatantWithFlag0x400ByID_ov000_021536f8((int)*(char**)(a0 + 0x10), *(short*)(*(char**)(sb + 0x10) + 0x20));
+        GameObject* c = func_ov000_021536f8((int)*(char**)(a0 + 0x10), *(short*)(*(char**)(sb + 0x10) + 0x20));
         if (c == 0) {
             *(unsigned short*)sb = 2;
             *(unsigned char*)(sb + 9) = 0;
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
         }
     }
     if (*(unsigned short*)sb == 0x31a) {
-        GameObject* c = GetCombatantWithFlag0x400ByID_ov000_021536f8((int)*(char**)(a0 + 0x10), *(short*)(*(char**)(sb + 0x10) + 0x20));
+        GameObject* c = func_ov000_021536f8((int)*(char**)(a0 + 0x10), *(short*)(*(char**)(sb + 0x10) + 0x20));
         if (c == 0) {
             *(unsigned short*)sb = 2;
             *(unsigned char*)(sb + 9) = 0;
@@ -95,7 +95,7 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
             return 2;
         }
     }
-    if (IsSpecialStateValue_02159c58(*(char**)(a0 + 0x10), *(unsigned short*)sb)) {
+    if (func_ov000_02159c58(*(char**)(a0 + 0x10), *(unsigned short*)sb)) {
         if (func_ov000_0215e9fc(*(char**)(a0 + 0x10), tbl.v, 8, 1) != 4) {
             *(unsigned char*)(sb + 9) = 0;
             *(unsigned short*)sb = (unsigned short)func_ov000_02159cb4(*(char**)(a0 + 0x10), *(short*)(*(char**)(sb + 0x10) + 0x20));
@@ -104,11 +104,11 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
     }
 
     int below = 0;
-    if (!IsCombatantFlag2Mask512_021eadfc(self) && flag4 == 0 && !action->noMp) {
+    if (!func_ov024_021eadfc(self) && flag4 == 0 && !action->noMp) {
         short v6 = (short)action->mpCost;
         if (IsPartyMember(id)) {
-            v6 = (short)AdjustValueByFieldFlag_020dd290(
-                GetCombatantWithFlag0x100_0200ff1c(gs, id), (unsigned int)v6);
+            v6 = (short)func_020dd290(
+                func_0200ff1c(gs, id), (unsigned int)v6);
         }
         if (action->mpCost < 0xff) {
             if (self->currentStats_->primaryStats.currMP < v6) below = 1;
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
         return nv;
     }
 
-    if ((action->flags10 & 1) && IsFlagBit8Set_021dd010((FlagObj_021dd010*)self)) {
+    if ((action->flags10 & 1) && func_ov024_021dd010((FlagObj_021dd010*)self)) {
         unsigned short v = *(unsigned short*)sb;
         int nv = 0x392;
         *(unsigned short*)(sb + 2) = v;
@@ -140,11 +140,11 @@ extern "C" ARM int func_ov024_021eaa50(Act_021eb5d0* act, Src_021eb5d0* src,
 
     if (action->f2c == 6 && IsPartyMember(id)) {
         int found = 0;
-        if (IsIdOrEffectMatchTarget0215fd24((int)*(char**)(a0 + 0x10), id)) {
-            void* arr = GetPtrField0x2a04_02010828(gs);
+        if (func_ov000_0215fd24((int)*(char**)(a0 + 0x10), id)) {
+            void* arr = func_02010828(gs);
             if (*(unsigned int*)((char*)arr + 0xf6c) < action->f32) found = 1;
         } else {
-            GameObject* p = GetCombatantWithFlag0x1000_0200ff58(gs, id);
+            GameObject* p = func_0200ff58(gs, id);
             if (p != 0) {
                 if (((int*)(*(char**)(a0 + 0x10) + 0x8e84))[0] < action->f32) found = 1;
             } else {

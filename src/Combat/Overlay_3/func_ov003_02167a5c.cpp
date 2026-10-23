@@ -8,7 +8,7 @@ enum { kRegionValue70_40 = 0x70 };
 
 
 struct Cont0207fe44;
-void CallFunc0204c804OverAllElems(struct Cont0207fe44* obj);
+extern "C" void func_0207fe44(struct Cont0207fe44* obj);
 
 struct Pair02167a5c { unsigned int a; unsigned int b; };
 extern struct Pair02167a5c data_020e6d5c;
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov003_02167a5c(struct Obj02167a5c* obj, int p1, int p2)
     if (obj->f70 == p1 && obj->f76 == p2) return;
 
     if (obj->f70 != p1 || p2 < 0) {
-        CallFunc0204c804OverAllElems(obj->f10);
+        func_0207fe44(obj->f10);
     }
     obj->f70 = p1;
     obj->f76 = (signed char)p2;

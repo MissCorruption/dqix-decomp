@@ -20,13 +20,13 @@ struct Glyph020425b4 {
     signed char width;
 };
 
-void ClearTwoWordsAndByte_0205b20c(struct S_b20c* obj);
-void SetField0_0205b220(void* obj, int value);
-void SetFieldsAt0x4And0x8_0205b228(void* obj, int value, unsigned char flag);
-void* GetGlobalField0x1c020421a0(void);
-void* GetBoundedEntry020425b4(int idx, int tableIdx);
-int LookupKeyValue020425e4(int a, int b, int tableIdx);
-int GetWordFromTable02042648(int idx);
+extern "C" void func_0205b20c(struct S_b20c* obj);
+extern "C" void func_0205b220(void* obj, int value);
+extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
+extern "C" void* func_020421a0(void);
+extern "C" void* func_020425b4(int idx, int tableIdx);
+extern "C" int func_020425e4(int a, int b, int tableIdx);
+extern "C" int func_02042648(int idx);
 void CleanInvalidateCacheRange(const void* p, unsigned int len);
 extern "C" void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length);
 extern "C" int func_0205b36c(void* self, void* glyph, short a, int b, unsigned char c, unsigned char d);
@@ -92,7 +92,7 @@ extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
         break;
     }
     entry->advanceX = characterAdvance;
-    FontGlyphTable* font = GetFontGlyphTable_020429bc(10);
+    FontGlyphTable* font = func_020429bc(10);
     if (font == NULL) return;
     int height = font->glyphHeight;
     unsigned char raster[256];
@@ -146,7 +146,7 @@ extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
     }
 #else
     int limit;
-    char* g = (char*)GetGlobalField0x1c020421a0();
+    char* g = (char*)func_020421a0();
     void* fp = *(void**)(g + 0x60);
     memset(fp, 0, 0x400);
 
@@ -165,9 +165,9 @@ extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
     }
 
     struct S_b20c localObj;
-    ClearTwoWordsAndByte_0205b20c(&localObj);
-    SetField0_0205b220(&localObj, (int)fp);
-    SetFieldsAt0x4And0x8_0205b228(&localObj, (int)arr, 4);
+    func_0205b20c(&localObj);
+    func_0205b220(&localObj, (int)fp);
+    func_0205b228(&localObj, (int)arr, 4);
 
     *(short*)((char*)entry + 0x22) = (short)((unsigned int)dest >> 7);
     memset(entry, 0, 0x20);
@@ -176,7 +176,7 @@ extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
     int total = 0;
     limit = ((unsigned char*)entry)[0x20];
     int prev = 0xff;
-    int font = GetWordFromTable02042648(0);
+    int font = func_02042648(0);
     unsigned char ch;
     int cnt = 0;
     unsigned char* p = (unsigned char*)buf;
@@ -184,12 +184,12 @@ extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
         ch = *p;
         if (ch == 0) break;
         int c = font;
-        struct Glyph020425b4* gl = (struct Glyph020425b4*)GetBoundedEntry020425b4(ch, 0);
+        struct Glyph020425b4* gl = (struct Glyph020425b4*)func_020425b4(ch, 0);
         if (gl != 0) {
             c = gl->width;
             func_0205b36c(&localObj, gl, (short)total, 0, 0xf, 0);
         }
-        int w = total + LookupKeyValue020425e4(prev, ch, 0);
+        int w = total + func_020425e4(prev, ch, 0);
         total = w + (c + 1);
         prev = ch;
         p++;

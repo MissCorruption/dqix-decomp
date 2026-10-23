@@ -40,30 +40,30 @@ struct FlagWord02046708;
 struct Obj020214f0;
 extern State_1f9b8 data_020fdcb0[4];
 extern Stopwatch0201f9e8 data_020fdc60[4];
-void InitStruct_0201f9b8(State_1f9b8*);
-extern "C" void InitStopwatch0201f9e8(Stopwatch0201f9e8*);
-unsigned short GetTableValue_0202053c(void*);
-FlagWord02046708* GetDataPtr02114e04_020d6c00(void);
-int TestFlags02046708(FlagWord02046708*, unsigned int);
+extern "C" void func_0201f9b8(State_1f9b8*);
+extern "C" void func_0201f9e8(Stopwatch0201f9e8*);
+extern "C" unsigned short func_0202053c(void*);
+extern "C" FlagWord02046708* func_020d6c00(void);
+extern "C" int func_02046708(FlagWord02046708*, unsigned int);
 #if defined(jpn)
 extern "C" void func_02022644(MapDisplay*);
 #else
 extern "C" void func_02022bb0(MapDisplay*);
 #endif
 extern "C" void func_020e0688(MapDisplay*);
-void HandleQueuedEntry02026694(MapDisplay*);
-void HandleStateDispatch020214f0(Obj020214f0*);
+extern "C" void func_02026694(MapDisplay*);
+extern "C" void func_020214f0(Obj020214f0*);
 extern "C" void func_02026bdc(MapDisplay*, int);
 
 // USA: func_02022dc8
 extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
     GameState* game = GameState::GetInstance();
     for (int i = 0; i < 4; ++i) {
-        if (!game->GetPartyMemberByIndex(i)) InitStruct_0201f9b8(&data_020fdcb0[i]);
+        if (!game->GetPartyMemberByIndex(i)) func_0201f9b8(&data_020fdcb0[i]);
     }
     int memberCount = receiver->field75c;
     if (memberCount) {
-        for (int i = memberCount; i < 4; ++i) InitStopwatch0201f9e8(&data_020fdc60[i]);
+        for (int i = memberCount; i < 4; ++i) func_0201f9e8(&data_020fdc60[i]);
     }
     for (int i = 0; i < receiver->field75c; ++i) {
         int index = receiver->flags758[i];
@@ -76,7 +76,7 @@ extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
         int mp = member->combatFields_.savedState_130_->mp;
         int currentMP = member->baseStats_->primaryStats.maxMP;
         int valueIndex = member->data->index;
-        unsigned char value = GetTableValue_0202053c(member);
+        unsigned char value = func_0202053c(member);
         int status = member->combatFields_.savedState_130_->flags;
         state->stateChanged |= state->index != valueIndex;
         state->stateChanged |= state->tableValue != value;
@@ -101,7 +101,7 @@ extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
             state->reset = 0;
         }
     }
-    if (TestFlags02046708(GetDataPtr02114e04_020d6c00(), 1)) {
+    if (func_02046708(func_020d6c00(), 1)) {
 #if defined(jpn)
         func_02022644(receiver);
 #else
@@ -109,8 +109,8 @@ extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
 #endif
     } else {
         if (receiver->field9c5 && receiver->field764) func_020e0688(receiver);
-        if (receiver->field9b8) HandleQueuedEntry02026694(receiver);
-        if (receiver->field9c3) HandleStateDispatch020214f0((Obj020214f0*)receiver);
+        if (receiver->field9b8) func_02026694(receiver);
+        if (receiver->field9c3) func_020214f0((Obj020214f0*)receiver);
         else func_02026bdc(receiver, 1);
     }
 }

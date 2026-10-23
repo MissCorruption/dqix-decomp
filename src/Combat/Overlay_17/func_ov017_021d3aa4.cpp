@@ -8,10 +8,10 @@ enum { RegionOffsetb28 = 0xb28 };
 #include "Combat/LootPointEvent.h"
 
 struct SearchStruct0202c1a4;
-signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
 extern "C" void func_0208e0a8(void);
 extern "C" int func_0202c508(void* obj);
-ARM int* GetNegativeEntry_020120b8(char* obj, int index);
+extern "C" ARM int* func_020120b8(char* obj, int index);
 extern "C" int func_ov017_021d3950(void* p);
 
 struct Evt021d3aa4 {
@@ -32,9 +32,9 @@ extern "C" ARM void func_ov017_021d3aa4(int p0, struct Evt021d3aa4* evt, char* b
         if (evt->mode != 1) return;
 
         if (func_ov017_021d3950(&evt->mode) != 0) {
-            EnqueueEventTag183_021d38f8(1, p0, evt->field6, evt->field7, &evt->state);
+            func_ov017_021d38f8(1, p0, evt->field6, evt->field7, &evt->state);
         } else {
-            EnqueueEventTag183_021d38f8(2, p0, evt->field6, evt->field7, &evt->state);
+            func_ov017_021d38f8(2, p0, evt->field6, evt->field7, &evt->state);
         }
         return;
     }
@@ -42,16 +42,16 @@ extern "C" ARM void func_ov017_021d3aa4(int p0, struct Evt021d3aa4* evt, char* b
     if (p0 != 0) return;
 
     if (evt->mode == 0) {
-        int* e = GetNegativeEntry_020120b8(buf, evt->field7);
+        int* e = func_020120b8(buf, evt->field7);
         if (e) *e = evt->state.word;
     } else if (evt->mode == 1) {
-        signed char cur = GetSearchStructCurrentArrEntry(search);
+        signed char cur = func_0202c1a4(search);
         if (evt->idx == cur) {
             if (entryObj[2] != 0) entryObj[9] = 1;
         }
         func_ov017_021d3950(&evt->mode);
     } else if (evt->mode == 2) {
-        signed char cur = GetSearchStructCurrentArrEntry(search);
+        signed char cur = func_0202c1a4(search);
         if (evt->idx == cur) {
             entryObj[9] = 2;
         }

@@ -2,27 +2,27 @@
 #include "std_library_functions.h"
 
 struct Actor020db844;
-void RunFlaggedCallback020db844(struct Actor020db844* a, int b, int c, int d);
+extern "C" void func_020db844(struct Actor020db844* a, int b, int c, int d);
 
-void* GetDataPtr02114e04_020d6c00(void);
+extern "C" void* func_020d6c00(void);
 
-void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int mask);
+extern "C" void func_020466e4(unsigned int* word, unsigned int mask);
 
 extern "C" int func_020937f0(int a);
 
 struct Entity020db3a8;
-extern int CheckActiveState020db3a8(struct Entity020db3a8* s);
+extern "C" int func_020db3a8(struct Entity020db3a8* s);
 
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
-void ConfigureAndDispatchHandle020db304(int param0, int param1);
+extern "C" void func_020db304(int param0, int param1);
 
 struct Fields020dde64;
-void ClearFields020dde64(struct Fields020dde64* obj);
+extern "C" void func_020dde64(struct Fields020dde64* obj);
 
 struct Struct_020de0ec;
-void RollFlags020de0ec(struct Struct_020de0ec* obj);
+extern "C" void func_020de0ec(struct Struct_020de0ec* obj);
 
 typedef void* (*FnPtrVoid)(void);
 extern FnPtrVoid data_020f28e4[];
@@ -63,17 +63,17 @@ extern "C" ARM void func_020db3f4(struct Obj020db3f4* obj) {
         return;
     }
 
-    RunFlaggedCallback020db844((struct Actor020db844*)obj, obj->field3c, obj->field6a, 0);
+    func_020db844((struct Actor020db844*)obj, obj->field3c, obj->field6a, 0);
     obj->field51 = 1;
 
-    OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x8000);
+    func_020466e4((unsigned int*)func_020d6c00(), 0x8000);
 
     int x = func_020937f0(obj->field3c);
     int off_b80 = x - 0xb80;
     int mode = 0x1e0;
     int off_800 = x - 0x800;
 
-    if (CheckActiveState020db3a8((struct Entity020db3a8*)obj) != 0) {
+    if (func_020db3a8((struct Entity020db3a8*)obj) != 0) {
         mode = 0x1c0;
     }
 
@@ -100,14 +100,14 @@ extern "C" ARM void func_020db3f4(struct Obj020db3f4* obj) {
     data_020f28dc[obj->field3c](obj->field48, mode, obj->field4c);
     CleanCacheRange(obj->field48, obj->field4c);
 
-    ConfigureAndDispatchHandle020db304((int)obj, obj->field3c);
+    func_020db304((int)obj, obj->field3c);
 
     obj->field6e = 0;
     for (int i = 0; i < 3; i++) {
         unsigned char* arr = obj->slots[0];
         unsigned char* p = arr + i * 0x28;
-        ClearFields020dde64((struct Fields020dde64*)p);
-        RollFlags020de0ec((struct Struct_020de0ec*)p);
+        func_020dde64((struct Fields020dde64*)p);
+        func_020de0ec((struct Struct_020de0ec*)p);
     }
 
     if (obj->field53 != 0) {

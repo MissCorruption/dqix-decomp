@@ -14,7 +14,7 @@ struct ShortList8 {
     short v[8];
 };
 
-struct ActionEntry_02153f98* SearchBothTables02079e2c(char* p, int key);
+extern "C" struct ActionEntry_02153f98* func_02079e2c(char* p, int key);
 extern "C" int func_ov000_0215e9fc(struct Random* rand, short* buf, int max, int start);
 
 extern struct ShortList8 data_ov000_02182b24;
@@ -22,11 +22,11 @@ extern struct ShortList8 data_ov000_02182b24;
 // USA: func_ov000_02153f98
 extern "C" ARM int func_ov000_02153f98(struct Random* rand, int id, int action, short* out) {
     GameState* gs = GameState::GetInstance();
-    struct ActionEntry_02153f98* entry = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), (short)action);
+    struct ActionEntry_02153f98* entry = func_02079e2c((char*)func_020797dc(), (short)action);
     if (entry == NULL) {
         return 0;
     }
-    if (GetCombatantWithFlag0x100_0200ff1c(gs, id) == NULL) {
+    if (func_0200ff1c(gs, id) == NULL) {
         return 0;
     }
     unsigned int kind = entry->kind;

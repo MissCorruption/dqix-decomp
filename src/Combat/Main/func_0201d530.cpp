@@ -32,12 +32,12 @@ struct GlobalCtx0201d530 {
 extern struct GlobalCtx0201d530 data_020fdc20;
 
 // USA: func_0201d530
-ARM int WarpScript_Opcode_73_0201d530(Script::Parameter* arg0, int) {
+extern "C" ARM int func_0201d530(Script::Parameter* arg0, int) {
     struct Variant02030b0c* param0 = (struct Variant02030b0c*)arg0;
     struct Record0201d530 rec;
     int tmp[3];
 
-    ((ZoneFeatures::Opcode6aEntry*)((char*)&rec))->Reset_0201d424();
+    ((ZoneFeatures::Opcode6aEntry*)((char*)&rec))->func_0201d424();
     rec.f4 = ((Script::Parameter*)param0)->ToInt();
 
     struct TaggedValue02030b44* next = (extern TaggedValue02030b44*)((Script::Parameter*)((struct TaggedValue02030b44*)((char*)param0 + 8)))->ToVec3fix((Vector3i*)tmp);
@@ -55,6 +55,6 @@ ARM int WarpScript_Opcode_73_0201d530(Script::Parameter* arg0, int) {
     int qx = FixedMulRound0201d530(halfX, halfX);
     rec.f24 = qx + qz;
 
-    data_020fdc20.lastEntry = data_020fdc20.arr->CreateOpcode6aEntry_0201e710(*(ZoneFeatures::Opcode6aEntry*)&rec);
+    data_020fdc20.lastEntry = data_020fdc20.arr->func_0201e710(*(ZoneFeatures::Opcode6aEntry*)&rec);
     return 1;
 }

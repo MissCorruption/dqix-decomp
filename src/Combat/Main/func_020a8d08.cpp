@@ -6,15 +6,15 @@ struct FlagWord020466f4;
 struct Obj02033874;
 struct Obj020397cc;
 
-void* GetPtrField0x2a04_02010828(GameState* battleStruct);
-int GetSignedByte0x1c8_02039860(void* obj);
-void SetByteField0x253_020397c0(void* obj);
-void EnqueueEventTag35_021d2ad0(short a, int b, int c, int d, unsigned char e);
-void EnqueueEventTag36_021d2c34(unsigned char a, unsigned char b, unsigned char c);
-void* GetDataPtr02114e04_020d6c00();
-void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
-void SetVecYFromValue02033874(struct Obj02033874* obj, int value);
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" int func_02039860(void* obj);
+extern "C" void func_020397c0(void* obj);
+extern "C" void func_ov017_021d2ad0(short a, int b, int c, int d, unsigned char e);
+extern "C" void func_ov017_021d2c34(unsigned char a, unsigned char b, unsigned char c);
+extern "C" void* func_020d6c00();
+extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+extern "C" void func_02033874(struct Obj02033874* obj, int value);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
 
 struct Combatant020a8d08 {
     Object3D obj;
@@ -40,8 +40,8 @@ extern "C" ARM void func_020a8d08(struct Obj020a8d08* obj, unsigned char index) 
     GameState* state = GameState::GetInstance();
     Combatant020a8d08* actor = (Combatant020a8d08*)state->GetPartyMemberByIndex(index);
     Object3D* other = &state->GetUnknownGameObject()->obj3D_;
-    GetPtrField0x2a04_02010828(state);
-    state->GetPartyMemberByIndex(GetSignedByte0x1c8_02039860(actor));
+    func_02010828(state);
+    state->GetPartyMemberByIndex(func_02039860(actor));
     if ((obj->f4 & (1 << index)) == 0) {
         return;
     }
@@ -55,20 +55,20 @@ extern "C" ARM void func_020a8d08(struct Obj020a8d08* obj, unsigned char index) 
     actor->obj.position_ = t;
     if (actor->height == 0) {
         actor->f_c1 &= ~8;
-        SetByteField0x253_020397c0(actor);
+        func_020397c0(actor);
         obj->f5 |= (1 << index);
         if (actor->obj.unknown_4_ != other->unknown_4_) {
             actor->obj.position_ = other->position_;
         }
         Vector3i v = actor->obj.position_;
-        EnqueueEventTag35_021d2ad0(index, v.x, v.y, v.z, 0);
-        EnqueueEventTag36_021d2c34(index, 0x1f, 0);
-        ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x402);
+        func_ov017_021d2ad0(index, v.x, v.y, v.z, 0);
+        func_ov017_021d2c34(index, 0x1f, 0);
+        func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 0x402);
     } else {
-        SetVecYFromValue02033874((struct Obj02033874*)actor, actor->y + obj->offsetY);
+        func_02033874((struct Obj02033874*)actor, actor->y + obj->offsetY);
         if (actor->obj.unknown_4_ == other->unknown_4_) {
             obj->offsetY -= 40;
         }
-        CancelPendingAction020397cc((struct Obj020397cc*)actor, 1);
+        func_020397cc((struct Obj020397cc*)actor, 1);
     }
 }

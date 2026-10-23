@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-int CheckHighBitOrTrim_0220bb4c(unsigned short*, int);
+extern "C" int func_ov031_0220bb4c(unsigned short*, int);
 extern "C" void func_ov031_0220c0dc(unsigned short*, unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern "C" void func_ov031_0220be38(unsigned short*, unsigned short*, unsigned short*, int);
 extern "C" void func_ov031_0220bcbc(unsigned short*, unsigned short*, unsigned short*, int);
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov031_0220c450(unsigned short* output, unsigned short* 
     VectorizedInvertedMemcpy(input, workspace, byteCount);
     VectorizedInvertedMemcpy(modulus, previous, byteCount);
     coefficient[0] = 1;
-    if (CheckHighBitOrTrim_0220bb4c(workspace, length) > 0) {
+    if (func_ov031_0220bb4c(workspace, length) > 0) {
         do {
             func_ov031_0220c0dc(quotient, previous, workspace, remainder, length, scratch);
             VectorizedInvertedMemcpy(workspace, previous, byteCount);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov031_0220c450(unsigned short* output, unsigned short* 
             func_ov031_0220bcbc(remainder, nextCoefficient, remainder, length);
             VectorizedInvertedMemcpy(coefficient, nextCoefficient, byteCount);
             VectorizedInvertedMemcpy(remainder, coefficient, byteCount);
-        } while (CheckHighBitOrTrim_0220bb4c(workspace, length) > 0);
+        } while (func_ov031_0220bb4c(workspace, length) > 0);
     }
     func_ov031_0220bb7c(nextCoefficient, nextCoefficient, modulus, length);
     func_ov031_0220c0dc(NULL, nextCoefficient, modulus, output, length, scratch);

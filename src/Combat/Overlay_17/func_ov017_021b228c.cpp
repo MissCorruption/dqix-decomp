@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Obj020397cc;
-void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
+extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
 
 struct Obj021b228c;
 typedef int (Obj021b228c::*Handler021b228c)();
@@ -16,7 +16,7 @@ extern int data_ov017_021d83f0;
 extern "C" ARM void func_ov017_021b228c(unsigned char* self) {
     GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
     if (combatant != NULL) {
-        CancelPendingAction020397cc((struct Obj020397cc*)combatant, 1);
+        func_020397cc((struct Obj020397cc*)combatant, 1);
     }
     if (!(data_ov017_021d83f0 & 1)) {
         data_ov017_021d79e0[8] = data_020e6d5c;

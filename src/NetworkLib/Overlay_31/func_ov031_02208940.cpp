@@ -2,7 +2,7 @@
 
 extern "C" void* VectorizedInvertedMemcpy(void* src, void* dst, int n);
 extern "C" int func_02001aec(void* a, void* b, int n);
-void ClearSlotByCallbackResult_02207c30(void* obj);
+extern "C" void func_ov031_02207c30(void* obj);
 
 // USA: func_ov031_02208940
 extern "C" ARM void func_ov031_02208940(unsigned char* work, unsigned char* packet) {
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov031_02208940(unsigned char* work, unsigned char* pack
 		work[0x31] = 1;
 	} else {
 		if (resumed != 0) {
-			ClearSlotByCallbackResult_02207c30(work);
+			func_ov031_02207c30(work);
 		}
 		if (idLen != 0) {
 			VectorizedInvertedMemcpy(packet, work + 0x74, 0x20);

@@ -22,10 +22,10 @@ struct CameraTask021e6ff8 {
     unsigned char mode;
 };
 
-void* GetActiveCombatWork_ov000_02160130(void);
-unsigned char GetByte_021dcc64_021dcc64(void* obj);
-ListNode021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
-void Call0202eab8AndApply020a0d6c_0202edf8(char* obj, int a, int b, int c, int d);
+extern "C" void* func_ov000_02160130(void);
+extern "C" unsigned char func_ov025_021dcc64(void* obj);
+extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" void func_0202edf8(char* obj, int a, int b, int c, int d);
 
 // USA: func_ov025_021e6ff8
 extern "C" ARM int func_ov025_021e6ff8(CameraTask021e6ff8* task, List021600f8* list) {
@@ -35,11 +35,11 @@ extern "C" ARM int func_ov025_021e6ff8(CameraTask021e6ff8* task, List021600f8* l
  enum { regionalOffset=0x6fd5 };
 #endif
     GameState* gs = GameState::GetInstance();
-    void* camera = GetField0x3b0Value_020100bc(gs);
-    void* work = GetActiveCombatWork_ov000_02160130();
+    void* camera = func_020100bc(gs);
+    void* work = func_ov000_02160130();
     if (work != NULL) {
         *((unsigned char*)work + regionalOffset) = 1;
-        if (GetByte_021dcc64_021dcc64(work)) {
+        if (func_ov025_021dcc64(work)) {
             return 1;
         }
     }
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e6ff8(CameraTask021e6ff8* task, List021600f8* l
     }
     if (task->mode == 2) {
         int height = 1;
-        ListNode021600f8* node = GetNodeAtIndex021600f8(list, 0);
+        ListNode021600f8* node = func_ov000_021600f8(list, 0);
         if (node != NULL) {
             GameObject* c = gs->GetCombatantByIndex(node->combatantIndex);
             if (c != NULL) {
@@ -88,6 +88,6 @@ extern "C" ARM int func_ov025_021e6ff8(CameraTask021e6ff8* task, List021600f8* l
         v.y = (int)(4096.0f * y);
         v.z = (int)(4096.0f * z);
     }
-    Call0202eab8AndApply020a0d6c_0202edf8((char*)camera, (int)&v, task->arg18, task->arg1c, task->arg20);
+    func_0202edf8((char*)camera, (int)&v, task->arg18, task->arg1c, task->arg20);
     return 1;
 }

@@ -22,9 +22,9 @@ extern Queue0220fbd4* data_ov031_0224e580;
 extern "C" void func_ov031_0220fd78(int, Message0220fbd4*);
 extern "C" int func_ov031_0220fe44(int);
 extern "C" int func_ov031_0220ff78(int*);
-int IsField0Unchanged_0220ff18(void*);
-void WaitForField2CNonZero_0220fea0(void);
-void ClearField28SetField2C_0220fed8(void);
+extern "C" int func_ov031_0220ff18(void*);
+extern "C" void func_ov031_0220fea0(void);
+extern "C" void func_ov031_0220fed8(void);
 
 // USA: func_ov031_0220fbd4
 extern "C" ARM void func_ov031_0220fbd4(void)
@@ -40,8 +40,8 @@ extern "C" ARM void func_ov031_0220fbd4(void)
         return;
     if (func_ov031_0220fe44((int)func_ov031_0220ff78) != 0)
     {
-        if (IsField0Unchanged_0220ff18(header) != 0)
-            WaitForField2CNonZero_0220fea0();
+        if (func_ov031_0220ff18(header) != 0)
+            func_ov031_0220fea0();
     }
-    ClearField28SetField2C_0220fed8();
+    func_ov031_0220fed8();
 }

@@ -4,8 +4,8 @@
 struct U16Field0x6_020375f8 { char unk[0x6]; unsigned short field; };
 
 struct Entry_02028bd0;
-struct Entry_02028bd0* GetEntryTableBase_02027ca4(void);
-struct Entry_02028bd0* FindInlineEntryById(struct Entry_02028bd0* base, int key);
+extern "C" struct Entry_02028bd0* func_02027ca4(void);
+extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
 
 extern "C" void* func_0202ae18(void);
 
@@ -13,11 +13,11 @@ struct CheckField0AndGlobalHalfStruct0202c508 { int field0; };
 extern "C" int func_0202c508(struct CheckField0AndGlobalHalfStruct0202c508* obj);
 
 struct Obj02079040;
-unsigned short FindAndCacheListIndex(struct Obj02079040* obj, unsigned char* outFlag);
+extern "C" unsigned short func_02079040(struct Obj02079040* obj, unsigned char* outFlag);
 
 extern "C" unsigned short func_02078e60(void* obj, char* out);
 
-int TrySetMode02076ccc(void*, int);
+extern "C" int func_02076ccc(void*, int);
 
 struct Actor02076df4 {
     char pad0[0x134];
@@ -38,10 +38,10 @@ struct Actor02076df4 {
 extern "C" ARM void func_02076df4(struct Actor02076df4* obj) {
     GameState* battleStruct = GameState::GetInstance();
     void* g = func_0202ae18();
-    struct Entry_02028bd0* table = GetEntryTableBase_02027ca4();
+    struct Entry_02028bd0* table = func_02027ca4();
     GameObject* combatant = battleStruct->GetPartyMemberByIndex(obj->field166);
     int key = ((Object3D*)((struct U16Field0x6_020375f8*)obj))->GetField06();
-    struct Entry_02028bd0* entry = FindInlineEntryById(table, key);
+    struct Entry_02028bd0* entry = func_02028bd0(table, key);
     if (entry == 0) {
         return;
     }
@@ -80,27 +80,27 @@ extern "C" ARM void func_02076df4(struct Actor02076df4* obj) {
     case 4:
     case 5:
         if (obj->field134 == 4 || obj->field134 == 5 || obj->field134 == 6) {
-            obj->field164 = FindAndCacheListIndex((struct Obj02079040*)obj, &localByte);
+            obj->field164 = func_02079040((struct Obj02079040*)obj, &localByte);
         } else {
             obj->field164 = func_02078e60((void*)obj, (char*)&localByte);
         }
         if (flag40 == 0 && localByte == 0) {
-            TrySetMode02076ccc(obj, 2);
+            func_02076ccc(obj, 2);
             return;
         }
         if ((oldField164 == obj->field164 && flag40 == 0) || localByte != 0) {
-            TrySetMode02076ccc(obj, 1);
+            func_02076ccc(obj, 1);
         } else {
-            TrySetMode02076ccc(obj, 2);
+            func_02076ccc(obj, 2);
         }
         return;
     case 2:
         obj->field17d |= 0x40;
         obj->field164 = func_02078e60((void*)obj, (char*)&localByte);
         if (oldField164 == obj->field164 && flag40 == 0) {
-            TrySetMode02076ccc(obj, 1);
+            func_02076ccc(obj, 1);
         } else {
-            TrySetMode02076ccc(obj, 3);
+            func_02076ccc(obj, 3);
         }
         return;
     }

@@ -5,7 +5,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* obj);
-ARM void* GetTableEntry020421b0(int idx);
+extern "C" ARM void* func_020421b0(int idx);
 extern "C" int LoadToMainObjVRAM(int, int, unsigned int);
 
 // USA: func_ov002_021619b4
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov002_021619b4(int combatantId, void* p1, void* dst) {
     if (chk != 0) val950 = 0;
 
     int tableIdx = (val950 * 4 + 0x28) & 0xff;
-    void* tableEntry = GetTableEntry020421b0(tableIdx);
+    void* tableEntry = func_020421b0(tableIdx);
     memcpy(dst, tableEntry, 0x80);
 
     unsigned short f4 = *(unsigned short*)((char*)ref + 4);

@@ -113,26 +113,26 @@ struct Party0215582c {
     char bag[1];
 };
 
-void* GetPtrField0x2a04_02010828(GameState* battleStruct);
-struct Stats0215582c* GetFieldAt0x150_02053c6c(unsigned char* obj);
-int OffsetByIndexTimes16_02155e14(int base, int idx);
-short* GetField150Ptr0x488(struct Field150Holder02052e14* obj);
+extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" struct Stats0215582c* func_02053c6c(unsigned char* obj);
+extern "C" int func_ov003_02155e14(int base, int idx);
+extern "C" short* func_02052e14(struct Field150Holder02052e14* obj);
 extern "C" int func_0207c378(void* obj, int value, int amount, int key);
-int GetArrayEntryByIndex_02156034(void* obj);
-void SetBit0x954StoreIndex0x950_02083ca0(unsigned char* obj, int index);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
-int LoadBattleBlock020ac4c0(void* dst);
-void AddClamped10BitFieldHighAt0x28_020a06ec(struct S_a06ec* p, unsigned int amount);
-void AddClamped10BitFieldAt0x1c_020a0258(struct S_a0258* p, unsigned int amount);
-int CopyInBattleField0x7540_020ac494(void* src);
+extern "C" int func_ov003_02156034(void* obj);
+extern "C" void func_02083ca0(unsigned char* obj, int index);
+extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020ac4c0(void* dst);
+extern "C" void func_020a06ec(struct S_a06ec* p, unsigned int amount);
+extern "C" void func_020a0258(struct S_a0258* p, unsigned int amount);
+extern "C" int func_020ac494(void* src);
 extern "C" int func_0207c7a0(void* map, int value, int key);
-struct ItemEntry0215582c* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
+extern "C" struct ItemEntry0215582c* func_020dedd0(struct Container020dedd0* c, int key);
 extern "C" void func_02052d7c(void* obj, int index, int value);
-int DecrementKeyedStackAmount0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
-short* GetField150Ptr0x488_02052e2c(struct Field150Holder02052e2c* obj);
+extern "C" int func_0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
+extern "C" short* func_02052e2c(struct Field150Holder02052e2c* obj);
 extern "C" void func_02083738(void* o, int a1);
 extern "C" void func_02083cbc(void* a, void* obj, void* tail);
-void SetBitInArray0x910_02083b60(unsigned char* obj, int index);
+extern "C" void func_02083b60(unsigned char* obj, int index);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_ov017_0218f5a4(void* self, int combatantId, int flag2, int flag3, int flag4);
 
@@ -147,12 +147,12 @@ static inline int IsValidKind(unsigned int kind) {
 // USA: func_ov003_0215582c
 extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
     GameState* gs = GameState::GetInstance();
-    struct Party0215582c* party = (struct Party0215582c*)GetPtrField0x2a04_02010828(gs);
+    struct Party0215582c* party = (struct Party0215582c*)func_02010828(gs);
     struct Combatant0215582c* c = (struct Combatant0215582c*)gs->GetPartyMemberByIndex(self->combatantId);
     if (c == NULL) {
         return;
     }
-    struct Stats0215582c* stats = GetFieldAt0x150_02053c6c((unsigned char*)c);
+    struct Stats0215582c* stats = func_02053c6c((unsigned char*)c);
     if (stats == NULL) {
         return;
     }
@@ -168,8 +168,8 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
         self->mpRatio = (float)mp / (float)value;
     }
 
-    short* set = (short*)OffsetByIndexTimes16_02155e14((int)sets, c->data->equipSet);
-    short* equipped = GetField150Ptr0x488((struct Field150Holder02052e14*)c);
+    short* set = (short*)func_ov003_02155e14((int)sets, c->data->equipSet);
+    short* equipped = func_02052e14((struct Field150Holder02052e14*)c);
     if (set != NULL && equipped != NULL) {
         set[0] = equipped[7];
         set[1] = equipped[0];
@@ -188,9 +188,9 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
         }
     }
 
-    SetBit0x954StoreIndex0x950_02083ca0((unsigned char*)stats, GetArrayEntryByIndex_02156034(self));
+    func_02083ca0((unsigned char*)stats, func_ov003_02156034(self));
 
-    value = GetField0x3acValue_020100a8(gs);
+    value = func_020100a8(gs);
     if (value == c->id) {
         GameState* g = GameState::GetInstance();
 #if defined(jpn)
@@ -213,14 +213,14 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
 #endif
         }
         int buf[0x2c];
-        LoadBattleBlock020ac4c0(buf);
-        AddClamped10BitFieldHighAt0x28_020a06ec((struct S_a06ec*)buf, 1);
-        AddClamped10BitFieldAt0x1c_020a0258((struct S_a0258*)(buf + 0x1a), 1);
-        CopyInBattleField0x7540_020ac494(buf);
+        func_020ac4c0(buf);
+        func_020a06ec((struct S_a06ec*)buf, 1);
+        func_020a0258((struct S_a0258*)(buf + 0x1a), 1);
+        func_020ac494(buf);
     }
 
     int unchanged = 0;
-    set = (short*)OffsetByIndexTimes16_02155e14((int)sets, GetArrayEntryByIndex_02156034(self));
+    set = (short*)func_ov003_02155e14((int)sets, func_ov003_02156034(self));
     if (set != NULL) {
         if (set[0] == equipped[7] && set[1] == equipped[0] && set[2] == equipped[8] && set[3] == equipped[6] &&
             set[4] == equipped[4] && set[5] == equipped[1] && set[6] == equipped[5] && set[7] == equipped[9]) {
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
     if (set[7] == 0x4680 && func_0207c7a0(party->bag, 0x4680, 7) == 0) {
         bool allowed[2];
         for (int i = 0; i < 7; i++) {
-            struct ItemEntry0215582c* e = FindElementByKey020dedd0((struct Container020dedd0*)self->list, set[i]);
+            struct ItemEntry0215582c* e = func_020dedd0((struct Container020dedd0*)self->list, set[i]);
             struct ItemFlags0215582c* d;
             if (e != NULL && (d = e->data) != NULL) {
                 allowed[0] = d->allowedMale;
@@ -253,10 +253,10 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
             if (data_ov003_0217f2bc[k] != 0xff) {
                 func_02052d7c(c, data_ov003_0217f2bc[k], item);
             }
-            DecrementKeyedStackAmount0207c484((struct KeyedList0207c484*)party->bag, item, 1, kind);
+            func_0207c484((struct KeyedList0207c484*)party->bag, item, 1, kind);
             used = 1;
             if (data_ov003_0217f2bc[k] == 4) {
-                short* p = GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)c);
+                short* p = func_02052e2c((struct Field150Holder02052e2c*)c);
                 p[0xb] = -1;
                 if (equipped[0] > 0) {
                     p[0xb] = equipped[0] % 1000 + 14000;
@@ -266,17 +266,17 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
         if (used == 0) {
             if (data_ov003_0217f2bc[k] != 0xff) {
                 if (data_ov003_0217f2bc[k] == 0) {
-                    GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)c)[0xb] = -1;
+                    func_02052e2c((struct Field150Holder02052e2c*)c)[0xb] = -1;
                 }
                 if (data_ov003_0217f2bc[k] == 4) {
-                    short* p = GetField150Ptr0x488_02052e2c((struct Field150Holder02052e2c*)c);
+                    short* p = func_02052e2c((struct Field150Holder02052e2c*)c);
                     p[0xb] = -1;
                     if (equipped[0] > 0) {
                         p[0xb] = equipped[0] % 1000 + 14000;
                     }
                 }
                 if (equipped[data_ov003_0217f2bc[k]] != -1) {
-                    struct Stats0215582c* s = GetFieldAt0x150_02053c6c((unsigned char*)c);
+                    struct Stats0215582c* s = func_02053c6c((unsigned char*)c);
                     func_02083738(s, kind);
                     s->equip[k].f0[0] = 0;
                     s->equip[k].f0[1] = 0;
@@ -296,12 +296,12 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
     }
 
     func_02083cbc(stats, self->f90, self->fcc);
-    switch (GetArrayEntryByIndex_02156034(self)) {
+    switch (func_ov003_02156034(self)) {
     case 2:
-        SetBitInArray0x910_02083b60((unsigned char*)stats, 0x1a);
+        func_02083b60((unsigned char*)stats, 0x1a);
         break;
     case 3:
-        SetBitInArray0x910_02083b60((unsigned char*)stats, 0);
+        func_02083b60((unsigned char*)stats, 0);
         break;
     }
 

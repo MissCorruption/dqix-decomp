@@ -108,22 +108,22 @@ extern "C" void func_ov023_021f6ed8(ObjBase021f6ed8* obj);
 extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" MenuNode_021fc518* func_ov023_021f6880(void* list, int tag);
 extern "C" HeapNode_021fc518* func_ov011_021845f8(void* ctx, int heap);
-void CopyInternalFields0207df50(Foo0207df50* p);
-void RestorePairTables0207df90(char* p);
-void BackupPairTables0207dfac(char* p);
-void InitTenAllocatorsAndClearFields_021e4e8c(void* model);
-void CreateTenAndOne_021e4f64(void* model, SafeAllocator* allocator);
-void InitBlockArray_021e4fd8(void* model);
-void SetIntC0C_021e6198(void* model, int value);
-void SetByteC11_021e6150(void* model, unsigned char value);
-void InitWordsQuad_021e60e0(void* model, unsigned int value);
+extern "C" void func_0207df50(Foo0207df50* p);
+extern "C" void func_0207df90(char* p);
+extern "C" void func_0207dfac(char* p);
+extern "C" void func_ov023_021e4e8c(void* model);
+extern "C" void func_ov023_021e4f64(void* model, SafeAllocator* allocator);
+extern "C" void func_ov023_021e4fd8(void* model);
+extern "C" void func_ov023_021e6198(void* model, int value);
+extern "C" void func_ov023_021e6150(void* model, unsigned char value);
+extern "C" void func_ov023_021e60e0(void* model, unsigned int value);
 extern "C" void func_ov023_021fc71c(void* obj, int id, int flagArg);
-char* GetFieldIfFlag4_020100f8(char* gameState);
-void SetVec3At0x4(Vec3Target0202e5c0* camera, int x, int y, int z);
-void SetFields0x10To0x18_0202e5c8(unsigned char* camera, int x, int y, int z);
-int GetField0x58_0202e9ec(void* camera);
-void SetAngleAndTrigTable0202e9a4(AngleTrig0202e9a4* camera, int angle);
-void SetField0x238False_020a27a0(void* camera);
+extern "C" char* func_020100f8(char* gameState);
+extern "C" void func_0202e5c0(Vec3Target0202e5c0* camera, int x, int y, int z);
+extern "C" void func_0202e5c8(unsigned char* camera, int x, int y, int z);
+extern "C" int func_0202e9ec(void* camera);
+extern "C" void func_0202e9a4(AngleTrig0202e9a4* camera, int angle);
+extern "C" void func_020a27a0(void* camera);
 
 // USA: func_ov023_021fc518
 extern "C" ARM int func_ov023_021fc518(MenuCharacter_021fc518* self, void* ctx, int id, int heap, int parentTag, int character) {
@@ -150,27 +150,27 @@ extern "C" ARM int func_ov023_021fc518(MenuCharacter_021fc518* self, void* ctx, 
 #else
     char* pairTables = GetGameResources()->unknown_2cc;
 #endif
-    CopyInternalFields0207df50((Foo0207df50*)pairTables);
-    RestorePairTables0207df90(pairTables);
+    func_0207df50((Foo0207df50*)pairTables);
+    func_0207df90(pairTables);
     for (int i = 0; i < 2; i++) {
-        InitTenAllocatorsAndClearFields_021e4e8c(&self->models_[i]);
-        CreateTenAndOne_021e4f64(&self->models_[i], &heapNode->allocator);
-        InitBlockArray_021e4fd8(&self->models_[i]);
-        SetIntC0C_021e6198(&self->models_[i], perspective);
-        SetByteC11_021e6150(&self->models_[i], 1);
+        func_ov023_021e4e8c(&self->models_[i]);
+        func_ov023_021e4f64(&self->models_[i], &heapNode->allocator);
+        func_ov023_021e4fd8(&self->models_[i]);
+        func_ov023_021e6198(&self->models_[i], perspective);
+        func_ov023_021e6150(&self->models_[i], 1);
     }
-    BackupPairTables0207dfac(pairTables);
+    func_0207dfac(pairTables);
 
-    InitWordsQuad_021e60e0(&self->models_[0], 0x1eb);
-    InitWordsQuad_021e60e0(&self->models_[1], 0x1eb);
+    func_ov023_021e60e0(&self->models_[0], 0x1eb);
+    func_ov023_021e60e0(&self->models_[1], 0x1eb);
     if (character >= 0)
         func_ov023_021fc71c(self, character, 0);
 
-    char* camera = GetFieldIfFlag4_020100f8((char*)GameState::GetInstance());
-    SetVec3At0x4((Vec3Target0202e5c0*)camera, 0xb666, 0xb800, 0x42ccc);
-    SetFields0x10To0x18_0202e5c8((unsigned char*)camera, 0xb666, 0xb800, 0);
-    self->perspective_ = GetField0x58_0202e9ec(camera);
-    SetAngleAndTrigTable0202e9a4((AngleTrig0202e9a4*)camera, 0xf000);
-    SetField0x238False_020a27a0(camera);
+    char* camera = func_020100f8((char*)GameState::GetInstance());
+    func_0202e5c0((Vec3Target0202e5c0*)camera, 0xb666, 0xb800, 0x42ccc);
+    func_0202e5c8((unsigned char*)camera, 0xb666, 0xb800, 0);
+    self->perspective_ = func_0202e9ec(camera);
+    func_0202e9a4((AngleTrig0202e9a4*)camera, 0xf000);
+    func_020a27a0(camera);
     return 1;
 }

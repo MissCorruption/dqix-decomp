@@ -48,20 +48,20 @@ struct Ptr2a04_0216aa28 {
 
 struct StoreStruct;
 
-const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendString02042058(char* dst, const char* src);
+extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
 #if defined(jpn)
-#define APPLY_MENU(a,b,c,d,e) TryApplyElemFields0205d5d0(a,b,c,d)
+#define APPLY_MENU(a,b,c,d,e) func_0205d5d0(a,b,c,d)
 #else
-#define APPLY_MENU(a,b,c,d,e) TryApplyElemFields0205d5d0(a,b,c,d,e)
+#define APPLY_MENU(a,b,c,d,e) func_0205d5d0(a,b,c,d,e)
 #endif
 extern "C" void func_ov003_02169a84(struct Menu0216aa28* menu, char* dst, int flag);
 extern "C" void func_ov003_02169d10(struct Menu0216aa28* menu, char* dst, int flag);
-struct StoreStruct* GetGlobalField0x1c020421a0();
+extern "C" struct StoreStruct* func_020421a0();
 extern "C" void func_02046380(struct StoreStruct* g);
-void StoreInArray0x8b0_020465c0(struct StoreStruct* base, int index, int value);
-void SetByteInRange_020465f0(unsigned char* base, int index, unsigned char value);
-void SetByteAtIndex_020465d8(unsigned char* base, int index, unsigned char value);
+extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
+extern "C" void func_020465f0(unsigned char* base, int index, unsigned char value);
+extern "C" void func_020465d8(unsigned char* base, int index, unsigned char value);
 
 static inline struct Grid0216aa28* GetGrid(void* list) { SDK_NULL_ASSERT(list); return ((struct GridList0216aa28*)list)->grids; }
 
@@ -107,17 +107,17 @@ extern "C" ARM void func_ov003_0216aa28(struct Menu0216aa28* menu) {
         return;
     }
     GameState* gs = GameState::GetInstance();
-    struct StoreStruct* g = GetGlobalField0x1c020421a0();
-    struct Ptr2a04_0216aa28* p = (struct Ptr2a04_0216aa28*)GetPtrField0x2a04_02010828(gs);
+    struct StoreStruct* g = func_020421a0();
+    struct Ptr2a04_0216aa28* p = (struct Ptr2a04_0216aa28*)func_02010828(gs);
     memset(menu->textBuf, 0, TEXT_BYTES);
 #if defined(jpn)
     func_02042428(menu->textBuf, 8);
 #endif
-    AppendString02042058(menu->textBuf, GetFieldByKey020e0434((struct Container020e0310*)menu->names, 0x65));
+    func_02042058(menu->textBuf, func_020e0434((struct Container020e0310*)menu->names, 0x65));
     func_02046380(g);
-    StoreInArray0x8b0_020465c0(g, 0, p->value);
-    SetByteInRange_020465f0((unsigned char*)g, 0, 7);
-    SetByteAtIndex_020465d8((unsigned char*)g, 0, 1);
+    func_020465c0(g, 0, p->value);
+    func_020465f0((unsigned char*)g, 0, 7);
+    func_020465d8((unsigned char*)g, 0, 1);
     APPLY_MENU((struct StructA0205d5d0*)&menu->list, 0, (int)menu->textBuf, 1, 0);
     menu->pendingReset = 0;
 }

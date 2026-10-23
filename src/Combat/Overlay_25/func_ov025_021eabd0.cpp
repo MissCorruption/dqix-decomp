@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-void* GetActiveCombatWork_ov000_02160130();
-void* GetSlotPtr02160f20(void* work);
+extern "C" void* func_ov000_02160130();
+extern "C" void* func_ov000_02160f20(void* work);
 struct List021600f8;
-void* GetNodeAtIndex021600f8(List021600f8*, int);
+extern "C" void* func_ov000_021600f8(List021600f8*, int);
 extern "C" short func_ov000_0215ffa0(void* node);
 extern "C" int func_ov025_021ed380(char* obj, unsigned short id, short val2, int type, int val3, short val4, unsigned short val5);
 
@@ -29,10 +29,10 @@ static inline int IsPartyIndex(short idx) {
 
 // USA: func_ov025_021eabd0
 extern "C" ARM void func_ov025_021eabd0(char* self, int party) {
-    Slot021eabd0* slot = (Slot021eabd0*)GetSlotPtr02160f20(GetActiveCombatWork_ov000_02160130());
+    Slot021eabd0* slot = (Slot021eabd0*)func_ov000_02160f20(func_ov000_02160130());
     int found = -1;
     for (int i = 0; i < slot->count; i++) {
-        void* node = GetNodeAtIndex021600f8((List021600f8*)slot, i);
+        void* node = func_ov000_021600f8((List021600f8*)slot, i);
         if (node == 0) continue;
         short idx = func_ov000_0215ffa0(node);
         if (party != 0) {

@@ -28,11 +28,11 @@ struct ScreenState02158bb8 {
 
 extern "C" void func_02074af4(ScreenState02158bb8* state);
 extern "C" void func_0204c684(void* canvas);
-void InitStruct0205a444(char* obj);
-void InitStruct0205cfd4(InitTarget0205cfd4* window);
-void ResetList0204af64(List0204af64* background);
-void ResetStruct020dfc40(Struct020dfc40* texts);
-void ClearStruct020a9ea4(Struct020a9ea4* p);
+extern "C" void func_0205a444(char* obj);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
+extern "C" void func_0204af64(List0204af64* background);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
+extern "C" void func_020a9ea4(Struct020a9ea4* p);
 
 struct Obj02158bb8 {
     SafeAllocator alloc0;
@@ -93,21 +93,21 @@ extern "C" ARM void func_ov003_02158bb8(Obj02158bb8* self)
     func_02074af4(&self->screenState);
     self->layers = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    InitStruct0205a444(self->field_0x98);
+    func_0205a444(self->field_0x98);
     self->entries = NULL;
     self->clearTarget = NULL;
     self->alloc3c.ResetAllocatorPointer();
     self->alloc28.ResetAllocatorPointer();
     self->alloc14.ResetAllocatorPointer();
     self->alloc0.ResetAllocatorPointer();
-    InitStruct0205cfd4((InitTarget0205cfd4*)self->window);
+    func_0205cfd4((InitTarget0205cfd4*)self->window);
     for (int i = 0; i < 2; i++) {
-        ResetList0204af64((List0204af64*)self->backgrounds[i]);
+        func_0204af64((List0204af64*)self->backgrounds[i]);
     }
     for (int i = 0; i < 4; i++) {
         func_0204c684(self->canvases[i]);
     }
-    ResetStruct020dfc40((Struct020dfc40*)self->texts);
+    func_020dfc40((Struct020dfc40*)self->texts);
     self->field_0x587 = 0;
     self->field_0x588 = 0;
     self->field_0x580 = 0;
@@ -140,6 +140,6 @@ extern "C" ARM void func_ov003_02158bb8(Obj02158bb8* self)
     self->field_0x5b2 = 1;
     self->field_0x5b3 = 0;
     self->field_0x5b4 = 0;
-    ClearStruct020a9ea4((Struct020a9ea4*)self->field_0x5b8);
+    func_020a9ea4((Struct020a9ea4*)self->field_0x5b8);
     self->field_0x598 = 0;
 }

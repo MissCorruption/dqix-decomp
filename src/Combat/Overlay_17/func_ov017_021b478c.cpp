@@ -7,16 +7,16 @@
 #include "World/GrottoTileGraph.h"
 
 extern "C" Zone3D* func_02012fe4(void);
-void* GetPtrField0x468_02011584(void* obj);
-int IsInRange0201b5b0(int id);
-void ClearHalfword0x18_0209bffc(void* obj);
-void ClearBuffer0209bc84(void* obj);
+extern "C" void* func_02011584(void* obj);
+extern "C" int func_0201b5b0(int id);
+extern "C" void func_0209bffc(void* obj);
+extern "C" void func_0209bc84(void* obj);
 struct ResetObject0209af34Struct;
-void ResetObject0209af34(struct ResetObject0209af34Struct* obj);
-void Clear12Bytes0206efc4(void* obj);
+extern "C" void func_0209af34(struct ResetObject0209af34Struct* obj);
+extern "C" void func_0206efc4(void* obj);
 struct ZeroWordAndByte0206ee60Struct;
-void ZeroWordAndByte0206ee60(struct ZeroWordAndByte0206ee60Struct* obj);
-void Clear12Bytes020a8e88(void* obj);
+extern "C" void func_0206ee60(struct ZeroWordAndByte0206ee60Struct* obj);
+extern "C" void func_020a8e88(void* obj);
 
 extern const char data_ov017_021d7afc[];
 extern const char data_ov017_021d7b06[];
@@ -31,7 +31,7 @@ struct MonsterEntry021b478c {
 };
 
 struct SearchTable;
-MonsterEntry021b478c* FindEntryByHalfwordKey_02099950(struct SearchTable* table, int key);
+extern "C" MonsterEntry021b478c* func_02099950(struct SearchTable* table, int key);
 
 struct Request021b478c {
     unsigned char pad0;
@@ -60,26 +60,26 @@ extern "C" ARM void func_ov017_021b478c(Request021b478c* request) {
 
     battle = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
-    table = (struct SearchTable*)GetPtrField0x468_02011584(battle);
+    table = (struct SearchTable*)func_02011584(battle);
     zone = func_02012fe4();
     grotto = &zone->grotto_;
     id = request->monster->zoneId;
-    entry = FindEntryByHalfwordKey_02099950(table, id);
+    entry = func_02099950(table, id);
 
     monster = (char*)request->monster;
-    ClearHalfword0x18_0209bffc(monster + regionalOffset1);
-    ClearBuffer0209bc84(monster + regionalOffset2);
-    ResetObject0209af34((struct ResetObject0209af34Struct*)(monster + regionalOffset3));
-    Clear12Bytes0206efc4(monster + regionalOffset4);
-    ZeroWordAndByte0206ee60((struct ZeroWordAndByte0206ee60Struct*)(monster + regionalOffset5));
-    Clear12Bytes020a8e88(monster + regionalOffset6);
+    func_0209bffc(monster + regionalOffset1);
+    func_0209bc84(monster + regionalOffset2);
+    func_0209af34((struct ResetObject0209af34Struct*)(monster + regionalOffset3));
+    func_0206efc4(monster + regionalOffset4);
+    func_0206ee60((struct ZeroWordAndByte0206ee60Struct*)(monster + regionalOffset5));
+    func_020a8e88(monster + regionalOffset6);
 
     if (request->monster->zoneId == 3 || request->monster->allocator->GetSignedAllocator() == NULL) {
         request->done = 1;
         return;
     }
 
-    if (!IsInRange0201b5b0(id)) {
+    if (!func_0201b5b0(id)) {
         char name[0x14];
         char path[0x50];
         if (strlen(entry->name) < 6) {
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_021b478c(Request021b478c* request) {
         return;
     }
 
-    if (IsInRange0201b5b0(id)) {
+    if (func_0201b5b0(id)) {
         int floor = id % 20;
         if (grotto->floorMap_.pMapData == NULL || zone->unknown_424_ != 0) {
             return;

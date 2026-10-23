@@ -4,24 +4,24 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-void ProcessCombatState020534ac(char* combatant);
-int GetIntField0x260_02039750(void* obj);
-int GetField0x3acValue_020100a8(GameState* gameState);
-int GetIndexedEntryField0x178_02053604(signed char* obj);
+extern "C" void func_020534ac(char* combatant);
+extern "C" int func_02039750(void* obj);
+extern "C" int func_020100a8(GameState* gameState);
+extern "C" int func_02053604(signed char* obj);
 
 struct Entry_02199684 { unsigned char pad[0x14]; int val; unsigned char pad2[0x20 - 0x18]; };
-void FillEntriesEncoded_02199684(Entry_02199684* arr, int count, int value);
-void ClearAndEncodeEntries_021996bc(Entry_02199684* arr, int count);
+extern "C" void func_ov017_02199684(Entry_02199684* arr, int count, int value);
+extern "C" void func_ov017_021996bc(Entry_02199684* arr, int count);
 
 struct Cont0205d1e0;
 struct Cont0205d228;
 struct Cont0205d274;
-void ClearBuffers0204b010OverList0x98(Cont0205d1e0*);
-void CallFunc0204c8f0OverList0x9c(Cont0205d228*);
-void CallFunc0204b04cOverList0x98(Cont0205d274*);
+extern "C" void func_0205d1e0(Cont0205d1e0*);
+extern "C" void func_0205d228(Cont0205d228*);
+extern "C" void func_0205d274(Cont0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
 struct Obj0205d2bc;
-void InitEntries0205d2bc(Obj0205d2bc*);
+extern "C" void func_0205d2bc(Obj0205d2bc*);
 
 struct Elem_0205d81c {
     char pad0[0xA8];
@@ -31,7 +31,7 @@ struct Elem_0205d81c {
     short y;
 };
 struct Struct_0205d81c;
-Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c* s, int key);
+extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c* s, int key);
 
 struct TileMap0204bc74;
 extern "C" void func_0204bc74(TileMap0204bc74* obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
@@ -44,9 +44,9 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* self) {
  enum {regionalOffset0=0x4080, regionalOffset1=0x4074, regionalOffset2=0x4078, regionalOffset3=0xb4, regionalOffset4=0x3c00, regionalOffset5=0xcb0};
 #endif
     for (int i = 0; i < 4; i++) {
-        GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), i);
+        GameObject* combatant = func_0200ff1c(GameState::GetInstance(), i);
         if (combatant != 0) {
-            ProcessCombatState020534ac((char*)combatant);
+            func_020534ac((char*)combatant);
         }
     }
 
@@ -58,21 +58,21 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* self) {
     }
 
     GameState* gs = GameState::GetInstance();
-    if (GetIntField0x260_02039750(gs->GetUnknownGameObject()) != -1) {
+    if (func_02039750(gs->GetUnknownGameObject()) != -1) {
         return;
     }
 
-    FillEntriesEncoded_02199684((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2, 0x800);
-    ClearBuffers0204b010OverList0x98(*(Cont0205d1e0**)(self + 0x3000 + regionalOffset5));
-    CallFunc0204c8f0OverList0x9c(*(Cont0205d228**)(self + 0x3000 + regionalOffset5));
+    func_ov017_02199684((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2, 0x800);
+    func_0205d1e0(*(Cont0205d1e0**)(self + 0x3000 + regionalOffset5));
+    func_0205d228(*(Cont0205d228**)(self + 0x3000 + regionalOffset5));
     func_0205da88(*(void**)(self + 0x3000 + regionalOffset5), 1, 2, 1);
 
     GameObject* protagonist = gs->GetProtagonist();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(gs, GetField0x3acValue_020100a8(gs));
+    GameObject* combatant = func_0200ff1c(gs, func_020100a8(gs));
     int found = 0;
     int key;
-    int mode = GetIntField0x260_02039750(protagonist);
-    int entry = GetIndexedEntryField0x178_02053604((signed char*)combatant);
+    int mode = func_02039750(protagonist);
+    int entry = func_02053604((signed char*)combatant);
     switch (mode) {
     case -1:
         break;
@@ -95,15 +95,15 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* self) {
     }
 
     if (found && entry >= 0) {
-        Elem_0205d81c* elem = FindElementByC40205d81c(*(Struct_0205d81c**)(self + 0x3000 + regionalOffset5), key);
+        Elem_0205d81c* elem = func_0205d81c(*(Struct_0205d81c**)(self + 0x3000 + regionalOffset5), key);
         if (elem != 0) {
             func_0204bc74((TileMap0204bc74*)(self + regionalOffset3 + regionalOffset4), 1, elem->x, elem->y, elem->w, elem->h, 0xf);
         }
     }
 
-    CallFunc0204b04cOverList0x98(*(Cont0205d274**)(self + 0x3000 + regionalOffset5));
+    func_0205d274(*(Cont0205d274**)(self + 0x3000 + regionalOffset5));
     if (TestFlags04((GameResources*)self, 0x10000) == 0) {
-        InitEntries0205d2bc(*(Obj0205d2bc**)(self + 0x3000 + regionalOffset5));
+        func_0205d2bc(*(Obj0205d2bc**)(self + 0x3000 + regionalOffset5));
     }
-    ClearAndEncodeEntries_021996bc((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2);
+    func_ov017_021996bc((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2);
 }

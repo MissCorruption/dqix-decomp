@@ -4,4 +4,4 @@ class Zone3D;
 
 
 
-void MaybeClearGrottoState0201bfd4(Zone3D* zone);
+extern "C" void func_0201bfd4(Zone3D* zone);

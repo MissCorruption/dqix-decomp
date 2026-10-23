@@ -86,17 +86,17 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" TableA68* func_ov023_021fa598(void*);
-void* GetGlobalField0x1c020421a0();
-void* FindEntryByKey_02072a68(TableA68*, int);
+extern "C" void* func_020421a0();
+extern "C" void* func_02072a68(TableA68*, int);
 extern "C" void func_02046608(void*, int, void*, char*, int, int, int);
-char* FindSubstring_020d2f88(char*, char*);
-void SetCellIfInBounds_021f9b30(Grid021f9b30*, short, unsigned int, unsigned int);
+extern "C" char* func_020d2f88(char*, char*);
+extern "C" void func_ov023_021f9b30(Grid021f9b30*, short, unsigned int, unsigned int);
 typedef void (*UnsignedGridCellSetter)(Grid021f9b30*, unsigned short, unsigned int, unsigned int);
 typedef void (*UnsignedOffsetSetter)(char*, unsigned short, unsigned short);
 extern "C" void func_ov023_021f9d14(Grid021f9b30*, void*);
-void SetOffset100Fields_021f8960(char*, short, unsigned short);
+extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" void func_ov023_021f809c(void*, void*);
-int NotifyByBitfield_021560e8(void*);
+extern "C" int func_ov004_021560e8(void*);
 
 // USA: func_ov004_021561b0
 extern "C" ARM int func_ov004_021561b0(void* object) {
@@ -124,15 +124,15 @@ extern "C" ARM int func_ov004_021561b0(void* object) {
         node->flags &= ~8;
         int index = i + pageStart;
         if (data_ov004_021707c8.keys[index] > 0) {
-            void* context = GetGlobalField0x1c020421a0();
+            void* context = func_020421a0();
             memset(buffers->scratch.bytes, 0, 0x100);
-            void* entry = FindEntryByKey_02072a68(table, data_ov004_021707c8.keys[index]);
+            void* entry = func_02072a68(table, data_ov004_021707c8.keys[index]);
             func_02046608(context, 0, entry, buffers->scratch.bytes, 0x60, 0, 0);
             Vector3fix position = node->getPosition();
             Vector3fix offset = node->getOffset();
             int y = (i / 2 * 20) << 12;
             padding = 0;
-            if (FindSubstring_020d2f88(buffers->scratch.bytes, data_ov004_02170398)) {
+            if (func_020d2f88(buffers->scratch.bytes, data_ov004_02170398)) {
                 y -= 0x5000;
                 padding = 0x5000;
             }
@@ -142,24 +142,24 @@ extern "C" ARM int func_ov004_021561b0(void* object) {
             node->setOffset(&offset);
             char* text = data_ov004_021707c8.buffers->pages[i].bytes;
             memcpy(text, buffers->scratch.bytes, 0x100);
-            ((UnsignedGridCellSetter)SetCellIfInBounds_021f9b30)(grid, (unsigned short)id, (unsigned short)(i >> 1), i & 1);
+            ((UnsignedGridCellSetter)func_ov023_021f9b30)(grid, (unsigned short)id, (unsigned short)(i >> 1), i & 1);
             node->text = text;
             count++;
         } else {
-            SetCellIfInBounds_021f9b30(grid, 0, (unsigned short)(i >> 1), i & 1);
+            func_ov023_021f9b30(grid, 0, (unsigned short)(i >> 1), i & 1);
             node->flags |= 8;
         }
     }
-    if (count == 0) SetCellIfInBounds_021f9b30(grid, 0x6e, 0, 0);
+    if (count == 0) func_ov023_021f9b30(grid, 0x6e, 0, 0);
     func_ov023_021f9d14(grid, object);
     grid->field_61 = 0;
     MenuNode021561b0* node = (MenuNode021561b0*)func_ov023_021f6880(base, 0x33);
     if (!node) return 0;
     if (func_ov023_021f6f10(node) != 6) return 0;
-    ((UnsignedOffsetSetter)SetOffset100Fields_021f8960)((char*)node, 0, 0xffff);
+    ((UnsignedOffsetSetter)func_ov023_021f8960)((char*)node, 0, 0xffff);
     node->page = page;
     node->column = column;
     func_ov023_021f809c(node, object);
-    NotifyByBitfield_021560e8(object);
+    func_ov004_021560e8(object);
     return 0;
 }

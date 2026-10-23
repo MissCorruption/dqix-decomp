@@ -50,17 +50,17 @@ struct MenuEntry_021716d0 {
     SpellData_021716d0* spells[1];
 };
 
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* text);
-int IsFlag0x18Bit0x200Set_ov000_02153a8c(GameObject* obj);
-int AdjustValueByFieldFlag_020dd290(void* obj, unsigned int value);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" void func_0203c108(struct Obj0203c108* obj, char* text);
+extern "C" int func_ov000_02153a8c(GameObject* obj);
+extern "C" int func_020dd290(void* obj, unsigned int value);
 extern "C" int func_ov000_02171210(void* a, void* b);
 extern "C" int* func_ov000_02170cf8(void* obj, int id);
 extern "C" void __clear(void* dst, int size);
 #if !defined(jpn)
 extern "C" void func_020e4864(int a, char* b, int c, int d, int e, int f);
 #endif
-void CopyTextAndUppercaseIfFlagged0206819c(const char* src, char* dst, int flag);
+extern "C" void func_0206819c(const char* src, char* dst, int flag);
 
 // USA: func_ov000_021716d0
 extern "C" ARM void func_ov000_021716d0(MenuEntry_021716d0* self) {
@@ -70,23 +70,23 @@ extern "C" ARM void func_ov000_021716d0(MenuEntry_021716d0* self) {
         state->depth++;
         state->stack[self->state.depth] = 0xe;
         state->field15 = 0;
-        SwapGlobalEntry0203c108((struct Obj0203c108*)self->message, (char*)GetFieldByKey020e0434(self->strings, 5));
+        func_0203c108((struct Obj0203c108*)self->message, (char*)func_020e0434(self->strings, 5));
         return;
     }
 
     GameState* gs = GameState::GetInstance();
-    GameObject* actor = GetCombatantWithFlag0x100_0200ff1c(gs, self->memberIndex);
+    GameObject* actor = func_0200ff1c(gs, self->memberIndex);
     int cost = self->spells[sel]->mpCost;
     int have = self->state.mp;
-    if (actor != NULL && IsFlag0x18Bit0x200Set_ov000_02153a8c(actor)) {
+    if (actor != NULL && func_ov000_02153a8c(actor)) {
         cost = 0;
     } else if (self->spells[sel]->mpCost >= 0xff) {
         cost = 1;
     } else {
-        cost = AdjustValueByFieldFlag_020dd290(actor, cost);
+        cost = func_020dd290(actor, cost);
     }
     if (self->spells[sel]->kind == 6) {
-        PartyInfo_021716d0* party = (PartyInfo_021716d0*)GetPtrField0x2a04_02010828(gs);
+        PartyInfo_021716d0* party = (PartyInfo_021716d0*)func_02010828(gs);
         have = party->gold;
         cost = self->spells[sel]->goldCost;
     }
@@ -103,14 +103,14 @@ extern "C" ARM void func_ov000_021716d0(MenuEntry_021716d0* self) {
     if (entry == NULL) return;
 
 #if defined(jpn)
-    SwapGlobalEntry0203c108((struct Obj0203c108*)self->message, (char*)*entry);
+    func_0203c108((struct Obj0203c108*)self->message, (char*)*entry);
 #else
     char text[0x80];
     __clear(text, 0x80);
     char upper[0x80];
     __clear(upper, 0x80);
     func_020e4864(*entry, text, 1, 0, 0, 0);
-    CopyTextAndUppercaseIfFlagged0206819c(text, upper, 0);
-    SwapGlobalEntry0203c108((struct Obj0203c108*)self->message, upper);
+    func_0206819c(text, upper, 0);
+    func_0203c108((struct Obj0203c108*)self->message, upper);
 #endif
 }

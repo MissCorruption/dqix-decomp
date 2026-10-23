@@ -171,66 +171,66 @@ struct Obj02176134;
 struct Obj02176150;
 
 extern "C" void* func_0202ae18(void);
-struct Obj0203a588* GetData02104b6c_02039e70(void);
-int GetField02163524(void* obj);
-void* SearchBothTables02079e2c(char* p, int key);
-unsigned char GetByte_021dcc64_021dcc64(void* obj);
-ListNode021600f8* GetNodeAtIndex021600f8(List021600f8* list, int index);
-void AppendRow_021dcc70(char* obj, char* src);
-void AppendSlotEntry_021dcde8(unsigned char* obj, struct FiveWordsAndByte_021dcd28* src);
-ListNode02160094* GetNodeAtIndex02160094(List02160094* list, int index);
-struct ListNode0215feb4* GetNodeAtIndex0215feb4(char* base, int threshold, int slot);
+extern "C" struct Obj0203a588* func_02039e70(void);
+extern "C" int func_ov000_02163524(void* obj);
+extern "C" void* func_02079e2c(char* p, int key);
+extern "C" unsigned char func_ov025_021dcc64(void* obj);
+extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
+extern "C" void func_ov025_021dcc70(char* obj, char* src);
+extern "C" void func_ov025_021dcde8(unsigned char* obj, struct FiveWordsAndByte_021dcd28* src);
+extern "C" ListNode02160094* func_ov000_02160094(List02160094* list, int index);
+extern "C" struct ListNode0215feb4* func_ov000_0215feb4(char* base, int threshold, int slot);
 extern "C" int func_ov000_0215ffa0(void* node);
-void* FindNodeAtDepth0215fff4(void* obj, int limit, int idx);
-void SetOrInitField_02182498(void* objRaw, int flag);
+extern "C" void* func_ov000_0215fff4(void* obj, int limit, int idx);
+extern "C" void func_ov000_02182498(void* objRaw, int flag);
 extern "C" int strcmp(const char* a, const char* b);
 extern "C" void func_ov025_021eaf48(unsigned char* obj, int idx, int category, int entry);
 extern "C" void func_ov025_021ea604(unsigned char* obj, int idx, int category, int entry);
 extern "C" void func_ov000_02162dc4(unsigned char* sl, GameObject* lead, GameObject* actor, unsigned int flags,
                                     int b1d, int b1e, unsigned long long mask, int zero);
-void ClearSubstructFlag0x4_02049ae4(unsigned char* obj);
-void SetPosAndFields0216f1e4(void* obj, int* srcVec3, int a, int b);
-void StoreFields0x1e4And0x1e8IfNonZero_0202ea10(unsigned char* obj, int a, int b);
-void SetShortTriple0x6e44_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
-void Forward0205ec20(void* obj, void* target, int arg);
-void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* battleStruct, int combatantId);
+extern "C" void func_02049ae4(unsigned char* obj);
+extern "C" void func_ov000_0216f1e4(void* obj, int* srcVec3, int a, int b);
+extern "C" void func_0202ea10(unsigned char* obj, int a, int b);
+extern "C" void func_ov000_02163440(void* obj, short a, unsigned short b, unsigned short c);
+extern "C" void func_0205ec20(void* obj, void* target, int arg);
+extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" GameObject* func_0200fea4(GameState* battleStruct, int combatantId);
 extern "C" int func_ov025_021ed444(char* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
 extern "C" int func_ov025_021ed380(char* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
 extern "C" void* func_02057924(void);
-void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void* list, int id, void* config);
-int TestBit0At0x2f4_02085078(unsigned char* obj);
-int TestBit1At0x2f4_020850a4(unsigned char* obj);
+extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" void func_02057fb4(void* list, int id, void* config);
+extern "C" int func_02085078(unsigned char* obj);
+extern "C" int func_020850a4(unsigned char* obj);
 extern "C" int func_ov000_0215fd90(void* entry, int effect);
-void SetFields0xbaAnd0xbc_02032fd0(ShortPair0xba0xbc* obj, short a, unsigned short b);
-void* GetActiveCombatWork_ov000_02160130(void);
-void* GetOffsetPtr02160f08(void* obj);
-void* FindEntryById_021dafd0(char* obj, int id);
+extern "C" void func_02032fd0(ShortPair0xba0xbc* obj, short a, unsigned short b);
+extern "C" void* func_ov000_02160130(void);
+extern "C" void* func_ov000_02160f08(void* obj);
+extern "C" void* func_ov025_021dafd0(char* obj, int id);
 extern "C" void func_ov000_0217616c(void* p);
-void SetSubstructWord0x68_0204a00c(unsigned char* obj, int value);
-void QueuePopupEntry0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
-void SetSubstructByte0x56_02049f28(unsigned char* obj);
-void CopyObjectFields02048588(unsigned char* self, unsigned char* dst);
-void AllocateSlotAndConfigureField02166784(struct Struct5e00* obj1, unsigned char* obj2, unsigned char* obj3);
+extern "C" void func_0204a00c(unsigned char* obj, int value);
+extern "C" void func_0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
+extern "C" void func_02049f28(unsigned char* obj);
+extern "C" void func_02048588(unsigned char* self, unsigned char* dst);
+extern "C" void func_ov000_02166784(struct Struct5e00* obj1, unsigned char* obj2, unsigned char* obj3);
 extern "C" void func_ov000_021677fc(void* p);
-int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
-int GetSubstructByte0x56_02049ee8(unsigned char* obj);
-void ResetCombatantSlot020d7334(unsigned char* base, int index);
-void ClearSubstructByte0x56_02049f3c(unsigned char* obj);
-void ClearBitIfValueFound02167434(unsigned char* obj, int value);
+extern "C" int func_02033b88(struct Bytes02033b88* p, int val);
+extern "C" int func_02049ee8(unsigned char* obj);
+extern "C" void func_020d7334(unsigned char* base, int index);
+extern "C" void func_02049f3c(unsigned char* obj);
+extern "C" void func_ov000_02167434(unsigned char* obj, int value);
 extern "C" void func_ov017_02191aac(char* obj, int mode, int idx, unsigned char mask);
 extern "C" void func_02054028(void* obj, int n);
-int GetWord0x0_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* obj);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
-void DispatchIfField0xc4NonNeg_0205ebfc(void* obj, int a, int b);
+extern "C" void func_0205ebfc(void* obj, int a, int b);
 extern "C" void func_ov000_021823dc(unsigned char* obj, int val);
-int IsCombatantStateSpecial02163c0c(void* unused, int id);
+extern "C" int func_ov000_02163c0c(void* unused, int id);
 extern "C" void* __clear(void* dst, int count);
-void SetShortField0xC02176134(struct Obj02176134* obj, short val);
-void SetShortField0xE02176150(struct Obj02176150* obj, short val);
-void SetByteField37_0216ff20(char* obj, unsigned char val);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" void func_ov000_02176134(struct Obj02176134* obj, short val);
+extern "C" void func_ov000_02176150(struct Obj02176150* obj, short val);
+extern "C" void func_ov000_0216ff20(char* obj, unsigned char val);
+extern "C" int func_020100a8(GameState* battleStruct);
 extern "C" void func_ov017_021c9d2c(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8);
 
 extern struct Obj0205eaa0 data_02108760;
@@ -327,10 +327,10 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
     battle = GameState::GetInstance();
     ov17 = (char*)GetGameResources();
     func_0202ae18();
-    camera = (unsigned char*)GetField0x3b0Value_020100bc(battle);
-    popups = (struct Obj0203a48c*)GetData02104b6c_02039e70();
-    slotBase = GetField02163524(sl);
-    entry = (struct TableEntry_021d8c30*)SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), *(short*)sb);
+    camera = (unsigned char*)func_020100bc(battle);
+    popups = (struct Obj0203a48c*)func_02039e70();
+    slotBase = func_ov000_02163524(sl);
+    entry = (struct TableEntry_021d8c30*)func_02079e2c((char*)func_020797dc(), *(short*)sb);
     entryIsKind2 = 0;
     if (entry != 0 && entry->kind18 == 2) {
         entryIsKind2 = 1;
@@ -349,8 +349,8 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
     int quiet;
 
     if (flag == 0) {
-        if (GetByte_021dcc64_021dcc64(sl) != 0) {
-            ListNode021600f8* node = GetNodeAtIndex021600f8((List021600f8*)sb, idx);
+        if (func_ov025_021dcc64(sl) != 0) {
+            ListNode021600f8* node = func_ov000_021600f8((List021600f8*)sb, idx);
             struct RowEntry_021d8c30 tmp;
             if (node) {
                 tmp.s18 = node->ids[1];
@@ -362,7 +362,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             tmp.w3 = idx;
             tmp.w4 = inner;
             tmp.b = 1;
-            AppendRow_021dcc70((char*)sl, (char*)&tmp);
+            func_ov025_021dcc70((char*)sl, (char*)&tmp);
             return 0;
         }
         int queued = sl[Field6efe];
@@ -374,47 +374,47 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             tmp2.w3 = idx;
             tmp2.w4 = inner;
             tmp2.b = 1;
-            AppendSlotEntry_021dcde8(sl, (struct FiveWordsAndByte_021dcd28*)&tmp2);
+            func_ov025_021dcde8(sl, (struct FiveWordsAndByte_021dcd28*)&tmp2);
             return result;
         }
     }
 
     fromRow = 0;
     if (kind == 0) {
-        ListNode02160094* node = GetNodeAtIndex02160094((List02160094*)sb, idx);
+        ListNode02160094* node = func_ov000_02160094((List02160094*)sb, idx);
         if (node) {
             id = node->combatantId;
             if (category == 0) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 0);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 0);
             } else if (category == 1) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 2);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 2);
             } else if (category == 2) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 3);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 3);
             } else if (category == 3) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 5);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 5);
             } else if (category == 4) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 4);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 4);
             } else if (category == 5) {
-                result = (int)GetNodeAtIndex0215feb4((char*)node, inner, 1);
+                result = (int)func_ov000_0215feb4((char*)node, inner, 1);
             }
         }
     } else if ((unsigned int)(kind - 1) <= 2) {
-        ListNode021600f8* node = GetNodeAtIndex021600f8((List021600f8*)sb, idx);
+        ListNode021600f8* node = func_ov000_021600f8((List021600f8*)sb, idx);
         if (node) {
             row = node;
             id = func_ov000_0215ffa0(node);
             if (category == 0) {
-                result = (int)FindNodeAtDepth0215fff4(node, inner, 0);
+                result = (int)func_ov000_0215fff4(node, inner, 0);
             } else if (category == 1) {
-                result = (int)FindNodeAtDepth0215fff4(node, inner, 1);
+                result = (int)func_ov000_0215fff4(node, inner, 1);
             } else if (category == 2) {
-                result = (int)FindNodeAtDepth0215fff4(node, inner, 2);
+                result = (int)func_ov000_0215fff4(node, inner, 2);
             }
             fromRow = 1;
         }
     }
     if (sb->needsInit) {
-        SetOrInitField_02182498(sl + PendingState, 1);
+        func_ov000_02182498(sl + PendingState, 1);
     }
 
     GameObject* actor = battle->GetCombatantByIndex(id);
@@ -431,7 +431,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         savedAnimTime = actor->obj3D_.GetCurrentAnimationTime();
     }
 
-    first = GetNodeAtIndex02160094((List02160094*)sb, 0);
+    first = func_ov000_02160094((List02160094*)sb, 0);
     leadId = -1;
     leadObj = 0;
     leadNode = 0;
@@ -464,7 +464,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         func_ov000_02162dc4(sl, leadObj, actor, target->flags18, target->b1d, target->b1e, target->mask, 0);
     }
     if (actor) {
-        ClearSubstructFlag0x4_02049ae4((unsigned char*)actor);
+        func_02049ae4((unsigned char*)actor);
     }
 
     cleared = 0;
@@ -487,15 +487,15 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 fix32_t q = fix32_Divide(0x6000, pos.z);
                 pos.y = FIX32_MULTIPLY(pos.y, q);
                 pos.z = 0x7000;
-                SetPosAndFields0216f1e4(sl + CameraBase, &pos.x, 0xb33, 0);
-                StoreFields0x1e4And0x1e8IfNonZero_0202ea10(sl + CameraBase, 0xcc, 0x3e8);
+                func_ov000_0216f1e4(sl + CameraBase, &pos.x, 0xb33, 0);
+                func_0202ea10(sl + CameraBase, 0xcc, 0x3e8);
                 if (kind != 2) {
-                    SetShortTriple0x6e44_ov000_02163440(sl, 0x199, 0x258, 0x32);
+                    func_ov000_02163440(sl, 0x199, 0x258, 0x32);
                 }
                 if (sl[Field6fd8]) {
-                    Forward0205ec20(&data_02108760, 0, 0);
+                    func_0205ec20(&data_02108760, 0, 0);
                 }
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x44, 0);
+                func_0205eaa0(&data_02108760, 0x44, 0);
                 skipSe = 1;
                 sfx = -1;
                 if (!slotObj->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3d5, 9)) {
@@ -503,7 +503,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 }
                 animSaved = 0;
                 if (!IsPartyMember(slotId)) {
-                    GameObject* f = GetCombatantWithFlag0x400_0200fea4(battle, slotId);
+                    GameObject* f = func_0200fea4(battle, slotId);
                     if (f && f->obj3D_.unknown_2_ == 0xf4) {
                         animObj = slotObj;
                         didAnim = 1;
@@ -529,7 +529,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 if (critical) soundId = 0x20;
                 void* list = func_02057924();
                 struct InitStruct02078484Struct req;
-                InitStruct02078484(&req);
+                func_02078484(&req);
                 Vector3fix off;
                 Vector3fix pos = slotObj->obj3D_.position_;
                 off.x = 0;
@@ -537,7 +537,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 off.z = slotObj->obj3D_.GetRadius() >> 1;
                 req.offset = off;
                 req.objectId = slotObj->obj3D_.unknown_4_;
-                FindNodeAndProcess02057fb4(list, soundId, &req);
+                func_02057fb4(list, soundId, &req);
                 int text;
                 if (critical) {
                     text = IsPartyMember(slotId) ? 0x28 : 0x29;
@@ -550,9 +550,9 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 if (row->codes[2] == 1 || row->codes[2] == 2) continue;
                 alt = 0;
                 if (leadNode && IsPartyIndex(leadNode->combatantId)) {
-                    GameObject* lead = GetCombatantWithFlag0x100_0200ff1c(battle, leadNode->combatantId);
-                    if (lead && (TestBit0At0x2f4_02085078(*(unsigned char**)((unsigned char*)lead + CombatantSubobject)) ||
-                                 TestBit1At0x2f4_020850a4(*(unsigned char**)((unsigned char*)lead + CombatantSubobject)))) {
+                    GameObject* lead = func_0200ff1c(battle, leadNode->combatantId);
+                    if (lead && (func_02085078(*(unsigned char**)((unsigned char*)lead + CombatantSubobject)) ||
+                                 func_020850a4(*(unsigned char**)((unsigned char*)lead + CombatantSubobject)))) {
                         if (entry && entry->kind14 != 2) alt = 1;
                     }
                 }
@@ -576,9 +576,9 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             } else if (row->codes[i] == 4 || row->codes[i] == 5) {
                 if (sl[Field7744] == slotId) continue;
                 if (sl[Field6fd8]) {
-                    Forward0205ec20(&data_02108760, 0, 0);
+                    func_0205ec20(&data_02108760, 0, 0);
                 }
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x44, 0);
+                func_0205eaa0(&data_02108760, 0x44, 0);
                 func_ov025_021ed444((char*)(sl + MessageQueue), 0x142, slotId, 0, 0, -1, 0);
                 sl[Field7744] = slotId;
                 if (IsPartyMember(slotId)) {
@@ -586,7 +586,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                     didAnim = 1;
                     soundId = 0x23;
                 } else {
-                    GameObject* f = GetCombatantWithFlag0x400_0200fea4(battle, slotId);
+                    GameObject* f = func_0200fea4(battle, slotId);
                     if (f && (f->obj3D_.unknown_2_ == 0x3c || f->obj3D_.unknown_2_ == 0x3d)) {
                         slotObj->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3e8, 0x19);
                     }
@@ -602,7 +602,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         if (soundId == 0x22 || soundId == 0x1a || soundId == 0x21 || soundId == 0x23) {
             void* list = func_02057924();
             struct InitStruct02078484Struct req;
-            InitStruct02078484(&req);
+            func_02078484(&req);
             Vector3fix off;
             off.x = 0;
             off.y = animObj->obj3D_.position_.y + (animObj->obj3D_.GetHeight() >> 1);
@@ -615,7 +615,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             }
             if (soundId == 0x21 || soundId == 0x23) off.z = 0xb33;
             req.offset = off;
-            FindNodeAndProcess02057fb4(list, soundId, &req);
+            func_02057fb4(list, soundId, &req);
         }
         if (sb->pendingA) {
             func_ov025_021ed444((char*)(sl + MessageQueue), sb->pendingA, -1, 0, 0, -1, 0);
@@ -680,7 +680,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             didAnim = 1;
             soundId = 0x19;
             flags |= 3;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 0x3b, 0);
+            func_0205eaa0(&data_02108760, 0x3b, 0);
         }
     } else if (func_ov000_0215fd90(target, 9) || func_ov000_0215fd90(target, 0xa)) {
         if (func_ov000_0215fd90(target, 9)) {
@@ -701,32 +701,32 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 hr = hr->next;
             }
             if (total == 0) {
-                SetFields0xbaAnd0xbc_02032fd0((struct ShortPair0xba0xbc*)actor, 0x800, 0x1f4);
+                func_02032fd0((struct ShortPair0xba0xbc*)actor, 0x800, 0x1f4);
             }
         }
-        DispatchWithShortB4_0205eaa0(&data_02108760, 0x3a, 0);
+        func_0205eaa0(&data_02108760, 0x3a, 0);
     } else if (func_ov000_0215fd90(target, 6)) {
         if (sb->type != 0x1df) {
             didAnim = 1;
             soundId = 0x1c;
         }
-        DispatchWithShortB4_0205eaa0(&data_02108760, 0x39, 0);
+        func_0205eaa0(&data_02108760, 0x39, 0);
         actor->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3ef, 0x10);
         animSaved = 0;
         hadTarget = 1;
     } else if (func_ov000_0215fd90(target, 4) || func_ov000_0215fd90(target, 5) || func_ov000_0215fd90(target, 0x26)) {
         if (!func_ov000_0215fd90(target, 0xd)) {
             if (IsPartyMember(id)) {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x36, 0);
+                func_0205eaa0(&data_02108760, 0x36, 0);
             } else {
-                DispatchWithShortB4_0205eaa0(&data_02108760, 0x37, 0);
+                func_0205eaa0(&data_02108760, 0x37, 0);
             }
             if (func_ov000_0215fd90(target, 5)) {
                 if (!animSaved) {
                     actor->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3d0, 1);
                 }
             } else {
-                SetFields0xbaAnd0xbc_02032fd0((struct ShortPair0xba0xbc*)actor, 0xcc, 0x12c);
+                func_02032fd0((struct ShortPair0xba0xbc*)actor, 0xcc, 0x12c);
             }
         }
     }
@@ -735,20 +735,20 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         actor->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3f5, 1);
     }
 
-    work = GetActiveCombatWork_ov000_02160130();
+    work = func_ov000_02160130();
     void* off = 0;
     void* hud = 0;
-    if (work) off = GetOffsetPtr02160f08(work);
-    if (off) hud = FindEntryById_021dafd0((char*)off, id);
+    if (work) off = func_ov000_02160f08(work);
+    if (off) hud = func_ov025_021dafd0((char*)off, id);
     if (func_ov000_0215fd90(target, 0x2d) && hud) {
         *(unsigned int*)((unsigned char*)hud + 0x28) &= ~0x100;
         func_ov000_0217616c(hud);
     }
     if (func_ov000_0215fd90(target, 0x27)) {
-        SetSubstructWord0x68_0204a00c((unsigned char*)actor, (int)target);
+        func_0204a00c((unsigned char*)actor, (int)target);
     }
     if ((target->flags18 & 0x80000) && target->b1d == 0xa) {
-        SetSubstructWord0x68_0204a00c((unsigned char*)actor, (int)target);
+        func_0204a00c((unsigned char*)actor, (int)target);
     }
     if (func_ov000_0215fd90(target, 0x23) || func_ov000_0215fd90(target, 7)) {
         int popupId = 0;
@@ -763,11 +763,11 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         }
         Vector3fix pos = actor->obj3D_.position_;
         pos.y += actor->obj3D_.GetHeight();
-        QueuePopupEntry0203a48c(popups, popupId, (Vec3Int0203a48c*)&pos, 4, 0, 0);
+        func_0203a48c(popups, popupId, (Vec3Int0203a48c*)&pos, 4, 0, 0);
     }
 
     if (func_ov000_0215fd90(target, 3)) {
-        SetSubstructByte0x56_02049f28((unsigned char*)actor);
+        func_02049f28((unsigned char*)actor);
         actor->obj3D_.MakeVisible();
         actor->obj3D_.SetInheritedAlpha(0x1f);
         if (actor->obj3D_.unknown_0_ & 0x100) {
@@ -783,37 +783,37 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             }
             if (found) {
                 if (actor->obj3D_.pModel_ == 0) {
-                    CopyObjectFields02048588(found, (unsigned char*)actor);
+                    func_02048588(found, (unsigned char*)actor);
                 }
-                AllocateSlotAndConfigureField02166784((struct Struct5e00*)sl, found, (unsigned char*)actor);
+                func_ov000_02166784((struct Struct5e00*)sl, found, (unsigned char*)actor);
                 func_ov000_021677fc(sl);
             }
         }
-        SetByte0xbeShiftPrev((struct Bytes02033b88*)actor, 0);
+        func_02033b88((struct Bytes02033b88*)actor, 0);
         actor->obj3D_.SkipAnimationTransition();
     } else if (func_ov000_0215fd90(target, 0xd)) {
-        if (GetSubstructByte0x56_02049ee8((unsigned char*)actor)) {
-            SetByte0xbeShiftPrev((struct Bytes02033b88*)actor, 4);
+        if (func_02049ee8((unsigned char*)actor)) {
+            func_02033b88((struct Bytes02033b88*)actor, 4);
         }
-        ResetCombatantSlot020d7334((unsigned char*)slotBase, id);
-        ClearSubstructByte0x56_02049f3c((unsigned char*)actor);
-        ClearBitIfValueFound02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
+        func_020d7334((unsigned char*)slotBase, id);
+        func_02049f3c((unsigned char*)actor);
+        func_ov000_02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
         func_ov017_02191aac(ov17, 0, id, 2);
         func_ov017_02191aac(ov17, 0, id, 4);
         if (!entryIsKind2 && kind != 0) {
             LightingManager::GetInstance()->BeginFade(0x800, 0x12c);
-            SetShortTriple0x6e44_ov000_02163440(sl, 0x199, 0x258, 0x96);
+            func_ov000_02163440(sl, 0x199, 0x258, 0x96);
             didAnim = 1;
             soundId = 0x1b;
             flags |= 1;
-            DispatchWithShortB4_0205eaa0(&data_02108760, 0x42, 0);
+            func_0205eaa0(&data_02108760, 0x42, 0);
         }
         cleared = 1;
     } else if (func_ov000_0215fd90(target, 0x24)) {
         actor->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3fc, 0);
         actor->obj3D_.TransitionInheritedAlpha(0, 0x1f4);
-        ClearBitIfValueFound02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
-        DispatchWithShortB4_0205eaa0(&data_02108760, 9, 0);
+        func_ov000_02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
+        func_0205eaa0(&data_02108760, 9, 0);
     }
 
     if (hadTarget) {
@@ -822,12 +822,12 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             LightingManager::GetInstance()->BeginFade(0x800, 0x12c);
             Vector3fix pos = *(Vector3fix*)(sl + CameraPosition);
             pos.z = FIX32_MULTIPLY(pos.z, 0xe66);
-            SetPosAndFields0216f1e4(sl + CameraBase, &pos.x, 0xccc, 0);
-            StoreFields0x1e4And0x1e8IfNonZero_0202ea10(sl + CameraBase, 0xcc, 0x3e8);
+            func_ov000_0216f1e4(sl + CameraBase, &pos.x, 0xccc, 0);
+            func_0202ea10(sl + CameraBase, 0xcc, 0x3e8);
         }
-        if (!((unsigned char*)GetField0x3b0Value_020100bc(battle) == sl + CameraBase && sl[ModeByte] == 2) &&
+        if (!((unsigned char*)func_020100bc(battle) == sl + CameraBase && sl[ModeByte] == 2) &&
             *(int*)(sl + Field4d0) == 0) {
-            SetShortTriple0x6e44_ov000_02163440(sl, 0x199, 0x2bc, 0x96);
+            func_ov000_02163440(sl, 0x199, 0x2bc, 0x96);
         }
     }
 
@@ -854,17 +854,17 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
     if (func_ov000_0215fd90(target, 1) && !func_ov000_0215fd90(target, 0x29)) {
         amount = target->amount;
         if (func_ov000_0215fd90(target, 2)) {
-            SetByte0xbeShiftPrev((struct Bytes02033b88*)actor, 4);
-            ResetCombatantSlot020d7334((unsigned char*)slotBase, id);
-            ClearSubstructByte0x56_02049f3c((unsigned char*)actor);
-            ClearBitIfValueFound02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
+            func_02033b88((struct Bytes02033b88*)actor, 4);
+            func_020d7334((unsigned char*)slotBase, id);
+            func_02049f3c((unsigned char*)actor);
+            func_ov000_02167434(sl, actor->obj3D_.GetTexturePaletteOffset());
             func_ov017_02191aac(ov17, 0, id, 2);
             func_ov017_02191aac(ov17, 0, id, 4);
             cleared = 1;
         } else {
             GameState* gs = GameState::GetInstance();
             if (actor->obj3D_.unknown_0_ & 0x400) {
-                GameObject* f = GetCombatantWithFlag0x400_0200fea4(gs, actor->obj3D_.unknown_4_);
+                GameObject* f = func_0200fea4(gs, actor->obj3D_.unknown_4_);
                 unsigned char* info;
                 if (f && (info = *(unsigned char**)((unsigned char*)f + 0x144)) != 0) {
                     short k = *(short*)(info + 8);
@@ -878,7 +878,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             }
         skipFlash:
             if (((struct Nibbles_021d8c30*)((unsigned char*)actor + 0xc1))->hi != 1 && !animSaved &&
-                GetSubstructByte0x56_02049ee8((unsigned char*)actor)) {
+                func_02049ee8((unsigned char*)actor)) {
                 actor->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef3f5, 9);
             }
         }
@@ -888,7 +888,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         tough = played;
         party = IsPartyMember(id);
         if (!party) {
-            GameObject* f = GetCombatantWithFlag0x400_0200fea4(battle, id);
+            GameObject* f = func_0200fea4(battle, id);
             struct MonsterInfo_021d8c30* m;
             if (f && (m = *(struct MonsterInfo_021d8c30**)((unsigned char*)f + 0x148)) != 0) {
                 deadly = m->bit28;
@@ -897,11 +897,11 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             if (deadly) {
                 if (cleared) {
                     sfx = 0x25;
-                    GameResources* res = (GameResources*)GetWord0x0_0200fb8c((int*)battle);
+                    GameResources* res = (GameResources*)func_0200fb8c((int*)battle);
                     if (res) {
                         SetMainBrightness(res, 0x10, 0);
                         SetMainBrightness(res, 0, 0x1e);
-                        SetShortTriple0x6e44_ov000_02163440(sl, 0x199, 0x3e8, 0x96);
+                        func_ov000_02163440(sl, 0x199, 0x3e8, 0x96);
                     }
                 } else if (sfx >= 0) {
                     sfx = 0x24;
@@ -936,7 +936,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             }
             if (!skipSe) {
                 if (!quiet) {
-                    DispatchWithShortB4_0205eaa0(&data_02108760, sfx, 0);
+                    func_0205eaa0(&data_02108760, sfx, 0);
                 }
                 played = 1;
             }
@@ -944,22 +944,22 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         if (!played && (textKind == 1 || textKind == 2)) {
             int se = 0x26;
             if (textKind == 2) se = 0x27;
-            DispatchWithShortB4_0205eaa0(&data_02108760, se, 0);
+            func_0205eaa0(&data_02108760, se, 0);
         } else if (*(short*)(sl + Field4ca) >= 0 && !keepDefault) {
-            DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field4ca), 0);
+            func_0205ebfc(&data_02108760, *(short*)(sl + Field4ca), 0);
         }
         if (msg->duration) {
             if (!quiet) {
-                StoreFields0x1e4And0x1e8IfNonZero_0202ea10(camera, msg->strength, msg->duration);
+                func_0202ea10(camera, msg->strength, msg->duration);
             }
         } else if (target->show) {
-            StoreFields0x1e4And0x1e8IfNonZero_0202ea10(camera, 0x333, 0x1f4);
+            func_0202ea10(camera, 0x333, 0x1f4);
         }
         Vector3fix pos = actor->obj3D_.position_;
         pos.y += actor->obj3D_.GetHeight();
         int big = 0;
         if (func_ov000_0215fd90(target, 0x2a)) big = 1;
-        QueuePopupEntry0203a48c(popups, amount, (Vec3Int0203a48c*)&pos, big, PopupDelay(inner), PopupColor(inner));
+        func_0203a48c(popups, amount, (Vec3Int0203a48c*)&pos, big, PopupDelay(inner), PopupColor(inner));
         if (!sb->queued && sl[Field6e4e] != 4) {
             func_ov000_021823dc(sl + PendingState, sb->group);
             sb->queued = 1;
@@ -973,17 +973,17 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
         negAmount = -target->amount;
         Vector3fix pos = actor->obj3D_.position_;
         if (kind == 0) {
-            DispatchWithShortB4_0205eaa0(&data_02108760, 0x65, 0);
+            func_0205eaa0(&data_02108760, 0x65, 0);
         }
         pos.y += actor->obj3D_.GetHeight();
-        QueuePopupEntry0203a48c(popups, negAmount, (Vec3Int0203a48c*)&pos, style, 0, 0);
+        func_0203a48c(popups, negAmount, (Vec3Int0203a48c*)&pos, style, 0, 0);
     }
 
     if (didAnim && leadObj && soundId > 0) {
         if (target->mask == 1 && kind == 2 && actor == leadObj) flags |= 1;
         list = func_02057924();
         struct InitStruct02078484Struct req;
-        InitStruct02078484(&req);
+        func_02078484(&req);
         if (kind == 3) {
             for (int j = 1; j < row->count; j++) {
                 if (row->codes[j] == 3) leadObj = battle->GetCombatantByIndex(row->ids[j - 1]);
@@ -1050,7 +1050,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 out.y += h;
             } else {
                 out.y += (leadHeight + animHeight) >> 2;
-                if (IsCombatantStateSpecial02163c0c(sl, id)) {
+                if (func_ov000_02163c0c(sl, id)) {
                     special = 1;
                     out.y += 0x800;
                 }
@@ -1082,41 +1082,41 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             out.x = 0;
         }
         req.offset = out;
-        FindNodeAndProcess02057fb4(list, soundId, &req);
+        func_02057fb4(list, soundId, &req);
     }
 
     if (IsPartyMember(id)) {
-        unsigned char* e = (unsigned char*)FindEntryById_021dafd0((char*)(sl + EntryList), id);
+        unsigned char* e = (unsigned char*)func_ov025_021dafd0((char*)(sl + EntryList), id);
         if (e) {
             if (category != 1 || kind == 0) {
                 if (sb->type != 0x3af && sb->type != 0x39a && sb->type != 0x3a0) {
                     short v = target->s0e;
-                    SetShortField0xC02176134((struct Obj02176134*)e, v);
+                    func_ov000_02176134((struct Obj02176134*)e, v);
                     *(short*)(e + 0xc) = v;
                 }
             }
             if (row && (row->codes[1] == 8 || row->codes[1] == 7 || row->codes[1] == 6)) {
                 if (target && (func_ov000_0215fd90(target, 0x22) || func_ov000_0215fd90(target, 0x2a))) {
                     short v = target->s10;
-                    SetShortField0xE02176150((struct Obj02176150*)e, v);
+                    func_ov000_02176150((struct Obj02176150*)e, v);
                     *(short*)(e + 0xe) = v;
                 }
             } else {
                 short v = target->s10;
-                SetShortField0xE02176150((struct Obj02176150*)e, v);
+                func_ov000_02176150((struct Obj02176150*)e, v);
                 *(short*)(e + 0xe) = v;
             }
             *(short*)(e + 8) = target->s12;
             *(short*)(e + 0xa) = target->s14;
             *(unsigned int*)(e + 0x28) = target->flags18;
             func_ov000_0217616c(e);
-            SetByteField37_0216ff20((char*)e, target->b1d);
+            func_ov000_0216ff20((char*)e, target->b1d);
             e[0x2f] = target->b1e;
         }
     }
 
-    if ((*(signed char**)(sl + Field2a0))[0x2a] == GetField0x3acValue_020100a8(battle) && IsPartyMember(id) &&
-        GetCombatantWithFlag0x100_0200ff1c(battle, id)) {
+    if ((*(signed char**)(sl + Field2a0))[0x2a] == func_020100a8(battle) && IsPartyMember(id) &&
+        func_0200ff1c(battle, id)) {
         func_ov017_021c9d2c(id, target->s0e, target->s12, target->s10, target->s14, target->flags18, 0, 0, 0);
     }
 

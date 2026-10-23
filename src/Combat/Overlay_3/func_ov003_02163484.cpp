@@ -55,23 +55,23 @@ struct Elem {
 
 extern int data_02108760;
 struct StatusOwner02081198;
-void SetEntryNibbleByShortId(StatusOwner02081198*, int, int);
+extern "C" void func_02081198(StatusOwner02081198*, int, int);
 struct StatusOwner02081164;
-void SetEntryFlag0x2ByShortId(StatusOwner02081164*, int, int);
+extern "C" void func_02081164(StatusOwner02081164*, int, int);
 extern "C" void func_020813ec(void *, int);
 struct Obj0208203c;
-void ResetWithSub0208203c(Obj0208203c*);
-int FindMappedMemberId02080468(void *, int);
+extern "C" void func_0208203c(Obj0208203c*);
+extern "C" int func_02080468(void *, int);
 struct Obj0205eaa0;
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *, int, int);
+extern "C" void func_0205eaa0(Obj0205eaa0 *, int, int);
 struct Cont0207fe44;
-void CallFunc0204c804OverAllElems(Cont0207fe44*);
-Elem * GetElementAtIndex_02160bd0_02160bd0(void*, int);
+extern "C" void func_0207fe44(Cont0207fe44*);
+extern "C" Elem * func_ov003_02160bd0(void*, int);
 extern "C" int func_ov003_02160a68(Scene *);
 extern "C" int func_ov003_02160854(Scene *);
 extern "C" void func_ov003_021612c0(Scene *);
 extern "C" int func_ov003_02161344(Scene *);
-void SetOrClearFlag40_02166f80(void*, int, int);
+extern "C" void func_ov003_02166f80(void*, int, int);
 extern "C" void func_ov003_02166220(Scene *);
 extern "C" void func_ov003_02166184(Scene *);
 extern "C" void func_ov003_021668fc(Scene *);
@@ -86,15 +86,15 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
         self->h488 = 6;
         self->h474 = -1;
         if (self->h494 < 0) {
-            self->h494 = FindMappedMemberId02080468(entries, self->h488);
+            self->h494 = func_02080468(entries, self->h488);
         }
         entries->sel = self->h494;
-        SetEntryNibbleByShortId((StatusOwner02081198*)entries, 0x18, 1);
-        SetEntryFlag0x2ByShortId((StatusOwner02081164*)entries, 0x18, 1);
+        func_02081198((StatusOwner02081198*)entries, 0x18, 1);
+        func_02081164((StatusOwner02081164*)entries, 0x18, 1);
         func_020813ec(entries, 0x18);
-        SetOrClearFlag40_02166f80(self, self->h488, 0);
+        func_ov003_02166f80(self, self->h488, 0);
         func_ov003_02166220(self);
-        ResetWithSub0208203c((Obj0208203c*)self->sub308);
+        func_0208203c((Obj0208203c*)self->sub308);
         self->p470 = 0;
         self->flags |= 0x780000;
         if (self->flags & 1) {
@@ -112,38 +112,38 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
             }
         }
         if (func_ov003_02160854(self) != 0) {
-            int idx = self->h494 - FindMappedMemberId02080468(entries, self->h488);
+            int idx = self->h494 - func_02080468(entries, self->h488);
             idx += self->c49f * 4;
-            Elem *elem = GetElementAtIndex_02160bd0_02160bd0(self, idx);
+            Elem *elem = func_ov003_02160bd0(self, idx);
             if (elem == 0) {
                 return;
             }
             if (elem->v < 0) {
                 return;
             }
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c*)self->sub308);
+            func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+            func_0208203c((Obj0208203c*)self->sub308);
             self->p470 = 0;
             int m      = elem->m;
             if (m == 3) {
-                SetOrClearFlag40_02166f80(self, self->h488, 1);
+                func_ov003_02166f80(self, self->h488, 1);
                 self->h484  = 0x58;
                 self->state = 0;
             } else if (m == 2 || m == 1 || m == 4) {
-                SetOrClearFlag40_02166f80(self, self->h488, 1);
+                func_ov003_02166f80(self, self->h488, 1);
                 self->h484  = 0x57;
                 self->state = 0;
             } else {
                 self->h480 = elem->v;
-                SetOrClearFlag40_02166f80(self, self->h488, 1);
+                func_ov003_02166f80(self, self->h488, 1);
                 self->h484  = 0x19;
                 self->state = self->state + 1;
                 self->flags |= 0x20;
             }
         } else if (func_ov003_02160a68(self) != 0) {
-            ResetWithSub0208203c((Obj0208203c*)self->sub308);
+            func_0208203c((Obj0208203c*)self->sub308);
             self->p470 = 0;
-            CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+            func_0207fe44((Cont0207fe44*)entries);
             self->flags |= 0x80000;
             self->h484  = 2;
             self->c4a3  = 1;
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
                 self->flags |= 0x20;
             }
         } else {
-            CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+            func_0207fe44((Cont0207fe44*)entries);
             self->h484  = 0x1c;
             self->h486  = 2;
             self->c4a3  = 1;
@@ -170,14 +170,14 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
             self->state = 0;
         }
     } else if (state == 4) {
-        CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+        func_0207fe44((Cont0207fe44*)entries);
         self->flags |= 0x80000;
         self->h484  = 2;
         self->c4a3  = 1;
         self->state = 0;
         func_ov003_021668fc(self);
     } else if (state == 5) {
-        CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
+        func_0207fe44((Cont0207fe44*)entries);
         self->flags |= 0x80000;
         self->h484  = 2;
         self->c4a3  = 1;

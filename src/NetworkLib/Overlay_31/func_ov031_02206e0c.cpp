@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-void SetField164_02203164(int v);
-void ClearField164_02203178(void);
+extern "C" void func_ov031_02203164(int v);
+extern "C" void func_ov031_02203178(void);
 extern "C" int func_ov031_02204c84(int a);
 
 struct VTable02206e0c {
@@ -12,7 +12,7 @@ struct VTable02206e0c {
 };
 extern VTable02206e0c* data_ov031_022496a4;
 
-// USA: func_ov031_02206e0c  (semantic: AllocAndRunWithTempBlock_02206e0c)
+// USA: func_ov031_02206e0c
 extern "C" ARM int func_ov031_02206e0c(int a) {
 	char buf[0x64];
 	if (a == 0) return 0;
@@ -27,10 +27,10 @@ extern "C" ARM int func_ov031_02206e0c(int a) {
 	*(int*)(buf + 0x3c) = 0xb68;
 	*(int*)(buf + 0x4c) = (int)seg2;
 	*(int*)(buf + 0x48) = 0x466;
-	SetField164_02203164((int)buf);
+	func_ov031_02203164((int)buf);
 
 	int result = func_ov031_02204c84(a);
-	ClearField164_02203178();
+	func_ov031_02203178();
 	data_ov031_022496a4->free(p);
 	return result;
 }

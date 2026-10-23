@@ -6,7 +6,7 @@ struct Vec3Target0204c608 {
     int y;
     int z;
 };
-void SetVec3At0x0(Vec3Target0204c608* obj, int x, int y, int z);
+extern "C" void func_0204c608(Vec3Target0204c608* obj, int x, int y, int z);
 
 struct TerrainBox0204c030 {
     Vec3Target0204c608 max;
@@ -45,8 +45,8 @@ struct TerrainPolygon0204c030 {
     short MaxX() const { return coords[maxX]; }
     short MaxY() const { return coords[maxY]; }
     short MaxZ() const { return coords[maxZ]; }
-    void GetMin(Vec3Target0204c608* v) const { SetVec3At0x0(v, MinX(), MinY(), MinZ()); }
-    void GetMax(Vec3Target0204c608* v) const { SetVec3At0x0(v, MaxX(), MaxY(), MaxZ()); }
+    void GetMin(Vec3Target0204c608* v) const { func_0204c608(v, MinX(), MinY(), MinZ()); }
+    void GetMax(Vec3Target0204c608* v) const { func_0204c608(v, MaxX(), MaxY(), MaxZ()); }
     TerrainBox0204c030 GetBox() const {
         TerrainBox0204c030 box;
         GetMin(&box.min);

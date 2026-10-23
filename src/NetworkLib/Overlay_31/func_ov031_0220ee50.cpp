@@ -12,11 +12,11 @@ struct LookupContext_0220ee50 {
     unsigned int state;
 };
 
-int GetData0224e53c_0220d60c(void);
+extern "C" int func_ov031_0220d60c(void);
 
 // USA: func_ov031_0220ee50
 extern "C" ARM WirelessScanNode* func_ov031_0220ee50(int id) {
-    LookupContext_0220ee50* context = (LookupContext_0220ee50*)GetData0224e53c_0220d60c();
+    LookupContext_0220ee50* context = (LookupContext_0220ee50*)func_ov031_0220d60c();
     LookupList_0220ee50* list = context->list;
     WirelessScanNode* node = NULL;
     if (list != NULL && context->state > 12) {

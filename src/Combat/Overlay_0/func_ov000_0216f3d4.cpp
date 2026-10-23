@@ -2,10 +2,10 @@
 #include "NitroSDK/Matrix.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
-void* GetActiveCombatWork_ov000_02160130();
-float GetScaledField0x6002049fec(char*);
+extern "C" void* func_ov000_02160130();
+extern "C" float func_02049fec(char*);
 struct Obj02049f50;
-void SetField41AndScaleSub02049f50(Obj02049f50*,int,int);
+extern "C" void func_02049f50(Obj02049f50*,int,int);
 extern "C" { int func_ov000_02153e40(void*,short*,int,int); int func_02049fc0(void*); }
 struct Node { char p0[0x20]; unsigned short id; char p1[0xe]; Node* next; };
 struct Group { char p0[0xe]; short ids[4]; unsigned char spare,count; char p1[8]; Group* next; };
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov000_0216f3d4(Camera* self) {
         Vector3fix_Subtract(&position,&origin,&delta);
         int distance=Vector3fix_InnerProduct(&delta,&delta);
         int selected=self->index==*id;
-        if(GetActiveCombatWork_ov000_02160130() && (self->active || self->work) && !selected) {
+        if(func_ov000_02160130() && (self->active || self->work) && !selected) {
             Work* work=self->work;
             if(work) {
                 Node* n=work->nodes;
@@ -53,12 +53,12 @@ extern "C" ARM void func_ov000_0216f3d4(Camera* self) {
             }
         }
         if(distance<=near && !selected) {
-            if((!func_02049fc0(unit) && unit->obj3D_.GetOwnAlpha()>0) || (func_02049fc0(unit) && GetScaledField0x6002049fec((char*)unit)>0.0f))
-                SetField41AndScaleSub02049f50((Obj02049f50*)unit,0,duration);
+            if((!func_02049fc0(unit) && unit->obj3D_.GetOwnAlpha()>0) || (func_02049fc0(unit) && func_02049fec((char*)unit)>0.0f))
+                func_02049f50((Obj02049f50*)unit,0,duration);
         } else {
             if(distance>=far || duration==0 || selected) {
-                if(duration==0 || (!func_02049fc0(unit) && unit->obj3D_.GetOwnAlpha()<31) || (func_02049fc0(unit) && GetScaledField0x6002049fec((char*)unit)<31.0f))
-                    SetField41AndScaleSub02049f50((Obj02049f50*)unit,31,duration);
+                if(duration==0 || (!func_02049fc0(unit) && unit->obj3D_.GetOwnAlpha()<31) || (func_02049fc0(unit) && func_02049fec((char*)unit)<31.0f))
+                    func_02049f50((Obj02049f50*)unit,31,duration);
             }
         }
     }

@@ -47,30 +47,30 @@ struct Cont0205d274;
 struct Obj0205d2bc;
 struct Obj0205d048;
 
-char *GetGlobalField0x1c020421a0();
-void SetField0x38(S020466c8 *s, int v);
-void *GetPtrField0x2a04_02010828(GameState *gameState);
+extern "C" char *func_020421a0();
+extern "C" void func_020466c8(S020466c8 *s, int v);
+extern "C" void *func_02010828(GameState *gameState);
 extern "C" void func_ov017_021cff8c(int id, int a);
 extern "C" void func_ov016_0218b5c0(int a, int b);
-void *GetGlobal02109400_02094a00();
+extern "C" void *func_02094a00();
 extern "C" void func_02094ab0(void *p);
-void ClearFlag0x10IfSet(Struct02074bd0 *s);
-void ReinitController02043204(char *p);
-void ClearBuffers0204b010OverList0x98(Cont0205d1e0 *c);
-void CallFunc0204b04cOverList0x98(Cont0205d274 *c);
-void InitEntries0205d2bc(Obj0205d2bc *o);
+extern "C" void func_02074bd0(Struct02074bd0 *s);
+extern "C" void func_02043204(char *p);
+extern "C" void func_0205d1e0(Cont0205d1e0 *c);
+extern "C" void func_0205d274(Cont0205d274 *c);
+extern "C" void func_0205d2bc(Obj0205d2bc *o);
 extern "C" void func_0205d048(struct Obj0205d048 *obj);
 extern "C" void *memset(void *dst, int value, unsigned int length);
 void CleanInvalidateCacheRange(const void *p, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(const void *data, unsigned int offset, unsigned int length);
-void ResetAllocatorsAndClearFields0215b428(unsigned char *self);
-void PopStack1AndTrigger_020a1f4c(int v);
+extern "C" void func_ov002_0215b428(unsigned char *self);
+extern "C" void func_020a1f4c(int v);
 extern "C" void func_ov023_021eb26c(void *guide);
 
 // USA: func_ov002_021556fc
 extern "C" ARM void func_ov002_021556fc(char *self) {
-    SetField0x38((S020466c8 *) GetGlobalField0x1c020421a0(), 0);
-    unsigned char *p = (unsigned char *) GetPtrField0x2a04_02010828(GameState::GetInstance());
+    func_020466c8((S020466c8 *) func_020421a0(), 0);
+    unsigned char *p = (unsigned char *) func_02010828(GameState::GetInstance());
     for (int i = 0; i < p[0xf7c]; i++) {
         func_ov017_021cff8c((p + i)[0xf78], 0);
     }
@@ -90,15 +90,15 @@ extern "C" ARM void func_ov002_021556fc(char *self) {
         loader->RemoveTask(*(int *) (self + FIELD_1bc4));
         *(int *) (self + FIELD_1bc4) = -1;
     }
-    func_02094ab0(GetGlobal02109400_02094a00());
+    func_02094ab0(func_02094a00());
     *(volatile unsigned int *) 0x4000000   = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
     *(volatile unsigned short *) 0x4000050 = 0;
-    ClearFlag0x10IfSet((Struct02074bd0 *) (self + FIELD_38));
-    ReinitController02043204(GetGlobalField0x1c020421a0());
+    func_02074bd0((Struct02074bd0 *) (self + FIELD_38));
+    func_02043204(func_020421a0());
     *(void **) (self + FIELD_1bd0) = 0;
-    ClearBuffers0204b010OverList0x98((Cont0205d1e0 *) (self + FIELD_ec8));
-    CallFunc0204b04cOverList0x98((Cont0205d274 *) (self + FIELD_ec8));
-    InitEntries0205d2bc((Obj0205d2bc *) (self + FIELD_ec8));
+    func_0205d1e0((Cont0205d1e0 *) (self + FIELD_ec8));
+    func_0205d274((Cont0205d274 *) (self + FIELD_ec8));
+    func_0205d2bc((Obj0205d2bc *) (self + FIELD_ec8));
     func_0205d048((struct Obj0205d048 *) (self + FIELD_ec8));
     if (*(void **) (self + FIELD_1bd8) != 0) {
         memset(*(void **) (self + FIELD_1bd8), 0, 0x20);
@@ -107,9 +107,9 @@ extern "C" ARM void func_ov002_021556fc(char *self) {
     }
     *(void **) (self + FIELD_1bd8) = 0;
 #if !defined(jpn)
-    ResetAllocatorsAndClearFields0215b428((unsigned char *) self);
+    func_ov002_0215b428((unsigned char *) self);
 #endif
-    PopStack1AndTrigger_020a1f4c(1);
+    func_020a1f4c(1);
     if (*(void **) (self + FIELD_2468) != 0) {
         func_ov023_021eb26c(*(void **) (self + FIELD_2468));
     }

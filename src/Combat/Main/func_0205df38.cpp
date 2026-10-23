@@ -15,7 +15,7 @@ struct Struct_0205d81c {
     struct Elem_0205df38* f9c;
 };
 
-struct Elem_0205df38* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
+extern "C" struct Elem_0205df38* func_0205d81c(struct Struct_0205d81c* s, int key);
 
 // USA: func_0205df38
 extern "C" ARM int func_0205df38(struct Struct_0205d81c* s, int key) {
@@ -31,7 +31,7 @@ extern "C" ARM int func_0205df38(struct Struct_0205d81c* s, int key) {
 
     g_touchInput.GetTouchPoint(&touchY, &touchX);
 
-    e = FindElementByC40205d81c(s, key);
+    e = func_0205d81c(s, key);
     if (e == 0) goto zero;
 
     y = e->y;

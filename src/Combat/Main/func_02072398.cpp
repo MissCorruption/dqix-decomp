@@ -22,7 +22,7 @@ struct Session02072398 {
     struct List02072560* list;
 };
 
-void AppendElementCapped02072560(struct List02072560* list, struct Elem02072560* src);
+extern "C" void func_02072560(struct List02072560* list, struct Elem02072560* src);
 
 extern Session02072398 data_02108da8;
 
@@ -54,6 +54,6 @@ extern "C" ARM int func_02072398(Script::Parameter* params, int count) {
     if (count != 0) {
         e.f2a = params[0].ToInt();
     }
-    AppendElementCapped02072560(data_02108da8.list, &e);
+    func_02072560(data_02108da8.list, &e);
     return 1;
 }

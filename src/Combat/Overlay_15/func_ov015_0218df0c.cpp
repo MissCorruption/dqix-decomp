@@ -1,6 +1,6 @@
 #if defined(jpn)
 #define R(j,u) (j)
-#define _Z27ConfigureSubsystem_021889f8P11Obj021889f8 func_ov008_0218973c
+#define func_ov008_021889f8 func_ov008_0218973c
 #define data_ov005_0215cd20 data_ov005_0215e100
 #define data_ov014_021894b8 data_ov014_0218a2f8
 #define data_ov015_02193cfc data_ov015_0219482c
@@ -20,13 +20,13 @@ extern "C" void* __clear(void* dst, int count);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outLen);
 
 struct Foo0207df50;
-void CopyInternalFields0207df50(struct Foo0207df50* p);
-void RestorePairTables0207df90(char* obj);
-void BackupPairTables0207dfac(char* obj);
+extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207dfac(char* obj);
 struct Vector3i;
 
 struct Struct_203dafc;
-void ClearEightWords_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_203dafc* obj);
 
 struct Vec3Words02193cfc { unsigned int v[3]; };
 
@@ -47,8 +47,8 @@ extern "C" ARM int func_ov015_0218df0c(void* self, int* desc) {
 
     int ok = 1;
     struct Foo0207df50* mgr = *(struct Foo0207df50**)*(void**)((char*)self + 4);
-    CopyInternalFields0207df50(mgr);
-    RestorePairTables0207df90((char*)mgr);
+    func_0207df50(mgr);
+    func_0207df90((char*)mgr);
 
     sprintf(buf, &data_ov015_02194129, desc[1]);
 
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov015_0218df0c(void* self, int* desc) {
         ok = 0;
     } else {
         ObjectArchiveLoadInfo params;
-        ClearEightWords_0203dafc((struct Struct_203dafc*)&params);
+        func_0203dafc((struct Struct_203dafc*)&params);
         SafeAllocator* allocPtr = *(SafeAllocator**)((char*)self + 8);
         unsigned int sz = length;
         void* dataPtr = &data_0211e33c;
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov015_0218df0c(void* self, int* desc) {
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    BackupPairTables0207dfac((char*)mgr);
+    func_0207dfac((char*)mgr);
 
     int result;
     if (ok == 0) {

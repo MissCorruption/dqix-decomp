@@ -8,7 +8,7 @@ struct Vector3i;
 struct Vec3_020d7534 { int x; int y; int z; };
 extern "C" void func_020d74a4(void* base, int index, struct Vec3_020d7534 v);
 
-void AdvanceActorCooldownsAndPosition0205a020(unsigned char* p, int dt);
+extern "C" void func_0205a020(unsigned char* p, int dt);
 
 struct Actor020d7534 {
     char pad0[0x50];
@@ -46,7 +46,7 @@ extern "C" ARM void func_020d7534(struct Actor020d7534* obj) {
                     }
                     *(Vector3i*)((int*)&actor->pos) = *(Vector3i const*)((int*)&tmp);
                 }
-                AdvanceActorCooldownsAndPosition0205a020((unsigned char*)&obj[i], scaleCount);
+                func_0205a020((unsigned char*)&obj[i], scaleCount);
             }
         }
     }

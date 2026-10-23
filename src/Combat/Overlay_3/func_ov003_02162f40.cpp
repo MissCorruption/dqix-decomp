@@ -74,7 +74,7 @@ struct Scene {
 };
 
 static inline BattleInfo *GetBattleInfo() {
-    return (BattleInfo *) GetPtrField0x2a04_02010828(GameState::GetInstance());
+    return (BattleInfo *) func_02010828(GameState::GetInstance());
 }
 
 struct SceneView {
@@ -82,26 +82,26 @@ struct SceneView {
     Flagged cont;
 };
 
-void CallFunc0204c804OverAllElems(Cont0207fe44 *);
+extern "C" void func_0207fe44(Cont0207fe44 *);
 extern "C" void func_020813ec(Entries *, int);
-int FindMappedMemberId02080468(void *, int);
-void ResetWithSub0208203c(Obj0208203c *);
-void SetEntryLowNibbleAndElement02080c68(void *, int, int);
+extern "C" int func_02080468(void *, int);
+extern "C" void func_0208203c(Obj0208203c *);
+extern "C" void func_02080c68(void *, int, int);
 extern "C" int func_ov003_02160854(Scene *);
-void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *, int, int);
-extern "C" void _Z16InitObj_0217e5dcP11Obj0217e5dca(Obj0217e5dc *, unsigned char);
+extern "C" void func_0205eaa0(Obj0205eaa0 *, int, int);
+extern "C" void func_ov003_0217e5dc(Obj0217e5dc *, unsigned char);
 extern "C" int func_ov003_02160a68(Scene *);
-Elem *GetElementAtIndex_02160bd0_02160bd0(void *, int);
-void SetEntryNibbleByShortId(StatusOwner02081198 *, int, int);
-void SetEntryFlag0x2ByShortId(StatusOwner02081164 *, int, int);
+extern "C" Elem *func_ov003_02160bd0(void *, int);
+extern "C" void func_02081198(StatusOwner02081198 *, int, int);
+extern "C" void func_02081164(StatusOwner02081164 *, int, int);
 extern "C" void func_ov003_02165c9c(Scene *);
-void SetOrClearFlag40_02166f80(void *, int, int);
-int CountValidCombatantsMinusField_02160b84(void *);
+extern "C" void func_ov003_02166f80(void *, int, int);
+extern "C" int func_ov003_02160b84(void *);
 extern "C" void func_ov003_021612c0(Scene *);
 extern "C" int func_ov003_02161344(Scene *);
-void RemoveOrShiftMarkedEntry02086a04(FindEntryContainer02086a04 *, int);
+extern "C" void func_02086a04(FindEntryContainer02086a04 *, int);
 extern "C" int func_ov003_02166a90(Scene *, int);
-void CancelPendingAction020397cc(Obj020397cc *, int);
+extern "C" void func_020397cc(Obj020397cc *, int);
 
 extern int data_02108760;
 
@@ -111,42 +111,42 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
     Entries *entries    = self->entries;
 
     if (state == 0) {
-        CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+        func_0207fe44((Cont0207fe44 *) entries);
         func_020813ec(entries, 8);
         self->h488   = 8;
-        self->h490   = FindMappedMemberId02080468(entries, self->h488);
+        self->h490   = func_02080468(entries, self->h488);
         self->h474   = self->h490;
         entries->sel = self->h490;
         func_020813ec(entries, self->h488);
-        ResetWithSub0208203c((Obj0208203c *) self->sub308);
+        func_0208203c((Obj0208203c *) self->sub308);
         self->state = self->state + 1;
     } else if (state == 1) {
         self->p470 = &self->h490;
-        SetEntryLowNibbleAndElement02080c68(entries, self->h488, 0);
+        func_02080c68(entries, self->h488, 0);
         if (func_ov003_02160854(self) != 0) {
-            DispatchWithShortB4_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-            ResetWithSub0208203c((Obj0208203c *) self->sub308);
+            func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
+            func_0208203c((Obj0208203c *) self->sub308);
             self->p470        = 0;
             unsigned char idx = self->h490 - 0x25;
             Obj0217e5dc *obj  = (Obj0217e5dc *) GetGameResources();
-            _Z16InitObj_0217e5dcP11Obj0217e5dca(obj, idx);
-            CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+            func_ov003_0217e5dc(obj, idx);
+            func_0207fe44((Cont0207fe44 *) entries);
             self->c4a3  = 0x10;
             self->state = self->state + 1;
         } else {
             if (func_ov003_02160a68(self) == 0) {
                 return;
             }
-            ResetWithSub0208203c((Obj0208203c *) self->sub308);
+            func_0208203c((Obj0208203c *) self->sub308);
             self->p470 = 0;
-            CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+            func_0207fe44((Cont0207fe44 *) entries);
             self->h484  = 2;
             self->c4a3  = 1;
             self->state = 0;
         }
     } else if (state == 2) {
         self->h488  = 6;
-        self->h492  = FindMappedMemberId02080468(entries, self->h488);
+        self->h492  = func_02080468(entries, self->h488);
         short first = self->h492;
         self->h474  = first;
         int n       = GetBattleInfo()->slotCount - 1;
@@ -156,24 +156,24 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
         short col   = (short) (self->h492 - first) & 3;
         short idx   = self->c49f * 4 + col;
         self->h480  = -1;
-        Elem *elem  = GetElementAtIndex_02160bd0_02160bd0(self, idx);
+        Elem *elem  = func_ov003_02160bd0(self, idx);
         if (elem != NULL) {
             self->h480 = elem->v;
         }
         entries->sel = self->h492;
-        CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
-        SetEntryNibbleByShortId((StatusOwner02081198 *) entries, 5, 1);
-        SetEntryFlag0x2ByShortId((StatusOwner02081164 *) entries, 5, 1);
+        func_0207fe44((Cont0207fe44 *) entries);
+        func_02081198((StatusOwner02081198 *) entries, 5, 1);
+        func_02081164((StatusOwner02081164 *) entries, 5, 1);
         func_020813ec(entries, 5);
         func_ov003_02165c9c(self);
-        SetOrClearFlag40_02166f80(self, self->h488, 1);
+        func_ov003_02166f80(self, self->h488, 1);
         self->flags |= 0x780000;
         if (self->flags & 1) {
             ((SceneView *) self)->cont.flags |= 0x800000;
         }
         self->flags |= 8;
         self->state = self->state + 1;
-        ResetWithSub0208203c((Obj0208203c *) self->sub308);
+        func_0208203c((Obj0208203c *) self->sub308);
         self->p470 = 0;
     } else if (state == 3) {
 #if defined(jpn)
@@ -187,14 +187,14 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
         self->h484  = 0x16;
         self->state = 4;
         int a       = GetBattleInfo()->partyCount;
-        int n       = CountValidCombatantsMinusField_02160b84(self);
+        int n       = func_ov003_02160b84(self);
         if (a + n >= limit) {
             return;
         }
         self->h484  = 0x15;
         self->state = 5;
     } else if (state == 4) {
-        CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+        func_0207fe44((Cont0207fe44 *) entries);
         self->flags |= 0x80000;
         self->h484  = 2;
         self->c4a3  = 1;
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
         int r = func_ov003_02161344(self);
         if (r != -1) {
             if (r == 1) {
-                CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+                func_0207fe44((Cont0207fe44 *) entries);
                 self->flags |= 0x80000;
 #if defined(jpn)
                 int limit = 4;
@@ -217,7 +217,7 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
                 int limit = 4;
 #endif
                 int a = GetBattleInfo()->partyCount;
-                int n = CountValidCombatantsMinusField_02160b84(self);
+                int n = func_ov003_02160b84(self);
                 if (a + n < limit) {
                     self->flags |= 0xa;
                     self->h484  = 8;
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
                 }
             }
         } else {
-            CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
+            func_0207fe44((Cont0207fe44 *) entries);
             self->flags |= 0x80000;
             self->flags |= 8;
             self->h484  = 0x5a;
@@ -241,14 +241,14 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
     } else if (state == 7) {
         self->c4a3  = 7;
         self->state = 0;
-        RemoveOrShiftMarkedEntry02086a04((FindEntryContainer02086a04 *) GetBattleInfo(), (signed char) self->h480);
+        func_02086a04((FindEntryContainer02086a04 *) GetBattleInfo(), (signed char) self->h480);
     } else if (state == 10) {
         if (func_ov003_02166a90(self, self->h480) == 0) {
             return;
         }
         GameObject *hero = GameState::GetInstance()->GetProtagonist();
         if (hero != NULL) {
-            CancelPendingAction020397cc((Obj020397cc *) hero, 1);
+            func_020397cc((Obj020397cc *) hero, 1);
         }
         self->state = 7;
     } else if (state == 100) {

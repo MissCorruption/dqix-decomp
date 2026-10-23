@@ -6,9 +6,9 @@ extern unsigned char* data_ov004_021707c4;
 extern unsigned short data_ov004_0216fadc[];
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
-void ClearElements_021e1518(void* obj);
-void BuildChain_021e1814(void* a, void* b, int c, int d, int e);
-void BuildChain_021e1870(void* a, void* b, int c, int d, int e);
+extern "C" void func_ov023_021e1518(void* obj);
+extern "C" void func_ov023_021e1814(void* a, void* b, int c, int d, int e);
+extern "C" void func_ov023_021e1870(void* a, void* b, int c, int d, int e);
 
 class VObj02155a3c {
 public:
@@ -56,11 +56,11 @@ extern "C" ARM int func_ov004_02155a3c(void* self) {
 
         void* result = node->MethodEc();
         if (result) {
-            ClearElements_021e1518(result);
+            func_ov023_021e1518(result);
             if (flag) {
-                BuildChain_021e1814(result, (void*)(int)d1, d2, d3, 1);
+                func_ov023_021e1814(result, (void*)(int)d1, d2, d3, 1);
             } else {
-                BuildChain_021e1870(result, (void*)(int)d1, d2, d3, 1);
+                func_ov023_021e1870(result, (void*)(int)d1, d2, d3, 1);
             }
         }
     }

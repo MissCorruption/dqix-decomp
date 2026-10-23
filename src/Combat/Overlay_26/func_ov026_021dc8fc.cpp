@@ -78,25 +78,25 @@ struct StatusView {
     unsigned short reserved6 : 10;
 };
 
-int GetFieldAt0x150_02053c6c(unsigned char*);
-CommandSlot* FindSlotById_021dae60(Container_021dae60*, int);
-void ZeroArr1a4AndFlag0x840217193c(Struct0217193c*);
-void ZeroArr9cAndFlag0x8202171614(Struct02171614*);
-Element020de650* FindElementByKey020dedd0(Container020dedd0*, int);
-void SetBitInArray0x8ec_02083acc(unsigned char*, int);
-void ClearBitInArray0x8ec_02083b28(unsigned char*, int);
-int TestBitInArray0x8ec_02083b00(unsigned char*, int);
-int CollectSetBitIndices020839dc(BitArray020839dc*, unsigned char*, int);
-Entry0209a9dc* FindEntryById0209a9dc(Holder0209a9dc*, int);
-CommandEntry* SearchBothTables02079e2c(char*, int);
-void SetFieldAndUpdateCount02171640(S02171698*, int, int);
-void SetFieldAndUpdateCount02171968(S021719c0*, int, int);
-int CountPositiveSlots02083960(Slots02083960*);
-void ZeroArr3f0AndFlag0x8602171b3c(Struct02171b3c*);
-void SetPointerField0x3f002171b68(void*, int, void*);
-Entry02083554* FindEntryByShortField02083554(Container02083554*, int);
-int CheckFlag0x14Bit0x10Set_020882f8(unsigned char*);
-int IsFlagBit8Set_021dce1c(FlagObj_021dce1c*);
+extern "C" int func_02053c6c(unsigned char*);
+extern "C" CommandSlot* func_ov026_021dae60(Container_021dae60*, int);
+extern "C" void func_ov000_0217193c(Struct0217193c*);
+extern "C" void func_ov000_02171614(Struct02171614*);
+extern "C" Element020de650* func_020dedd0(Container020dedd0*, int);
+extern "C" void func_02083acc(unsigned char*, int);
+extern "C" void func_02083b28(unsigned char*, int);
+extern "C" int func_02083b00(unsigned char*, int);
+extern "C" int func_020839dc(BitArray020839dc*, unsigned char*, int);
+extern "C" Entry0209a9dc* func_0209a9dc(Holder0209a9dc*, int);
+extern "C" CommandEntry* func_02079e2c(char*, int);
+extern "C" void func_ov000_02171640(S02171698*, int, int);
+extern "C" void func_ov000_02171968(S021719c0*, int, int);
+extern "C" int func_02083960(Slots02083960*);
+extern "C" void func_ov000_02171b3c(Struct02171b3c*);
+extern "C" void func_ov000_02171b68(void*, int, void*);
+extern "C" Entry02083554* func_02083554(Container02083554*, int);
+extern "C" int func_020882f8(unsigned char*);
+extern "C" int func_ov026_021dce1c(FlagObj_021dce1c*);
 extern "C" AbilityEntry* func_0209a594(void*, int);
 extern "C" int func_0209ab7c(Holder0209a9dc*, GameObject*, unsigned char*);
 
@@ -104,14 +104,14 @@ extern "C" int func_0209ab7c(Holder0209a9dc*, GameObject*, unsigned char*);
 extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60* work,
                                         void* abilities, Holder0209a9dc* holder, int id) {
     GameState* game = GameState::GetInstance();
-    GameObject* object = GetCombatantWithFlag0x100_0200ff1c(game, id);
+    GameObject* object = func_0200ff1c(game, id);
     if (!object) return;
-    LearnedCommands* learned = (LearnedCommands*)GetFieldAt0x150_02053c6c((unsigned char*)object);
+    LearnedCommands* learned = (LearnedCommands*)func_02053c6c((unsigned char*)object);
     if (!learned) return;
-    CommandSlot* slot = FindSlotById_021dae60(work, id);
+    CommandSlot* slot = func_ov026_021dae60(work, id);
     if (!slot) return;
-    ZeroArr1a4AndFlag0x840217193c((Struct0217193c*)slot);
-    ZeroArr9cAndFlag0x8202171614((Struct02171614*)slot);
+    func_ov000_0217193c((Struct0217193c*)slot);
+    func_ov000_02171614((Struct02171614*)slot);
     short commandIds[0x11f];
     unsigned char extraIds[0x42];
     CommandEntry* entries[0xd5];
@@ -124,14 +124,14 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60*
         for (int i = 0; i < 8; ++i) {
             if (key == equipped[i]) { found = 1; break; }
         }
-        Element020de650* entry = FindElementByKey020dedd0(&work->commands, (short)key);
+        Element020de650* entry = func_020dedd0(&work->commands, (short)key);
         if (entry && entry->learnedType == 0x1f) {
-            if (found) SetBitInArray0x8ec_02083acc((unsigned char*)learned, entry->bitIndex);
-            else ClearBitInArray0x8ec_02083b28((unsigned char*)learned, entry->bitIndex);
+            if (found) func_02083acc((unsigned char*)learned, entry->bitIndex);
+            else func_02083b28((unsigned char*)learned, entry->bitIndex);
         }
     }
     for (unsigned short i = 0; i < 0x11f; ++i) {
-        if (TestBitInArray0x8ec_02083b00((unsigned char*)learned, i)) {
+        if (func_02083b00((unsigned char*)learned, i)) {
             AbilityEntry* ability = func_0209a594(abilities, i);
             if (ability && ability->command) {
                 commandIds[ability->order] = ability->command;
@@ -152,14 +152,14 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60*
     }
     int extraCount;
     if (((CombatantView*)object)->commands->useSpecialList == 0)
-        extraCount = CollectSetBitIndices020839dc((BitArray020839dc*)learned, extraIds, 0x80);
+        extraCount = func_020839dc((BitArray020839dc*)learned, extraIds, 0x80);
     else extraCount = func_0209ab7c(holder, object, extraIds);
     for (int i = 0; i < extraCount; ++i) {
-        Entry0209a9dc* entry = FindEntryById0209a9dc(holder, extraIds[i]);
+        Entry0209a9dc* entry = func_0209a9dc(holder, extraIds[i]);
         if (entry && entry->command) commandIds[count++] = entry->command;
     }
-    ActionDataTables* commandTable = GetData02108e10_020797dc();
-    for (int i = 0; i < count; ++i) entries[i] = SearchBothTables02079e2c((char*)commandTable, commandIds[i]);
+    ActionDataTables* commandTable = func_020797dc();
+    for (int i = 0; i < count; ++i) entries[i] = func_02079e2c((char*)commandTable, commandIds[i]);
     int secondaryCount = 0;
     int commandIndex;
     int primaryCount = 0;
@@ -167,28 +167,28 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60*
         CommandEntry* entry = entries[commandIndex];
         if (entry && (entry->availability & 2)) {
             if (entry->commandType == 2) {
-                SetFieldAndUpdateCount02171640((S02171698*)slot, secondaryCount, (int)entry);
+                func_ov000_02171640((S02171698*)slot, secondaryCount, (int)entry);
                 ++secondaryCount;
             } else if (entry->commandType == 1) {
-                SetFieldAndUpdateCount02171968((S021719c0*)slot, primaryCount, (int)entry);
+                func_ov000_02171968((S021719c0*)slot, primaryCount, (int)entry);
                 ++primaryCount;
             }
         }
     }
-    int equippedCount = CountPositiveSlots02083960((Slots02083960*)learned);
+    int equippedCount = func_02083960((Slots02083960*)learned);
     for (int i = 0; i < 8; ++i) equippedIds[i] = learned->equipped[i];
     short* equipment = learned->equipment;
     int stored;
     unsigned char order[8] = {7, 8, 0, 1, 6, 4, 5, 0xff};
     int equipmentIndex;
     stored = 0;
-    ZeroArr3f0AndFlag0x8602171b3c((Struct02171b3c*)slot);
+    func_ov000_02171b3c((Struct02171b3c*)slot);
     for (equipmentIndex = 0; equipmentIndex < 16; ++equipmentIndex) {
         if (equipmentIndex < 8) {
             if (equipmentIndex < equippedCount) {
-                Element020de650* entry = FindElementByKey020dedd0(&work->commands, (short)equippedIds[equipmentIndex]);
+                Element020de650* entry = func_020dedd0(&work->commands, (short)equippedIds[equipmentIndex]);
                 if (entry) {
-                    SetPointerField0x3f002171b68(slot, stored, entry);
+                    func_ov000_02171b68(slot, stored, entry);
                     ++stored;
                 }
             }
@@ -199,11 +199,11 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60*
             }
             unsigned char index = order[equipmentIndex - 8];
             if (index == 0xff) continue;
-            Entry02083554* entry = FindEntryByShortField02083554((Container02083554*)learned, equipment[index]);
+            Entry02083554* entry = func_02083554((Container02083554*)learned, equipment[index]);
             if (entry && entry->id > 0) {
                 int usable = entry->category <= 7 ? 1 : 0;
                 if (usable) {
-                    SetPointerField0x3f002171b68(slot, stored, entry);
+                    func_ov000_02171b68(slot, stored, entry);
                     ++stored;
                 }
             }
@@ -211,15 +211,15 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60*
     }
     int listed = 0;
     slot->eligible = 0;
-    PartyRoster* roster = (PartyRoster*)GetPtrField0x2a04_02010828(game);
+    PartyRoster* roster = (PartyRoster*)func_02010828(game);
     for (int i = 0; i < roster->count; ++i) {
         if (id == roster->ids[i]) { listed = 1; break; }
     }
     GameObject* combatant = game->GetCombatantByIndex(id);
     if (combatant) {
-        if (CheckFlag0x14Bit0x10Set_020882f8((unsigned char*)combatant->currentStats_) ||
+        if (func_020882f8((unsigned char*)combatant->currentStats_) ||
             ((StatusView*)combatant->currentStats_)->blocked ||
-            IsFlagBit8Set_021dce1c((FlagObj_021dce1c*)combatant)) {
+            func_ov026_021dce1c((FlagObj_021dce1c*)combatant)) {
             slot->eligible = 0;
             slot->selections[slot->selection] = 100;
         } else if (listed) slot->eligible = 1;

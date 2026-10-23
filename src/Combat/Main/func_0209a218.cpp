@@ -21,7 +21,7 @@ struct Record12 {
 };
 
 struct RecordList0209a55c;
-void AppendRecord12Capped(struct RecordList0209a55c* list, struct Record12* src);
+extern "C" void func_0209a55c(struct RecordList0209a55c* list, struct Record12* src);
 
 extern struct RecordList0209a55c* data_02109ba4;
 
@@ -48,7 +48,7 @@ extern "C" ARM int func_0209a218(struct Param02030b0c* args) {
     rec.u.b.e = 0;
 
     if (rec.u.b.c != 0) {
-        AppendRecord12Capped(data_02109ba4, &rec);
+        func_0209a55c(data_02109ba4, &rec);
     }
     return 1;
 }

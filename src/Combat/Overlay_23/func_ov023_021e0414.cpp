@@ -8,9 +8,9 @@ struct Element020de650_021e0414 {
     unsigned int nibble : 4;
     unsigned int restBits : 28;
 };
-Element020de650_021e0414* FindElementByKey020dedd0(struct Container020dedd0*, int);
+extern "C" Element020de650_021e0414* func_020dedd0(struct Container020dedd0*, int);
 
-void ClearFields_021e20c0(void*);
+extern "C" void func_ov023_021e20c0(void*);
 
 
 extern int data_ov023_021fdc4c;
@@ -33,11 +33,11 @@ struct Obj021e0414 {
     signed char field79a;
 };
 
-// USA: func_ov023_021e0414  (semantic: RefreshEntryElementAndDispatch_021e0414)
+// USA: func_ov023_021e0414
 extern "C" ARM int func_ov023_021e0414(struct Obj021e0414* obj) {
     int a = (int)BackgroundLoader::GetInstance();
     if (obj->field48 != NULL) {
-        obj->field4c = FindElementByKey020dedd0(obj->field48, obj->field770);
+        obj->field4c = func_020dedd0(obj->field48, obj->field770);
     }
     Element020de650_021e0414* elem = obj->field4c;
     if (elem != NULL) {
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov023_021e0414(struct Obj021e0414* obj) {
         signed char flag = (cond1 != 0);
         signed char b = obj->field79a;
         if (b != flag) {
-            ClearFields_021e20c0((char*)obj + 0xcc);
+            func_ov023_021e20c0((char*)obj + 0xcc);
             elem = obj->field4c;
             unsigned int nibble2 = elem->nibble;
             int cond2 = (nibble2 <= 7);

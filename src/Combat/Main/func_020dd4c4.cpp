@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 
 struct Field150Holder02052df8;
-int GetHalfwordEntryFromField150(Field150Holder02052df8*, int);
-int GetField0x3acValue_020100a8(GameState*);
-int TestCombatantCategoryBit020dd200(int, int);
-int DispatchByField0x950Byte_020dd154(int, int);
+extern "C" int func_02052df8(Field150Holder02052df8*, int);
+extern "C" int func_020100a8(GameState*);
+extern "C" int func_020dd200(int, int);
+extern "C" int func_020dd154(int, int);
 struct Requirements020dd4c4 {
     unsigned int : 7;
     unsigned int category : 4;
@@ -52,7 +52,7 @@ struct Combatant020dd4c4 {
     PartyRecord020dd4c4* record;
 };
 static inline Combatant020dd4c4* GetCombatant020dd4c4(int id) {
-    return (Combatant020dd4c4*)GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), id);
+    return (Combatant020dd4c4*)func_0200ff1c(GameState::GetInstance(), id);
 }
 
 // USA: func_020dd4c4
@@ -67,12 +67,12 @@ extern "C" ARM int func_020dd4c4(int id, Entry020dd4c4* entry) {
     if (!entry->requirements) return 8;
     int result = 0;
     GameState* state = GameState::GetInstance();
-    result |= (entry->requirements->protagonistOnly && id != GetField0x3acValue_020100a8(state)) ? 0x100 : 0;
+    result |= (entry->requirements->protagonistOnly && id != func_020100a8(state)) ? 0x100 : 0;
     int categoryError;
     if (entry->kind != 0 && entry->kind != 1) categoryError = 0;
-    else if (TestCombatantCategoryBit020dd200(id & 0xff, entry->requirements->category & 0xff)) categoryError = 0;
+    else if (func_020dd200(id & 0xff, entry->requirements->category & 0xff)) categoryError = 0;
     else {
-        if (DispatchByField0x950Byte_020dd154(id, entry->requirements->category & 0xff)) categoryError = 0;
+        if (func_020dd154(id, entry->requirements->category & 0xff)) categoryError = 0;
         else categoryError = 1;
     }
     result |= categoryError;
@@ -95,7 +95,7 @@ extern "C" ARM int func_020dd4c4(int id, Entry020dd4c4* entry) {
     Requirements020dd4c4* requirements = entry->requirements;
     unsigned int flag = combatant->record->flag;
     int restrictionError;
-    if (GetHalfwordEntryFromField150((Field150Holder02052df8*)combatant, 9) == 0x4680 && !requirements->restricted) restrictionError = 0;
+    if (func_02052df8((Field150Holder02052df8*)combatant, 9) == 0x4680 && !requirements->restricted) restrictionError = 0;
     else {
         unsigned int allowed[2] = { requirements->allowFirst, requirements->allowSecond };
         restrictionError = allowed[flag] ? 0 : 0x80;

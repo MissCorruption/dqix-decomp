@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
+extern "C" int func_0200fb08(Struct0200fb08*);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
 extern "C" void func_02047b40(Foo02048004* sprite, const void* file, SafeAllocator* allocator);
 
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov000_0218214c(Foo02048004* comboSprites, SafeAllocator
     int i;
     int j;
     int skip;
-    int mode = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+    int mode = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
     int count;
 
     skip = 2;

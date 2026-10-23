@@ -20,8 +20,8 @@ struct QueueJob022052b4 {
     signed char modeFlag, blockFlag;
     unsigned char padding[2];
 };
-int PopQueueEntryOrWait020c7fe0(void*, unsigned int*, int);
-void CallGlobalWithArg_02205174(int);
+extern "C" int func_020c7fe0(void*, unsigned int*, int);
+extern "C" void func_ov031_02205174(int);
 extern "C" int func_020c7ea0(void*, unsigned int*, int);
 extern "C" int func_020c7e0c(void*, unsigned int, int);
 
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_022052b4(void* queue) {
     int interruptState;
     int result;
     while (1) {
-        PopQueueEntryOrWait020c7fe0(queue, (unsigned int*)&job, 1);
+        func_020c7fe0(queue, (unsigned int*)&job, 1);
         if (job == NULL) break;
         result = job->callback(job);
         interruptState = DisableIRQInterrupts();
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov031_022052b4(void* queue) {
         func_020c7ea0(queue, NULL, 0);
         if (job->socket) job->socket->result = result;
         if (job->resultQueue) func_020c7e0c(job->resultQueue, result, 0);
-        CallGlobalWithArg_02205174((int)job);
+        func_ov031_02205174((int)job);
         RemoveContextSwitchLock();
         SetIRQInterruptState(interruptState);
     }

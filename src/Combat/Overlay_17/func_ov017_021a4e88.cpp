@@ -46,36 +46,35 @@ struct Res021a4e88 {
     int busy;
 };
 
-void* GetGlobalPtr021075f4_0203cf4c(void);
+extern "C" void* func_0203cf4c(void);
 extern "C" void __clear(void* p, int n);
 struct EntryList_203dce4;
-Entry021a4e88* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
-void ClearFlag0x1_02040648(unsigned int*);
-void SetFlag0x1_02040658(unsigned int*);
-void ClearActiveChildState_02040bcc(char*);
-extern "C" Vec3_021a4e88 _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(Entry021a4e88* e);
+extern "C" Entry021a4e88* func_0203dce4(EntryList_203dce4*, int);
+extern "C" void func_02040648(unsigned int*);
+extern "C" void func_02040658(unsigned int*);
+extern "C" void func_02040bcc(char*);
 struct Vec3_020406f8;
 struct Node020406f8;
-void SelectVec3FromSources020406f8(Vec3_020406f8* out, Node020406f8* n);
+extern "C" void func_020406f8(Vec3_020406f8* out, Node020406f8* n);
 struct S02040538;
-Info021a4e88* GetField0xc02040538(S02040538*);
-Entry021a4e88* FindEntryPointerByKey0203df78(void* list, int key);
-int CheckSubstructByte0x7cPositive_020535c8(signed char*);
+extern "C" Info021a4e88* func_02040538(S02040538*);
+extern "C" Entry021a4e88* func_0203df78(void* list, int key);
+extern "C" int func_020535c8(signed char*);
 struct Vec3;
-short GetAngleDeltaBetween_021a4700(Vec3*, int, Vec3*);
-unsigned char* GetField0x8_02040528(int*);
+extern "C" short func_ov017_021a4700(Vec3*, int, Vec3*);
+extern "C" unsigned char* func_02040528(int*);
 int fix32abs(int x);
 
 static inline short GetAngleToEntry(Vec3_021a4e88* pos, int base, Entry021a4e88* e) {
     Vec3_021a4e88 cur;
-    SelectVec3FromSources020406f8((Vec3_020406f8*)&cur, (Node020406f8*)e);
-    return GetAngleDeltaBetween_021a4700((Vec3*)pos, base, (Vec3*)&cur);
+    func_020406f8((Vec3_020406f8*)&cur, (Node020406f8*)e);
+    return func_ov017_021a4700((Vec3*)pos, base, (Vec3*)&cur);
 }
 
 // USA: func_ov017_021a4e88
 extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
     GameState* gs = GameState::GetInstance();
-    void* list = GetGlobalPtr021075f4_0203cf4c();
+    void* list = func_0203cf4c();
     Res021a4e88* res = (Res021a4e88*)GetGameResources();
     Obj021a4e88* obj = (Obj021a4e88*)gs->GetUnknownGameObject();
     if (obj == NULL) {
@@ -91,11 +90,11 @@ extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
     int bestIdx = -1;
     short best = 0x3244;
     for (int i = 0; i < 0x20; i++) {
-        Entry021a4e88* e = GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)list, i);
+        Entry021a4e88* e = func_0203dce4((EntryList_203dce4*)list, i);
         if (e == NULL) {
             continue;
         }
-        ClearFlag0x1_02040648((unsigned int*)e);
+        func_02040648((unsigned int*)e);
         int hidden;
         if (e->flags & 0x40000) {
             hidden = 1;
@@ -103,10 +102,10 @@ extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
             hidden = 0;
         }
         e->flags &= ~0x40000;
-        Vec3_021a4e88 epos = _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8(e);
+        Vec3_021a4e88 epos = ((Vec3_021a4e88 (*)(Entry021a4e88*))func_020406f8)(e);
         int inZone = 0;
         int reach = 0x1800;
-        Info021a4e88* info = GetField0xc02040538((S02040538*)e);
+        Info021a4e88* info = func_02040538((S02040538*)e);
         if (info != NULL) {
             if (info->shape != NULL) {
                 Vector3fix_Add(&epos, &info->shape->center, &epos);
@@ -132,20 +131,20 @@ extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
         if (hidden) {
             e->flags |= 0x40000;
         }
-        SetFlag0x1_02040658((unsigned int*)e);
-        ClearActiveChildState_02040bcc((char*)e);
+        func_02040658((unsigned int*)e);
+        func_02040bcc((char*)e);
         if (info->linkKey != 0) {
-            Entry021a4e88* link = FindEntryPointerByKey0203df78(list, info->linkKey);
+            Entry021a4e88* link = func_0203df78(list, info->linkKey);
             if (link != NULL) {
-                SetFlag0x1_02040658((unsigned int*)link);
-                ClearActiveChildState_02040bcc((char*)link);
+                func_02040658((unsigned int*)link);
+                func_02040bcc((char*)link);
                 link->flags |= 0x20000;
             }
         }
         if ((e->flags & 0x200) || res->busy != 0) {
             continue;
         }
-        if (CheckSubstructByte0x7cPositive_020535c8((signed char*)obj)) {
+        if (func_020535c8((signed char*)obj)) {
             continue;
         }
         int angle = (short)fix32abs(GetAngleToEntry(&pos, (short)rot.y, e));
@@ -158,7 +157,7 @@ extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
             best = angle;
             continue;
         }
-        unsigned char* data = GetField0x8_02040528((int*)e);
+        unsigned char* data = func_02040528((int*)e);
         if (checkKind == 0 || data[2] == 1) {
             continue;
         }

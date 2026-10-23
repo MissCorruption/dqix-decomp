@@ -39,8 +39,8 @@ extern "C" ARM void func_02032e58(void *receiver) {
     state->fieldBa     = 0x199;
     state->fieldE0Bit2 = 0;
     state->fieldE0Bit1 = 0;
-    ClearFourHalfwords(&state->firstHalfwords);
-    ClearFourHalfwords(&state->secondHalfwords);
+    func_02032fb8(&state->firstHalfwords);
+    func_02032fb8(&state->secondHalfwords);
     state->fieldC1Bit2 = 0;
     state->fieldE0Bit3 = 0;
     state->fieldE0Bit4 = 0;

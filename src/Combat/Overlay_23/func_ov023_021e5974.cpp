@@ -83,10 +83,10 @@ struct Extension_021e5974
     char name_[8];
 };
 
-int GetField0x3acValue_020100a8(GameState* state);
-void CopyAndClampShorts_021e5fdc(void* vocation, short* models, short* appearance);
-StructDE234_020de234* FindElementByKey020dedd0(struct Container020dedd0* names, int id);
-unsigned short GetPreferredPackedField020de234(StructDE234_020de234* p, int preferMid);
+extern "C" int func_020100a8(GameState* state);
+extern "C" void func_ov023_021e5fdc(void* vocation, short* models, short* appearance);
+extern "C" StructDE234_020de234* func_020dedd0(struct Container020dedd0* names, int id);
+extern "C" unsigned short func_020de234(StructDE234_020de234* p, int preferMid);
 extern "C" void func_ov023_021e61a0(CharacterModel_021e5974* self);
 
 extern const int data_ov023_021fd698[5];
@@ -118,15 +118,15 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
     if (vocation < 0)
         vocation = member->vocation_;
     if (vocation < 0)
-        vocation = GetField0x3acValue_020100a8(state);
+        vocation = func_020100a8(state);
     self->vocation_ = vocation;
-    CopyAndClampShorts_021e5fdc((void*)vocation, models, appearance->models_);
+    func_ov023_021e5fdc((void*)vocation, models, appearance->models_);
     self->parts_[3].unknown_2_ = -1;
     self->parts_[4].unknown_2_ = -1;
-    FindElementByKey020dedd0(self->names_, models[7]);
+    func_020dedd0(self->names_, models[7]);
     StructDE234_020de234* entries[10] = {0};
-    entries[0] = FindElementByKey020dedd0(self->names_, models[0]);
-    entries[7] = FindElementByKey020dedd0(self->names_, models[7]);
+    entries[0] = func_020dedd0(self->names_, models[0]);
+    entries[7] = func_020dedd0(self->names_, models[7]);
     self->angle_ = self->parts_[0].rotation_.y;
 
     self->bodyChanged_ = 0;
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
                 models[5] = -1;
             continue;
         }
-        StructDE234_020de234* entry = FindElementByKey020dedd0(self->names_, models[i]);
+        StructDE234_020de234* entry = func_020dedd0(self->names_, models[i]);
         if (entry == NULL)
         {
             self->parts_[i].Initialize();
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
             StructDE234_020de234* body = entries[0];
             StructDE234_020de234* weapon = entries[7];
             int female = member->appearance_.female_;
-            id = GetPreferredPackedField020de234(entry, female);
+            id = func_020de234(entry, female);
             Extension_021e5974 ext = data_ov023_021fd678;
             char prefix[2] = {0};
 
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
                 prefix[1] = 0;
                 if (weapon != NULL && weapon->level_ > -1)
                 {
-                    unsigned int rank = (unsigned int)GetPreferredPackedField020de234(weapon, female) / 100;
+                    unsigned int rank = (unsigned int)func_020de234(weapon, female) / 100;
                     if (rank < 10)
                     {
                         char c = data_ov023_021fd680[rank];
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
             {
                 modelId = appearance->models_[4];
                 if (modelId == 0x1f4a || modelId < 0)
-                    id = GetPreferredPackedField020de234(body, female);
+                    id = func_020de234(body, female);
             }
             if (entry->level_ == 1000)
                 id += member->unk_56a;
@@ -233,8 +233,8 @@ extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemb
     self->bodyChanged_ = 1;
     if (self->bodyChanged_)
     {
-        StructDE234_020de234* body = FindElementByKey020dedd0(self->names_, models[0]);
-        StructDE234_020de234* weapon = FindElementByKey020dedd0(self->names_, models[8]);
+        StructDE234_020de234* body = func_020dedd0(self->names_, models[0]);
+        StructDE234_020de234* weapon = func_020dedd0(self->names_, models[8]);
         unsigned char weaponId = 0;
         if (weapon != NULL)
             weaponId = weapon->model_->id_;

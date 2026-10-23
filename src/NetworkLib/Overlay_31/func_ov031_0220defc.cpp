@@ -18,12 +18,12 @@ extern "C" void func_ov031_0220da1c(int);
 extern "C" int func_ov031_0220d984(int, int, int, int);
 extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
 extern "C" void func_ov031_0220ec5c(int, unsigned short);
-void DispatchEvent_0220d9c8(short, short, int, int, int);
+extern "C" void func_ov031_0220d9c8(short, short, int, int, int);
 extern "C" unsigned int func_ov031_0220db38(unsigned int);
-unsigned int CountLeadingZeros_0220db64(unsigned int);
+extern "C" unsigned int func_ov031_0220db64(unsigned int);
 extern "C" int func_ov031_0220d8f4(unsigned short);
-int SubmitBattleContextEntry020d5340(int, BattleCtx020d5340*);
-int IssueBattleCommandSlot11_020d5490(int);
+extern "C" int func_020d5340(int, BattleCtx020d5340*);
+extern "C" int func_020d5490(int);
 extern "C" int func_ov031_0220db6c();
 extern "C" void func_ov031_0220e1e0(BattleEvent0220defc*);
 
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov031_0220defc(BattleEvent0220defc* event) {
                 if ((int)event->count > 0) {
                     do {
                         func_ov031_0220ec5c(event->entries[index], event->lengths[index]);
-                        DispatchEvent_0220d9c8(7, 0, event->entries[index], (int)event, 0x71a);
+                        func_ov031_0220d9c8(7, 0, event->entries[index], (int)event, 0x71a);
                         ++index;
                     } while (index < event->count);
                 }
@@ -58,19 +58,19 @@ extern "C" ARM void func_ov031_0220defc(BattleEvent0220defc* event) {
                     if (interval != 0) {
                         unsigned int counter = data_ov031_0224e53c->counter;
                         if (counter % interval == 0)
-                            DispatchEvent_0220d9c8(8, 0, counter, 0, 0x728);
+                            func_ov031_0220d9c8(8, 0, counter, 0, 0x728);
                     }
                 }
-                int shift = func_ov031_0220d8f4(32 - CountLeadingZeros_0220db64(event->mask));
+                int shift = func_ov031_0220d8f4(32 - func_ov031_0220db64(event->mask));
                 data_ov031_0224e53c->context.mask = (1 << shift) >> 1;
             }
             InvalidateDataCacheRange(data_ov031_0224e53c->context.data,
                                     data_ov031_0224e53c->context.size);
             ++data_ov031_0224e53c->counter;
-            result = SubmitBattleContextEntry020d5340((int)func_ov031_0220defc, &data_ov031_0224e53c->context);
+            result = func_020d5340((int)func_ov031_0220defc, &data_ov031_0224e53c->context);
             break;
         case 7:
-            result = IssueBattleCommandSlot11_020d5490((int)func_ov031_0220e1e0);
+            result = func_020d5490((int)func_ov031_0220e1e0);
             break;
         case 13:
             func_ov031_0220db6c();

@@ -32,14 +32,14 @@ struct BattleUi021e27c8 {
 
 };
 
-SafeAllocator* GetArrayEntry_021e8a54_021e8a54(char* obj);
-char* GetArrayEntry_021e8a64_021e8a64(char* obj);
+extern "C" SafeAllocator* func_ov025_021e8a54(char* obj);
+extern "C" char* func_ov025_021e8a64(char* obj);
 extern "C" NodeList02057de0* func_02057924(void);
-unsigned char NormalizeField5_0200fb08(Struct0200fb08* obj);
-int FindTagAndCopy_021e24d0(char* s, char* out2, char* out1);
-void PushLogNode021e8bac(Obj021e8bac* obj, Node021e8bac* node);
-int CreateAndRegisterNode02057de0(NodeList02057de0* list, int id, SafeAllocator* alloc, int data, int size);
-void RemoveMatchingShort_021eb084(RemoveList021eb084* obj, int val);
+extern "C" unsigned char func_0200fb08(Struct0200fb08* obj);
+extern "C" int func_ov025_021e24d0(char* s, char* out2, char* out1);
+extern "C" void func_ov025_021e8bac(Obj021e8bac* obj, Node021e8bac* node);
+extern "C" int func_02057de0(NodeList02057de0* list, int id, SafeAllocator* alloc, int data, int size);
+extern "C" void func_ov025_021eb084(RemoveList021eb084* obj, int val);
 extern "C" void __clear(void* p, int n);
 
 extern BattleUi021e27c8 data_ov025_021ef988;
@@ -57,13 +57,13 @@ extern "C" ARM void func_ov025_021e27c8(char* name, int id) {
     void* data;
     unsigned int size;
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GetArrayEntry_021e8a54_021e8a54(data_ov025_021ef988.ui);
-    GetArrayEntry_021e8a64_021e8a64(data_ov025_021ef988.ui);
+    func_ov025_021e8a54(data_ov025_021ef988.ui);
+    func_ov025_021e8a64(data_ov025_021ef988.ui);
     func_02057924();
 #if defined(jpn)
 
 #else
-    int language = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+    int language = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
 #endif
 
     data = 0;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov025_021e27c8(char* name, int id) {
 #endif
 
     int task;
-    if (FindTagAndCopy_021e24d0(name, archive, inner)) {
+    if (func_ov025_021e24d0(name, archive, inner)) {
         task = loader->GetLoadedFileInArchive(archive, inner, &data, &size);
     } else {
 #if defined(jpn)
@@ -93,8 +93,8 @@ extern "C" ARM void func_ov025_021e27c8(char* name, int id) {
         SafeAllocator* alloc;
         void* copy;
         NodeList02057de0* list;
-        alloc = GetArrayEntry_021e8a54_021e8a54(data_ov025_021ef988.ui);
-        tables = GetArrayEntry_021e8a64_021e8a64(data_ov025_021ef988.ui);
+        alloc = func_ov025_021e8a54(data_ov025_021ef988.ui);
+        tables = func_ov025_021e8a64(data_ov025_021ef988.ui);
         list = func_02057924();
         copy = alloc->Allocate(len);
         if (copy != 0) {
@@ -104,16 +104,16 @@ extern "C" ARM void func_ov025_021e27c8(char* name, int id) {
             if (node != 0) {
                 node->byte0 = 1;
                 node->half4 = id;
-                PushLogNode021e8bac((Obj021e8bac*)data_ov025_021ef988.ui, node);
-                RestorePairTables0207df90(tables);
-                CreateAndRegisterNode02057de0(list, id, alloc, (int)copy, len);
-                BackupPairTables0207dfac(tables);
+                func_ov025_021e8bac((Obj021e8bac*)data_ov025_021ef988.ui, node);
+                func_0207df90(tables);
+                func_02057de0(list, id, alloc, (int)copy, len);
+                func_0207dfac(tables);
                 data_ov025_021ef988.loadedCount++;
             }
         }
     }
     if (task >= 0) {
         loader->RemoveTask(task);
-        RemoveMatchingShort_021eb084((RemoveList021eb084*)data_ov025_021ef988.ui, task);
+        func_ov025_021eb084((RemoveList021eb084*)data_ov025_021ef988.ui, task);
     }
 }

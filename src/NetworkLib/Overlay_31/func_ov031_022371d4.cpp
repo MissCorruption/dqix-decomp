@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Header_0223bd28;
-void ExtractPackedHiLo_0223bd28(Header_0223bd28*, int, unsigned int*, unsigned int*);
+extern "C" void func_ov031_0223bd28(Header_0223bd28*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_0223bbd8(void*, int, int, int);
 extern "C" void func_ov031_0223e2b8(void*, int);
 extern "C" void func_ov031_022372b0(void*);
@@ -12,10 +12,10 @@ extern Base022371d4 data_ov031_02290d04;
 struct Entry0224926a { unsigned short lo; unsigned short hi; };
 extern Entry0224926a data_ov031_0224926a[];
 
-// USA: func_ov031_022371d4  (semantic: DispatchEntriesFromIndex1_022371d4)
+// USA: func_ov031_022371d4
 extern "C" ARM void func_ov031_022371d4(void* obj) {
 	unsigned int outHi, outLo;
-	ExtractPackedHiLo_0223bd28((Header_0223bd28*)data_ov031_02290d04.p[1], 0, &outHi, &outLo);
+	func_ov031_0223bd28((Header_0223bd28*)data_ov031_02290d04.p[1], 0, &outHi, &outLo);
 	outHi = outHi - 8;
 	if ((int)outHi > 0x20) {
 		int i = 1;

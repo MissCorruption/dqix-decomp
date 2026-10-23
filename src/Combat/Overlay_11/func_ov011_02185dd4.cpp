@@ -12,7 +12,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct TaggedNumber02184c30;
-extern int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
 
 extern "C" void* func_ov017_021b2164(void);
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
@@ -27,14 +27,14 @@ extern char data_ov024_021fed64;
 
 struct ListHead_021f67ac;
 struct ListNode_021f67ac;
-void AppendNodeToList_021f67ac(struct ListHead_021f67ac*, struct ListNode_021f67ac*);
+extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac*, struct ListNode_021f67ac*);
 
-// USA: func_ov011_02185dd4  (semantic: AllocateAndRegisterListEntry_02185dd4)
+// USA: func_ov011_02185dd4
 extern "C" ARM int func_ov011_02185dd4(struct TaggedNumber02184c30* tagged) {
-    int v0 = GetTaggedValueAsInt_02184c30(tagged);
-    int v1 = GetTaggedValueAsInt_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
-    int v2 = GetTaggedValueAsInt_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x10));
-    int v3 = GetTaggedValueAsInt_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x18));
+    int v0 = func_ov011_02184c30(tagged);
+    int v1 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
+    int v2 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x10));
+    int v3 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x18));
 
     void* ctx = func_ov017_021b2164();
     void* node = func_ov011_021845f8(ctx, v1);
@@ -51,6 +51,6 @@ extern "C" ARM int func_ov011_02185dd4(struct TaggedNumber02184c30* tagged) {
     if (!func_ov023_021fb2b0(block, ctx, v0, v1, v2, v3)) return 0;
 
     void* obj = func_ov011_021849c8(ctx);
-    AppendNodeToList_021f67ac((struct ListHead_021f67ac*)obj, (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct ListHead_021f67ac*)obj, (struct ListNode_021f67ac*)block);
     return 1;
 }

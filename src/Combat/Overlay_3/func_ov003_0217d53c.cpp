@@ -15,16 +15,16 @@ enum { kRegion370c = 0x370c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-char* GetGlobalField0x1c020421a0(void);
+extern "C" char* func_020421a0(void);
 extern "C" char* func_02012fe4(void);
 extern "C" int func_020457e0(char* obj);
 extern "C" void func_ov017_021baedc(void* self, int flag);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
-void InitAndResetHeader_0219e310(unsigned char* obj, int arg);
-void* GetField0x3f8Address_0200fd0c(GameState* state);
-void InitStruct02070378(char* obj);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_ov017_0219e310(unsigned char* obj, int arg);
+extern "C" void* func_0200fd0c(GameState* state);
+extern "C" void func_02070378(char* obj);
 
 struct Progress02012fe4 {
 #if defined(jpn)
@@ -68,7 +68,7 @@ struct State_0217d53c {
 // USA: func_ov003_0217d53c
 extern "C" ARM void func_ov003_0217d53c(State_0217d53c* self) {
     GameState* gs = GameState::GetInstance();
-    char* global = GetGlobalField0x1c020421a0();
+    char* global = func_020421a0();
     char* res = (char*)GetGameResources();
     struct TailList020469b4* list = *(struct TailList020469b4**)(res + kRegion36fc);
 #if defined(jpn)
@@ -104,17 +104,17 @@ extern "C" ARM void func_ov003_0217d53c(State_0217d53c* self) {
                 event->messageId = 0xd06a;
                 break;
         }
-        AppendNodeToTail(list, (struct TailNode020469b4*)event);
+        func_020469b4(list, (struct TailNode020469b4*)event);
         unsigned char* header = *(unsigned char**)(res + kRegion370c);
-        InitAndResetHeader_0219e310(header, 0);
-        EventRecord_0217d53c* record = (EventRecord_0217d53c*)GetField0x3f8Address_0200fd0c(gs);
-        InitStruct02070378((char*)record);
+        func_ov017_0219e310(header, 0);
+        EventRecord_0217d53c* record = (EventRecord_0217d53c*)func_0200fd0c(gs);
+        func_02070378((char*)record);
         record->id = 0xc3bc;
         record->field_0x7 = 1;
         record->field_0x14 = 0x266;
         record->field_0x18 = -0x7b33;
         record->field_0xc = 1;
-        AppendNodeToTail(list, (struct TailNode020469b4*)header);
+        func_020469b4(list, (struct TailNode020469b4*)header);
         self->state = 4;
         self->busy = 0;
     } else {

@@ -31,11 +31,11 @@ struct EventArgs_0219814c {
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0205ec34(void);
-void* GetPointerFromArray0x3c_0201e838(unsigned char* obj, unsigned int index);
+extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
 extern "C" int func_02094b9c(struct AreaNode_0219814c* node, struct Anchor_0219814c* anchor);
-struct AreaNode_0219814c* GetFieldAt0x188_02053ccc(unsigned char* obj);
-void SetFieldAt0x188_02053cc4(unsigned char* obj, int value);
-int LookupAndForEachNode020649b0(void* a, int mode, void* c);
+extern "C" struct AreaNode_0219814c* func_02053ccc(unsigned char* obj);
+extern "C" void func_02053cc4(unsigned char* obj, int value);
+extern "C" int func_020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
 
 // USA: func_ov017_0219814c
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov017_0219814c(void) {
     struct AreaNode_0219814c* node;
     struct AreaNode_0219814c* current;
 
-    node = (struct AreaNode_0219814c*)GetPointerFromArray0x3c_0201e838((unsigned char*)ctx + RegionOffset6c, 3);
+    node = (struct AreaNode_0219814c*)func_0201e838((unsigned char*)ctx + RegionOffset6c, 3);
     while (node != 0) {
         if (func_02094b9c(node, &anchor)) {
             break;
@@ -57,29 +57,29 @@ extern "C" ARM void func_ov017_0219814c(void) {
         node = node->next;
     }
 
-    current = GetFieldAt0x188_02053ccc((unsigned char*)combatant);
+    current = func_02053ccc((unsigned char*)combatant);
     if (current != 0) {
         if (node == 0) {
             args.areaId = current->areaId;
-            if (LookupAndForEachNode020649b0(events, 5, &args)) {
+            if (func_020649b0(events, 5, &args)) {
                 func_0206f81c(&args);
             }
         } else if (node != current) {
             args.areaId = current->areaId;
-            if (LookupAndForEachNode020649b0(events, 5, &args)) {
+            if (func_020649b0(events, 5, &args)) {
                 func_0206f81c(&args);
             }
             args.field_0x30 = 0;
             args.areaId = node->areaId;
-            if (LookupAndForEachNode020649b0(events, 2, &args)) {
+            if (func_020649b0(events, 2, &args)) {
                 func_0206f81c(&args);
             }
         }
     } else if (node != 0) {
         args.areaId = node->areaId;
-        if (LookupAndForEachNode020649b0(events, 2, &args)) {
+        if (func_020649b0(events, 2, &args)) {
             func_0206f81c(&args);
         }
     }
-    SetFieldAt0x188_02053cc4((unsigned char*)combatant, (int)node);
+    func_02053cc4((unsigned char*)combatant, (int)node);
 }

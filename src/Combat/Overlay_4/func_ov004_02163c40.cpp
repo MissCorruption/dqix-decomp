@@ -25,14 +25,14 @@ extern unsigned short data_ov004_02170660[3];
 extern unsigned short data_ov004_0216fef8[3];
 #endif
 extern "C" void func_ov023_021f809c(void*, void*);
-MessageSystem* GetGlobalField0x1c020421a0();
-int DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" MessageSystem* func_020421a0();
+extern "C" int func_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" void func_ov004_02163478(MapList3C40*);
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" Node3C40* func_ov023_021f6880(void*, int);
 extern "C" short func_ov023_021f6f10(void*);
-void DispatchNodeIfState6_021f6680(void*, int);
-void ClearNodeMaskById_021f6600(void*, int, int);
+extern "C" void func_ov023_021f6680(void*, int);
+extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" void func_ov004_02164084(void*);
 
 // USA: func_ov004_02163c40
@@ -52,9 +52,9 @@ extern "C" ARM int func_ov004_02163c40(void* self) {
     int brightness = IsBrightnessTransitionActive(GetGameResources());
     if (brightness && !data_ov004_02171010->field_18fe) return 0;
     if (!data_ov004_02171010->count) return 0;
-    if (GetGlobalField0x1c020421a0()->active) return 0;
+    if (func_020421a0()->active) return 0;
     if (!data_ov004_02171010->field_18fe) {
-        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        func_0205eaa0(&data_02108760, 1, 0);
     }
 #if defined(jpn)
     COPY_ARRAY(modes, data_ov004_02170660);
@@ -136,8 +136,8 @@ extern "C" ARM int func_ov004_02163c40(void* self) {
     func_ov023_021f809c(refreshNode, self);
     refreshNode->flags &= ~8;
 #else
-    DispatchNodeIfState6_021f6680(self, 0x16);
-    ClearNodeMaskById_021f6600(self, 0x16, 8);
+    func_ov023_021f6680(self, 0x16);
+    func_ov023_021f6600(self, 0x16, 8);
 #endif
     func_ov004_02164084(self);
     return 0;

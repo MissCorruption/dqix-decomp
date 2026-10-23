@@ -7,8 +7,8 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/Graphics.h"
 
-int GetField4340_021bdbe4(unsigned char* base);
-int GetField433c_021bdbd8(unsigned char* base);
+extern "C" int func_ov017_021bdbe4(unsigned char* base);
+extern "C" int func_ov017_021bdbd8(unsigned char* base);
 extern "C" void func_ov023_021e5628(void* addr, void* pair);
 
 struct Pair021e3084 { void* firstAttachment; void* secondAttachment; };
@@ -28,7 +28,7 @@ struct TimedDrawState {
     unsigned short flags;
 };
 
-// USA: func_ov023_021e3084  (semantic: DecrementCounterAndDispatchPair_021e3084)
+// USA: func_ov023_021e3084
 extern "C" ARM void func_ov023_021e3084(void* obj) {
     TimedDrawState* state = (TimedDrawState*)obj;
     GameState::GetInstance();
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov023_021e3084(void* obj) {
         attachments.secondAttachment = NULL;
         attachments.firstAttachment = NULL;
     } else {
-        attachments.secondAttachment = (void*)GetField4340_021bdbe4((unsigned char*)resources);
-        attachments.firstAttachment = (void*)GetField433c_021bdbd8((unsigned char*)resources);
+        attachments.secondAttachment = (void*)func_ov017_021bdbe4((unsigned char*)resources);
+        attachments.firstAttachment = (void*)func_ov017_021bdbd8((unsigned char*)resources);
     }
 
     if (state->drawObject != NULL) {

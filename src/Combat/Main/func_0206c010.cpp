@@ -17,7 +17,7 @@ struct Data02108cec {
 };
 extern struct Data02108cec data_02108cec;
 
-// USA: func_0206c010  (semantic: SpawnScriptEntityRecord0206c010)
+// USA: func_0206c010
 extern "C" ARM int func_0206c010(Script::Parameter* params, int count) {
     struct Rec0206bf2c* rec;
     Script::Parameter* p;
@@ -32,11 +32,11 @@ extern "C" ARM int func_0206c010(Script::Parameter* params, int count) {
     if (rec == 0) {
         return 0;
     }
-    ClearWorkRecord0206bf2c(rec);
+    func_0206bf2c(rec);
     rec->field2 = (unsigned short)id;
     rec->field0 = (unsigned char)params[1].ToInt();
     if (count < 3) {
-        UnlinkNodeByByteId0206dd68(data_02108cec.field0x10, rec->field0);
+        func_0206dd68(data_02108cec.field0x10, rec->field0);
         return 1;
     }
     p = params[2].ToVec3fix((Vector3fix*)rec->pad10);

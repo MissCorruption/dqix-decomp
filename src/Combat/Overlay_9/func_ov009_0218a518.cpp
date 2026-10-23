@@ -12,7 +12,7 @@ struct PatternSyntax0218a518 {
     unsigned char range;
     unsigned char wildcard;
 };
-int FindByteInBuffer0218a888(PatternSyntax0218a518*, unsigned char*, int, int);
+extern "C" int func_ov009_0218a888(PatternSyntax0218a518*, unsigned char*, int, int);
 
 // USA: func_ov009_0218a518
 extern "C" ARM int func_ov009_0218a518(PatternSyntax0218a518* syntax, const unsigned char* pattern, const unsigned char* input, int unused, int count) {
@@ -82,12 +82,12 @@ extern "C" ARM int func_ov009_0218a518(PatternSyntax0218a518* syntax, const unsi
                 }
                 hasRange += length;
                 length = strlen((char*)members);
-                if (hasRange == 0) matches = FindByteInBuffer0218a888(syntax, members, length, current);
+                if (hasRange == 0) matches = func_ov009_0218a888(syntax, members, length, current);
                 else if (hasRange == 1) {
                     unsigned int last = members[length - 1];
                     matches = members[0] <= current && current <= last;
                 }
-                else if (hasRange == 2) matches = !FindByteInBuffer0218a888(syntax, members + 1, length - 1, current);
+                else if (hasRange == 2) matches = !func_ov009_0218a888(syntax, members + 1, length - 1, current);
                 else if (hasRange == 3) {
                     unsigned int last = (members + 1)[length - 2];
                     matches = !((members + 1)[0] <= current && current <= last);

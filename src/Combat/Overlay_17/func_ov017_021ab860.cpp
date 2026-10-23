@@ -20,24 +20,24 @@ enum { kResourceHeaderOffset = 0x70c, kResourceTailOffset = 0x6fc,
        kTargetIdOffset = 0x44ae, kTargetArgOffset = 0x44b0 };
 #endif
 
-int GetWord0x0_0200fb8c(int* p);
+extern "C" int func_0200fb8c(int* p);
 extern "C" void* func_02012fe4(void);
 extern "C" void* memset(void* dst, int val, unsigned int size);
 extern "C" unsigned char* func_0205ec34(void);
-int TestBitInByteArray_0206dfb0(int obj, unsigned char* bits, int index);
-int IsGlobalU16InRange_020117f0(GameState* gameState);
+extern "C" int func_0206dfb0(int obj, unsigned char* bits, int index);
+extern "C" int func_020117f0(GameState* gameState);
 struct Obj021abb68;
-void InitState28_021abb68(struct Obj021abb68* obj, unsigned char arg);
+extern "C" void func_ov017_021abb68(struct Obj021abb68* obj, unsigned char arg);
 struct List02046a3c;
 struct Node02046a3c;
-void InsertNodeAfterHead(struct List02046a3c* list, struct Node02046a3c* node);
+extern "C" void func_02046a3c(struct List02046a3c* list, struct Node02046a3c* node);
 extern "C" int func_ov017_0219ff58(GameResources* res, int a, int b, int c);
-void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
+extern "C" void* func_0200fd0c(GameState* battleStruct);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
-void InitAndResetHeader_0219e310(unsigned char* obj, int flag);
+extern "C" void func_ov017_0219e310(unsigned char* obj, int flag);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 struct Active021ab860 {
     unsigned short zoneId;
@@ -91,7 +91,7 @@ struct Entry3f8_021ab860 {
 // USA: func_ov017_021ab860
 extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     GameState* gs = GameState::GetInstance();
-    GetWord0x0_0200fb8c((int*)gs);
+    func_0200fb8c((int*)gs);
     data_ov017_021d83b0.header = ((Active021ab860*)func_02012fe4())->header;
     data_ov017_021d83b0.key = 0;
     data_ov017_021d83b0.group = 0;
@@ -99,10 +99,10 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     memset(&data_ov017_021d83bc, 0, sizeof(Vector3i));
     data_ov017_021d83b0.field_0x18 = 0;
     unsigned char* save = func_0205ec34();
-    if (TestBitInByteArray_0206dfb0((int)save, save + 0x8c, 0x113a) != 0) {
+    if (func_0206dfb0((int)save, save + 0x8c, 0x113a) != 0) {
         return 1;
     }
-    if (IsGlobalU16InRange_020117f0(gs) != 0) {
+    if (func_020117f0(gs) != 0) {
         int status;
         GameState* state = GameState::GetInstance();
         Active021ab860* active = (Active021ab860*)func_02012fe4();
@@ -155,15 +155,15 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
     }
     if (data_ov017_021d83b0.entryId != 0) {
         GameResources* res = GetGameResources();
-        InitState28_021abb68((struct Obj021abb68*)res->unknown_ptr_array_3afc[6], arg1);
-        InsertNodeAfterHead((struct List02046a3c*)res->unknown_ptr_array_36fc[0],
+        func_ov017_021abb68((struct Obj021abb68*)res->unknown_ptr_array_3afc[6], arg1);
+        func_02046a3c((struct List02046a3c*)res->unknown_ptr_array_36fc[0],
                             (struct Node02046a3c*)res->unknown_ptr_array_3afc[6]);
         int busy = func_ov017_0219ff58(res, 1, 0, 0);
         if (busy != 0) {
             return 3;
         }
         if (busy == 0) {
-            Entry3f8_021ab860* e = (Entry3f8_021ab860*)GetField0x3f8Address_0200fd0c(gs);
+            Entry3f8_021ab860* e = (Entry3f8_021ab860*)func_0200fd0c(gs);
             VectorizedMemset(e, 0, sizeof(Entry3f8_021ab860));
             e->b4 = 1;
             e->b8 = 1;
@@ -180,13 +180,13 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
             e->vec = data_ov017_021d83bc;
             e->h1c = data_ov017_021d83b0.field_0x18;
             e->b7 = 1;
-            CallFunc0200fbb4AtField0x3f8_0200fcfc(gs, e);
+            func_0200fcfc(gs, e);
         }
         struct TailList020469b4* tail;
         unsigned char* header = (unsigned char*)res->unknown_ptr_array_36fc[4];
         tail = (struct TailList020469b4*)res->unknown_ptr_array_36fc[0];
-        InitAndResetHeader_0219e310(header, 0);
-        AppendNodeToTail(tail, (struct TailNode020469b4*)header);
+        func_ov017_0219e310(header, 0);
+        func_020469b4(tail, (struct TailNode020469b4*)header);
         *(short*)((unsigned char*)res + kTargetIdOffset) = 0;
         *(short*)((unsigned char*)res + kTargetArgOffset) = 0;
         return 3;

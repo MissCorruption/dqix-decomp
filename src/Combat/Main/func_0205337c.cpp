@@ -2,14 +2,14 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-void* GetDataPtr02114e04_020d6c00(void);
-int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" void* func_020d6c00(void);
+extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
 
 struct Vec3copy0202ec84 { int x; int y; int z; };
-ARM int ComputeTwoFromVec3_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
+extern "C" ARM int func_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
 
 struct StructAt020473c8;
-ARM void RenderFlaggedIndexedEntry(struct StructAt020473c8* obj, int param1);
+extern "C" ARM void func_020473c8(struct StructAt020473c8* obj, int param1);
 
 struct Node0205337c {
     unsigned char pad0[0x1c];
@@ -42,17 +42,17 @@ struct Obj0205337c {
 
 // USA: func_0205337c
 extern "C" ARM void func_0205337c(struct Obj0205337c* obj) {
-    if (TestFlags02046708((struct FlagWord02046708*)GetDataPtr02114e04_020d6c00(), 2)) return;
+    if (func_02046708((struct FlagWord02046708*)func_020d6c00(), 2)) return;
     if (obj->node == NULL) return;
 
-    void* target = GetField0x3b0Value_020100bc(GameState::GetInstance());
+    void* target = func_020100bc(GameState::GetInstance());
     *(volatile int*)0x4000444 = 0;
 
     struct Vec3copy0202ec84 pose = obj->pose;
     pose.y += 0x1b33;
 
     int outB, outA;
-    ComputeTwoFromVec3_0202ec84(target, &pose, &outB, &outA);
+    func_0202ec84(target, &pose, &outB, &outA);
     outB -= 0xc;
     outA -= 0xc;
 
@@ -74,6 +74,6 @@ extern "C" ARM void func_0205337c(struct Obj0205337c* obj) {
     node->screenY = sy << 12;
     node->depth = -0xa000;
 
-    RenderFlaggedIndexedEntry((struct StructAt020473c8*)obj->node, 1);
+    func_020473c8((struct StructAt020473c8*)obj->node, 1);
     *(volatile int*)0x4000448 = 1;
 }

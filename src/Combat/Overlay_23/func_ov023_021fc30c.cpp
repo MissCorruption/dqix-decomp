@@ -10,7 +10,7 @@ struct List0202fe68;
 struct List0202fec8;
 
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
-ARM void InitScriptAndRun_021e133c(void* a, void* b, int c, int d, int e, short f);
+extern "C" ARM void func_ov023_021e133c(void* a, void* b, int c, int d, int e, short f);
 
 struct Obj021fc30c {
     char pad0[0x8];
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov023_021fc30c(struct Obj021fc30c* obj, void* ctx) {
                 func_ov023_021f6bb0(node, -1);
                 return 2;
             }
-            InitScriptAndRun_021e133c((char*)obj + 0x20, (char*)something + 4, v1, v2, 0, 0);
+            func_ov023_021e133c((char*)obj + 0x20, (char*)something + 4, v1, v2, 0, 0);
         }
         ((BackgroundLoader*)(listPtr))->RemoveTask((int)(key));
         func_ov023_021f6bb0(node, -1);

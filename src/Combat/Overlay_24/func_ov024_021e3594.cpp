@@ -16,14 +16,14 @@ struct Action_021e3594 {
 struct Stats_021e3594 { char pad0[0x50]; unsigned char resistRate; };
 
 struct StatStageStruct02087860;
-int CanAdjustStatStageBit3(StatStageStruct02087860* p, unsigned char decrease);
+extern "C" int func_02087860(StatStageStruct02087860* p, unsigned char decrease);
 struct StatStageStruct020878b4;
 extern "C" int func_020878b4(struct StatStageStruct020878b4* p, int delta);
 void UpdateCombatantDefense(int unused, int combatantId);
 extern "C" int func_ov024_021e95d4(struct Obj_021e3594* ctx, int id, struct Action_021e3594* params, unsigned char mode, signed char adjustment, unsigned char changed, unsigned char flag);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
 struct Obj_021e8ca0;
-void* AddEntryToListAndIncCount_021e8ca0(struct Obj_021e8ca0* obj, int id);
+extern "C" void* func_ov024_021e8ca0(struct Obj_021e8ca0* obj, int id);
 extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
 
 // USA: func_ov024_021e3594
@@ -49,7 +49,7 @@ extern "C" ARM unsigned long long func_ov024_021e3594(struct Obj_021e3594* obj, 
 	}
 	int changed = 0;
 	int delta = 0;
-	if (CanAdjustStatStageBit3((struct StatStageStruct02087860*)c->currentStats_, decrease)) {
+	if (func_02087860((struct StatStageStruct02087860*)c->currentStats_, decrease)) {
 		delta = func_020878b4((struct StatStageStruct020878b4*)c->currentStats_, (signed char)stage);
 		UpdateCombatantDefense((int)obj->field0x10, id);
 		changed = 1;
@@ -60,7 +60,7 @@ extern "C" ARM unsigned long long func_ov024_021e3594(struct Obj_021e3594* obj, 
 	if (changed) {
 		int msg = func_ov024_021e95d4(obj, id, action, decrease, delta, 1, 1);
 		func_ov000_02159eac(obj->field0x10, &local, 0x1e);
-		void* entry = AddEntryToListAndIncCount_021e8ca0((struct Obj_021e8ca0*)obj, msg);
+		void* entry = func_ov024_021e8ca0((struct Obj_021e8ca0*)obj, msg);
 		if (entry) {
 			func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, 0);
 		}

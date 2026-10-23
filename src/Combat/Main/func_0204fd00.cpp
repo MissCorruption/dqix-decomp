@@ -18,7 +18,7 @@ struct Window0204fd00 {
     unsigned char flags;
 };
 
-int IsWithinRect0204ea28(short x, short y, short minX, short minY, short maxX, short maxY);
+extern "C" int func_0204ea28(short x, short y, short minX, short minY, short maxX, short maxY);
 
 // USA: func_0204fd00
 extern "C" ARM int func_0204fd00(Window0204fd00* window, int mask) {
@@ -64,7 +64,7 @@ extern "C" ARM int func_0204fd00(Window0204fd00* window, int mask) {
         otherRight = otherLeft + other->width;
         otherBottom = otherTop + other->height;
         if (mask & 1) {
-            if (IsWithinRect0204ea28(left, top, otherLeft, otherTop, otherRight, otherBottom)) {
+            if (func_0204ea28(left, top, otherLeft, otherTop, otherRight, otherBottom)) {
                 if (left != otherLeft || top != otherTop) {
                     result = 5;
                     if (left == otherLeft) {
@@ -77,7 +77,7 @@ extern "C" ARM int func_0204fd00(Window0204fd00* window, int mask) {
             }
         }
         if (mask & 2) {
-            if (IsWithinRect0204ea28(right - 1, top, otherLeft, otherTop, otherRight, otherBottom)) {
+            if (func_0204ea28(right - 1, top, otherLeft, otherTop, otherRight, otherBottom)) {
                 if (right != otherRight || top != otherTop) {
                     result = 5;
                     if (right == otherRight) {
@@ -90,7 +90,7 @@ extern "C" ARM int func_0204fd00(Window0204fd00* window, int mask) {
             }
         }
         if (mask & 4) {
-            if (IsWithinRect0204ea28(left, bottom - 1, otherLeft, otherTop, otherRight, otherBottom)) {
+            if (func_0204ea28(left, bottom - 1, otherLeft, otherTop, otherRight, otherBottom)) {
                 if (left != otherLeft || bottom != otherBottom) {
                     result = 5;
                     if (left == otherLeft) {
@@ -103,7 +103,7 @@ extern "C" ARM int func_0204fd00(Window0204fd00* window, int mask) {
             }
         }
         if (mask & 8) {
-            if (IsWithinRect0204ea28(right - 1, bottom - 1, otherLeft, otherTop, otherRight, otherBottom)) {
+            if (func_0204ea28(right - 1, bottom - 1, otherLeft, otherTop, otherRight, otherBottom)) {
                 if (right != otherRight || bottom != otherBottom) {
                     result = 5;
                     if (right == otherRight) {

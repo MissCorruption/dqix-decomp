@@ -32,7 +32,7 @@ extern int data_020f2f70;
 extern int data_020f2f94;
 extern HandlerList020015e8 data_020f2e60;
 
-// USA: func_020015e8  (semantic: RunAtExitHandlers_020015e8)
+// USA: func_020015e8
 extern "C" ARM void func_020015e8() {
     if (TryLockMutex((Mutex*)&data_020f2fb8) == 0) {
         data_020f2f70 = data_02111304.current->id;

@@ -132,22 +132,22 @@ struct Container020e0310;
 struct Container020dedd0;
 
 extern "C" void __clear(void* dst, int size);
-int GetFieldByKey020e0434(Container020e0310* texts, int id);
+extern "C" int func_020e0434(Container020e0310* texts, int id);
 #if defined(jpn)
 extern "C" int func_020e12ec(char* destination, const char* source);
 #define data_ov006_0215ff5c data_ov006_021612c0
 #endif
-void ZeroInit020de848(void* obj);
-int BuildDescriptorFlag1_020de980(void* obj, void* alloc, void* data, int size, int id);
-void* FindElementByKey020dedd0(Container020dedd0* c, int key);
+extern "C" void func_020de848(void* obj);
+extern "C" int func_020de980(void* obj, void* alloc, void* data, int size, int id);
+extern "C" void* func_020dedd0(Container020dedd0* c, int key);
 extern "C" void func_ov023_021dcd90(ItemInfoWindow* window, unsigned char inMenu);
 extern "C" void func_ov023_021dcae0(ItemInfoWindow* window, int item);
 extern "C" void func_ov023_021dced4(ItemInfoWindow* window, unsigned char multiplier);
-const char** CallFunc020e52a0_020e5294(void* names, int item);
+extern "C" const char** func_020e5294(void* names, int item);
 extern "C" void func_020e4864(const char* src, char* dst, int a, int b, int c, int d);
-GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* gameState, int combatantId);
-void* GetPtrField0x2a04_02010828(GameState* gameState);
-void SetFields_021dceac(char* window, int index, int name, unsigned char count, unsigned char maximum, unsigned char unk);
+extern "C" GameObject* func_0200ff1c(GameState* gameState, int combatantId);
+extern "C" void* func_02010828(GameState* gameState);
+extern "C" void func_ov023_021dceac(char* window, int index, int name, unsigned char count, unsigned char maximum, unsigned char unk);
 
 extern unsigned char data_ov006_0215ff5c[8];
 
@@ -161,14 +161,14 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
         if (self->itemStep_ == 0) {
             short innerKey = self->itemSprites_ + 0x26;
 #if defined(jpn)
-            const char* inner = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, innerKey);
+            const char* inner = (const char*)func_020e0434((Container020e0310*)self->texts_, innerKey);
             char path[0x40];
             func_020e12ec(path, inner);
             self->task_ = loader->QueueLoadGP1(path, 0);
 #else
             short gp2Key = self->itemSprites_ + 0x64;
-            const char* inner = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, innerKey);
-            const char* gp2 = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, gp2Key);
+            const char* inner = (const char*)func_020e0434((Container020e0310*)self->texts_, innerKey);
+            const char* gp2 = (const char*)func_020e0434((Container020e0310*)self->texts_, gp2Key);
             self->task_ = loader->QueueLoadFileInGP2(gp2, inner, 0);
 #endif
             self->itemStep_++;
@@ -181,13 +181,13 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
             loader->GetLoadedFileByID(self->task_, &data, &size);
             self->nextItemAllocator_->Reset();
             short id = self->itemId_;
-            ZeroInit020de848(self->partNames_);
-            BuildDescriptorFlag1_020de980(self->partNames_, self->nextItemAllocator_, data, size, id);
+            func_020de848(self->partNames_);
+            func_020de980(self->partNames_, self->nextItemAllocator_, data, size, id);
             self->window_.flags_ &= ~0x1000;
             self->window_.partNames_ = self->partNames_;
             func_ov023_021dcd90(&self->window_, 1);
             loader->RemoveTask(self->task_);
-            self->nextItem_ = FindElementByKey020dedd0((Container020dedd0*)self->partNames_, id);
+            self->nextItem_ = func_020dedd0((Container020dedd0*)self->partNames_, id);
             self->flags_ &= ~2;
             self->flags_ |= 0x40;
             func_ov023_021dcae0(&self->window_, self->itemId_);
@@ -206,7 +206,7 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
 #if defined(jpn)
         short innerKey = 0x26;
         innerKey += self->nextRecipe_->letter_;
-        const char* inner = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, innerKey);
+        const char* inner = (const char*)func_020e0434((Container020e0310*)self->texts_, innerKey);
         char path[0x40];
         func_020e12ec(path, inner);
         self->task_ = loader->QueueLoadGP1(path, 0);
@@ -215,8 +215,8 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
         short innerKey = 0x26;
         gp2Key += self->nextRecipe_->letter_;
         innerKey += self->nextRecipe_->letter_;
-        const char* inner = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, innerKey);
-        const char* gp2 = (const char*)GetFieldByKey020e0434((Container020e0310*)self->texts_, gp2Key);
+        const char* inner = (const char*)func_020e0434((Container020e0310*)self->texts_, innerKey);
+        const char* gp2 = (const char*)func_020e0434((Container020e0310*)self->texts_, gp2Key);
         self->task_ = loader->QueueLoadFileInGP2(gp2, inner, 0);
 #endif
         self->itemStep_++;
@@ -228,9 +228,9 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
         loader->GetLoadedFileByID(self->task_, &data, &size);
         if (data != 0) {
             self->nextItemAllocator_->Reset();
-            ZeroInit020de848(self->partNames_);
-            BuildDescriptorFlag1_020de980(self->partNames_, self->nextItemAllocator_, data, size, self->nextRecipe_->item_);
-            self->nextItem_ = FindElementByKey020dedd0((Container020dedd0*)self->partNames_, self->nextRecipe_->item_);
+            func_020de848(self->partNames_);
+            func_020de980(self->partNames_, self->nextItemAllocator_, data, size, self->nextRecipe_->item_);
+            self->nextItem_ = func_020dedd0((Container020dedd0*)self->partNames_, self->nextRecipe_->item_);
         }
         loader->RemoveTask(self->task_);
         self->task_ = -1;
@@ -245,22 +245,22 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
         const char* names[3] = {0};
         if (self->itemNames_ != 0) {
 #if defined(jpn)
-            names[0] = (const char*)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[0]);
-            names[1] = (const char*)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[1]);
-            names[2] = (const char*)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[2]);
+            names[0] = (const char*)func_020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[0]);
+            names[1] = (const char*)func_020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[1]);
+            names[2] = (const char*)func_020e0434((Container020e0310*)self->itemNames_, self->nextRecipe_->ingredients_[2]);
 #else
             memset(self->names_, 0, sizeof(self->names_));
-            const char** name = CallFunc020e52a0_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[0]);
+            const char** name = func_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[0]);
             if (name != 0) {
                 func_020e4864(*name, self->names_[0], 1, 0, 0, 0);
                 names[0] = self->names_[0];
             }
-            name = CallFunc020e52a0_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[1]);
+            name = func_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[1]);
             if (name != 0) {
                 func_020e4864(*name, self->names_[1], 1, 0, 0, 0);
                 names[1] = self->names_[1];
             }
-            name = CallFunc020e52a0_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[2]);
+            name = func_020e5294(self->itemNames_, self->nextRecipe_->ingredients_[2]);
             if (name != 0) {
                 func_020e4864(*name, self->names_[2], 1, 0, 0, 0);
                 names[2] = self->names_[2];
@@ -269,9 +269,9 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
         }
         unsigned char counts[3] = {0};
         GameState* gs = GameState::GetInstance();
-        Party021557c0* party = (Party021557c0*)GetPtrField0x2a04_02010828(gs);
+        Party021557c0* party = (Party021557c0*)func_02010828(gs);
         for (int i = 0; i < party->count; i++) {
-            char* actor = (char*)GetCombatantWithFlag0x100_0200ff1c(gs, party->ids[i]);
+            char* actor = (char*)func_0200ff1c(gs, party->ids[i]);
             if (actor != 0) {
                 for (int j = 0; j < 8; j++) {
                     BattleEquipmentView* equipment = *(BattleEquipmentView**)(actor
@@ -296,9 +296,9 @@ extern "C" ARM void func_ov006_021557c0(AlchemyPot* self) {
                 }
             }
         }
-        SetFields_021dceac((char*)&self->window_, 0, (int)names[0], self->nextRecipe_->amount0_, self->amounts_[0], counts[0]);
-        SetFields_021dceac((char*)&self->window_, 1, (int)names[1], self->nextRecipe_->amount1_, self->amounts_[1], counts[1]);
-        SetFields_021dceac((char*)&self->window_, 2, (int)names[2], self->nextRecipe_->amount2_, self->amounts_[2], counts[2]);
+        func_ov023_021dceac((char*)&self->window_, 0, (int)names[0], self->nextRecipe_->amount0_, self->amounts_[0], counts[0]);
+        func_ov023_021dceac((char*)&self->window_, 1, (int)names[1], self->nextRecipe_->amount1_, self->amounts_[1], counts[1]);
+        func_ov023_021dceac((char*)&self->window_, 2, (int)names[2], self->nextRecipe_->amount2_, self->amounts_[2], counts[2]);
         func_ov023_021dced4(&self->window_, 1);
         int known = 0;
         if (self->record_ != 0 && self->record_->known_)

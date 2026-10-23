@@ -5,7 +5,7 @@
 
 extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
 extern "C" float func_ov024_021db358(GameObject* obj);
-int PickRandomTableEntryResetCounter_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
 
 extern unsigned short data_ov024_021fef7c;
 
@@ -33,6 +33,6 @@ extern "C" ARM int func_ov024_021f1c64(int* a0, int a1, int a2, int* outCount, s
         outArray[idx] = buf[i];
     }
     if (*outCount <= 0) return 0;
-    PickRandomTableEntryResetCounter_021ed890((struct Random**)a0, outCount, outArray);
+    func_ov024_021ed890((struct Random**)a0, outCount, outArray);
     return 1;
 }

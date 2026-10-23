@@ -56,33 +56,33 @@ struct Globals0217101c {
 };
 
 extern "C" void* func_0205ec34();
-void DispatchStateTransitions_02166608(void*);
+extern "C" void func_ov004_02166608(void*);
 extern "C" Grid021f9b30* func_ov023_021f6524(void*, int);
-GetTableByteOrFFData* GetGlobal02109418_02094d6c();
-void GetGlobalField0x1c020421a0();
+extern "C" GetTableByteOrFFData* func_02094d6c();
+extern "C" void func_020421a0();
 extern "C" void func_ov023_021f65d4(void*, int, int);
-Found0208d994* FindElementByKey0208d994(List0208d994*, int);
-extern "C" void _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(Grid021f9b30*, unsigned short, unsigned int, unsigned int);
-Node02165ea4* SetFieldIfType1_02165ea4_02165ea4(void*, int, int);
+extern "C" Found0208d994* func_0208d994(List0208d994*, int);
+extern "C" void func_ov023_021f9b30(Grid021f9b30*, unsigned short, unsigned int, unsigned int);
+extern "C" Node02165ea4* func_ov004_02165ea4(void*, int, int);
 struct Struct0200fb08;
-int NormalizeField5_0200fb08(Struct0200fb08*);
-unsigned int GetTableByteOrFF_020965ac(GetTableByteOrFFData*, unsigned char);
-int TestBitInByteArray02096100(int, unsigned char*, int);
-const char* Lookup4Entry_021f63ac(void*, int, int);
+extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" unsigned int func_020965ac(GetTableByteOrFFData*, unsigned char);
+extern "C" int func_02096100(int, unsigned char*, int);
+extern "C" const char* func_ov023_021f63ac(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
-void AppendXTag_02041a28(char*, int);
-void AppendString02042058(char*, const char*);
+extern "C" void func_02041a28(char*, int);
+extern "C" void func_02042058(char*, const char*);
 extern "C" void func_ov023_021f63f8(void*, int, char*, int);
-void ClearNodeMaskById_021f6600(void*, int, int);
+extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" void func_ov023_021f9d14(Grid021f9b30*, void*);
-void DispatchNode_021f6630(int, int, short, short);
+extern "C" void func_ov023_021f6630(int, int, short, short);
 
 extern Globals0217101c data_ov004_0217101c;
 
 // USA: func_ov004_02166bd8
 extern "C" ARM int func_ov004_02166bd8(void* a) {
     func_0205ec34();
-    DispatchStateTransitions_02166608(a);
+    func_ov004_02166608(a);
     short page = 0;
     short field5e = 1;
     Grid021f9b30* grid = func_ov023_021f6524(a, 0x5b);
@@ -102,8 +102,8 @@ extern "C" ARM int func_ov004_02166bd8(void* a) {
         skip--;
         entry = entry->next;
     }
-    GetTableByteOrFFData* table = GetGlobal02109418_02094d6c();
-    GetGlobalField0x1c020421a0();
+    GetTableByteOrFFData* table = func_02094d6c();
+    func_020421a0();
     unsigned char* bits = table->bits;
     for (short i = 0; i < 8; idA++, idB++, idC++, idD++, i++) {
         int shown = 0;
@@ -112,18 +112,18 @@ extern "C" ARM int func_ov004_02166bd8(void* a) {
         func_ov023_021f65d4(a, idC, 8);
         func_ov023_021f65d4(a, idD, 8);
         if (entry) {
-            Found0208d994* found = FindElementByKey0208d994(&lists->list, entry->key);
+            Found0208d994* found = func_0208d994(&lists->list, entry->key);
             if (found) {
                 shown = 1;
-                _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, idA, (unsigned short)i, 0);
+                func_ov023_021f9b30(grid, idA, (unsigned short)i, 0);
                 int extra = 0;
                 if (!entry->skipNode) {
-                    Node02165ea4* node = SetFieldIfType1_02165ea4_02165ea4(a, idD, 6);
+                    Node02165ea4* node = func_ov004_02165ea4(a, idD, 6);
                     node->field44 = 4;
                     node->field46 = 0;
                     node->hidden = (i != 0);
                     if (i >= 1 && i <= 3) {
-                        int lang = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
+                        int lang = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
                         int mode = 2;
                         switch (lang) {
                         case 4:
@@ -140,15 +140,15 @@ extern "C" ARM int func_ov004_02166bd8(void* a) {
                     }
                     extra = 1;
                 }
-                unsigned int id = GetTableByteOrFF_020965ac(table, (unsigned char)entry->key);
-                int seen = TestBitInByteArray02096100((int)table, bits + 0x400, id);
+                unsigned int id = func_020965ac(table, (unsigned char)entry->key);
+                int seen = func_02096100((int)table, bits + 0x400, id);
                 int type = 10;
                 const char* text = found->text;
                 switch (entry->state) {
                 case 0:
                 case 1:
                     if (!seen)
-                        text = Lookup4Entry_021f63ac(a, 3, 10);
+                        text = func_ov023_021f63ac(a, 3, 10);
                     break;
                 case 2:
                     type = 11;
@@ -159,24 +159,24 @@ extern "C" ARM int func_ov004_02166bd8(void* a) {
                 }
                 char* buf = data_ov004_0217101c.buffers[i];
                 memset(buf, 0, 0x80);
-                AppendXTag_02041a28(buf, 0x1c);
-                AppendString02042058(buf, entry->name);
-                AppendXTag_02041a28(buf, 0x2e);
+                func_02041a28(buf, 0x1c);
+                func_02042058(buf, entry->name);
+                func_02041a28(buf, 0x2e);
                 if (text)
-                    AppendString02042058(buf, text);
+                    func_02042058(buf, text);
                 func_ov023_021f63f8(a, idA, buf, 0xf);
-                SetFieldIfType1_02165ea4_02165ea4(a, idC, type)->hidden = 0;
-                ClearNodeMaskById_021f6600(a, idA, 8);
-                ClearNodeMaskById_021f6600(a, idC, 8);
+                func_ov004_02165ea4(a, idC, type)->hidden = 0;
+                func_ov023_021f6600(a, idA, 8);
+                func_ov023_021f6600(a, idC, 8);
                 if (extra)
-                    ClearNodeMaskById_021f6600(a, idD, 8);
+                    func_ov023_021f6600(a, idD, 8);
             }
             entry = entry->next;
         }
         if (!shown)
-            _Z26SetCellIfInBounds_021f9b30P12Grid021f9b30sjj(grid, 0, (unsigned short)i, 0);
+            func_ov023_021f9b30(grid, 0, (unsigned short)i, 0);
     }
     func_ov023_021f9d14(grid, a);
-    DispatchNode_021f6630((int)a, 0x17, page, field5e);
+    func_ov023_021f6630((int)a, 0x17, page, field5e);
     return 0;
 }

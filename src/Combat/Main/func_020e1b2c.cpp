@@ -44,17 +44,17 @@ struct HasDims020e1288;
 extern "C" unsigned int func_020e1438(struct SpriteRect_020e1b2c* out, unsigned int maxCount,
                                       unsigned int x, unsigned int yBase,
                                       unsigned int width, unsigned int height);
-unsigned int GetDisplayModeCode0209378c(int engine);
+extern "C" unsigned int func_0209378c(int engine);
 extern "C" int func_020937f0(int engine);
-int GetHalfProductField8(struct HasDims020e1288* obj);
-void RunCacheHookForField0x14(struct Struct020e1384* obj);
-void TransferBattleObjPaletteEntries020e16f4(struct Obj020e1674* self);
+extern "C" int func_020e1288(struct HasDims020e1288* obj);
+extern "C" void func_020e1384(struct Struct020e1384* obj);
+extern "C" void func_020e16f4(struct Obj020e1674* self);
 
 // USA: func_020e1b2c
 extern "C" ARM int func_020e1b2c(struct Obj020e1b2c* obj, int arg) {
     if (obj->panel == 0) return 0;
 
-    TransferBattleObjPaletteEntries020e16f4((struct Obj020e1674*)obj);
+    func_020e16f4((struct Obj020e1674*)obj);
 
     struct SpriteRect_020e1b2c* rects = obj->panel->rects;
     unsigned int h = obj->panel->height;
@@ -94,7 +94,7 @@ extern "C" ARM int func_020e1b2c(struct Obj020e1b2c* obj, int arg) {
         struct SpriteRect_020e1b2c* e = &arr[count];
         e->offset = offset;
         prod = e->width * e->height;
-        unsigned int mask = 1 << GetDisplayModeCode0209378c(display);
+        unsigned int mask = 1 << func_0209378c(display);
         if (mask != 0) mask--;
         offset += (~mask) & (mask + (prod >> 1));
     }
@@ -103,7 +103,7 @@ extern "C" ARM int func_020e1b2c(struct Obj020e1b2c* obj, int arg) {
     int size = func_020937f0(obj->panel->display);
     if (arg != -1) size = arg;
     obj->panel->field30 =
-        size - (obj->panel->field34 + GetHalfProductField8((struct HasDims020e1288*)obj->panel));
-    RunCacheHookForField0x14((struct Struct020e1384*)((char*)obj->panel + 0xc));
+        size - (obj->panel->field34 + func_020e1288((struct HasDims020e1288*)obj->panel));
+    func_020e1384((struct Struct020e1384*)((char*)obj->panel + 0xc));
     return obj->panel->field30;
 }

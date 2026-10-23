@@ -18,12 +18,12 @@ struct TableA68 {
     short count;
 };
 
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-void* FindEntryByKey_02072a68(struct TableA68* table, int key);
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
-int AppendString02042058(char* dst, const char* src);
-int AppendPaletteTag_02041e70(char* dst, int palette);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02041e70(char* dst, int palette);
 
 // USA: func_ov012_0218a4b0
 extern "C" ARM void func_ov012_0218a4b0(unsigned char* self, char* dst, int c) {
@@ -31,25 +31,25 @@ extern "C" ARM void func_ov012_0218a4b0(unsigned char* self, char* dst, int c) {
 
     int cursor = *(int*)(self + R(0x1440,0x13e8));
     if (c != 0) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
 
-    void* name = FindEntryByKey_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xa);
-    AppendNameTag_02041b70(dst, 0, (const char*)name);
+    void* name = func_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xa);
+    func_02041b70(dst, 0, (const char*)name);
 
-    AppendString02042058(dst, *(char**)(self + R(0x1348,0x1378)));
+    func_02042058(dst, *(char**)(self + R(0x1348,0x1378)));
 
     unsigned short raw = *(unsigned short*)(self + R(0x141c,0x13c4));
     unsigned int t = ((unsigned int)raw << 16) >> 21;
     if (t == 0) {
 #if defined(jpn)
-        AppendString02042058(dst, data_ov012_0218bfdf);
+        func_02042058(dst, data_ov012_0218bfdf);
 #else
-        AppendPaletteTag_02041e70(dst, 3);
+        func_02041e70(dst, 3);
 #endif
     }
 
-    void* name2 = FindEntryByKey_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xb);
-    AppendNameTag_02041b70(dst, 1, (const char*)name2);
+    void* name2 = func_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xb);
+    func_02041b70(dst, 1, (const char*)name2);
 }

@@ -17,7 +17,7 @@ extern "C" THUMB int func_ov031_0221efe8(unsigned char* destination, int capacit
         int index = 0;
         if (index < count) do {
             if (index >= capacity) break;
-            func_020ca408(GetOffset10FromResult_0220ec04((unsigned short)index), destination, 0xc0);
+            func_020ca408(func_ov031_0220ec04((unsigned short)index), destination, 0xc0);
             ++index;
             destination += 0xc0;
         } while (index < count);

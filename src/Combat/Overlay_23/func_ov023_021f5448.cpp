@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct Bitfield021f5524 { unsigned int value : 12; };
-unsigned int GetValueTimes4_021f5524(struct Bitfield021f5524* obj);
+extern "C" unsigned int func_ov023_021f5524(struct Bitfield021f5524* obj);
 
 struct Obj021f5448 {
     unsigned int count1 : 12;
@@ -22,7 +22,7 @@ extern "C" ARM int func_ov023_021f5448(struct Obj021f5448* obj, SafeAllocator* a
     if (alloc != 0 && src != 0) {
         memcpy(obj, src, 4);
 
-        unsigned int size1 = GetValueTimes4_021f5524((struct Bitfield021f5524*)obj);
+        unsigned int size1 = func_ov023_021f5524((struct Bitfield021f5524*)obj);
         unsigned int size2 = obj->count2;
 
         if (size1 != 0) {
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov023_021f5448(struct Obj021f5448* obj, SafeAllocator* a
             memcpy(obj->field4, (char*)src + 4, size1);
         }
         if (obj->field8 != 0) {
-            unsigned int off = GetValueTimes4_021f5524((struct Bitfield021f5524*)obj) + 4;
+            unsigned int off = func_ov023_021f5524((struct Bitfield021f5524*)obj) + 4;
             memcpy(obj->field8, (char*)src + off, size2);
         }
 

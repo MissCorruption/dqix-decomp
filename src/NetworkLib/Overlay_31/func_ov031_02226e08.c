@@ -11,10 +11,10 @@
 void* func_ov031_0223cf4c(unsigned int len, int align);
 void func_020ca390(int val, void* dst, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
-void CopyFrom027ffcf4_020c99ac(void* dst);
+void func_020c99ac(void* dst);
 int func_ov031_0221e7d0(int (*allocate)(int), int (*release)(void*));
 void func_020c9be0(void);
-int TailCallWith32_02226fc8(int size);
+int func_ov031_02226fc8(int size);
 int func_ov031_02226fd8(void* p);
 
 typedef union {
@@ -62,9 +62,9 @@ ARM void func_ov031_02226e08(void) {
     data_ov031_02250c04.buf->f10a = 1;
     data_ov031_02250c04.buf->f10c = -1;
     data_ov031_02250c04.buf->f10e = -1;
-    CopyFrom027ffcf4_020c99ac(data_ov031_02250c04.buf->f110);
+    func_020c99ac(data_ov031_02250c04.buf->f110);
 
-    if (func_ov031_0221e7d0(TailCallWith32_02226fc8, func_ov031_02226fd8) != 0) {
+    if (func_ov031_0221e7d0(func_ov031_02226fc8, func_ov031_02226fd8) != 0) {
         func_020c9be0();
     }
 }

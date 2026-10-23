@@ -19,13 +19,13 @@ struct PackedNibbleArray0206e120;
 struct PackedNibbleArray0206e260;
 struct PackedNibbleArray0206e2dc;
 extern "C" PackedNibbleArray0206e120* func_0205ec34(GameState*);
-int CheckFlagAndThreshold0206e31c(int, int);
-int GetPackedNibbleField(PackedNibbleArray0206e120*, int);
-int GetPackedNibbleFlag0x4(PackedNibbleArray0206e260*, int);
-int GetPackedNibbleFlag0x8(PackedNibbleArray0206e2dc*, int);
+extern "C" int func_0206e31c(int, int);
+extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
+extern "C" int func_0206e260(PackedNibbleArray0206e260*, int);
+extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc*, int);
 extern "C" int func_ov017_021b9bcc(int, const void*);
 static inline int NibbleEquals021b9e30(PackedNibbleArray0206e120* fields, int index, int value) {
-    return GetPackedNibbleField(fields, index) == value;
+    return func_0206e120(fields, index) == value;
 }
 
 // USA: func_ov017_021b9e30
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov017_021b9e30(Script::Parameter* params, int count) {
     if (data_ov017_021d7c54.pending > -1) return 1;
     PackedNibbleArray0206e120* fields = func_0205ec34(GameState::GetInstance());
     int index = params->ToInt();
-    if (!CheckFlagAndThreshold0206e31c((int)fields, index)) return 1;
+    if (!func_0206e31c((int)fields, index)) return 1;
     if (data_ov017_021d7c54.selected != index && data_ov017_021d7c54.selected > -1 && !NibbleEquals021b9e30(fields, index, 1) && !NibbleEquals021b9e30(fields, index, 2)) {
         if (!NibbleEquals021b9e30(fields, data_ov017_021d7c54.selected, 3) || !NibbleEquals021b9e30(fields, index, 3) || data_ov017_021d7c54.selected > index) return 1;
     }
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov017_021b9e30(Script::Parameter* params, int count) {
         if (!NibbleEquals021b9e30(fields, index, 2)) return 1;
         break;
     case 1:
-        if (!GetPackedNibbleFlag0x4((PackedNibbleArray0206e260*)fields, index)) return 1;
+        if (!func_0206e260((PackedNibbleArray0206e260*)fields, index)) return 1;
         break;
     case 2:
         if (!NibbleEquals021b9e30(fields, index, 3)) return 1;
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov017_021b9e30(Script::Parameter* params, int count) {
         if (!NibbleEquals021b9e30(fields, index, 1)) return 1;
         break;
     case 4:
-        if (!GetPackedNibbleFlag0x8((PackedNibbleArray0206e2dc*)fields, index) || !NibbleEquals021b9e30(fields, index, 0)) return 1;
+        if (!func_0206e2dc((PackedNibbleArray0206e2dc*)fields, index) || !NibbleEquals021b9e30(fields, index, 0)) return 1;
         break;
     }
     if (count >= 5) {

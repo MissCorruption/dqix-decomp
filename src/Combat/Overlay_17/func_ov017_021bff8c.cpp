@@ -3,24 +3,24 @@
 #include "Resource/GameResources.h"
 
 struct ArrayContainsByteStruct;
-int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* s, int val);
-void* GetGlobalField0x1c020421a0(void);
+extern "C" int func_02086ef0(ArrayContainsByteStruct* s, int val);
+extern "C" void* func_020421a0(void);
 extern "C" void* func_ov017_021b8478(void* obj);
 struct ListHead02046b60;
-int ListContainsId(ListHead02046b60* list, int id);
-int IsField0Null_02046b08(void** p);
-int CheckSubstructByte0x7cPositive_020535c8(signed char* p);
-int GetByteField0x252_02039820(void* obj);
-int GetByte0x26c_02039d7c(char* p);
-void EnqueueEventTag57WithAB_021cf4b0(int a, int b);
-void ClearSubstructBytes_0200fb40(void* obj);
-int* GetGlobal02109030_020936f8(void);
+extern "C" int func_02046b60(ListHead02046b60* list, int id);
+extern "C" int func_02046b08(void** p);
+extern "C" int func_020535c8(signed char* p);
+extern "C" int func_02039820(void* obj);
+extern "C" int func_02039d7c(char* p);
+extern "C" void func_ov017_021cf4b0(int a, int b);
+extern "C" void func_0200fb40(void* obj);
+extern "C" int* func_020936f8(void);
 extern "C" void func_02094030(int*, short, short, int);
 struct Obj021c0124;
-void InitState32_021c0124(Obj021c0124* p, unsigned char flag);
+extern "C" void func_ov017_021c0124(Obj021c0124* p, unsigned char flag);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
+extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
 
 struct Ctx021bff8c {
 #if defined(jpn)
@@ -46,13 +46,13 @@ extern "C" ARM void func_ov017_021bff8c(Ctx021bff8c* ctx, unsigned char flag) {
 #else
  enum {regionalId=0x1b2,regionalBlock=0x998};
 #endif
-    if (ArrayContainsByte_02086ef0((ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(GameState::GetInstance()), 0) == 0) {
+    if (func_02086ef0((ArrayContainsByteStruct*)func_02010828(GameState::GetInstance()), 0) == 0) {
         int match = 0;
         int blocked = 0;
         GameState* gs = GameState::GetInstance();
         GameObject* leader = gs->GetPartyMemberByIndex(0);
         GameObject* hero = gs->GetProtagonist();
-        char* g = (char*)GetGlobalField0x1c020421a0();
+        char* g = (char*)func_020421a0();
         Ctx021bff8c* base = (Ctx021bff8c*)GetGameResources();
         void* table = NULL;
         if (base != NULL) {
@@ -68,34 +68,34 @@ extern "C" ARM void func_ov017_021bff8c(Ctx021bff8c* ctx, unsigned char flag) {
             } else {
                 blocked = 1;
             }
-        } else if (ListContainsId((ListHead02046b60*)ctx->list, 3)) {
+        } else if (func_02046b60((ListHead02046b60*)ctx->list, 3)) {
             blocked = 1;
         }
-        if (IsField0Null_02046b08((void**)ctx->list) == 0) {
+        if (func_02046b08((void**)ctx->list) == 0) {
             blocked = 1;
-        } else if (CheckSubstructByte0x7cPositive_020535c8((signed char*)hero) != 0) {
+        } else if (func_020535c8((signed char*)hero) != 0) {
             blocked = 1;
-        } else if (GetByteField0x252_02039820(hero) == 0) {
+        } else if (func_02039820(hero) == 0) {
             blocked = 1;
         } else if (*(int*)(g + regionalBlock) != 0) {
             blocked = 1;
-        } else if (GetByte0x26c_02039d7c((char*)hero) != 0) {
+        } else if (func_02039d7c((char*)hero) != 0) {
             blocked = 1;
         }
         unsigned char heroIndex = hero->obj3D_.unknown_4_;
         if (match) {
-            EnqueueEventTag57WithAB_021cf4b0(heroIndex, 5);
-            ClearSubstructBytes_0200fb40(gs);
+            func_ov017_021cf4b0(heroIndex, 5);
+            func_0200fb40(gs);
             return;
         }
         if (blocked) {
-            EnqueueEventTag57WithAB_021cf4b0(heroIndex, 4);
-            ClearSubstructBytes_0200fb40(gs);
+            func_ov017_021cf4b0(heroIndex, 4);
+            func_0200fb40(gs);
             return;
         }
-        EnqueueEventTag57WithAB_021cf4b0(heroIndex, 1);
-        func_02094030(GetGlobal02109030_020936f8(), 0x2712, -1, flag);
+        func_ov017_021cf4b0(heroIndex, 1);
+        func_02094030(func_020936f8(), 0x2712, -1, flag);
     }
-    InitState32_021c0124(ctx->state, flag);
-    AppendNodeToTail(ctx->list, (TailNode020469b4*)ctx->state);
+    func_ov017_021c0124(ctx->state, flag);
+    func_020469b4(ctx->list, (TailNode020469b4*)ctx->state);
 }

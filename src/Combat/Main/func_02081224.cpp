@@ -22,17 +22,17 @@ struct Obj2081 {
     List0207f6ac items;
     List0207f0ac groups;
 };
-Entry0207f0ac* FindEntryByShortId0207f0ac(List0207f0ac*, int);
-Entry0207f6ac* FindEntryByShortId0207f6ac(List0207f6ac*, int);
+extern "C" Entry0207f0ac* func_0207f0ac(List0207f0ac*, int);
+extern "C" Entry0207f6ac* func_0207f6ac(List0207f6ac*, int);
 extern "C" int func_020813ec(void*, int);
-void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
+extern "C" void func_0207fdcc(Obj2081*, int);
 
 // USA: func_02081224
 extern "C" ARM void func_02081224(Obj2081* object, int id) {
     int ids[8];
     int positions[8];
     int widths[8];
-    Entry0207f0ac* group = FindEntryByShortId0207f0ac(&object->groups, id);
+    Entry0207f0ac* group = func_0207f0ac(&object->groups, id);
     if (!group) return;
     func_020813ec(object, id);
     int count = 0;
@@ -40,7 +40,7 @@ extern "C" ARM void func_02081224(Obj2081* object, int id) {
     int i = 0;
     for (; i < total; i++) {
         int entryId = group->entries[i];
-        Entry0207f6ac* entry = FindEntryByShortId0207f6ac(&object->items, entryId);
+        Entry0207f6ac* entry = func_0207f6ac(&object->items, entryId);
         if (entry) {
             ids[count] = entryId;
             positions[count] = entry->x;
@@ -77,11 +77,11 @@ extern "C" ARM void func_02081224(Obj2081* object, int id) {
     }
     int position = remainder >> 1;
     for (int index = 0; index < count; index++) {
-        Entry0207f6ac* entry = FindEntryByShortId0207f6ac(&object->items, (short)ids[index]);
+        Entry0207f6ac* entry = func_0207f6ac(&object->items, (short)ids[index]);
         if (entry) {
             entry->x = position;
             position += spacing + entry->width;
         }
     }
-    CallFunc0204c804OnMatchingKey_0207fdcc(object, id);
+    func_0207fdcc(object, id);
 }

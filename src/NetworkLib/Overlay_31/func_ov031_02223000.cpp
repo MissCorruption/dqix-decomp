@@ -24,8 +24,8 @@ extern "C" int func_ov031_0223d49c(Bounds02223000*);
 extern "C" void* func_ov031_0223baa0(Obj0223bcc8*, int);
 extern "C" void func_ov031_0223bdb0(int, int, void*);
 extern "C" void func_ov031_0223bbd8(Obj0223bcc8*, int, int, int);
-void SetEntryHalfword4Bits_0223bcc8(Obj0223bcc8*, int, int);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" void func_ov031_0223bcc8(Obj0223bcc8*, int, int);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02223268();
 
 // USA: func_ov031_02223000
@@ -44,8 +44,8 @@ extern "C" ARM void func_ov031_02223000() {
                 func_ov031_0223bdb0(0, id + 1, func_ov031_0223baa0(data_ov031_02250ba8->entries[i], 0));
                 int style = data_ov031_02248932[data_ov031_02250ba8->type][i];
                 func_ov031_0223bbd8(data_ov031_02250ba8->entries[i], -1, data_ov031_0224891c[style].x, data_ov031_0224891e[style].first);
-                SetEntryHalfword4Bits_0223bcc8(data_ov031_02250ba8->entries[i], -1, 1);
-                data_ov031_02250ba8->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_02223268, 0, 0x6e);
+                func_ov031_0223bcc8(data_ov031_02250ba8->entries[i], -1, 1);
+                data_ov031_02250ba8->task = func_ov031_0223e218(0, (void*)func_ov031_02223268, 0, 0x6e);
                 data_ov031_02250ba8->selected = i;
                 return;
             }

@@ -6,7 +6,7 @@ struct RectList020e1eb0 {
     unsigned char count;
 };
 
-int FindRectIndexForCurrentCoords020e1e4c(struct RectList020e1eb0* list);
+extern "C" int func_020e1e4c(struct RectList020e1eb0* list);
 extern "C" long long _s32_div_f(int a, int b);
 
 struct Sel020e269c {
@@ -22,7 +22,7 @@ struct Sel020e269c {
 extern "C" ARM void func_020e269c(struct Sel020e269c* self) {
     struct RectList020e1eb0* l = self->list;
     int step = l->count;
-    int idx = FindRectIndexForCurrentCoords020e1e4c(l);
+    int idx = func_020e1e4c(l);
     if (idx >= 0) {
         signed char cur = self->cur;
         if (cur == idx && self->flag) {

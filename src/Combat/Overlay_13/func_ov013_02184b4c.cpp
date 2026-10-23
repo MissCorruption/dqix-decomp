@@ -14,8 +14,8 @@
 
 #pragma opt_arithtransformation off
 
-int GetFieldAt0x150_02053c6c(unsigned char* obj);
-int GetTableByte020dd11c(unsigned int a, unsigned int b);
+extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_020dd11c(unsigned int a, unsigned int b);
 
 // USA: func_ov013_02184b4c
 extern "C" ARM void func_ov013_02184b4c(void* obj, void* arg) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov013_02184b4c(void* obj, void* arg) {
 
     if (arg == 0) return;
 
-    ctx = (unsigned char*)GetFieldAt0x150_02053c6c(p);
+    ctx = (unsigned char*)func_02053c6c(p);
     *(void**)(o + R(0x62c,0x6a4)) = *(void**)(p + 0x134);
 
     baseVal = *(unsigned short*)(ctx + 0x564);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov013_02184b4c(void* obj, void* arg) {
     *(int*)(o + R(0x5f8,0x670)) = 0x64;
 
     for (i = 0; i < 5; i++) {
-        (o + i)[R(0x631,0x6a9)] = (unsigned char)GetTableByte020dd11c(o[R(0x630,0x6a8)], (unsigned char)i);
+        (o + i)[R(0x631,0x6a9)] = (unsigned char)func_020dd11c(o[R(0x630,0x6a8)], (unsigned char)i);
         (o + i)[R(0x624,0x69c)] = 0;
         {
             unsigned char idx = (o + i)[R(0x631,0x6a9)];

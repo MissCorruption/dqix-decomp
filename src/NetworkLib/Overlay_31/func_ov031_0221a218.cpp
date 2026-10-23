@@ -4,8 +4,8 @@ extern "C" unsigned int strlen(const char* s);
 extern "C" char* strcpy(char* dst, const char* src);
 extern "C" int strcmp(const char* a, const char* b);
 extern "C" int func_02005a94(const char* s);
-int GetOrInitStoredValueAt0x2c_020cf25c(void* date, void* time);
-long long ComputeEntryByteOffset_020cf990(int date, unsigned char* time);
+extern "C" int func_020cf25c(void* date, void* time);
+extern "C" long long func_020cf990(int date, unsigned char* time);
 
 struct RtcDate {
     unsigned int year;
@@ -44,10 +44,10 @@ extern "C" ARM int func_ov031_0221a218(const char* str) {
         || str[19] != ':' || str[22] != ':' || str[25] != ' ') {
         goto fail;
     }
-    if (GetOrInitStoredValueAt0x2c_020cf25c(&date, &time) != 0) {
+    if (func_020cf25c(&date, &time) != 0) {
         goto fail;
     }
-    localTime = ComputeEntryByteOffset_020cf990((unsigned int)&date, (unsigned char*)&time);
+    localTime = func_020cf990((unsigned int)&date, (unsigned char*)&time);
     if (localTime == -1) {
         goto fail;
     }
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov031_0221a218(const char* str) {
         goto fail;
     }
 
-    serverTime = ComputeEntryByteOffset_020cf990((int)&date, (unsigned char*)&time);
+    serverTime = func_020cf990((int)&date, (unsigned char*)&time);
     if (serverTime == -1) {
         goto fail;
     }

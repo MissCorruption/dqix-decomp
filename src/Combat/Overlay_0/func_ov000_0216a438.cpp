@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 
 struct Zeroable02169a40;
-void ZeroStruct02169a40(struct Zeroable02169a40* s);
+extern "C" void func_ov000_02169a40(struct Zeroable02169a40* s);
 
 struct Node0216a438 {
     unsigned short* data;
@@ -21,7 +21,7 @@ extern struct Struct02184264_0216a438 data_ov000_02184264;
 // USA: func_ov000_0216a438
 extern "C" ARM int func_ov000_0216a438(void) {
     struct Node0216a438* node = (struct Node0216a438*)data_ov000_02184264.alloc->Allocate(0x10);
-    ZeroStruct02169a40((struct Zeroable02169a40*)node);
+    func_ov000_02169a40((struct Zeroable02169a40*)node);
     node->count = 3;
     node->data = (unsigned short*)data_ov000_02184264.alloc->Allocate(node->count * 2);
     node->data[0] = 1;

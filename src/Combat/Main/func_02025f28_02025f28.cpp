@@ -6,20 +6,20 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-void* GetData02105254_0203b628(void);
+extern "C" void* func_0203b628(void);
 extern "C" void* func_02012fe4(void);
 
 struct Bcb8Params;
-void ForwardParamsToB8bc_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
+extern "C" void func_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
 
 struct Obj_0201bb78 { unsigned short field0; };
-int LookupBitFromValueRange0201bb78(struct Obj_0201bb78* obj, unsigned int val);
+extern "C" int func_0201bb78(struct Obj_0201bb78* obj, unsigned int val);
 
-void SetElementFields0202756c(void* obj, int p1, int p2, int idx,
+extern "C" void func_0202756c(void* obj, int p1, int p2, int idx,
         unsigned char p5, unsigned char p6, unsigned short p7, unsigned char p8, int p9, int p10);
 
-int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
-void ClampPositionToBounds0202630c(void* obj, int* pos, int margin);
+extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" void func_0202630c(void* obj, int* pos, int margin);
 
 extern "C" int abs(int x);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, int c, int d);
@@ -51,7 +51,7 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
 #endif
     GameState* battle = GameState::GetInstance();
     unsigned char* ctx = (unsigned char*)func_0205ec34();
-    GetData02105254_0203b628();
+    func_0203b628();
     void* g = func_02012fe4();
     unsigned short g0 = *(unsigned short*)g;
     GameObject* c1;
@@ -64,27 +64,27 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
 
     if (*(unsigned char*)(obj + 0x55c) != 0) {
         *(unsigned char*)(obj + 0x55c) = 0;
-        ForwardParamsToB8bc_0203bcb8((struct Bcb8Params*)(*(char**)(obj + 0x20) + 8), 0, 0);
+        func_0203bcb8((struct Bcb8Params*)(*(char**)(obj + 0x20) + 8), 0, 0);
     }
 
     flag2 = 1;
     for (i = 0; i < *(unsigned char*)(obj + regionalOffset0); i++) {
-        if (LookupBitFromValueRange0201bb78((struct Obj_0201bb78*)g, (unsigned short)((*(struct Elem0xa9c**)(obj + regionalOffset1))[i].h0 * 100)) == 0) continue;
+        if (func_0201bb78((struct Obj_0201bb78*)g, (unsigned short)((*(struct Elem0xa9c**)(obj + regionalOffset1))[i].h0 * 100)) == 0) continue;
         struct Elem0xa9c* e = &(*(struct Elem0xa9c**)(obj + regionalOffset1))[i];
         int x = e->w4;
         int z = e->w8;
         if ((*(struct Elem0xa9c**)(obj + regionalOffset1))[i].b2 == 1) {
-            SetElementFields0202756c(obj, x + 0x7d000, z + 0x5d000, 0x18,
+            func_0202756c(obj, x + 0x7d000, z + 0x5d000, 0x18,
                 (i + 0x55) & 0xff, flag2, 0xff, 0xff, 0x1000, 0x1000);
         } else if ((*(struct Elem0xa9c**)(obj + regionalOffset1))[i].b2 == 2) {
-            SetElementFields0202756c(obj, x + 0x7d000, z + 0x5d000, 0x17,
+            func_0202756c(obj, x + 0x7d000, z + 0x5d000, 0x17,
                 (i + 0x55) & 0xff, 0, 0xff, 0xff, 0x1000, 0x1000);
         }
     }
 
     i = 1;
     flag2 = i;
-    if (g0 == 10000 || TestBitInByteArray_0206dfb0((int)ctx, ctx + 0x8c, 0x2b) == 0) flag2 = 0;
+    if (g0 == 10000 || func_0206dfb0((int)ctx, ctx + 0x8c, 0x2b) == 0) flag2 = 0;
     int posVec[3];
     if (g0 == 10000 || g0 == 10100) {
         posVec[0] = pos0.x + 0x80000;
@@ -103,10 +103,10 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
         struct Vec3i v = *(struct Vec3i*)((char*)g + regionalOffset4);
         v.x += 0x80000;
         v.z += 0x60000;
-        ClampPositionToBounds0202630c(obj, (int*)&v, 0x7000);
+        func_0202630c(obj, (int*)&v, 0x7000);
         v.x -= 0x4000;
         v.z -= 0x4000;
-        SetElementFields0202756c(obj, v.x, v.z, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
+        func_0202756c(obj, v.x, v.z, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
     }
 
     int c = (*(unsigned int*)((char*)&data_020fdc4c + regionalOffset5) + battle->GetEffectiveDeltaTime()) % 0x560u;
@@ -116,7 +116,7 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
     int d = 0x10 - c;
     ColorEffect_ConfigureAlphaBlend((unsigned int*)0x04001050, 0, 3, c, d);
 
-    ClampPositionToBounds0202630c(obj, posVec, 0x5000);
+    func_0202630c(obj, posVec, 0x5000);
     posVec[0] -= 0x4000;
     posVec[2] -= 0x4000;
 
@@ -124,6 +124,6 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
         short f4 = c1->obj3D_.unknown_4_;
         unsigned char p5 = (unsigned char)(f4 + 0x44);
         unsigned short p7 = (unsigned short)(f4 + 4);
-        SetElementFields0202756c(obj, posVec[0], posVec[2], 5, p5, 0, p7, 0xff, 0x1000, 0x1000);
+        func_0202756c(obj, posVec[0], posVec[2], 5, p5, 0, p7, 0xff, 0x1000, 0x1000);
     }
 }

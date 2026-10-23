@@ -2,9 +2,9 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" int func_ov031_0223a2b0(void* ctx);
-extern int GetField40_02239be8(void);
-extern unsigned short GetField52_02239bd4(void);
-int TailCallDispatchFlags_0223a288(int c);
+extern "C" int func_ov031_02239be8(void);
+extern "C" unsigned short func_ov031_02239bd4(void);
+extern "C" int func_ov031_0223a288(int c);
 
 struct Packet_0223b0c0 {
 	unsigned short cmd;
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov031_0223b0c0(unsigned short cmd, unsigned short arg, 
 		data_ov031_02290d20->packet->data[0] = data_ov031_02290d20->fieldA92;
 	}
 
-	if (GetField40_02239be8() != 5) {
+	if (func_ov031_02239be8() != 5) {
 		return;
 	}
 	if (func_ov031_0223a2b0(data_ov031_02290d20) == 0) {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov031_0223b0c0(unsigned short cmd, unsigned short arg, 
 		data_ov031_02290d20->counter++;
 	} else {
 		data_ov031_02290d20->counter = 0;
-		if (GetField52_02239bd4() != 3) {
+		if (func_ov031_02239bd4() != 3) {
 			data_ov031_02290d20->state = 0x1b;
 			return;
 		}
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov031_0223b0c0(unsigned short cmd, unsigned short arg, 
 
 	unsigned short i = 0;
 	do {
-		int result = TailCallDispatchFlags_0223a288(i);
+		int result = func_ov031_0223a288(i);
 		if (result != 0) {
 			VectorizedInvertedMemcpy((const void*)result, data_ov031_02290d20->slots[i], 0x44);
 			data_ov031_02290d20->slotValid[i] = 1;

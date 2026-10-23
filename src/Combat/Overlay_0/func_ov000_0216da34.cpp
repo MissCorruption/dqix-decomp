@@ -8,9 +8,9 @@ extern "C" void func_ov000_0216d234(void* forward, void* position, void* dest);
 
 struct Block0202ecc8 { unsigned int v[12]; };
 struct Dst0202ecc8;
-void CopyBlockToField0xf0(struct Dst0202ecc8* dst, struct Block0202ecc8* src);
-void SetFlag0x1At0x168_0202ecec(unsigned char* obj);
-void ApplyVec3Tail_0202e694(void* obj, int* vec);
+extern "C" void func_0202ecc8(struct Dst0202ecc8* dst, struct Block0202ecc8* src);
+extern "C" void func_0202ecec(unsigned char* obj);
+extern "C" void func_0202e694(void* obj, int* vec);
 
 extern Vector3i data_ov000_02183274;
 
@@ -51,8 +51,8 @@ extern "C" ARM void func_ov000_0216da34(struct Obj0216da34* obj, int idxA, int i
     }
     struct Block0202ecc8 block;
     func_ov000_0216d234(&dir, &center, &block);
-    CopyBlockToField0xf0((struct Dst0202ecc8*)obj, &block);
-    SetFlag0x1At0x168_0202ecec((unsigned char*)obj);
+    func_0202ecc8((struct Dst0202ecc8*)obj, &block);
+    func_0202ecec((unsigned char*)obj);
     Vector3i v = data_ov000_02183274;
     int base;
     struct Random* random = obj->random;
@@ -71,6 +71,6 @@ extern "C" ARM void func_ov000_0216da34(struct Obj0216da34* obj, int idxA, int i
     tail[1] = 0x1000;
     tail[2] = 0x8000;
     obj->field10 = v;
-    ApplyVec3Tail_0202e694(obj, tail);
+    func_0202e694(obj, tail);
     obj->field23c = -20;
 }

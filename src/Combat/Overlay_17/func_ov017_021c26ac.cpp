@@ -11,9 +11,9 @@ struct AllocatorUnion;
 #define func_ov008_021842a0 func_ov010_021842a0
 #endif
 extern "C" int func_ov010_02184354(void* obj);
-void ForwardAndClearField8_021c2710(unsigned char* self);
+extern "C" void func_ov017_021c2710(unsigned char* self);
 extern "C" void func_020a1940(unsigned int id);
-void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_020c9be0(void);
 extern "C" void func_ov008_021842a0(void* obj);
 extern char data_02114e20;
@@ -24,11 +24,11 @@ extern "C" ARM void func_ov017_021c26ac(unsigned char* self) {
         if (func_ov010_02184354(*(void**)(self + 8)) == 0) {
             return;
         }
-        ForwardAndClearField8_021c2710(self);
+        func_ov017_021c2710(self);
         return;
     }
     func_020a1940(OVERLAY_ID(10));
-    *(void**)(self + 8) = AllocateAligned4_02012d88((AllocatorUnion*)&data_02114e20, 0x28);
+    *(void**)(self + 8) = func_02012d88((AllocatorUnion*)&data_02114e20, 0x28);
     if (*(void**)(self + 8) == NULL) {
         func_020c9be0();
     }

@@ -10,7 +10,7 @@ enum { kFirstFlagOffset = 0x9b1, kSecondFlagOffset = 0x9b2, kStateOffset = 0x998
 #define func_02042b98 func_02043270
 #endif
 
-int GetGlobalField0x1c020421a0();
+extern "C" int func_020421a0();
 #if defined(jpn)
 extern "C" void func_0204500c(void* field, void* buf, int p2);
 #else
@@ -20,9 +20,9 @@ extern "C" void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4
 
 struct Param021e5e1c { char pad[8]; void* field8; };
 
-// USA: func_ov025_021e5e1c  (semantic: InitGlobalFieldsAndFlags_021e5e1c)
+// USA: func_ov025_021e5e1c
 extern "C" ARM void func_ov025_021e5e1c(struct Param021e5e1c* p) {
-    int base = GetGlobalField0x1c020421a0();
+    int base = func_020421a0();
     void* field8 = p->field8;
 #if defined(jpn)
     func_0204500c((void*)base, field8, 0);

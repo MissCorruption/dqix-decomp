@@ -3,19 +3,19 @@
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
 
-void PushInputLogA_020a1df8(int value);
-int GetField0x3acValue_020100a8(GameState* battleStruct);
+extern "C" void func_020a1df8(int value);
+extern "C" int func_020100a8(GameState* battleStruct);
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void func_ov004_0216fa08(void* node);
 extern "C" void func_ov004_0216fa74(void* node, unsigned char value);
 extern "C" int func_ov004_0216f990(int mode, int key, int flag);
 extern "C" void func_ov017_021b6f18(void* node);
-void InitStruct_02196c08(unsigned char* obj);
+extern "C" void func_ov017_02196c08(unsigned char* obj);
 extern "C" bool func_ov017_021b6e70(void* msg, int id);
 extern "C" void func_ov017_021b7104(void* node, void* msg);
 struct TailList020469b4;
 struct TailNode020469b4;
-void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
 
 struct NodeMsg {
     unsigned char kind;
@@ -61,17 +61,17 @@ extern "C" ARM void func_ov017_02196e58(struct Work02196e58* work) {
     if (monster == NULL) {
         return;
     }
-    PushInputLogA_020a1df8(4);
+    func_020a1df8(4);
     func_ov004_0216fa08(work->inputNode);
     *(unsigned short*)((unsigned char*)work->inputNode + 8) = work->monsterIndex;
     func_ov004_0216fa74(work->inputNode, 1);
-    AppendNodeToTail(work->list, work->inputNode);
+    func_020469b4(work->list, work->inputNode);
     func_ov017_021b6f18(work->node);
 
     struct NodeMsg msg;
-    InitStruct_02196c08((unsigned char*)&msg);
+    func_ov017_02196c08((unsigned char*)&msg);
     msg.kind = 1;
-    msg.actor = GetField0x3acValue_020100a8(bs);
+    msg.actor = func_020100a8(bs);
     msg.value = *(unsigned short*)((unsigned char*)monster + 0x16a);
     msg.id = work->monsterIndex;
     msg.f12 = lighting->timeOfDayIndex_;
@@ -98,5 +98,5 @@ extern "C" ARM void func_ov017_02196e58(struct Work02196e58* work) {
         msg.f8 = func_ov004_0216f990(2, detail->legacy_.bossID_, detail->legacy_.stats_.alternateVersion);
     }
     func_ov017_021b7104(work->node, &msg);
-    AppendNodeToTail(work->list, work->node);
+    func_020469b4(work->list, work->node);
 }

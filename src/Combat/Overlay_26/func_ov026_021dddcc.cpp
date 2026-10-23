@@ -84,17 +84,17 @@ struct Wave {
 extern "C" {
 GameState* _ZN9GameState11GetInstanceEv();
 Combatant* _ZN9GameState21GetPartyMemberByIndexEi(GameState* gs, int index);
-unsigned char* _Z24GetFieldAt0x150_02053c6cPh(unsigned char* obj);
-char* _Z24GetData02109dcc_020a6084v();
-SlotWork* _Z21FindSlotById_021dae60P18Container_021dae60i(Container_021dae60* list, int id);
-int _Z29HasAnyFlags_021719f8_021719f8Pi(int* obj);
-int _Z40GetClampedArrayField0xd1c_ov000_021761c8Pci(char* base, int index);
-int _Z40GetClampedArrayField0xd3c_ov000_021761ecPci(char* base, int index);
-Combatant* _Z34GetCombatantWithFlag0x400_0200fea4P9GameStatei(GameState* gs, int id);
-void* _Z27GetField0x3b0Value_020100bcP9GameState(GameState* gs);
+unsigned char* func_02053c6c(unsigned char* obj);
+char* func_020a6084();
+SlotWork* func_ov026_021dae60(Container_021dae60* list, int id);
+int func_ov000_021719f8(int* obj);
+int func_ov000_021761c8(char* base, int index);
+int func_ov000_021761ec(char* base, int index);
+Combatant* func_0200fea4(GameState* gs, int id);
+void* func_020100bc(GameState* gs);
 int _ZNK8Object3D9GetHeightEv(Combatant* obj);
-int _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(void* obj, Pos3* src, int* out1, int* out2);
-void _Z25RenderFlaggedIndexedEntryP16StructAt020473c8i(IconSprite* obj, int param1);
+int func_0202ec84(void* obj, Pos3* src, int* out1, int* out2);
+void func_020473c8(IconSprite* obj, int param1);
 void Vector3fix_Add(const Pos3* a, const Pos3* b, Pos3* out);
 void Vector3fix_Normalize(const Pos3* in, Pos3* out);
 int func_ov000_0217fd60(void* list, int id);
@@ -157,11 +157,11 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
     }
 
     __clear(icons, sizeof(icons));
-    data = _Z24GetData02109dcc_020a6084v();
+    data = func_020a6084();
     for (m = 0; m < 4; m++) {
         Combatant* c = _ZN9GameState21GetPartyMemberByIndexEi(gs, m);
         if (c != 0) {
-            unsigned char* f = _Z24GetFieldAt0x150_02053c6cPh((unsigned char*)c);
+            unsigned char* f = func_02053c6c((unsigned char*)c);
             if (f != 0) {
                 icons[m] = *(unsigned short*)(data + f[0x56a] * 0x20 + 0x1e);
             }
@@ -178,12 +178,12 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
 
     for (i = 0; i < n; i++) {
         int id = ids.v[i];
-        SlotWork* slot = _Z21FindSlotById_021dae60P18Container_021dae60i((Container_021dae60*)self->list, id);
+        SlotWork* slot = func_ov026_021dae60((Container_021dae60*)self->list, id);
         int owned;
         int group;
         int target;
         if (slot == 0) continue;
-        if (_Z29HasAnyFlags_021719f8_021719f8Pi((int*)slot) != 0) continue;
+        if (func_ov000_021719f8((int*)slot) != 0) continue;
         if (slot->kind == 6) continue;
         owned = 0;
         if (slot->owner >= 0) {
@@ -193,8 +193,8 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
         if (slot->cmds[slot->cursor] != 0xe && slot->cmds[slot->cursor] != 0x64) continue;
         target = slot->target;
         if (target < 0) continue;
-        group = _Z40GetClampedArrayField0xd1c_ov000_021761c8Pci(self->list, target);
-        target = _Z40GetClampedArrayField0xd3c_ov000_021761ecPci(self->list, target);
+        group = func_ov000_021761c8(self->list, target);
+        target = func_ov000_021761ec(self->list, target);
         switch (func_ov000_02171ffc(slot)) {
         case 3:
             counts[i] = nEnemies;
@@ -256,7 +256,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
         unsigned char grouped;
         int id = ids.v[t];
         grouped = 0;
-        SlotWork* slot = _Z21FindSlotById_021dae60P18Container_021dae60i((Container_021dae60*)self->list, id);
+        SlotWork* slot = func_ov026_021dae60((Container_021dae60*)self->list, id);
         int owned;
         int target;
         int group;
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
         short count;
         int j;
         if (slot == 0) continue;
-        if (_Z29HasAnyFlags_021719f8_021719f8Pi((int*)slot) != 0) continue;
+        if (func_ov000_021719f8((int*)slot) != 0) continue;
         if (slot->kind == 6) continue;
         owned = 0;
         if (slot->owner >= 0) {
@@ -274,8 +274,8 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
         if (slot->cmds[slot->cursor] != 0xe && slot->cmds[slot->cursor] != 0x64) continue;
         target = slot->target;
         if (target < 0) continue;
-        group = _Z40GetClampedArrayField0xd1c_ov000_021761c8Pci(self->list, target);
-        target = _Z40GetClampedArrayField0xd3c_ov000_021761ecPci(self->list, target);
+        group = func_ov000_021761c8(self->list, target);
+        target = func_ov000_021761ec(self->list, target);
         mode = func_ov000_02171ffc(slot);
         Ids8 targets;
         targets = data_ov026_021de822;
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
             break;
         }
         for (j = 0; j < count; j++) {
-            Combatant* c = _Z34GetCombatantWithFlag0x400_0200fea4P9GameStatei(gs, targets.v[j]);
+            Combatant* c = func_0200fea4(gs, targets.v[j]);
             int e;
             if (c == 0) continue;
             e = c->id - 0xc0;
@@ -317,11 +317,11 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
                 Vector3fix_Normalize(&dir, &shake);
                 shake.v[0] = (float)shake.v[0] * (0.2f * data_ov026_021def00.value);
                 shake.v[1] = (float)shake.v[1] * (0.2f * data_ov026_021def00.value);
-                view = _Z27GetField0x3b0Value_020100bcP9GameState(gs);
+                view = func_020100bc(gs);
                 pos = c->pos;
                 pos.v[1] += _ZNK8Object3D9GetHeightEv(c);
                 Vector3fix_Add(&pos, &shake, &pos);
-                _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(view, &pos, &x, &y);
+                func_0202ec84(view, &pos, &x, &y);
                 dy = 0x18;
                 if (grouped != 0) {
                     if (target == targets.v[j]) {
@@ -332,7 +332,7 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
                 spr->icon = icons[id];
                 G3_PushMtx();
                 G3_Translate((x + offs[e]) << 12, (y + 3 - dy) << 12, 0x1000);
-                _Z25RenderFlaggedIndexedEntryP16StructAt020473c8i(spr, 1);
+                func_020473c8(spr, 1);
                 G3_PopMtx(1);
             } else {
                 Pos3 dir;
@@ -347,16 +347,16 @@ extern "C" ARM void func_ov026_021dddcc(BattleWork* self) {
                 Vector3fix_Normalize(&dir, &shake);
                 shake.v[0] = 0;
                 shake.v[1] = 0;
-                view = _Z27GetField0x3b0Value_020100bcP9GameState(gs);
+                view = func_020100bc(gs);
                 pos = c->pos;
                 pos.v[1] += _ZNK8Object3D9GetHeightEv(c);
                 Vector3fix_Add(&pos, &shake, &pos);
-                _Z27ComputeTwoFromVec3_0202ec84PvP16Vec3copy0202ec84PiS2_(view, &pos, &x, &y);
+                func_0202ec84(view, &pos, &x, &y);
                 spr = &self->icons[1];
                 spr->icon = icons[id];
                 G3_PushMtx();
                 G3_Translate((x + offs[e]) << 12, (y - 0x18) << 12, 0);
-                _Z25RenderFlaggedIndexedEntryP16StructAt020473c8i(spr, 1);
+                func_020473c8(spr, 1);
                 G3_PopMtx(1);
             }
             offs[e] += 10;

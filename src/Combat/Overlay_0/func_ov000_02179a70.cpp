@@ -2,19 +2,19 @@
 
 struct Container020e0310;
 
-int IsField0x118Equal2_ov000_0217542c(void* obj);
-int AppendFrameTag02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-int AppendCursorTag_02041ea4(char* dst, int cursor);
-int GetFieldByKey020e0434(struct Container020e0310* c, int key);
-int AppendString02042058(char* dst, const char* src);
-int FormatCombatLogSuffix02041dd0(char* buf, int index);
+extern "C" int func_ov000_0217542c(void* obj);
+extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_020e0434(struct Container020e0310* c, int key);
+extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02041dd0(char* buf, int index);
 #if defined(jpn)
 extern "C" void func_0203bdf4(char* obj, int arg1);
-#define InvokeGlobalEntry0203c248 func_0203bdf4
+#define func_0203c248 func_0203bdf4
 #else
-void InvokeGlobalEntry0203c248(char* obj, int arg1);
+extern "C" void func_0203c248(char* obj, int arg1);
 #endif
-int AppendNameTag_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02041b70(char* dst, int n, const char* name);
 extern "C" void __clear(void* buf, int n);
 
 struct Member02179a70 {
@@ -52,27 +52,27 @@ extern "C" ARM void func_ov000_02179a70(struct Party02179a70* party, struct Curs
     signed char cursor = src->cursor;
     int n = 0;
 
-    if (IsField0x118Equal2_ov000_0217542c(party)) {
-        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    if (func_ov000_0217542c(party)) {
+        func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
-    AppendCursorTag_02041ea4(dst, cursor);
+    func_02041ea4(dst, cursor);
 
     struct Member02179a70* m;
     for (int i = 0; i < party->count; i++) {
         m = &party->members[party->order[i]];
         if (m->field_0x4c >= 0) {
             if (n != 0) {
-                AppendString02042058(dst, (const char*)GetFieldByKey020e0434((struct Container020e0310*)party->strings, 0));
+                func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)party->strings, 0));
             }
-            FormatCombatLogSuffix02041dd0(dst, func_ov000_02170c7c(m));
+            func_02041dd0(dst, func_ov000_02170c7c(m));
 #if defined(jpn)
             char name[0x20];
 #else
             char name[0x80];
 #endif
             __clear(name, sizeof(name));
-            InvokeGlobalEntry0203c248(m->name, (int)name);
-            AppendNameTag_02041b70(dst, n, name);
+            func_0203c248(m->name, (int)name);
+            func_02041b70(dst, n, name);
             n++;
         }
     }

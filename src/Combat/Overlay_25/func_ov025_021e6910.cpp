@@ -5,7 +5,7 @@ extern int data_ov025_021ef82b;
 
 struct Param2_021e6910 { char pad[0x10]; unsigned char* node; };
 
-// USA: func_ov025_021e6910  (semantic: ClearAndSetCombatantFlags_021e6910)
+// USA: func_ov025_021e6910
 extern "C" ARM int func_ov025_021e6910(void* unused, struct Param2_021e6910* p2) {
     GameState* bs = GameState::GetInstance();
     GameObject* c = bs->GetGameObjectByIndex(0xc8);

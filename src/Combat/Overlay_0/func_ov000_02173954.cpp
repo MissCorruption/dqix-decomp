@@ -10,14 +10,14 @@ struct Cont0205d274;
 struct EntryList0204af14;
 struct Struct0217f5e4;
 
-void ClearBuffer0204b010(struct Obj0204b010*, void*);
-void DispatchEntry0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-void ClearBuffers0204b010OverList0x98(struct Cont0205d1e0*);
-void CallFunc0204c8f0OverList0x9c(struct Cont0205d228*);
-void CallFunc0204b04cOverList0x98(struct Cont0205d274*);
-void* GetEntryByIndexStride0x10(struct EntryList0204af14*, unsigned int);
-void CallFunc0204b620IfField0x14_0204b878(struct Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
-void SetFieldRange0217f5e4(struct Struct0217f5e4*, int);
+extern "C" void func_0204b010(struct Obj0204b010*, void*);
+extern "C" void func_0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_0205d1e0(struct Cont0205d1e0*);
+extern "C" void func_0205d228(struct Cont0205d228*);
+extern "C" void func_0205d274(struct Cont0205d274*);
+extern "C" void* func_0204af14(struct EntryList0204af14*, unsigned int);
+extern "C" void func_0204b878(struct Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
+extern "C" void func_ov000_0217f5e4(struct Struct0217f5e4*, int);
 
 extern "C" void func_0204b04c(void*, int);
 extern "C" void* func_0202ae18(void*);
@@ -40,9 +40,9 @@ extern "C" void func_ov000_0218124c(void*, int, void*, int, short, short, short,
 extern "C" void func_ov000_021741e0(void* obj, float maxSpeed, float speed, int x, int argE,
     unsigned char slotIdx, unsigned char byteG, unsigned char byteH, unsigned char byteI, unsigned char flagJ);
 #if defined(jpn)
-extern "C" void _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(void*, int, void*, int, short, short);
+extern "C" void func_ov000_021811f4(void*, int, void*, int, short, short);
 #else
-extern "C" void _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(void*, int, short, short);
+extern "C" void func_ov000_021811f4(void*, int, short, short);
 #endif
 
 extern const int data_ov000_021833cc[][2];
@@ -87,27 +87,27 @@ extern "C" ARM void func_ov000_02173954(char* obj) {
 #else
     if (*(unsigned short*)(obj + 0x1d72) & 0x80) {
 #endif
-        ClearBuffer0204b010((struct Obj0204b010*)(obj + 0x8a4), 0);
-        DispatchEntry0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-        ClearBuffers0204b010OverList0x98((struct Cont0205d1e0*)(obj + 0x188));
+        func_0204b010((struct Obj0204b010*)(obj + 0x8a4), 0);
+        func_0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+        func_0205d1e0((struct Cont0205d1e0*)(obj + 0x188));
         func_0204b04c(obj + 0x8c4, 0);
         return;
     }
     func_ov000_0217a8f4(obj);
     func_ov000_021750e4(obj);
-    ClearBuffer0204b010((struct Obj0204b010*)(obj + 0x8a4), 0);
-    DispatchEntry0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
-    ClearBuffers0204b010OverList0x98((struct Cont0205d1e0*)(obj + 0x188));
+    func_0204b010((struct Obj0204b010*)(obj + 0x8a4), 0);
+    func_0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 0, 0, 0, 0, 0, 0x20, 0x19, 0xffff);
+    func_0205d1e0((struct Cont0205d1e0*)(obj + 0x188));
 #if defined(jpn)
     if (*(unsigned char*)(obj + 0x1fb8) == 0 && (*(unsigned short*)(obj + 0x1faa) & 0x600)) {
 #else
     if (*(unsigned char*)(obj + 0x1d80) == 0 && (*(unsigned short*)(obj + 0x1d72) & 0x600)) {
 #endif
-        CallFunc0204c8f0OverList0x9c((struct Cont0205d228*)(obj + 0x188));
+        func_0205d228((struct Cont0205d228*)(obj + 0x188));
         func_ov000_02175544(obj);
         func_0204b04c(obj + 0x8a4, 0);
         func_0204b04c(obj + 0x8c4, 0);
-        CallFunc0204b04cOverList0x98((struct Cont0205d274*)(obj + 0x188));
+        func_0205d274((struct Cont0205d274*)(obj + 0x188));
         func_ov000_02180bac(obj);
         return;
     }
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov000_02173954(char* obj) {
         tx = x >> 3;
         ty = y >> 3;
         if (!func_ov000_0217f5dc(e)) continue;
-        SetFieldRange0217f5e4((struct Struct0217f5e4*)obj, (int)e);
+        func_ov000_0217f5e4((struct Struct0217f5e4*)obj, (int)e);
         if (e->flags & 4) {
             found = idx;
             int wh[2];
@@ -202,14 +202,14 @@ extern "C" ARM void func_ov000_02173954(char* obj) {
                     func_ov000_021741e0(obj, dv[j], 1.52f, x + data_ov000_021833c8[j][0], argE, g, hb, ib, 1, 0);
                 }
             }
-            DispatchEntry0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 1, 0, 0, tx, ty, 0x20, 0x19, idx + 2);
+            func_0204b8d0((struct Obj0204b8d0*)(obj + 0x8c4), 1, 0, 0, tx, ty, 0x20, 0x19, idx + 2);
 #if defined(jpn)
             if (!func_ov000_02174324(obj, ids[i], x + 0x25, y + 0x17)) {
-                _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(obj, idx, obj + 0x8c4, e47f, tx + 7, ty + 3);
+                func_ov000_021811f4(obj, idx, obj + 0x8c4, e47f, tx + 7, ty + 3);
                 func_ov000_0218124c(obj, idx, obj + 0x8c4, e440, tx + 2, ty + 2);
 #else
             if (!func_ov000_02174324(obj, ids[i], x + 0x24, y + 0x16)) {
-                _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(obj, idx, x + 0x2c, y + 0x16);
+                func_ov000_021811f4(obj, idx, x + 0x2c, y + 0x16);
                 func_ov000_0218124c(obj, idx, obj + 0x8c4, e440, tx + 2, ty + 2, x + 0xc, y + 0x16);
 #endif
             }
@@ -265,30 +265,30 @@ extern "C" ARM void func_ov000_02173954(char* obj) {
             }
             char* list = obj + 0x8c4;
             if (e->flags & 8) list = obj + 0x8a4;
-            void* ent = GetEntryByIndexStride0x10((struct EntryList0204af14*)(obj + 0x8c4), 2);
+            void* ent = func_0204af14((struct EntryList0204af14*)(obj + 0x8c4), 2);
 #if defined(jpn)
-            CallFunc0204b620IfField0x14_0204b878((struct Obj0204b878*)list, (int)ent, 0, 0, tx + 2, ty, 0x20, 0x19, idx + 2);
+            func_0204b878((struct Obj0204b878*)list, (int)ent, 0, 0, tx + 2, ty, 0x20, 0x19, idx + 2);
 #else
-            CallFunc0204b620IfField0x14_0204b878((struct Obj0204b878*)list, (int)ent, 0, 0, tx + 1, ty, 0x20, 0x19, idx + 2);
+            func_0204b878((struct Obj0204b878*)list, (int)ent, 0, 0, tx + 1, ty, 0x20, 0x19, idx + 2);
 #endif
             func_ov000_02180ca8(obj, e, list);
 #if defined(jpn)
             if (!func_ov000_02174324(obj, idx, x + 0x30, y + 0x16)) {
-                _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(obj, idx, list, e47f, tx + 8, ty + 3);
+                func_ov000_021811f4(obj, idx, list, e47f, tx + 8, ty + 3);
                 func_ov000_0218124c(obj, idx, list, e440, tx + 3, ty + 2);
 #else
             if (!func_ov000_02174324(obj, idx, x + 0x28, y + 0x16)) {
-                _Z32InitSlotHPCategoryEntry_021811f4Pvisiss(obj, idx, x + 0x2c, y + 0x16);
+                func_ov000_021811f4(obj, idx, x + 0x2c, y + 0x16);
                 func_ov000_0218124c(obj, idx, list, e440, tx + 2, ty + 2, x + 0x14, y + 0x16);
 #endif
             }
         }
     }
     if (InRange(found)) {
-        CallFunc0204c8f0OverList0x9c((struct Cont0205d228*)(obj + 0x188));
+        func_0205d228((struct Cont0205d228*)(obj + 0x188));
         func_ov000_02175544(obj);
     }
     func_0204b04c(obj + 0x8a4, 0);
     func_0204b04c(obj + 0x8c4, 0);
-    CallFunc0204b04cOverList0x98((struct Cont0205d274*)(obj + 0x188));
+    func_0205d274((struct Cont0205d274*)(obj + 0x188));
 }

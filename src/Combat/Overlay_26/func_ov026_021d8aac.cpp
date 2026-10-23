@@ -29,8 +29,8 @@ struct BattleWork {
     Vector3i presetPos;
 };
 
-void StoreThreeWords_021d8b98(int* p, int a, int b, int c);
-int FindCombatantWithValue_0215fc8c(void* p0, int targetVal);
+extern "C" void func_ov026_021d8b98(int* p, int a, int b, int c);
+extern "C" int func_ov000_0215fc8c(void* p0, int targetVal);
 
 extern PresetEntry data_ov026_021de87c[];
 
@@ -44,16 +44,16 @@ extern "C" ARM void func_ov026_021d8aac(BattleWork* self, int mode, int kind) {
         if (e->id == 0) {
             if (kind == 2) {
                 self->presetId = e->id;
-                StoreThreeWords_021d8b98(self->presetParams, e->params[0], e->params[1], e->params[2]);
+                func_ov026_021d8b98(self->presetParams, e->params[0], e->params[1], e->params[2]);
                 self->presetPos = e->pos;
                 return;
             }
-        } else if (FindCombatantWithValue_0215fc8c(self->battle, (short)e->id)) {
+        } else if (func_ov000_0215fc8c(self->battle, (short)e->id)) {
             self->presetId = e->id;
             if (e->id == 0x115) {
                 e += mode % 3;
             }
-            StoreThreeWords_021d8b98(self->presetParams, e->params[0], e->params[1], e->params[2]);
+            func_ov026_021d8b98(self->presetParams, e->params[0], e->params[1], e->params[2]);
             self->presetPos = e->pos;
             return;
         }

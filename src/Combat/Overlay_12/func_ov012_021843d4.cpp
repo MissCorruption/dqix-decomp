@@ -10,15 +10,15 @@ struct List0204af64;
 
 extern "C" void func_02074af4(void* p);
 extern "C" void func_ov023_021e7220(void* card, int mode);
-void ResetListHeader020727d8(List020727d8* list);
-void ResetStruct020dfc40(Struct020dfc40* texts);
-void InitStruct0205cfd4(InitTarget0205cfd4* window);
-void ResetList0204af64(List0204af64* background);
+extern "C" void func_020727d8(List020727d8* list);
+extern "C" void func_020dfc40(Struct020dfc40* texts);
+extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
+extern "C" void func_0204af64(List0204af64* background);
 extern "C" void func_0204c684(void* canvas);
 #if defined(jpn)
 #define func_ov012_021845f8 func_ov012_02185690
-extern "C" void _Z12Init0205bef8P15Struct_0205bef8(void* cursor);
-void ClearFields_021e20c0(void* profile);
+extern "C" void func_0205bef8(void* cursor);
+extern "C" void func_ov023_021e20c0(void* profile);
 #endif
 extern "C" void func_ov012_021845f8(void* checker);
 
@@ -143,8 +143,8 @@ extern "C" ARM void func_ov012_021843d4(ProfileEditor021843d4* self)
     self->allocators_[6].ResetAllocatorPointer();
 #endif
     func_ov023_021e7220(self->card_, 2);
-    ResetListHeader020727d8((List020727d8*)self->strings_);
-    ResetStruct020dfc40((Struct020dfc40*)self->texts_);
+    func_020727d8((List020727d8*)self->strings_);
+    func_020dfc40((Struct020dfc40*)self->texts_);
     self->renderer_ = 0;
     self->sprites_ = 0;
     self->unk_1360 = 0;
@@ -152,9 +152,9 @@ extern "C" ARM void func_ov012_021843d4(ProfileEditor021843d4* self)
     self->renderer2_ = 0;
     self->sprites2_ = 0;
 #endif
-    InitStruct0205cfd4((InitTarget0205cfd4*)self->window_);
+    func_0205cfd4((InitTarget0205cfd4*)self->window_);
     for (int i = 0; i < 3; i++)
-        ResetList0204af64((List0204af64*)&self->backgrounds_[i]);
+        func_0204af64((List0204af64*)&self->backgrounds_[i]);
     for (int i = 0; i < 13; i++)
         func_0204c684(&self->canvases_[i]);
     self->step_ = 0;
@@ -174,9 +174,9 @@ extern "C" ARM void func_ov012_021843d4(ProfileEditor021843d4* self)
 #if defined(jpn)
     self->nameFlag_ = 0;
     self->nameStep_ = 0;
-    _Z12Init0205bef8P15Struct_0205bef8(self->nameCursor_);
+    func_0205bef8(self->nameCursor_);
     self->profileIndex_ = 0;
-    ClearFields_021e20c0(self->profile_);
+    func_ov023_021e20c0(self->profile_);
 #endif
     self->unk_13ac = 0;
     self->name_ = 0;

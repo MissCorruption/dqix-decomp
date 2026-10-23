@@ -7,15 +7,15 @@ struct Rect0205b1ac { int offset; short x, y, width, height; };
 struct GlyphEntry0205b36c { const char* text; signed char width; unsigned char flags; short bitOffset; };
 struct GlyphSheet0205b36c { int field_0; unsigned short width; unsigned short height; int field_8; unsigned char* bitmap; };
 struct GlyphDestination0205b36c { unsigned char* pixels; Rect0205b1ac* rectangles; unsigned char rectangleCount; };
-extern int GetWordFromTable02042638(int);
-extern Rect0205b1ac* FindRectContainingPoint0205b1ac(Rect0205b1ac*, unsigned int, int, int);
+extern "C" int func_02042638(int);
+extern "C" Rect0205b1ac* func_0205b1ac(Rect0205b1ac*, unsigned int, int, int);
 
 // USA: func_0205b36c
 #if defined(jpn)
 // JPN: func_0205c68c
 extern "C" ARM void func_0205b36c(GlyphDestination0205b36c* destination, const unsigned char* source, short x, short y, unsigned char font, unsigned char color) {
     if (source == NULL) return;
-    FontGlyphTable* table = GetFontGlyphTable_020429bc(font);
+    FontGlyphTable* table = func_020429bc(font);
     if (table == NULL) return;
     unsigned char shift = 0;
     short row = 0;
@@ -30,7 +30,7 @@ extern "C" ARM void func_0205b36c(GlyphDestination0205b36c* destination, const u
         for (short column = 0; column < width; ++column) {
             if (*source & (1 << shift)) {
                 short destinationX = x + column;
-                Rect0205b1ac* rectangle = FindRectContainingPoint0205b1ac(rectangles, count, destinationX, destinationY);
+                Rect0205b1ac* rectangle = func_0205b1ac(rectangles, count, destinationX, destinationY);
                 if (rectangle) {
                     unsigned char* pixels = destination->pixels + rectangle->offset;
                     short localX = destinationX - rectangle->x;
@@ -60,7 +60,7 @@ extern "C" ARM void func_0205b36c(GlyphDestination0205b36c* destination, const u
 }
 #else
 extern "C" ARM void func_0205b36c(GlyphDestination0205b36c* destination, GlyphEntry0205b36c* glyph, short x, short y, unsigned char color, unsigned char font) {
-    GlyphSheet0205b36c* sheet = (GlyphSheet0205b36c*)GetWordFromTable02042638(font);
+    GlyphSheet0205b36c* sheet = (GlyphSheet0205b36c*)func_02042638(font);
     short bitOffset = glyph->bitOffset;
     unsigned char upperColor = color << 4;
     unsigned char lowerColor = color & 15;
@@ -75,7 +75,7 @@ extern "C" ARM void func_0205b36c(GlyphDestination0205b36c* destination, GlyphEn
         for (int column = 0; column < glyph->width; ++column) {
             if (*source & (1 << shift)) {
                 short destinationX = x + column;
-                Rect0205b1ac* rectangle = FindRectContainingPoint0205b1ac(rectangles, count, destinationX, destinationY);
+                Rect0205b1ac* rectangle = func_0205b1ac(rectangles, count, destinationX, destinationY);
                 if (rectangle) {
                     unsigned char* pixels = destination->pixels + rectangle->offset;
                     short localX = destinationX - rectangle->x;

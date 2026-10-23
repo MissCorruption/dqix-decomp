@@ -40,10 +40,10 @@ extern "C" int func_ov031_022375cc(void);
 extern "C" void func_020c99c8(void*);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 unsigned long long GetCurrentTimestamp(void);
-int CallFunc020d4fa4Zero_020d4f7c(int, int, int);
-int CopyToBattleContextBuffer_020d4848(void*);
-unsigned short GetOwnerDataFortuneValue020d4be8(void);
-void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+extern "C" int func_020d4f7c(int, int, int);
+extern "C" int func_020d4848(void*);
+extern "C" unsigned short func_020d4be8(void);
+extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 
 // USA: func_ov031_02237448
 extern "C" ARM int func_ov031_02237448(int value) {
@@ -52,20 +52,20 @@ extern "C" ARM int func_ov031_02237448(int value) {
     data_ov031_02290d0c->value = value;
     unsigned long long timestamp = GetCurrentTimestamp();
     data_ov031_02290d0c->timestamp = timestamp;
-    if (CallFunc020d4fa4Zero_020d4f7c((int)data_ov031_02290d0c, (int)func_ov031_022376fc, 3) == 2) {
+    if (func_020d4f7c((int)data_ov031_02290d0c, (int)func_ov031_022376fc, 3) == 2) {
         BattleState02237448* state;
         do {
-            CopyToBattleContextBuffer_020d4848(&data_ov031_02290d0c->status);
+            func_020d4848(&data_ov031_02290d0c->status);
         } while ((state = data_ov031_02290d0c)->status != 2);
         state->connectionWords = data_ov031_02249294;
         state->connection.cache = state->cache;
-        data_ov031_02290d0c->connection.fortune = GetOwnerDataFortuneValue020d4be8();
+        data_ov031_02290d0c->connection.fortune = func_020d4be8();
         func_020c99c8(&response);
         VectorizedInvertedMemcpy(data_ov031_02249288, data_ov031_02290d0c->connection.signature, 8);
         data_ov031_02290d0c->connection.enabled = 1;
         VectorizedInvertedMemcpy(response.payload, data_ov031_02290d0c->connection.payload, response.count << 1);
         if (func_ov031_022375cc()) {
-            data_ov031_02290d0c->callback = CallWithZeroExtra_0223e218(0, (void*)func_ov031_022379f0, 0, 0x78);
+            data_ov031_02290d0c->callback = func_ov031_0223e218(0, (void*)func_ov031_022379f0, 0, 0x78);
             return 1;
         }
     }
