@@ -7,6 +7,7 @@ enum { kRegionValueEC_E8 = 0xe8 };
 enum { kRegionValueEC_E8 = 0xec };
 #endif
 
+
 struct Obj021727c8 {
     char unk_0[kRegionValueEC_E8];
     unsigned char state_;
@@ -21,7 +22,7 @@ struct StateTable021727c8 {
 
 extern "C" const StateTable021727c8 data_ov003_0217fa20;
 extern "C" const StateTable021727c8 data_ov003_0217fa58;
-extern "C" StateFn021727c8 __ptmf_null;
+extern "C" StateFn021727c8 data_020e6d5c;
 
 // USA: func_ov003_021727c8
 extern "C" ARM bool func_ov003_021727c8(Obj021727c8* self) {
@@ -29,7 +30,7 @@ extern "C" ARM bool func_ov003_021727c8(Obj021727c8* self) {
     bool done = false;
     bool subDone = false;
     StateTable021727c8 states = data_ov003_0217fa20;
-    StateFn021727c8 none = __ptmf_null;
+    StateFn021727c8 none = data_020e6d5c;
     states.functions[6] = none;
     StateTable021727c8 subStates = data_ov003_0217fa58;
     subStates.functions[6] = none;
