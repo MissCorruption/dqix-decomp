@@ -12066,6 +12066,10 @@ src/Combat/Main/func_02040bfc.cpp:
     complete
     .text start:0x020410f8 end:0x02041128
 
+src/NitroSDK/Main/func_020bb588.cpp:
+    complete
+    .text start:0x020bd054 end:0x020bd1c4
+
 src/Combat/Main/func_020dc3b8.cpp:
     complete
     .text start:0x020dddc0 end:0x020ddddc
