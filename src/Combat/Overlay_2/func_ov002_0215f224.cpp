@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/Main/BattleList.h"
 
+#if defined(jpn)
+#define func_02041fac func_02042638
+#endif
+
 struct Container020e0310;
 extern "C" int func_020e0434(struct Container020e0310* c, int key);
 extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
@@ -24,41 +28,66 @@ extern "C" int func_020420e8(const char* str, int flags);
 
 extern int data_ov002_0216d2a8;
 
+#if defined(jpn)
+#define RG(u, j) (j)
+struct StoreStruct;
+extern "C" int func_020421a0();
+extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465f0(unsigned char*, int, unsigned char);
+extern "C" void func_020465d8(unsigned char*, int, unsigned char);
+#else
+#define RG(u, j) (u)
+#endif
+
 // USA: func_ov002_0215f224
 extern "C" ARM void func_ov002_0215f224(char* p, char* dst, int flag2) {
     if (dst == NULL) {
         return;
     }
-    if (*(int*)(p + 0x2474) == 0) {
+    if (*(int*)(p + RG(0x2474, 0x22a4)) == 0) {
         return;
     }
 
-    int cursor = *(short*)(p + 0x1bfc) % 6;
+    int cursor = *(short*)(p + RG(0x1bfc, 0x1ac4)) % 6;
 
     if (flag2) {
         func_02041c08(dst, cursor, 8, 5, 5, 5);
     }
     func_02041ea4(dst, cursor);
 
-    char* fld = p + 0x2c8 + 0xc00;
+    char* fld = p + RG(0x2c8 + 0xc00, 0xe20);
     int out1, out2;
     func_0205c508((struct UnkStruct0205c508*)(fld + 0x54), &out1, &out2);
 
-    int fmtVal = func_020e0434((struct Container020e0310*)(p + 0x20), 0x578);
+    int fmtVal = func_020e0434((struct Container020e0310*)(p + RG(0x20, 8)), 0x578);
     func_02041fac(dst, fmtVal, 0x10);
 
     int i;
     for (i = out1; i < out2; i++) {
-        struct Entry020a83b0* entry = func_020a83b0((struct List020a83b0*)(*(int*)(p + 0x2000 + 0x474)), (short)i);
+        struct Entry020a83b0* entry = func_020a83b0((struct List020a83b0*)(*(int*)(p + 0x2000 + RG(0x474, 0x2a4))), (short)i);
         if (entry != NULL) {
             int rem = i % 6;
             func_02041b70(dst, rem, *(const char**)((char*)entry + 4));
             if (i != out2 - 1) {
-                func_02042058(dst, *(char**)(p + 0x1000 + 0xbdc));
+                func_02042058(dst, *(char**)(p + 0x1000 + RG(0xbdc, 0xaa4)));
             }
         }
     }
 
+#if defined(jpn)
+    int n = *(int*)(fld + 0x58);
+    fmtVal = *(int*)(fld + 0x68);
+    if (n > 1) {
+        int g = func_020421a0();
+        func_020465c0((StoreStruct*)g, 0, fmtVal + 1);
+        func_020465c0((StoreStruct*)g, 1, n);
+        func_020465f0((unsigned char*)g, 0, 1);
+        func_020465f0((unsigned char*)g, 1, 1);
+        func_020465d8((unsigned char*)g, 0, 1);
+        func_020465d8((unsigned char*)g, 1, 0);
+        func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)(p + 8), 0x579));
+    }
+#else
     int n = *(int*)(fld + 0x58);
     if (n > 1) {
         int field68 = *(int*)(fld + 0x68);
@@ -71,4 +100,5 @@ extern "C" ARM void func_ov002_0215f224(char* p, char* dst, int flag2) {
         func_02041a90(dst, xoff, 0x63);
         func_02042058(dst, buf);
     }
+#endif
 }
