@@ -166,3 +166,19 @@ src/Combat/Overlay_9/func_ov009_02185634.cpp:
 src/Combat/Overlay_9/func_ov009_02184e58.cpp:
     complete
     .text start:0x02186158 end:0x021867bc
+
+src/Combat/Overlay_9/data_ov009_0218a9b4.c:
+    complete
+    .rodata start:0x0218b988 end:0x0218b990
+
+src/Combat/Overlay_9/data_ov009_0218a9bc.c:
+    complete
+    .rodata start:0x0218b998 end:0x0218b9a4
+
+src/Combat/Overlay_9/data_ov009_0218aa40.c:
+    complete
+    .rodata start:0x0218ba1c end:0x0218ba30
+
+src/Combat/Overlay_9/data_ov009_0218aac8.c:
+    complete
+    .rodata start:0x0218ba7c end:0x0218bab0
