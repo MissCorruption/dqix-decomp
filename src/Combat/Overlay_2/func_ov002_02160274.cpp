@@ -7,7 +7,11 @@ extern "C" void func_ov002_0215be00(void *base, int a, int b, int c);
 extern "C" void func_ov002_021605d4(void *base, void *dst, int flag);
 extern "C" void func_ov002_0216049c(void *base, void *dst, int flag);
 extern "C" void func_ov002_0215b9a4(void *base, int a, int b);
+#if defined(jpn)
+extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6);
+#else
 extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6, int p7);
+#endif
 extern "C" unsigned char data_ov002_0216c9f9[];
 
 struct Struct_0205d81c;
@@ -56,6 +60,21 @@ extern "C" ARM void func_ov002_02160274(char *base) {
     }
     int h = n * 2;
     if (n == 1) h++;
+#if defined(jpn)
+    func_ov002_0215be00(base, 0x21, 0x10, (short) (h + 10));
+    memset(*(char **) (base + 0x1000 + 0xa98), 0, 0x800);
+    func_ov002_021605d4(base, *(char **) (base + 0x1000 + 0xa98), 0);
+    func_0205d304(base + 0xe20, *(char **) (base + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
+
+    func_0205de24((struct Struct0205de24 *) (base + 0xe20), 0, 2);
+    func_ov002_0215be00(base, *(int *) (base + 0x1000 + 0xa80) & 0xff, 0x10, 8);
+    memset(*(char **) (base + 0x1000 + 0xa98), 0, 0x800);
+    func_ov002_0216049c(base, *(char **) (base + 0x1000 + 0xa98), 0);
+    func_0205d304(base + 0xe20, *(char **) (base + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
+
+    func_0205deb4((struct Struct_0205d81c *) (base + 0xe20), 0x21, 0);
+    func_0205def8((struct Struct_0205def8 *) (base + 0xe20), 0, 0x2c);
+#else
     func_ov002_0215be00(base, 0x20, 0x10, (short) (h + 10));
     memset(((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0x960);
     func_ov002_021605d4(base, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0);
@@ -82,4 +101,5 @@ extern "C" ARM void func_ov002_02160274(char *base) {
         }
     }
     func_ov002_0215b9a4(base, ((struct FieldOv02160274 *) (base + 0x1000))->field & 0xff, 0);
+#endif
 }
