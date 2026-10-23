@@ -41,6 +41,7 @@ func_ov009_0218a518 kind:function(arm,size=0x370) addr:0x0218a518
 func_ov009_0218a888 kind:function(arm,size=0x30) addr:0x0218a888
 func_ov009_0218a8b8 kind:function(arm,size=0x78) addr:0x0218a8b8
 func_ov009_0218a930 kind:function(arm,size=0x2c) addr:0x0218a930
+data_ov009_0218a95c kind:data(any) addr:0x0218a95c
 data_ov009_0218a95d kind:data(any) addr:0x0218a95d
 data_ov009_0218a95f kind:data(any) addr:0x0218a95f
 data_ov009_0218a961 kind:data(any) addr:0x0218a961

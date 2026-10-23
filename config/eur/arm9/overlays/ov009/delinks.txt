@@ -206,3 +206,11 @@ src/Combat/Overlay_9/data_ov009_0218aac8.c:
 src/Combat/Overlay_9/data_ov009_0218aa98.c:
     complete
     .rodata start:0x0218aa98 end:0x0218aac8
+
+src/Combat/Overlay_9/data_ov009_0218a95c.c:
+    complete
+    .rodata start:0x0218a95c end:0x0218a96c
+
+src/Combat/Overlay_9/data_ov009_0218aa54.c:
+    complete
+    .rodata start:0x0218aa54 end:0x0218aa70
