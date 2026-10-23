@@ -123,6 +123,99 @@ extern short data_ov004_02170888[][4];
 extern char data_ov004_02170524[];
 extern char data_ov004_02170525[];
 
+#if defined(jpn)
+extern int data_ov004_021705a4[];
+extern unsigned char data_ov004_0217057c[];
+extern char* data_ov004_02170d60[8][4];
+extern short data_ov004_021710a8[];
+extern unsigned char data_ov004_02171090[];
+extern short data_ov004_02171118[][4];
+extern char data_ov004_02170de0[];
+
+// JPN: func_ov004_0215e5fc
+extern "C" ARM void func_ov004_0215e5fc(void* a, int idx) {
+    struct Element020de650* el;
+    void* A = func_ov011_021849c8(a);
+    char* p488;
+    short key;
+    int i;
+    struct GameState* gs = GameState::GetInstance();
+    void* c;
+    int found = 0;
+    char* prot;
+    int flag;
+    int key2;
+    int v2;
+    void* combatant = func_0200ff1c(gs, idx);
+    if (combatant != 0) {
+        prot = (char*)func_02053c6c((unsigned char*)combatant);
+        Node0215e5fc* node = (Node0215e5fc*)func_ov004_0215e47c(a, 0x81);
+        if (node != 0) {
+            c = node->GetContainer();
+            if (c != 0) {
+                p488 = prot + 0x488;
+                for (i = 0; i < 8; i++) {
+                    key = *(short*)(p488 + data_ov004_021705a4[i] * 2);
+                    if (key == data_ov004_02171118[i][idx] && data_ov004_0217057c[i] != 1) continue;
+                    found = 1;
+                    el = (struct Element020de650*)func_020dedd0((struct Container020dedd0*)c, key);
+                    if (el == 0) {
+                        flag = data_ov004_0217057c[i];
+                        func_02083738(prot, flag);
+                        data_ov004_02171118[i][idx] = -1;
+                        if (key < 0 && i == 0) {
+                            data_ov004_021710a8[idx] = 0xe;
+                        }
+                        key2 = -1;
+                        v2 = -1;
+                        if (flag == 2) {
+                            key2 = 1000;
+                            v2 = 0;
+                        }
+                        void* el2 = func_020dedd0((struct Container020dedd0*)c, key2);
+                        if (el2 != 0) {
+                            func_0208358c(prot, el2, v2);
+                        }
+                        data_ov004_02171090[idx] = 0;
+                    } else {
+                        func_0208358c(prot, el, -1);
+                        data_ov004_02171118[i][idx] = ((struct Elem0215e5fc*)el)->f18;
+                        data_ov004_02170d60[i][idx] = ((struct Elem0215e5fc*)el)->f04;
+                        if (i == 0) {
+                            short s = ((struct VtblBits0215e5fc*)((struct Elem0215e5fc*)el)->v0)->f;
+                            if (s == 0) s = 0xe;
+                            data_ov004_021710a8[idx] = s;
+                        }
+                        if (i == 1) {
+                            data_ov004_02171090[idx] = 0;
+                            if (((struct Elem0215e5fc*)el)->f18 != -1) {
+                                data_ov004_02171090[idx] = 1;
+                            }
+                        }
+                    }
+                }
+                if (found) {
+                    func_02083e28(prot, 0);
+                }
+            }
+        }
+    }
+    for (int i = 0; i < 8; i++) {
+        Node0215e5fc* n = (Node0215e5fc*)func_ov023_021f6880(A, i + 0xfa);
+        if (n == 0) continue;
+        if (func_ov023_021f6f10(n) != 8) continue;
+        short v = data_ov004_02171118[i][idx];
+        if (v < 10000 || (v >= 14000 && v < 15000)) {
+            n->f20 = data_ov004_02170de0;
+            n->SetMode(3);
+        } else {
+            n->f20 = data_ov004_02170d60[i][idx];
+            n->SetMode(0xf);
+        }
+    }
+    func_ov023_021f809c(func_ov004_0215e4c0(a, 4), a);
+}
+#else
 // USA: func_ov004_0215e5fc
 extern "C" ARM void func_ov004_0215e5fc(void* a, int idx) {
     struct Element020de650* el;
@@ -228,3 +321,4 @@ extern "C" ARM void func_ov004_0215e5fc(void* a, int idx) {
     func_ov023_021f8960((char*)nn, 0, 0xffff);
     func_ov023_021f809c(nn, a);
 }
+#endif

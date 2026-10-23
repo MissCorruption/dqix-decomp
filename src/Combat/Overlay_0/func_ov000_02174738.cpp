@@ -71,6 +71,54 @@ extern "C" void func_0205b234(struct S_b20c* a, short b, int c, void* buf, unsig
 extern char data_ov000_0218405b;
 extern int data_ov000_02183ff0;
 
+#if defined(jpn)
+// JPN: func_ov000_02174738
+extern "C" ARM void func_ov000_02174738(struct Obj02174738* self, int id) {
+    int valid;
+    if (id >= 0) {
+        if (id <= 3) {
+            valid = 1;
+            goto checkvalid;
+        }
+    }
+    valid = 0;
+checkvalid:
+    if (!valid) {
+        return;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        signed char* ord = (signed char*)((int)self + 0x6c);
+        signed char* ord2 = ord;
+        struct Entry02174738* e = &self->group.entries[ord2[i]];
+        if (id == e->field4c) {
+            func_ov000_02171138(e);
+            func_ov000_02174b14(self);
+            return;
+        }
+    }
+
+    GameState* bs = GameState::GetInstance();
+    for (int i = 0; i < 4; i++) {
+        struct Entry02174738* e = &self->group.entries[self->order[i]];
+        if (self->order[i] != id) {
+            continue;
+        }
+        if (e->field4c >= 0) {
+            continue;
+        }
+        func_ov000_021710ac(e, id, id == func_020100a8(bs));
+        func_ov000_02174a38(e, id == func_020100a8(bs));
+        func_ov000_02171138(e);
+        data_ov000_02183ff0 = data_ov000_02183ff0 + 1;
+        func_ov000_02174b14(self);
+        if (data_ov000_02183ff0 > 4) {
+            data_ov000_02183ff0 = 4;
+        }
+        return;
+    }
+}
+#else
 // USA: func_ov000_02174738
 extern "C" ARM void func_ov000_02174738(struct Obj02174738* self, int id) {
     int valid;
@@ -178,3 +226,4 @@ checkvalid:
         return;
     }
 }
+#endif
