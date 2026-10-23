@@ -5,6 +5,14 @@
 #include "Resource/ActionDataTables.h"
 #include <std_library_functions.h>
 
+#if defined(jpn)
+enum { StateOffset = 0xa80, TextsEnd = 0x10, ActorOffset = 0x1ae8, SecondaryOffset = 0x22b8, TextSize = 0x800, FormatOffset = 0x700, AskState = 0x29, AskNext = 0x12 };
+#define FORMAT(m, k, t, d) func_020474a8(m, k, t, d)
+#else
+enum { StateOffset = 0xbb8, TextsEnd = 0x28, ActorOffset = 0x1c20, SecondaryOffset = 0x2488, TextSize = 0x960, FormatOffset = 0x860, AskState = 0x26, AskNext = 0x11 };
+#define FORMAT(m, k, t, d) func_02046608(m, k, t, d, 0xe3, 0, 1)
+#endif
+
 struct Obj02048350;
 struct StoreStruct;
 struct Obj02046574 {
@@ -19,7 +27,7 @@ struct CommandEntry0215a0a4 {
     unsigned int unused : 24;
 };
 struct BattleTextState0215a0a4 {
-    unsigned char unknown_0[0xbb8];
+    unsigned char unknown_0[StateOffset];
     int state;
     int nextState;
     int timer;
@@ -29,12 +37,14 @@ struct BattleTextState0215a0a4 {
 };
 struct BattleMessage0215a0a4 {
     unsigned char unknown_0[8];
+#if !defined(jpn)
     unsigned char actorName[12];
     unsigned char targetName[12];
+#endif
     Container020e0310 texts;
-    unsigned char unknown_28[0x1000 - 0x28];
+    unsigned char unknown_28[0x1000 - TextsEnd];
     BattleTextState0215a0a4 textState;
-    unsigned char unknown_1bd8[0x1c20 - 0x1bd8];
+    unsigned char unknown_1bd8[ActorOffset - 0x1000 - sizeof(BattleTextState0215a0a4)];
     signed char actorId;
     signed char partyIndex;
     unsigned char unknown_1c22[4];
@@ -43,7 +53,7 @@ struct BattleMessage0215a0a4 {
     short alternateKey;
     unsigned char unknown_1c2c[5];
     unsigned char pending;
-    unsigned char unknown_1c32[0x2488 - 0x1c32];
+    unsigned char unknown_1c32[SecondaryOffset - ActorOffset - 0x12];
     short secondaryKey;
     unsigned char active;
 };
@@ -78,7 +88,11 @@ extern "C" void func_020465c0(StoreStruct*, int, int);
 extern "C" int* func_0202ae18();
 extern "C" void func_02046380(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
+#if defined(jpn)
+extern "C" void func_020474a8(void*, int, int, void*);
+#else
 extern "C" void func_02046608(void*, int, int, void*, int, int, int);
+#endif
 
 static inline char* CombatantName0215a0a4(GameObject* target) { SDK_NULL_ASSERT(target); return target->baseStats_->unk; }
 
@@ -101,17 +115,21 @@ extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent
     state = func_0202ae18();
     entry = func_02079e2c((char*)func_020797dc(), self->command);
     if (!entry) return;
-    memset(self->textState.text, 0, 0x960);
-    memset(self->textState.textCopy, 0, 0x960);
+    memset(self->textState.text, 0, TextSize);
+    memset(self->textState.textCopy, 0, TextSize);
     func_02046380(message);
     buffer = self->textState.text;
+#if !defined(jpn)
     func_020e46c4(self->actorName);
     func_020e46c4(self->targetName);
+#endif
     actor = func_0200ff1c(gs, event->actor);
     if (actor) {
         func_02046574(message, 0, actor->baseStats_->unk);
+#if !defined(jpn)
         func_020e4bf4(self->actorName, event->actor);
         message->actor = self->actorName;
+#endif
     }
     func_02046574(message, 1, entry->name);
     if (self->command == 0x1e || self->command == 0x1f || self->command == 0x20 ||
@@ -149,8 +167,8 @@ extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent
             self->messageKey = 0x2333;
             self->secondaryKey = 0x2334;
         }
-        self->textState.state = 0x26;
-        self->textState.nextState = 0x11;
+        self->textState.state = AskState;
+        self->textState.nextState = AskNext;
         self->textState.timer = 0;
         if (consumed) {
             func_02048350((Obj02048350*)actor, entry->counter);
@@ -160,8 +178,8 @@ extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent
     }
     if (self->command != 0x22 && self->command != 0x310) return;
     if (any) {
-        func_02046608(message, 0xc, func_020e0434(&self->texts, 0x232d), buffer + 0x860, 0xe3, 0, 1);
-        func_02042058(self->textState.text, buffer + 0x860);
+        FORMAT(message, 0xc, func_020e0434(&self->texts, 0x232d), buffer + FormatOffset);
+        func_02042058(self->textState.text, buffer + FormatOffset);
         results = event->results;
         rejectedKey = 0x232c;
         index = 0;
@@ -169,16 +187,22 @@ extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent
         while (index < event->count) {
             int key = results[index].kind == 3 ? rejectedKey : 0x233a;
             if (key >= 0) {
+#if defined(jpn)
+                target = func_0200ff1c(gs, event->targets[index]);
+#else
                 target = func_0200ff1c(gs, targetIds[index]);
+#endif
                 if (target) {
                     func_02046380(message);
                     func_02046574(message, 2, CombatantName0215a0a4(target));
+#if !defined(jpn)
                     func_020e4bf4(self->targetName, targetIds[index]);
                     message->target = self->targetName;
+#endif
                     func_020465c0((StoreStruct*)message, 9, target->obj3D_.unknown_4_);
-                    func_02046608(message, 0xc, func_020e0434(&self->texts, key), buffer + 0x860, 0xe3, 0, 1);
+                    FORMAT(message, 0xc, func_020e0434(&self->texts, key), buffer + FormatOffset);
                     func_02042058(self->textState.text, (const char*)func_020e0434(&self->texts, 8));
-                    func_02042058(self->textState.text, buffer + 0x860);
+                    func_02042058(self->textState.text, buffer + FormatOffset);
                 }
             }
             index++;
@@ -189,19 +213,21 @@ extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent
         target = gs->GetUnknownGameObject();
         if (target) {
             func_02046574(message, 2, CombatantName0215a0a4(target));
+#if !defined(jpn)
             func_020e4bf4(self->targetName, target->obj3D_.unknown_4_);
             message->target = self->targetName;
+#endif
         }
-        func_02042058(buffer + 0x860, (const char*)func_020e0434(&self->texts, 0x2333));
-        func_02042058(buffer + 0x860, (const char*)func_020e0434(&self->texts, 8));
+        func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2333));
+        func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 8));
         if (func_02011538(gs) == 1)
-            func_02042058(buffer + 0x860, (const char*)func_020e0434(&self->texts, 0x2334));
+            func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2334));
         else
-            func_02042058(buffer + 0x860, (const char*)func_020e0434(&self->texts, 0x2335));
-        func_02046608(message, 0xc, (int)(buffer + 0x860), self->textState.text, 0xe3, 0, 1);
+            func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2335));
+        FORMAT(message, 0xc, (int)(buffer + FormatOffset), self->textState.text);
     }
     self->pending = 1;
-    memcpy(self->textState.textCopy, self->textState.text, 0x960);
+    memcpy(self->textState.textCopy, self->textState.text, TextSize);
     self->secondaryKey = -1;
     self->active = 0;
 }
