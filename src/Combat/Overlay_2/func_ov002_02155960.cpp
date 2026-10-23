@@ -5,7 +5,6 @@
 #if defined(jpn)
 #define RG(u, j) (j)
 #define func_0205ec34 func_0205ff20
-#define func_ov002_0215bba8 func_ov002_0215cd18
 #else
 #define RG(u, j) (u)
 #endif

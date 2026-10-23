@@ -35,8 +35,6 @@ extern "C" char data_02108760[];
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" void func_ov002_0215cd18(char *base);
-#define func_ov002_0215bba8 func_ov002_0215cd18
 #else
 #define RG(u, j) (u)
 #endif

@@ -21,11 +21,66 @@ extern "C" void func_ov002_02156e90(void *base);
 extern "C" void func_ov002_0215f3a0(void *base);
 extern "C" char data_02108760[];
 
+#if defined(jpn)
+#define OBJ (base + 0xe20)
+#else
+#define OBJ (base + 0x2c8 + 0xc00)
+#endif
+
 static inline int AnyConfirm021696c0(char *base) {
     return (g_keyManager.TestKeysPressed(0x601) |
-            func_0205da38((struct Obj_0205da38*)(base + 0x2c8 + 0xc00), 0x14)) ? 1 : 0;
+            func_0205da38((struct Obj_0205da38*)OBJ, 0x14)) ? 1 : 0;
 }
 
+#if defined(jpn)
+struct Struct_0205d81c;
+extern "C" void func_0205deb4(struct Struct_0205d81c *s, int key, int value);
+
+// USA: func_ov002_021696c0
+extern "C" ARM void func_ov002_021696c0(char *base) {
+    int state = *(int *) (base + 0x1000 + 0xa88);
+    if (state == 0) {
+        func_ov002_0215aa5c(base);
+        *(unsigned int *) (base + 0x2000 + 0x2ac) &= ~4;
+        func_0205def8((struct Struct_0205def8 *) OBJ, 0, 0x2c);
+        *(short *) (base + 0x1a00 + 0xd2) = 0;
+        func_0205de24((struct Struct0205de24 *) OBJ, 0, 2);
+        func_ov002_02161cf0(base);
+        func_ov002_02160734((unsigned char *) base);
+        (*(int *) (base + 0x1000 + 0xa88))++;
+    } else if (state == 1) {
+        func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x22);
+        func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x23);
+        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x22, 0);
+        func_0205deb4((struct Struct_0205d81c *) OBJ, 0x23, 0);
+        *(unsigned int *) (base + 0x2000 + 0x2ac) |= 4;
+        *(short *) (base + 0x1a00 + 0xd2) =
+            func_0205d794((struct Struct_0205c570 *) OBJ);
+        if (AnyConfirm021696c0(base) && *(short *) (base + 0x1a00 + 0xd2) == 7) {
+            func_ov002_0215aa14(base);
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            *(int *) (base + 0x1000 + 0xa80) = 0x16;
+            *(short *) (base + 0x1a00 + 0xd2) = 0;
+            *(unsigned int *) (base + 0x2000 + 0x2ac) &= ~4;
+            func_ov002_02156e90(base);
+            func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x2c);
+        } else if (AnyConfirm021696c0(base)) {
+            *(unsigned char *) (base + 0xed8) = *(int *) (base + 0x1000 + 0xa80);
+            *(unsigned int *) (base + 0x2000 + 0x2ac) &= ~4;
+            func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            *(int *) (base + 0x1000 + 0xa80) = 0x25;
+            *(int *) (base + 0x1000 + 0xa88) = 0;
+        } else if (func_ov002_02161b48(base, 1)) {
+            func_ov002_0215aa14(base);
+            *(int *) (base + 0x1000 + 0xa80) = 0x16;
+            *(short *) (base + 0x1a00 + 0xd2) = 0;
+            *(unsigned int *) (base + 0x2000 + 0x2ac) &= ~4;
+            func_ov002_02156e90(base);
+            func_0205def8((struct Struct_0205def8 *) OBJ, 1, 0x2c);
+        }
+    }
+}
+#else
 // USA: func_ov002_021696c0
 extern "C" ARM void func_ov002_021696c0(char *base) {
     int state = *(int *) (base + 0x1000 + 0xbc0);
@@ -76,3 +131,4 @@ extern "C" ARM void func_ov002_021696c0(char *base) {
         *(int *) (base + 0x1000 + 0xbc0) = 1;
     }
 }
+#endif

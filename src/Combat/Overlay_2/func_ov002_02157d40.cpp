@@ -9,7 +9,6 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_ov002_0216c42c func_ov002_0216ca7c
 #define FMT(a, b, c, d) func_020474a8(a, b, c, d)
 #define ST(x) ((x) == 7 ? 8 : (x) == 0x11 ? 0x12 : (x) == 0x14 ? 0x15 : (x) == 0x26 ? 0x29 : (x) == 0x2b ? 0x2e : (x))
 extern "C" void func_020474a8(void* obj, int a, int b, char* buf);
