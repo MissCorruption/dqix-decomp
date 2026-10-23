@@ -3,7 +3,6 @@
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
-#define func_ov002_0215bba8 func_ov002_0215cd18
 #define RG(u, j) (j)
 #define OBJ (self + 0xe20)
 #define APPLY(s, k, t) func_0205d5d0(s, k, t, 1)

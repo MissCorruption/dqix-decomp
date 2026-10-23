@@ -22,7 +22,7 @@ extern "C" void func_ov002_02160274(void *self);
 extern "C" void func_ov002_02156e90(void *self);
 extern char data_02108760[];
 #if defined(jpn)
-extern "C" void func_ov002_0215cd18(char *base);
+extern "C" void func_ov002_0215bba8(char *base);
 #endif
 
 #if defined(jpn)
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov002_02169520(char *base) {
     if (old != *(short *) (base + 0x1c08 + regionalState)) *(int *) (base + 0x1bcc + regionalState) = 1;
     *(signed char *) (base + 0x1c20 + regionalState) = func_ov002_021574d4(base, *(short *) (base + 0x1c08 + regionalState));
 #if defined(jpn)
-    func_ov002_0215cd18(base);
+    func_ov002_0215bba8(base);
 #endif
     int pressed                      = g_keyManager.TestKeysPressed(0x601);
     int cancel = (pressed | func_0205da38((struct Obj_0205da38*)(base + 0xec8 + regionalList), 0x14)) ? 1 : 0;
