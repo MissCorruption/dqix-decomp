@@ -20505,3 +20505,7 @@ src/NitroSDK/TouchScreen.cpp:
     complete
     .text start:0x020cd620 end:0x020ce138
     .bss start:0x021117b0 end:0x021117ec
+
+src/MSL/Main/data_020e6d5c.c:
+    complete
+    .rodata start:0x020e6d6c end:0x020e6d74

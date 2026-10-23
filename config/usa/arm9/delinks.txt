@@ -341,6 +341,10 @@ src/MSL/Main/func_02008848.cpp:
     .text start:0x02008848 end:0x02008da4
     .rodata start:0x020e6cc4 end:0x020e6d04
 
+src/MSL/Main/data_020e6d5c.c:
+    complete
+    .rodata start:0x020e6d5c end:0x020e6d64
+
 src/MSL/Main/func_02008da4.cpp:
     complete
     .text start:0x02008da4 end:0x02008dcc
