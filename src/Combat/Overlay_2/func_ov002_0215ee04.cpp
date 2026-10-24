@@ -11,8 +11,6 @@ extern "C" void func_0205de24(struct Struct_ov002_0215624c_11* arg0, unsigned ch
 extern "C" void func_ov002_0215be00(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0215eec0(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
-#define func_ov002_0215eec0 func_ov002_02160088
-extern "C" void func_ov002_0215eec0(void* arg0, void* arg1, int arg2);
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
 extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
