@@ -12,6 +12,10 @@ extern "C" int func_ov003_021725a4(void *arg0, void *arg1);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8 *arg0);
 extern "C" int func_0209890c(void *arg0, void *arg1);
+#if defined(jpn)
+extern "C" void *func_0202ae18(void);
+extern "C" void func_0202bad4(void *arg0, unsigned char arg1);
+#endif
 
 extern const char *data_ov003_021805bc[];
 
@@ -85,9 +89,14 @@ struct Struct_ov003_02171fe8_2 {
 struct Struct_ov003_02171fe8_3 {
     char unknown_0_[0x199];
     unsigned char unknown_199_;
+#if defined(jpn)
+    char unknown_19a_[0x27c - 0x19a];
+    Struct_ov003_02171fe8_2 unknown_2a0_;
+#else
     char unknown_19a_[0x2a0 - 0x19a];
     Struct_ov003_02171fe8_2 unknown_2a0_;
     char unknown_380_[0x460 - 0x380];
+#endif
     Struct_ov000_021700dc unknown_460_[3];
     unsigned char unknown_718_;
     char unknown_719_[3];
@@ -100,6 +109,48 @@ struct Struct_ov003_02171fe8_3 {
 
 // USA: func_ov003_02171fe8
 extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1, void *arg2, unsigned int arg3, unsigned int arg4) {
+#if defined(jpn)
+    Struct_ov000_021700dc var2;
+    if (arg0->unknown_199_ == arg1) {
+        arg0->unknown_724_ = 1;
+        arg0->unknown_72c_ = 0;
+        memcpy((char *) &arg0->unknown_2a0_ + arg4, arg2, arg3);
+        if (arg4 + arg3 >= 0xe0) {
+            arg0->unknown_71c_ = 1;
+            func_0202bad4(func_0202ae18(), arg0->unknown_199_);
+            arg0->unknown_2a0_.unknown_c4_.SetDiscoveryState(DiscoveryState_Undiscovered);
+            arg0->unknown_2a0_.unknown_c4_.ClearInitialByteUnknownBit();
+            strcpy((char *) &var2.unknown_0_, (char *) &arg0->unknown_2a0_.unknown_0_);
+            var2.unknown_c_0_   = arg0->unknown_2a0_.unknown_b_;
+            var2.unknown_d_0_  = arg0->unknown_2a0_.unknown_c_;
+            var2.unknown_b_7_ = arg0->unknown_2a0_.unknown_d_;
+            memcpy(&var2.unknown_6c_, &arg0->unknown_2a0_.unknown_14_, 0x7c);
+            memcpy(&var2.unknown_1a_, &arg0->unknown_2a0_.unknown_90_, 0x1c);
+            memcpy(&var2.unknown_38_, &arg0->unknown_2a0_.unknown_ac_, 0x18);
+            memcpy(&var2.unknown_50_, &arg0->unknown_2a0_.unknown_c4_, 0x1c);
+            memcpy(&var2.unknown_14_, &arg0->unknown_2a0_.unknown_e_, 6);
+            var2.unknown_6c_.unknown_0_[0] |= 0x4000000;
+            char *var8 = (char *) func_02012fe4();
+            if (arg0->unknown_718_ < 3) {
+                if (func_0209890c(var8 + 0x860, &var2) != 0) {
+                    if (func_ov003_021725a4(arg0, &var2) != 0) {
+                        Struct_ov003_02171fe8 *var9  = (Struct_ov003_02171fe8 *) &arg0->unknown_460_[arg0->unknown_718_];
+                        var9->unknown_0_    = ((Struct_ov003_02171fe8 *) &var2)->unknown_0_;
+                        var9->unknown_b_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_b_;
+                        var9->unknown_c_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_c_;
+                        var9->unknown_10_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_10_;
+                        var9->unknown_14_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_14_;
+                        var9->unknown_1a_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_1a_;
+                        var9->unknown_38_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_38_;
+                        var9->unknown_50_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_50_;
+                        var9->unknown_6c_     = ((Struct_ov003_02171fe8 *) &var2)->unknown_6c_;
+                        arg0->unknown_718_ = arg0->unknown_718_ + 1;
+                    }
+                }
+            }
+        }
+    }
+#else
     char var0[11];
     char var1[11];
     Struct_ov000_021700dc var2;
@@ -197,4 +248,5 @@ extern "C" ARM void func_ov003_02171fe8(Struct_ov003_02171fe8_3 *arg0, int arg1,
             }
         }
     }
+#endif
 }
