@@ -20,7 +20,7 @@ struct Struct_ov031_0223bdb0_2 {
     unsigned short unknown_6_;
 };
 extern Struct_ov031_0223bdb0* data_ov031_02290d2c[];
-extern "C" void func_020ca3b8(const void* source, void* destination, unsigned int size);
+extern "C" void func_020ca3b8(const void* arg0, void* arg1, unsigned int arg2);
 
 // USA: func_ov031_0223bdb0
 extern "C" ARM void func_ov031_0223bdb0(int arg0, int arg1, void* arg2) {

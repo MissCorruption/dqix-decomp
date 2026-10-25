@@ -10,7 +10,7 @@ struct Struct_02057a6c;
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov017_02196048(int*, int*, int*);
 extern "C" Struct_02057a6c* func_02057924(void);
-extern "C" int func_020ca4b4(const void* src, void* dst, int size);
+extern "C" int func_020ca4b4(const void* arg0, void* arg1, int arg2);
 extern "C" void func_02057a6c(Struct_02057a6c* arg0);
 extern "C" void func_ov017_021a3af0(int arg0);
 

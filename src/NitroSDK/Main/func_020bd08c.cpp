@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-extern "C" void func_020ca3ec(int value, void* dst, int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
 

@@ -9,8 +9,8 @@ extern "C" void* func_020d41d8(void);
 extern "C" int func_020d41e8(void);
 extern "C" void func_020d404c(int arg0, int arg1);
 extern "C" int func_020d4168(void* arg0, unsigned int arg1);
-extern "C" void func_020ca3ec(int val, void* dst, int size);
-extern "C" void func_020ca408(void* src, void* dst, int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
+extern "C" void func_020ca408(void* arg0, void* arg1, int arg2);
 
 struct Struct_020d5900 {
     unsigned short unknown_0_;

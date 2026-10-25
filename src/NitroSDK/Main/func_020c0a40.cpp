@@ -12,7 +12,7 @@ struct Struct_020c08ec {
 typedef void (*Type_0200fd14)(Struct_020c08ec*, const void*, unsigned int);
 extern Type_0200fd14 data_020f2154;
 
-extern "C" void func_020ca3ec(int value, void* dst, int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 
 // USA: func_020c0a40
 extern "C" ARM void func_020c0a40(Struct_020c08ec* arg0, unsigned char* arg1) {

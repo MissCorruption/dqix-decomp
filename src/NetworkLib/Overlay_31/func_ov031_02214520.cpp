@@ -2,7 +2,7 @@
 
 
 extern "C" void* func_ov031_022133f8(unsigned int arg0);
-extern "C" void func_020ca3ec(int val, void *dst, int size);
+extern "C" void func_020ca3ec(int arg0, void *arg1, int arg2);
 extern "C" int func_ov031_02214600(void *arg0);
 extern "C" int func_ov031_02214854(void *arg0);
 extern "C" int func_ov031_022148e4(void *arg0);

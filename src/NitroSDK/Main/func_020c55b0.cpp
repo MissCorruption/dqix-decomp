@@ -2,7 +2,7 @@
 #include "NitroSDK/DMA.h"
 
 
-extern "C" void func_020ca3ec(int value, void* dst, int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, int arg2);
 extern int data_020f2270;
 
 // USA: func_020c55b0

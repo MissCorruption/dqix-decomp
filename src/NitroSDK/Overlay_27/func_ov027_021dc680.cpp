@@ -87,8 +87,8 @@ static inline void inline_ov027_021dc680(Struct_ov027_021dc680_3* arg0, const St
 int data_ov027_021dd8f8 = 1;
 
 extern "C" unsigned short func_020d4dd4(void);
-extern "C" void func_020ca3ec(int val, void* dst, unsigned int size);
-extern "C" void func_020ca390(int val, void* dst, unsigned int size);
+extern "C" void func_020ca3ec(int arg0, void* arg1, unsigned int arg2);
+extern "C" void func_020ca390(int arg0, void* arg1, unsigned int arg2);
 extern "C" unsigned int func_ov027_021dc618(void);
 
 // USA: func_ov027_021dc680

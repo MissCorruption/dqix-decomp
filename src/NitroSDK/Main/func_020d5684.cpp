@@ -71,8 +71,8 @@ struct Struct_020d5684_2
     Struct_020d5684 unknown_30_;
 };
 
-extern "C" void func_020ca3ec(unsigned long value, void* dst, unsigned long size);
-extern "C" void func_020ca408(const void* src, void* dst, unsigned long size);
+extern "C" void func_020ca3ec(unsigned long arg0, void* arg1, unsigned long arg2);
+extern "C" void func_020ca408(const void* arg0, void* arg1, unsigned long arg2);
 extern "C" int func_020d424c(int arg0, ...);
 extern "C" Struct_020d424c_2* func_020d41d8();
 extern "C" int func_020d4900();
