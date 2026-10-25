@@ -10,7 +10,6 @@
 #if defined(jpn)
 #define REGION_VALUE(j, u) (j)
 #define func_ov002_02168354 func_ov002_02168de4
-#define func_ov002_021685bc func_ov002_02168ff4
 #define data_ov002_0216d350 data_ov002_0216dacf
 #define data_ov002_0216d368 data_ov002_0216dae7
 #else

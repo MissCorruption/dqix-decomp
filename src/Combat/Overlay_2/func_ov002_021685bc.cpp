@@ -20,7 +20,11 @@ extern "C" int func_ov002_021574d4(void *arg0, int arg1);
 extern "C" void *func_0209a594(void *arg0, int arg1);
 extern "C" void func_02046380(void *arg0);
 extern "C" void func_020e4864(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5);
+#if defined(jpn)
+extern "C" void func_0204500c(void *arg0, char *arg1, int arg2);
+#else
 extern "C" void func_0204500c(void *arg0, char *arg1, int arg2, int arg3);
+#endif
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" void *__clear(void *arg0, int arg1);
 
@@ -36,6 +40,37 @@ struct Struct_ov002_021685bc {
 };
 
 // USA: func_ov002_021685bc
+#if defined(jpn)
+extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
+    while (*(arg0 + 0x2000 + 0x288) < *(arg0 + 0x2000 + 0x289)) {
+        char *var1 = (char *) func_02072a68(*(struct Struct_02072a68_2 **) (arg0 + 0x2000 + 0x280),
+                                            (*(short **) (arg0 + 0x2000 + 0x284))[*(arg0 + 0x2000 + 0x288)]);
+        if (var1 != NULL) {
+            GameState *var2  = GameState::GetInstance();
+            int var3         = func_ov002_021574d4(arg0, *(short *) (arg0 + 0x1a00 + 0xd0));
+            GameObject *var4 = func_0200ff1c(var2, var3);
+            if (var4 != NULL) {
+                unsigned char *var7 = (unsigned char *) func_020421a0();
+                memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
+                func_02042058(*(char **) (arg0 + 0x1000 + 0xa98), var1);
+                func_02042058(*(char **) (arg0 + 0x1000 + 0xa98),
+                              (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 7));
+                func_02046380(var7);
+                func_02046574((struct Struct_02046574_2 *) var7, 0, *(char **) ((char *) var4 + 0x134));
+                func_020466c8((struct Struct_020466c8 *) var7, (*(int **) arg0)[4]);
+                func_0204500c(var7, *(char **) (arg0 + 0x1000 + 0xa98), 0);
+                *(var7 + 0x1000 + 0x7e2) = 0;
+                *(int *) (var7 + 0x868)  = 1;
+                (*(arg0 + 0x2000 + 0x288))++;
+                (*(int *) (arg0 + 0x1000 + 0xa88))++;
+                return;
+            }
+        }
+        (*(arg0 + 0x2000 + 0x288))++;
+    }
+    (*(int *) (arg0 + 0x1000 + 0xa88))++;
+}
+#else
 extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
     while (*(arg0 + 0x2000 + 0x454) < *(arg0 + 0x2000 + 0x455)) {
         struct Struct_ov002_021685bc *var0 = (struct Struct_ov002_021685bc *) func_0209a594(
@@ -90,3 +125,4 @@ extern "C" ARM void func_ov002_021685bc(unsigned char *arg0) {
     }
     (*(int *) (arg0 + 0x1000 + 0xbc0))++;
 }
+#endif
