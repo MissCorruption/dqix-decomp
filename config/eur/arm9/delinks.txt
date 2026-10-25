@@ -19,23 +19,75 @@
 //    complete
 //    .text start:0x020c75c4 end:0x020c7d44
 
-src/Combat/Main/IsDebugger.cpp:
+src/Combat/Main/GetCRC16_0200006a.s:
+    complete
+    .text start:0x0200058c end:0x02000594
+
+src/Combat/Main/IsDebugger_020000d4.s:
     complete
     .text start:0x02000084 end:0x02000088
 
-src/Combat/Main/LZ77UnCompReadNormalWrite8bit.cpp:
+src/Combat/Main/LZ77UnCompReadNormalWrite8bit_02000140.s:
     complete
     .text start:0x020006cc end:0x020006d0
 
-src/Combat/Main/CpuSet.cpp:
+src/Combat/Main/CpuSet_020001c0.s:
     complete
     .text start:0x0200016c end:0x02000170
+
+src/Combat/Main/Mod_02000216.s:
+    complete
+    .text start:0x020001c0 end:0x020001c8
+
+src/Combat/Main/BitUnPack_0200026a.s:
+    complete
+    .text start:0x02000664 end:0x0200066c
+
+src/Combat/Main/LZ77UnCompReadByCallbackWrite16bit_020002cc.s:
+    complete
+    .text start:0x02000108 end:0x02000110
+
+src/Combat/Main/CpuFastSet_0200033e.s:
+    complete
+    .text start:0x020003b8 end:0x020003c0
+
+src/Combat/Main/RLUnCompReadByCallbackWrite16bit_0200038e.s:
+    complete
+    .text start:0x0200079c end:0x020007a4
+
+src/Combat/Main/VBlankIntrWait_02000410.s:
+    complete
+    .text start:0x02000438 end:0x02000440
+
+src/Combat/Main/WaitByLoop_02000466.s:
+    complete
+    .text start:0x02000298 end:0x0200029c
+
+src/Combat/Main/IntrWait_020004ea.s:
+    complete
+    .text start:0x020005f4 end:0x020005fc
 
 src/Combat/Main/Halt.cpp:
     complete
     .text start:0x02000240 end:0x02000244
 
-src/Combat/Main/SoftReset.cpp:
+src/Combat/Main/RLUnCompReadNormalWrite8bit_020005d2.s:
+    complete
+    .text start:0x020002fc end:0x02000300
+
+src/Combat/Main/HuffUnCompReadByCallback_0200062c.s:
+    complete
+    .text start:0x020004b0 end:0x020004b8
+
+src/Combat/Main/Div_020006aa.s:
+    complete
+    .text start:0x02000744 end:0x0200074c
+
+src/Combat/Main/Sqrt_02000732.s:
+    complete
+    .text start:0x02000520 end:0x02000528
+
+src/Combat/Main/SoftReset_0200078c.s:
     complete
     .text start:0x02000350 end:0x02000354
 

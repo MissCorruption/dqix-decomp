@@ -32,8 +32,9 @@ data_02000418 kind:data(byte[76]) addr:0x02000418
 data_02000464 kind:data(byte[2]) addr:0x02000464
 WaitByLoop kind:function(thumb,size=0x4) addr:0x02000466
 data_0200046a kind:data(byte[2]) addr:0x0200046a
-data_0200046c kind:data(byte[128]) addr:0x0200046c
-IntrWait kind:function(thumb,size=0x4) addr:0x020004ec
+data_0200046c kind:data(byte[124]) addr:0x0200046c
+data_020004e8 kind:data(byte[2]) addr:0x020004e8
+IntrWait kind:function(thumb,size=0x6) addr:0x020004ea
 data_020004f0 kind:data(byte[124]) addr:0x020004f0
 Halt kind:function(thumb,size=0x4) addr:0x0200056c
 data_02000570 kind:data(byte[96]) addr:0x02000570

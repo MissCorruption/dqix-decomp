@@ -22,15 +22,15 @@ src/Combat/Main/GetCRC16_0200006a.s:
     complete
     .text start:0x02000068 end:0x02000070
 
-src/Combat/Main/IsDebugger.cpp:
+src/Combat/Main/IsDebugger_020000d4.s:
     complete
     .text start:0x020000d4 end:0x020000d8
 
-src/Combat/Main/LZ77UnCompReadNormalWrite8bit.cpp:
+src/Combat/Main/LZ77UnCompReadNormalWrite8bit_02000140.s:
     complete
     .text start:0x02000140 end:0x02000144
 
-src/Combat/Main/CpuSet.cpp:
+src/Combat/Main/CpuSet_020001c0.s:
     complete
     .text start:0x020001c0 end:0x020001c4
 
@@ -42,7 +42,7 @@ src/Combat/Main/BitUnPack_0200026a.s:
     complete
     .text start:0x02000268 end:0x02000270
 
-src/Combat/Main/LZ77UnCompReadByCallbackWrite16bit.cpp:
+src/Combat/Main/LZ77UnCompReadByCallbackWrite16bit_020002cc.s:
     complete
     .text start:0x020002cc end:0x020002d0
 
@@ -62,9 +62,9 @@ src/Combat/Main/WaitByLoop_02000466.s:
     complete
     .text start:0x02000464 end:0x0200046c
 
-src/Combat/Main/IntrWait.cpp:
+src/Combat/Main/IntrWait_020004ea.s:
     complete
-    .text start:0x020004ec end:0x020004f0
+    .text start:0x020004e8 end:0x020004f0
 
 src/Combat/Main/Halt.cpp:
     complete
@@ -74,7 +74,7 @@ src/Combat/Main/RLUnCompReadNormalWrite8bit_020005d2.s:
     complete
     .text start:0x020005d0 end:0x020005d8
 
-src/Combat/Main/HuffUnCompReadByCallback.cpp:
+src/Combat/Main/HuffUnCompReadByCallback_0200062c.s:
     complete
     .text start:0x0200062c end:0x02000630
 
@@ -86,7 +86,7 @@ src/Combat/Main/Sqrt_02000732.s:
     complete
     .text start:0x02000730 end:0x02000738
 
-src/Combat/Main/SoftReset.cpp:
+src/Combat/Main/SoftReset_0200078c.s:
     complete
     .text start:0x0200078c end:0x02000790
 

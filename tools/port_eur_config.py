@@ -76,6 +76,8 @@ BIOS_STUBS = {
 THUMB_BX_LR = 0x4770
 THUMB_MOV_R0_R1 = 0x1c08
 
+STUBS_WITH_MOV_R2_0 = {"IntrWait", "VBlankIntrWait"}
+
 from region_port import (DELINK_END, DELINK_START, RELOC, SYMBOL_ADDR, SYMBOL_SIZE, SameAddress,
                          block_ranges, branch_target, delink_blocks, hex_address, is_local, port_delink,
                          read_raw, reloc_sources, symbol_lines, sync_delinks, thumb_branch_target, with_local)
@@ -111,7 +113,7 @@ class MainAddressMap:
             key = (BIOS_STUBS[name], name == "Mod")
             if key not in eur_stubs:
                 sys.exit(f"BIOS call stub '{name}' not found in the EUR secure area")
-            stubs[address] = eur_stubs[key]
+            stubs[address] = eur_stubs[key] - 2 * (name in STUBS_WITH_MOV_R2_0)
         self.stub_addrs = sorted(stubs)
         return stubs
 

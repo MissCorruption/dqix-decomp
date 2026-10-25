@@ -5,6 +5,78 @@
     .data       start:0x020eeb40 end:0x020f2e60 kind:data align:32
     .bss        start:0x020f2e60 end:0x02154e60 kind:bss align:32
 
+src/Combat/Main/GetCRC16_0200006a.s:
+    complete
+    .text start:0x02000338 end:0x0200033c
+
+src/Combat/Main/IsDebugger_020000d4.s:
+    complete
+    .text start:0x020006a0 end:0x020006a8
+
+src/Combat/Main/LZ77UnCompReadNormalWrite8bit_02000140.s:
+    complete
+    .text start:0x020000e0 end:0x020000e8
+
+src/Combat/Main/CpuSet_020001c0.s:
+    complete
+    .text start:0x020001b4 end:0x020001bc
+
+src/Combat/Main/Mod_02000216.s:
+    complete
+    .text start:0x020003a4 end:0x020003ac
+
+src/Combat/Main/BitUnPack_0200026a.s:
+    complete
+    .text start:0x02000274 end:0x02000278
+
+src/Combat/Main/LZ77UnCompReadByCallbackWrite16bit_020002cc.s:
+    complete
+    .text start:0x02000078 end:0x0200007c
+
+src/Combat/Main/CpuFastSet_0200033e.s:
+    complete
+    .text start:0x02000510 end:0x02000518
+
+src/Combat/Main/RLUnCompReadByCallbackWrite16bit_0200038e.s:
+    complete
+    .text start:0x02000214 end:0x0200021c
+
+src/Combat/Main/VBlankIntrWait_02000410.s:
+    complete
+    .text start:0x020002d0 end:0x020002d8
+
+src/Combat/Main/WaitByLoop_02000466.s:
+    complete
+    .text start:0x02000578 end:0x0200057c
+
+src/Combat/Main/IntrWait_020004ea.s:
+    complete
+    .text start:0x0200049c end:0x020004a4
+
+src/Combat/Main/Halt.cpp:
+    complete
+    .text start:0x02000790 end:0x02000794
+
+src/Combat/Main/RLUnCompReadNormalWrite8bit_020005d2.s:
+    complete
+    .text start:0x020005dc end:0x020005e4
+
+src/Combat/Main/HuffUnCompReadByCallback_0200062c.s:
+    complete
+    .text start:0x02000140 end:0x02000148
+
+src/Combat/Main/Div_020006aa.s:
+    complete
+    .text start:0x02000428 end:0x02000430
+
+src/Combat/Main/Sqrt_02000732.s:
+    complete
+    .text start:0x0200070c end:0x02000714
+
+src/Combat/Main/SoftReset_0200078c.s:
+    complete
+    .text start:0x02000648 end:0x02000650
+
 src/Combat/Main/AutoloadCallback.cpp:
     complete
     .text start:0x02000aac end:0x02000ab0

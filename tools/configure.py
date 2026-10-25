@@ -283,7 +283,7 @@ def main():
 
         n.rule(
             name="mwasm",
-            command=f'$python tools/mwasm.py {LINK_WINE} "{AS}" {AS_FLAGS} -o $out $in',
+            command=f'$python tools/mwasm.py {LINK_WINE} "{AS}" {AS_FLAGS} {region_defines} -o $out $in',
         )
         n.newline()
 
@@ -520,6 +520,7 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
             implicit=[AS] + LINK_WINE_DEP,
             rule="mwasm",
             outputs=str((project.game_build / source_file).with_suffix(".o")),
+            variables={"game_version": project.game_version},
         )
         n.newline()
 
