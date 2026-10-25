@@ -1,7 +1,6 @@
 #include "NitroSDK/NSBXX/Animation.h"
 
 #if defined(jpn)
-#define func_020ca3ec func_020cbeb8
 
 #define data_020f1c6c data_020f1dd8
 #define data_020f1c84 data_020f1df0

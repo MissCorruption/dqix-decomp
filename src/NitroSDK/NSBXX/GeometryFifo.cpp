@@ -15,7 +15,6 @@
 #define func_020c552c func_020c6ff8
 #define func_020ca0a8 func_020cbb74
 #define func_020ca2ac func_020cbd78
-#define func_020ca4b4 func_020cbf80
 #define func_020ca430 func_020cbefc
 
 #define data_0210cf78 data_0210cc30

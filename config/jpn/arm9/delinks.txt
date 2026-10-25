@@ -12154,6 +12154,18 @@ src/NitroSDK/Main/func_020bb588.cpp:
     complete
     .text start:0x020bd054 end:0x020bd1c4
 
+src/NitroSDK/Main/func_020ca3ec.cpp:
+    complete
+    .text start:0x020cbeb8 end:0x020cbed4
+
+src/NitroSDK/Main/func_020ca4b4.cpp:
+    complete
+    .text start:0x020cbf80 end:0x020cbfd8
+
+src/NitroSDK/Main/func_020ca7d0.cpp:
+    complete
+    .text start:0x020cc29c end:0x020cc2ac
+
 src/Combat/Main/func_020dc3b8.cpp:
     complete
     .text start:0x020dddc0 end:0x020ddddc

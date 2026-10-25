@@ -2,9 +2,6 @@
 #include "NitroSDK/DMA.h"
 #include "NitroSDK/GamecardBusOwnership.h"
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

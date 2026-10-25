@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca4b4 func_020cbf80
-#endif
 
 extern "C" int func_ov031_0220d60c(void);
 struct Struct_ov031_0220ede4;

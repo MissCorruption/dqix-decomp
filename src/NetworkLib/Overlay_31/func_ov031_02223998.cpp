@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca4b4 func_020cbf80
-#endif
 
 extern int data_ov031_0224b3c0[];
 extern "C" int func_ov031_02223478(int);

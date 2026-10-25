@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 struct Struct_020c08ec {
     unsigned int unknown_0_[5];

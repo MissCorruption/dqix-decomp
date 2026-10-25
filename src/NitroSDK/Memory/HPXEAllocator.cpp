@@ -4,9 +4,6 @@
 #define BLOCKSIGNATURE_FREE 0x4652 // looks like "RF" in memory
 #define BLOCKSIGNATURE_USED 0x5544 // looks like "DU" in memory
 
-#ifdef jpn
-#define func_020ca3ec func_020cbeb8
-#endif
 
 extern "C"
 {

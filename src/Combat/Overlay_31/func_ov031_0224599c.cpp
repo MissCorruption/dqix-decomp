@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_020ca4b4 func_020cbf80
-#endif
 
 void SleepCurrentContext(unsigned int ticks);
 extern "C" int func_ov031_0220d540(void);

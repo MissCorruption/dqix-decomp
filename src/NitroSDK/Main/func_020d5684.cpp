@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 #if defined(jpn)
 #define func_020ca408 func_020cbed4

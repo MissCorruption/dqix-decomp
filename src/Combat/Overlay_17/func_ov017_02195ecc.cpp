@@ -4,9 +4,6 @@
 #include "NitroSDK/NSBXX/GeometryFifo.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_020ca4b4 func_020cbf80
-#endif
 
 struct Struct_02057a6c;
 

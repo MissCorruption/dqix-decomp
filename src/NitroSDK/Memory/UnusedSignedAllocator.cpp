@@ -1,8 +1,5 @@
 #include "NitroSDK/Memory/UnusedSignedAllocator.h"
 
-#if defined(jpn)
-#define func_020ca3ec func_020cbeb8
-#endif
 
 
 extern "C"

@@ -38,10 +38,8 @@
 #define func_020c51c0 func_020c6c8c
 #define func_020c54fc func_020c6fc8
 #define func_020c552c func_020c6ff8
-#define func_020ca3ec func_020cbeb8
 #define func_020ca408 func_020cbed4
 #define func_020ca430 func_020cbefc
-#define func_020ca7d0 func_020cc29c
 #endif
 
 // holds values:
